@@ -1,0 +1,184 @@
+<section xml:id="s_posets_intervalorder">
+  <title>Urutan Interval</title>
+  <p>Ketika membahas <xref ref="thm_dilworth" text="title"/>, kita menyebutkan bahwa aspek-aspek
+    algoritmiknya akan ditunda hingga bagian selanjutnya dalam buku ini. Namun, ada satu kelas urutan
+    penting yang solusi lengkapnya mudah diperoleh. </p>
+
+  <p>Suatu poset <m>\PXP</m> disebut <term>urutan interval</term><idx>
+      <h>urutan interval</h>
+    </idx> jika terdapat fungsi <m>I</m> yang memetakan setiap elemen <m>x\in
+    X</m> ke suatu interval tertutup <m>I(x)=[a_x,b_x]</m> pada garis bilangan real <m>\reals</m> sedemikian sehingga untuk semua <m>
+    x</m>, <m>y\in X</m>, berlaku <m>x\lt y</m> dalam <m>P</m> jika dan hanya jika <m>b_x\lt a_y</m> dalam <m>\reals</m>.
+    Kita menyebut <m>I</m> sebagai <term>representasi interval</term><idx>
+      <h>representasi interval</h>
+    </idx> dari <m>\bfP</m>, atau singkatnya sebagai <term>representasi</term>.
+    Agar ringkas, setiap kali kita mengatakan bahwa <m>I</m> merupakan representasi suatu urutan interval <m>
+    \PXP</m>, kita akan menggunakan notasi alternatif <m>[a_x,b_x]</m> untuk interval tertutup <m>I(x)</m>.
+    Selain itu, kita menggunakan <m>|I(x)|</m> untuk menyatakan <term>panjang</term> interval tersebut, <ie/>, <m>
+    |I(x)|=b_x-a_x</m>. Kembali ke poset <m>\bfP_3</m>, representasi yang ditampilkan dalam <xref ref="fig_6ptintorder"/> menunjukkan bahwa poset ini merupakan urutan interval. </p>
+  <figure xml:id="fig_6ptintorder">
+    <caption>Suatu Urutan Interval dan Representasinya</caption>
+    <image width="70%" source="6ptintorder"><description><p>Diagram Hasse poset enam titik di sebelah kiri dan representasi intervalnya di sebelah kanan; setiap ruas interval berlabel elemen poset yang diwakilinya.</p>
+    </description></image>
+  </figure>
+  <p>Perhatikan bahwa titik-titik ujung interval yang digunakan dalam suatu representasi tidak harus berbeda. Bahkan,
+    titik-titik berbeda <m>x</m> dan <m>y</m> dari <m>X</m> dapat memenuhi <m>I(x)=I(y)</m>. Kita juga mengizinkan
+    interval degenerat, <ie/>, interval berbentuk <m>[a,a]</m>. Di sisi lain, suatu
+    representasi dikatakan <term>pembeda</term><idx>
+      <h>representasi interval</h>
+      <h>pembeda</h>
+    </idx> jika semua intervalnya tidak degenerat dan semua titik ujungnya
+    berbeda. Cukup mudah untuk melihat bahwa setiap urutan interval memiliki representasi
+    pembeda. </p>
+  <p>Seperti yang akan segera kita lihat, urutan interval dapat dicirikan secara ringkas melalui
+    subposet terlarang. Sebelum menyatakan pencirian ini, kita perlu memperkenalkan sedikit notasi tambahan. Dengan <m>
+    \bfn</m> (untuk bilangan bulat <m>n\geq 1</m>), kita maksudkan rantai dengan <m>n</m> titik. <notation>
+      <usage>
+        <m>\bfn</m>
+      </usage>
+      <description>rantai dengan <m>n</m> titik</description>
+    </notation> Lebih tepatnya, kita mengambil
+    himpunan dasar <m>\{0,1,\dots,n-1\}</m>, dengan <m>i \lt j</m> dalam <m>\bfn</m> jika dan hanya jika <m>i\lt
+    j</m> dalam <m>\ints</m>. Jika <m>\PXP</m> dan <m>\QYQ</m> merupakan poset dengan <m>X</m> dan <m>Y</m>
+    saling lepas, maka <m>\bfP+\bfQ</m><notation>
+      <usage>
+        <m>\bfP+\bfQ</m>
+      </usage>
+      <description>jumlah saling lepas dari poset</description>
+    </notation> adalah poset <m>\bfR=(X\cup
+    Y,R)</m> yang urutan parsialnya diberikan oleh <m>z\leq w</m> dalam <m>R</m> jika dan hanya jika (a) <m>z,w\in
+    X</m> dan <m>z\leq w</m> dalam <m>P</m>, atau (b) <m>z,w\in Y</m> dan <m>z\leq w</m> dalam <m>Q</m>.
+    Jadi, <m>\bfn+\bfm</m> terdiri atas sebuah rantai dengan <m>n</m> titik dan sebuah rantai dengan <m>m</m> titik,
+    tanpa keterbandingan di antara keduanya. Secara khusus, <m>\bftwo+\bftwo</m> dapat dipandang sebagai
+    poset empat titik dengan himpunan dasar <m>\{a,b,c,d\}</m>, dengan <m>a\lt b</m> dan <m>c\lt d</m> sebagai
+    satu-satunya relasi (selain relasi-relasi yang diperlukan agar relasinya refleksif). </p>
+  <theorem xml:id="thm_fishburn">
+    <title>Teorema Fishburn</title>
+    <statement>
+      <p>Misalkan <m>\PXP</m> suatu poset. Poset <m>\bfP</m> merupakan urutan interval jika dan hanya jika
+        tidak memuat subposet yang isomorfik dengan <m>\bftwo+\bftwo</m>. </p>
+    </statement>
+
+    <proof>
+      <p>Kita hanya menunjukkan bahwa urutan interval tidak dapat memuat subposet yang isomorfik dengan <m>
+        \bftwo+\bftwo</m>; pembuktian arah sebaliknya ditunda hingga bagian berikutnya. Sekarang,
+        misalkan <m>\PXP</m> merupakan poset, <m>\{x,y,z,w\}\subseteq X</m>, dan subposet yang
+        ditentukan oleh keempat titik ini isomorfik dengan <m>\bftwo+\bftwo</m>. Kita akan menunjukkan bahwa <m>\bfP</m>
+        bukan urutan interval. Andaikan sebaliknya bahwa <m>I</m> merupakan representasi interval dari <m>\bfP</m>.
+        Tanpa mengurangi keumuman, kita boleh mengasumsikan bahwa <m>x\lt y</m>
+        dan <m>z\lt w</m> dalam <m>P</m>. Jadi, <m>x\Vert w</m> dan <m>z\Vert y</m> dalam <m>P</m>. Dengan demikian, <m>b_x\lt
+        a_y</m> dan <m>b_z \lt a_w</m> dalam <m>\reals</m>, sehingga <m>a_w \le b_x \lt a_y \le b_z</m>,
+        yang merupakan kontradiksi. </p>
+    </proof>
+  </theorem>
+  <reading-questions xml:id="rqs-posets_intervalorder" component="runestone">
+    <exercise label="posets-rq_intervalorder_list-less">
+      <statement>
+      <p>
+        Perhatikan representasi interval dari suatu urutan interval yang ditampilkan di bawah. Interval yang digambarkan sebagai garis vertikal merupakan interval degenerat berbentuk <m>[z,z]</m>. Daftarkan elemen-elemen yang lebih kecil daripada <m>m</m> dalam urutan interval ini.
+      </p>
+      <image label="posets_intervalorder_rq-intord1" width="85%">
+        <description>Representasi urutan interval dengan a, b, c, dan d sebagai interval degenerat berturut-turut pada 0, 9, 10, dan 5; interval lainnya adalah e=[1,3], f=[5,6], g=[7,8], h=[0,1], i=[2,3], j=[4,5], k=[8,9], l=[0,2], m=[3,4], n=[6,8], o=[0,3], p=[5,7], dan q=[2,4].</description>
+        <latex-image>
+          \begin{tikzpicture}
+          \draw[thick] (0,0.35) -- node[left] {$a$} (0,0.6);
+          \draw[thick] (9,0.35) -- node[left] {$b$} (9,0.6);
+          \draw[thick] (10,0.35) -- node[left] {$c$} (10,0.6);
+          \draw[{[-]}, thick] (1,0.475) -- node[above] {$e$} (3,0.475);
+          \draw[{[-]}, thick] (5,0.475) -- node[above] {$f$} (6,0.475);
+          \draw[{[-]}, thick] (7,0.475) -- node[above] {$g$} (8,0.475);
+
+          \draw[{[-]}, thick] (0,0) -- node[above] {$h$} (1,0);
+          \draw[{[-]}, thick] (2,0) -- node[above] {$i$} (3,0);
+          \draw[{[-]}, thick] (4,0) -- node[above] {$j$} (5,0);
+          \draw[{[-]}, thick] (8,0) -- node[above] {$k$} (9,0);
+
+          \draw[{[-]}, thick] (0,0.95) -- node[above] {$l$} (2,0.95);
+          \draw[{[-]}, thick] (3,0.95) -- node[above] {$m$} (4,0.95);
+          \draw[{[-]}, thick] (6,0.95) -- node[above] {$n$} (8,0.95);
+          \draw[thick] (5,0.825) -- node[left] {$d$} (5,1.075);
+
+          \draw[{[-]}, thick] (0,1.425) -- node[above] {$o$} (3,1.425);
+          \draw[{[-]}, thick] (5,1.425) -- node[above] {$p$} (7,1.425);
+
+          \draw[{[-]}, thick] (2,1.9) -- node[above] {$q$} (4,1.9);
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </statement>
+    <response/>
+    </exercise>
+    <exercise label="posets-rq_intervalorder_list-incomp">
+      <statement>
+      <p>
+        Perhatikan representasi interval dari suatu urutan interval yang ditampilkan di bawah. Interval yang digambarkan sebagai garis vertikal merupakan interval degenerat berbentuk <m>[z,z]</m>. Daftarkan elemen-elemen yang tidak dapat dibandingkan dengan <m>f</m> dalam urutan interval ini.
+      </p>
+      <image label="posets_intervalorder_rq-intord2" width="85%">
+        <description>Representasi urutan interval dengan a, b, c, dan d sebagai interval degenerat berturut-turut pada 0, 9, 10, dan 5; interval lainnya adalah e=[1,3], f=[5,6], g=[7,8], h=[0,1], i=[2,3], j=[4,5], k=[8,9], l=[0,2], m=[3,4], n=[6,8], o=[0,3], p=[5,7], dan q=[2,4].</description>
+        <latex-image>
+          \begin{tikzpicture}
+          \draw[thick] (0,0.35) -- node[left] {$a$} (0,0.6);
+          \draw[thick] (9,0.35) -- node[left] {$b$} (9,0.6);
+          \draw[thick] (10,0.35) -- node[left] {$c$} (10,0.6);
+          \draw[{[-]}, thick] (1,0.475) -- node[above] {$e$} (3,0.475);
+          \draw[{[-]}, thick] (5,0.475) -- node[above] {$f$} (6,0.475);
+          \draw[{[-]}, thick] (7,0.475) -- node[above] {$g$} (8,0.475);
+
+          \draw[{[-]}, thick] (0,0) -- node[above] {$h$} (1,0);
+          \draw[{[-]}, thick] (2,0) -- node[above] {$i$} (3,0);
+          \draw[{[-]}, thick] (4,0) -- node[above] {$j$} (5,0);
+          \draw[{[-]}, thick] (8,0) -- node[above] {$k$} (9,0);
+
+          \draw[{[-]}, thick] (0,0.95) -- node[above] {$l$} (2,0.95);
+          \draw[{[-]}, thick] (3,0.95) -- node[above] {$m$} (4,0.95);
+          \draw[{[-]}, thick] (6,0.95) -- node[above] {$n$} (8,0.95);
+          \draw[thick] (5,0.825) -- node[left] {$d$} (5,1.075);
+
+          \draw[{[-]}, thick] (0,1.425) -- node[above] {$o$} (3,1.425);
+          \draw[{[-]}, thick] (5,1.425) -- node[above] {$p$} (7,1.425);
+
+          \draw[{[-]}, thick] (2,1.9) -- node[above] {$q$} (4,1.9);
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </statement>
+    <response/>
+    </exercise>
+    <exercise label="posets-rq_intervalorder_not-intord">
+      <statement>
+        <p>
+          Perhatikan poset yang diagramnya ditampilkan di bawah. Jelaskan mengapa poset ini bukan urutan interval.
+        </p>
+        <image label="posets_intervalorder_rq-not-intord" width="25%">
+          <description>Diagram Hasse poset delapan titik dengan rantai e–g–c–a–d dan h–b–d, serta relasi penutup tambahan g–b dan b–f. Empat titik c, a, h, dan b membentuk dua rantai dua titik yang saling tidak dapat dibandingkan.</description>
+          <latex-image>
+            \begin{tikzpicture}
+            \node (a) [circle, fill=lightgray,draw,label=left:$a$] at (0,2.6)   {};
+            \node (b) [circle, fill=lightgray,draw,label=right:$b$] at (1.5,2.5)   {};
+            \node (c) [circle, fill=lightgray,draw,label=left:$c$] at (0,1.5)   {};
+            \node (d) [circle, fill=lightgray,draw,label=above left:$d$] at (1,3)   {};    
+            \node (e) [circle, fill=lightgray,draw,label=left:$e$] at (0.8,0.2)   {};    
+            \node (f) [circle, fill=lightgray,draw,label=left:$f$] at (2,4)   {};    
+            \node (g) [circle, fill=lightgray,draw,label=left:$g$] at (0.8,1)   {};    
+            \node (h) [circle, fill=lightgray,draw,label=left:$h$] at (2,1)   {};
+            %\node (i) [circle, fill=lightgray,draw,label=left:$i$] at (6,3)   {};
+            %\node (j) [circle, fill=lightgray,draw,label=left:$j$] at (2,5)   {};
+            %\node (k) [circle, fill=lightgray,draw,label=left:$k$] at (4,3)   {};
+            %\node (l) [circle, fill=lightgray,draw,label=left:$l$] at (5,1)   {};
+            %\node (m) [circle, fill=lightgray,draw,label=left:$m$] at (5,2.5)   {};        
+            %\node (n) [circle, fill=lightgray,draw,label=left:$n$] at (4,5.5)   {};
+            
+            \graph { (c) -- (a) -- (d),
+            (e)--(g),
+            (g)--(c),
+            (d)--(b)--(h),
+            (f)--(b)--(g)
+            };
+          \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

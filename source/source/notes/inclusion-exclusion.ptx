@@ -1,0 +1,623 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="notes-inclusion-exclusion" component="pie">
+  <title>Principle of Inclusion-Exclusion</title>
+  <handout xml:id="notes-pie-intro-surjections" component="pie-intro-surjections">
+    <title>Introduction; Counting Surjections</title>
+    <page>
+      <paragraphs>
+        <title>Overcounting. No, undercounting. Wait, overcounting! Hmm, undercounting?</title>
+        <example>
+          <title>Revisiting an Old Problem</title>
+          <statement>
+            <p workspace="5cm">
+              How many lattice paths from <m>(0,0)</m> to <m>(6,7)</m> do not pass through <m>(2,3)</m> or <m>(3,5)</m>?
+            </p>
+          </statement>
+          <solution>
+            <p>
+              We count all lattice paths from <m>(0,0)</m> to <m>(6,7)</m> and subtract those that path through either <m>(2,3)</m> or <m>(3,5)</m>. We do this by first subtracting those that pass through <m>(2,3)</m> and then subtracting those that pass through <m>(3,5</m>). However, this subtracts those that pass through both intermediate points twice, so we need to add back that number. This gives us
+              <md>
+                \binom{13}{6} - \binom{5}{2}\binom{8}{4} - \binom{8}{3}\binom{5}{3} + \binom{5}{2}\binom{3}{1}\binom{5}{3}
+              </md>.
+            </p>
+          </solution>
+        </example>
+        <p>
+          We need to introduce some notation:
+          <ul>
+            <li>
+              <p>
+                A <term>property</term> <m>P_{i}</m> is something that an element of a set either satisfies or does not satisfy.
+              </p>
+            </li>
+            
+            <li>
+              <p>
+                If <m>\mc{P}=\{P_{1},\dots,P_{m}\}</m> is a family of properties and <m>S\subseteq [m]</m>, then <m>N(S)</m> is the number of objects that satisfy <m>P_{i}</m> for every <m>i\in S</m>.
+                <ul>
+                  <li>
+                    <p component="b" workspace="1.5cm">
+                      If <m>S=\{1,2,5\}</m>, then <m>N(S)</m> is the number of objects satisfying 
+                    </p>
+                    <p component="a">
+                      If <m>S=\{1,2,5\}</m>, then <m>N(S)</m> is the number of objects satisfying <m>P_{1}</m>, <m>P_{2}</m>, and <m>P_{5}</m>.
+                      (We don't care about the other <m>P_{i}</m>.)
+                    </p>
+                  </li>
+                </ul>
+              </p>
+            </li>
+          </ul>
+        </p>
+        <theorem>
+          <title>Principle of Inclusion-Exclusion</title>
+          <statement>
+            <p>
+              Let <m>X</m> be a set and <m>\mathcal{P}=\{P_{1},\dots,P_{m}\}</m> a family of properties.
+              The number of elements of <m>X</m> which satisfy none of the properties in <m>\mathcal{P}</m> is given by
+              <md>
+                \sum_{S\subseteq [m]}(-1)^{|S|}N(S)
+              </md>.
+            </p>
+          </statement>
+        </theorem>     
+        <p>
+          <alert>Peer instruction question 1.</alert>
+        </p>
+        <activity>
+          <introduction>
+            <p>
+              A class of <m>50</m> students was polled to determine the programming languages in which they were proficient.
+            </p>
+            <tabular>
+              <col halign="right"> </col> <col right="minor"> </col> <col halign="right"> </col> <col right="minor"> </col> <col halign="right"> </col> <col> </col>
+              <row bottom="medium">
+                <cell> <m>\#</m> </cell>
+                <cell>Language(s)</cell>
+                <cell> <m>\#</m> </cell>
+                <cell>Language(s)</cell>
+                <cell> <m>\#</m> </cell>
+                <cell>Language(s)</cell>
+              </row>
+              
+              <row>
+                <cell>32</cell>
+                <cell>ALGOL60</cell>
+                <cell>12</cell>
+                <cell>ALGOL60 + PL/I</cell>
+                <cell>2</cell>
+                <cell>All 3</cell>
+              </row>
+              
+              <row>
+                <cell>17</cell>
+                <cell>PL/I</cell>
+                <cell>17</cell>
+                <cell>ALGOL60 + COBOL</cell>
+                <cell> </cell>
+                <cell> </cell>
+              </row>
+              
+              <row>
+                <cell>26</cell>
+                <cell>COBOL</cell>
+                <cell>3</cell>
+                <cell>PL/I + COBOL</cell>
+                <cell> </cell>
+                <cell> </cell>
+              </row>
+            </tabular>
+            <p>
+              How many of the students are proficient in <em>none</em> of the languages? Answer this question by doing the following:
+            </p>
+          </introduction>
+          <task>
+            <statement>
+              <p>
+                Identify properties.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                Let <m>P_A</m> be that a student knows ALGOL60, <m>P_I</m> be that a student knows PL/I, and <m>P_C</m> be that a student knows COBOL.
+              </p>
+            </solution>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Write out inclusion-exclusion sum.
+              </p>
+            </statement>
+            <solution>
+              <p>
+                <md>
+                  50 - 32-17-26+12+17+3-2 = 5
+                </md>
+              </p>
+            </solution>
+          </task>
+        </activity>
+      </paragraphs>
+    </page>
+    <page>
+      <paragraphs>
+        <title>Counting Surjections</title>
+        <definition>
+          <statement>
+            <p>
+              A function <m>f\colon X\to Y</m> is called a <term>surjection</term> provided that for every <m>y\in Y</m>, there is at least one <m>x\in X</m> such that <m>f(x) = y</m>.
+              Surjections are also called <term>onto functions</term>.
+            </p>
+          </statement>
+        </definition>
+        
+        <definition>
+          <statement>
+            <p>
+              The <term>range</term> of a function <m>f\colon X\to Y</m> is the set
+              <md>
+                \{y\in Y\colon \text{ there is }x\in X\text{ such that }f(x) = y\}
+              </md>.
+            </p>
+          </statement>
+        </definition>
+        <p>
+          <alert>Peer instruction question 2.</alert>
+        </p>
+        <definition>
+          <statement>
+            <p>
+              Let <m>X</m> be the set of all functions from <m>[n]</m> to <m>[m]</m>.
+              We say <m>f\in X</m> satisfies property <m>P_{i}</m> if <m>i</m> is <alert>not</alert> in the <em>range</em> of <m>f</m>.
+            </p>
+          </statement>
+        </definition>
+        <p workspace="3cm">
+          <alert>Peer instruction questions 3<ndash/>4 followed by activity handout.</alert>
+        </p>
+        <theorem>
+          <statement>
+            <p>
+              The number <m>S(n,m)</m> of surjections from <m>[n]</m> to <m>[m]</m> is given by
+              <md>
+                S(n,m) = \sum_{j=0}^{m} (-1)^{j}\binom{m}{j}(m-j)^{n}
+              </md>.
+            </p>
+          </statement>
+        </theorem>
+        <p workspace="3cm">
+          <ul>
+            <li>
+              <p>
+                Formula will be provided to you on Test II and the Final Exam.
+              </p>
+            </li>
+            
+            <li>
+              <p>
+                You will not be expected to derive this formula.
+              </p>
+            </li>
+            
+            <li>
+              <p>
+                You will be expected to recognize when a counting problem calls for surjections and to use the formula in answers.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </paragraphs>
+    </page>
+  </handout>
+  <handout xml:id="notes-pie-derangements-euler-phi" component="pie-derangements-euler-phi">
+    <title>Counting Derangements and Euler's <m>\phi</m> Function</title>
+    <page>
+      <paragraphs>
+        <title>Counting Derangements</title>
+        <p>
+          Suppose we randomly distributed name table tents corresponding only to students here today. How many ways can we do this in which no one gets their own table tent?
+        </p>
+        
+        <p workspace="1cm">
+          A <term>permutation</term> of <m>[n]</m> is a bijection from <m>[n]</m> to <m>[n]</m>.   
+        </p>
+        <p component="a">
+          A bijection is a function that is both one-to-one and onto. We sometimes also call a bijection a one-to-one correspondence.
+        </p>
+        <p>
+          <alert>Peer instruction question 1.</alert>
+        </p>
+        <p workspace="2cm">
+          A <term>derangement</term> of <m>[n]</m> is a permutation <m>\sigma</m> of <m>[n]</m> if <m>\sigma(i)\neq i</m> for all <m>i\in[n]</m>.
+        </p>
+        
+        <p>
+          A permutation <m>\sigma</m> of <m>[n]</m> satisfies property <m>P_i</m> provided that <fillin characters="10" component="b"/><m component="a">\sigma(i) = i</m>.
+        </p>
+        <p>
+          To frame your discussion, think about how to fill in this blank: With inclusion-exclusion, our goal is to count the objects that satisfy <fillin characters="10" component="b"/><em component="a">none</em> of the properties.
+        </p>
+        <p>
+          <alert>Peer instruction question 2.</alert>
+        </p>
+        <activity>
+          <introduction>
+            <p>
+              Let's count derangements of <m>[n]</m>.
+            </p>
+          </introduction>
+          
+          <task>
+            <statement>
+              <p>
+                How many properties are in <m>\mc{P}</m>?
+              </p>
+            </statement>
+            <solution>
+              <p>
+                There are <m>n</m> properties, one for each element of the set being permuted.
+              </p>
+            </solution>
+          </task>
+          
+          <task>
+            <statement>
+              <p>
+                How many permutations satisfy <m>P_{1}</m>? What about <m>P_{3}</m>?
+              </p>
+            </statement>
+            <solution>
+              <p>
+                In both cases, there are <m>(n-1)!</m> permutations since a single value is fixed and the other <m>n-1</m> can be arranged in any possible way.
+              </p>
+            </solution>
+          </task>
+          
+          <task>
+            <statement>
+              <p>
+                How many permutations satisfy <m>P_{1}</m> <alert>and</alert> <m>P_{3}</m>?
+              </p>
+            </statement>
+            <solution>
+              <p>
+                Here two values are fixed, so there are <m>(n-2)!</m> permutations.
+              </p>
+            </solution>
+          </task>
+          
+          <task>
+            <statement>
+              <p>
+                Let <m>S\subseteq [n]</m> with <m>|S|=4</m>.
+                How many permutations satisfy all properties with subscript in <m>S</m>?
+              </p>
+            </statement>
+            <solution>
+              <p>
+                Here we have <m>4</m> fixed values, so there are <m>(n-4)!</m> permutations.
+              </p>
+            </solution>
+          </task>
+          
+          <task>
+            <statement>
+              <p>
+                Let <m>S\subseteq [n]</m> with <m>|S|=j</m>.
+                How many permutations satisfy all properties with subscript in <m>S</m>?
+              </p>
+            </statement>
+            <solution>
+              <p>
+                Here we have <m>j</m> fixed values, so there are <m>(n-j)!</m> permutations.
+              </p>
+            </solution>
+          </task>
+          
+          <task>
+            <statement>
+              <p>
+                How many subsets of <m>[n]</m> have size <m>j</m>?
+              </p>
+            </statement>
+            <solution>
+              <p>
+                <m>\displaystyle\binom{n}{j}</m>
+              </p>
+            </solution>
+          </task>
+          
+          <task>
+            <statement>
+              <p>
+                Use inclusion-exclusion to find <m>d_{n}</m>, the number of derangements of <m>[n]</m>
+              </p>
+            </statement>
+            <solution>
+              <p>
+                <md>
+                  \sum_{j=0}^n (-1)^j \binom{n}{j}(n-j)!
+                </md>
+                
+              </p>
+            </solution>
+          </task>
+          
+        </activity>
+      </paragraphs>
+    </page>
+    <page>
+      <p>
+        <md component="a">
+          d_{n} = \sum_{j=0}^{n} (-1)^{k}\binom{n}{j}(n-j)! = n! \sum_{j=0}^{n} \frac{(-1)^{j}}{j!}\approx \frac{n!}{e}
+        </md>
+        <md component="b">
+          d_{n} = \sum_{j=0}^{n} (-1)^{j}\binom{n}{j}(n-j)!\phantom{= n! \sum_{j=0}^{n} \frac{(-1)^{j}}{j!}\approx \frac{n!}{e}}
+        </md>
+      </p>
+      <paragraphs>
+        <title>Euler <m>\phi</m> function</title>
+        <definition>
+          <statement>
+            <p>
+              Let <m>m</m> and <m>n</m> be integers.
+              The <term>greatest common divisor</term> of <m>m</m> and <m>n</m> is an integer <m>t</m> such that <m>t</m> divides both <m>m</m> and <m>n</m> and if <m>t'</m> also divides <m>m</m> and <m>n</m>, then <m>t'\leq t</m>.
+              We say that <m>m</m> and <m>n</m> are <term>relatively prime</term> provided that <m>\gcd(m,n)=1</m>.
+            </p>
+          </statement>
+        </definition>
+        <p>
+          <alert>Peer instruction question 3.</alert>
+        </p>
+        <definition>
+          <statement>
+            <p>
+              If <m>n\geq 2</m> is an integer, define the <term>Euler <m>\phi</m> function</term> (sometimes <term>Euler totient function</term>)
+              <md>
+                \phi(n) = \left\vert\{m\in [n]\colon \gcd(m,n) = 1\}\right\vert
+              </md>.
+            </p>
+          </statement>
+        </definition>
+        <activity>
+          <statement>
+            <p>
+              With your group, find the following by listing the integers counted by each:
+              <ul>
+                <li>
+                  <p workspace="1cm">
+                    <m>\phi(4)</m>
+                  </p>
+                </li>
+                
+                <li>
+                  <p workspace="1cm">
+                    <m>\phi(12)</m>
+                  </p>
+                </li>
+                
+                <li>
+                  <p workspace="1cm">
+                    <m>\phi(13)</m>
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </statement>
+          <solution>
+            <p>
+              <ul>
+                <li>
+                  <p>
+                    <m>\phi(4)=2</m> because only <m>1</m> and <m>3</m> in <m>[4]</m> are relatively prime to <m>4</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <m>\phi(12)=4</m> because <m>1,5,7,11</m> are the integers in <m>[12]</m> that are relatively prime to <m>12</m>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Since <m>13</m> is prime, all of the integers from <m>1</m> to <m>12</m> are relatively prime to <m>13</m> and thus <m>\phi(13)=12</m>.
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </solution>
+        </activity>
+        <p>
+          We can also say that  two integers are relatively prime if and only if they do not have any common prime factors.
+        </p>
+        <activity>
+          <statement>
+            <p workspace="4cm">
+              Use inclusion-exclusion to find <m>\phi(30)</m> by excluding those numbers having a common prime factor with <m>30=2\cdot 3\cdot 5</m>.
+            </p>
+            <tabular>
+              <col halign="center" right="minor"> </col> <col> </col>
+              <row bottom="minor">
+                <cell>2</cell>
+                <cell>2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30</cell>
+              </row>
+              <row bottom="minor">
+                <cell>3</cell>
+                <cell>3, 6, 9, 12, 15, 18, 21, 24, 27, 30</cell>
+              </row>
+              <row>
+                <cell>5</cell>
+                <cell>5, 10, 15, 20, 25, 30</cell>
+              </row>
+            </tabular>
+          </statement>
+          <solution>
+            <p>
+              <md>
+                30-15-10-6+5+3+2-1 = 8
+              </md>
+              
+            </p>
+          </solution>
+        </activity>
+      </paragraphs>
+    </page>
+    <page>
+      <proposition>
+        <statement>
+          <p workspace="1cm">
+            Let <m>n\geq 2</m>, <m>k\geq 1</m>, and let <m>p_{1},p_{2},\dots,p_{k}</m> be distinct primes each of which divide <m>n</m>.
+            The number of integers from <m>[n]</m> which are divisible by each of these <m>k</m> primes is
+            <md component="b">
+              \phantom{\frac{n}{p_{1}p_{2}\cdots p_{k}}.}
+            </md><md component="a">
+              \frac{n}{p_{1}p_{2}\cdots p_{k}}.
+            </md>
+          </p>
+        </statement>
+      </proposition>
+      <theorem>
+        <statement>
+          <p workspace="4cm">
+            Let <m>n\ge2</m> be a positive integer and suppose that <m>n</m> has <m>m</m> distinct prime factors: <m>p_{1}</m>, <m>p_{2},\dots,p_{m}</m>.
+            Then
+            <md>
+              \phi(n) = n\prod_{i = 1}^{m}\frac{p_{i}-1}{p_{i}}.
+            </md>
+          </p>
+        </statement>
+      </theorem>
+      <example>
+        <statement>
+          <p workspace="3cm">
+            Use the fact that
+            <md>
+              1369122257328767073 = (3)^{3}(11)(19)^{4}(31)^{2}(6067)^{2}
+            </md>
+            to compute <m>\phi(1369122257328767073)</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>
+            <md>\phi(1369122257328767073) = (3)^{3}(11)(19)^{4}(31)^{2}(6067)^{2}\cdot \frac{2}{3} \frac{10}{11}\frac{18}{19}\frac{30}{31}\frac{6066}{6067} = (3)^{2}(19)^{3}(31)(6067)\cdot 2\cdot 10\cdot 18\cdot 30\cdot 6066 </md>
+          </p>
+        </solution>
+      </example>
+      
+    </page>
+    <page>
+      <activity>
+        <task>
+          <statement>
+            <p>
+              Find <m>\phi(n)</m> for each of the following integers <m>n</m>.
+              (Use <em>reliable</em> technology such as WolframAlpha to factor!)
+              <ol marker="a.">
+                <li>
+                  <p>
+                    <m>600</m>
+                  </p>
+                </li>
+                
+                <li>
+                  <p>
+                    <m>12784</m>
+                  </p>
+                </li>
+                
+                <li>
+                  <p>
+                    <m>8675309</m>
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </statement>
+          <solution>
+            <p>
+              <ol marker="a.">
+                <li>
+                  <p>
+                    <m>\phi(600)=\phi(2^3\cdot 3\cdot 5^2) = 2^3\cdot 3\cdot 5^2\frac{1}{2}\frac{2}{3}\frac{4}{5} = 2^2\cdot 2\cdot 5\cdot 4 = 160</m>.
+                  </p>
+                </li>
+                
+                <li>
+                  <p>
+                    <m>\phi(12784)=\phi(2^4\cdot 17\cdot 47) = 2^4\cdot 17\cdot 47\cdot \frac{1}{2}\frac{16}{17}\frac{46}{47} = 2^3\cdot 16\cdot 46=5888</m>.
+                  </p>
+                </li>
+                
+                <li>
+                  <p>
+                    <m>\phi(8675309)=8675308</m> because <m>8675309</m> is prime.
+                  </p>
+                </li>
+              </ol>
+            </p>
+          </solution>
+        </task>
+        <task>
+          <statement>
+            <p workspace="4cm">
+              Suppose you need to find <m>\phi(n)</m> where
+              <md>
+                <mrow>n = \amp 31484972786199768889479107860964368171543984609017931</mrow>
+                <mrow> \amp 39001922159851668531040708539722329324902813359241016</mrow>
+                <mrow> \amp 93211209710523</mrow>
+              </md>.
+              Why might this be hard, despite the information we have learned today?
+            </p>
+          </statement>
+          <solution>
+            <p>
+              We need the prime factors of <m>n</m>.
+            </p>
+          </solution>
+        </task>
+        <task workspace="2cm">
+          <statement>
+            <p>
+              Would knowing that <m>n= p_{1}p_{2}</m> for primes
+              <md>
+                <mrow>
+                  p_{1} \amp = 470287785858076441566723507866751092927015824834881906763507
+                </mrow>
+                <mrow>
+                  p_{2} \amp = 669483106578092405936560831017556154622901950048903016651289
+                </mrow>
+              </md>
+              help?
+            </p>
+          </statement>
+          <solution>
+            <p>
+              Yes! Now we can just apply the formula arrived at through inclusion-exclusion.
+            </p>
+          </solution>
+        </task>
+      </activity>
+      <activity workspace="4cm">
+        <statement>
+          <p>
+            What's wrong with this exercise?
+          </p>
+          <blockquote>
+            <p>
+              A graduate student eats lunch in the campus food court every
+              Tuesday over the course of a 15-week semester. He is joined each
+              week by some subset of a group of six friends from across
+              campus. Over the course of a semester, he ate lunch with each
+              friend 11 times, each pair 9 times, and each triple 6 times. He
+              ate lunch with each group of four friends 4 times and each group of
+              five friends 4 times. All seven of them ate lunch together only once
+              that semester. Did the graduate student ever eat lunch alone? If
+              so, how many times?
+            </p>
+          </blockquote>
+          
+        </statement>
+      </activity>
+    </page>
+  </handout>
+  
+</chapter>

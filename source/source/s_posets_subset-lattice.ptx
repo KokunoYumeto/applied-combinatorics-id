@@ -1,0 +1,75 @@
+<section xml:id="s_posets_subset-lattice">
+    <title>Kisi Subhimpunan</title>
+
+
+    <introduction>
+        <p>Jika <m>X</m> merupakan himpunan berhingga, keluarga semua subhimpunan <m>X</m>, yang terurut parsial oleh inklusi, membentuk <term>kisi subhimpunan</term><idx><h>kisi</h><h>subhimpunan</h></idx><idx><h>kisi</h></idx><fn>Suatu <term>kisi</term> merupakan jenis poset khusus. Anda tidak perlu mempelajari definisinya di sini; selama membaca bab ini, Anda dapat mengganti istilah <q>kisi</q> dengan <q>poset</q> tanpa mengubah pembahasan.</fn>. Hal ini diilustrasikan pada <xref ref="fig_4cube"/>, yang menampilkan kisi semua subhimpunan <m>\{1,2,3,4\}</m>. Perhatikan bahwa pada gambar tersebut, himpunan direpresentasikan dengan string bit. Notasinya disingkat lagi dengan menuliskan string itu tanpa koma dan tanda kurung.
+        </p>
+        <figure xml:id="fig_4cube">
+            <caption>Kisi Subhimpunan</caption>
+            <image width="60%" source="4cube"><description><p>Diagram Hasse kisi 16 subhimpunan dari himpunan berelemen empat, yang dilabeli dengan string bit. String 0000 berada di bawah, string 1111 berada di atas, dan setiap sisi menghubungkan dua string yang berbeda tepat pada satu bit.</p>
+            </description></image>
+        </figure>
+        <p>Untuk bilangan bulat positif <m>t</m>, <m>\bftwo^t</m> menyatakan kisi subhimpunan yang terdiri atas semua subhimpunan <m>\{1,2,\dots,t\}</m> dan terurut oleh inklusi. Beberapa sifat dasar poset ini adalah sebagai berikut:
+                  <ol>
+            <li><p>Tingginya adalah <m>t+1</m>, dan setiap rantai maksimal memiliki tepat
+            <m>t+1</m> titik.</p></li>
+            <li><p>Ukuran poset <m>\bftwo^t</m> adalah <m>2^t</m>, dan elemen-elemennya terpartisi menjadi peringkat-peringkat (antirantai) <m>A_0, A_1,\dots, A_t</m> dengan <m>|A_i|=\binom{t}{i}</m> untuk setiap <m>i=0,1,\dots,t</m>.</p></li>
+            <li><p>Peringkat berukuran terbesar pada kisi subhimpunan terletak di tengah, <ie/> jika <m>s=\lfloor t/2\rfloor</m>, maka koefisien binomial terbesar dalam barisan <m>\binom{t}{0}, \binom{t}{1},\binom{t}{2},\dots,\binom{t}{t}</m> adalah <m>\binom{t}{s}</m>. Perhatikan bahwa jika <m>t</m> ganjil, ada dua peringkat berukuran terbesar, sedangkan jika <m>t</m> genap, hanya ada satu.</p></li>
+        
+                  </ol>
+                </p>
+    </introduction>
+
+
+    <subsection xml:id="ss_posets_subset-lattice_sperner">
+        <title>Teorema Sperner</title>
+        <p>Untuk lebar kisi subhimpunan, berlaku hasil klasik berikut dari Sperner.
+        </p>
+
+        <theorem xml:id="thm_sperner">
+            <title>Teorema Sperner</title>
+            <statement>
+                <p>Untuk setiap <m>t\ge1</m>, lebar kisi subhimpunan <m>\bftwo^t</m> sama dengan ukuran terbesar suatu peringkat, <ie/>,
+                <md>
+                    \width(\bftwo^t)=\binom{t}{\lfloor\frac{t}{2}\rfloor}
+                </md>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Lebar poset <m>\bftwo^t</m> sekurang-kurangnya <m>C(t,\lfloor\frac{t}{2}\rfloor)</m> karena himpunan semua subhimpunan berelemen <m>\lfloor\frac{t}{2}\rfloor</m> dari <m>\{1,2,\dots,t\}</m> merupakan antirantai. Sekarang akan ditunjukkan bahwa lebar <m>\bftwo^t</m> paling besar <m>C(t,\lfloor\frac{t}{2}\rfloor)</m>.
+                </p>
+
+                <p>Misalkan <m>w</m> adalah lebar <m>\bftwo^t</m> dan <m>\{S_1,S_2,\dots, S_w\}</m> merupakan antirantai berukuran <m>w</m> dalam poset ini, <ie/>, setiap <m>S_i</m> merupakan subhimpunan dari <m>\{1,2,\dots,t\}</m>, dan jika <m>1\le i\lt j\le w</m>, maka <m>S_i\nsubseteq S_j</m> dan <m>S_j\nsubseteq S_i</m>.
+                </p>
+
+                <p>Untuk setiap <m>i</m>, perhatikan himpunan <m>\cgS_i</m> yang terdiri atas semua rantai maksimal yang melalui <m>S_i</m>. Mudah dilihat bahwa jika <m>|S_i|=k_i</m>, maka <m>|\cgS_i|=k_i!(t-k_i)!</m>. Untuk membentuk rantai terbesar semacam itu dengan <m>S_i</m> sebagai titik antara, elemen-elemen <m>S_i</m> dihapus satu per satu sehingga terbentuk himpunan-himpunan pada bagian bawah rantai. Selanjutnya, bagian atas rantai dibentuk dengan menambahkan satu per satu elemen yang tidak berada dalam <m>S_i</m>.
+                </p>
+
+                <p>Perhatikan pula bahwa jika <m>1\le i \lt j\le w</m>, maka <m>\cgS_i\cap \cgS_j =\emptyset</m>. Sebab, jika ada rantai terbesar yang termasuk dalam <m>\cgS_i</m> sekaligus <m>\cgS_j</m>, salah satu di antara <m>S_i</m> dan <m>S_j</m> tentu merupakan subhimpunan dari yang lain.
+                </p>
+
+                <p>Secara keseluruhan, terdapat tepat <m>t!</m> rantai terbesar dalam <m>\bftwo^t</m>. Oleh karena itu,
+                <md>
+                    \sum_{i=1}^{w} k_i!(t-k_i)!\le t!
+                </md>.
+                Akibatnya,
+                <md>
+                    \sum_{i=1}^{w}\frac{k_i!(t-k_i)!}{t!}=
+                    \sum_{i=1}^{w}\frac{1}{\binom{t}{k_i}}\le 1.
+                </md>
+                Dengan demikian,
+                <md>
+                    \sum_{i=1}^{w}\frac{1}{\binom{t}{\lceil\frac{t}{2}\rceil}}\le 1
+                </md>.
+                Jadi,
+                <md>
+                    w\le \binom{t}{\lceil\frac{t}{2}\rceil}
+                </md>.
+                </p>
+            </proof>
+        </theorem>
+    </subsection>
+
+</section>

@@ -1,0 +1,77 @@
+<section xml:id="s_networkflow_flows-cuts">
+    <title>Aliran dan Potongan</title>
+    <p>Dengan mempertimbangkan penerapan yang dikemukakan pada awal bab, wajar jika kita mencari nilai maksimum suatu aliran dalam jaringan tertentu. Dengan kata lain, kita ingin menemukan bilangan terbesar <m>v_0</m> sehingga terdapat aliran <m>\phi</m> bernilai <m>v_0</m> dalam jaringan tersebut. Tentu saja, kita bukan hanya ingin menemukan nilai maksimum <m>v_0</m>, melainkan juga aliran <m>\phi</m> yang memiliki nilai itu. Meskipun mungkin sedikit mengejutkan, kita akan mengembangkan algoritma efisien yang sekaligus menemukan aliran bernilai maksimum <em>dan</em> menemukan sertifikat yang membuktikan klaim keoptimalannya. Sertifikat ini menggunakan konsep penting berikut.
+    </p>
+
+    <p>Partisi <m>V=L\cup U</m> dari himpunan simpul <m>V</m> suatu jaringan dengan <m>S\in L</m> dan <m>T\in U</m> disebut <term>potongan</term><idx><h>potongan</h></idx>.<fn>Pemilihan <m>L</m> dan <m>U</m> sebagai nama bagi kedua bagian partisi akan menjadi lebih masuk akal pada bagian selanjutnya dalam bab ini.</fn> <term>Kapasitas</term><idx><h>kapasitas</h><h>suatu potongan</h></idx> suatu potongan <m>V=L\cup U</m>, yang dinotasikan dengan <m>c(L,U)</m>, didefinisikan oleh
+    <md>
+        c(L,U) = \sum_{x\in L,y\in U} c(x,y).
+    </md>
+    Dengan kata lain, kapasitas potongan <m>V=L\cup U</m> adalah kapasitas total semua sisi <em>dari</em> <m>L</m> <em>ke</em> <m>U</m>. Perhatikan bahwa ketika menghitung kapasitas potongan <m>V=L\cup U</m>, kita hanya menjumlahkan kapasitas sisi-sisi dari <m>L</m> ke <m>U</m>. Kita <em>tidak</em> menyertakan sisi-sisi dari <m>U</m> ke <m>L</m> dalam jumlah ini.
+    </p>
+    <example>
+        <p>Mari kita kembali melihat jaringan pada <xref ref="fig_networkflow_netflow"/>. Pertama-tama, tinjau potongan <m>V=L_1\cup U_1</m> dengan
+        <md>
+            L_1 = \{S,F,B,E,D\}\qquad\text{dan} \qquad U_1= \{A,C,T\}.
+        </md>
+        Di sini kita melihat bahwa kapasitas potongan tersebut adalah
+        <md>
+            c(L_1,U_1) = c(F,A) + c(B,A) + c(B,C)+ c(D,C) = 24+15+20+42 =
+            101.
+        </md>
+        Namun, kita harus sedikit lebih berhati-hati ketika meninjau potongan <m>V=L_2\cup U_2</m> dengan
+        <md>
+            L_2 = \{S,F,B,E\}\qquad\text{dan} \qquad U_2=\{A,D,C,T\}.
+        </md>
+        Di sini kapasitas potongan tersebut adalah
+        <md>
+            c(L_2,U_2) = c(F,A) + c(B,A) + c(B,C) + c(E,D) = 24+15+20+20=79.
+        </md>
+        Perhatikan bahwa kita tidak menyertakan <m>c(D,B)</m> dalam perhitungan karena sisi berarah <m>(D,B)</m> mengarah dari <m>U_2</m> ke <m>L_2</m>.
+        </p>
+    </example>
+    <p>Hubungan antara aliran dan potongan bertumpu pada teorema mendasar berikut.
+    </p>
+
+    <theorem xml:id="thm_networkflow_flowleqcut">
+        <statement>
+            <p>Misalkan <m>\GVE</m> suatu jaringan, <m>\phi</m> suatu aliran dalam <m>\bfG</m>, dan <m>V=L\cup U</m> suatu potongan. Nilai aliran tersebut tidak lebih besar daripada kapasitas potongannya.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Dalam bukti ini (dan di seluruh bab), kita menggunakan konvensi yang sangat wajar bahwa <m>\phi(x,y)=0</m> jika <m>(x,y)</m> bukan sisi berarah suatu jaringan <m>\bfG</m>.
+            </p>
+
+            <p>Misalkan <m>\phi</m> suatu aliran bernilai <m>v_0</m> dan <m>V=L\cup U</m> suatu potongan. Pertama, perhatikan bahwa
+            <md>
+                v_0 = \sum_{y\in V} \phi(S,y) - \sum_{z\in V}\phi(z,S),
+            </md>
+            karena penjumlahan kedua bernilai <m>0</m>. Selain itu, berdasarkan hukum kekekalan aliran yang kedua, untuk setiap simpul selain sumber dan muara kita memperoleh
+            <md>
+                \sum_{y\in V}\phi(x,y) -\sum_{z\in V}\phi(z,x) = 0.
+            </md>
+            Sekarang kita memperoleh
+            <md>
+                <mrow>  v_0 \amp = \sum_{y\in V} \phi(S,y) - \sum_{z\in V}\phi(z,S)</mrow>
+                <mrow>  \amp = \sum_{y\in V} \phi(S,y) - \sum_{z\in V}\phi(z,S) +
+                \sum_{\substack{x\in L\\x\neq S} }\left[\sum_{y\in V} \phi(x,y) -
+                \sum_{z\in V}\phi(z,x)\right]</mrow>
+                <mrow>  \amp = \sum_{x\in L}\left[\sum_{y\in V} \phi(x,y) -
+                \sum_{z\in V}\phi(z,x)\right]</mrow>
+            </md>
+            Pada tahap ini, mari kita berhenti sejenak untuk mencermati baris terakhir. Perhatikan bahwa jika <m>(a,b)</m> merupakan sisi berarah dengan kedua titik ujung di <m>L</m>, maka ketika penjumlahan luar dilakukan untuk <m>x=a</m>, kita memperoleh sumbangan keseluruhan sebesar <m>\phi(a,b)</m>. Sebaliknya, ketika dilakukan untuk <m>x=b</m>, kita memperoleh sumbangan sebesar <m>-\phi(a,b)</m>. Dengan demikian, suku-suku tersebut saling meniadakan dan semuanya menyederhana menjadi
+            <md>
+                \sum_{\substack{x\in L\\y\in U} } \phi(x,y) - \sum_{\substack{x\in
+                L\\ z\in U} } \phi(z,x)\leq \sum_{\substack{x\in L\\y\in U} }
+                \phi(x,y)\leq \sum_{\substack{x\in L\\y\in U} } c(x,y)=c(L,U).
+            </md>
+            Jadi, <m>v_0\leq c(L,U)</m>.
+            </p>
+        </proof>
+    </theorem>
+    <remark>
+        <p>Bob sedikit merasakan d&#233;j&#224; vu setelah membaca <xref ref="thm_networkflow_flowleqcut"/>. Ia ingat dari <xref ref="ch_graphs"/> bahwa ukuran maksimum klik dalam suatu graf selalu tidak lebih besar daripada jumlah minimum warna yang diperlukan untuk mewarnai graf itu secara tepat. Namun, ia juga ingat bahwa terdapat graf tanpa klik berukuran tiga tetapi dengan bilangan kromatik yang dapat sebesar apa pun, sehingga ia tidak terlalu berharap teorema ini akan banyak membantu di sini. Yolanda ikut mengingatkan mereka tentang <xref ref="ch_posets"/>, tempat mereka mempelajari bahwa ukuran maksimum antirantai dalam suatu poset sama dengan jumlah minimum rantai yang dapat digunakan untuk mempartisi himpunan dasar poset itu. Alice menunjukkan bahwa pernyataan Yolanda tetap benar jika kata <q>rantai</q> dan <q>antirantai</q> dipertukarkan. Hal ini memicu perdebatan sengit mengenai apakah nilai maksimum suatu aliran dalam jaringan selalu sama dengan kapasitas minimum suatu potongan dalam jaringan tersebut. Setelah beberapa lama, Carlos menyarankan bahwa melanjutkan membaca mungkin merupakan cara terbaik untuk menyelesaikan perdebatan mereka.
+        </p>
+    </remark>
+</section>

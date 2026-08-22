@@ -1,0 +1,81 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_posets">
+    <title>Himpunan Terurut Parsial</title>
+
+
+    <introduction>
+        <remark>
+            
+            <p>Alice sedang menjelajahi web dan menemukan sebuah situs yang memuat daftar film terbaik, yang dikelompokkan menurut kategori (komedi, drama, keluarga, dan sebagainya) serta menurut dasawarsa perilisannya. Alice tertarik pada pilihan dan peringkat sang kritikus, khususnya tujuh drama terbaik dari dasawarsa 1990-an. Alice setuju dengan pilihan kritikus itu sebagai satu kelompok, tetapi tidak dengan urutan peringkatnya. Ia menuliskan peringkat versi kritikus di papan tulis dan, tepat di sebelah kanannya, menuliskan peringkat versinya sendiri, sambil terus bersikeras bahwa pendapatnyalah yang tentu benar.
+            </p>
+            <sidebyside>
+                <tabular>
+                    <row bottom="minor">
+                        <cell/>
+                        <cell>Peringkat Kritikus Film</cell>
+                        <cell>Peringkat Alice</cell>
+                    </row>
+                    <row>
+                        <cell>1</cell>
+                        <cell>Saving Private Ryan</cell>
+                        <cell>Life is Beautiful</cell>
+                    </row>
+                    <row>
+                        <cell>2</cell>
+                        <cell>Life is Beautiful</cell>
+                        <cell>Saving Private Ryan</cell>
+                    </row>
+                    <row>
+                        <cell>3</cell>
+                        <cell>Forrest Gump</cell>
+                        <cell>Good Will Hunting</cell>
+                    </row>
+                    <row>
+                        <cell>4</cell>
+                        <cell>Braveheart</cell>
+                        <cell>Titanic</cell>
+                    </row>
+                    <row>
+                        <cell>5</cell>
+                        <cell>Good Will Hunting</cell>
+                        <cell>Braveheart</cell>
+                    </row>
+                    <row>
+                        <cell>6</cell>
+                        <cell>Titanic</cell>
+                        <cell>Forrest Gump</cell>
+                    </row>
+                    <row>
+                        <cell>7</cell>
+                        <cell>Jurassic Park</cell>
+                        <cell>Jurassic Park</cell>
+                    </row>
+                </tabular>
+            </sidebyside>
+            <p>Dave mempelajari kedua pemeringkatan itu dan menyimak dengan saksama alasan Alice (yang menurutnya agak berlebihan). Namun, akhirnya ia menunjukkan diagram berikut dan menyajikannya sebagai representasi perbandingan yang sama-sama disepakati oleh Alice dan kritikus film.
+            </p>
+            <figure xml:id="fig_movies">
+                <caption>Film Terbaik dari Dasawarsa 1990-an</caption>
+                <image width="65%" source="movies">
+                    <description>
+                        <p>Sebuah diagram yang menggambarkan tujuh titik berlabel judul film sebagaimana tercantum dalam tabel di atas. Jurassic Park berada di bagian paling bawah diagram, dengan ruas-ruas garis yang naik menuju titik berlabel Forrest Gump, Braveheart, dan Titanic. Dari Forrest Gump, terdapat dua ruas garis yang naik menuju Saving Private Ryan dan Life is Beautiful. Dari Braveheart, terdapat dua ruas garis yang naik menuju Saving Private Ryan dan Life is Beautiful. Dari Titanic, terdapat satu ruas garis yang naik menuju Good Will Hunting. Dari Good Will Hunting, terdapat dua ruas garis yang naik menuju Saving Private Ryan dan Life is Beautiful.</p>
+                    </description>
+                </image>
+            </figure>
+            <p>Apakah Anda memahami bagaimana Dave menyusun diagram ini? Tambahkan peringkat Anda sendiri untuk ketujuh film tersebut, lalu gambarlah diagram yang akan dibuat Dave untuk merepresentasikan perbandingan yang Anda, Alice, dan kritikus film sepakati.
+            </p>
+        </remark>
+        <p>Secara lebih umum, ketika manusia diminta menyatakan preferensi di antara sekumpulan pilihan, mereka sering mengatakan bahwa menyusun daftar dengan peringkat total itu sulit, bahkan mungkin mustahil. Sebagai gantinya, mereka lebih suka menyatakan suatu urutan parsial<mdash/>yakni perbandingan dibuat untuk pasangan pilihan tertentu, tetapi tidak untuk pasangan lainnya. Dalam bab ini, kita membuat pengamatan tersebut lebih konkret dengan memperkenalkan konsep himpunan terurut parsial. Contoh elementer meliputi (1)<nbsp/>suatu keluarga himpunan yang terurut parsial menurut inklusi dan (2)<nbsp/>suatu himpunan bilangan bulat positif yang terurut parsial menurut keterbagian. Dari sudut pandang penerapan, pekerjaan konstruksi yang kompleks biasanya mencakup sejumlah besar proyek yang di antara sebagian, tetapi tidak semua, pasangannya berlaku relasi mendahului. Selain itu, simpul-simpul sistem berkas yang dimodelkan sebagai pohon membentuk himpunan terurut parsial di bawah relasi leluhur; jika tautan ditambahkan, relasi jangkauan tetap merupakan urutan parsial hanya selama tidak terbentuk siklus terarah.
+        </p>
+    </introduction>
+    <xi:include href="s_posets_intro.ptx"/>
+    <xi:include href="s_posets_additional-concepts.ptx"/>
+    <xi:include href="s_posets_dilworth.ptx"/>
+    <xi:include href="s_posets_sorting.ptx"/>
+    <xi:include href="s_posets_subset-lattice.ptx"/>
+    <xi:include href="s_posets_intervalorder.ptx"/>
+    <xi:include href="s_posets_intervalorder_findrep.ptx"/>
+    <xi:include href="s_posets_dilworth-intord.ptx"/>
+    <xi:include href="s_posets_discussion.ptx"/>
+    <xi:include href="s_posets_exercises.ptx"/>
+    <xi:include href="s_posets_peer_instruction.ptx"/>
+</chapter>

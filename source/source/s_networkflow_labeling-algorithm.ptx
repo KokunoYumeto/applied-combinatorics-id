@@ -1,0 +1,66 @@
+<section xml:id="s_networkflow_labeling-algorithm">
+    <title>Algoritma Pelabelan Ford–Fulkerson</title>
+    <p>Dalam bagian ini, kita menguraikan algoritma pelabelan klasik Ford–Fulkerson untuk menemukan aliran maksimum dalam suatu jaringan. Algoritma ini dimulai dengan urutan linear pada himpunan simpul yang menetapkan suatu konsep <term>prioritas</term>. Biasanya, simpul pertama dalam urutan linear ini adalah sumber dan simpul kedua adalah muara. Setelah itu, simpul-simpul lain dapat dicantumkan dalam urutan apa pun. Dalam buku ini, kita menggunakan konvensi berikut: simpul-simpul diberi label dengan huruf kapital alfabet Inggris dan urutan linearnya adalah <m>(S,T,A,B,C,D,E,F,G,\dots)</m>, yang akan kita sebut <term>urutan pseudoalfabetis</term><idx><h>urutan pseudoalfabetis</h></idx>. Tentu saja, konvensi ini hanya berlaku bagi jaringan dengan paling banyak <m>26</m> simpul, tetapi batasan tersebut tidak akan menjadi kendala. Untuk masalah dunia nyata, komputer dapat menangani kunci bilangan bulat dengan hampir sebarang ukuran dengan mudah.
+    </p>
+
+    <p>Sebelum memberikan uraian algoritma secara tepat, mari kita tinjau gambaran umumnya. Ketika menjalankan algoritma pelabelan, simpul-simpul diklasifikasikan sebagai <term>berlabel</term> atau <term>tak berlabel</term>. Mula-mula, hanya sumber yang diberi label, sedangkan semua simpul lain tidak berlabel. Menurut kriteria yang akan dijelaskan, kita secara sistematis meninjau simpul-simpul tak berlabel dan menentukan mana yang perlu diberi label. Jika muara berhasil diberi label, berarti kita telah menemukan lintasan penambah dan alirannya akan diperbarui dengan tepat. Setelah memperbarui aliran, kita memulai lagi dengan hanya sumber yang berlabel.
+    </p>
+
+    <p>Proses ini diulangi hingga (dan akan kita lihat bahwa hal ini selalu terjadi) pelabelan berhenti dengan sebagian simpul berlabel, termasuk sumber, dan sebagian lainnya tak berlabel, termasuk muara. Kemudian kita akan melihat bahwa partisi <m>V= L\cup U</m> menjadi simpul-simpul berlabel dan tak berlabel (yang menjelaskan pilihan nama <m>L</m> dan <m>U</m>) merupakan potongan yang kapasitasnya tepat sama dengan nilai aliran saat ini. Hasil ini menyelesaikan perdebatan sebelumnya dalam bab ini: persoalan aliran maksimum dan potongan minimum lebih menyerupai antirantai dan partisi menjadi rantai daripada bilangan klik dan bilangan kromatik. Secara khusus, algoritma pelabelan akan memberikan bukti bagi teorema berikut.
+    </p>
+
+    <theorem>
+        <title>Teorema Aliran Maksimum<ndash/>Potongan Minimum</title>
+        <statement>
+            <p>Misalkan <m>G=(V,E)</m> suatu jaringan. Jika <m>v_0</m> adalah nilai maksimum suatu aliran dan <m>c_0</m> adalah kapasitas minimum suatu potongan, maka kapasitas tersebut, <m>c_0</m>, sama dengan nilai aliran maksimum: <m>v_0=c_0</m>.
+            </p>
+        </statement>
+    </theorem>
+
+    <p>Sekarang kita siap menguraikan <term>algoritma pelabelan Ford–Fulkerson</term> secara terperinci.
+    </p>
+
+    <algorithm xml:id="alg_labeling">
+        <title>Algoritma Pelabelan Ford–Fulkerson</title>
+        <idx><h>algoritma pelabelan</h></idx>
+        <idx><h>algoritma pelabelan Ford–Fulkerson</h></idx>
+        <statement>
+            <p>
+               <dl>
+                <li>
+                    <title>Memberi Label pada Simpul</title>
+                    <p>Simpul-simpul diberi label berupa tripel simbol terurut. Setiap kali memulai proses pelabelan, kita terlebih dahulu memberi sumber label <m>(*,+,\infty)</m>. Aturan pemberian label pada simpul akan dinyatakan secara eksplisit.</p>
+                </li>
+                <li>
+                    <title>Potensial pada Simpul Berlabel</title>
+                    <p>Misalkan <m>u</m> suatu simpul berlabel. Koordinat ketiga pada label <m>u</m> merupakan besaran positif<mdash/>dan boleh bernilai tak hingga. Besaran ini disebut <term>potensial</term><idx><h>potensial</h></idx> pada <m>u</m> dan dinotasikan dengan <m>p(u)</m>. Potensial ini menyatakan besar pembaruan yang dapat dilakukan pada aliran. Perhatikan bahwa potensial pada sumber adalah tak hingga.</p>
+                </li>
+                <li>
+                    <title>Yang Pertama Dilabeli, Pertama Dipindai</title>
+                    <p>Algoritma pelabelan melibatkan pemindaian dari suatu simpul <em>berlabel</em> <m>u</m>. Urutan pemberian label pada simpul-simpul menentukan urutan linear lain. Sumber selalu menjadi simpul pertama dalam urutan ini. Setelah itu, urutan pelabelan simpul akan berubah dari waktu ke waktu. Aturan pentingnya ialah bahwa kita memindai simpul menurut urutan pemberian label<mdash/>hingga muara diberi label. Sebagai contoh, jika pemindaian awal<mdash/>yang selalu dilakukan dari sumber<mdash/>memberi label pada simpul <m>D</m>, <m>G</m>, dan <m>M</m>, selanjutnya kita memindai dari simpul <m>D</m>. Jika pemindaian itu memberi label pada simpul <m>B</m>, <m>F</m>, dan <m>Q</m>, selanjutnya kita memindai dari <m>G</m>, sebab simpul itu diberi label sebelum <m>B</m>, walaupun <m>B</m> mendahului <m>G</m> dalam urutan pseudoalfabetis. Aspek algoritma ini menghasilkan pencarian <em>melebar</em> pada simpul-simpul untuk mencari cara memberi label pada simpul yang sebelumnya tak berlabel.</p>
+                </li>
+                <li><title>Jangan Pernah Melabeli Ulang Simpul</title>
+                <p>Setelah suatu simpul diberi label, kita tidak mengubah labelnya. Kita hanya memberi label pada simpul-simpul yang sebelumnya tak berlabel<mdash/>sampai muara berhasil diberi label. Setelah aliran diperbarui dan nilainya meningkat, semua label dibuang, kecuali tentu saja label khusus pada sumber, lalu proses dimulai kembali.</p>
+                </li>
+                <li>
+                    <title>Memberi Label dengan Sisi Maju</title>
+                    <p>Misalkan kita memindai dari simpul berlabel <m>u</m> yang mempunyai potensial <m>p(u)&gt;0</m>. Dari <m>u</m>, kita meninjau tetangga-tetangga tak berlabel dari <m>u</m> menurut urutan pseudoalfabetis. Misalkan kita sedang meninjau tetangga <m>v</m> dari <m>u</m> dan sisi <m>(u,v)</m> berada dalam jaringan. Artinya, sisi itu berarah dari <m>u</m> ke <m>v</m>. Jika <m>e=(u,v)</m> tidak penuh, beri simpul <m>v</m> label <m>(u,+,p(v))</m>, dengan <m>p(v)=\min\{p(u),c(e)-\phi(e)\}</m>. Definisi ini digunakan karena aliran tidak dapat dinaikkan melebihi potensial sebelumnya maupun kapasitas sisa pada <m>e</m>. Perhatikan bahwa potensial <m>p(v)</m> positif karena <m>p(v)</m> merupakan nilai minimum dari dua bilangan positif.</p>
+                </li>
+                <li>
+                    <title>Memberi Label dengan Sisi Mundur</title>
+                    <p>Sekarang misalkan kita sedang meninjau tetangga <m>v</m> dari <m>u</m> dan sisi <m>(v,u)</m> berada dalam jaringan. Artinya, sisi itu berarah dari <m>v</m> ke <m>u</m>. Jika <m>e=(v,u)</m> terpakai, beri simpul <m>v</m> label <m>(u,-,p(v))</m>, dengan <m>p(v)=\min\{p(u),\phi(e)\}</m>. Potensial <m>p(v)</m> didefinisikan demikian karena aliran pada <m>e</m> tidak dapat diturunkan lebih dari <m>\phi(e)</m> maupun <m>p(u)</m>. Sekali lagi, potensial <m>p(v)</m> positif karena <m>p(v)</m> merupakan nilai minimum dari dua bilangan positif.</p>
+                </li>
+                <li>
+                    <title>Apa yang Terjadi Jika Muara Diberi Label?</title>
+                    <p>Algoritma pelabelan berhenti jika muara diberi label. Perhatikan bahwa kita selalu berusaha memberi label pada muara, sebab pada setiap pemindaian muara adalah simpul pertama yang ditinjau. Misalkan muara diberi label <m>(u,+,a)</m>. Koordinat kedua pada label tersebut haruslah <m>+</m>, sebab semua sisi yang bersisian dengan muara berarah menuju muara.</p>
+
+                <p>Kita mengklaim bahwa dapat ditemukan lintasan penambah <m>P</m> yang meningkatkan aliran dengan <m>\delta=a</m>, yaitu potensial pada muara. Untuk melihatnya, kita cukup menelusuri label secara mundur. Muara <m>T</m> memperoleh labelnya dari <m>u=u_1</m>, <m>u_1</m> memperoleh labelnya dari <m>u_2</m>, dan seterusnya. Pada akhirnya, kita menemukan simpul <m>u_m</m> yang memperoleh labelnya dari sumber. Lintasan penambahnya adalah <md>P=(S,u_m,u_{m-1},\dots,u_1,T).</md> Nilai <m>\delta</m> bagi lintasan ini adalah potensial <m>p(T)</m> pada muara, sebab kita telah memastikan bahwa <m>p(u_m)\geq p(u_{m-1})\geq\cdots\geq p(u_1)\geq p(T)</m>.</p></li>
+                <li>
+                    <title>Bagaimana Jika Muara Tidak Diberi Label?</title>
+                    <p>Sebaliknya, misalkan kita telah memindai dari setiap simpul berlabel, tetapi masih ada simpul tak berlabel, salah satunya adalah muara. Pada saat ini kita dapat menyatakan kemenangan. Jika <m>L</m> adalah himpunan simpul berlabel dan <m>U</m> adalah himpunan simpul tak berlabel, setiap sisi <m>e=(x,y)</m> dengan <m>x\in L</m> dan <m>y\in U</m> pasti penuh, <ie/>, <m>\phi(e)=c(e)</m>. Jika tidak, <m>y</m> memenuhi syarat untuk memperoleh label dengan <m>x</m> sebagai koordinat pertama. Perhatikan pula bahwa <m>\phi(y,x)=0</m> untuk setiap sisi <m>e</m> yang berarah dari U ke L, dengan <m>x\in L</m> dan <m>y\in U</m>. Dengan demikian, kapasitas potongan <m>V=L\cup U</m> tepat sama dengan nilai aliran saat ini. Jadi, kita memperoleh sekaligus aliran maksimum dan potongan minimum yang memberikan sertifikat keoptimalan.</p>
+                </li>
+               </dl>
+            </p>
+        </statement>
+    </algorithm>
+</section>

@@ -1,0 +1,96 @@
+<section xml:id="s_networkflow_augmenting">
+    <title>Lintasan Penambah</title>
+
+
+    <introduction>
+        <p>Dalam bagian ini, kita mengembangkan algoritma pelabelan klasik Ford dan Fulkerson. Algoritma ini berawal dari sebarang aliran dalam suatu jaringan, lalu mengubah aliran tersebut<mdash/>dengan selalu meningkatkan nilainya<mdash/>hingga mencapai tahap ketika tidak ada perbaikan lebih lanjut yang mungkin dilakukan. Algoritma ini juga akan membantu menyelesaikan perdebatan Alice, Bob, Carlos, dan Yolanda pada bagian sebelumnya.
+        </p>
+
+        <p>Penyajian algoritma pelabelan ini menggunakan beberapa istilah yang wajar dan cukup deskriptif. Misalkan kita mempunyai jaringan <m>\GVE</m> dengan aliran <m>\phi</m> bernilai <m>v</m>. Kita menyebut <m>\phi</m> sebagai <term>aliran saat ini</term> dan mencari cara untuk <term>menambah</term> <m>\phi</m> dengan melakukan relatif sedikit perubahan. Sisi <m>(x,y)</m> dengan <m>\phi(x,y)&gt;0</m> disebut <term>terpakai</term>, dan jika <m>\phi(x,y)=c(x,y)&gt;0</m>, sisi itu disebut <term>penuh</term>. Jika <m>\phi(x,y)\lt c(x,y)</m>, sisi <m>(x,y)</m> dikatakan mempunyai <term>kapasitas sisa</term>, dan jika <m>0=\phi(x,y)\lt c(x,y)</m>, sisi <m>(x,y)</m> disebut <term>kosong</term>. Perhatikan bahwa kita mengabaikan saja sisi-sisi berkapasitas nol.
+        </p>
+
+        <p>Alat utama untuk mengubah aliran jaringan ialah suatu jenis lintasan khusus yang tidak harus berupa lintasan berarah. <term>Lintasan penambah</term><idx><h>lintasan</h><h>penambah</h></idx> adalah barisan <m>P=(x_0,x_1,\dots,x_m)</m> dari simpul-simpul berbeda dalam jaringan sedemikian sehingga <m>x_0=S</m>, <m>x_m=T</m>, dan untuk setiap <m>i=1,2,\dots,m</m>, berlaku salah satu dari kondisi berikut:
+        <ol marker="a">
+            <li xml:id="networkflow_spare"><m>(x_{i-1},x_i)</m> mempunyai kapasitas sisa; atau</li>
+            <li xml:id="networkflow_used"><m>(x_i,x_{i-1})</m> terpakai.</li>
+        </ol>
+        Jika kondisi (<xref ref="networkflow_spare"/>) berlaku, sisi <m>(x_{i-1},x_i)</m> lazim disebut sisi <term>maju</term> dari lintasan penambah <m>P</m>. Demikian pula, jika kondisi (<xref ref="networkflow_used"/>) berlaku, sisi tak berarah <m>(x_{i-1},x_i)</m> disebut sisi <term>mundur</term>, sebab lintasan bergerak dari <m>x_{i-1}</m> ke <m>x_i</m>, berlawanan dengan arah sisi tersebut.
+        </p>
+        <example xml:id="exa_networkflow_augpath">
+            <p>Mari kita lihat kembali jaringan dan aliran pada <xref ref="fig_networkflow_netflow"/>. Barisan simpul <m>(S,F,A,T)</m> memenuhi kriteria lintasan penambah, dan setiap sisi di dalamnya merupakan sisi maju. Perhatikan bahwa menaikkan aliran pada masing-masing sisi <m>(S,F)</m>, <m>(F,A)</m>, dan <m>(A,T)</m> sebesar sebarang nilai positif <m>\delta \leq 12</m> akan meningkatkan nilai aliran sekaligus mempertahankan hukum kekekalan.
+            </p>
+
+            <p>Jika contoh pertama langsung tampak sebagai lintasan penambah, mungkin tidak sejelas itu bahwa <m>(S,E,D,C,B,A,T)</m> juga merupakan lintasan penambah. Semua sisinya merupakan sisi maju kecuali <m>(C,B)</m>, sebab sisi berarah yang sebenarnya terdapat dalam jaringan adalah <m>(B,C)</m>. Jangan khawatir jika belum jelas bagaimana lintasan ini dapat digunakan untuk meningkatkan nilai aliran dalam jaringan; itulah pokok bahasan kita berikutnya.
+            </p>
+        </example>
+        <p>Untuk sementara, abaikan persoalan menemukan lintasan penambah. Mari kita lihat bagaimana lintasan tersebut dapat digunakan untuk mengubah aliran saat ini sehingga nilainya bertambah sebesar suatu <m>\delta &gt; 0</m>. Untuk lintasan penambah <m>P=(x_0,x_1,\dots,x_m)</m>, pertama-tama tetapkan <m>\delta_1</m> sebagai bilangan positif yang didefinisikan oleh
+        <md>
+            \delta_1 =\min\{c(x_{i-1},x_i)-\phi(x_{i-1},x_i):(x_{i-1},x_i) 
+            \text{ sisi maju dari }  P.\}
+        </md>
+        Besaran <m>c(x_{i-1},x_i)-\phi(x_{i-1},x_i)</m> tidak lain adalah kapasitas sisa pada sisi <m>(x_{i-1},x_i)</m>. Jadi, <m>\delta_1</m> merupakan nilai terbesar yang dapat ditambahkan pada aliran di <em>semua</em> sisi maju dari <m>P</m>. Perhatikan bahwa sisi <m>(x_0,x_1)</m> dan <m>(x_{m-1},x_m)</m> selalu merupakan sisi maju, sehingga besaran <em>positif</em> <m>\delta_1</m> terdefinisi untuk setiap lintasan penambah.
+        </p>
+
+        <p>Jika lintasan penambah <m>P</m> tidak mempunyai sisi mundur, tetapkan <m>\delta= \delta_1</m>. Namun, jika <m>P</m> mempunyai satu atau lebih sisi mundur, tetapkan
+        <md>
+            \delta_2 =\min\{\phi(x_{i},x_{i-1}):(x_{i-1},x_i) 
+            \text{ sisi mundur dari }  P\}.
+        </md>
+        Karena setiap sisi mundur terpakai, <m>\delta_2&gt;0</m> setiap kali kita perlu mendefinisikannya. Selanjutnya, tetapkan <m>\delta=\min\{\delta_1,\delta_2\}</m>.
+        </p>
+
+        <p>Dalam kedua kasus, sekarang kita mempunyai bilangan positif <m>\delta</m> dan memperoleh pengamatan dasar berikut, yang diminta untuk Anda buktikan dalam <xref ref="ex_networkflow_update"/>.
+        </p>
+
+        <proposition xml:id="prop_networkflow_update">
+            <statement>
+                <p>Misalkan kita mempunyai lintasan penambah <m>P=(x_0,x_1,\dots,x_m)</m> dengan <m>\delta&gt;0</m> yang dihitung seperti di atas. Ubah aliran <m>\phi</m> dengan mengubah nilainya pada sisi-sisi lintasan <m>P</m> sebesar <m>+\delta</m> atau <m>-\delta</m> menurut aturan berikut:
+                <ol>
+                    <li><p>Naikkan aliran pada sisi-sisi maju dari <m>P</m>.</p></li>
+                    <li><p>Turunkan aliran pada sisi-sisi mundur dari <m>P</m>.</p></li>
+                </ol>
+                Maka fungsi yang dihasilkan, <m>\hat{\phi}</m>, merupakan aliran bernilai <m>v+\delta</m>.
+                </p>
+            </statement>
+        </proposition>
+
+        <example xml:id="exa_networkflow_delta">
+            <p>Aliran jaringan pada <xref ref="fig_networkflow_netflow"/> mempunyai banyak lintasan penambah. Kita telah melihat dua di antaranya dalam <xref ref="exa_networkflow_augpath"/>, yang di bawah ini disebut <m>P_1</m> dan <m>P_3</m>. Pastikan Anda memahami mengapa setiap lintasan berikut merupakan lintasan penambah dan bagaimana nilai <m>\delta</m> ditentukan untuk masing-masing lintasan.
+                  <ol>
+                <li><p><m>P_1=(S,F,A,T)</m> dengan <m>\delta= 12</m>. Semua sisinya maju.</p></li>
+                <li><p><m>P_2=(S,B,A,T)</m> dengan <m>\delta= 8</m>. Semua sisinya maju.</p></li>
+                <li><p><m>P_3=(S,E,D,C,B,A,T)</m> dengan <m>\delta= 9</m>. Semua sisinya maju, kecuali <m>(C,B)</m> yang mundur.</p></li>
+                <li><p><m>P_4=(S,B,E,D,C,A,T)</m> dengan <m>\delta= 2</m>. Semua sisinya maju, kecuali <m>(B,E)</m> dan <m>(C,A)</m> yang mundur.</p></li>
+            
+                  </ol>
+                </p>
+
+            <p>Dalam <xref ref="ex_networkflow_do-update"/>, Anda diminta memperbarui aliran pada <xref ref="fig_networkflow_netflow"/> secara terpisah untuk masing-masing dari keempat lintasan tersebut.
+            </p>
+        </example>
+    </introduction>
+
+
+    <subsection>
+        <title>Waspada dalam Memilih Lintasan Penambah</title>
+        <p>Bob sudah sangat mahir menggunakan lintasan penambah untuk meningkatkan nilai aliran jaringan. Ia belum tahu benar cara menemukannya, tetapi ia dapat mengenali sesuatu yang berguna. Ia cenderung berpikir bahwa sebarang lintasan penambah pasti menguntungkan dalam upayanya mencari aliran bernilai maksimum. Carlos senang melihat antusiasme Bob terhadap aliran jaringan, tetapi mulai merasa perlu memperingatkannya tentang bahaya memakai sembarang lintasan penambah untuk memperbarui aliran. Mereka sepakat bahwa keadaan terbaik ialah ketika banyaknya pembaruan kecil dibandingkan dengan banyaknya simpul dalam jaringan, serta bahwa besar kapasitas sisi dan nilai aliran maksimum tidak seharusnya memengaruhi banyaknya pembaruan.
+        </p>
+
+        <p>Bob mengatakan bahwa ia tidak melihat bagaimana kapasitas sisi dapat membuat jaringan dengan hanya sedikit simpul memerlukan banyak pembaruan. Carlos merasa sebuah contoh diperlukan. Ia meminta Bob memilih bilangan bulat sangat besar yang disukainya dan menamainya <m>M</m>. Kemudian ia menggambar jaringan empat simpul pada <xref ref="fig_networkflow_smallnet"/>. Bob segera melihat bahwa nilai maksimum aliran dalam jaringan tersebut adalah <m>2M</m>. Ia memperolehnya dengan aliran yang memenuhi <m>\phi(S,A)=M</m>, <m>\phi(A,T)=M</m>, <m>\phi(S,B)=M</m>, <m>\phi(B,T)=M</m>, dan <m>\phi(A,B)=0</m>. Carlos senang dengan pekerjaan Bob.
+        </p>
+        <figure xml:id="fig_networkflow_smallnet">
+            <caption>Sebuah Jaringan Kecil</caption>
+            <image width="45%" source="smallnet"><description><p>Jaringan empat simpul S, A, B, T dengan empat sisi luar berkapasitas M dan sisi tengah (A,B) berkapasitas 1.</p>
+            </description></image>
+        </figure>
+        <p>Karena jaringan ini sangat kecil, Bob mudah menemukan aliran maksimumnya. Namun, Bob dan Carlos sepakat bahwa sekadar <q>menaksir dengan mata</q> tidak akan bekerja dengan baik pada jaringan yang lebih besar. Karena itu, mereka memerlukan cara menemukan aliran tersebut dengan lintasan penambah. Bob meminta Carlos memberikan sebuah lintasan penambah dan ia sendiri yang akan melakukan pembaruannya. Carlos menyarankan lintasan penambah <m>(S,A,B,T)</m>, dan Bob menentukan bahwa <m>\delta=1</m> untuk lintasan ini. Ia memperbarui jaringan mulai dari aliran nol, <ie/>, dengan <m>\phi(e)=0</m> untuk setiap sisi <m>e</m>, sehingga alirannya kini bernilai <m>1</m>. Bob meminta lintasan penambah lain, lalu Carlos memberinya <m>(S,B,A,T)</m>. Sekarang <m>(B,A)</m> merupakan sisi mundur, tetapi hal itu tidak membuat Bob gentar. Ia melakukan pembaruan dan memperoleh aliran bernilai <m>2</m>, dengan <m>(A,B)</m> kembali kosong.
+        </p>
+
+        <p>Meskipun Carlos berharap Bob sudah melihat arah persoalannya, Bob dengan bersemangat meminta lintasan penambah lain. Carlos segera memberinya <m>(S,A,B,T)</m>, yang lagi-lagi mempunyai <m>\delta=1</m>. Pembaruan Bob menghasilkan aliran bernilai <m>3</m>. Sebelum Carlos sempat menyarankan lintasan lain, Bob menyadari masalahnya. Ia menunjukkan bahwa Carlos dapat memberinya <m>(S,B,A,T)</m> lagi; lintasan itu tetap mempunyai <m>\delta=1</m> dan akan menaikkan nilai aliran menjadi <m>4</m>. Mereka dapat terus bergantian memakai kedua lintasan tersebut dan menaikkan nilai aliran sebesar <m>1</m> setiap kali, hingga melakukan <m>2M</m> pembaruan untuk akhirnya memperoleh aliran bernilai <m>2M</m>. Karena jaringan itu hanya mempunyai empat simpul dan <m>M</m> sangat besar, Bob menyadari bahwa memakai sembarang lintasan penambah jelas bukan gagasan yang baik.
+        </p>
+
+        <p>Carlos membiarkan Bob mencari pendekatan yang lebih baik. Bob menyadari bahwa jika dimulai dari aliran nol, ia hanya memerlukan lintasan penambah <m>(S,A,T)</m> dan <m>(S,B,T)</m>, masing-masing dengan <m>\delta=M</m>, untuk segera memperoleh aliran maksimum. Namun, ia belum tahu mengapa suatu algoritma seharusnya lebih memilih kedua lintasan tersebut. Saat itu Dave kebetulan lewat dan bergumam bahwa lintasan penambah yang lebih baik hanya menggunakan dua sisi, sedangkan dua lintasan buruk Carlos masing-masing menggunakan tiga sisi. Bob merasa Dave mungkin menemukan petunjuk, sehingga ia kembali membaca buku teksnya.
+        </p>
+    </subsection>
+
+</section>

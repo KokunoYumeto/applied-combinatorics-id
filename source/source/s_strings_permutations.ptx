@@ -1,0 +1,237 @@
+<section xml:id="s_strings_permutations">
+  <title>Permutasi</title>
+  <p>Pada bagian sebelumnya, kita membahas string yang mengizinkan pengulangan simbol. Sebagai
+    contoh, <q>
+      <m>01110000</m>
+    </q> merupakan string bit yang sah dengan panjang delapan. Namun, dalam banyak
+    situasi terapan yang sesuai dimodelkan dengan string, setiap simbol hanya boleh digunakan pada
+    paling banyak satu posisi. </p>
+  <example xml:id="exa_strings_perm">
+    <p>Bayangkan kita memasukkan <m>26</m> huruf alfabet Inggris ke dalam sebuah kantong, lalu
+      mengambilnya satu per satu (tanpa mengembalikan huruf yang telah diambil) untuk membentuk
+      string enam karakter. Kita tahu bahwa ada <m>26^6</m> string dengan panjang enam yang dapat
+      dibentuk dari alfabet Inggris. Namun, jika cara pembentukan string dibatasi, tidak semua
+      string dapat terbentuk. String <q>yellow</q> terdiri atas enam karakter, tetapi menggunakan
+      huruf <q>l</q> dua kali sehingga tidak dapat dibentuk dengan mengambil huruf dari kantong.
+      Sebaliknya, <q>jacket</q> dapat dibentuk dengan cara ini. Jika pada awalnya kantong berisi
+      semua huruf, terdapat <m>26</m> pilihan untuk huruf pertama. Setelah huruf itu diambil,
+      tersisa <m>25</m> huruf di dalam kantong. Setelah huruf kedua diambil, tersisa <m>24</m> huruf.
+      Dengan melanjutkan proses ini, tepat sebelum huruf keenam diambil, terdapat <m>21</m> huruf di
+      dalam kantong. Jadi, dengan mengambil huruf dari kantong, kita dapat membentuk <m>26\cdot 25\cdot 24\cdot 23\cdot 22\cdot 21</m> string enam karakter dari alfabet Inggris, sedikit
+      lebih dari setengah jumlah seluruh string enam karakter yang dapat dibentuk dari alfabet
+      tersebut. </p>
+  </example>
+  <p>Untuk menggeneralisasi contoh sebelumnya, sekarang kita memperkenalkan permutasi. Misalkan
+    <m>X</m> merupakan himpunan berhingga dan <m>n</m> merupakan bilangan bulat positif. String atas
+    <m>X</m>, yaitu <m>s=x_1x_2\dots x_n</m>, disebut <term>permutasi</term><idx>
+      <h>permutasi</h>
+    </idx> jika semua <m>n</m> karakter yang digunakan dalam <m>s</m> berbeda.
+    Jelas bahwa keberadaan permutasi atas <m>X</m> dengan panjang<nbsp/><m>n</m> mensyaratkan <m>|X|\ge
+    n</m>. </p>
+
+  <p>Jika <m>n</m> merupakan bilangan bulat positif, kita mendefinisikan <m>n!</m> (dibaca <q>
+      <m>n</m>
+      <term>faktorial</term>
+    </q><idx>
+      <h>faktorial</h>
+      <h>definisi</h>
+    </idx><notation>
+      <usage>
+        <m>n!</m>
+      </usage>
+      <description><m>n</m> faktorial</description>
+    </notation>) dengan <md>
+      n! = n\cdot (n-1)\cdot (n-2)\cdot \cdots\cdot 3\cdot 2\cdot 1.
+    </md> Berdasarkan
+    konvensi, kita menetapkan <m>0!=1</m>. Sebagai contoh, <m>7!=7\cdot 6\cdot 5\cdot 4\cdot 3\cdot 2 \cdot
+    1=5040</m>. Selanjutnya, untuk bilangan bulat <m>m,n</m> dengan <m>m\ge n\ge0</m>, definisikan <m>P(m,n)</m> dengan <md>
+    P(m,n) = \frac{m!}{(m-n)!} = m(m-1)\cdots(m-n+1).
+    </md><notation>
+      <usage>
+        <m>P(m,n)</m>
+      </usage>
+      <description>banyaknya permutasi berpanjang n dari himpunan beranggota m</description>
+    </notation> Sebagai contoh, <m>P(9,3)=9\cdot
+    8\cdot 7=504</m> dan <m>P(8,4)=8\cdot 7\cdot 6\cdot5 =1680</m>. Selain itu, sistem aljabar komputer
+    akan segera memberikan hasil bahwa <md>
+      P(68,23) = 20732231223375515741894286164203929600000.
+    </md>
+  </p>
+  <proposition xml:id="prop_strings_permutations">
+    <statement>
+      <p>Jika <m>X</m> merupakan himpunan dengan <m>m</m> elemen dan <m>n</m> merupakan bilangan bulat positif dengan <m>m\ge n</m>,
+        maka banyaknya string atas <m>X</m> dengan panjang<nbsp/><m>n</m> yang merupakan permutasi adalah <m>
+        P(m,n)</m>. </p>
+    </statement>
+
+    <proof>
+      <p>Proposisi ini benar karena, ketika menyusun permutasi <m>s=x_1x_2\dots x_n</m>
+        dari himpunan dengan <m>m</m> elemen, terdapat <m>m</m> pilihan untuk <m>x_1</m>. Setelah
+        menetapkan <m>x_1</m>, untuk <m>x_2</m> terdapat <m>m-1</m> pilihan, karena kita dapat
+        menggunakan sembarang elemen dari <m>X-\{x_1\}</m>. Untuk <m>x_3</m>, terdapat <m>m-2</m> pilihan, karena kita dapat
+        menggunakan sembarang elemen dari <m>X-\{x_1,x_2\}</m>. Untuk <m>x_n</m>, terdapat <m>m-n+1</m> pilihan,
+        karena kita dapat menggunakan sembarang elemen <m>X</m> selain <m>x_1,x_2,\dots x_{n-1}</m>. Dengan memperhatikan bahwa <md>
+        P(m,n)=\frac{m!}{(m-n)!} = m(m-1)(m-2)\dots(m-n+1),
+        </md> bukti
+        selesai. </p>
+    </proof>
+  </proposition>
+
+  <p>Perhatikan bahwa jawaban yang kita peroleh dalam <xref ref="exa_strings_perm"/> tidak lain adalah <m>P(26,6)</m>,
+    sebagaimana yang kita harapkan berdasarkan <xref ref="prop_strings_permutations"/>. </p>
+  <example xml:id="exa_strings_officers">
+    <statement>
+      <p>Sekarang saatnya memilih jajaran empat pengurus kelas (Ketua, Wakil Ketua, Sekretaris, dan
+        Bendahara) dari <m>80</m> mahasiswa yang mengikuti Kombinatorika Terapan. Jika setiap
+        mahasiswa yang berminat dapat dipilih untuk jabatan mana pun (Alice menekankan kata <q>jika</q>
+        karena Bob ikut mencalonkan diri), berapa banyak susunan pengurus berbeda yang dapat dipilih? </p>
+    </statement>
+    <solution>
+      <p>Untuk menghitung semua susunan pengurus yang mungkin, gunakan himpunan <m>X</m> yang memuat nama <m>
+        80</m> mahasiswa yang berminat (ya, termasuk Bob yang malang). Setiap permutasi panjang empat yang dipilih dari <m>
+        X</m> menjadi satu susunan pengurus jika nama pertama dalam permutasi dianggap sebagai
+        Ketua, nama kedua sebagai Wakil Ketua, nama ketiga sebagai Sekretaris, dan nama keempat sebagai
+        Bendahara. Jadi, banyaknya susunan pengurus adalah <m>P(80,4)=37957920</m>. </p>
+    </solution>
+  </example>
+
+  <example>
+    <p>Mari kembali ke soal pelat nomor dalam <xref ref="exa_strings_ga-plate"/>. Misalkan
+      negara bagian Georgia mensyaratkan ketiga huruf saling berbeda. Dengan demikian, alih-alih
+      memiliki <m>26^3=17\,576</m> cara untuk mengisi tiga posisi terakhir pada pelat nomor, kita
+      memiliki <m>P(26,3) = 26\times 25\times 24 = 15\,600</m> pilihan, sehingga seluruhnya terdapat <m>
+      140\,400\,000</m> pelat nomor. </p>
+    <p>Sebagai contoh lain, misalkan pengulangan huruf diizinkan, tetapi ketiga digit pada
+      posisi kedua hingga keempat harus saling berbeda (meskipun salah satunya boleh sama dengan
+      digit pertama, yang tetap harus bukan nol). Masih terdapat <m>9</m> pilihan untuk posisi
+      pertama dan <m>26^3</m> pilihan untuk huruf, tetapi tiga digit sisanya dapat
+      diisi dengan <m>P(10,3)</m> cara. Dengan demikian, jumlah seluruh pelat nomor adalah <m>9\times
+      P(10,3)\times 26^3</m>. Jika kita juga ingin melarang pengulangan digit pada posisi pertama,
+      diperlukan sedikit pemikiran tambahan. Mula-mula, terdapat <m>9</m> pilihan untuk digit pertama tersebut.
+      Kemudian, untuk mengisi tiga posisi berikutnya dengan digit, kita memerlukan permutasi panjang <m>
+      3</m> yang dipilih dari <m>9</m> digit tersisa. Jadi, terdapat <m>9\times P(9,3)</m> cara untuk
+      melengkapi bagian digit, sehingga seluruhnya terdapat <m>9\times P(9,3)\times 26^3</m> pelat
+      nomor. </p>
+  </example>
+  <reading-questions label="rqs-strings_permutations" component="runestone">
+    <exercise label="appcomb_strings_permutation_reading_check">
+      <statement>
+        <p>
+          Misalkan kita membentuk string dengan panjang empat. Karakter pertama dan kedua dalam string tersebut adalah dua huruf kapital alfabet Inggris yang berbeda. Karakter ketiga dan keempat adalah dua digit yang berbeda (yaitu, dipilih dari <m>0</m><ndash/><m>9</m>). Berapa banyak string yang memenuhi kriteria ini? Jelaskan penalaran Anda; sebaiknya nyatakan jawaban sebagai hasil kali beberapa bilangan, bukan hanya memberikan hasil akhir dalam bentuk angka.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="appcomb_strings_permutation_reading_officers">
+        <statement>
+          <p>
+            Misalkan Alice, Carlos, Dave, Xing, dan Yolanda adalah lima calon untuk menjabat sebagai ketua, wakil ketua, dan bendahara suatu organisasi mahasiswa. Anda seharusnya dapat menjawab pertanyaan ini tanpa mendaftarkan semua hasil yang mungkin. Namun, sebagai persiapan untuk pembahasan selanjutnya, tuliskan semua hasil yang mungkin di tempat lain sebagai referensi. (Jangan kirimkan semuanya di sini! Sebaiknya Anda cukup menulis A, C, D, X, dan Y alih-alih nama lengkap setiap orang.) Berapa banyak hasil yang mungkin untuk mengisi ketiga jabatan tersebut?
+          </p>
+          <p>
+            <fillin answer="60" mode="number"/>
+          </p>
+        </statement>
+        <evaluation>
+          <evaluate>
+            <test correct="yes">
+              <numcmp use-answer="yes"/>
+              <feedback>
+                <p>
+                  Benar! Kita dapat mengalikan <m>5\cdot 4\cdot 3</m> dan memperoleh <m>60</m>.
+                </p>
+              </feedback>
+            </test>
+            <test>
+              <numcmp min="0" max="59"/>
+              <feedback>
+                <p>
+                  Belum tepat. Jawaban Anda terlalu kecil.
+                </p>
+              </feedback>
+            </test>
+            <test>
+              <numcmp min="61" max="99999999"/>
+              <feedback>
+                <p>
+                  Belum tepat. Jawaban Anda terlalu besar.
+                </p>
+              </feedback>
+            </test>
+          </evaluate>
+        </evaluation>
+      </exercise>
+      <exercise label="appcomb_strings_permutation_reading_cochairs">
+        <statement>
+          <p>
+            Misalkan kita mengubah pemilihan tersebut. Alih-alih memilih tiga pengurus dengan jabatan berbeda, organisasi akan memilih tiga ketua bersama yang berkedudukan setara. Kelompokkan hasil yang Anda tuliskan pada bagian sebelumnya sedemikian sehingga semua hasil pemilihan yang menghasilkan tiga ketua bersama yang sama berada dalam satu kelompok. Sebagai contoh, ADC dan CDA ditempatkan dalam kelompok yang sama karena yang penting hanyalah Alice, Carlos, dan Dave terpilih, bukan apakah Alice atau Carlos menempati posisi ketua dalam susunan semula.
+          </p>
+          <p>
+            Pengelompokan ini menghasilkan <fillin answer="10" mode="number"/> kelompok, dan setiap kelompok memuat <fillin answer="6" mode="number"/> hasil.
+          </p>
+        </statement>
+        <evaluation>
+          <evaluate>
+            <test correct="yes">
+              <numcmp use-answer="yes"/>
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </test>
+            <test>
+              <numcmp min="0" max="9"/>
+              <feedback>
+                <p>
+                  Belum tepat. Jawaban Anda terlalu kecil. Pastikan semua hasil dalam satu kelompok memuat tepat tiga ketua bersama yang sama.
+                </p>
+              </feedback>
+            </test>
+            <test>
+              <numcmp min="11" max="99999999"/>
+              <feedback>
+                <p>
+                  Belum tepat. Jawaban Anda terlalu besar. Pastikan tidak ada dua kelompok terpisah yang sebenarnya memuat tiga ketua bersama yang sama.
+                </p>
+              </feedback>
+            </test>
+          </evaluate>
+          <evaluate>
+            <test correct="yes">
+              <numcmp use-answer="yes"/>
+              <feedback>
+                <p>
+                  Benar! Terdapat <m>6 = 3\cdot 2\cdot 1</m> cara untuk menyusun <m>3</m> objek.
+                </p>
+              </feedback>
+            </test>
+            <test>
+              <numcmp min="0" max="5"/>
+              <feedback>
+                <p>
+                  Belum tepat. Jawaban Anda terlalu kecil.
+                </p>
+              </feedback>
+            </test>
+            <test>
+              <numcmp min="7" max="99999999"/>
+              <feedback>
+                <p>
+                  Belum tepat. Jawaban Anda terlalu besar.
+                </p>
+              </feedback>
+            </test>
+          </evaluate>
+
+        </evaluation>        
+      </exercise>
+      <exercise label="appcomb_strings_permutation_reading_more">
+        <statement>
+          <p>
+            Misalkan terdapat <m>80</m> calon dan kita harus memilih lima ketua bersama yang berkedudukan setara. Mendaftarkan semua hasil lalu mengelompokkannya tentu cukup sulit. Dalam dua atau tiga kalimat, jelaskan gagasan Anda untuk menggeneralisasi cara pada dua tugas sebelumnya agar pertanyaan ini dapat dijawab tanpa menuliskan semua kemungkinan. Untuk soal ini, jika Anda dapat menentukan bentuk jawabannya, nyatakan sebagai hasil bagi dua hasil kali atau gunakan notasi <m>P(m,n)</m>.
+          </p>
+        </statement>
+        <response/>
+      </exercise>
+  </reading-questions>
+</section>

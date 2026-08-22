@@ -1,0 +1,23 @@
+<preface xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_prologue">
+  <title>Prolog</title>
+  <p>Salah satu ciri khas buku ini adalah sekelompok tokoh yang muncul berulang kali: Alice, Bob, Carlos, Dave, Xing, Yolanda, dan Zori. Mereka adalah mahasiswa sarjana di Georgia Tech yang mengikuti kelas Math<nbsp/>3012: Kombinatorika Terapan pukul 08.05 dan sering pergi minum kopi di Clough Undergraduate Learning Center segera setelah kelas berakhir. Mereka telah menjadi semacam kelompok pertemanan, dan percakapan mereka mengenai Kombinatorika Terapan mungkin menarik bagi Anda karena dapat mengungkap seluk-beluk topik yang sedang dipelajari, memperkuat kaitan dengan materi yang telah dipelajari, atau mempersiapkan topik yang akan dibahas kemudian. Kadang-kadang percakapan ini ditempatkan dalam bagian <em>Diskusi</em> yang ditandai dengan jelas, tetapi percakapan singkat juga tersebar sebagai catatan di seluruh buku.</p>
+
+  <p>Seiring waktu, Anda akan mengenal tokoh-tokoh ini dan merasakan, misalnya, bahwa ketika Dave mengomentari suatu topik, komentarnya akan mewakili sudut pandang yang kemungkinan tidak disetujui Zori. Beberapa komentar tepat sasaran, sedangkan yang lain <q>melenceng jauh.</q> Beberapa bahkan mungkin lucu—setidaknya kami berharap demikian. Bagaimanapun, tujuan kami bukanlah menghibur<mdash/>meskipun itu bukan manfaat sampingan yang buruk. Kami bermaksud agar pendekatan informal ini menambah nilai pembelajaran buku kami.</p>
+
+  <p>Sekarang saatnya berkenalan dengan para tokoh kita:</p>
+
+  <p><em>Alice</em> adalah mahasiswi teknik komputer dari Philadelphia. Ia ambisius, cerdas, dan sangat bersungguh-sungguh. Alice cepat menarik kesimpulan, dan sebagian besar kesimpulannya benar. Sesekali, Alice kurang ramah kepada Bob.</p>
+
+  <p><em>Bob</em> adalah mahasiswa manajemen dari Omaha. Ia rajin dan teliti. Bob tidak selalu dapat mengimbangi teman-temannya, tetapi segala sesuatu yang telah dipahaminya benar-benar ia kuasai, dan pada akhirnya ia memahami hampir semuanya. Di sisi lain, Bob tidak pernah benar-benar mengerti mengapa Alice terkadang berbicara ketus kepadanya.</p>
+
+  <p><em>Carlos</em> adalah mahasiswa fisika yang sangat, sangat cerdas dari San Antonio. Ia memiliki tiga kakak laki-laki dan dua saudara perempuan, seorang kakak dan seorang adik. Latar belakang pendidikan menengahnya tidak terlalu kuat, tetapi Carlos jelas merupakan mahasiswa istimewa di Georgia Tech. Ia menyerap konsep baru secepat kilat dan mampu melihat inti hampir setiap topik. Ia berpikir cermat sebelum berbicara dan sangat santun.</p>
+
+  <p><em>Dave</em> adalah mahasiswa matematika diskret dari Los Angeles. Dave kurang dapat diandalkan. Ia cukup cerdas, tetapi tidak terlalu tekun. Meski demikian, ia memiliki wawasan yang khas dan kadang-kadang mengatakan sesuatu yang layak didengar<mdash/>tidak selalu, tetapi sesekali. Teman-temannya mengatakan bahwa Dave sesekali mengalami ketidaksinkronan otak<ndash/>mulut.</p>
+
+  <p><em>Xing</em> adalah mahasiswa ilmu komputer dari New York. Orang tua Xing berimigrasi dari Beijing, dan mereka sangat mendukung serta menyemangatinya selama bersekolah menengah. Xing sangat memperhatikan detail dan tidak takut bekerja keras.</p>
+
+  <p><em>Yolanda</em> mengambil dua program studi (ilmu komputer dan kimia) dan berasal dari Cumming, sebuah kota kecil tepat di sebelah utara Atlanta. Yolanda adalah orang pertama dalam keluarga besarnya yang menempuh pendidikan di perguruan tinggi. Ia cerdas dan menyerap pengetahuan seperti spons. Semuanya baru baginya, dan wawasannya meluas dari hari ke hari.</p>
+
+  <p><em>Zori</em> adalah mahasiswi matematika terapan dari Detroit. Ia berfokus pada hasil akhir, tidak banyak meluangkan waktu untuk teka-teki, dan selalu ingin melihat penerapan yang membenarkan mengapa suatu hal dimasukkan ke dalam mata kuliah. Zori teguh, penuh dorongan, dan terkadang tidak sabar. </p>
+
+</preface>

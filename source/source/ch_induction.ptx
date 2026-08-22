@@ -1,0 +1,21 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_induction">
+    <title>Induksi</title>
+
+
+    <introduction>
+        <p>Rekursi dan induksi adalah dua konsep yang saling berpasangan dan sangat mendasar dalam matematika kombinatorial serta ilmu komputer. Dalam bab ini, kami menyajikan sejumlah contoh tentang bagaimana rumus rekursif muncul secara alami dalam masalah kombinatorial dan menjelaskan bagaimana rumus tersebut dapat digunakan untuk melakukan perhitungan. Kami juga memperkenalkan Prinsip Induksi Matematika serta menyajikan beberapa contoh penerapannya dalam membuktikan pernyataan kombinatorial. Pembahasan ini juga mencakup beberapa cuplikan kode yang memperlihatkan bagaimana fungsi didefinisikan secara rekursif dalam program komputer.
+        </p>
+    </introduction>
+    <xi:include href="s_induction_intro.ptx"/>
+    <xi:include href="s_induction_posintsord.ptx"/>
+    <xi:include href="s_induction_statements.ptx"/>
+    <xi:include href="s_induction_bincoeffs.ptx"/>
+    <xi:include href="s_induction_recursion.ptx"/>
+    <xi:include href="s_induction_induction.ptx"/>
+    <xi:include href="s_induction_inductdefs.ptx"/>
+    <xi:include href="s_induction_proofs.ptx"/>
+    <xi:include href="s_induction_strong-induction.ptx"/>
+    <xi:include href="s_induction_discussion.ptx"/>
+    <xi:include href="s_induction_exercises.ptx"/>
+    <xi:include href="s_induction_peer_instruction.ptx"/>
+</chapter>

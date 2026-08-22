@@ -1,0 +1,83 @@
+<section xml:id="s_kitchensink_markov-chains">
+    <title>Rantai Markov</title>
+
+
+    <introduction>
+        <p>Kita memulai bagian ini dengan sebuah contoh yang memberikan motivasi. Tinjau graf terhubung dengan enam simpul yang ditampilkan pada <xref provisional="fig-markovchain"/>. Langkah pertama adalah memilih satu simpul secara acak dan berpindah ke sana. Setelah itu, kita mengikuti prosedur rekursif berikut. Jika setelah <m>i</m> langkah Anda berada di simpul <m>x</m> dan <m>x</m> mempunyai <m>d</m> tetangga, pilih salah satu tetangga secara acak, masing-masing dengan probabilitas <m>1/d</m>, lalu berpindahlah ke sana. Selanjutnya, kita mencoba menjawab pertanyaan-pertanyaan seperti berikut:
+                  <ol>
+            <li>
+                <p>Untuk setiap simpul <m>x</m>, misalkan <m>p_{x,m}</m> menyatakan probabilitas bahwa Anda berada di simpul <m>x</m> setelah <m>m</m> langkah. Apakah <m>\lim_{m\rightarrow\infty}p_{x,m}</m> ada, dan jika ada, seberapa cepat barisan tersebut konvergen ke limit ini?</p></li>
+            <li><p>Berapa banyak langkah yang harus saya ambil agar probabilitas bahwa saya telah melewati setiap sisi dalam graf paling sedikit <m>0.999</m>?</p></li>
+        
+                  </ol>
+                </p>
+
+        <p>Contoh ini menggambarkan ciri-ciri suatu kelas penting masalah komputasional dan kombinatorial yang secara kolektif disebut <term>rantai Markov</term><idx><h>rantai Markov</h></idx>:
+                  <ol>
+            <li><p>Terdapat himpunan hingga keadaan <m>S_1</m>, <m>S_2,\dots,S_n</m>, dan pada waktu <m>i</m> Anda berada dalam salah satu keadaan tersebut.</p></li>
+            <li><p>Jika Anda berada dalam keadaan <m>S_j</m> pada waktu <m>i</m>, maka untuk setiap
+            <m>k=1,2,\dots,n</m>, terdapat probabilitas tetap <m>p(j,k)</m> yang tidak bergantung pada <m>i</m> bahwa Anda akan berada dalam keadaan <m>S_k</m> pada waktu <m>i+1</m>.</p></li>
+        
+                  </ol>
+                </p>
+
+        <p>Matriks <m>n\times n</m> <m>P</m> yang entri <m>j,k</m>-nya merupakan probabilitas <m>p(j,k)</m> untuk berpindah dari keadaan <m>S_j</m> ke keadaan <m>S_k</m> disebut <term>matriks transisi</term><idx><h>matriks</h><h>transisi</h></idx> rantai Markov tersebut. Perhatikan bahwa <m>P</m> merupakan <term>matriks stokastik</term><idx><h>matriks</h><h>stokastik</h></idx>, <ie/>, semua entrinya tak negatif dan jumlah setiap baris adalah<nbsp/><m>1</m>. Sebaliknya, setiap matriks stokastik persegi dapat dipandang sebagai matriks transisi suatu rantai Markov.
+        </p>
+
+        <p>Sebagai contoh, berikut matriks transisi bagi graf dalam <xref provisional="fig-markovchain"/>.
+        <md number="yes" xml:id="eqn_transition">
+            P =\begin{pmatrix}0 \amp  1/4 \amp  1/4 \amp  1/4 \amp  1/4 \amp    0 \\
+            1/2 \amp    0 \amp    0 \amp  1/2 \amp    0 \amp    0 \\
+            1/3 \amp    0 \amp    0 \amp  1/3 \amp    0 \amp  1/3 \\
+            1/3 \amp  1/3 \amp  1/3 \amp    0 \amp    0 \amp    0 \\
+            1 \amp    0 \amp    0 \amp    0 \amp    0 \amp    0 \\
+            0 \amp    0 \amp    1 \amp    0 \amp    0 \amp    0 \\
+            \end{pmatrix}
+        </md>
+        </p>
+        <p>Suatu matriks transisi <m>P</m> disebut <term>reguler</term><idx><h>reguler</h><h>matriks transisi</h></idx> jika terdapat bilangan bulat <m>m</m> sehingga matriks <m>P^m</m> hanya mempunyai entri positif. Berikut sebuah hasil mendasar dalam bidang ini yang mudah dipahami, tetapi sedikit terlalu rumit untuk dibuktikan dalam ruang yang tersedia.
+        </p>
+
+        <theorem xml:id="thm_regular">
+            <statement>
+                <p>Misalkan <m>P</m> matriks transisi reguler berukuran <m>n\times n</m>. Terdapat vektor baris <m>W=(w_1, w_2,\dots,w_n)</m> yang terdiri atas bilangan real positif dengan jumlah <m>1</m> sedemikian sehingga, ketika <m>m</m> menuju tak hingga, setiap baris <m>P^m</m> menuju <m>W</m>. Selain itu, <m>WP=W</m>, dan untuk setiap <m>i=1,2,\dots,n</m>, nilai <m>w_i</m> merupakan probabilitas limit untuk berada dalam keadaan <m>S_i</m>.
+                </p>
+            </statement>
+        </theorem>
+
+        <p>Berdasarkan pernyataan <xref ref="thm_regular"/>, vektor baris <m>W</m> dapat dihitung dengan teknik nilai eigen yang termasuk dalam mata kuliah aljabar linear standar tingkat sarjana. Sebagai contoh, matriks transisi <m>P</m> yang ditampilkan dalam <xref ref="eqn_transition"/> bersifat reguler karena semua entri <m>P^3</m> positif. Untuk matriks ini, vektor barisnya adalah <m>W=(5/13, 3/13, 2/13, 2/13, 1/13, 1/13)</m>. Namun, pertanyaan tentang seberapa cepat <m>P^m</m> konvergen ke vektor limit tersebut lebih rumit, demikian pula pertanyaan tentang berapa lama waktu yang diperlukan agar kita cukup yakin telah melakukan setiap transisi yang mungkin.
+        </p>
+    </introduction>
+
+
+    <subsection>
+        <title>Rantai Markov Menyerap</title>
+        <p>Suatu keadaan <m>S_i</m> dalam rantai Markov bermatriks transisi <m>P</m> disebut <term>menyerap</term><idx><h>menyerap</h><h>keadaan dalam rantai Markov</h></idx> jika <m>p_{i,i}=1</m> dan <m>p_{i,j}=0</m> untuk semua <m>j\neq i</m>, <ie/>, seperti Hotel California yang terkenal buruk itu, begitu Anda berada dalam keadaan <m>S_i</m>, <q>Anda tidak akan pernah dapat pergi.</q>
+        </p>
+        <example>
+            <p>Kita mengubah matriks transisi dari <xref ref="eqn_transition"/> dengan menjadikan keadaan <m>4</m> dan <m>5</m> menyerap. Matriks transisi yang direvisi menjadi:
+            <md number="yes" xml:id="eqn_absorbing">
+                P =\begin{pmatrix}0 \amp  1/4 \amp  1/4 \amp  1/4 \amp  1/4 \amp    0 \\
+                    1/2 \amp    0 \amp    0 \amp  1/2 \amp    0 \amp    0 \\
+                    1/3 \amp    0 \amp    0 \amp  1/3 \amp    0 \amp  1/3 \\
+                    0 \amp    0 \amp    0 \amp    1 \amp    0 \amp    0 \\
+                    0 \amp    0 \amp    0 \amp    0 \amp    1 \amp    0 \\
+                    0 \amp    0 \amp    1 \amp    0 \amp    0 \amp    0 \\
+                    \end{pmatrix}
+            </md>
+            </p>
+        </example>
+        <p>Sekarang kita dapat meninjau permainan berikut. Mulailah pada salah satu dari empat simpul dalam <m>\{1,2,3,4\}</m>, lalu lanjutkan seperti sebelumnya dengan berpindah melalui pemilihan tetangga secara acak. Simpul <m>4</m> dapat dipandang sebagai titik <q>pelarian</q>, suatu tempat berlindung yang tidak pernah ditinggalkan setelah dicapai. Di sisi lain, simpul <m>5</m> mungkin merupakan tempat seseorang bertemu harimau lapar dan terserap dengan cara yang tidak perlu dirinci di sini.
+        </p>
+
+        <p>Rantai Markov disebut <term>menyerap</term><idx><h>menyerap</h><h>rantai Markov</h></idx> jika terdapat paling sedikit satu keadaan menyerap dan, bagi setiap keadaan <m>S_j</m> yang tidak menyerap, suatu keadaan menyerap dapat dicapai<mdash/>meskipun mungkin diperlukan banyak langkah. Jenis pertanyaan yang ingin kita jawab kini adalah:
+                  <ol>
+            <li><p>Jika kita mulai dalam keadaan tak menyerap <m>S_i</m>, berapakah probabilitas mencapai keadaan menyerap <m>S_j</m> dan kemudian terserap dalam keadaan tersebut, suatu pertanyaan yang menjadi sungguh tidak menyenangkan jika dikaitkan dengan harimau?</p></li>
+            <li><p>Jika kita terserap dalam keadaan <m>S_j</m>, berapakah probabilitas bahwa kita bermula dalam keadaan tak menyerap <m>S_i</m>?</p></li>
+            <li><p>Jika kita mulai dalam keadaan tak menyerap <m>S_i</m>, berapakah nilai harapan waktu hingga kita terserap?</p></li>
+        
+                  </ol>
+                </p>
+    </subsection>
+
+</section>

@@ -1,0 +1,128 @@
+<section xml:id="s_background_prop-integers">
+    <title>Sifat-Sifat Bilangan Bulat</title>
+    <p>Dalam sisa bab ini, sebagian besar pernyataan akan diberikan tanpa bukti. Para mahasiswa dianjurkan untuk melengkapi perinciannya.
+    </p>
+
+    <p>Kita mendefinisikan operasi biner <m>+</m> pada <m>\ints</m> dengan aturan berikut:
+    <md>
+        \langle(a,b)\rangle+\langle(c,d)\rangle = \langle(a+c,b+d)\rangle.
+    </md>
+    Perhatikan bahwa penjumlahan didefinisikan menggunakan wakil-wakil kelas. Karena itu, kita harus memastikan bahwa <m>+</m> <term>terdefinisi dengan baik</term>, <ie/>, tidak bergantung pada wakil tertentu yang dipilih.
+    </p>
+
+    <lemma>
+        <statement>
+            <p>Jika <m>\langle(a,b)\rangle =\langle(c,d)\rangle</m> dan <m>\langle(e,f)\rangle=\langle(g,h)\rangle</m>, maka <m>\langle(a,b)\rangle+\langle(e,f)\rangle= \langle(c,d)\rangle+\langle(g,h)\rangle</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Karena <m>(a,b)\cong(c,d)</m>, kita mengetahui bahwa <m>a+d=b+c</m>. Karena <m>(e,f)\cong(g,h)</m>, kita mengetahui bahwa <m>e+h=f+g</m>. Akibatnya, <m>(a+d)+(e+h) = (b+c)+ (f+g)</m>. Jadi, <m>(a+e)+(d+h)= (b+f)+(c+g)</m>, yang mengakibatkan <m>\langle(a,b)\rangle+\langle(e,f)\rangle= \langle(c,d)\rangle+\langle(g,h)\rangle</m>.
+            </p>
+        </proof>
+    </lemma>
+
+    <p>Dalam pembahasan berikutnya, kita menggunakan satu simbol seperti <m>x</m>, <m>y</m>, atau <m>z</m> untuk menyatakan suatu bilangan bulat. Namun, ingatlah bahwa setiap bilangan bulat sebenarnya merupakan seluruh kelas ekuivalensi yang elemen-elemennya berupa pasangan terurut bilangan asli.
+    </p>
+
+    <theorem>
+        <statement>
+            <p>
+                Untuk semua <m>x,y,z\in\ints</m>,
+                  <ol>
+                <li><p><m>x+y=y+x</m>;</p></li>
+                <li><p><m>x+(y+z)= (x+y)+z</m>; dan</p></li>
+                <li><p><m>x+y= x+z</m> mengakibatkan <m>y=z</m>.</p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </theorem>
+
+    <p>Selanjutnya, kita mendefinisikan operasi biner kedua yang disebut <term>perkalian</term> dan dinyatakan dengan <m>x\times y</m>, <m>x*y</m>, atau cukup <m>xy</m>. Jika <m>x=\langle(a,b)\rangle</m> dan <m>y=\langle(c,d)\rangle</m>, kita definisikan:
+    <md>
+        xy =\langle(a,b)\rangle\langle(c,d)\rangle= \langle(ac+bd, ad+bc)\rangle.
+    </md>
+    </p>
+    <theorem>
+        <statement>
+            <p>
+                Perkalian terdefinisi dengan baik. Selain itu,
+                  <ol>
+                <li><p><m>xy=yx</m>, untuk setiap <m>x,y\in \ints</m>.</p></li>
+                <li><p><m>x(yz)=(xy)z</m>, untuk setiap <m>x,y,z\in \ints</m>.</p></li>
+                <li><p><m>x(y+z)=xy+xz</m>, untuk setiap <m>x,y,z\in \ints</m>.</p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </theorem>
+
+    <p>Bilangan bulat <m>\langle(0,0)\rangle</m> mempunyai sejumlah sifat khusus. Perhatikan bahwa untuk semua <m>x\in\ints</m>, berlaku <m>x+\langle(0,0)\rangle= x</m> dan <m>x\langle(0,0)\rangle=\langle(0,0)\rangle</m>. Karena itu, kebanyakan orang menyebut <m>\langle(0,0)\rangle</m> sebagai <term>nol</term> dan menyatakannya dengan<nbsp/><m>0</m>. Ini merupakan penyalahgunaan notasi yang cukup parah karena sebelumnya kita telah menggunakan kata nol dan simbol <m>0</m> untuk menyatakan suatu bilangan asli tertentu.
+    </p>
+
+    <p>Namun, matematikawan, ilmuwan komputer, bahkan orang biasa melakukan hal ini sepanjang waktu. Kita menggunakan kata yang sama, bahkan frasa yang sama, dalam berbagai konteks dengan harapan pendengar akan memilih penafsiran yang tepat. Sebagai contoh, berapa banyak arti berbeda yang Anda ketahui untuk ungkapan <em>Kamu parah sekali</em>?
+    </p>
+
+    <p>Jika <m>x=\langle(a,b)\rangle</m> merupakan bilangan bulat dan <m>y= \langle(b,a)\rangle</m>, maka <m>x+y=\langle(a+b,a+b)\rangle=0</m>. Bilangan bulat <m>y</m> kemudian disebut <term>invers aditif</term> dari <m>x</m> dan dinyatakan dengan <m>-x</m>. Invers aditif <m>x</m> juga disebut <term>minus <m>x</m></term>. Sifat dasarnya ialah <m>x + (-x) = 0</m> untuk setiap <m>x\in \ints</m>.
+    </p>
+
+    <p>Sekarang kita dapat mendefinisikan operasi biner baru yang disebut <term>pengurangan</term> dan dinyatakan dengan <m>-</m> pada <m>\ints</m> dengan menetapkan <m>x-y= x+(-y)</m>. Secara umum, pengurangan tidak komutatif maupun asosiatif. Namun, operasi ini mempunyai sifat-sifat dasar berikut.
+    </p>
+
+    <theorem>
+        <statement>
+            <p>
+                Untuk semua <m>x,y,z\in\ints</m>,
+                  <ol>
+                <li><p><m>x(-y)=-xy</m>;</p></li>
+                <li><p><m>x(y-z)= xy-xz</m>; dan</p></li>
+                <li><p><m>-(x-y)=y-x</m>.</p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </theorem>
+
+    <p>Selanjutnya, kita mendefinisikan urutan total pada <m>\ints</m> dengan menetapkan <m>x\le y</m> dalam <m>\ints</m> jika <m>x=\langle(a,b)\rangle</m>, <m>y=\langle(c,d) \rangle</m>, dan <m>a+d \le b+c</m> dalam <m>\nonnegints</m>.
+    </p>
+
+    <theorem>
+        <title>Hukum Kemonotonan untuk Penjumlahan</title>
+        <statement>
+            <p>Misalkan <m>x,y,z\in \ints</m>. Jika <m>x\le y</m>, maka <m>x+z\le y+z</m>. Selain itu, jika <m>x\lt y</m>, maka <m>x+z\lt y+z</m>.
+            </p>
+        </statement>
+    </theorem>
+
+    <p>
+        Untuk perkalian, keadaannya lebih rumit.
+    </p>
+
+    <theorem>
+        <title>Hukum Kemonotonan untuk Perkalian</title>
+        <statement>
+            <p>Misalkan <m>x,y,z\in \ints</m>. Jika <m>x\lt y</m>, maka
+                  <ol>
+                <li><p><m>xz\lt yz</m>, jika <m>z&gt;0</m>;</p></li>
+                <li><p><m>xz=yz=0</m>, jika <m>z=0</m>; dan</p></li>
+                <li><p><m>xz&gt;yz</m>, jika <m>z\lt 0</m>.</p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </theorem>
+
+    <p>Sekarang perhatikan fungsi <m>f:\nonnegints\longrightarrow \ints</m> yang didefinisikan oleh <m>f(n) = \langle(n,0)\rangle</m>. Mudah ditunjukkan bahwa <m>f</m> merupakan injeksi. Selain itu, fungsi ini mempertahankan penjumlahan dan perkalian, <ie/>, <m>f(n+m)=f(n)+f(m)</m> dan <m>f(nm)=f(n)f(m)</m>. Perhatikan pula bahwa jika <m>x\in \ints</m>, maka <m>x&gt;0</m> jika dan hanya jika <m>x=f(n)</m> untuk suatu <m>n\in \nonnegints</m>. Karena itu, sudah lazim untuk sedikit menyalahgunakan notasi dan mengatakan bahwa <m>\nonnegints</m> merupakan <q>himpunan bagian</q> dari <m>\ints</m>. Demikian pula, kita dapat memandang himpunan <m>\posints</m> bilangan bulat positif sebagai himpunan bilangan asli yang merupakan penerus, atau sebagai himpunan bilangan bulat yang lebih besar dari<nbsp/><m>0</m>.
+    </p>
+
+    <p>Jika <m>n</m> merupakan bilangan bulat positif dan <m>0</m> merupakan nol dalam <m>\ints</m>, kita definisikan <m>0^n=0</m>. Jika <m>x\in\ints</m>, <m>x\neq 0</m>, dan <m>n\in\nonnegints</m>, kita mendefinisikan <m>x^n</m> secara induktif melalui<nbsp/>(i)<nbsp/><m>x^0=1</m> dan (ii) <m>x^{k+1}=xx^k</m>.
+    </p>
+
+    <theorem>
+        <statement>
+            <p>Jika <m>x\in\ints</m>, <m>x\neq0</m>, dan <m>m,n\in\nonnegints</m>, maka <m>x^mx^n=x^{m+n}</m> dan <m>(x^m)^n=x^{mn}</m>.
+            </p>
+        </statement>
+    </theorem>
+</section>

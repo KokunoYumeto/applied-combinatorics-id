@@ -1,0 +1,46 @@
+<exercises xml:id="s_basics_exercises">
+    <exercise>
+        <statement>
+            <p>Anda diberikan suatu daftar berisi <m>n</m> bilangan bulat yang masing-masing memiliki nilai mutlak paling besar <m>100n</m>. Berapa banyak operasi yang diperlukan untuk melakukan tugas-tugas berikut? Dalam menjawab pertanyaan ini, yang terutama ingin kita ketahui adalah apakah diperlukan <m>\log n</m>, <m>\sqrt{n}</m>, <m>n</m>, <m>n^2</m>, <m>n^3</m>, <m>2^n</m>, <ellipsis/> langkah. Dengan kata lain, abaikan konstanta pengali.
+                  <ol>
+                <li><p>Tentukan apakah bilangan <m>2n+7</m> terdapat dalam daftar.</p></li>
+                <li><p>Tentukan apakah terdapat dua bilangan dalam daftar yang jumlahnya <m>2n+7</m>.</p></li>
+                <li><p>Tentukan apakah terdapat dua bilangan dalam daftar yang hasil kalinya <m>2n+7</m>. Soal ini lebih rumit daripada yang mungkin tampak! Mengurutkan bilangan-bilangan bulat dalam daftar dapat membantu Anda.</p></li>
+                <li><p>Tentukan apakah terdapat suatu bilangan <m>i</m> sedemikian sehingga semua bilangan dalam daftar berada di antara <m>i</m> dan <m>i+2n+7</m>.</p></li>
+                <li><p>Tentukan barisan terpanjang bilangan bulat berurutan yang terdapat dalam daftar.</p></li>
+                <li><p>Tentukan banyaknya bilangan prima dalam daftar.</p></li>
+                <li><p>Tentukan apakah terdapat tiga bilangan bulat <m>x</m>, <m>y</m>, dan <m>z</m> dari daftar sedemikian sehingga <m>x+y=z</m>.</p></li>
+                <li><p>Tentukan apakah terdapat tiga bilangan bulat <m>x</m>, <m>y</m>, dan <m>z</m> dari daftar sedemikian sehingga <m>x^2+y^2=z^2</m>.</p></li>
+                <li><p>Tentukan apakah terdapat tiga bilangan bulat <m>x</m>, <m>y</m>, dan <m>z</m> dari daftar sedemikian sehingga <m>xy=z</m>.</p></li>
+                <li><p>Tentukan apakah terdapat tiga bilangan bulat <m>x</m>, <m>y</m>, dan <m>z</m> dari daftar sedemikian sehingga <m>x^y=z</m>.</p></li>
+                <li><p>Tentukan apakah terdapat dua bilangan bulat <m>x</m> dan <m>y</m> dari daftar sedemikian sehingga <m>x^y</m> merupakan bilangan prima.</p></li>
+                <li><p>Tentukan barisan aritmetika terpanjang dalam daftar. Suatu barisan <m>(a_1, a_2,\dots,a_t)</m> merupakan barisan aritmetika apabila terdapat konstanta <m>d\neq 0</m> sedemikian sehingga <m>a_{i+1}=a_i+d</m> untuk setiap <m>i=1,2, \dots, t-1</m>.</p></li>
+                <li><p>Tentukan banyaknya jumlah berbeda yang dapat dibentuk dari anggota-anggota daftar. Sebarang banyak bilangan bulat dari daftar boleh digunakan sebagai suku dalam jumlah tersebut.</p></li>
+                <li><p>Tentukan banyaknya hasil kali berbeda yang dapat dibentuk dari anggota-anggota daftar. Sebarang banyak bilangan bulat dari daftar boleh digunakan sebagai faktor dalam hasil kali tersebut.</p></li>
+                <li><p>Tentukan bilangan bulat <m>m</m> yang membuat daftar memuat setidaknya <m>10\%</m> dari bilangan-bilangan bulat dalam <m>\{1,2,\dots,m\}</m>.</p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Jika Anda harus memasukkan <m>n+1</m> merpati ke dalam <m>n</m> sarang, setidaknya dua merpati harus dimasukkan ke sarang yang sama. Apa yang terjadi jika Anda harus memasukkan <m>mn+1</m> merpati ke dalam <m>n</m> sarang?</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Perhatikan himpunan <m>X=\{1,2,3,4,5\}</m> dan andaikan Anda memiliki dua sarang. Andaikan pula Anda memiliki <m>10</m> merpati, yaitu subhimpunan-subhimpunan beranggota <m>2</m> dari <m>X</m>. Dapatkah Anda memasukkan <m>10</m> merpati ini ke dalam dua sarang sedemikian sehingga tidak ada subhimpunan beranggota <m>3</m>, <m>S=\{a,b,c\}\subset X</m>, yang semua merpati dari <m>S</m> masuk ke sarang yang sama? Selanjutnya, jawablah pertanyaan yang sama jika <m>X=\{1,2,3,4,5,6\}</m> dengan <m>15 = C(6,2)</m> merpati.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Misalkan <m>n=10,000</m>. Seorang teman memberi tahu Anda bahwa ia memiliki suatu keluarga rahasia subhimpunan dari <m>\{1,2,\dots,n\}</m>, dan jika Anda berhasil menebaknya dengan tepat, ia akan memberi Anda satu juta dolar. Anda merasa mengetahui keluarga subhimpunan yang dimaksudnya, dan keluarga itu memuat tepat separuh dari semua subhimpunan, <ie/>, keluarga tersebut memiliki <m>2^{n-1}</m> subhimpunan. Bahaslah cara menyampaikan dugaan Anda kepada teman tersebut sebagai upaya memenangkan hadiah.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Misalkan <m>N</m> menyatakan himpunan bilangan bulat positif. Jika <m>f:N\rightarrow N</m> adalah suatu fungsi, misalkan <m>E(f)</m> merupakan fungsi yang didefinisikan oleh <m>E(f)(n) = 2^{f(n)}</m>. Tentukan <m>E^5(n^2)</m>.</p>
+        </statement>
+    </exercise>
+</exercises>

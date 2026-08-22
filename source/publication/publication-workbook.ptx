@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<publication>
+    <source>
+        <directories generated="../generated-assets"/>
+        <version include="strings strings-soln induction recur-count-soln graphs graphs-eulerham ham-not-soln graphs-triangle-free graphs-planar graphs-planar-or-not planar-solns graphs-prufer prufer-solns posets posets-partioning posets-partioning-solns posets-subset sublat-width-soln posets-intord-draw-diag posets-intord-draw-diag-solns posets-intord-findrep posets-intord-findrep-solns pie pie-surjections pie-surjections-solns genfunction recurrence recurrence-homog ws-recurrence-homog-soln-1 ws-recurrence-homog-soln recurrence-nonhomog-starting recurrence-nonhomog-full ws-recurrence-nonhomog-soln" />
+    </source>
+    <common>
+      <tableofcontents level="2" />
+      <exercise-divisional statement="yes" hint="yes" answer="no" solution="no"/>
+      <exercise-worksheet statement="yes" hint="yes" answer="no" solution="yes"/>
+      <exercise-project statement="yes" hint="yes" answer="no" solution="yes"/>
+      <worksheet margin="13mm" />
+    </common>
+    <numbering>
+      <blocks level="1" />
+    </numbering>
+
+    <!-- HTML-Specific Options -->
+    <html embed-button="yes">
+      <brandlogo url="https://www.appliedcombinatorics.org/" source="front-cover.png"/>
+      <css theme="default-modern" palette="blues" provide-dark-mode="no"/>
+	    <knowl example="no" />
+    </html>
+    <latex sides="two" />
+</publication>

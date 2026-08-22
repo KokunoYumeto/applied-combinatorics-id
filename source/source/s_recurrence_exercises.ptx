@@ -1,0 +1,156 @@
+<exercises xml:id="s_recurrence_exercises">
+    <exercise>
+        <statement>
+            <p>Tuliskan setiap persamaan rekurensi berikut sebagai persamaan
+            operator pemajuan.
+                  <ol cols="2">
+                <li><p><m>r_{n+2} = r_{n+1}+2r_n</m></p></li>
+                <li><p><m>r_{n+4}=3r_{n+3} - r_{n+2}+2r_n</m></p></li>
+                <li><p><m>g_{n+3} = 5 g_{n+1} - g_n + 3^n</m></p></li>
+                <li><p><m>h_n = h_{n-1} - 2h_{n-2} + h_{n-3}</m></p></li>
+                <li><p><m>r_n = 4r_{n-1} + r_{n-3} - 3 r_{n-5} + (-1)^n</m></p></li>
+                <li><p><m>b_n = b_{n-1} + 3b_{n-2} + 2^{n+1} - n^2</m></p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Selesaikan persamaan rekurensi <m>r_{n+2} = r_{n+1} + 2r_n</m> jika <m>r_0=1</m> dan <m>r_2=3</m> (Ya, kita menetapkan nilai <m>r_2</m>, tetapi tidak menetapkan nilai <m>r_1</m>).</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Tentukan solusi umum persamaan rekurensi <m>g_{n+2} = 3g_{n+1}-2g_n</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Selesaikan persamaan rekurensi <m>h_{n+3} = 6h_{n+2}-11h_{n+1} + 6h_n</m> jika <m>h_0=3</m>, <m>h_1=2</m>, dan <m>h_2=4</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Tentukan rumus eksplisit untuk bilangan Fibonacci ke-<m>n</m>, yaitu <m>f_n</m>. (Lihat <xref ref="s_recurrence_intro_fib"/>.)</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Untuk setiap persamaan operator pemajuan di bawah ini, berikan solusi umumnya.
+                  <ol cols="2">
+                <li><p><m>(A-2)(A+10)f=0</m></p></li>
+                <li><p><m>(A^2-36)f=0</m></p></li>
+                <li><p><m>(A^2-2A-5)f=0</m></p></li>
+                <li><p><m>(A^3-4 A^2-20 A+48)f=0</m></p></li>
+                <li><p><m>(A^3 +A^2-5A+ 3)f=0</m></p></li>
+                <li><p><m>(A^3+3 A^2+3 A+1)f=0</m></p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Selesaikan persamaan operator pemajuan <m>(A^2+3 A-10)f=0</m> jika <m>f(0)=2</m> dan <m>f(1)=10</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Berikan solusi umum untuk setiap persamaan operator pemajuan di bawah ini.
+                  <ol>
+                <li><p><m>(A-4)^3(A+1)(A-7)^4(A-1)^2 f =0</m></p></li>
+                <li><p><m>(A+2)^4(A-3)^2(A-4)(A+7)(A-5)^3g=0</m></p></li>
+                <li><p><m>(A-5)^2(A+3)^3(A-1)^3(A^2-1)(A-4)^3h=0</m></p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Untuk setiap persamaan operator pemajuan nonhomogen, tentukan solusi umumnya.
+                  <ol cols="2">
+                <li><p><m>(A-5)(A+2)f=3^n</m></p></li>
+                <li><p><m>(A^2+3A-1)g = 2^n + (-1)^n</m></p></li>
+                <li><p><m>(A-3)^3 f = 3n+1</m></p></li>
+                <li><p><m>(A^2+3A-1)g = 2n</m></p></li>
+                <li><p><m>(A-2)(A-4)f=3n^2 + 9^n</m></p></li>
+                <li><p><m>(A+2)(A-5)(A-1)f = 5^n</m></p></li>
+                <li><p><m>(A-3)^2(A+1)g=  2\cdot 3^n</m></p></li>
+                <li><p><m>(A-2)(A+3)f=5n2^n</m></p></li>
+                <li><p><m>(A-2)^2(A-1)g=3n^22^n + 2^n</m></p></li>
+                <li><p><m>(A+1)^2(A-3)f = 3^n + 2n^2</m></p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Tentukan dan selesaikan persamaan rekurensi untuk banyaknya <m>g_n</m> untai terner sepanjang <m>n</m> yang tidak memuat <m>102</m> sebagai subuntai.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Ada sebuah teka-teki terkenal bernama Menara Hanoi yang terdiri atas tiga pasak dan <m>n</m> cakram bundar yang semuanya berbeda ukuran. Mula-mula, cakram-cakram tersebut berada pada pasak paling kiri, dengan cakram terbesar di bawah, cakram terbesar kedua tepat di atasnya, dan seterusnya hingga cakram terkecil di puncak. Tujuannya adalah memindahkan cakram-cakram itu sehingga tersusun dalam urutan yang sama pada pasak paling kanan. Namun, Anda hanya boleh memindahkan satu cakram setiap kali, dan cakram yang lebih besar tidak pernah boleh diletakkan di atas cakram yang lebih kecil. Misalkan <m>t_n</m> menyatakan jumlah minimum perpindahan (satu perpindahan berarti mengambil sebuah cakram dari satu pasak dan meletakkannya pada pasak lain) yang diperlukan untuk mencapai tujuan. Tentukan rumus eksplisit untuk <m>t_n</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Sebuah pengenal basis data sah sepanjang <m>n</m> dapat dibentuk dengan tiga cara:
+                  <ul>
+                <li><p>Diawali dengan <m>A</m>, lalu diikuti sebarang pengenal sah sepanjang <m>n-1</m>.</p></li>
+                <li><p>Diawali dengan salah satu untai dua karakter <m>1A</m>, <m>1B</m>, <m>1C</m>, <m>1D</m>, <m>1E</m>, atau <m>1F</m>, lalu diikuti sebarang pengenal sah sepanjang <m>n-2</m>.</p></li>
+                <li><p>Diawali dengan <m>0</m>, lalu diikuti sebarang untai terner (<m>\{0,1,2\}</m>) sepanjang <m>n-1</m>.</p></li>
+            
+                  </ul>
+                </p>
+            <p>Tentukan rekurensi untuk banyaknya <m>g(n)</m> pengenal basis data sepanjang <m>n</m>, lalu selesaikan rekurensi tersebut untuk memperoleh rumus eksplisit bagi <m>g(n)</m>. (Anda boleh menganggap untai kosong sepanjang <m>0</m> sebagai pengenal basis data yang sah, sehingga <m>g(0)=1</m>. Anggapan ini akan menyederhanakan perhitungannya.)</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Misalkan <m>t_n</m> merupakan banyaknya cara menutupi persegi panjang <m>2\times n</m> menggunakan ubin <m>1\times 1</m> dan ubin berbentuk <m>L</m>. Ubin berbentuk <m>L</m> adalah ubin <m>2\times 2</m> yang persegi <m>1\times 1</m> di kanan atasnya dihilangkan. (Ubin berbentuk <m>L</m> boleh diputar sehingga persegi yang <q>hilang</q> berada di salah satu dari keempat posisi.) Tentukan rumus rekursif untuk <m>t_n</m> beserta syarat awal yang cukup untuk memulai rekursinya. Gunakan rumus rekursif tersebut untuk menentukan rumus tertutup bagi <m>t_n</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Buktikan <xref ref="lem_rr"/> tentang persamaan operator pemajuan dengan akar berulang.</p>
+        </statement>
+    </exercise>
+    <exercise xml:id="ex_recurrence_gen-fn">
+        <statement>
+            <p>Gunakan fungsi pembangkit untuk menyelesaikan persamaan rekurensi <m>r_n=r_{n-1}+6r_{n-2}</m> untuk <m>n\geq 2</m> dengan <m>r_0=1</m> dan <m>r_1=3</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Misalkan <m>a_0=0</m>, <m>a_1=2</m>, dan <m>a_2=5</m>. Gunakan fungsi pembangkit untuk menyelesaikan persamaan rekurensi <m>a_{n+3} = 5a_{n+2} - 7a_{n+1}+3a_n + 2^n</m> untuk <m>n\geq 0</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Misalkan <m>b_0=1</m>, <m>b_2=1</m>, dan <m>b_3=4</m>. Gunakan fungsi pembangkit untuk menyelesaikan persamaan rekurensi <m>b_{n+3} = 4b_{n+2}-b_{n+1}-6b_n + 3^n</m> untuk <m>n\geq 0</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Gunakan fungsi pembangkit untuk menentukan rumus tertutup bagi bilangan Fibonacci <m>f_n</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Ada berapa pohon berakar, tak berlabel, biner, dan terurut (RUBOT) dengan <m>6</m> daun? Gambarlah <m>6</m> RUBOT berbeda yang masing-masing memiliki <m>6</m> daun.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Dalam bab ini, kita mengembangkan fungsi pembangkit bagi bilangan Catalan. Kita pertama kali menjumpai bilangan Catalan dalam <xref ref="ch_strings"/>, ketika kita mempelajari bahwa bilangan tersebut mencacah lintasan kisi tertentu. Kembangkan rekurensi untuk banyaknya <m>l_n</m> lintasan kisi yang serupa dengan rekurensi
+            <md>
+                c_n = \sum_{k=0}^n c_k c_{n-k}\qquad \text{untuk } n\geq 2
+            </md>
+            bagi RUBOT dengan memikirkan cara menguraikan lintasan kisi dari <m>(0,0)</m> ke <m>(n,n)</m> yang tidak melintasi diagonal <m>y=x</m> menjadi dua lintasan kisi yang lebih kecil dari jenis yang sama.</p>
+        </statement>
+    </exercise>
+</exercises>

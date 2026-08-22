@@ -1,0 +1,17 @@
+<section xml:id="s_basics_big-oh">
+    <title>Notasi <q>O Besar</q> dan <q>o Kecil</q></title>
+    <p>Misalkan <m>f:\posints\longrightarrow \reals</m> dan <m>g:\posints\longrightarrow\reals</m> merupakan fungsi bernilai tak negatif. Kita menulis <m>f=O(g)</m>, dan mengatakan bahwa <m>f</m> berorde <q><term>O besar</term></q><idx><h>notasi O besar</h></idx> terhadap <m>g</m>, jika terdapat konstanta positif <m>c</m> dan bilangan bulat <m>n_0</m> sedemikian sehingga <m>f(n)\le cg(n)</m> setiap kali <m>n&gt;n_0</m>. Walaupun notasi ini memiliki sejarah panjang, kita dapat memberikan pembenaran yang cukup modern. Jika <m>f</m> dan <m>g</m> sama-sama menyatakan banyaknya operasi yang diperlukan oleh dua algoritma untuk masukan berukuran <m>n</m>, maka <m>f=O(g)</m> berarti bahwa algoritma yang diukur oleh <m>f</m> tidak lebih sulit daripada algoritma yang diukur oleh <m>g</m> ketika ukuran masalahnya besar.
+    </p>
+
+    <p>Kita terutama berkepentingan membandingkan fungsi dengan sejumlah tolok ukur alami, <eg/>, <m>\log\log n</m>, <m>\log n</m>, <m>\sqrt{n}</m>, <m>n^\alpha</m> dengan <m>\alpha\lt 1</m>, <m>n</m>, <m>n^2</m>, <m>n^3</m>, <m>n^c</m> dengan <m>c&gt;1</m> suatu konstanta, <m>n^{\log n}</m>, <m>2^n</m>, <m>n!</m>, <m>2^{n^2}</m>, <etc/>
+    </p>
+
+    <p>Sebagai contoh, dalam <xref ref="s_induction_recursion_sorting"/> kita telah mempelajari adanya algoritma pengurutan dengan waktu berjalan <m>O(n\log n)</m>, dengan <m>n</m> menyatakan banyaknya bilangan bulat yang akan diurutkan. Sebagai contoh kedua, nanti kita akan mempelajari bahwa semua jalur terpendek dari satu simpul akar ke setiap simpul lain dalam graf berorientasi dengan <m>n</m> simpul dan bobot tak negatif pada sisi-sisinya dapat ditemukan oleh algoritma dengan waktu berjalan <m>O(n^2)</m>. Pada ekstrem lainnya, belum diketahui apakah terdapat konstanta <m>c</m> dan algoritma dengan waktu berjalan <m>O(n^c)</m> untuk menentukan apakah bilangan kromatik suatu graf paling banyak tiga.
+    </p>
+
+    <p>Penting untuk diingat bahwa ketika kita menulis <m>f=O(g)</m>, dalam arti tertentu kita menyiratkan bahwa <m>f</m> tidak lebih besar daripada <m>g</m>, tetapi sebenarnya fungsi tersebut mungkin jauh lebih kecil. Sebaliknya, ada kalanya kita benar-benar mengetahui bahwa satu fungsi mendominasi fungsi lainnya. Untuk menyatakan hubungan ini, kita memiliki jenis notasi kedua.
+    </p>
+
+    <p>Misalkan <m>f:\posints\longrightarrow \reals</m> dan <m>g:\posints\longrightarrow\reals</m> merupakan fungsi dengan <m>f(n)&gt;0</m> dan <m>g(n)&gt;0</m> untuk setiap <m>n</m>. Kita menulis <m>f=o(g)</m>, dan mengatakan bahwa <m>f</m> berorde <q><term>o kecil</term></q><idx><h>notasi o kecil</h></idx> terhadap <m>g</m>, jika <m>\lim_{n\rightarrow\infty}f(n)/g(n)=0</m>. Sebagai contoh, <m>\ln n=o(n^{.2})</m>; <m>n^\alpha=o(n^{\beta})</m> setiap kali <m>0\lt \alpha\lt \beta</m>; dan <m>n^{100}=o(c^n)</m> untuk setiap <m>c&gt;1</m>. Secara khusus, kita menulis <m>f(n)=o(1)</m> ketika <m>\lim_{n\rightarrow\infty}f(n)=0</m>.
+    </p>
+</section>

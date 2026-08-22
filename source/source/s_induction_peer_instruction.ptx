@@ -1,0 +1,193 @@
+<exercises xml:id="s_induction_PI" component="runestone-PI">
+  <title>Pertanyaan Instruksi Sejawat</title>
+  <exercise label="induction_PI_subsets-contain-1">
+    <statement>
+      <p>
+      	Berapa banyak subhimpunan berunsur <m>k</m> dari <m>[n]</m> yang <term>memuat</term> bilangan <m>1</m>?
+      </p>  
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>\displaystyle\binom{n}{k-1}</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\displaystyle\binom{n-1}{k-1}</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\displaystyle\binom{n-1}{k}</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Tidak dapat ditentukan tanpa informasi tambahan
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="induction_PI_recursive-eval">
+    <statement>
+      <p>
+        Misalkan <m>f</m> merupakan fungsi pada bilangan bulat <em>positif</em>. Anda mengetahui
+        <md>f(n) = 3 f(n-1) + 2f(n-2) - f(n-3)</md>
+	      serta <m>f(1) = 3</m>, <m>f(2) = 7</m>, dan <m>f(4) = 8</m>. Maka <m>f(6)</m>
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            sama dengan <m>-1</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            sama dengan <m>15</m>
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            sama dengan <m>62</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            tidak dapat ditentukan karena informasi yang tersedia tidak mencukupi.
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="induction_PI_proof-step-1">
+    <statement>
+      <p>
+	      Untuk membuktikan bahwa <m>\displaystyle \sum_{i=1}^n (4i-3) = n(2n-1)</m> bagi semua bilangan bulat positif <m>n</m>, manakah langkah pertama yang paling tepat berikut ini?
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            Ambil <m>n</m> suatu bilangan bulat.
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            Verifikasi untuk <m>n=1</m>.
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Tetapkan suatu bilangan bulat <m>k\geq 1</m>.
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Asumsikan bahwa pernyataan tersebut benar untuk semua <m>k\geq 1</m>.
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="induction_PI_proof-step-2">
+    <statement>
+      <p>
+        Untuk membuktikan bahwa <m>\displaystyle \sum_{i=1}^n (4i-3) = n(2n-1)</m> bagi semua bilangan bulat positif <m>n</m>, manakah langkah berikutnya yang paling tepat?
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            Tetapkan suatu bilangan bulat <m>k\geq n</m>.
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Asumsikan <m>n(2n-1)</m>.
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Ambil <m>k\geq 1</m> suatu bilangan bulat.
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            Asumsikan bahwa untuk suatu bilangan bulat <m>k\geq 1</m>, <m>\displaystyle\sum_{i=1}^k (4i-3) = k(2k-1)</m>.
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="induction_PI_proof-step-3">
+    <statement>
+      <p>
+        Untuk membuktikan bahwa <m>\displaystyle \sum_{i=1}^n (4i-3) = n(2n-1)</m> bagi semua bilangan bulat positif <m>n</m>, manakah langkah berikutnya yang paling tepat?
+      </p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>
+	          Gunakan hipotesis induksi untuk menyimpulkan 
+            <md>\sum_{i=1}^{k+1}(4i-3)= k(2k-1) + 4(k+1)-3</md>.
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Simpulkan bahwa <m>\displaystyle \sum_{i=1}^{k+1} (4i-3)=(k+1)(2(k+1)-1)</m>.
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Pembuktian telah selesai, sehingga tidak ada langkah berikutnya.
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Pilihan lain yang tidak tercantum di atas.
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  </exercises>

@@ -1,0 +1,226 @@
+<section xml:id="s_induction_proofs">
+  <title>Pembuktian dengan Induksi</title>
+  <p>Pembahasan tentang rekursi dan induksi belum lengkap tanpa beberapa contoh wajib mengenai
+    pembuktian dengan induksi. Kita mulai dengan contoh <q>Hello World</q>. </p>
+
+  <proposition xml:id="prop_sumints">
+    <statement>
+      <p>Untuk setiap bilangan bulat positif <m>n</m>, jumlah <m>n</m> bilangan bulat positif pertama adalah <m>
+        n(n+1)/2</m>, <ie/>, <md>
+          \sum_{i=1}^n i=\frac{n(n+1)}{2}.
+        </md>
+      </p>
+    </statement>
+  </proposition>
+
+  <p>Dalam versi pertama bukti <xref ref="prop_sumints"/>, kita secara jelas mengidentifikasi
+    pernyataan terbuka <m>S_n</m> dan menguraikan bukti dengan cermat menggunakan <m>S_n</m>. Seiring
+    bertambahnya pengalaman Anda dalam menulis bukti dengan induksi, penguraian sejelas ini akan semakin tidak diperlukan,
+    seperti yang akan Anda lihat dalam versi kedua bukti tersebut. </p>
+
+  <proof>
+    <p>Misalkan <m>n</m> adalah bilangan bulat positif, dan misalkan <m>S_n</m> adalah pernyataan terbuka <md>
+        \sum_{i=1}^n i = \frac{n(n+1)}{2}.
+      </md> Dengan induksi, kita akan membuktikan bahwa <m>S_n</m>
+      benar untuk semua bilangan bulat positif. Pada kasus dasar, kita harus membuktikan bahwa <m>S_1</m>
+      benar. Ketika <m>n=1</m>, ruas kiri <m>S_n</m> hanyalah <m>1</m>, sedangkan
+      ruas kanannya bernilai <m>1(1+1)/2=1</m>. Oleh karena itu, <m>S_1</m> benar. </p>
+
+    <p>Selanjutnya, kita mengasumsikan bahwa untuk suatu bilangan bulat positif <m>k</m>, <m>S_k</m> benar. Artinya, kita
+      mengasumsikan <md>
+        \sum_{i=1}^k i=\frac{k(k+1)}{2}.
+      </md> Sekarang kita hendak membuktikan bahwa <m>
+      S_{k+1}</m> benar, dimulai dengan meninjau ruas kiri <m>S_{k+1}</m>. Perhatikan
+      bahwa <md>
+        \sum_{i=1}^{k+1}i=\left(\sum_{i=1}^k i\right) +(k+1)=
+        \frac{k(k+1)}{2}+(k+1),
+      </md>
+      karena hipotesis induksi bahwa <m>S_k</m> benar memberi kita rumus yang lebih sederhana untuk
+      penjumlahan tersebut. Dengan melanjutkan sedikit perhitungan aljabar, kita memperoleh <md>
+      \frac{k(k+1)}{2}+(k+1)=\frac{k^2+3k+2}{2}=\frac{(k+1)(k+2)}{2}.
+      </md>
+      Oleh karena itu, <m>S_{k+1}</m> benar. Karena kita telah menunjukkan bahwa <m>S_1</m> benar dan bahwa untuk
+      setiap bilangan bulat positif <m>k</m>, jika <m>S_k</m> benar, maka <m>S_{k+1}</m> benar, kita
+      menyimpulkan bahwa <m>S_n</m> benar untuk semua bilangan bulat positif <m>n</m> berdasarkan <xref ref="princ_math-induction" text="title"/>. </p>
+  </proof>
+
+  <p>Sebelum melihat versi bukti yang lebih ringkas, mari kita bahas sejenak langkah-langkah utama
+    dalam setiap bukti dengan induksi. Langkah pertama adalah <term>kasus dasar</term><idx>
+      <h>kasus dasar</h>
+    </idx>, yaitu menunjukkan bahwa pernyataan terbuka <m>S_1</m> benar. (Perlu
+    dicatat bahwa tidak ada yang istimewa pada <m>1</m> di sini. Jika kita hanya ingin membuktikan bahwa <m>
+    S_n</m> benar untuk semua bilangan bulat <m>n\geq 5</m>, maka membuktikan bahwa <m>S_5</m> benar merupakan
+    kasus dasar.) Ketika membuktikan kasus dasar, jika <m>S_n</m> berupa persamaan, kita tidak cukup hanya menuliskan
+    <m>S_1</m> lalu beralih ke langkah berikutnya. Kita perlu <em>membuktikan</em> bahwa <m>S_1</m> benar. Perhatikan bahwa dalam
+    bukti di atas, kita membahas ruas kiri <m>S_1</m> dan ruas kanan <m>S_1</m>,
+    lalu menyimpulkan bahwa keduanya sama. </p>
+
+  <p>Setelah kasus dasar, terdapat <term>langkah induksi</term><idx>
+      <h>langkah induksi</h>
+    </idx>. Pada langkah ini, kita mengasumsikan bahwa <m>S_k</m> benar untuk <em>suatu</em>
+    bilangan bulat positif <m>k</m> dan membuktikan bahwa <m>S_{k+1}</m> benar. Dalam proses ini, <m>S_k</m>
+    disebut <term>hipotesis induksi</term><idx>
+      <h>hipotesis induksi</h>
+    </idx>. Pada langkah induksi, kesalahan yang paling sering dilakukan mahasiswa
+    adalah memulai dengan keseluruhan <m>S_{k+1}</m> lalu memanipulasinya hingga memperoleh
+    pernyataan yang benar. Cara ini berbahaya karena kita dapat memulai dengan sesuatu yang salah dan, melalui
+    langkah-langkah aljabar yang sah, memperoleh pernyataan yang benar. Pilihan terbaik adalah bekerja seperti pada
+    kasus dasar: jika <m>S_{k+1}</m> berupa persamaan atau pertidaksamaan, olah salah satu ruas hingga menemukan
+    tempat untuk menerapkan hipotesis induksi, kemudian lanjutkan hingga memperoleh ruas lainnya. Jika
+    perhitungan aljabarnya menjadi rumit, Anda juga dapat mengolah ruas kiri <m>S_{k+1}</m>
+    dan, secara terpisah, ruas kanan <m>S_{k+1}</m>. Jika Anda berhasil mengubah
+    kedua ruas menjadi bentuk yang sama, berarti Anda telah menunjukkan bahwa keduanya sama dan <m>S_{k+1}</m>
+    benar. </p>
+
+  <p>Sekarang mari kita lihat bukti <xref ref="prop_sumints"/> yang lebih ringkas. Mulai saat ini,
+    kita akan menggunakan gaya ini ketika menyajikan bukti dengan induksi. Ketika Anda baru mulai mempelajari
+    bukti induksi, mungkin akan lebih membantu jika langkah-langkahnya ditulis lebih terperinci seperti dalam
+    bukti pertama di atas. </p>
+
+  <proof>
+    <p>Pertama, kita membuktikan pernyataan tersebut ketika <m>n=1</m>. Untuk nilai <m>n</m> ini, ruas kiri
+      hanyalah<nbsp/><m>1</m>, sedangkan ruas kanan bernilai <m>1(1+1)/2=1</m>. </p>
+
+    <p>Sekarang asumsikan bahwa untuk suatu bilangan bulat positif <m>k</m>, rumus tersebut berlaku ketika <m>n=k</m>, <ie/>,
+      asumsikan bahwa <md>
+        \sum_{i=1}^k i=\frac{k(k+1)}{2}.
+      </md> Dengan demikian, diperoleh <md>
+      \sum_{i=1}^{k+1}i=\left(\sum_{i=1}^k i\right) +(k+1)=
+      \frac{k(k+1)}{2}+(k+1)=\frac{k^2+3k+2}{2}=\frac{(k+1)(k+2)}{2}.
+      </md>
+      Jadi, rumus tersebut juga berlaku ketika <m>n=k+1</m>. Berdasarkan <xref ref="princ_math-induction" text="title"/>, rumus tersebut berlaku untuk semua bilangan bulat positif <m>n</m>. </p>
+  </proof>
+
+  <p>Argumen-argumen sebelumnya 100% benar<ellipsis/> tetapi sebagian matematikawan kombinatorial
+    mungkin berpendapat bahwa argumen tersebut justru menyembunyikan apa yang sebenarnya terjadi. Mereka jauh lebih menyukai
+    bukti kombinatorial, seperti yang diberikan dalam <xref ref="s_strings_comb-proof"/>. Menurut kami,
+    Anda sebaiknya memilih bukti kombinatorial<mdash/>jika dapat menemukannya. Namun, jika
+    diperlukan, Anda harus mampu memberikan bukti formal dengan induksi matematika. </p>
+
+  <p>Berikut contoh kedua, yang juga sangat klasik. Ingat kembali bahwa kita telah memberikan bukti kombinatorial
+    pada bab sebelumnya. Saat membaca bukti ini, pastikan Anda dapat mengidentifikasi pernyataan terbuka <m>S_n</m>,
+    kasus dasar, dan langkah induksi. </p>
+
+  <proposition xml:id="prop_sumodd">
+    <statement>
+      <p>Untuk setiap bilangan bulat positif <m>n</m>, jumlah <m>n</m> bilangan bulat positif ganjil pertama adalah <m>
+        n^2</m>, <ie/>, <md>
+          \sum_{i=1}^n (2i-1)= n^2.
+        </md>
+      </p>
+    </statement>
+
+    <proof>
+      <p>Kita akan membuktikannya dengan induksi. Pertama, perhatikan bahwa rumus tersebut berlaku ketika <m>n=1</m>. Sekarang,
+        misalkan <m>k</m> adalah bilangan bulat positif dan rumus tersebut berlaku ketika <m>n=k</m>, <ie/>,
+        asumsikan <md>
+          \sum_{i=1}^k (2i-1)= k^2.
+        </md> Maka <md>
+        \sum_{i=1}^{k+1}(2i-1)=\left(\sum_{i=1}^k (2i-1)\right)+2k+1=
+          k^2+(2k+1)=(k+1)^2.
+        </md>
+        Oleh karena itu, proposisi tersebut terbukti berdasarkan <xref ref="princ_math-induction" text="title"/>. </p>
+    </proof>
+  </proposition>
+
+
+  <p>Berikut versi yang lebih umum dari hasil pertama dalam bagian ini. Sekali lagi, perlu diingat bahwa kita
+    telah memberikan bukti kombinatorial dalam <xref ref="s_strings_comb-proof"/>. </p>
+
+  <proposition xml:id="prop_sum-bincoeffs">
+    <statement>
+      <p>Misalkan <m>n</m> dan <m>k</m> adalah bilangan bulat tak negatif dengan <m>n\ge k</m>. Maka <md>
+        \sum_{i=k}^n \binom{i}{k}=\binom{n+1}{k+1}.
+        </md>
+      </p>
+    </statement>
+
+    <proof>
+      <p>Tetapkan <m>k</m> sebagai bilangan bulat tak negatif. Selanjutnya, kita membuktikan rumus tersebut dengan induksi terhadap <m>n</m>. Jika <m>
+        n=k</m>, perhatikan bahwa ruas kiri hanyalah <m>\binom{k}{k}=1</m>, sedangkan ruas
+        kanan adalah <m>\binom{k+1}{k+1}</m>, yang juga bernilai<nbsp/><m>1</m>. Sekarang, asumsikan bahwa <m>m</m> adalah
+        bilangan bulat tak negatif dengan <m>m\ge k</m>, dan rumus tersebut berlaku ketika <m>n=m</m>, <ie/>,
+        asumsikan bahwa <md>
+          \sum_{i=k}^m \binom{i}{k}=\binom{m+1}{k+1}.
+        </md> Maka <md>
+          <mrow> \sum_{i=k}^{m+1}\binom{i}{k} \amp = \sum_{i=k}^{m}\binom{i}{k} +\binom{m+1}{k}</mrow>
+          <mrow> \amp =\binom{m+1}{k+1}+\binom{m+1}{k}</mrow>
+          <mrow> \amp =\binom{m+2}{k+1}.</mrow>
+        </md> Oleh karena itu, proposisi tersebut terbukti berdasarkan
+        Prinsip Induksi Matematika. </p>
+    </proof>
+  </proposition>
+  <reading-questions xml:id="rqs-induction_proofs" component="runestone">
+    <exercise label="induction_proofs_hanoi" adaptive="yes">
+      <statement>
+        <p> Misalkan <m>t(n)</m> adalah fungsi rekursif yang didefinisikan untuk <m>n\geq 1</m>, dengan <m>t(1)=1</m> dan, untuk <m>n\geq 2</m>, <m>t(n)=2t(n-1)+1</m>. Susunlah bukti bahwa untuk semua <m>n\geq 1</m>, <m>t(n) = 2^n - 1</m>.
+              </p>
+      </statement>
+      <blocks>
+        <block order="8">
+          <p>
+            Misalkan <m>S_n</m> adalah pernyataan bahwa <m>t(n) = 2^n - 1.</m>
+          </p>
+        </block>
+        <block order="2">
+          <choice>
+            <p> Kita melihat bahwa <m>t(1)=2^1 - 1 = 1</m>, sehingga kasus dasar benar.</p>
+          </choice>
+          <choice correct="yes">
+            <p> Karena <m>2^1 - 1 = 1</m> dan <m>t(1)=1</m>, kita melihat bahwa kasus dasar benar.</p>
+          </choice>
+          <choice>
+            <p> Langkah basis sudah jelas, jadi kita lanjutkan. </p>
+          </choice>
+        </block>
+
+        <block order="11" correct="no">
+          <p>
+            Asumsikan bahwa untuk semua bilangan bulat <m>k\geq 1</m>, <m>S_k</m> benar. Artinya, <m>t(k) = 2^k - 1</m>.
+          </p>
+        </block>
+        <block order="7">
+          <p>
+            Asumsikan bahwa untuk suatu bilangan bulat <m>k\geq 1</m>, <m>S_k</m> benar. Artinya, <m>t(k) = 2^k - 1</m>.
+          </p>
+        </block>
+
+        <block order="5">
+          <p> Kita harus membuktikan bahwa <m>S_{k+1}</m> benar. Artinya, kita akan membuktikan bahwa <m>t(k+1)=2^{k+1}-1</m>. </p>
+        </block>
+        <block order="4" correct="no">
+          <p> Karena <m>S_{k}</m> benar untuk semua <m>k\geq 1</m>, kita mengetahui bahwa <m>S_{k+1}</m> benar. </p>
+        </block>
+        <block order="6">
+          <p> Karena <m>k\geq 1</m>, kita mengetahui bahwa <m>k+1 \geq 2</m>, sehingga <m>t(k+1) = 2t(k+1-1)+1 = 2t(k)+1</m>.</p>
+        </block>
+        <block order="9" correct="no">
+          <p> Kita memperoleh <m>t(k+1) = 2t(k+1-1)+1 = 2t(k)+1</m>.</p>
+        </block>
+        <block order="3">
+          <p>
+            Berdasarkan hipotesis induksi, karena <m>S_k</m> benar, kita mengetahui bahwa <m>t(k)= 2^k-1</m>.
+          </p>
+        </block>
+        <block order="10">
+          <p>
+            Jadi, <m>t(k+1)=2t(k)+1 = 2(2^k-1)+1 = 2^{k+1}-1</m>. Hal ini membuktikan bahwa <m>S_{k+1}</m> benar.
+          </p>
+        </block>
+        <block order="1">
+          <p>
+            Oleh karena itu, berdasarkan Prinsip Induksi Matematika, untuk semua bilangan bulat positif <m>n</m>, berlaku <m>t(n)=2^n-1</m>.
+          </p>
+        </block>
+      </blocks>
+    </exercise>
+    <exercise label="induction_proofs_ind-hyp">
+      <statement>
+        <p>
+          Tulislah beberapa kalimat yang menjelaskan mengapa membuat hipotesis induksi tidak sama dengan mengasumsikan hal yang sedang kita coba buktikan.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

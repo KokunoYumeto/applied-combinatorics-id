@@ -1,0 +1,89 @@
+<section xml:id="s_background_finite-sets">
+    <title>Himpunan Hingga</title>
+    <p>Suatu himpunan <m>X</m> disebut <term>hingga</term><idx><h>himpunan</h><h>hingga</h></idx> jika salah satu dari kondisi berikut berlaku: (1) <m>X=\emptyset</m>; atau (2) terdapat bilangan bulat positif <m>n</m> dan bijeksi <m>f:[n]\bijection X</m>. Jika <m>X</m> bukan himpunan hingga, himpunan itu disebut <term>tak hingga</term><idx><h>himpunan</h><h>tak hingga</h></idx>. Sebagai contoh, <m>\{a,\emptyset,(3,2),\posints\}</m> dan <m>\posints\times\emptyset</m> merupakan himpunan hingga. Sebaliknya, <m>\posints\times \{\emptyset\}</m> merupakan himpunan tak hingga. Tentu saja, <m>[n]</m> dan <m>\bfn</m> merupakan himpunan hingga untuk setiap <m>n\in\posints</m>.
+    </p>
+
+    <proposition>
+        <statement>
+            <p>Jika <m>X</m> merupakan himpunan hingga tak kosong, terdapat bilangan bulat positif tunggal <m>n</m> sedemikian sehingga terdapat bijeksi <m>f:[n]\bijection X</m>.
+            </p>
+        </statement>
+    </proposition>
+
+    <p>Dalam beberapa kasus, menentukan apakah suatu himpunan hingga atau tak hingga memerlukan usaha. Berikut adalah hasil yang benar-benar klasik.
+    </p>
+
+    <proposition>
+        <statement>
+            <p>Himpunan bilangan prima <m>P</m> bersifat tak hingga.
+            </p>
+        </statement>
+
+    <proof>
+        <p>Andaikan himpunan bilangan prima <m>P</m> hingga. Himpunan ini tidak kosong karena <m>2\in P</m>. Misalkan <m>n</m> merupakan bilangan bulat positif tunggal sedemikian sehingga terdapat bijeksi <m>f:[n]\rightarrow P</m>. Selanjutnya, tetapkan
+        <md>
+            p=1+f(1)\times f(2)\times f(3)\times \dots\times f(n)
+        </md>
+        Bilangan <m>p</m> tidak habis dibagi oleh satu pun bilangan prima dalam <m>P</m>, tetapi lebih besar daripada setiap unsur <m>P</m>. Jadi, <m>p</m> merupakan bilangan prima atau mempunyai faktor prima yang tidak termasuk dalam <m>P</m>. Kontradiksi ini menyelesaikan bukti.
+        </p>
+    </proof>
+    </proposition>
+    <p>Berikut adalah contoh terkenal suatu himpunan yang belum diketahui hingga atau tak hingga.
+    </p>
+    <conjecture>
+        <statement>
+            <p>
+            Diduga bahwa himpunan berikut bersifat tak hingga:
+            <md>
+                T=\{n\in\posints:n \text{ dan }  n+2 \text{ keduanya
+                prima } \}.
+            </md>
+            </p>
+        </statement>
+    </conjecture>
+    <p>Konjektur ini dikenal sebagai <em>Konjektur Prima Kembar</em>. Nilai <m>\text{A} ++</m> dijamin bagi mahasiswa mana pun yang berhasil menuntaskannya!
+    </p>
+
+    <proposition xml:id="exe_sb">
+        <statement>
+            <p>Misalkan <m>X</m> dan <m>Y</m> merupakan himpunan hingga. Jika terdapat injeksi <m>f:X\injection Y</m> dan injeksi <m>g:Y \injection X</m>, maka terdapat bijeksi <m>h:X \bijection Y</m>.
+            </p>
+        </statement>
+    </proposition>
+
+    <p>Jika <m>X</m> merupakan himpunan hingga tak kosong, <term>kardinalitas</term><idx><h>kardinalitas</h></idx> dari <m>X</m>, yang dinotasikan dengan <m>|X|</m> <notation><usage><m>|X|</m></usage><description>kardinalitas himpunan <m>X</m></description></notation>, adalah bilangan bulat positif tunggal <m>n</m> sedemikian sehingga terdapat bijeksi <m>f:[n]\bijection X</m>. Secara intuitif, <m>|X|</m> adalah banyaknya unsur dalam <m>X</m>. Sebagai contoh,
+    <md>
+        |\{(6,2), (8,(4,\emptyset)), \{3,\{5\}\}\}|=3.
+    </md>
+        Berdasarkan konvensi, kardinalitas himpunan kosong ditetapkan sama dengan nol, dan kita menulis <m>|\emptyset|=0</m>.
+    </p>
+
+    <proposition xml:id="prop_xy">
+        <statement>
+            <p>Jika <m>X</m> dan <m>Y</m> merupakan himpunan hingga tak kosong, maka <m>|X\times Y| =|X|\times |Y|</m>.
+            </p>
+        </statement>
+    </proposition>
+
+        <p>Perhatikan bahwa pernyataan dalam <xref ref="prop_xy"/> merupakan contoh <q>pembebanan berlebih pada operator</q>, suatu teknik yang tersedia dalam beberapa bahasa pemrograman. Secara khusus, tanda kali <m>\times</m> digunakan dua kali, tetapi mempunyai arti yang berbeda. Dalam <m>X\times Y</m>, tanda itu menyatakan produk Kartesius, sedangkan dalam <m>|X|\times |Y|</m>, tanda itu menyatakan perkalian biasa bilangan bulat positif. Bahasa pemrograman dapat melacak tipe data variabel dan menerapkan penafsiran yang tepat bagi operator seperti <m>\times</m> berdasarkan variabel yang dikenainya.
+        </p>
+        <p>Kita juga mempunyai bentuk umum <xref ref="prop_xy"/> berikut:
+        <md>
+            |X_1\times X_2\times\dots\times X_n|=
+            |X_1|\times |X_2|\times\dots\times |X_n|
+        </md>
+    </p>
+
+    <theorem>
+        <statement>
+            <p>
+               <ol>
+                <li><p>Terdapat bijeksi di antara sebarang dua dari himpunan-himpunan
+                tak hingga berikut: <m>\posints</m>, <m>\ints</m>, dan <m>\rats</m>.</p></li>
+                <li><p>Terdapat injeksi dari <m>\rats</m> ke <m>\reals</m>.</p></li>
+                <li><p>Tidak terdapat fungsi surjektif dari <m>\rats</m> ke <m>\reals</m>.</p></li>
+               </ol>
+            </p>
+        </statement>
+    </theorem>
+</section>

@@ -1,0 +1,157 @@
+<exercises xml:id="s_polya_exercises">
+    <exercise xml:id="ex_polya_perm-rep">
+        <statement>
+            <p>Tuliskan permutasi-permutasi berikut dalam notasi siklus.
+            <md>
+                <mrow>  \pi_1 \amp =
+                \begin{pmatrix}
+                1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6</mrow>
+                <mrow>  4 \amp  2 \amp  5 \amp  6 \amp  3 \amp  1
+                \end{pmatrix}
+                \amp 
+                \pi_2 \amp =
+                \begin{pmatrix}
+                1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6</mrow>
+                <mrow>  5 \amp  6 \amp  1 \amp  3 \amp  4 \amp  2
+                \end{pmatrix}</mrow>
+                <mrow>  \pi_3 \amp =
+                \begin{pmatrix}
+                1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6 \amp  7 \amp  8</mrow>
+                <mrow>  3 \amp  1 \amp  5 \amp  8 \amp  2 \amp  6 \amp  4 \amp  7
+                \end{pmatrix}
+                \amp 
+                \pi_4 \amp =
+                \begin{pmatrix}
+                1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6 \amp  7 \amp  8</mrow>
+                <mrow>  3 \amp  7 \amp  1 \amp  6 \amp  8 \amp  4 \amp  2 \amp  5 
+                \end{pmatrix}</mrow>
+            </md>
+            </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Hitung <m>\pi_1\pi_2</m>, <m>\pi_2\pi_1</m>, <m>\pi_3\pi_4</m>, dan
+            <m>\pi_4\pi_3</m> untuk permutasi <m>\pi_i</m> dalam
+            <xref ref="ex_polya_perm-rep"/>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Tentukan <m>\stab_{D_8}(C_3)</m> dan <m>\stab_{D_8}(C_{16})</m> untuk pewarnaan simpul-simpul persegi yang ditunjukkan dalam <xref ref="fig_polya_squares"/> dengan mengacu pada <xref ref="tab_polya_fixed-square"/>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Dalam <xref ref="fig_polya_pentagon"/>, ditampilkan segi lima beraturan dengan simpul-simpul berlabel. Gunakan pelabelan ini untuk menyelesaikan latihan.
+            </p>
+            <figure xml:id="fig_polya_pentagon">
+                <caption>Segi lima dengan simpul-simpul berlabel</caption>
+                <image width="25%">
+                    <description><p>Segi lima dengan simpul-simpul berlabel</p>
+                </description><latex-image>\begin{overpic}[scale=0.65]{external/pentagon}
+                    \put(9,2){\(4\)}
+                    \put(84,4){\(3\)}
+                    \put(102,53){\(2\)}
+                    \put(-8,53){\(5\)}
+                    \put(46,100){\(1\)}
+                    \end{overpic}</latex-image>
+                </image>
+
+            </figure>
+            <p>
+                <ol>
+                    <li><p>Grup dihedral segi lima, <m>D_{10}</m>, memuat <m>10</m> permutasi. Misalkan <m>r_1=(12345)</m> merupakan rotasi <m>72^\circ</m> searah jarum jam dan <m>f_1=(1)(25)(34)</m> merupakan pencerminan terhadap garis yang melalui <m>1</m> dan tegak lurus terhadap sisi di seberangnya. Misalkan <m>r_2</m>, <m>r_3</m>, dan <m>r_4</m> merupakan rotasi-rotasi lain dalam <m>D_{10}</m>. Nyatakan pencerminan terhadap garis yang melalui simpul <m>i</m> dan tegak lurus terhadap sisi di seberangnya dengan <m>f_i</m>, <m>1\leq i\leq 5</m>. Tuliskan seluruh <m>10</m> elemen <m>D_{10}</m> dalam notasi siklus.</p></li>
+                    <li><p>Misalkan simpul-simpul segi lima diwarnai hitam dan putih. Gambarkan pewarnaan yang ditetapkan oleh <m>r_1</m>. Gambarkan pewarnaan yang ditetapkan oleh <m>f_1</m>.</p></li>
+                    <li><p>Tentukan <m>\stab_{D_{10}}(C)</m>, dengan <m>C</m> merupakan pewarnaan simpul-simpul segi lima yang memberi warna hitam pada simpul <m>1</m>, <m>2</m>, dan <m>5</m>, serta warna putih pada simpul <m>3</m> dan <m>4</m>.</p></li>
+                    <li><p>Tentukan indeks siklus <m>D_{10}</m>.</p></li>
+                    <li><p>Gunakan indeks siklus untuk menentukan banyak pewarnaan tak ekuivalen pada simpul-simpul segi lima menggunakan warna hitam dan putih.</p></li>
+                    <li><p>Dengan melakukan substitusi yang sesuai bagi <m>x_i</m> dalam indeks siklus, tentukan banyak pewarnaan tak ekuivalen pada simpul-simpul segi lima yang mempunyai dua simpul hitam dan tiga simpul putih. Gambarkan pewarnaan-pewarnaan tersebut.</p></li>
+                </ol>
+            </p>
+        </statement>
+    </exercise>
+    <exercise xml:id="ex_polya_cyclic12">
+        <statement>
+            <p>Tuliskan seluruh permutasi dalam <m>C_{12}</m>, grup siklis berorde <m>12</m>, dalam notasi siklus.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Tangga nada Barat dengan <m>12</m> nada bukanlah satu-satunya sistem yang mendasari musik. Musik klasik Thailand menggunakan tangga nada dengan tujuh nada berjarak sama pada setiap oktaf. Seperti dalam musik Barat, tangga nada merupakan himpunan bagian dari ketujuh nada tersebut, dan dua tangga nada ekuivalen jika keduanya merupakan transposisi satu sama lain. Tentukan banyak tangga nada dengan <m>k</m> nada dalam musik klasik Thailand untuk <m>1\leq k\leq 7</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Xilena merupakan hidrokarbon aromatik yang mempunyai dua gugus metil (dan empat atom hidrogen) yang terikat pada cincin karbon heksagonal. Berapa banyak isomer xilena?</p>
+        </statement>
+    </exercise>
+    <exercise xml:id="ex_polya_perm-pairs">
+        <statement>
+            <p>Tentukan permutasi dalam <m>S_4^{(2)}</m> yang bersesuaian dengan permutasi <m>(1234)</m> dan <m>(12)(34)</m> dalam <m>S_4</m>. Pastikan bahwa permutasi pertama terdiri atas satu siklus-<m>4</m> dan satu siklus-<m>2</m>, sedangkan permutasi kedua terdiri atas dua siklus-<m>2</m> dan dua siklus-<m>1</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Gambarkan tiga graf tak isomorfik pada empat verteks yang mempunyai <m>3</m> sisi dan dua graf tak isomorfik pada empat verteks yang mempunyai <m>4</m> sisi.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>
+               <ol>
+                    <li xml:id="ex_polya_graphs5-pt1"><p>Gunakan metode dalam <xref ref="ss_polya_graphs"/> untuk menentukan indeks siklus grup pasangan <m>S_5^{(2)}</m> dari grup simetris pada lima elemen.</p></li>
+                    <li><p>Gunakan indeks siklus dari <xref ref="ex_polya_graphs5-pt1"/> untuk menentukan banyak graf tak isomorfik pada lima verteks. Berapa banyak di antaranya yang mempunyai <m>6</m> sisi?</p></li>
+               </ol>
+            </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Tic-tac-toe merupakan permainan dua pemain pada kisi <m>3\times 3</m>. Para pemain menandai petak-petak kisi dengan simbol X dan O. Latihan ini menggunakan teorema enumerasi P&#243;lya untuk menyelidiki banyak papan tic-tac-toe yang berbeda. (Analisis <em>permainan</em> lebih rumit karena harus memperhatikan urutan petak ditandai dan berhenti ketika salah satu pemain telah menang.)</p>
+                        <figure xml:id="fig_polya_TTT">
+                    <caption>Petak-petak bernomor pada papan tic-tac-toe</caption>
+                    <image width="35%">
+                    <description><p>Petak-petak bernomor pada papan tic-tac-toe</p>
+                    </description><latex-image>
+                        \begin{picture}(100,100)
+                        \thicklines
+                        \Line(33,0)(33,100)
+                        \Line(67,0)(67,100)
+                        \Line(0,33)(100,33)
+                        \Line(0,67)(100,67)
+                        \put(15,80){$1$}
+                        \put(48,80){$2$}
+                        \put(83,80){$3$}
+                        \put(15,45){$4$}
+                        \put(48,45){$5$}
+                        \put(83,45){$6$}
+                        \put(15,13){$7$}
+                        \put(48,13){$8$}
+                        \put(83,13){$9$}
+                        \end{picture}
+                    </latex-image>
+                    </image>
+                </figure>
+                <p>
+                    <ol>
+                        <li><p>Dua papan tic-tac-toe ekuivalen jika salah satunya dapat diperoleh dari yang lain dengan memutar atau membalik papan. (Bayangkan papan itu digambar pada lembaran plastik bening.) Karena kisi <m>3\times 3</m> berbentuk persegi, grup yang bertindak padanya dengan cara ini ialah grup dihedral <m>D_8</m> yang telah dipelajari dalam bab ini. Namun, seperti dalam menghitung graf tak isomorfik, kita harus berhati-hati memilih representasi siklus grup tersebut. Di sini kita memperhatikan cara permutasi menyusun ulang sembilan petak papan tic-tac-toe yang diberi nomor seperti dalam <xref ref="fig_polya_TTT"/>. Sebagai contoh, pengaruh transformasi <m>r_1</m>, yang memutar papan <m>90^\circ</m> searah jarum jam, dapat dinyatakan sebagai permutasi sembilan petak berupa <m>(1397)(2684)(5)</m>.</p>
+                        <p>Tuliskan kedelapan elemen <m>D_8</m> sebagai permutasi sembilan petak papan tic-tac-toe.</p></li>
+                        <li><p>Tentukan indeks siklus <m>D_8</m> berdasarkan permutasi-permutasi tersebut.</p></li>
+                        <li><p>Lakukan substitusi yang sesuai bagi <m>x_i</m> dalam indeks siklus untuk memperoleh fungsi pembangkit <m>t(X,O)</m> yang koefisien <m>X^iO^j</m>-nya merupakan banyak papan tic-tac-toe tak ekuivalen dengan <m>i</m> petak berisi simbol X dan <m>j</m> petak berisi simbol O. (Perhatikan bahwa beberapa petak dapat kosong!)</p></li>
+                        <li><p>Berapa banyak papan tic-tac-toe tak ekuivalen?</p></li>
+                        <li><p>Berapa banyak papan tic-tac-toe tak ekuivalen yang mempunyai tiga X dan tiga O?</p></li>
+                        <li><p>Dalam permainan tic-tac-toe, para pemain bergiliran; pada setiap giliran, pemain menggambar simbolnya di satu petak kosong. Misalkan pemain pertama menandai petaknya dengan X dan pemain kedua dengan O. Pada setiap tahap permainan, banyak X dan O sama, atau terdapat satu X lebih banyak daripada O. Gunakan fakta ini dan <m>t(X,O)</m> untuk menentukan banyak papan tic-tac-toe tak ekuivalen yang benar-benar dapat diperoleh dalam permainan, dengan asumsi para pemain terus bermain hingga papan penuh tanpa memperhatikan apakah salah satunya telah menang.</p></li>
+                    </ol>
+                </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Misalkan Anda mewarnai sisi-sisi sebuah kubus dan tersedia cat putih, emas, serta biru. Dua kubus berwarna dianggap ekuivalen jika salah satunya dapat diputar sehingga semua sisi yang bersesuaian mempunyai warna yang sama. Tentukan banyak cara tak ekuivalen untuk mewarnai sisi-sisi kubus tersebut, serta banyak pewarnaan yang mempunyai dua sisi dari setiap warna.</p>
+        </statement>
+        <hint>
+            <p>Mungkin akan membantu jika sisi-sisi diberi label <m>U</m> (<q>atas</q>, dari istilah Inggris up), <m>D</m> (<q>bawah</q>, down), <m>F</m> (<q>depan</q>, front), <m>B</m> (<q>belakang</q>, back), <m>L</m> (<q>kiri</q>, left), dan <m>R</m> (<q>kanan</q>, right), bukan bilangan bulat. Menggunakan model kubus tiga dimensi juga membantu mengidentifikasi permutasi yang diperlukan.</p>
+        </hint>
+    </exercise>
+</exercises>

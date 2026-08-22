@@ -1,0 +1,119 @@
+<section xml:id="s_posets_intervalorder_findrep">
+  <title>Menemukan Representasi Urutan Interval</title>
+  <p>Pada bagian ini, kita mengembangkan algoritme untuk menemukan representasi interval dari suatu
+    urutan interval. Bahkan, algoritme ini dapat diterapkan pada poset apa pun. Algoritme tersebut
+    akan menemukan representasi interval atau menemukan subposet yang isomorfik dengan <m>\bftwo+\bftwo</m>.
+    Sebagai konsekuensinya, kita membuktikan arah sebaliknya dari <xref ref="thm_fishburn" text="title"/>. </p>
+
+  <p>Jika <m>\PXP</m> merupakan urutan interval dan <m>n</m> bilangan bulat positif, mungkin ada banyak
+    cara untuk merepresentasikan <m>\bfP</m> menggunakan interval yang titik ujungnya berupa bilangan
+    bulat dalam <m>[n]</m>. Namun, tentu ada <m>n</m> terkecil yang memungkinkan ditemukannya sebuah
+    representasi, dan di sini kita akan melihat bahwa representasi tersebut unik. Pembahasan ini
+    kembali menggunakan notasi himpunan bawah dan himpunan atas yang diperkenalkan sebelum bukti
+    <xref ref="thm_dilworth" text="title"/>. Sebagai pengingat, notasi tersebut kita ulangi di sini.
+    Untuk poset <m>\PXP</m> dan subhimpunan <m>S\subset X</m>, misalkan <m>D(S)
+    = \{y\in X:</m> terdapat suatu <m>x\in S</m> sedemikian sehingga <m>y\lt x</m> dalam <m>P\}</m>.
+    Misalkan pula <m>D[S]=D(S)\cup
+    S</m>. Jika <m>|S|=1</m>, katakanlah <m>S=\{x\}</m>, kita menulis <m>D(x)</m> dan <m>D[x]</m>, bukan <m>
+    D(\{x\})</m> dan <m>D[\{x\}]</m>. Secara dual, untuk subhimpunan <m>S\subseteq X</m>, kita
+    mendefinisikan <m>U(S) =
+    \{y\in X:</m> terdapat suatu
+    <m>x\in S</m> sedemikian sehingga <m>y&gt;x</m> dalam <m>P\}</m>. Seperti sebelumnya, misalkan
+    <m>U[S]=U(S)\cup
+    S</m>. Jika <m>S=\{x\}</m>, kita cukup menulis <m>U(x)</m> untuk
+    <m>\{y\in X:x\lt y</m> dalam <m>P\}</m>.
+    </p>
+
+  <p>Misalkan <m>\PXP</m> sebuah poset. Kita memulai prosedur dengan mencari keluarga subhimpunan
+    berikut dari himpunan dasar: <m>\mathcal{D} = \{D(x):x\in X\}</m>. Selanjutnya, kita membedakan
+    dua kasus. Dalam kasus pertama, terdapat dua elemen berbeda <m>x</m> dan <m>y</m> sedemikian sehingga
+    <m>D(x)\nsubseteq D(y)</m> dan <m>D(y)\nsubseteq
+    D(x)</m>. Dalam kasus ini, kita memilih sebuah elemen <m>z\in D(x)-D(y)</m> dan sebuah elemen <m>w\in
+    D(y)-D(x)</m>. Dengan demikian, keempat elemen dalam <m>\{x,y,z,w\}</m> membentuk subposet dari <m>
+    \bfP</m> yang isomorfik dengan
+    <m>\bftwo+\bftwo</m>. </p>
+
+  <p>Kasus kedua ialah <m>D(x)\subseteq D(y)</m> atau <m>D(y)\subseteq D(x)</m> untuk setiap <m>x,y\in
+    X</m>. Dalam kasus ini, akan kita tunjukkan bahwa <m>\bfP</m> merupakan urutan interval. Sekarang
+    tentukan keluarga <m>\mathcal{U}
+    = \{U(x):x\in X\}</m>. Mudah dilihat bahwa dalam kasus ini kita selalu memiliki <m>U(x)\subseteq
+    U(y)</m> atau <m>U(y)\subseteq U(x)</m> untuk setiap <m>x,y\in X</m>. </p>
+
+  <p>Misalkan <m>d=|\mathcal{D}|</m>. Dalam latihan, kami akan menyajikan (sebenarnya, dengan mengerjakan
+    pekerjaan rumah, <em>Anda</em>lah yang akan menyajikan) rincian yang mendukung pernyataan berikut:
+    <m>
+    |\mathcal{U}|=|\mathcal{D}|</m>. Untuk sementara, kita menganggap pernyataan ini benar. Beri
+    label pada himpunan-himpunan dalam <m>\mathcal{D}</m> dan <m>\mathcal{U}</m>, secara berurutan,
+    sebagai <m>D_1</m>, <m>D_2,\dots,D_d</m> dan <m>U_1</m>, <m>U_2,\dots,U_d</m> sedemikian sehingga <md>
+      \emptyset= D_1\subset D_2\subset D_3\subset\dots\subset D_d
+      \quad\text{and}
+    </md>
+    <md>
+    U_1\supset U_{2}\supset\cdots \supset U_{d-2}\supset U_{d-1}\supset\dots\supset U_d
+      =\emptyset.
+    </md>
+    Kita membentuk representasi interval <m>I</m> dari <m>\bfP</m> dengan aturan berikut: untuk setiap <m>x\in
+    X</m>, tetapkan <m>I(x)=[i,j]</m>, dengan <m>D(x)=D_i</m> dan <m>U(x)=U_j</m>. Belum
+    langsung jelas bahwa aturan ini sah; <ie/>, penerapan aturan tersebut mungkin saja menghasilkan
+    nilai <m>i</m> dan <m>j</m> yang memenuhi <m>j\lt i</m>. Namun, melalui latihan kita akan melihat
+    bahwa hal ini tidak pernah terjadi. Rangkaian latihan tersebut dirangkum dalam teorema berikut. </p>
+
+  <theorem xml:id="thm_intord-minrep">
+    <statement>
+      <p>Jika <m>\bfP</m> adalah poset yang tidak memuat <m>\bftwo+\bftwo</m>, pernyataan-pernyataan
+        berikut berlaku. <ol>
+          <li>
+            <p>Banyaknya himpunan bawah sama dengan banyaknya himpunan atas. Artinya, <m>
+        |\mathcal{D}|=|\mathcal{U}|</m>.</p>
+          </li>
+          <li>
+            <p>Untuk setiap <m>x\in X</m>, jika <m>I(x)=[i,j]</m>, maka <m>i\le j</m> dalam
+              <m>\reals</m>.</p>
+          </li>
+          <li>
+            <p>Untuk setiap <m>x,y\in X</m>, jika <m>I(x)=[i,j]</m> dan <m>I(y)=[k,l]</m>, maka
+              <m>x\lt y</m> dalam <m>P</m> jika dan hanya jika <m>j\lt k</m> dalam <m>\reals</m>.</p>
+          </li>
+          <li>
+            <p>Bilangan bulat <m>d</m> merupakan bilangan bulat positif terkecil yang memungkinkan
+              <m>\bfP</m> memiliki representasi interval dengan titik ujung bilangan bulat dari
+              <m>[d]</m>. Representasi ini unik.</p>
+          </li>
+
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+
+  <p>Perhatikan poset yang ditampilkan dalam <xref ref="fig_10ptintorder"/>. </p>
+  <figure xml:id="fig_10ptintorder">
+    <caption>Sebuah urutan interval pada 10 titik</caption>
+    <image width="35%" source="10ptintorder"><description><p>Diagram Hasse sebuah urutan interval pada 10 titik. Titik a, h, dan j masing-masing menutupi c, f, dan g; titik b dan i menutupi h; titik d menutupi c; dan titik e menutupi a, h, dan j.</p>
+    </description></image>
+  </figure>
+  <p> Untuk poset ini, <m>d= 5</m>, dengan <m>D_1=\emptyset</m>, <m>D_2=\{c\}</m>,
+    <m>D_3=\{c,f,g\}</m>, <m>
+    D_4=\{c,f,g,h\}</m>, dan <m>D_5=\{a,c,f,g,h,j\}</m>. Selain itu, <m>U_1=\{a,b,d,e,h,i,j\}</m>, <m>
+    U_2=\{a,b,e,h,i,j\}</m>, <m>U_3=\{b,e,i\}</m>,
+    <m>U_4=\{e\}</m>, dan <m>U_5=\emptyset</m>. Jadi, <md>
+      <mrow> I(a) \amp = [3,4] \amp I(b) \amp = [4,5] \amp I(c) \amp = [1,1] \amp I(d) \amp = [2,5]
+    \amp I(e) \amp = [5,5]</mrow>
+      <mrow> I(f) \amp = [1,2] \amp
+        I(g) \amp = [1,2] \amp I(h) \amp = [3,3]\amp I(i) \amp = [4,5]\amp I(j) \amp = [3,4]</mrow>
+    </md>
+    Untuk mengilustrasikan bagaimana proses ini dapat digunakan untuk menentukan bahwa sebuah poset
+    bukan urutan interval, perhatikan kembali poset dalam <xref ref="fig_10ptintorder"/>. Hapus garis
+    yang menghubungkan titik <m>c</m> dan <m>j</m>. Pada poset yang dihasilkan, Anda akan memperoleh <m>
+    D(j)=\{f,g\}</m> dan <m>D(d)=\{c\}</m>. Oleh karena itu, keempat titik <m>c</m>, <m>d</m>,
+    <m>f</m>, dan <m>j</m> membentuk salinan <m>\bftwo+\bftwo</m> dalam poset yang telah diubah ini. </p>
+    <reading-questions xml:id="rqs-posets_intervalorder_findrep" component="runestone">
+      <exercise label="rq-posets_intervalorder_findrep-loose-point">
+        <statement>
+          <p>
+            Misalkan Anda menjalankan algoritme untuk mencari representasi interval dan memperoleh bahwa keluarga himpunan bawah dan keluarga himpunan atas terurut total berdasarkan inklusi, serta terdapat <m>d</m> himpunan bawah (dan dengan demikian <m>d</m> himpunan atas). Jika poset tersebut memiliki sebuah titik yang tidak dapat dibandingkan dengan titik lain mana pun, interval apakah yang diberikan algoritme kepada titik itu? Jelaskan mengapa hasil tersebut masuk akal.
+          </p>
+        </statement>
+        <response/>
+      </exercise>
+    </reading-questions>
+</section>

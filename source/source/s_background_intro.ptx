@@ -1,0 +1,52 @@
+<section xml:id="s_background_intro">
+    <title>Pendahuluan</title>
+    <p>Teori himpunan membahas <term>elemen</term>, kumpulan elemen tertentu yang disebut <term>himpunan</term>, serta konsep <term>keanggotaan</term>. Untuk setiap elemen <m>x</m> dan setiap himpunan <m>X</m>, <em>tepat</em> satu dari dua pernyataan berikut berlaku:<idx><h>elemen</h></idx><idx><h>himpunan</h></idx> <idx><h>keanggotaan</h></idx>
+                  <ol>
+        <li><p><m>x</m> merupakan anggota <m>X</m>.</p></li>
+        <li><p><m>x</m> <em>bukan</em> anggota <m>X</m>.</p></li>
+    
+                  </ol>
+                </p>
+
+    <p>
+        Perlu diperhatikan bahwa keanggotaan tidak mungkin ambigu.
+    </p>
+
+    <p>Jika <m>x</m> merupakan elemen dan <m>X</m> merupakan himpunan, kita menulis <m>x\in X</m><notation><usage><m>x\in X</m></usage><description><m>x</m> merupakan anggota himpunan <m>X</m></description></notation> apabila <m>x</m> merupakan anggota <m>X</m>. Pernyataan bahwa <m>x</m> termasuk dalam <m>X</m> memiliki arti yang persis sama dengan pernyataan bahwa <m>x</m> merupakan anggota <m>X</m>. Demikian pula, jika <m>x</m> bukan anggota <m>X</m>, kita menulis <m>x\notin X</m> dan mengatakan bahwa <m>x</m> tidak termasuk dalam <m>X</m>.<notation><usage><m>x\notin X</m></usage><description><m>x</m> bukan anggota himpunan <m>X</m></description></notation>
+    </p>
+
+    <p>Himpunan tertentu akan didefinisikan secara eksplisit dengan mencantumkan elemen-elemennya. Sebagai contoh, misalkan <m>X=\{a,b,d,g,m\}</m>. Maka <m>b\in X</m> dan <m>h\notin X</m>. Urutan elemen dalam daftar semacam itu tidak berpengaruh, sehingga kita juga dapat menulis <m>X=\{g,d,b,m,a\}</m>. Dalam situasi lain, suatu himpunan akan didefinisikan dengan memberikan aturan keanggotaan. Sebagai contoh, misalkan <m>\posints</m> menyatakan himpunan bilangan bulat positif. Selanjutnya, misalkan <m>X=\{n\in\posints:5\le n\le 9\}</m>. Perhatikan bahwa <m>6,8\in X</m>, sedangkan <m>4,10,238\notin X</m>.
+    </p>
+
+    <p>Jika diberikan sebuah elemen <m>x</m> dan sebuah himpunan <m>X</m>, menentukan pernyataan mana di antara <m>x\in X</m> dan <m>x\notin X</m> yang berlaku kadang-kadang dapat melelahkan, bahkan sangat sulit. Namun, jika yang kita bahas benar-benar himpunan, <em>tepat</em> satu di antaranya harus benar.
+    </p>
+    <example>
+        <p>Misalkan <m>X</m> merupakan himpunan yang ditentukan oleh daftar <m>13</m> entri bilangan bulat positif berikut:
+        <md>
+            <mrow>  \amp 13232112332</mrow>
+            <mrow>  \amp 13332112332</mrow>
+            <mrow>  \amp 13231112132</mrow>
+            <mrow>  \amp 13331112132</mrow>
+            <mrow>  \amp 13232112112</mrow>
+            <mrow>  \amp 13231112212</mrow>
+            <mrow>  \amp 13331112212</mrow>
+            <mrow>  \amp 13232112331</mrow>
+            <mrow>  \amp 13231112131</mrow>
+            <mrow>  \amp 13331112131</mrow>
+            <mrow>  \amp 13331112132</mrow>
+            <mrow>  \amp 13332112111</mrow>
+            <mrow>  \amp 13231112131</mrow>
+        </md>
+        Perhatikan bahwa ada dua bilangan yang masing-masing dicantumkan dua kali. Bilangan apa saja? Apakah <m>13232112132</m> termasuk dalam <m>X</m>? Kesulitan yang tampak dalam menjawab pertanyaan-pertanyaan ini berasal dari (1) ukuran himpunan <m>X</m> dan (2) besarnya bilangan-bilangan bulat yang menjadi anggota <m>X</m>. Dapatkah Anda memikirkan keadaan ketika sulit menentukan apakah <m>x</m> merupakan anggota <m>X</m>, sekalipun diketahui bahwa <m>X</m> memuat tepat satu elemen?
+        </p>
+    </example>
+
+    <example>
+        <p>Misalkan <m>P</m> menyatakan himpunan bilangan prima. Maka <m>35\notin P</m> karena <m>35= 5\times 7</m>. Selain itu, <m>19\in P</m>. Sekarang tinjau bilangan
+        <md>
+            n = 77788467064627123923601532364763319082817131766346039653933
+        </md>
+        Apakah <m>n</m> termasuk dalam <m>P</m>? Alice mengatakan ya, sedangkan Bob mengatakan tidak. Bagaimana Alice dapat membenarkan jawaban afirmatifnya? Bagaimana Bob dapat membenarkan pendapat negatifnya? Dalam kasus khusus ini, saya tahu bahwa Alice benar. Dapatkah Anda menjelaskan alasannya?
+        </p>
+    </example>
+</section>

@@ -1,0 +1,184 @@
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="id-ID">
+  <docinfo>
+    <initialism>KT</initialism>
+    <author-biographies length="long"/>
+    <xi:include href="macros.ptx"/>
+    <xi:include href="latex-image-preamble.ptx"/>
+    <defaults>
+      <xrefs text="type-global"/>
+    </defaults>
+    <directories external="../assets"/>
+    <rename element="remark" xml:lang="id-ID">Diskusi</rename>
+    <document-id>appcomb</document-id>
+    <blurb shelf="Mathematics">
+      Buku ini memuat lebih dari cukup bahan untuk pengantar kombinatorika selama satu semester. Sasaran pembaca semula terutama mahasiswa ilmu komputer, tetapi cakupan topiknya membuat buku ini sesuai bagi berbagai kelompok mahasiswa. Topik yang dibahas meliputi enumerasi dasar, rekursi dan induksi matematika, teori graf, himpunan terurut parsial, teknik enumerasi lanjutan, serta algoritma graf.
+    </blurb>
+  </docinfo>
+
+
+  <book xml:id="app-comb">
+    <title>Kombinatorika Terapan</title>
+    <frontmatter>
+      <bibinfo>
+        <author>
+          <personname>Mitchel T. Keller</personname>
+          <department>Departemen Matematika</department>
+          <institution>
+            <line>University of Wisconsin-Madison</line>
+            <line>Madison, Wisconsin</line>
+          </institution>
+          <email>mitch@rellek.net</email>
+        </author>
+        <author>
+          <personname>William T. Trotter</personname>
+          <department>Sekolah Matematika</department>
+          <institution>
+            <line>Georgia Institute of Technology</line>
+            <line>Atlanta, Georgia</line>
+          </institution>
+          <email>wtt.math@gmail.com</email>
+        </author>
+        <date><today/></date>
+        <edition>Edisi 2017.3</edition>
+        <website>
+            <url href="https://appliedcombinatorics.org/"/>
+        </website>
+        <copyright>
+            <year>2006<ndash/>2025</year>
+            <holder>Mitchel T. Keller, William T. Trotter</holder>
+            <minilicense>CC-BY-SA</minilicense>
+            <shortlicense>Karya ini dilisensikan berdasarkan Lisensi Internasional Creative Commons Atribusi-BerbagiSerupa 4.0. Untuk melihat salinan lisensi ini, kunjungi <url href="http://creativecommons.org/licenses/by-sa/4.0/"/> atau kirim surat kepada Creative Commons, PO Box 1866, Mountain View, CA 94042, USA. Edisi Bahasa Indonesia ini merupakan terjemahan dan pelokalan independen berdasarkan sumber resmi pada commit 33b20df670d1f8d98266cd2f4a287a79b01649ea; perubahan tersebut tidak menyiratkan dukungan, persetujuan, atau afiliasi dengan para penulis asli.
+            </shortlicense>
+        </copyright>
+      </bibinfo>
+      <titlepage>
+        <titlepage-items/>
+      </titlepage>
+
+      <colophon>
+        <colophon-items/>
+      </colophon>
+
+      <biography>
+        <title>Tentang William T. Trotter</title>
+        <p>William T. Trotter adalah Profesor Emeritus di Sekolah Matematika, Georgia Tech. Ia pertama kali mengenal matematika kombinatorial melalui Bowdoin Combinatorics Conference tahun 1971, yang menghadirkan sederet tokoh terkemuka pada masa itu, termasuk Gian Carlo Rota, Paul Erd&#337;s, Marshall Hall, Herb Ryzer, Herb Wilf, William Tutte, Ron Graham, Daniel Kleitman, dan Ray Fulkerson. Sejak saat itu, ia telah menerbitkan lebih dari 120 makalah penelitian mengenai teori graf, geometri diskret, teori Ramsey, dan kombinatorika ekstremal. Karyanya yang mungkin paling dikenal berada dalam bidang kombinatorika dan himpunan terurut parsial, dan monograf penelitiannya tahun 1992 mengenai topik ini sangat berpengaruh. (Ia cukup bangga bahwa monograf tersebut masih dicetak dan salinannya masih dijual pada tahun 2016.) Ia memiliki lebih dari 70 rekan penulis, tetapi menganggap kerja samanya yang luas dengan Graham Brightwell, Stefan Felsner, Peter Fishburn, Hal Kierstead, dan Endre Szemer&#232;di sebagai karya terbaiknya. Sepanjang kariernya, ia telah diundang untuk memberikan presentasi di lebih dari 50 konferensi internasional dan lebih dari 30 pertemuan organisasi profesi. Ia merupakan editor pendiri <em>SIAM Journal on Discrete Mathematics</em> dan telah menjadi anggota Dewan Editorial <em>Order</em> sejak jurnal itu diluncurkan pada tahun 1984; masa pengabdiannya mencakup delapan tahun sebagai Pemimpin Redaksi. Saat ini, ia menjadi anggota dewan editorial tiga jurnal matematika kombinatorial lainnya.</p>
+
+        <p>Namun, ia juga memiliki beberapa keunikan. Pertama, ia bersikeras dipanggil <q>Tom</q>, karena Thomas adalah nama tengahnya, meskipun tetap menandatangani namanya sebagai William T. Trotter. Kedua, ia telah mencurahkan waktu dan tenaga untuk menjalani lima masa jabatan sebagai ketua departemen/sekolah: satu di Georgia Tech, dua di Arizona State University, dan dua di University of South Carolina. Selain itu, ia pernah menjabat sebagai Wakil Rektor dan Asisten Dekan. Ketiga, ia terpikat oleh sistem operasi komputer dan selalu memasang sistem yang baru. Dalam satu pekan tertentu, ia memasang sebelas varian Linux pada mesin yang sama, diselingi empat pemasangan lengkap Windows<nbsp/>7. Kebetulan, seluruh proses itu dimulai dan diakhiri dengan Windows<nbsp/>7. Keempat, ia suka memukul bola golf—bukan bermain golf, hanya memukul bola. Tanpa berbagai selingan ini, mungkin saja ia bahkan memiliki cukup waktu untuk menuntaskan hipotesis Riemann.</p>
+        
+        <p>Ia telah membimbing sebelas mahasiswa Ph.D., salah satunya kini menjadi rekan penulisnya dalam buku ini.</p>
+      </biography>
+      <biography>
+        <title>Tentang Mitchel T. Keller</title>
+        <p>Mitchel T. Keller adalah sosok berprestasi luar biasa dari North Dakota (uraian ini ditulis oleh WTT). Ketika menjadi mahasiswa pascasarjana di Georgia Tech, ia meraih sederet panjang kehormatan dan penghargaan, termasuk VIGRE Graduate Fellowship, IMPACT Scholarship, John R. Festa Fellowship, dan Price Research Award tahun 2009. Mitch adalah pemimpin alami dan terpilih sebagai Presiden (dan Wakil Presiden) Georgia Tech Graduate Student Government Association; ia menjalankan peran-peran tersebut dengan sangat baik. Bahkan, setelah masa jabatannya berakhir, rekan-rekan mahasiswanya memutuskan untuk membentuk penghargaan berkelanjutan bagi kepemimpinan terpuji, menamainya Mitchel T. Keller Award, dan menjadikan Mitch sebagai penerima pertamanya. Sangat sedikit mahasiswa pascasarjana yang berhasil meraih penghargaan; Mitch adalah satu-satunya orang yang saya kenal yang memiliki penghargaan yang <em>dinamai</em> menurut dirinya.</p>
+
+        <p>Mitch juga merupakan pengajar matematika yang berbakat. Ia menerima Georgia Tech 2008 Outstanding Teacher Award yang bergengsi dalam kompetisi tingkat kampus. Ia sigap bereksperimen dengan pendekatan terbaru dalam pengajaran matematika, menerapkan apa yang cocok baginya sambil terus menyempurnakannya. Ia benar-benar memahami literatur tentang pembelajaran aktif dan prinsip-prinsip pelibatan mahasiswa dalam proses belajar. Mitch bahkan telah mengajarkan satu-dua hal kepada rekan penulisnya yang lebih senior (sebagian orang mengatakan kuno), serta membujuknya mencoba sistem respons personal dalam kelas kalkulus berukuran besar.</p>
+
+        <p>Karier penelitian Mitch sendiri berawal dengan pesat, dan ia telah menjadi ahli dalam topik diskrepansi linear. Mitch juga memberikan kontribusi penting pada topik yang dikenal sebagai kedalaman Stanley, yang tepat berada di perbatasan antara matematika kombinatorial dan kombinatorika aljabar.</p>
+
+        <p>Setelah menyelesaikan Ph.D.-nya, Mitch menerima satu lagi
+	kehormatan besar, yaitu Marshall Sherfield Postdoctoral Fellowship, dan menghabiskan
+	dua tahun di London School of Economics. Saat ini ia menjabat sebagai
+	Wakil Direktur Studi Sarjana di Departemen
+	Matematika, University of Wisconsin-Madison.</p>
+
+        <p>Dalam kehidupan pribadinya, Mitch adalah pengelola Mathematics Genealogy Project dan seorang juru masak yang hebat. Hidangan penutup buatannya luar biasa lezat.</p>
+      </biography>
+
+      <acknowledgement>
+          <p>Kami berterima kasih kepada kolega kami, Alan Diaz, Thang Le, Noah Streib, Prasad Tetali, dan Carl Yerger, yang telah mengajar Kombinatorika Terapan menggunakan versi-versi awal dan memberikan umpan balik yang berharga. Karena buku ini tersedia secara bebas di internet, kami menyambut komentar, kritik, saran, dan koreksi dari siapa pun yang membaca karya kami.</p>
+
+          <p>Untuk edisi 2016 dan edisi-edisi berikutnya, kami berterima kasih kepada Robert A. Beezer, David Farmer, dan Kent Morrison yang menyelenggarakan lokakarya American Institute of Mathematics mengenai MathBook <init>XML</init> (kini <pretext/>), sehingga format-format baru dapat diterbitkan. Kami juga berterima kasih atas pekerjaan David Farmer dalam konversi awal dari <latex/> ke <pretext/>. Google Group <pretext/> merupakan sumber penting dalam mengatasi berbagai kendala sepanjang proses tersebut, dan Rob Beezer adalah pengembang yang luar biasa tanggap; ia dengan senang hati menangani berbagai permintaan fitur agar segala sesuatu yang kami inginkan dapat diwujudkan dalam edisi <pretext/>.</p>
+      </acknowledgement>
+
+      <preface>
+        <p>Di Georgia Tech, MATH 3012: Kombinatorika Terapan merupakan mata kuliah tingkat tahun ketiga yang terutama ditujukan bagi mahasiswa program B.S. dalam Ilmu Komputer. Tujuan mata kuliah ini adalah memberikan paparan luas mengenai matematika kombinatorial dengan menggunakan penerapan untuk menekankan konsep dan teknik dasar. Kombinatorika Terapan juga diwajibkan bagi mahasiswa program B.S. dalam Matematika, dan merupakan salah satu dari dua mata kuliah matematika diskret yang dapat dipilih mahasiswa teknik komputer untuk memenuhi persyaratan keluasan bidang. Mata kuliah ini juga sering diikuti oleh sejumlah mahasiswa dari program teknik dan sains lain yang ingin mempelajari matematika lebih jauh. Karena itu, pada semester biasa, sekitar 250 mahasiswa Georgia Tech mengikuti Kombinatorika Terapan. Mahasiswa yang mengikuti Kombinatorika Terapan di Georgia Tech telah menyelesaikan rangkaian kalkulus tiga semester<mdash/>banyak di antaranya melewati satu atau beberapa mata kuliah tersebut berdasarkan nilai ujian penempatan lanjutan. Mereka juga telah mengenal sebagian aljabar linear dan sekurang-kurangnya mampu berdiskusi secara wajar mengenai ruang vektor, basis, dan dimensi.</p>
+
+        <p>Pendekatan kami dalam mata kuliah ini adalah memperlihatkan keindahan kombinatorika kepada mahasiswa dan menunjukkan bagaimana masalah kombinatorial muncul secara alami dalam banyak konteks, khususnya ilmu komputer. Meskipun bukti sesekali disajikan di kelas, mata kuliah ini tidak dimaksudkan untuk mengajarkan cara menulis bukti; terdapat mata kuliah wajib lain dalam kurikulum kami yang memenuhi kebutuhan tersebut. Mahasiswa kadang-kadang dapat diminta membuktikan fakta sederhana, tetapi argumennya lebih dekat dengan yang kami harapkan dari mahasiswa kalkulus semester kedua atau ketiga daripada dengan bukti yang kami harapkan dari mahasiswa matematika dalam mata kuliah tingkat lanjut. Meskipun demikian, kami hampir tidak mengorbankan ketelitian, dan buku ini dapat dengan mudah digunakan oleh pengajar yang memilih pendekatan lebih ketat.</p>
+
+        <p>Buku ini lahir dari pandangan kami bahwa belum tersedia buku yang sesuai dengan pendekatan kami terhadap Kombinatorika Terapan. Karena mata kuliah ini ditangani oleh beragam pengajar, buku standar yang digunakan mencakup setiap topik yang dapat dibayangkan (bahkan lebih), tetapi hanya membahasnya secara dangkal. Kami mengambil pendekatan berbeda: membahas pokok-pokok utama dalam deskripsi mata kuliah untuk memberikan paparan yang luas, sekaligus meluangkan waktu untuk mengupas beberapa bidang terpilih secara lebih mendalam agar mahasiswa lebih memahami cara kerja kombinatorika. Kami juga menyertakan beberapa hasil dan topik yang tidak ditemukan dalam buku lain pada tingkat ini, tetapi membantu mengungkapkan hakikat kombinatorika kepada mahasiswa. Kami ingin mahasiswa memahami bahwa kombinatorika adalah bidang yang harus dirasakan <q>secara naluriah</q>, dan kami berharap penyajian kami mencapai tujuan tersebut. Penekanan di seluruh buku tetap berada pada penerapan, termasuk algoritma. Kami tidak membahas secara mendalam rincian makna suatu algoritma yang <q>efisien</q>, tetapi kami menyertakan pembahasan informal mengenai prinsip-prinsip dasar kompleksitas untuk mempersiapkan mahasiswa ilmu komputer, teknik, dan matematika terapan menghadapi mata kuliah berikutnya.</p>
+
+        <p>Materi dalam buku ini telah berkembang dari waktu ke waktu. Versi awal beberapa bab berasal dari tahun 2004, tetapi perkembangannya semakin pesat pada tahun 2006 ketika kedua penulis bersama-sama mengajar satu kelas besar Kombinatorika Terapan. Dalam lima tahun terakhir, bab-bab yang telah ada diperbarui dan diperluas, sementara bab-bab baru ditambahkan. Dalam bentuknya sekarang, buku kami memuat lebih banyak materi daripada yang dapat kami bahas dalam satu semester. Menurut kami, topik-topik dalam Bab 1<ndash/>9 ditambah Bab 12, 13, dan 14 merupakan inti mata kuliah Kombinatorika Terapan satu semester. Topik tambahan kemudian dapat dipilih dari bab-bab lainnya berdasarkan minat pengajar dan mahasiswa.</p>
+        <attribution>
+            <line>Mitchel T. Keller dan William T. Trotter</line>
+            <line>Lexington, Virginia, dan Atlanta, Georgia</line>
+        </attribution>
+    </preface>
+
+    <preface>
+        <title>Prakata Edisi 2017</title>
+        <p>Karena saya (<init>MTK</init>) tidak berkesempatan mengajar menggunakan buku ini selama tahun akademik 2016<ndash/>2017, hanya ada sedikit kesempatan untuk menelaah beberapa bagian buku yang perlu diperbaiki. Meskipun demikian, sejumlah perubahan yang disarankan dalam <xref ref="preface-2016" text="title"/> terwujud dalam edisi ini. Secara khusus, penomoran banyak hal dalam <xref ref="ch_genfunction"/> tidak lagi sama dengan Edisi 2016 di sejumlah tempat karena ditambahkannya <xref ref="exa_genfunction_multisets"/> untuk membahas koefisien pada <m>1/(1-x)^n</m> dengan cara yang tidak memerlukan kalkulus. Ada pula satu latihan baru dalam <xref ref="ch_genfunction"/>, yang ditempatkan di bagian akhir untuk mempertahankan konsistensi penomoran. Selain koreksi kesalahan, latihan-latihan tidak berubah, sehingga pengajar yang menggunakan buku ini dapat terus memberikan nomor latihan yang sama dengan keyakinan bahwa latihan tersebut tetap sama seperti sebelumnya.</p>
+        <p>Pembaruan penting lainnya dalam edisi ini adalah penambahan sejumlah sel SageMath pada <xref ref="ch_genfunction"/> (termasuk di dalam latihan), <xref ref="s_recurrence_genfunction"/>, dan Diskusi yang menutup <xref ref="ch_recurrence"/>. Kebiasaan merujuk pembaca secara samar-samar kepada sistem aljabar komputer generik tanpa memberikan panduan penggunaannya selalu terasa kurang memuaskan. Saya mengetahui bahwa masih ada bagian yang perlu disempurnakan, tetapi edisi ini memulai pendekatan yang lebih terpadu dalam menggunakan teknologi untuk beberapa aspek aljabar yang kurang menyenangkan dalam buku ini. Pembaca dapat menyunting isi sel SageMath dalam tubuh buku untuk menggunakannya dalam menyelesaikan masalah lain; sel yang terdapat dalam latihan terutama disediakan demi kemudahan dan hanya memuat kerangka dasar yang mungkin berguna bagi latihan tersebut. Karena SageMath bersifat sumber terbuka dan dapat dijalankan secara gratis di CoCalc, pendekatan ini tampaknya jauh lebih baik daripada menargetkan CAS komersial. <alert>Bagi mereka yang, seperti saya, mulai menggunakan SageMath setelah berpengalaman dengan CAS komersial, perlu diketahui bahwa SageMath tidak menangani perkalian tersirat dalam masukan dengan baik. Ketika hasil yang muncul tampak aneh, langkah pertama saya selalu memastikan bahwa tidak ada <c>*</c> yang terlewat dalam kode.</alert>
+        </p>
+        <p>Tentu saja, bahkan dalam buku yang telah digunakan selama lebih dari satu dasawarsa pun masih terdapat salah ketik. Sejumlah masalah kecil telah diselesaikan dalam edisi ini. <url href="https://appliedcombinatorics.org/appcomb/errata/" visual="appliedcombinatorics.org/appcomb/errata/">Halaman errata</url> mencantumkan dua belas kesalahan yang dikoreksi dalam edisi ini. Tidak diragukan lagi, masih ada kesalahan lain yang menunggu untuk ditemukan, dan kami menyambut laporan dari pembaca. (Pull request di GitHub juga diterima!)
+        </p>
+        <p>Apa selanjutnya? Kami sangat ingin menerima saran dari pembaca, tetapi saya memperkirakan bahwa perluasan <xref ref="ch_basics"/> akan berada di urutan teratas. Jika Anda menggunakan SageMath (atau Python) bersama buku ini, kontribusi cuplikan kode yang layak disertakan juga diterima.
+        </p>
+        <attribution>
+            <line>Mitchel T. Keller</line>
+            <line>Lexington, Virginia</line>
+        </attribution>
+    </preface>
+
+    <preface xml:id="preface-2016">
+            <title>Prakata Edisi 2016</title>
+            <p>Pada April 2016, American Institute of Mathematics menyelenggarakan lokakarya selama sepekan di San Jose untuk memperkenalkan <c>git</c> dan bahasa penulisan MathBook <init>XML</init> karya Robert A. Beezer kepada para penulis buku teks terbuka. Bahasa ini dirancang untuk menghasilkan <init>HTML</init>, <latex/>, dan format lain secara lancar dari satu berkas sumber <init>XML</init> yang sama. Saya (<init>MTK</init>) menghadiri lokakarya tersebut dan dengan antusias mulai mengonversi sumber <latex/> yang telah ada untuk proyek yang saat itu berusia satu dasawarsa ini ke MathBook <init>XML</init>. David Farmer patut mendapat penghargaan besar karena mengotomatiskan sebagian besar proses tersebut melalui skrip yang disetel dengan cermat, meskipun kode yang dihasilkan masih memerlukan banyak pembersihan. Kami berharap edisi ini, yang pertama tanpa label <q>awal</q>, akan menjadi edisi pertama dari serangkaian edisi tahunan <pubtitle>Kombinatorika Terapan</pubtitle> yang diterbitkan dengan lisensi sumber terbuka.</p>
+
+            <p>Upaya utama dalam menghasilkan edisi 2016 ini adalah menyelesaikan konversi ke MathBook <init>XML</init>. Dalam prosesnya, saya berusaha memperbaiki semua kesalahan tipografi yang pernah kami catat. Tidak diragukan lagi masih ada kesalahan lain (tipografi ataupun lainnya) yang akan diperbaiki pada tahun-tahun mendatang; karena itu, silakan hubungi kami melalui surel jika Anda menemukannya. Buku ini kini memiliki indeks, yang mungkin lebih membantu daripada menelusuri berkas PDF ketika mencari lokasi terpenting dari sejumlah istilah umum. Karena MathBook <init>XML</init> memudahkannya, kini kami juga memiliki daftar notasi. Para pengajar mungkin akan senang mengetahui bahwa latihan-latihan tidak berubah, sehingga daftar latihan yang diberikan pada tahun-tahun sebelumnya tetap sepenuhnya berlaku.<fn>Ada dua pengecualian. Pertama, <xref ref="ex_genfunction_ineq-clean"/> telah diubah agar perhitungan yang terlibat menjadi lebih sederhana. Kami mempertahankan latihan yang sebelumnya berada pada posisi ini sebagai <xref ref="ex_genfunction_ineq-messy"/> dan menambahkan sebuah petunjuk. Kedua, sebuah koefisien diubah dalam <xref ref="ex_recurrence_gen-fn"/> agar latihan tersebut dapat dikerjakan.</fn> Satu-satunya perubahan penting pada tubuh buku adalah konversi cuplikan kode milik <init>WTT</init> dari C ke Python/SageMath. Hal ini memungkinkan kami menyematkan sel SageMath interaktif yang dapat dijalankan dan disunting oleh pembaca versi <init>HTML</init>. Kami baru memanfaatkan sebagian kecil dari fitur MathBook <init>XML</init> yang sangat andal ini; nantikan penambahan SageMath lainnya pada tahun-tahun mendatang.</p>
+
+            <p>Konversi ke MathBook <init>XML</init> memungkinkan kami menyediakan ragam format yang lebih luas:
+                  <ul>
+                <li><p><init>HTML</init>: Berkat desain responsif menggunakan <init>CSS</init>, menurut kami buku ini kini tampak indah pada komputer pribadi, tablet, bahkan telepon seluler. Mahasiswa tidak perlu lagi tergesa-gesa mengubah ukuran PDF di telepon mereka untuk mencoba membaca suatu bagian buku. <q>Knowl</q> yang disediakan dalam <init>HTML</init> juga memungkinkan rujukan ke gambar, tabel, bahkan teorema dari halaman lain (atau dari bagian yang jauh pada halaman yang sama) menampilkan salinan gambar/tabel/teorema tersebut langsung di tempat rujukan; satu klik/ketukan lagi akan menyembunyikannya.</p></li>
+                <li><p><init>PDF</init>: Tidak banyak yang berubah dari tahun-tahun sebelumnya, selain bahwa <init>PDF</init> dihasilkan dari <latex/> keluaran MathBook <init>XML</init>, sehingga penomoran dan urutannya konsisten dengan versi <init>HTML</init>.</p></li>
+                <li><p>Cetak: Toko buku kampus sering menghasilkan versi cetak buku ini dari <init>PDF</init> yang tersedia daring, tetapi sebelumnya kami belum dapat menyediakan versi tercetak dan berjilid untuk dibeli. Bersama edisi 2016, dengan senang hati kami meluncurkan versi cetak yang tersedia melalui sejumlah kanal pembelian daring. Toko buku kampus juga dapat memperoleh buku ini melalui kanal grosir untuk dijual langsung kepada mahasiswa. Berkat lisensi Creative Commons yang menaungi penerbitan buku ini, kampus tetap memiliki pilihan untuk menjual versi cetak mereka sendiri kepada mahasiswa, meskipun pilihan ini kemungkinan menguntungkan mahasiswa secara finansial hanya jika beberapa bab saja yang digunakan.</p></li>
+            
+                  </ul>
+                </p>
+
+            <p>Kami memiliki sejumlah gagasan mengenai hal-hal yang dapat diperbarui untuk Edisi 2017 (<eg/>, <xref ref="ch_basics"/> perlu diperluas baik pada tubuh bab maupun latihannya, <xref ref="ch_genfunction"/> akan terbantu oleh integrasi SageMath untuk mendukung perhitungan fungsi pembangkit, dan <xref ref="ch_kitchensink"/> masih belum benar-benar selesai). Namun, kami juga sangat ingin mendengar tanggapan Anda yang menggunakan buku ini. Adakah topik tambahan yang ingin Anda lihat? Adakah bab yang memerlukan lebih banyak latihan? Adakah topik yang penyajiannya dapat diperbaiki? Silakan hubungi kami melalui surel, dan kami akan mempertimbangkan saran Anda.</p>
+            <attribution>
+                <line>Mitchel T. Keller</line>
+                <line>Lexington, Virginia</line>
+            </attribution>
+        </preface>
+
+    <xi:include href="./ch_prologue.ptx"/>
+    </frontmatter>
+
+
+
+
+    <xi:include href="./ch_intro.ptx"/>
+
+    <xi:include href="./ch_strings.ptx"/>
+
+    <xi:include href="./ch_induction.ptx"/>
+
+    <xi:include href="./ch_basics.ptx"/>
+
+    <xi:include href="./ch_graphs.ptx"/>
+
+    <xi:include href="./ch_posets.ptx"/>
+
+    <xi:include href="./ch_inclusion-exclusion.ptx"/>
+
+    <xi:include href="./ch_genfunction.ptx"/>
+
+    <xi:include href="./ch_recurrence.ptx"/>
+
+    <xi:include href="./ch_probability.ptx"/>
+
+    <xi:include href="./ch_probmeth.ptx"/>
+
+    <xi:include href="./ch_graphalgorithms.ptx"/>
+
+    <xi:include href="./ch_networkflow.ptx"/>
+
+    <xi:include href="./ch_flowapplications.ptx"/>
+
+    <xi:include href="./ch_polya.ptx"/>
+
+    <xi:include href="./ch_kitchensink.ptx"/>
+
+    <xi:include href="./backmatter.ptx"/>
+  </book>
+</pretext>

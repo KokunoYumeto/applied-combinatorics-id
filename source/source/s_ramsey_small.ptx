@@ -1,0 +1,117 @@
+<section xml:id="s_ramsey_small">
+    <title>Bilangan Ramsey Kecil</title>
+    <p>Menentukan secara tepat <term>bilangan Ramsey</term><idx><h>bilangan Ramsey</h></idx><notation><usage><m>R(m,n)</m></usage><description>bilangan Ramsey</description></notation> <m>R(m,n)</m> yang disebutkan dalam <xref ref="thm_graphramsey"/> ternyata merupakan persoalan yang terkenal sangat sulit, dan hanya segelintir nilainya diketahui secara tepat. Secara khusus, <m>R(3,3)=6</m> dan <m>R(4,4)=18</m>, sedangkan <m>43\le R(5,5)\le 49</m>. Matematikawan Hungaria terkemuka Paul Erd&#337;s berulang kali mengatakan bahwa nilai tepat <m>R(5,5)</m> mungkin dapat ditentukan jika seluruh bakat matematika di dunia dipusatkan pada persoalan tersebut. Namun, ia juga mengatakan bahwa mencari nilai tepat <m>R(6,6)</m> mungkin melampaui kemampuan kolektif kita.
+    </p>
+
+    <p>Tabel berikut menyajikan informasi tentang bilangan Ramsey <m>R(m,n)</m> ketika <m>m</m> dan <m>n</m> sedikitnya <m>3</m> dan paling banyak <m>9</m>. Jika sebuah sel berisi satu bilangan, bilangan itu merupakan jawaban tepat. Jika terdapat dua bilangan, keduanya menyatakan batas bawah dan batas atas.
+    </p>
+    <figure xml:id="tab_ramsey_small">
+        <caption>Bilangan Ramsey kecil <m>R(m,n)</m></caption>
+        <idx><h>bilangan Ramsey</h><h>kecil</h></idx>
+        <tabular top="medium">
+            <col/><col/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/><col halign="center"/>
+            <row>
+                <cell/>
+                <cell halign="right"><m>n</m></cell>
+                <cell>3</cell>
+                <cell>4</cell>
+                <cell>5</cell>
+                <cell>6</cell>
+                <cell>7</cell>
+                <cell>8</cell>
+                <cell>9</cell>
+            </row>
+            <row bottom="medium">
+                <cell><m>m</m></cell>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+            </row>
+
+            <row>
+                <cell>3</cell>
+                <cell/>
+                <cell>6</cell>
+                <cell>9</cell>
+                <cell>14</cell>
+                <cell>18</cell>
+                <cell>23</cell>
+                <cell>36</cell>
+                <cell>39</cell>
+            </row>
+            <row>
+                <cell>4</cell>
+                <cell/>
+                <cell/>
+                <cell>18</cell>
+                <cell>25</cell>
+                <cell>36, 41</cell>
+                <cell>49, 61</cell>
+                <cell>58, 84</cell>
+                <cell>73, 115</cell>
+            </row>
+            <row>
+                <cell>5</cell>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell>43, 49</cell>
+                <cell>58, 87</cell>
+                <cell>80, 143</cell>
+                <cell>101, 216</cell>
+                <cell>126, 316</cell>
+            </row>
+            <row>
+                <cell>6</cell>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell>102, 165</cell>
+                <cell>113, 298</cell>
+                <cell>127, 495</cell>
+                <cell>169, 780</cell>
+            </row>
+            <row>
+                <cell>7</cell>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell>205, 540</cell>
+                <cell>217, 1031</cell>
+                <cell>241, 1713</cell>
+            </row>
+            <row>
+                <cell>8</cell>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell>282, 1870</cell>
+                <cell>317, 3583</cell>
+            </row>
+            <row bottom="medium">
+                <cell>9</cell>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell/>
+                <cell>565, 6588</cell>
+            </row>
+        </tabular>
+    </figure>
+    <p>Untuk data tambahan (atau yang lebih mutakhir), lihat <url href="http://www.combinatorics.org/ojs/index.php/eljc/article/view/DS1" visual="www.combinatorics.org/ojs/index.php/eljc/article/view/DS1">Dynamic Survey #DS1: <q>Small Ramsey Numbers</q></url> karya Stanis&#322;aw Radziszowski dalam <pubtitle>Electronic Journal of Combinatorics</pubtitle>. (<xref ref="tab_ramsey_small"/> terakhir diperbarui menggunakan versi artikel tersebut bertanggal 12 Januari 2014.)
+    </p>
+</section>

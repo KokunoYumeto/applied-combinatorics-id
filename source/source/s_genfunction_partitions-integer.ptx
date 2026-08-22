@@ -1,0 +1,73 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="s_genfunction_partitions-integer">
+    <title>Partisi Bilangan Bulat</title>
+    <p>Salah satu tema yang berulang dalam mata kuliah ini adalah menghitung banyaknya solusi bilangan bulat untuk persamaan berbentuk <m>x_1+x_2+\cdots + x_k = n</m>. Bagaimana jika kita ingin menghitung banyaknya solusi semacam itu tanpa memedulikan nilai <m>k</m>? Bagaimana jika pada pertanyaan baru ini kita mensyaratkan agar semua <m>x_i</m> <term>berbeda</term> (<ie/>, <m>x_i\neq x_j</m> untuk <m>i\neq j</m>)? Bagaimana pula jika kita mensyaratkan agar setiap <m>x_i</m> ganjil? Pada awalnya, pertanyaan-pertanyaan ini tentu tidak tampak mudah dijawab, tetapi fungsi pembangkit memungkinkan kita menyatakan sesuatu yang sangat menarik tentang jawaban dua pertanyaan terakhir.
+    </p>
+
+    <p>Yang kita maksud dengan <term>partisi</term> <m>P</m> dari suatu bilangan bulat<idx><h>partisi</h><h>bilangan bulat</h></idx> adalah koleksi bilangan bulat positif (yang tidak harus berbeda) sedemikian sehingga <m>\sum_{i\in P} i = n</m>. (Menurut konvensi, kita akan menuliskan elemen-elemen <m>P</m> dari yang terbesar hingga yang terkecil.) Sebagai contoh, <m>2+2+1</m> merupakan partisi dari <m>5</m>. Untuk setiap <m>n\ge0</m>, misalkan <m>p_n</m> menyatakan banyaknya partisi bilangan bulat <m>n</m> (dengan <m>p_0=1</m> menurut konvensi). Perhatikan bahwa <m>p_8=22</m>, sebagaimana ditunjukkan oleh daftar dalam <xref ref="fig_genfunction_partsof8"/>.
+    </p>
+      <figure xml:id="fig_genfunction_partsof8">
+          <caption>Partisi-partisi dari <m>8</m>, dengan penanda bagi partisi yang terdiri atas bagian-bagian berbeda
+          dan partisi yang terdiri atas bagian-bagian ganjil.</caption>
+          <sidebyside>
+              <ul cols="2">
+                  <li>8 — bagian berbeda</li>
+                  <li>7+1 — bagian berbeda, bagian ganjil</li>
+                  <li>6+2 — bagian berbeda</li>
+                  <li>6+1+1</li>
+                  <li>5+3 — bagian berbeda, bagian ganjil</li>
+                  <li>5+2+1 — bagian berbeda</li>
+                  <li>5+1+1+1 — bagian ganjil</li>
+                  <li>4+4</li>
+                  <li>4+3+1 — bagian berbeda</li>
+                  <li>4+2+2</li>
+                  <li>4+2+1+1</li>
+                  <li>4+1+1+1+1</li>
+                  <li>3+3+2</li>
+                  <li>3+3+1+1 — bagian ganjil</li>
+                  <li>3+2+2+1</li>
+                  <li>3+2+1+1+1</li>
+                  <li>3+1+1+1+1+1 — bagian ganjil</li>
+                  <li>2+2+2+2</li>
+                  <li>2+2+2+1+1</li>
+                  <li>2+2+1+1+1+1</li>
+                  <li>2+1+1+1+1+1+1</li>
+                  <li>1+1+1+1+1+1+1+1 — bagian ganjil</li>
+              </ul>
+          </sidebyside>
+      </figure>
+    <p>Perhatikan bahwa terdapat <m>6</m> partisi dari <m>8</m> menjadi bagian-bagian yang <em>berbeda</em>. Terdapat pula <m>6</m> partisi dari <m>8</m> menjadi bagian-bagian <em>ganjil</em>. Meskipun hal ini mungkin tampak sebagai kebetulan, kesamaan tersebut sebenarnya selalu berlaku, sebagaimana dinyatakan oleh <xref ref="thm_partition"/>. Sebelum menelaah teorema itu beserta buktinya, mari kita pikirkan seperti apa fungsi pembangkit bagi <m>p_n</m>, yaitu banyaknya partisi dari <m>n</m>. Dari suatu partisi <m>n</m>, kita dapat menghitung berapa banyak bagian bernilai <m>1</m>, berapa banyak bagian bernilai <m>2</m>, dan seterusnya. Hal ini menunjukkan kemiripan dengan masalah keranjang buah yang dibahas sebelumnya dalam bab ini, sehingga menghasilkan fungsi pembangkit
+    <md>
+        P(x) = \left(\sum_{m=0}^\infty x^{m}\right)\left(\sum_{m=0}^\infty x^{2m}\right)         \left(\sum_{m=0}^\infty x^{3m}\right)\cdots         \left(\sum_{m=0}^\infty x^{km}\right)\cdots = \prod_{m=1}^\infty\frac{1}{1-x^m}.
+    </md>
+    Di sini, faktor yang jumlahnya memuat suku-suku <m>x^{km}</m> memperhitungkan banyaknya bagian bernilai <m>k</m> dalam partisi. Walaupun <m>P(x)</m> memiliki bentuk yang cukup elegan, bentuk tersebut belum tentu sangat berguna untuk menghitung <m>p_n</m>. Bahkan, memperoleh taksiran asimtotik bagi <m>p_n</m> merupakan masalah yang terkenal sulit dan baru berhasil ditangani oleh Hardy dan Ramanujan pada tahun 1918. Uraian populer mengenai hal ini dapat ditemukan dalam buku Robert Kanigel tahun 1991, <pubtitle>The Man who Knew Infinity</pubtitle>, atau film tahun 2016 dengan judul yang sama.
+    </p>
+
+    <p>Untuk membuktikan hubungan antara banyaknya partisi menjadi bagian-bagian berbeda dan banyaknya partisi menjadi bagian-bagian ganjil, kita akan menggunakan versi terbatas dari fungsi pembangkit <m>P(x)</m> di atas.</p>
+    <theorem xml:id="thm_partition">
+        <statement>
+            <p>Untuk setiap <m>n\ge1</m>, banyaknya partisi dari <m>n</m> menjadi bagian-bagian berbeda sama dengan banyaknya partisi dari <m>n</m> menjadi bagian-bagian ganjil.
+            </p>
+        </statement>
+        <proof>
+            <p>Fungsi pembangkit <m>D(x)</m> bagi banyaknya partisi dari <m>n</m> menjadi bagian-bagian berbeda adalah
+            <md>
+                D(x)=\prod_{n=1}^\infty (1+x^n).
+            </md>
+            Di sisi lain, fungsi pembangkit <m>O(x)</m> bagi banyaknya partisi dari <m>n</m> menjadi bagian-bagian ganjil adalah
+            <md>
+                O(x)=\prod_{n=1}^\infty\frac{1}{1-x^{2n-1}}.
+            </md>
+            </p>
+            <p>Untuk melihat bahwa <m>D(x)=O(x)</m>, perhatikan bahwa <m>1-x^{2n}=(1-x^n)(1+x^n)</m> untuk setiap <m>n\ge1</m>. Oleh karena itu,
+            <md>
+                <mrow>  D(x)\amp =\prod_{n=1}^\infty
+                (1+x^n)=\prod_{n=1}^\infty\frac{1-x^{2n}}{1-x^n} =\frac{\prod_{n=1}^\infty(1-x^{2n})}{\prod_{n=1}^\infty(1-x^n)}</mrow>
+                <mrow>  \amp =\frac{\prod_{n=1}^\infty(1-x^{2n})}{
+                \prod_{n=1}^\infty(1-x^{2n-1})\prod_{n=1}^\infty(1-x^{2n})}
+                =\prod_{n=1}^\infty\frac{1}{1-x^{2n-1}}</mrow>
+                <mrow>  \amp = O(x).</mrow>
+            </md>
+            </p>
+        </proof>
+    </theorem>
+</section>

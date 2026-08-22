@@ -1,0 +1,14 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_graphalgorithms">
+    <title>Algoritma Graf</title>
+
+
+    <introduction>
+        <p>Dalam bab-bab sebelumnya, kita telah menjumpai beberapa algoritma untuk persoalan yang melibatkan struktur diskret, seperti mencari sirkuit Euler (<xref ref="ch_graphs"/>) atau mempartisi poset menjadi antirantai-antirantai (<xref ref="ch_posets"/>). Bab ini mengawali rangkaian tiga bab yang berfokus pada algoritma. Dalam bab ini, kita menelaah dua persoalan minimisasi pada graf dengan memberikan bobot pada setiap sisi. Persoalan pertama ialah menentukan pohon merentang berbobot minimum. Persoalan kedua ialah mencari lintasan terpendek dari suatu simpul akar ke setiap simpul lain dalam graf berarah.
+        </p>
+    </introduction>
+    <xi:include href="s_graphalgorithms_min-wt-span.ptx"/>
+    <xi:include href="s_graphalgorithms_digraphs.ptx"/>
+    <xi:include href="s_graphalgorithms_shortest-paths.ptx"/>
+    <xi:include href="s_graphalgorithms_historical-notes.ptx"/>
+    <xi:include href="s_graphalgorithms_exercises.ptx"/>
+</chapter>

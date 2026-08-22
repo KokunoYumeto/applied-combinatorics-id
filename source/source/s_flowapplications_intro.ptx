@@ -1,0 +1,15 @@
+<section xml:id="s_flowapplications_intro">
+    <title>Pendahuluan</title>
+    <p>Sebelum mendalami masalah-masalah kombinatorial tertentu yang ingin kita tinjau dalam bab ini, kita akan menyatakan sebuah teorema penting. Dalam contoh-contoh masalah aliran jaringan sejauh ini, kapasitas selalu berupa bilangan bulat dan kita selalu menemukan aliran maksimum yang setiap sisinya membawa aliran dalam jumlah bulat. Akan tetapi, tidak langsung jelas bahwa hal ini selalu dapat dilakukan. Sebagai contoh, mengapa aliran maksimum pada suatu jaringan yang sangat patologis dengan kapasitas bulat tidak mungkin bernilai <m>23/3</m>? Atau bahkan sesuatu yang lebih buruk, seperti <m>\sqrt{21\pi}</m>? Kemungkinan terakhir dapat kita singkirkan karena masalah aliran jaringan termasuk dalam kelas masalah yang lebih luas, yaitu masalah pemrograman linear. Suatu teorema utama menyatakan bahwa jika program linear dirumuskan dengan semua kendala berupa bilangan bulat (dalam kasus kita, kapasitas), solusinya harus berupa bilangan rasional. Namun, untuk aliran jaringan berlaku sesuatu yang bahkan lebih kuat.
+    </p>
+
+    <theorem>
+        <statement>
+            <p>Dalam masalah aliran jaringan yang setiap sisinya berkapasitas bulat, terdapat aliran maksimum yang setiap sisinya membawa aliran dalam jumlah bulat.
+            </p>
+        </statement>
+    </theorem>
+
+    <p>Perhatikan bahwa teorema di atas tidak menjamin setiap aliran maksimum mempunyai aliran bulat pada setiap sisi; teorema itu hanya menjamin bahwa kita dapat menemukan salah satunya. Berbekal teorema ini, kini kita melihat bahwa jika semua kapasitas dalam masalah aliran jaringan bernilai <m>1</m>, kita dapat menemukan aliran maksimum yang setiap sisinya membawa aliran sebesar <m>0</m> atau <m>1</m>. Hal ini memberi kita penafsiran kombinatorial atas aliran tersebut: dalam arti tertentu, sisi-sisi yang penuh dapat dipandang sebagai sisi yang kita <q>pilih</q> untuk suatu tujuan yang berguna.
+    </p>
+</section>

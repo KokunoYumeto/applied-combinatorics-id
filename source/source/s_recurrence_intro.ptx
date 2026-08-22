@@ -1,0 +1,88 @@
+<section xml:id="s_recurrence_intro">
+    <title>Pendahuluan</title>
+    <subsection xml:id="s_recurrence_intro_fib">
+        <title>Bilangan Fibonacci</title>
+        <idx><h>Fibonacci</h><h>bilangan</h></idx>
+        <p>Salah satu rekurensi yang paling terkenal muncul dari sebuah kisah sederhana. Misalkan seorang ilmuwan membawa sepasang kelinci yang baru lahir ke sebuah pulau terpencil. Kelinci jenis ini belum dapat berkembang biak sampai bulan ketiga kehidupannya, tetapi setelah itu menghasilkan sepasang kelinci baru setiap bulan. Jadi, pada bulan pertama dan kedua hanya ada sepasang kelinci di pulau itu, tetapi pada bulan ketiga ada dua pasang kelinci karena pasangan pertama menghasilkan sepasang anak kelinci. Pada bulan keempat, pasangan kelinci mula-mula masih ada, demikian pula sepasang anak kelinci pertama mereka, yang belum cukup dewasa untuk berkembang biak. Namun, pasangan mula-mula melahirkan sepasang kelinci lagi sehingga kini ada tiga pasang kelinci di pulau itu. Dengan mengasumsikan bahwa tidak ada predator pemangsa kelinci di pulau tersebut dan kelinci-kelinci itu memiliki rentang hidup tak terbatas, berapa pasang kelinci yang ada di pulau itu pada bulan kesepuluh?
+        </p>
+
+        <p>Mari kita lihat cara memperoleh rekurensi dari kisah ini. Misalkan <m>f_n</m> menyatakan banyaknya pasangan kelinci di pulau itu pada bulan <m>n</m>. Jadi, berdasarkan uraian di atas, <m>f_1 = 1</m>, <m>f_2 = 1</m>, <m>f_3=2</m>, dan <m>f_4=3</m>. Bagaimana kita menghitung <m>f_n</m>? Pada bulan <m>n^\text{th}</m>, kita memiliki semua pasangan kelinci yang sudah ada pada bulan sebelumnya, yaitu <m>f_{n-1}</m>; namun, sebagian pasangan kelinci itu juga berkembang biak pada bulan ini. Hanya pasangan yang lahir sebelum bulan sebelumnya yang dapat berkembang biak pada bulan <m>n</m>, sehingga ada <m>f_{n-2}</m> pasangan kelinci yang dapat berkembang biak, dan masing-masing menghasilkan sepasang kelinci baru. Dengan demikian, banyaknya pasangan kelinci pada bulan <m>n</m> adalah <m>f_n = f_{n-1} + f_{n-2}</m> untuk <m>n\geq 3</m>, dengan <m>f_1=f_2=1</m>. Barisan bilangan <m>\{f_n\colon n\geq 0\}</m> (kita menetapkan <m>f_0=0</m>, yang memenuhi rekurensi tersebut) dikenal sebagai <term>barisan Fibonacci</term><idx><h>Fibonacci</h><h>barisan</h></idx> dan dinamai menurut Leonardo dari Pisa, yang lebih dikenal sebagai Fibonacci, seorang matematikawan Italia yang hidup sekitar tahun 1170 hingga sekitar tahun 1250. Suku-suku <m>f_0,f_1,\dots,f_{20}</m> dari barisan Fibonacci adalah
+        <md>
+            0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987, 1597,2584,4181,6765.
+        </md>
+        </p>
+        <p>Jadi, jawaban atas pertanyaan kita tentang banyaknya pasangan kelinci di pulau itu pada bulan kesepuluh adalah <m>55</m>. Nilai ini sangat mudah dihitung, tetapi bagaimana jika kita menanyakan nilai <m>f_{1000}</m> dalam barisan Fibonacci? Dapatkah kita menentukan apakah pertidaksamaan berikut benar atau salah<mdash/>tanpa benar-benar menghitung <m>f_{1000}</m>?
+        <md>
+            f_{1000} \lt  232748383849990383201823093383773932
+        </md>
+        </p>
+        <p>Perhatikan barisan <m>\{f_{n+1}/f_n:n\ge1\}</m> yang terdiri atas rasio suku-suku berurutan dalam barisan Fibonacci. <xref ref="tab_fib-ratios"/> menampilkan rasio tersebut untuk <m>n\leq 18</m>.
+        </p>
+        <figure xml:id="tab_fib-ratios">
+            <caption>Rasio <m>f_{n+1}/f_{n}</m> untuk <m>n\leq 18</m></caption>
+            <sidebyside>
+            <p>
+                <md>
+                    <mrow>  1/1 \amp = 1.0000000000 \amp  89/55 \amp = 1.6181818182</mrow>
+                    <mrow>  2/1 \amp = 2.0000000000 \amp  144/89 \amp = 1.6179775281</mrow>
+                    <mrow>  3/2 \amp = 1.5000000000 \amp  233/144 \amp = 1.6180555556</mrow>
+                    <mrow>  5/3 \amp = 1.6666666667 \amp 377/233 \amp = 1.6180257511 </mrow>
+                    <mrow>  8/5 \amp = 1.6000000000 \amp 610/377 \amp = 1.6180371353 </mrow>
+                    <mrow>  13/8 \amp = 1.6250000000 \amp 987/610 \amp = 1.6180327869 </mrow>
+                    <mrow>  21/13 \amp = 1.6153846154 \amp 1597/987 \amp = 1.6180344478 </mrow>
+                    <mrow>  34/21 \amp = 1.6190476190 \amp 2584/1597 \amp = 1.6180338134 </mrow>
+                    <mrow>  55/34 \amp = 1.6176470588 \amp 4181/2584 \amp = 1.6180340557 </mrow>
+                </md>
+            </p>
+            </sidebyside>
+        </figure>
+        <p>Rasio-rasio tersebut tampak konvergen ke suatu bilangan. Dapatkah kita menentukan bilangan ini? Apakah bilangan ini berkaitan dengan rumus eksplisit untuk <m>f_n</m> (jika rumus seperti itu memang ada)?
+        </p>
+        <example>
+            <p>Barisan Fibonacci tidak akan dipelajari sedemikian luas jika kegunaannya hanya untuk menghitung pasangan kelinci di sebuah pulau hipotetis. Berikut contoh lain yang juga menghasilkan barisan Fibonacci. Misalkan <m>c_n</m> menyatakan banyaknya cara menutupi papan berpetak berukuran <m>2\times n</m> dengan ubin berukuran <m>2\times 1</m>. Maka <m>c_1=1</m> dan <m>c_2=2</m>, sedangkan rekurensinya adalah <m>c_{n+2} = c_{n+1}+c_n</m>. Hal ini karena kolom paling kanan papan tersebut diisi oleh sebuah ubin vertikal (sehingga bagian sisanya dapat ditutupi ubin dengan <m>c_{n+1}</m> cara), atau dua kolom paling kanannya diisi oleh dua ubin horizontal (sehingga bagian sisanya dapat ditutupi ubin dengan <m>c_n</m> cara).
+            </p>
+        </example>
+    </subsection>
+
+
+    <subsection xml:id="s_recurrence_intro_strings">
+        <title>Rekurensi untuk Untai</title>
+        <p>Dalam <xref ref="ch_induction"/>, kita beberapa kali melihat cara memperoleh rekurensi yang memberikan banyaknya untai biner atau terner dengan panjang <m>n</m> ketika kita membatasi kemunculan pola tertentu di dalamnya. Mari kita ingat kembali beberapa jenis pertanyaan itu agar kita memperoleh lebih banyak rekurensi untuk dibahas.
+        </p>
+        <example xml:id="ex_recurrence_binary-strings-no-11">
+            <idx><h>untai</h><h>biner</h></idx>
+            <p>Misalkan <m>a_{n}</m> menyatakan banyaknya untai biner dengan panjang <m>n</m> yang tidak memuat dua karakter<nbsp/><m>1</m> berturut-turut. Jelas, <m>a_1=2</m> karena kedua untai biner dengan panjang<nbsp/><m>1</m> sama-sama <q>baik</q>. Selain itu, <m>a_2=3</m> karena hanya satu dari empat untai biner dengan panjang<nbsp/><m>2</m> yang <q>buruk</q>, yaitu <m>(1,1)</m>. Selanjutnya, <m>a_3= 5</m> karena dari <m>8</m> untai biner dengan panjang<nbsp/><m>3</m>, ketiga untai berikut adalah <q>buruk</q>:
+            <md>
+                (1,1,0), (0,1,1), (1,1,1).
+            </md>
+            Secara umum, mudah dilihat bahwa barisan ini memenuhi rekurensi <m>a_{n+2} = a_{n+1}+a_n</m>, sebab kita dapat mempartisi himpunan semua untai <q>baik</q> menjadi dua himpunan: untai yang berakhir dengan <m>0</m> dan untai yang berakhir dengan<nbsp/><m>1</m>. Jika bit terakhir adalah<nbsp/><m>0</m>, maka pada <m>n+1</m> posisi pertama kita dapat menempatkan sembarang untai <q>baik</q> dengan panjang<nbsp/><m>n+1</m>. Namun, jika bit terakhir adalah<nbsp/><m>1</m>, bit sebelumnya harus <m>0</m>, dan pada <m>n</m> posisi pertama kita dapat menempatkan sembarang untai <q>baik</q> dengan panjang<nbsp/><m>n</m>.
+            </p>
+
+            <p>Akibatnya, barisan ini tidak lain adalah barisan Fibonacci, tetapi digeser sebanyak<nbsp/><m>1</m> posisi; yaitu, <m>a_{n} = f_{n+1}</m>.
+            </p>
+        </example>
+
+        <example xml:id="ex_recurrence_ternary-strings-no-20">
+            <idx><h>untai</h><h>terner</h></idx>
+            <p>Misalkan <m>t_n</m> menyatakan banyaknya untai terner yang tidak pernah memuat subuntai <m>(2,0)</m> pada dua posisi berurutan. Kini <m>t_1=3</m> dan <m>t_2=8</m> karena dari <m>9</m> untai terner dengan panjang<nbsp/><m>2</m>, tepat satu yang <q>buruk</q>. Sekarang, tinjau himpunan semua untai baik yang dikelompokkan menurut karakter terakhirnya. Jika karakter ini adalah <m>2</m> atau <m>1</m>, maka <m>n+1</m> karakter sebelumnya dapat berupa sembarang untai <q>baik</q> dengan panjang<nbsp/><m>n+1</m>. Namun, jika karakter terakhir adalah <m>0</m>, maka <m>n+1</m> karakter pertama membentuk untai baik dengan panjang <nbsp/><m>n+1</m> yang tidak berakhir dengan<nbsp/><m>2</m>. Banyaknya untai semacam itu ialah <m>t_{n+1} - t_n</m>. Dengan demikian, rekurensinya adalah <m>t_{n+2} = 3t_{n+1} - t_n</m>. Khususnya, <m>t_3 = 21</m>.
+            </p>
+        </example>
+    </subsection>
+
+
+    <subsection xml:id="s_recurrence_intro_lines">
+        <title>Garis dan Daerah pada Bidang</title>
+        <p>Contoh berikut membawa kita kembali ke salah satu masalah yang memotivasi pembahasan dalam <xref ref="ch_intro"/>. Dalam <xref ref="fig_geomregions"/>, kita menampilkan suatu susunan <m>4</m> garis pada bidang. Setiap pasangan garis berpotongan, dan tidak ada titik pada bidang yang terletak pada lebih dari dua garis. Garis-garis ini membentuk<nbsp/><m>11</m> daerah.</p>
+        <figure xml:id="fig_geomregions">
+        <caption>Garis dan daerah pada bidang</caption>
+        <image width="65%" source="lines-regions">
+          <description>
+            <p>Empat garis digambar pada bidang sehingga setiap pasangan garis berpotongan dan tidak ada tiga garis yang berpotongan di satu titik. Pada salah satu garis, tiga titik potong dengan tiga garis lainnya ditandai dengan noktah. Daerah-daerah yang dibentuk oleh garis-garis tersebut diberi nomor dari <m>1</m> sampai <m>11</m>.</p>
+          </description>
+        </image>
+      </figure>
+        <p>Kita menanyakan berapa banyak daerah yang dibentuk oleh suatu susunan <m>1000</m> garis dengan batasan perpotongan yang sama. Secara umum, misalkan <m>r_n</m> menyatakan banyaknya daerah yang dibentuk oleh <m>n</m> garis. Jelas, <m>r_1=2</m>, <m>r_2=4</m>, <m>r_3=7</m>, dan <m>r_4=11</m>. Kini mudah dilihat bahwa rekurensinya adalah <m>r_{n+1} = r_n+n+1</m>. Untuk melihatnya, pilih salah satu dari <m>n+1</m> garis secara sembarang dan sebut garis itu <m>l</m>. Garis <m>l</m> berpotongan dengan setiap garis lainnya. Karena tidak ada titik pada bidang yang terletak pada tiga garis atau lebih, titik-titik perpotongan <m>l</m> dengan garis-garis lainnya semuanya berbeda. Beri label titik-titik itu secara berurutan sebagai <m>x_1,x_2,\dots,x_n</m>. Titik-titik tersebut kemudian membagi garis <m>l</m> menjadi <m>n+1</m> bagian, dua di antaranya (yang pertama dan terakhir) tak berbatas. Setiap bagian ini membelah salah satu daerah yang dibentuk oleh <m>n</m> garis lainnya menjadi dua. Dengan demikian, terdapat <m>r_n</m> daerah yang dibentuk oleh <m>n</m> garis lainnya dan <m>n+1</m> daerah baru yang dibentuk oleh <m>l</m>.
+        </p>
+    </subsection>
+
+</section>

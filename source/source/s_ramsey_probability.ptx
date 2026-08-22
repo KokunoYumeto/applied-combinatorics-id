@@ -1,0 +1,56 @@
+<section xml:id="s_ramsey_probability">
+    <title>Menerapkan Probabilitas pada Teori Ramsey</title>
+    <idx><h>bilangan Ramsey</h><h>simetris</h></idx>
+    <p>Teorema berikut, yang berasal dari P. Erd&#337;s, benar-benar merupakan hasil klasik dan disajikan di sini dengan cara yang setia pada publikasi pertamanya. Seperti akan kita lihat nanti, teorema tersebut kemudian dirumuskan kembali<mdash/>tetapi janganlah kita mendahului pembahasan.
+    </p>
+
+    <theorem xml:id="thm_rnn">
+        <statement>
+            <p>Jika <m>n</m> merupakan bilangan bulat positif, maka
+            <md>
+                R(n,n) \ge \frac{n}{e\sqrt2} 2^{\frac{1}{2}n}
+            </md>
+            </p>
+        </statement>
+
+        <proof>
+            <p>Misalkan <m>t</m> merupakan bilangan bulat dengan <m>t&gt;n</m> dan perhatikan himpunan <m>\cgF</m> yang terdiri atas semua graf berlabel dengan himpunan simpul <m>\{1,2,\dots,t\}</m>. Jelas terdapat <m>2^{C(t,2)}</m> graf dalam keluarga ini. Misalkan <m>\cgF_1</m> menyatakan subkeluarga yang terdiri atas graf-graf yang memuat klik berukuran<nbsp/><m>n</m>. Mudah dilihat bahwa
+            <md>
+                |\cgF_1|\le \binom{t}{n}2^{n(t-n)}2^{C(t-n,2)}.
+            </md>
+            Demikian pula, misalkan <m>\cgF_2</m> menyatakan subkeluarga yang terdiri atas graf-graf yang memuat himpunan bebas berukuran<nbsp/><m>n</m>. Dengan demikian,
+            <md>
+                |\cgF_2|\le \binom{t}{n}2^{n(t-n)}2^{C(t-n,2)}.
+            </md>
+            </p>
+            <p>Kita ingin mengambil bilangan bulat <m>t</m> sebesar mungkin sambil tetap menjamin bahwa <m>|\cgF_1|+|\cgF_2|\le |\cgF|</m>. Hal ini menyiratkan bahwa terdapat graf <m>G</m> dalam <m>\cgF</m> yang tidak memuat klik berukuran <m>n</m> maupun himpunan bebas berukuran<nbsp/><m>n</m>. Jadi, perhatikan pertidaksamaan berikut:
+            <md number="yes" xml:id="eqn_rnn">
+                2\binom{t}{n}2^{n(t-n)}2^{C(t-n,2)}\lt 2^{C(t,2)}.
+            </md>
+            Sekarang kita bertanya: seberapa besar <m>t</m> dapat dipilih tanpa melanggar <xref ref="eqn_rnn">pertidaksamaan</xref>? Untuk menjawabnya, kita menggunakan pertidaksamaan sederhana <m>\binom{t}{n}\le t^n/n!</m> dan aproksimasi Stirling untuk <m>n!</m>. Setelah melakukan manipulasi aljabar dan mengambil akar ke-<m>n</m> pada kedua ruas, kita melihat bahwa cukup dijamin
+            <md>
+                t\le \frac{n}{e\sqrt{2}}2^{\frac{1}{2}n}
+            </md>
+            </p>
+        </proof>
+    </theorem>
+    <p>Sekarang mari kita tinjau kembali bukti <xref ref="thm_rnn"/>. Kita meninjau ruang probabilitas <m>(S,P)</m> yang hasil-hasilnya berupa graf dengan himpunan simpul <m>\{1,2,\dots,t\}</m>. Untuk setiap <m>i</m> dan <m>j</m> dengan <m>1\le i \lt j\le t</m>, sisi <m>ij</m> terdapat dalam graf dengan probabilitas <m>1/2</m>. Selain itu, kejadian-kejadian untuk pasangan yang berbeda saling bebas.
+    </p>
+
+    <p>Misalkan <m>X_1</m> menyatakan peubah acak yang menghitung banyaknya himpunan bagian <m>n</m>-elemen dari <m>\{1,2,\dots,t\}</m> dengan semua <m>\binom{n}{2}</m> pasangannya merupakan sisi dalam graf. Demikian pula, <m>X_2</m> merupakan peubah acak yang menghitung banyaknya himpunan bebas berukuran <m>n</m> dari <m>\{1,2,\dots,t\}</m>. Kemudian tetapkan <m>X=X_1+X_2</m>.
+    </p>
+
+    <p>Berdasarkan linearitas nilai harapan, <m>E(X)=E(X_1)+E(X_2)</m>, sedangkan
+    <md>
+        E(X_1)=E(X_2) = \binom{t}{n} \frac{1}{2^{C(n,2)}}.
+    </md>
+    Jika <m>E(X)\lt 1</m>, harus ada graf dengan himpunan simpul <m>\{1,2,\dots,t\}</m> yang tidak memuat <m>K_n</m> maupun <m>I_n</m>. Pertanyaan tentang seberapa besar <m>t</m> dapat dipilih sambil mempertahankan <m>E(X)\lt 1</m> membawa kita tepat pada perhitungan yang sama seperti sebelumnya.
+    </p>
+
+    <p>Setelah lebih dari lima puluh tahun dan upaya banyak peneliti yang sangat cemerlang, hanya sedikit perbaikan yang berhasil dicapai pada batas untuk <m>R(n,n)</m> dari <xref ref="thm_graphramsey"/> dan <xref ref="thm_rnn"/>. Secara khusus, belum ada yang dapat menentukan apakah terdapat konstanta <m>c\lt 2</m> dan bilangan bulat <m>n_0</m> sedemikian sehingga <m>R(n,n)\lt 2^{cn}</m> apabila <m>n&gt;n_0</m>. Demikian pula, belum ada yang dapat menjawab apakah terdapat konstanta <m>d&gt;1/2</m> dan bilangan bulat <m>n_1</m> sedemikian sehingga <m>R(n,n)&gt;2^{dn}</m> apabila <m>n&gt;n_1</m>. Kami tentu akan memberi Anda nilai <m>A</m> untuk mata kuliah ini jika Anda berhasil menyelesaikan salah satunya.
+    </p>
+    <remark>
+        <p>Carlos mengatakan bahwa ia telah mencoba membuktikan batas bawah yang baik untuk <m>R(n,n)</m> hanya dengan metode konstruktif, <ie/>, tanpa memperbolehkan teknik acak. Namun, ia mengalami kesulitan. Semua yang dicobanya tampaknya hanya menunjukkan bahwa <m>R(n,n)\ge n^c</m> dengan <m>c</m> suatu konstanta. Hasil itu tampak sangat lemah dibandingkan dengan batas eksponensial yang mudah diberikan oleh metode probabilistik. Biasanya Alice tidak terlalu bersimpati pada keluhan orang lain, apalagi keluhan Carlos yang tampaknya selalu berada di depan. Namun kali ini, Alice berkata kepada Carlos dengan suara yang dapat didengar semua orang, <q>Mungkin kamu tidak seharusnya terlalu keras kepada dirimu sendiri. Aku membaca artikel di web yang mengatakan bahwa belum ada seorang pun yang berhasil menunjukkan adanya konstanta <m>c&gt;1</m> dan bilangan bulat <m>n_0</m> sedemikian sehingga <m>R(n,n)&gt;c^n</m> apabila <m>n&gt;n_0</m>, jika hanya metode konstruktif yang diperbolehkan. Dan mungkin, hanya mungkin, mengatakan bahwa kamu tidak mampu melakukan sesuatu yang tampaknya juga tidak mampu dilakukan banyak tokoh terkenal bukanlah hal yang terlalu buruk.</q> Bob melihat sisi baru Alice, dan hal itu pun tidak terlalu buruk.
+        </p>
+    </remark>
+</section>

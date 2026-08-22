@@ -1,0 +1,807 @@
+<exercises xml:id="s_graphs_PI" component="runestone-PI">
+  <title>Pertanyaan Pengajaran Sebaya</title>
+  <exercise label="graphs_PI_subgraph1">
+    <statement>
+      <p>Pilih jawaban terbaik.
+      </p>
+      <image source="spanning_subgraph" width="85%">
+        <description>Dua graf berlabel G dan H pada himpunan simpul 1 sampai 10; graf H mempertahankan seluruh simpul dan sebagian sisi graf G.</description>
+      </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>\bfH</m> merupakan subgraf dari <m>\bfG</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\bfH</m> merupakan subgraf terinduksi dari <m>\bfG</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>\bfH</m> merupakan subgraf merentang dari <m>\bfG</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak satu pun jawaban di atas</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_subgraph2">
+    <statement>
+      <p>Pilih jawaban terbaik.
+      </p>
+      <image source="non_subgraph" width="85%">
+        <description>Dua graf berlabel G dan H pada sepuluh simpul bernomor; diagram H memuat susunan sisi yang harus dibandingkan dengan sisi-sisi G.</description>
+      </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>\bfH</m> merupakan subgraf dari <m>\bfG</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\bfH</m> merupakan subgraf terinduksi dari <m>\bfG</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\bfH</m> merupakan subgraf merentang dari <m>\bfG</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Tidak satu pun jawaban di atas</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>  
+  <exercise label="graphs_PI_subgraph3">
+    <statement>
+      <p>Pilih jawaban terbaik.
+      </p>
+      <image source="induced_subgraph" width="85%">
+        <description>Graf G pada sepuluh simpul bernomor dan graf H pada simpul 2, 3, 5, 6, 8, dan 10, beserta semua sisi G di antara keenam simpul tersebut.</description>
+      </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>\bfH</m> merupakan subgraf dari <m>\bfG</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>\bfH</m> merupakan subgraf terinduksi dari <m>\bfG</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\bfH</m> merupakan subgraf merentang dari <m>\bfG</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak satu pun jawaban di atas</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>    
+  <exercise label="graphs_PI_isomorphic1">
+    <statement>
+      <p>
+        Graf <m>\bfG</m> dan <m>\bfH</m> isomorfik.
+      </p>
+      <image source="isomorphic_graphs-PI" width="85%">
+        <description>Dua graf berlabel, G pada simpul a sampai f dan H pada simpul 1 sampai 6, dengan pola ketetanggaan yang sama dalam tata letak berbeda.</description>
+      </image>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>Benar, keyakinan tinggi</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan tinggi</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_isomorphic2">
+    <statement>
+      <p>
+        Graf <m>\bfG</m> dan <m>\bfH</m> isomorfik.
+      </p>
+      <image source="nonisomorphic_graphs-PI" width="85%">
+        <description>Dua graf berlabel, G pada simpul a sampai f dan H pada simpul 1 sampai 6; keduanya memiliki enam simpul tetapi pola derajatnya berbeda.</description>
+      </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan tinggi</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Salah, keyakinan tinggi</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_hamiltonian-G1">
+    <statement>
+      <p>Graf <m>\bfG_1</m> merupakan graf Hamilton.</p>
+      <image width="40%">
+      <description>
+        <p>
+          Graf dengan 10 simpul. Tetangga setiap simpul diberikan pada tabel berikut.
+        </p>
+        <tabular>
+          <row>
+            <cell>Simpul</cell>
+            <cell>Tetangga</cell>
+          </row>
+          <row>
+            <cell><m>1</m></cell>
+            <cell><m>4</m>, <m>5</m></cell>
+          </row>
+          <row>
+            <cell><m>2</m></cell>
+            <cell><m>3</m>, <m>6</m>, <m>9</m></cell>
+          </row>
+          <row>
+            <cell><m>3</m></cell>
+            <cell><m>2</m>, <m>7</m>, <m>10</m></cell>
+          </row>
+          <row>
+            <cell><m>4</m></cell>
+            <cell><m>1</m>, <m>7</m>, <m>8</m>, <m>10</m></cell>
+          </row>
+          <row>
+            <cell><m>5</m></cell>
+            <cell><m>1</m>, <m>6</m>, <m>7</m></cell>
+          </row>
+          <row>
+            <cell><m>6</m></cell>
+            <cell><m>2</m>, <m>5</m>, <m>8</m></cell>
+          </row>
+          <row>
+            <cell><m>7</m></cell>
+            <cell><m>3</m>, <m>4</m>, <m>5</m></cell>
+          </row>
+          <row>
+            <cell><m>8</m></cell>
+            <cell><m>4</m>, <m>6</m>, <m>9</m></cell>
+          </row>
+          <row>
+            <cell><m>9</m></cell>
+            <cell><m>2</m>, <m>8</m>, <m>10</m></cell>
+          </row>
+          <row>
+            <cell><m>10</m></cell>
+            <cell><m>3</m>, <m>4</m>, <m>9</m></cell>
+          </row>
+        </tabular>
+      </description>
+      <prefigure xmlns="https://prefigure.org" label="img-hamgraph1">
+        <diagram dimensions="(200,300)" margins="5">
+          <definition>graph={1:[4,5],2:[3,6,9],3:[7,10],4:[7,8,10],5:[6,7],6:[8],8:[9],9:[10]}</definition>
+          <coordinates bbox="(-1,-1,1,1)">
+            <network graph="graph" scale="0.8" node-fill="#fcf" node-stroke="black" seed="1" labels="yes">
+            </network>
+          </coordinates>
+        </diagram>
+      </prefigure>
+    </image>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>Benar, keyakinan tinggi</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Belum dapat menentukan</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan tinggi</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_hamiltonian-G2">
+    <statement>
+      <p>Graf <m>\bfG_2</m> merupakan graf Hamilton.</p>
+      <image width="50%">
+      <description>
+        <p>
+          Graf dengan 10 simpul. Tetangga setiap simpul diberikan pada tabel berikut.
+        </p>
+        <tabular>
+          <row>
+            <cell>Simpul</cell>
+            <cell>Tetangga</cell>
+          </row>
+          <row>
+            <cell><m>1</m></cell>
+            <cell><m>2</m>, <m>10</m></cell>
+          </row>
+          <row>
+            <cell><m>2</m></cell>
+            <cell><m>1</m>, <m>4</m>, <m>5</m>, <m>7</m>, <m>9</m></cell>
+          </row>
+          <row>
+            <cell><m>3</m></cell>
+            <cell><m>7</m>, <m>8</m>, <m>9</m></cell>
+          </row>
+          <row>
+            <cell><m>4</m></cell>
+            <cell><m>2</m>, <m>10</m></cell>
+          </row>
+          <row>
+            <cell><m>5</m></cell>
+            <cell><m>2</m>, <m>6</m></cell>
+          </row>
+          <row>
+            <cell><m>6</m></cell>
+            <cell><m>5</m>, <m>8</m>, <m>9</m></cell>
+          </row>
+          <row>
+            <cell><m>7</m></cell>
+            <cell><m>2</m>, <m>3</m></cell>
+          </row>
+          <row>
+            <cell><m>8</m></cell>
+            <cell><m>3</m>, <m>6</m></cell>
+          </row>
+          <row>
+            <cell><m>9</m></cell>
+            <cell><m>2</m>, <m>3</m>, <m>6</m></cell>
+          </row>
+          <row>
+            <cell><m>10</m></cell>
+            <cell><m>1</m>, <m>4</m></cell>
+          </row>
+        </tabular>
+      </description>
+      <prefigure xmlns="https://prefigure.org" label="img-hamgraph2">
+        <diagram dimensions="(300,300)" margins="5">
+          <definition>graph={1:[2,10],2:[5,9,4,7],3:[7,8,9],4:[10],5:[6],6:[8,9]}</definition>
+          <coordinates bbox="(-1,-1,1,1)">
+            <network graph="graph" scale="0.8" node-fill="#fcf" node-stroke="black" layout="circular" labels="yes">
+            </network>
+          </coordinates>
+        </diagram>
+      </prefigure>
+    </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan tinggi</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Belum dapat menentukan</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Salah, keyakinan tinggi</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_hamiltonian-G3">
+    <statement>
+      <p>Graf <m>\bfG_3</m> merupakan graf Hamilton.</p>
+      <image width="30%">
+      <description>
+        <p>
+          Graf dengan 10 simpul. Tetangga setiap simpul diberikan pada tabel berikut.
+        </p>
+        <tabular>
+          <row>
+            <cell>Simpul</cell>
+            <cell>Tetangga</cell>
+          </row>
+          <row>
+            <cell><m>1</m></cell>
+            <cell><m>5</m>, <m>7</m></cell>
+          </row>
+          <row>
+            <cell><m>2</m></cell>
+            <cell><m>3</m>, <m>5</m>, <m>6</m>, <m>7</m></cell>
+          </row>
+          <row>
+            <cell><m>3</m></cell>
+            <cell><m>2</m>, <m>8</m>, <m>10</m></cell>
+          </row>
+          <row>
+            <cell><m>4</m></cell>
+            <cell><m>7</m>, <m>9</m>, <m>10</m></cell>
+          </row>
+          <row>
+            <cell><m>5</m></cell>
+            <cell><m>1</m>, <m>2</m>, <m>6</m></cell>
+          </row>
+          <row>
+            <cell><m>6</m></cell>
+            <cell><m>2</m>, <m>5</m></cell>
+          </row>
+          <row>
+            <cell><m>7</m></cell>
+            <cell><m>1</m>, <m>2</m>, <m>4</m></cell>
+          </row>
+          <row>
+            <cell><m>8</m></cell>
+            <cell><m>3</m>, <m>9</m></cell>
+          </row>
+          <row>
+            <cell><m>9</m></cell>
+            <cell><m>4</m>, <m>8</m>, <m>10</m></cell>
+          </row>
+          <row>
+            <cell><m>10</m></cell>
+            <cell><m>3</m>, <m>4</m>, <m>9</m></cell>
+          </row>
+        </tabular>
+    </description><prefigure xmlns="https://prefigure.org" label="img-hamgraph3">
+        <diagram dimensions="(200,300)" margins="5">
+          <definition>graph={1:[5,7],2:[3,5,6,7],3:[8,10],4:[7,9,10],5:[6],8:[9],9:[10]}</definition>
+          <coordinates bbox="(-1,-1,1,1)">
+            <network graph="graph" scale="0.8" node-fill="#fcf" node-stroke="black" layout="spring" labels="yes">
+            </network>
+          </coordinates>
+        </diagram>
+      </prefigure>
+    </image>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>Benar, keyakinan tinggi</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Belum dapat menentukan</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan tinggi</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_hamiltonian-G4">
+    <statement>
+      <p>Graf <m>\bfG_4</m> merupakan graf Hamilton.</p>
+      <image width="50%">
+      <description>
+        <p>
+          Graf dengan 10 simpul berlabel 0 sampai 9. Untuk simpul berlabel 0 sampai 4, simpul berlabel <m>i</m> bertetangga dengan <m>i-1</m>, <m>i+1</m>, dan <m>i+5</m>. Dua ketetanggaan pertama ditafsirkan secara siklik; misalnya, <m>4</m> bertetangga dengan <m>3</m> dan <m>0</m>. Untuk simpul berlabel 5 sampai 9, simpul berlabel <m>i</m> bertetangga dengan <m>i-5</m>, <m>i+2</m>, dan <m>i+3</m>. Ketetanggaan kedua dan ketiga ditafsirkan secara siklik; misalnya, <m>9</m> bertetangga dengan <m>6</m> dan <m>7</m>.
+        </p>
+      </description>
+      <prefigure xmlns="https://prefigure.org" label="petersen-graph">
+        <diagram dimensions="(300,300)" margins="15">
+          <definition>N=5</definition>
+          <definition>g(t)=(0.5*cos(2*pi*t/N), 0.5*sin(2*pi*t/N))</definition>
+          <definition>f(t)=(cos(2*pi*t/N), sin(2*pi*t/N))</definition>
+          <coordinates bbox="(-1,-1,1,1)">
+            <network scale="0.8" node-fill="#fcf" node-stroke="black" seed="1" labels="yes" tactile-node-size="40">
+              <node at="0" p="f(0)" edges="[1,4,5]"/>
+              <node at="1" p="f(1)" edges="[2,6]"/>
+              <node at="2" p="f(2)" edges="[3,7]"/>
+              <node at="3" p="f(3)" edges="[4,8]"/>
+              <node at="4" p="f(4)" edges="[9]"/>
+              <node at="5" p="g(0)" edges="[7,8]"/>
+              <node at="6" p="g(1)" edges="[8,9]"/>
+              <node at="7" p="g(2)" edges="[9]"/>
+              <node at="8" p="g(3)" edges="[]"/>
+              <node at="9" p="g(4)" edges="[]"/>
+            </network>
+          </coordinates>
+        </diagram>
+      </prefigure>
+    </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan tinggi</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Belum dapat menentukan</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Salah, keyakinan tinggi</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_hamiltonian-G5">
+    <statement>
+      <p>Graf <m>\bfG_5</m> merupakan graf Hamilton.</p>
+      <image>
+      <shortdescription>Graf dengan 10 simpul dan 16 sisi.</shortdescription>
+      <description>
+        <p>
+          Graf dengan 10 simpul berlabel 0 sampai 9. Untuk simpul berlabel 0 sampai 4, simpul berlabel <m>i</m> bertetangga dengan <m>i-1</m>, <m>i+1</m>, dan <m>i+5</m>. Dua ketetanggaan pertama ditafsirkan secara siklik; misalnya, <m>4</m> bertetangga dengan <m>3</m> dan <m>0</m>. Untuk simpul berlabel 5 sampai 9, simpul berlabel <m>i</m> bertetangga dengan <m>i-5</m>, <m>i+2</m>, dan <m>i+3</m>. Ketetanggaan kedua dan ketiga ditafsirkan secara siklik; misalnya, <m>9</m> bertetangga dengan <m>6</m> dan <m>7</m>. Terdapat pula sisi di antara simpul berlabel <m>7</m> dan <m>8</m>.
+        </p>
+      </description>
+      <prefigure xmlns="https://prefigure.org" label="petersen-plus-e">
+        <diagram dimensions="(300,300)" margins="15">
+          <definition>N=5</definition>
+          <definition>g(t)=(0.5*cos(2*pi*t/N), 0.5*sin(2*pi*t/N))</definition>
+          <definition>f(t)=(cos(2*pi*t/N), sin(2*pi*t/N))</definition>
+          <coordinates bbox="(-1,-1,1,1)">
+            <network scale="0.8" node-fill="#fcf" node-stroke="black" seed="1" labels="yes" tactile-node-size="40">
+              <node at="0" p="f(0)" edges="[1,4,5]"/>
+              <node at="1" p="f(1)" edges="[2,6]"/>
+              <node at="2" p="f(2)" edges="[3,7]"/>
+              <node at="3" p="f(3)" edges="[4,8]"/>
+              <node at="4" p="f(4)" edges="[9]"/>
+              <node at="5" p="g(0)" edges="[7,8]"/>
+              <node at="6" p="g(1)" edges="[8,9]"/>
+              <node at="7" p="g(2)" edges="[9,8]"/>
+              <node at="8" p="g(3)" edges="[]"/>
+              <node at="9" p="g(4)" edges="[]"/>
+            </network>
+          </coordinates>
+        </diagram>
+      </prefigure>
+    </image>   
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>Benar, keyakinan tinggi</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Belum dapat menentukan</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan tinggi</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_coloring-defn">
+    <statement>
+      <p>
+        Misalkan <m>\bfG=(V,E)</m> sebuah graf. Maka <m>\phi\colon V\to C</m> merupakan pewarnaan tepat pada <m>\bfG</m> jika
+      </p>
+    </statement>
+    <choices multiple-correct="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>\phi</m> bersifat satu-satu</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>xy\in E</m> mengakibatkan <m>\phi(x)\neq \phi(y)</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\phi</m> menggunakan sesedikit mungkin warna dari <m>C</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak satu pun jawaban di atas</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_coloring-subgraph">
+    <statement>
+      <p>
+        Misalkan <m>\bfG=(V,E)</m> sebuah graf dan <m>\phi\colon V\to C</m> suatu pewarnaan tepat pada <m>\bfG</m>. Misalkan <m>S</m> adalah himpunan semua simpul yang diberi warna <m>1\in C</m>. Berapa banyak sisi yang dimiliki subgraf <m>\bfG</m> yang diinduksi oleh <m>S</m>?
+      </p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>0</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>1</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>|S|</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Sembarang banyak sisi mungkin terjadi</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_coloring-Kn">
+    <statement>
+      <p>
+        Berapakah bilangan kromatik graf lengkap pada <m>n</m> simpul, yaitu <m>\bfK_n</m>?
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>n-1</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>n</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>n+1</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak ada rumus tetap yang bergantung pada <m>n</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_bipartite">
+    <statement>
+      <p>
+        Graf berikut merupakan graf bipartit.
+      </p>
+      <image source="bipartite_or_not" width="85%">
+        <description>Graf tak berlabel pada dua belas simpul dengan sejumlah sisi yang saling berpotongan dalam gambar; titik potong tanpa simpul bukan bagian dari graf.</description>
+      </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan tinggi</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Benar, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Salah, keyakinan rendah</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Salah, keyakinan tinggi</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_tree-to-code">
+    <statement>
+      <p>
+        Untuk pohon <m>\bfT</m> berikut, langkah pertama dalam membentuk <m>\prufer(\bfT)</m> adalah
+      </p>
+      <image source="tree-6-vertices" width="30%">
+        <description>Pohon pada simpul 1 sampai 6; simpul 1 bertetangga dengan 2, 3, 4, dan 5, sedangkan simpul 3 juga bertetangga dengan 6.</description>
+      </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>Hapus simpul 6 dan tulis 6 dalam kode Pr&#252;fer</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Hapus simpul 2 dan tulis 2 dalam kode Pr&#252;fer</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Hapus simpul 6 dan tulis 3 dalam kode Pr&#252;fer</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Hapus simpul 2 dan tulis 1 dalam kode Pr&#252;fer</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Hapus simpul 1 dan tulis 245 dalam kode Pr&#252;fer</p>
+        </statement>
+      </choice>
+
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_code-vertices">
+    <statement>
+      <p>
+        Berapa banyak simpul yang dimiliki pohon dengan kode Pr&#252;fer 8431875?
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>7</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>8</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>9</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Informasi yang diberikan tidak cukup</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_code-leaves">
+    <statement>
+      <p>Pohon dengan kode Pr&#252;fer 8431875 memiliki daun-daun berlabel</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>\{1,3,4,5,7,8\}</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>\{2,6,9\}</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\{1,2,3,4,5,6,7,8,9\}</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Informasi yang diberikan tidak cukup</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="graphs_PI_code-first-edge">
+    <statement>
+      <p>Ketika menentukan sisi-sisi pohon berkode Pr&#252;fer 8431875 dengan menelusuri kode dari kiri ke kanan, sisi pertama yang harus ditambahkan adalah</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>8-6</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>8-1</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>1-2</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>2-8</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>2-5</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+</exercises>

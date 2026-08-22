@@ -1,0 +1,26 @@
+/* Indonesian edition reader geometry.
+ * PreTeXt 2.49.1 otherwise leaves a 696px column flush against the left edge
+ * of a 960px main pane.  Preserve a comfortable line length while centering
+ * the book and using substantially more of the available screen. */
+
+.ptx-page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+}
+
+#ptx-content.ptx-content {
+  box-sizing: border-box;
+  width: min(100%, 60rem);
+  max-width: 60rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 3.25vw, 3rem);
+}
+
+@media (max-width: 43.75rem) {
+  #ptx-content.ptx-content {
+    width: 100%;
+    padding-inline: clamp(1rem, 4.5vw, 1.5rem);
+  }
+}

@@ -1,0 +1,315 @@
+<section xml:id="s_graphs_counting-trees">
+  <title>Menghitung Pohon Berlabel</title>
+  <p>Berapa banyak pohon yang memiliki himpunan simpul <m>[n]=\{1,2,\dots,n\}</m>? Misalkan <m>T_n</m> menyatakan
+    jumlah ini. Untuk <m>n=1</m>, jelas hanya ada satu pohon. Demikian pula, untuk <m>n=2</m>, hanya ada satu
+    pohon, yang isomorfik dengan <m>\bfK_2</m>. Ketika menentukan <m>T_3</m>, akhirnya ada sedikit pekerjaan
+    yang perlu dilakukan; namun, pekerjaan itu tidak banyak karena semua pohon pada <m>3</m> simpul isomorfik dengan <m>
+    \bfP_3</m>. Jadi, terdapat <m>T_3=3</m> <term>pohon berlabel</term><idx>
+      <h>pohon</h>
+      <h>berlabel</h>
+    </idx> pada <m>3</m> simpul, sesuai dengan pilihan simpul mana yang
+    berderajat <m>2</m>. Ketika <m>n=4</m>, kita dapat memulai dengan menghitung banyaknya pohon yang tidak isomorfik dan
+    mempertimbangkan dua kasus, bergantung pada apakah pohon tersebut memiliki simpul berderajat <m>3</m>. Jika ada
+    simpul berderajat <m>3</m>, pohon tersebut isomorfik dengan <m>\bfK_{1,3}</m>. Jika tidak ada simpul
+    berderajat tiga, pohon tersebut isomorfik dengan <m>\bfP_4</m>, sebab dalam graf seperti itu harus ada
+    tepat dua simpul berderajat <m>2</m>. Terdapat empat pelabelan dengan <m>[4]</m>
+    untuk <m>\bfK_{1,3}</m> (pilih simpul berderajat tiga). Berapa banyak pelabelan dengan <m>[4]</m> yang
+    ada untuk <m>\bfP_4</m>? Terdapat <m>C(4,2)</m> cara untuk memilih label <m>i,j</m> yang diberikan kepada
+    simpul-simpul berderajat <m>2</m>, dan dua cara untuk memilih salah satu label yang tersisa agar
+    bertetangga dengan <m>i</m>. Jadi, terdapat <m>12</m> cara untuk melabeli <m>\bfP_4</m> dengan <m>[4]</m>, sehingga <m>
+    T_4=16</m>. </p>
+
+  <p>Sampai di sini, tampaknya mulai terbentuk suatu pola. Mungkin untuk
+    setiap <m>n\geq 1</m> berlaku <m>T_n = n^{n-2}</m>. Memang demikian, tetapi mari kita lihat hasilnya
+    untuk <m>n=5</m> sebelum membuktikannya secara umum. Apa saja pohon yang tidak isomorfik pada
+    lima simpul? Tentu ada <m>\bfK_{1,4}</m> dan <m>\bfP_5</m>, serta ada pula
+    pohon ketiga yang ditampilkan pada <xref ref="fig_trees-5verts"/>. Setelah memikirkannya selama satu atau dua menit, Anda
+    seharusnya dapat meyakinkan diri bahwa hanya inilah semua kemungkinannya. Berapa banyak pelabelan dengan <m>
+    [5]</m> yang dimiliki setiap pohon tersebut? Terdapat <m>5</m> pelabelan untuk <m>\bfK_{1,4}</m> karena ada <m>5</m>
+    cara untuk memilih simpul berderajat <m>4</m>. Untuk <m>\bfP_5</m>, terdapat <m>5</m> cara untuk
+    memilih simpul tengah lintasan, <m>C(4,2)=6</m> cara untuk melabeli dua simpul berderajat <m>2</m> yang tersisa
+    setelah simpul tengah dilabeli, lalu <m>2</m> cara untuk melabeli
+    simpul-simpul berderajat <m>1</m>. Hasilnya adalah <m>60</m> pelabelan. Untuk pohon terakhir, terdapat <m>5</m>
+    cara untuk melabeli simpul berderajat <m>3</m>, <m>C(4,2)=6</m> cara untuk melabeli dua daun yang
+    bertetangga dengan simpul berderajat <m>3</m>, dan <m>2</m> cara untuk melabeli dua simpul yang
+    tersisa, sehingga diperoleh <m>60</m> pelabelan. Oleh karena itu, <m>T_5=125=5^3=5^{5-2}</m>. </p>
+  <figure xml:id="fig_trees-5verts">
+    <caption>Pohon-pohon yang tidak isomorfik pada <m>n=5</m> simpul</caption>
+    <image width="75%" source="trees-5verts"><description><p>Tiga pohon yang tidak isomorfik pada <m>n=5</m> simpul: sebuah bintang dengan satu pusat dan empat daun, sebuah lintasan lima simpul, serta sebuah pohon dengan satu simpul berderajat tiga, satu simpul berderajat dua, dan tiga daun.</p>
+    </description></image>
+  </figure>
+  <p>Ternyata kita memang berada di jalur yang benar, dan sekarang kita akan membuktikan pernyataan
+    berikut:
+  </p>
+
+  <theorem xml:id="thm_cayley">
+    <title>Rumus Cayley</title>
+    <idx>
+      <h>Rumus Cayley</h>
+    </idx>
+    <statement>
+      <p>Banyaknya <m>T_n</m> pohon berlabel pada <m>n</m> simpul adalah <m>n^{n-2}</m>. </p>
+    </statement>
+  </theorem>
+
+  <p>Hasil ini biasanya disebut Rumus Cayley, meskipun hasil-hasil ekuivalen telah dibuktikan
+    lebih dahulu oleh James J.<nbsp/>Sylvester (1857) dan Carl W.<nbsp/>Borchardt (1860). Nama
+    Cayley paling sering dilekatkan pada hasil ini karena dialah orang pertama yang menyatakan dan membuktikannya
+    dengan terminologi teori graf (pada 1889). (Meskipun dapat pula diperdebatkan bahwa Cayley sebenarnya hanya
+    membuktikannya untuk <m>n=6</m>, lalu menyatakan bahwa bukti tersebut dapat diperluas dengan mudah untuk semua nilai
+    <m>n</m> lainnya; apakah perluasan semacam itu benar-benar dapat dilakukan masih menjadi bahan perdebatan.) Rumus
+    Cayley memiliki banyak bukti yang berbeda, dan kebanyakan di antaranya sangat elegan. Jika Anda tertarik pada
+    penyajian beberapa bukti, kami menganjurkan Anda membaca bab tentang Rumus Cayley dalam <pubtitle>Proofs
+    from THE BOOK</pubtitle> karya Aigner, Ziegler, dan Hofmann, yang memuat empat bukti berbeda,
+    masing-masing menggunakan teknik pembuktian yang berbeda. Di sini kami memberikan bukti kelima, yang dikemukakan oleh Pr&#252;fer dan
+    diterbitkan pada 1918. Menariknya, meskipun bukti Pr&#252;fer muncul setelah sebagian besar
+    terminologi teori graf terbentuk, tampaknya ia tidak mengetahuinya dan bekerja dalam konteks
+    permutasi serta terminologinya sendiri, padahal pendekatannya jelas memuat gagasan-gagasan
+    teori graf. Kita akan menggunakan teknik rekursif untuk menemukan bijeksi antara himpunan
+    pohon berlabel pada <m>n</m> simpul dan sebuah himpunan alami berukuran <m>n^{n-2}</m>, yaitu himpunan string
+    dengan panjang <m>n-2</m> yang simbol-simbolnya berasal dari <m>[n]</m>. </p>
+
+  <p>Kita mendefinisikan algoritma rekursif yang menerima sebuah pohon <m>\bfT</m> pada <m>k\geq 2</m> simpul
+    yang dilabeli dengan elemen-elemen suatu himpunan <m>S</m> berukuran <m>k</m> yang terdiri atas bilangan bulat positif, lalu menghasilkan sebuah string
+    dengan panjang <m>k-2</m> yang simbol-simbolnya merupakan elemen <m>S</m>. (Himpunan <m>S</m> biasanya adalah <m>
+    [k]</m>, tetapi untuk mendefinisikan prosedur rekursif, kita perlu memperbolehkannya berupa sembarang
+    himpunan yang terdiri atas <m>k</m> bilangan bulat positif.) String ini disebut <term>kode Pr&#252;fer</term><idx>
+      <h>kode Pr&#252;fer</h>
+    </idx> dari pohon <m>\bfT</m>. Misalkan <m>\prufer(\bfT)</m> menyatakan
+    kode Pr&#252;fer dari pohon <m>\bfT</m>, dan jika <m>v</m> merupakan daun dari <m>\bfT</m>, misalkan <m>
+    \bfT-v</m> menyatakan pohon yang diperoleh dari <m>\bfT</m> dengan menghapus <m>v</m> (<ie/>, subgraf yang
+    diinduksi oleh semua simpul lainnya). Selanjutnya, kita dapat mendefinisikan <m>\prufer(\bfT)</m> secara rekursif melalui
+    prosedur berikut. <ol>
+      <li>
+        <p>Jika <m>\bfT\cong \bfK_2</m>, kembalikan string kosong.</p>
+      </li>
+      <li>
+        <p>Jika tidak, misalkan <m>v</m> adalah daun dari <m>\bfT</m> dengan label terkecil dan misalkan <m>u</m> adalah
+    tetangga tunggalnya. Misalkan <m>i</m> adalah label dari <m>u</m>. Kembalikan <m>(i,\prufer(\bfT-v))</m>.</p>
+      </li>
+
+    </ol>
+  </p>
+  <example xml:id="ex_prufer-code">
+    <p>Sebelum menggunakan kode Pr&#252;fer untuk membuktikan Rumus Cayley, mari kita luangkan waktu sejenak untuk memastikan bahwa kita
+      memahami cara menghitungnya dari sebuah pohon. Perhatikan pohon dengan <m>9</m> simpul, <m>\bfT</m>,
+      pada <xref ref="fig_prufer-code"/>. </p>
+    <figure xml:id="fig_prufer-code">
+      <caption>Sebuah pohon berlabel dengan <m>9</m> simpul</caption>
+      <image>
+        <description><p>Sebuah pohon berlabel dengan <m>9</m> simpul. Sisinya menghubungkan label dua dengan enam, lima dengan enam, enam dengan empat, tujuh dengan tiga, delapan dengan satu, satu dengan empat, empat dengan tiga, serta tiga dengan sembilan.</p>
+      </description><latex-image>\begin{overpic}{external/tree-9verts}
+                \put(46,2){\(1\)}
+                \put(21,21){\(2\)}
+                \put(62,14.5){\(3\)}
+                \put(36.8,14.5){\(4\)}
+                \put(2,2){\(5\)}
+                \put(9,12){\(6\)}
+                \put(90,12){\(7\)}
+                \put(27.5,5.5){\(8\)}
+                \put(77.3,21){\(9\)}
+                \end{overpic}</latex-image>
+      </image>
+
+    </figure>
+    <p>Bagaimana kita menghitung <m>\prufer(\bfT)</m>? Karena <m>\bfT</m> memiliki lebih dari dua simpul, kita menggunakan
+      langkah kedua dan memperoleh bahwa <m>v</m> adalah simpul berlabel <m>2</m>, sedangkan <m>u</m> adalah
+      simpul berlabel <m>6</m>, sehingga <m>\prufer(\bfT)=(6,\prufer(\bfT-v))</m>. Graf <m>\bfT-v</m>
+      ditampilkan pada <xref ref="fig_prufer-code-delete1"/>. </p>
+    <figure xml:id="fig_prufer-code-delete1">
+      <caption>Pohon <m>\bfT-v</m></caption>
+      <image>
+        <description><p>Pohon <m>\bfT-v</m> setelah simpul berlabel dua dihapus. Sisinya menghubungkan label lima dengan enam, enam dengan empat, tujuh dengan tiga, delapan dengan satu, satu dengan empat, empat dengan tiga, serta tiga dengan sembilan.</p>
+      </description><latex-image>\begin{overpic}{external/tree-8verts}
+                \put(46,2){\(1\)}
+                \put(62,14.5){\(3\)}
+                \put(36.8,14.5){\(4\)}
+                \put(2,2){\(5\)}
+                \put(9,12){\(6\)}
+                \put(90,12){\(7\)}
+                \put(27.5,5.5){\(8\)}
+                \put(77.3,21){\(9\)}
+                \end{overpic}</latex-image>
+      </image>
+
+    </figure>
+    <p>Panggilan rekursif <m>\prufer(\bfT-v)</m> menghasilkan <m>(6,\prufer(\bfT-v-v'))</m>, dengan <m>v'</m>
+      sebagai simpul berlabel <m>5</m>. Dengan melanjutkan proses secara rekursif, simpul berikutnya yang dihapus adalah <m>6</m>,
+      sehingga <m>4</m> ditambahkan ke string. Kemudian <m>7</m> dihapus, sehingga <m>3</m> ditambahkan. Berikutnya, <m>
+      8</m> dihapus, sehingga <m>1</m> ditambahkan. Setelah itu, <m>1</m> dihapus, sehingga <m>
+      4</m> ditambahkan. Akhirnya, <m>4</m> dihapus, sehingga <m>3</m> ditambahkan. Panggilan rekursif terakhir menerima
+      subpohon yang isomorfik dengan <m>\bfK_2</m>, dengan simpul berlabel <m>3</m> dan <m>9</m>, lalu mengembalikan
+      string kosong. Jadi, <m>\prufer(\bfT)=6643143</m>. </p>
+  </example>
+  <p>
+    Sekarang kita siap memberikan bukti Rumus Cayley.
+  </p>
+
+  <proof>
+    <p>Jelas bahwa <m>\prufer(\bfT)</m> menerima sebuah pohon berlabel dengan <m>n</m> simpul yang label-labelnya berasal dari <m>
+      [n]</m>, lalu menghasilkan sebuah string dengan panjang <m>n-2</m> yang simbol-simbolnya merupakan elemen <m>[n]</m>.
+      Yang masih perlu kita lakukan adalah menentukan cara untuk menerima string semacam itu dan membangun sebuah pohon berlabel dengan <m>n</m> simpul
+      darinya. Jika kita dapat menemukan konstruksi semacam itu, kita akan memperoleh bijeksi antara
+      himpunan <m>\mathcal{T}_n</m> pohon berlabel pada <m>n</m> simpul dan himpunan string dengan
+      panjang <m>n-2</m> yang simbol-simbolnya berasal dari <m>[n]</m>. Hal ini akan mengakibatkan <m>T_n=n^{n-2}</m>
+      .
+        </p>
+
+    <p>Pertama, mari kita perhatikan perilaku <m>\prufer(\bfT)</m>. Bilangan apa saja yang sebenarnya muncul dalam
+      kode Pr&#252;fer? Bilangan-bilangan yang muncul dalam kode Pr&#252;fer merupakan label simpul-simpul <em>
+      bukan daun</em> dari <m>\bfT</m>. Label sebuah daun tidak mungkin muncul karena kita
+      selalu mencatat label <em>tetangga</em> dari daun yang sedang dihapus, dan satu-satunya keadaan ketika
+      kita akan menghapus tetangga suatu daun adalah ketika tetangga tersebut juga merupakan daun. Hal ini hanya dapat
+      terjadi jika <m>\bfT\cong\bfK_2</m>, dan dalam kasus itu <m>\prufer(\bfT)</m> hanya menghasilkan string
+      kosong. Sebaliknya, sebelum sebuah simpul yang semula bukan daun dapat menjadi daun, salah satu tetangganya harus dihapus dan label simpul tersebut akan dicatat. Jadi, jika <m>I\subset [n]</m> merupakan himpunan simbol yang muncul dalam <m>\prufer(\bfT)</m>,
+      label daun-daun dari <m>\bfT</m> tepat merupakan elemen-elemen <m>[n]-I</m>. </p>
+
+    <p>Setelah mengetahui label mana saja yang dimiliki daun-daun <m>\bfT</m>, kita siap
+      menggunakan induksi untuk menyelesaikan bukti. Tujuan kita adalah menunjukkan bahwa untuk sebuah string <m>\bfs=s_1s_2\cdots
+      s_{n-2}</m> yang simbol-simbolnya berasal dari suatu himpunan <m>S</m> dengan <m>n</m> elemen, terdapat tepat satu
+      pohon <m>\bfT</m> dengan <m>\prufer(\bfT) = \bfs</m>. Jika <m>n=2</m>, satu-satunya string semacam itu adalah
+      string kosong dan kedua elemen himpunan label sama-sama menjadi label daun. Untuk himpunan label baku, elemen-elemen itu adalah <m>1</m> dan <m>2</m>, sehingga kita hanya dapat membangun <m>\bfK_2</m>.
+      Sekarang, misalkan hasil tersebut berlaku untuk suatu <m>m\geq 2</m>, dan kita berusaha membuktikannya untuk <m>m+1</m>.
+      Dengan melakukan pelabelan ulang yang mempertahankan urutan jika diperlukan, kita dapat menggunakan himpunan label baku pada langkah berikut.
+      Kita memiliki string <m>\bfs = s_1s_2\cdots s_{m-1}</m> dengan simbol-simbol dari <m>[m+1]</m>. Misalkan <m>I</m>
+      adalah himpunan simbol yang muncul dalam <m>\bfs</m>, dan misalkan <m>k</m> adalah elemen terkecil dari <m>
+      [m+1]-I</m>. Berdasarkan paragraf sebelumnya, kita mengetahui bahwa <m>k</m> adalah label sebuah daun dari <m>
+      \bfT</m> dan bahwa tetangga tunggalnya merupakan simpul berlabel <m>s_1</m>. String <m>\bfs'=s_2s_3\cdots
+      s_{m-1}</m> memiliki panjang <m>m-2</m>, dan karena <m>k</m> tidak muncul dalam <m>\bfs</m>, simbol-simbolnya
+      berasal dari <m>S=[m+1]-\{k\}</m>, yang berukuran <m>m</m>. Jadi, berdasarkan induksi, terdapat
+      tepat satu pohon <m>\bfT'</m> dengan kode Pr&#252;fer <m>\bfs'</m>. Kita membentuk <m>\bfT</m> dari <m>
+      \bfT'</m> dengan menempelkan sebuah daun berlabel <m>k</m> pada simpul <m>\bfT'</m> yang berlabel <m>
+      s_1</m>, sehingga diperoleh pohon dengan sifat yang diinginkan. </p>
+  </proof>
+
+  <example xml:id="ex_prufer-code-reverse">
+    <p> Kita menutup bagian ini dengan sebuah contoh cara menggunakan kode Pr&#252;fer untuk
+      membangun pohon berlabel. Perhatikan string <m>\bfs=75531</m> sebagai kode Pr&#252;fer. Pohon
+      <m>\bfT</m> yang bersesuaian dengan <m>\bfs</m> memiliki <m>7</m> simpul, dan daun-daunnya
+      berlabel <m>2</m>, <m>4</m>, dan <m>6</m>. Langkah induksi dalam bukti kita menempelkan simpul
+      berlabel <m>2</m> pada simpul berlabel <m>7</m> dalam pohon <m>\bfT'</m> dengan kode Pr&#252;fer <m>
+      5531</m> dan label simpul <m>\{1,3,4,5,6,7\}</m>, karena <m>2</m> digunakan untuk melabeli
+      simpul terakhir yang ditambahkan. Apa saja daun dari <m>\bfT'</m>? Simbol-simbol dalam <m>\{4,6,7\}</m> tidak
+      muncul dalam <m>5531</m>, sehingga simbol-simbol tersebut pasti merupakan label daun. Konstruksi kita menyatakan bahwa
+      simpul berlabel <m>4</m> ditempelkan pada simpul berlabel <m>5</m> dalam pohon yang diperoleh melalui
+      induksi. Pada <xref ref="tab_prufer-code-reverse"/>, kita menunjukkan bagaimana proses rekursif ini
+      berlanjut. </p>
+    <figure xml:id="tab_prufer-code-reverse">
+      <caption>Mengubah kode Pr&#252;fer <m>75531</m> menjadi pohon berlabel</caption>
+      <tabular>
+        <row>
+          <cell>Kode Pr&#252;fer</cell>
+          <cell>Himpunan label</cell>
+          <cell>Sisi yang ditambahkan</cell>
+        </row>
+        <row>
+          <cell>75531</cell>
+          <cell>
+            <m>\{1,2,3,4,5,6,7\}</m>
+          </cell>
+          <cell>2<ndash/>7</cell>
+        </row>
+        <row>
+          <cell>5531</cell>
+          <cell>
+            <m>\{1,3,4,5,6,7\}</m>
+          </cell>
+          <cell>4<ndash/>5</cell>
+        </row>
+        <row>
+          <cell>531</cell>
+          <cell>
+            <m>\{1,3,5,6,7\}</m>
+          </cell>
+          <cell>6<ndash/>5</cell>
+        </row>
+        <row>
+          <cell>31</cell>
+          <cell>
+            <m>\{1,3,5,7\}</m>
+          </cell>
+          <cell>5<ndash/>3</cell>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell>
+            <m>\{1,3,7\}</m>
+          </cell>
+          <cell>3<ndash/>1</cell>
+        </row>
+        <row>
+          <cell>(string kosong)</cell>
+          <cell>
+            <m>\{1,7\}</m>
+          </cell>
+          <cell>1<ndash/>7</cell>
+        </row>
+      </tabular>
+    </figure>
+    <p>Kita membentuk setiap baris dari baris di atasnya dengan menghapus label pertama yang digunakan pada sisi yang ditambahkan
+      dari himpunan label, serta menghapus simbol pertama dari kode Pr&#252;fer. Setelah
+      kode Pr&#252;fer menjadi string kosong, kita mengetahui bahwa kedua label yang tersisa harus menjadi
+      label yang ditempatkan pada kedua ujung <m>\bfK_2</m> untuk mulai membangun <m>\bfT</m>. Selanjutnya, kita bergerak kembali ke atas
+      sepanjang kolom sisi yang ditambahkan sambil menambahkan simpul baru dan sisi yang ditunjukkan. Pohon yang kita bangun dengan
+      cara ini ditampilkan pada <xref ref="fig_prufer-code-reverse"/>. </p>
+    <figure xml:id="fig_prufer-code-reverse">
+      <caption>Pohon berlabel dengan kode Pr&#252;fer <m>75531</m></caption>
+      <image>
+        <description><p>Pohon berlabel dengan kode Pr&#252;fer <m>75531</m>. Sisinya menghubungkan label dua dengan tujuh, empat dengan lima, enam dengan lima, lima dengan tiga, tiga dengan satu, serta satu dengan tujuh.</p>
+      </description><latex-image>\begin{overpic}{external/prufer-code-reverse}
+                    \put(2,21){\(4\)}
+                    \put(62,14.5){\(1\)}
+                    \put(36.8,14.5){\(3\)}
+                    \put(2,2){\(6\)}
+                    \put(9,12){\(5\)}
+                    \put(90,12){\(7\)}
+                    \put(93,21){\(2\)}
+                    \end{overpic}</latex-image>
+      </image>
+
+    </figure>
+  </example>
+  <reading-questions xml:id="rqs-graphs_counting-trees" component="runestone">
+    <exercise label="graphs_counting-trees_identify">
+      <statement>
+        <p>
+          Berapa banyak simpul yang dimiliki pohon berlabel dengan kode Pr&#252;fer <m>\bfs = 111111</m>? Apa saja label daun-daun pohon ini? Bagaimana Anda menentukan jawaban atas pertanyaan-pertanyaan tersebut?
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="graphs_counting-trees_start-prufer">
+      <statement>
+        <p>
+          Perhatikan pohon <m>\bfT</m> pada gambar berikut. Apa label simpul yang pertama kali dihapus ketika membentuk <m>\prufer(\bfT)</m>? Simbol apa yang menjadi simbol pertama dalam <m>\prufer(\bfT)</m> setelah penghapusan tersebut? Jelaskan bagaimana Anda memperoleh jawaban ini.
+        </p>
+        <image label="img-tree-prufer-reading" width="33%">
+          <description>Sebuah pohon berlabel dengan sisi yang menghubungkan label tiga dengan satu, satu dengan empat, lima dengan satu, satu dengan dua, dua dengan delapan, dua dengan tujuh, serta empat dengan enam.</description>
+          <latex-image>
+            \begin{tikzpicture}
+            \node (v1) [circle, fill=yellow,draw] at (1,2)   {1};
+            \node (v2) [circle, fill=yellow,draw] at (2.5,2.5)   {2};
+            \node (v3) [circle, fill=yellow,draw] at (0,2)   {3};
+            \node (v4) [circle, fill=yellow,draw] at (1,3)   {4};    
+            \node (v5) [circle, fill=yellow,draw] at (0,0)   {5};    
+            \node (v6) [circle, fill=yellow,draw] at (4,4)   {6};    
+            \node (v7) [circle, fill=yellow,draw] at (4,2)   {7};    
+            \node (v8) [circle, fill=yellow,draw] at (3,1)   {8};    
+
+            \graph { (v3) -- (v1) -- (v4), (v5)--(v1)--(v2)--(v8),(v2)--(v7),(v4)--(v6) };
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="graphs_counting-trees_start-build">
+      <statement>
+        <p>
+          Perhatikan kode Pr&#252;fer <m>\bfs = 32246</m>. Jika Anda hendak membuat tabel serupa dengan tabel pada <xref ref="tab_prufer-code-reverse"/> untuk kode Pr&#252;fer ini, apa entri pertama dalam kolom Sisi yang ditambahkan? Jelaskan alasan Anda. 
+        </p>
+      </statement>
+      <response/>
+    </exercise>    
+  </reading-questions>
+</section>

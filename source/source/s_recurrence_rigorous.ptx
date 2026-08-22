@@ -1,0 +1,192 @@
+<section xml:id="s_recurrence_rigorous">
+    <title>Memformalkan pendekatan kita terhadap persamaan rekurensi</title>
+
+
+    <introduction>
+        <p>Sejauh ini, pendekatan kita untuk menyelesaikan persamaan rekurensi didasarkan pada intuisi, dan kita belum banyak menjelaskan mengapa solusi-solusi yang diberikan merupakan solusi umum. Dalam bagian ini, kita berusaha memperbaiki kekurangan tersebut. Pengetahuan tentang bahasa aljabar linear akan berguna untuk sisa bagian ini, tetapi tidak mutlak diperlukan.
+        </p>
+
+        <p>Teknik kita untuk menyelesaikan persamaan rekurensi berakar pada suatu konsep yang sangat penting dalam matematika, yakni ruang vektor. Ingatlah bahwa ruang vektor<fn>Agar lebih lengkap, seharusnya kita mengatakan bahwa yang dibicarakan ialah ruang vektor atas medan bilangan real. Namun, dalam mata kuliah kita, hanya jenis ruang vektor inilah yang akan ditinjau. Karena itu, kita cukup menggunakan frasa singkat <q>ruang vektor</q>.</fn> terdiri atas himpunan <m>V</m> yang elemen-elemennya disebut <term>vektor</term>; selain itu, terdapat operasi biner yang disebut <term>penjumlahan</term>, dengan jumlah vektor <m>x</m> dan <m>y</m> dinyatakan oleh <m>x+y</m>; selanjutnya, terdapat operasi yang disebut <term>perkalian skalar</term>, yang menggabungkan skalar (bilangan real) <m>\alpha</m> dan vektor <m>x</m> untuk membentuk hasil kali yang dinyatakan oleh <m>\alpha x</m>. Operasi-operasi ini memenuhi sifat-sifat berikut:
+                  <ol>
+            <li><p><m>x+y=y+x</m> untuk setiap <m>x,y\in V</m>.</p></li>
+            <li><p><m>x+(y+z) = (x+y)+z</m>, untuk setiap <m>x,y,z\in V</m>.</p></li>
+            <li><p>Terdapat vektor yang disebut <term>nol</term> dan dinyatakan oleh <m>0</m> sedemikian sehingga <m>x+0=x</m> untuk setiap <m>x\in V</m>. <em>Catatan:</em> Sekali lagi, kita menggunakan simbol <m>0</m> untuk sesuatu selain bilangan.</p></li>
+            <li><p>Untuk setiap elemen <m>x\in V</m>, terdapat elemen <m>y\in V</m> yang disebut <term>invers aditif</term> dari <m>x</m> dan dinyatakan oleh <m>-x</m>, sedemikian sehingga <m>x+(-x)=0</m>. Sifat ini memungkinkan kita mendefinisikan <term>pengurangan</term>, <ie/>, <m>x-y= x+(-y)</m>.</p></li>
+            <li><p><m>1x=x</m> untuk setiap <m>x\in V</m>.</p></li>
+            <li><p><m>\alpha(\beta x) = (\alpha\beta)x</m>, untuk setiap <m>\alpha,\beta\in\reals</m> dan setiap <m>x\in V</m>.</p></li>
+            <li><p><m>\alpha(x+y)=\alpha x + \alpha y</m> untuk setiap <m>\alpha\in\reals</m> dan setiap <m>x,y\in V</m>.</p></li>
+            <li><p><m>(\alpha +\beta) x = \alpha x + \beta x</m>, untuk setiap
+            <m>\alpha,\beta\in\reals</m> dan setiap <m>x\in V</m>.</p></li>
+        
+                  </ol>
+                </p>
+
+        <p>Jika <m>V</m> merupakan ruang vektor, fungsi <m>\phi\colon V\rightarrow V</m> disebut <term>operator linear</term><idx><h>operator</h><h>linear</h></idx>, atau cukup <term>operator</term>, apabila <m>\phi(x+y)=\phi(x)+\phi(y)</m> dan <m>\phi(\alpha x)=\alpha\phi(x)</m>. Jika <m>\phi\colon V\rightarrow V</m> merupakan operator, lazimnya kita menuliskan <m>\phi x</m>, bukan <m>\phi(x)</m>, sehingga menghemat sepasang tanda kurung. Himpunan semua operator pada ruang vektor <m>V</m> itu sendiri merupakan ruang vektor, dengan penjumlahan yang didefinisikan oleh <m>(\phi+\rho)x = \phi x +\rho x</m> dan perkalian skalar oleh <m>(\alpha\phi)x=\alpha(\phi x)</m>.
+        </p>
+
+        <p>Dalam bab ini, kita berfokus pada ruang vektor real <m>V</m> yang terdiri atas semua fungsi berbentuk <m>f\colon\ints\rightarrow\reals</m>. Penjumlahan didefinisikan oleh <m>(f+g)(n)= f(n)+g(n)</m>, sedangkan perkalian skalar didefinisikan oleh <m>(\alpha f)(n)=\alpha(f(n))</m>.
+        </p>
+    </introduction>
+
+
+    <subsection xml:id="s_recurrence_rigorous_principal">
+        <title>Teorema Utama</title>
+        <p>Berikut adalah teorema dasar tentang penyelesaian persamaan rekurensi (yang dinyatakan dalam bentuk persamaan operator pemajuan)<mdash/>dan meskipun kita tidak akan membuktikan hasil lengkapnya, kita akan memberikan kerangka yang cukup lengkap sehingga perincian yang hilang tidak terlalu sulit untuk dilengkapi.
+        </p>
+
+        <theorem xml:id="thm_advance">
+            <statement>
+                <p>Misalkan <m>k</m> merupakan bilangan bulat positif. Untuk <m>k</m> tersebut, misalkan <m>c_0,c_1,\dots,c_k</m> merupakan konstanta dengan <m>c_0,c_k\neq 0</m>. Maka himpunan <m>W</m> dari semua solusi persamaan linear homogen
+                <md>
+                    (c_0A^{k}+ c_1A^{k-1} + c_2A^{k-2} + \dots+c_k)f = 0
+                </md>
+                merupakan subruang berdimensi <m>k</m> dari <m>V</m>.
+                </p>
+            </statement>
+        </theorem>
+
+        <p>Kesimpulan bahwa himpunan <m>W</m> dari semua solusi merupakan subruang dari <m>V</m> dapat langsung diperoleh, sebab
+        <md>
+            p(A)(f+g)=p(A)f+p(A)g\quad\text{ dan } \quad p(A)(\alpha f)=\alpha p(A)(f).
+        </md>
+        Bagian yang memerlukan sedikit usaha ialah menunjukkan bahwa <m>W</m> merupakan subruang berdimensi <m>k</m>. Setelah hal itu terbukti, untuk menyelesaikan persamaan operator pemajuan dalam bentuk yang diberikan pada <xref ref="thm_advance"/>, cukup dicari suatu <term>basis</term> bagi ruang vektor <m>W</m>. Setiap solusi hanyalah kombinasi linear dari vektor-vektor basis. Dalam beberapa subbagian berikut, kita menguraikan cara mencapai tujuan tersebut.
+        </p>
+    </subsection>
+
+
+    <subsection xml:id="s_recurrence_rigorous_start">
+        <title>Kasus Awal</title>
+        <p>Pengembangannya berlangsung melalui induksi (mengejutkan, bukan?), dengan kasus <m>k=1</m> sebagai kasus dasar. Dalam kasus ini, kita mempelajari persamaan sederhana berbentuk <m>(c_0A+c_1)f=0</m>. Setelah membagi dengan <m>c_0</m> dan menuliskannya kembali menggunakan pengurangan, bukan penjumlahan, jelas bahwa yang kita hadapi hanyalah persamaan berbentuk <m>(A-r)f=0</m> dengan <m>r\neq0</m>.
+        </p>
+
+        <lemma xml:id="lem_base">
+            <statement>
+                <p>Misalkan <m>r\neq0</m>, dan misalkan <m>f</m> merupakan solusi persamaan operator <m>(A-r)f=0</m>. Jika <m>c=f(0)</m>, maka <m>f(n)=cr^n</m> untuk setiap <m>n\in \ints</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Pertama, kita menunjukkan bahwa <m>f(n)=cr^n</m> untuk setiap <m>n\ge0</m> melalui induksi pada <m>n</m>. Kasus dasarnya langsung diperoleh karena <m>c=f(0) = cr^0</m>. Sekarang, misalkan <m>f(k)=cr^k</m> untuk suatu bilangan bulat tak negatif <m>k</m>. Maka <m>(A-r)f=0</m> menyiratkan <m>f(k+1)-rf(k)=0</m>, <ie/>,
+                <md>
+                    f(k+1)=rf(k)= rcr^k=cr^{k+1}.
+                </md>
+                Argumen yang sangat serupa menunjukkan bahwa <m>f(-n) = cr^{-n}</m> untuk setiap <m>n\ge0</m>.
+                </p>
+            </proof>
+        </lemma>
+        <lemma xml:id="lem_particular">
+            <statement>
+                <p>
+                    Perhatikan persamaan operator nonhomogen berbentuk
+                    <md number="yes" xml:id="eqn_nonhomogeneous">
+                        p(A)f= (c_0A^{k}+ c_1A^{k-1} + c_2A^{k-2} + \dots+c_k)f = g,
+                    </md>
+                    dengan <m>c_0,c_k\neq0</m>, dan misalkan <m>W</m> merupakan subruang dari <m>V</m> yang terdiri atas semua solusi persamaan homogen yang bersesuaian,
+                    <md number="yes" xml:id="eqn_homogeneous">
+                        p(A)f=(c_0A^{k}+ c_1A^{k-1} + c_2A^{k-2} + \dots+c_k)f = 0.
+                    </md>
+                    Jika <m>f_0</m> merupakan solusi <xref ref="eqn_nonhomogeneous"/>, maka setiap solusi <m>f</m> dari <xref ref="eqn_nonhomogeneous"/> berbentuk <m>f=f_0+f_1</m>, dengan <m>f_1\in W</m>.
+                </p>
+            </statement>
+            <proof>
+                <p>Misalkan <m>f</m> merupakan solusi <xref ref="eqn_nonhomogeneous"/>, dan misalkan <m>f_1=f-f_0</m>. Maka
+                <md>
+                    p(A)f_1 = p(A)(f-f_0)=p(A)f-p(A)f_0=g-g=0.
+                </md>
+                Hal ini menyiratkan bahwa <m>f_1\in W</m> dan <m>f=f_0+f_1</m>, sehingga semua solusi <xref ref="eqn_nonhomogeneous"/> memang memiliki bentuk yang diinginkan.
+                </p>
+            </proof>
+        </lemma>
+        <p>Dengan menggunakan kedua hasil terdahulu, sekarang kita dapat memberikan kerangka langkah induksi dalam bukti <xref ref="thm_advance"/>, setidaknya untuk kasus ketika polinom dalam operator pemajuan memiliki akar-akar berbeda.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                    Perhatikan persamaan operator pemajuan berikut:
+                    <md number="yes" xml:id="eqn_distinct">
+                        p(A)f=(A-r_1)(A-r_2)\dots(A-r_k)f=0.
+                    </md>
+                    dengan <m>r_1,r_2,\dots,r_k</m> konstanta tak nol yang saling berbeda. Maka setiap solusi <xref ref="eqn_distinct"/> berbentuk
+                    <md>
+                        f(n)=c_1r_1^n+c_2 r_2^n+c_3r_3^n+\dots+c_kr_k^n.
+                    </md>
+                </p>
+            </statement>
+            <proof>
+                <p>Kasus <m>k=1</m> diberikan oleh <xref ref="lem_base"/>. Sekarang, misalkan kita telah membuktikan teorema tersebut untuk suatu bilangan bulat positif <m>m</m>, lalu perhatikan kasus <m>k=m+1</m>. Tuliskan kembali <xref ref="eqn_distinct"/> sebagai
+                <md>
+                    (A-r_1)(A-r_2)\dots(A-r_m)[(A-r_{m+1})f]=0.
+                </md>
+                Berdasarkan hipotesis induksi, jika <m>f</m> merupakan solusi <xref ref="eqn_distinct"/>, maka <m>f</m> juga merupakan solusi persamaan nonhomogen
+                <md number="yes" xml:id="eqn_distinct2">
+                    (A-r_{m+1})f=d_1r_1^n+d_2r_2^n+\dots+d_mr_m^n.
+                </md>
+                Untuk mencari solusi partikular <m>f_0</m> dari <xref ref="eqn_distinct2"/>, kita mencari solusi berbentuk
+                <md number="yes" xml:id="eqn_distinct3">
+                    f_0(n)= c_1 r_1^n+c_2 r_2^n+\dots+c_m r_m^n.
+                </md>
+                Di sisi lain, perhitungan sederhana menunjukkan bahwa untuk setiap <m>i=1,2,\dots,m</m>, kita mempunyai
+                <md>
+                    (A-r_{m+1})c_i r_i^n=c_i r_i^{n+1}-r_{m+1}c_i r_i^n=c_i (r_i-r_{m+1})r_i^n,
+                </md>
+                sehingga cukup dipilih <m>c_i</m> sedemikian sehingga <m>c_i(r_i-r_{m+1})=d_i</m> untuk setiap <m>i=1,2,\dots,m</m>. Hal ini dapat dilakukan karena <m>r_{m+1}</m> berbeda dari <m>r_i</m> untuk <m>i=1,2,\dots m</m>.
+                </p>
+
+                <p>Sekarang kita mempunyai solusi partikular <m>f_0(n)=\sum_{i=1}^{m} c_i r_i^n</m>. Selanjutnya, kita meninjau persamaan homogen yang bersesuaian, <m>(A-r_{m+1})f=0</m>. Solusi umum persamaan ini berbentuk <m>f_1(n)=c_{m+1}r_{m+1}^n</m>. Dengan demikian, setiap solusi persamaan semula berbentuk
+                <md>
+                    f(n)=f_0(n)+f_1(n) = c_1r_1^n+c_2r_2^n+\dots+c_m r_m^n+c_{m+1}r_{m+1}^n,
+                </md>
+                persis seperti yang kita inginkan!
+                </p>
+            </proof>
+        </theorem>
+    </subsection>
+
+
+    <subsection xml:id="s_recurrence_rigorous_repeated">
+        <title>Akar Berulang</title>
+        <p>Bukti yang diberikan dalam bagian sebelumnya dapat dimodifikasi secara langsung untuk memperoleh hasil berikut. Perinciannya kita tinggalkan sebagai latihan.
+        </p>
+
+        <lemma xml:id="lem_rr">
+            <statement>
+                <p>Misalkan <m>k\ge1</m> dan perhatikan persamaan
+                <md number="yes" xml:id="eqn_rr">
+                    (A-r)^kf=0.
+                </md>
+                Maka solusi umum <xref ref="eqn_rr"/> berbentuk
+                <md number="yes" xml:id="eqn_solutionrr">
+                    f(n)=c_1r^n+c_2nr^n+c_3n^2r^n+c_4n^3r^n+\dots+c_kn^{k-1}r^n.
+                </md>
+                </p>
+            </statement>
+        </lemma>
+    </subsection>
+
+
+    <subsection xml:id="s_recurrence_rigorous_general">
+        <title>Kasus Umum</title>
+        <p>Dengan menggabungkan hasil-hasil pada bagian sebelumnya, kita dapat segera menuliskan solusi umum sebarang persamaan homogen berbentuk <m>p(A)f=0</m>, <em>asalkan</em> kita dapat memfaktorkan polinom <m>p(A)</m>. Perhatikan bahwa secara umum solusi ini membawa kita ke medan <em>bilangan kompleks</em>, sebab akar polinom berkoefisien real kadang-kadang merupakan bilangan kompleks<mdash/>dengan bagian imajiner tak nol.
+        </p>
+
+        <p>Kita menutup bagian ini dengan satu contoh lagi untuk memperlihatkan betapa cepatnya solusi umum suatu persamaan operator pemajuan homogen <m>p(A)f=0</m> dapat langsung dibaca, asalkan <m>p(A)</m> sudah difaktorkan.
+        </p>
+        <example>
+            <p>Perhatikan persamaan operator pemajuan
+            <md>
+                (A-1)^5(A+1)^3(A-3)^2(A+8)(A-9)^4f=0.
+            </md>
+            Maka setiap solusi berbentuk
+            <md>
+                <mrow>  f(n)=\amp c_1+c_2n+c_3n^2+c_4n^3+c_5n^4</mrow>
+                <mrow>  \amp +c_6(-1)^n+c_7n(-1)^n+c_8n^2(-1)^n</mrow>
+                <mrow>  \amp +c_93^n+c_{10}n3^n</mrow>
+                <mrow>  \amp +c_{11}(-8)^n</mrow>
+                <mrow>  \amp +c_{12}9^n +c_{13}n 9^n+c_{14}n^2 9^n +c_{15}n^39^n.</mrow>
+            </md>
+            </p>
+        </example>
+    </subsection>
+
+</section>

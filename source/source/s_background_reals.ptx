@@ -1,0 +1,27 @@
+<section xml:id="s_background_reals">
+    <title>Memperoleh Bilangan Real dari Bilangan Rasional</title>
+    <p>Pembahasan lengkap mengenai hal ini akan membawa kita jauh dari mata kuliah matematika diskret, tetapi setidaknya mari kita berikan definisi dasarnya. Suatu himpunan bagian <m>S\subset \rats</m> dari bilangan rasional disebut <term>potongan</term><idx><h>potongan</h><h>Dedekind</h></idx> (juga disebut <term>potongan Dedekind</term>) jika memenuhi sifat-sifat berikut:
+                  <ol>
+        <li><p><m>\emptyset\neq S\neq \rats</m>, yaitu <m>S</m> merupakan himpunan bagian sejati yang tak kosong dari <m>\rats</m>.</p></li>
+        <li><p><m>x\in S</m> dan <m>y\lt x</m> dalam <m>\rats</m> mengakibatkan <m>y\in S</m>, untuk semua <m>x,y\in \rats</m>.</p></li>
+        <li><p>Untuk setiap <m>x\in S</m>, terdapat <m>y\in S</m> dengan <m>x\lt y</m>, <ie/>, <m>S</m> tidak memiliki elemen terbesar.</p></li>
+    
+                  </ol>
+                </p>
+
+    <p>Potongan juga disebut <term>bilangan real</term><idx><h>bilangan real</h><h>definisi formal</h></idx>, sehingga bilangan real merupakan jenis khusus himpunan bilangan rasional. Untuk setiap bilangan rasional <m>q</m>, himpunan <m>\bar{q}= \{p\in \rats: p\lt q\}</m> merupakan suatu potongan. Potongan seperti ini disebut <term>potongan rasional</term>. Di dalam bilangan real, potongan rasional berperilaku persis seperti bilangan rasional. Melalui pemetaan <m>h(q)=\bar{q}</m>, kita sekali lagi menyalahgunakan notasi (kita mulai terbiasa melakukannya) dan mengatakan bahwa bilangan rasional merupakan himpunan bagian dari bilangan real.
+    </p>
+
+    <p>Namun, terdapat pula potongan yang tidak rasional. Berikut salah satunya: <m>\{p\in \rats: p\le 0\}\cup \{p\in \rats: p^2\lt 2\}</m>. Fakta bahwa potongan ini tidak rasional bergantung pada bukti yang sudah dikenal bahwa tidak ada bilangan rasional <m>q</m> yang memenuhi <m>q^2=2</m>.
+    </p>
+
+    <p>Operasi penjumlahan pada potongan didefinisikan dengan cara yang alami. Jika <m>S</m> dan <m>T</m> merupakan potongan, tetapkan <m>S+T=\{s+t:s\in S, t\in T\}</m>. Urutan pada potongan didefinisikan melalui inklusi, <ie/>, <m>S\lt T</m> jika dan hanya jika <m>S\subsetneq T</m>. Suatu potongan disebut <term>positif</term> jika lebih besar daripada <m>\bar{0}</m>. Jika <m>S</m> dan <m>T</m> merupakan potongan positif, hasil kali <m>ST</m> didefinisikan oleh
+    <md>
+        ST= \bar{0}\cup\{st:s\in S, t\in T, s\ge0, t\ge 0\}.
+    </md>
+    Dapat ditunjukkan dengan mudah bahwa terdapat bilangan real <m>r</m> sedemikian sehingga <m>r^2=\bar{2}</m>. Mungkin Anda terkejut—atau mungkin juga tidak—ketika mengetahui bahwa bilangan real ini dinotasikan dengan <m>\sqrt2</m>.
+    </p>
+
+    <p>Masih banyak keajaiban lain dalam kisah ini, tetapi cukuplah untuk satu hari.
+    </p>
+</section>

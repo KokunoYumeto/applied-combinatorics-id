@@ -1,0 +1,60 @@
+<section xml:id="s_polya_burnside">
+    <title>Lemma Burnside</title>
+    <p>Lemma Burnside<fn>Sekali lagi, hasil ini mula-mula bukan dibuktikan oleh Burnside. Hasil tersebut telah diketahui oleh Frobenius dan sebagian besar juga oleh Cauchy. Namun, hasil itu paling mudah ditemukan dalam buku Burnside, sehingga namanya kemudian melekat.</fn> menghubungkan banyak kelas ekuivalensi dari aksi suatu grup pada himpunan hingga dengan banyak elemen himpunan yang ditetapkan oleh elemen-elemen grup tersebut. Sebelum menyatakan dan membuktikannya, kita memerlukan beberapa notasi dan sebuah proposisi. Jika suatu grup <m>G</m> bertindak pada himpunan hingga <m>\cgC</m>, misalkan <m>\sim</m> merupakan relasi ekuivalensi yang diinduksi oleh aksi tersebut. (Seperti sebelumnya, aksi <m>\pi\in G</m> pada <m>\cgC</m> dinyatakan dengan <m>\pi^*</m>.) Nyatakan kelas ekuivalensi yang memuat <m>C\in \cgC</m> dengan <m>\langle C\rangle</m><notation><usage><m>\langle C\rangle</m></usage><description>kelas ekuivalensi <m>C</m></description></notation>. Untuk <m>\pi\in G</m>, misalkan <m>\fix_\cgC(\pi)=\{C\in \cgC\colon \pi^*(C) = C\}</m>, yaitu himpunan pewarnaan yang ditetapkan oleh <m>\pi</m>. Untuk <m>C\in\cgC</m>, misalkan <m>\stab_G(C)=\{\pi\in G\colon \pi(C) = C\}</m> merupakan <term>penstabil</term><idx><h>penstabil</h></idx><notation><usage><m>\stab_G(C)</m></usage><description>penstabil <m>C</m> di bawah aksi <m>G</m></description></notation> dari <m>C</m> dalam <m>G</m>, yakni permutasi-permutasi dalam <m>G</m> yang menetapkan <m>C</m>.
+    </p>
+
+    <p>Untuk menggambarkan konsep-konsep ini sebelum menerapkannya, lihat kembali <xref ref="tab_polya_fixed-square"/>. Berdasarkan informasi tersebut, kita dapat menentukan bahwa <m>\fix_\cgC(r_2) = \{C_1,C_{10},C_{11},C_{16}\}</m>. Untuk menentukan penstabil suatu pewarnaan, kita perlu mencari baris-baris tabel tempat pewarnaan itu muncul. Jadi, <m>\stab_{D_8}(C_7) = \{\iota,h\}</m> dan <m>\stab_{D_8}(C_{11}) = \{\iota,r_2,p,n\}</m>.
+    </p>
+
+    <proposition xml:id="prop_polya_sum-stabs">
+        <statement>
+            <p>Misalkan suatu grup <m>G</m> bertindak pada himpunan hingga <m>\cgC</m>. Maka, untuk setiap <m>C\in \cgC</m>,
+            <md>
+                \sum_{C'\in\langle C\rangle} |\stab_G(C')| = |G|.
+            </md>
+            </p>
+        </statement>
+    <proof>
+        <p>Misalkan <m>\stab_G(C) = \{\pi_1,\dots,\pi_k\}</m> dan <m>T(C,C') = \{\pi\in G\colon \pi^*(C) = C'\}</m>. (Perhatikan bahwa <m>T(C,C) = \stab_G(C)</m>.) Ambil <m>\pi\in T(C,C')</m>. Maka <m>\pi\circ \pi_i\in T(C,C')</m> untuk <m>1\leq i\leq k</m>. Selain itu, jika <m>\pi\circ \pi_i = \pi\circ \pi_j</m>, maka <m>\pi^{-1}\circ\pi\circ \pi_i=\pi^{-1}\circ\pi\circ \pi_j</m>. Jadi, <m>\pi_i=\pi_j</m> dan <m>i=j</m>. Jika <m>\pi'\in T(C,C')</m>, maka <m>\pi\inv\circ \pi'\in T(C,C)</m>. Dengan demikian, <m>\pi\inv\circ\pi' = \pi_i</m> untuk suatu <m>i</m>, sehingga <m>\pi' = \pi\circ \pi_i</m>. Oleh karena itu, <m>T(C,C') = \{\pi\circ\pi_1,\dots,\pi\circ\pi_k\}</m>. Selain itu, kita mengamati bahwa <m>T(C',C) = \{\pi\inv\colon \pi\in T(C,C')\}</m>. Sekarang, untuk setiap <m>C'\in\langle C\rangle</m>,
+        <md>
+            |\stab_G(C')|=|T(C',C')|=|T(C',C)| =
+            |T(C,C')| = |T(C,C)| = |\stab_G(C)|.
+        </md>
+        Oleh karena itu,
+        <md>
+            \sum_{C'\in\langle C\rangle}|\stab_G(C')| =
+            \sum_{C'\in\langle C\rangle} |T(C,C')|.
+        </md>
+            Perhatikan bahwa setiap elemen <m>G</m> muncul dalam <m>T(C,C')</m> untuk tepat satu <m>C'\in\langle C\rangle</m>. Dengan demikian, proposisi terbukti.
+        </p>
+    </proof>
+    </proposition>
+    <p>Setelah <xref ref="prop_polya_sum-stabs"/> dibuktikan, kita siap membahas lemma Burnside.
+    </p>
+
+    <lemma xml:id="lem_polya_burnside">
+        <title>Lemma Burnside</title>
+        <statement>
+            <p>Misalkan suatu grup <m>G</m> bertindak pada himpunan hingga <m>\cgC</m>. Jika <m>N</m> merupakan banyak kelas ekuivalensi <m>\cgC</m> yang diinduksi oleh aksi tersebut, maka
+            <md>
+                N = \frac{1}{|G|} \sum_{\pi\in G} |\fix_\cgC(\pi)|.
+            </md>
+            </p>
+        </statement>
+    </lemma>
+    <p>Sebelum melanjutkan ke pembuktian, perhatikan bahwa perhitungan dalam lemma Burnside untuk contoh pewarnaan-<m>2</m> simpul-simpul persegi tepat sama dengan perhitungan yang dilakukan pada akhir <xref ref="s_polya_square"/>.
+    </p>
+
+    <proof>
+        <p>Misalkan <m>X=\{(\pi,C)\in G\times \cgC\colon \pi(C) = C\}</m>. Perhatikan bahwa <m>\sum_{\pi \in G} |\fix_\cgC(\pi)| = |X|</m>, sebab setiap suku dalam jumlah tersebut menghitung banyak pasangan terurut dalam <m>X</m> yang mempunyai <m>\pi</m> sebagai koordinat pertama. Demikian pula, <m>\sum_{C\in \cgC} |\stab_G(C)| = |X|</m>, dengan setiap suku menghitung banyak pasangan terurut dalam <m>X</m> yang mempunyai <m>C</m> sebagai koordinat kedua. Jadi, <m>\sum_{\pi \in G} |\fix_\cgC(\pi)|=\sum_{C\in \cgC} |\stab_G(C)|</m>. Perhatikan bahwa jumlah terakhir dapat ditulis kembali sebagai
+        <md>
+            \sum_{\substack{\text{equivalence} \\\text{classes }  \langle
+            C\rangle} }\left( \sum_{C'\in\langle C\rangle}
+            |\stab_G(C')|\right).
+        </md>
+        Berdasarkan <xref ref="prop_polya_sum-stabs"/>, jumlah bagian dalam ialah <m>|G|</m>. Oleh karena itu, jumlah keseluruhannya ialah <m>N\cdot |G|</m>. Dengan menyelesaikan persamaan terhadap <m>N</m>, kita memperoleh persamaan yang diinginkan.
+        </p>
+    </proof>
+    <p>Lemma Burnside mengesahkan perhitungan yang kita lakukan pada bagian sebelumnya. Namun, bagaimana jika kita bekerja dengan segi enam, bukan persegi, dan mengizinkan empat warna, bukan dua? Akan terdapat <m>4^6=4096</m> pewarnaan berbeda, sedangkan grup dihedral segi enam mempunyai <m>12</m> elemen. Menyusun tabel analog dengan <xref ref="tab_polya_fixed-square"/> dalam keadaan ini tentu sangat merepotkan! Di sinilah kecemerlangan pendekatan P&#243;lya berperan, seperti yang akan kita lihat pada bagian berikutnya.
+    </p>
+</section>

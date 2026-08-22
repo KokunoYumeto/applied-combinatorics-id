@@ -1,0 +1,16 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_networkflow">
+    <title>Aliran Jaringan</title>
+
+
+    <introduction>
+        <p>Bab ini melanjutkan pembahasan kita mengenai algoritma dan optimisasi. Secara intuitif, jaringan dan aliran jaringan cukup sederhana. Kita ingin memindahkan sesuatu (barang, air, data) dari suatu titik awal ke tujuan. Kita memiliki sejumlah titik perantara (terminal angkutan, katup, perute) dan penghubung di antaranya (jalan, pipa, kabel), dan setiap penghubung hanya mampu mengangkut jumlah terbatas. Tujuan alaminya ialah memindahkan sebanyak mungkin dari titik awal ke tujuan dengan tetap mematuhi batas setiap penghubung. Alih-alih sekadar menebak cara melakukan pemaksimuman ini, kita akan mengembangkan algoritma yang mengerjakannya. Kita juga akan melihat cara mudah membuktikan keoptimalan solusi melalui Teorema Aliran Maksimum–Potongan Minimum yang klasik.
+        </p>
+    </introduction>
+    <xi:include href="s_networkflow_intro.ptx"/>
+    <xi:include href="s_networkflow_flows-cuts.ptx"/>
+    <xi:include href="s_networkflow_augmenting.ptx"/>
+    <xi:include href="s_networkflow_labeling-algorithm.ptx"/>
+    <xi:include href="s_networkflow_example.ptx"/>
+    <xi:include href="s_networkflow_integer-programming.ptx"/>
+    <xi:include href="s_networkflow_exercises.ptx"/>
+</chapter>

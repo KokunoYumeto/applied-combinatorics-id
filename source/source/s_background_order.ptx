@@ -1,0 +1,29 @@
+<section xml:id="s_background_order">
+    <title>Urutan Parsial dan Urutan Total</title>
+    <p>Relasi biner <m>R</m> pada himpunan <m>X</m> tidak lain adalah suatu himpunan bagian dari produk Kartesius <m>X\times X</m>. Dalam pembahasan relasi biner, notasi <m>(x,y)\in R</m> kadang-kadang ditulis sebagai <m>xRy</m>.
+    </p>
+
+    <p>Suatu relasi biner<idx><h>relasi</h><h>biner</h></idx> <m>R</m> bersifat:
+    <ol marker="i">
+        <li><term>refleksif</term> jika <m>(x,x)\in R</m> untuk
+        semua <m>x\in X</m>.<idx><h>refleksif</h></idx></li>
+        <li><term>antisimetris</term> jika <m>x=y</m> setiap kali <m>(x,y)\in R</m> dan <m>(y,x)\in R</m>, untuk semua <m>x,y\in X</m>. <idx><h>antisimetris</h></idx></li>
+        <li><term>transitif</term> jika <m>(x,y)\in R</m> dan <m>(y,z)\in R</m> mengakibatkan <m>(x,z)\in R</m>, untuk semua <m>x,y,z\in X</m>.<idx><h>transitif</h></idx></li>
+    </ol>
+    </p>
+    <p>Relasi biner <m>R</m> pada himpunan <m>X</m> disebut <term>urutan parsial</term><idx><h>urutan</h><h>parsial</h></idx> pada <m>X</m> apabila relasi itu refleksif, antisimetris, dan transitif. Secara tradisional, simbol seperti <m>\le</m> dan <m>\subseteq</m> digunakan untuk menyatakan urutan parsial. Sebagai contoh, ingat bahwa jika <m>X</m> merupakan keluarga himpunan, kita menulis <m>A\subseteq B</m> apabila <m>A</m> merupakan himpunan bagian dari <m>B</m>.
+    </p>
+
+    <p>Jika kita menggunakan notasi pasangan terurut untuk relasi biner, untuk menyatakan bahwa pasangan <m>(x,y)</m> tidak termasuk dalam relasi itu, kita cukup menulis <m>(x,y)\notin R</m>. Jika kita menggunakan notasi alternatif, hal ini biasanya dinyatakan dengan simbol negasi dari logika, yakni <m>\lnot (xRy)</m>. Sebagian besar simbol khusus untuk urutan parsial memiliki versi negatif, <eg/>, <m>x\not\le y</m>, <m>x\nsubseteq y</m>.
+    </p>
+
+    <p>Suatu urutan parsial disebut <term>urutan total</term><idx><h>urutan</h><h>total</h></idx> pada <m>X</m> apabila untuk semua <m>x,y\in X</m>, berlaku <m>(x,y)\in R</m> atau <m>(y,x)\in R</m>. Sebagai contoh, jika
+    <md>
+        X=\{\emptyset,\{\emptyset\},\{\emptyset,\{\emptyset\}\}\}
+    </md>
+    maka <m>\subseteq</m> merupakan urutan total pada <m>X</m>.
+    </p>
+
+    <p>Jika <m>\le</m> merupakan urutan parsial pada himpunan <m>X</m>, kita menulis <m>x\lt y</m> apabila <m>x\le y</m> dan <m>x\neq y</m>.
+    </p>
+</section>

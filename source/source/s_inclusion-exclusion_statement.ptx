@@ -1,0 +1,98 @@
+<section xml:id="s_inclusion-exclusion_statement">
+  <title>Rumus Inklusi–Eksklusi</title>
+  <p>Setelah memahami apa yang dimaksud dengan sebuah sifat, mari kita lihat bagaimana konsep ini
+    dapat digunakan untuk menggeneralisasi proses yang kita pakai pada dua contoh pertama di bagian sebelumnya.
+  </p>
+
+  <p>Misalkan <m>X</m> sebuah himpunan dan <m>\mathcal{P}=\{P_1,P_2,\dots,P_m\}</m> sebuah keluarga
+    sifat. Kemudian, untuk setiap subhimpunan <m>S\subseteq [m]</m>, misalkan <m>N(S)</m> menyatakan banyaknya
+    elemen <m>X</m> yang memenuhi sifat <m>P_i</m> untuk setiap <m>i\in S</m>. Perhatikan bahwa jika <m>
+    S=\emptyset</m>, maka <m>N(S)=|X|</m>, karena setiap elemen <m>X</m> memenuhi setiap sifat dalam <m>
+    S</m> (yang sebenarnya tidak memuat sifat apa pun). </p>
+
+  <p>Mari sejenak kembali ke <xref ref="exa_inclusion-exclusion_students"/>. Jika <m>P_1</m> menyatakan sifat <q>mengambil
+    program studi ilmu komputer</q> dan <m>P_2</m> menyatakan sifat <q>laki-laki</q>, kita memperoleh bahwa <m>N(\{1\})=47</m>,
+    karena terdapat <m>47</m> mahasiswa yang mengambil program studi ilmu komputer di kelas tersebut. Selain itu, <m>N(\{2\})=51</m> karena <m>
+    51</m> mahasiswa adalah laki-laki. Terakhir, <m>N(\{1,2\})=45</m> karena terdapat <m>45</m> mahasiswa laki-laki
+    yang mengambil program studi ilmu komputer di kelas tersebut. </p>
+
+  <p>Pada contoh-contoh di bagian sebelumnya, kita mengurangkan <m>N(S)</m> untuk himpunan <m>S</m> yang
+    berukuran <m>1</m>, lalu menambahkan kembali <m>N(S)</m> untuk himpunan sifat yang berukuran <m>2</m>, karena
+    kita telah dua kali mengurangkan banyaknya objek yang memenuhi kedua sifat tersebut (mahasiswa laki-laki yang mengambil program studi ilmu komputer atau
+    solusi dengan <m>x_3&gt;7</m> sekaligus <m>x_4'&gt;8</m>). Secara simbolis, kita memperoleh bahwa
+    banyaknya objek yang tidak memenuhi satu pun sifat adalah <md>
+      N(\emptyset) - N(\{1\}) - N(\{2\}) + N(\{1,2\}).
+    </md>
+  </p>
+  <p>Andaikan kita memiliki tiga sifat <m>P_1,P_2</m>, dan <m>P_3</m>. Bagaimana kita menghitung
+    banyaknya objek yang tidak memenuhi satu pun sifat tersebut? Seperti sebelumnya, kita mulai dengan mengurangkan banyaknya objek yang memenuhi masing-masing
+    <m>P_1</m>, <m>P_2</m>, dan <m>P_3</m>. Dengan demikian, banyaknya objek yang memenuhi <m>
+    P_1</m> sekaligus <m>P_2</m> telah dikurangkan dua kali, sehingga kita harus menambahkan kembali <m>N(\{1,2\})</m>. Demikian pula, kita harus melakukan hal yang sama
+    untuk objek yang memenuhi <m>P_2</m> sekaligus <m>P_3</m>, serta objek yang memenuhi <m>P_1</m> sekaligus <m>P_3</m>.
+    Sekarang, mari kita tinjau objek yang memenuhi ketiga sifat tersebut. Objek-objek itu dihitung dalam <m>
+    N(\emptyset)</m>, dihilangkan <em>tiga kali</em> oleh suku-suku <m>N(\{i\})</m>, lalu ditambahkan kembali
+    tiga kali oleh suku-suku <m>N(\{i,j\})</m>. Jadi, objek-objek itu masih dihitung! Oleh karena itu, kita masih harus
+    mengurangkan <m>N(\{1,2,3\})</m> untuk memperoleh banyaknya objek yang diinginkan: <md>
+      N(\emptyset) - N(\{1\}) - N(\{2\}) - N(\{3\}) + N(\{1,2\}) +
+      N(\{2,3\}) + N(\{1,3\}) - N(\{1,2,3\}).
+    </md>
+    Pola ini dapat kita generalisasikan menjadi teorema berikut. </p>
+
+  <theorem xml:id="thm_inclusion-exclusion">
+    <title>Prinsip Inklusi–Eksklusi</title>
+    <idx>
+      <h>prinsip inklusi–eksklusi</h>
+    </idx>
+    <statement>
+      <p>Banyaknya elemen <m>X</m> yang tidak memenuhi satu pun sifat dalam <m>\mathcal{P}</m>
+        diberikan oleh <md number="yes" xml:id="eq_inclusion-exclusion">
+          \sum_{S\subseteq [m]} (-1)^{|S|}N(S).
+        </md>
+      </p>
+    </statement>
+    <proof>
+      <p>Kita menggunakan induksi pada banyaknya sifat, yaitu <m>m</m>. Jika <m>m=1</m>,
+        rumus tersebut menjadi <m>N(\emptyset)-N(\{1\})</m>. Rumus ini benar karena menyatakan bahwa
+        banyaknya elemen yang tidak memenuhi sifat <m>P_1</m> sama dengan banyaknya semua elemen
+        dikurangi banyaknya elemen yang memenuhi sifat <m>P_1</m>. </p>
+
+      <p>Sekarang, andaikan rumus tersebut berlaku apabila <m>m\le k</m> untuk suatu <m>k\ge1</m>, lalu tinjau kasus <m>
+        m=k+1</m>. Misalkan <m>X'=\{x\in X: x</m> memenuhi <m>P_{k+1}\}</m> dan <m>X''=X-X'</m> (<ie/>, <m>
+        X''</m> adalah himpunan elemen yang tidak memenuhi <m>P_{k+1}</m>). Selain itu, misalkan <m>
+        \mathcal{Q}=\{P_1,P_2,\dots,P_k\}</m>. Kemudian, untuk setiap subhimpunan <m>S\subseteq [k]</m>, misalkan <m>
+        N'(S)</m> menyatakan banyaknya elemen <m>X'</m> yang memenuhi sifat <m>P_i</m> untuk setiap <m>i\in
+        S</m>. Selain itu, misalkan <m>N''(S)</m> menyatakan banyaknya elemen <m>X''</m> yang memenuhi
+        sifat <m>P_i</m> untuk setiap <m>i\in S</m>. Perhatikan bahwa <m>N(S)=N'(S)+N''(S)</m> untuk setiap <m>S\subseteq
+        [k]</m>. </p>
+
+      <p>Misalkan <m>X'_0</m> menyatakan himpunan elemen dalam <m>X'</m> yang tidak memenuhi satu pun
+        sifat dalam <m>\mathcal{Q}</m> (dengan kata lain, elemen yang hanya memenuhi <m>P_{k+1}</m>
+        dari <m>\mathcal{P}</m>), dan misalkan <m>X''_0</m> menyatakan himpunan elemen dalam <m>X''</m>
+        yang tidak memenuhi satu pun sifat dalam <m>\mathcal{Q}</m>, dan karena itu juga tidak memenuhi satu pun
+        sifat dalam <m>\mathcal{P}</m>. </p>
+
+      <p>Berdasarkan hipotesis induksi, kita memperoleh <md>
+          |X'_0| = \sum_{S\subseteq [k]} (-1)^{|S|}N'(S)\qquad \text{dan} \qquad
+          |X''_0| = \sum_{S\subseteq [k]} (-1)^{|S|}N''(S).
+        </md>
+        Dengan demikian, <md>
+          <mrow> |X''_0| \amp = \sum_{S\subseteq [k]} (-1)^{|S|}N''(S) = \sum_{S\subseteq [k]}
+        (-1)^{|S|}\left(N(S)-N'(S)\right)</mrow>
+          <mrow> \amp = \sum_{S\subseteq [k]} (-1)^{|S|}N(S)+
+            \sum_{S\subseteq [k]} (-1)^{|S|+1}N(S\cup\{k+1\})</mrow>
+          <mrow> \amp = \sum_{S\subseteq [k+1]} (-1)^{|S|}N(S).</mrow>
+        </md>
+      </p>
+    </proof>
+  </theorem>
+  <reading-questions xml:id="rqs-inclusion-exclusion_statement" component="runestone">
+    <exercise label="inclusion-exclusion_statement_rq-terms">
+      <statement>
+        <p>
+          Ada berapa suku dalam penjumlahan pada <xref ref="eq_inclusion-exclusion"/> jika <m>m=10</m>? Jelaskan alasan Anda.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

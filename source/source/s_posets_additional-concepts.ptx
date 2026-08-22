@@ -1,0 +1,141 @@
+<section xml:id="s_posets_additional-concepts">
+  <title>Konsep Tambahan untuk Poset</title>
+  <p>Kita mengatakan bahwa <m>(X,P)</m> dan <m>(Y,Q)</m> <term>isomorfik</term>, dan menuliskan <m>(X,P) \cong(Y,Q)</m>,
+    jika terdapat suatu bijeksi (pemetaan 1<ndash/>1 dan surjektif) <m>f:X\to Y</m> sedemikian sehingga <m>x_1\le x_2</m>
+    dalam <m>P</m> jika dan hanya jika <m>f(x_1)\le f(x_2)</m> dalam <m>Q</m>. Dalam definisi ini, pemetaan <m>f</m>
+    disebut <term>isomorfisme</term><idx>
+      <h>isomorfisme</h>
+      <h>pada poset</h>
+    </idx> dari <m>\bfP</m> ke <m>\bfQ</m>. Dalam <xref ref="fig_constructposets"/>,
+    dua poset pertama bersifat isomorfik. </p>
+  <remark>
+    <p>Bob melihat pola yang menghubungkan dua poset pertama dalam <xref ref="fig_constructposets"/>
+      dan menyatakan bahwa setiap poset dari salah satu di antara kedua tipe tersebut isomorfik dengan poset dari
+      tipe yang lain. Alice mengakui bahwa Bob benar<mdash/>tetapi pernyataan yang lebih kuat pun berlaku. Empat konstruksi
+      dalam <xref ref="exa_construct"/> bersifat universal dalam arti bahwa <em>setiap</em> poset
+      isomorfik dengan suatu poset dari masing-masing keempat tipe itu. Dapatkah Anda melihat alasannya? Jika Anda menemui jalan buntu saat menjawab
+      pertanyaan ini, kita akan membahasnya kembali pada akhir bab dan memberikan sebuah petunjuk. </p>
+  </remark>
+  <p>Isomorfisme dari <m>\bfP</m> ke <m>\bfP</m> disebut <term>automorfisme</term><idx>
+      <h>automorfisme</h>
+      <h>pada poset</h>
+    </idx> dari <m>\bfP</m>. Isomorfisme dari <m>\bfP</m> ke suatu subposet dari <m>
+    \bfQ</m> disebut <term>penyematan</term><idx>
+      <h>penyematan</h>
+    </idx> <m>\bfP</m> ke dalam <m>\bfQ</m>. Dalam kebanyakan pembahasan, kita tidak akan
+    membedakan poset-poset yang isomorfik. Kita akan mengatakan bahwa poset <m>\PXP</m> <term>
+    termuat</term> dalam <m>\QYQ</m> (atau bahwa <m>\bfQ</m> <term>memuat</term> <m>\bfP</m>) apabila terdapat
+    penyematan <m>\bfP</m> ke dalam <m>\bfQ</m>. Kita juga akan mengatakan bahwa <m>\bfP</m> <term>menghindari</term> <m>
+    \bfQ</m> apabila tidak ada subposet <m>\bfP</m> yang isomorfik dengan <m>\bfQ</m>, dan kita akan sering
+    menuliskan <m>\bfP=\bfQ</m> apabila <m>\bfP</m> dan <m>\bfQ</m> isomorfik. </p>
+
+  <p>Gagasan isomorfisme secara alami membawa kita kepada gagasan poset <q>tak berlabel</q>,
+    dan <xref ref="f_unlabeled"/> menampilkan diagram untuk poset semacam itu. </p>
+  <figure xml:id="f_unlabeled">
+    <caption>Himpunan Terurut Parsial Tak Berlabel</caption>
+    <image width="30%" source="wttfig-5"><description><p>Diagram Hasse tak berlabel dengan sembilan titik pada empat tingkat: satu titik terbesar di atas, empat titik pada tingkat berikutnya, tiga titik di bawahnya, dan satu titik terkecil di dasar. Sisi-sisinya menghubungkan titik-titik pada tingkat berdekatan dan membentuk beberapa rantai yang saling bertemu.</p>
+    </description></image>
+  </figure>
+  <remark>
+    <p>Seberapa sulitkah menentukan apakah dua poset isomorfik? Bob menganggapnya tidak terlalu sulit.
+      Bob mengatakan bahwa jika Anda memberinya suatu bijeksi antara kedua himpunan dasar, ia dapat dengan cepat
+      menentukan apakah bijeksi itu membuktikan bahwa kedua poset tersebut isomorfik. Alice merasa bahwa
+      Bob mencampuradukkan masalah menguji apakah dua poset isomorfik dengan sekadar memverifikasi
+      apakah suatu bijeksi tertentu merupakan isomorfisme. Menurut Alice, masalah pertama
+      jauh lebih sulit. Carlos mengatakan bahwa menurutnya masalah itu memang sangat sulit dan, pada kenyataannya, belum ada
+      yang mengetahui apakah terdapat algoritma yang baik.
+    </p>
+  </remark>
+  <p>Perhatikan bahwa poset dalam <xref ref="f_unlabeled"/> hanya memiliki satu
+    titik maksimal. Titik semacam ini kadang-kadang disebut <term>satu</term>, dan sebagaimana dapat diduga dinotasikan dengan<nbsp/><m>
+    1</m>. Poset tersebut juga hanya memiliki satu titik minimal, yang disebut <term>nol</term> dan dinotasikan dengan<nbsp/><m>
+    0</m>. </p>
+
+  <p><term>Dual suatu urutan parsial</term><idx>
+      <h>dual</h>
+    </idx> <m>P</m> pada himpunan <m>X</m> dinotasikan dengan <m>P^d</m> dan didefinisikan oleh <m>P^d=\{(y,x):(x,y)\in
+    P\}</m>. <term>Dual suatu poset</term> <m>\PXP</m> dinotasikan dengan <m>\bfP^d</m> dan didefinisikan
+    oleh <m>\bfP^d=(X,P^d)</m>. Poset <m>\bfP</m> bersifat <term>swa-dual</term> jika <m>\bfP=\bfP^d</m>. </p>
+
+  <p>Poset <m>\PXP</m> disebut <term>terhubung</term><idx>
+      <h>terhubung</h>
+      <h>poset</h>
+    </idx> jika graf keterbandingannya terhubung, <ie/>, untuk setiap <m>x,y\in X</m>
+    dengan <m>x\ne y</m>, terdapat barisan hingga <m>x=x_0,x_1,\dots,x_n=y</m> dari titik-titik dalam <m>X</m>
+    sedemikian sehingga <m>x_i</m> dapat dibandingkan dengan <m>x_{i+1}</m> dalam <m>P</m> untuk <m>i=0,1,2,\dots,n-1</m>. Suatu
+    subposet <m>(Y,P(Y))</m> dari <m>(X,P)</m> disebut <term>komponen</term><idx>
+      <h>komponen</h>
+      <h>pada poset</h>
+    </idx> dari <m>\bfP</m> jika <m>(Y,P(Y))</m> terhubung dan tidak ada
+    himpunan <m>Z\subseteq X</m> yang memuat <m>Y</m> sebagai subhimpunan sejati sehingga <m>(Z,P(Z))</m>
+    terhubung. Komponen satu titik disebut <term>trivial</term> (juga disebut <term>titik lepas</term> atau <term>titik
+    terisolasi</term>); komponen dengan dua titik atau lebih disebut <term>nontrivial</term>. Perhatikan bahwa titik lepas
+    sekaligus merupakan elemen minimal dan elemen maksimal. Kembali ke poset dalam <xref ref="fig_17ptposet"/>, kita melihat bahwa poset tersebut memiliki dua komponen. </p>
+
+  <p>Secara alami, graf <m>\bfG</m> disebut <term>graf keterbandingan</term><idx>
+      <h>graf</h>
+      <h>keterbandingan</h>
+    </idx> apabila terdapat poset <m>\PXP</m> yang graf keterbandingannya
+    isomorfik dengan <m>\bfG</m>. Sebagai contoh, <xref ref="fig_noncompgraph"/> menampilkan graf dengan <m>
+    6</m> simpul yang bukan merupakan graf keterbandingan. (Pembuktian klaim ini
+    kita serahkan sebagai latihan.) </p>
+  <figure xml:id="fig_noncompgraph">
+    <caption>Graf yang Bukan Graf Keterbandingan</caption>
+    <image width="25%" source="noncompgraph"><description><p>Graf enam simpul yang disusun dalam tiga baris berisi satu, dua, dan tiga simpul. Sembilan sisinya membentuk kisi segitiga kecil yang terdiri atas empat segitiga.</p>
+    </description></image>
+  </figure>
+  <p>Demikian pula, graf <m>\bfG</m> disebut <term>graf penutup</term><idx>
+      <h>graf</h>
+      <h>penutup</h>
+    </idx> apabila terdapat poset <m>\PXP</m> yang graf penutupnya isomorfik
+    dengan <m>\bfG</m>. Tidak setiap graf merupakan graf penutup. Secara khusus, graf apa pun yang memuat
+    segitiga bukanlah graf penutup. Dalam latihan pada akhir bab, Anda akan diminta
+    mengonstruksi graf tanpa segitiga yang bukan graf penutup<mdash/>dengan beberapa petunjuk mengenai
+    cara melakukannya. </p>
+  <remark xml:id="discussion_posets_additional-concepts_claims">
+    <p>Bob sangat tertarik pada graf yang berkaitan dengan poset. Ia mengajukan klaim-klaim berikut. <ol>
+        <li>
+          <p>Hanya urutan linear yang memiliki lintasan sebagai graf penutup.</p>
+        </li>
+        <li>
+          <p>Suatu poset dan dualnya memiliki graf penutup serta graf keterbandingan yang sama.</p>
+        </li>
+        <li>
+          <p>Setiap dua poset dengan graf penutup yang sama memiliki tinggi dan lebar yang sama.</p>
+        </li>
+        <li>
+          <p>Setiap dua poset dengan graf keterbandingan yang sama memiliki tinggi dan
+      lebar yang sama.</p>
+        </li>
+
+      </ol>
+    </p>
+
+    <p>Alice mengangkat bahu dan mengatakan bahwa Bob benar separuh waktu. Dua pernyataan manakah yang benar?
+    </p>
+
+    <p>Tanpa berkecil hati, Bob memperhatikan bahwa graf keterbandingan dalam <xref ref="fig_compincomp"/> juga
+      merupakan graf ketakterbandingan (untuk poset lain). Ia kemudian menduga bahwa hal ini selalu
+      benar, <ie/>, setiap kali <m>\bfG</m> merupakan graf keterbandingan dari poset <m>\bfP</m>, terdapat
+      poset lain <m>\bfQ</m> sedemikian sehingga <m>\bfG</m> merupakan graf ketakterbandingan dari <m>\bfQ</m>.
+      Alice mengatakan bahwa Bob benar mengenai contoh pertama, tetapi ia tidak begitu yakin mengenai dugaan kedua. Dave
+      bergumam bahwa mereka seharusnya melihat graf keterbandingan dari poset ketiga dalam <xref ref="fig_constructposets"/>. Graf ini bukan merupakan graf ketakterbandingan. Namun, seperti biasanya ketika sedang kebingungan,
+      Dave tidak memberikan alasan apa pun untuk pernyataan tersebut. Dapatkah Anda membantu Alice
+      dan Bob melihat mengapa Dave benar? </p>
+
+    <p>Bob semakin bersemangat dan kemudian menyatakan bahwa menentukan apakah suatu
+      graf merupakan graf keterbandingan relatif mudah (ia membacanya di web), tetapi ia menduga bahwa menentukan
+      apakah suatu graf merupakan graf penutup mungkin sulit. Menurut Anda, apakah ia benar<mdash/>mengenai
+      salah satu atau kedua hal tersebut? </p>
+  </remark>
+  <reading-questions xml:id="rqs-posets_additional-concepts" component="runestone">
+    <exercise label="reading_posets_additional-concepts_graphs">
+      <statement>
+        <p>
+          Perhatikan empat klaim Bob dalam <xref ref="discussion_posets_additional-concepts_claims"/>. Untuk setiap klaim, bahas secara singkat alasan Anda menilai Bob benar atau salah. Alice benar bahwa dua klaim Bob tepat, tetapi usahakan untuk tidak menggunakan proses eliminasi sebagai alasan bahwa salah satu klaim benar atau salah!
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

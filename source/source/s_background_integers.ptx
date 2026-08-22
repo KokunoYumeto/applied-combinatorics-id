@@ -1,0 +1,63 @@
+<section xml:id="s_background_integers">
+    <title>Bilangan Bulat sebagai Kelas Ekuivalensi Pasangan Terurut</title>
+    <p>Definisikan suatu relasi biner <m>\cong</m> pada himpunan <m>Z=\nonnegints \times\nonnegints</m> dengan
+    <md>
+        (a,b)\cong (c,d)\quad\textit{iff}\quad a+d=b+c.
+    </md>
+    </p>
+    <lemma>
+        <statement>
+            <p>
+                <m>\cong</m> bersifat refleksif.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Misalkan <m>(a,b)\in Z</m>. Maka <m>a+b=b+a</m>, sehingga <m>(a,b)\cong(a,b)</m>.
+            </p>
+        </proof>
+    </lemma>
+    <lemma>
+        <statement>
+            <p>
+                <m>\cong</m> bersifat simetris.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Misalkan <m>(a,b),(c,d)\in Z</m> dan anggap <m>(a,b)\cong (c,d)</m>. Maka <m>a+d=b+c</m>, sehingga <m>c+b=d+a</m>. Jadi, <m>(c,d)\cong (a,b)</m>.
+            </p>
+        </proof>
+    </lemma>
+    <lemma>
+        <statement>
+            <p>
+                <m>\cong</m> bersifat transitif.
+            </p>
+        </statement>
+
+        <proof>
+            <p>
+                Misalkan <m>(a,b), (c,d), (e,f)\in Z</m>. Anggap bahwa
+                <md>
+                    (a,b)\cong(c,d)\quad\text{and} \quad (c,d)\cong (e,f).
+                </md>
+                Maka <m>a+d=b+c</m> dan <m>c+f=d+e</m>. Oleh karena itu,
+
+                <md>
+                    (a+d)+(c+f) =(b+c)+(d+e).
+                </md>
+                Akibatnya,
+                <md>
+                    (a+f)+(c+d) =(b+e)+(c+d).
+                </md>
+                Jadi, <m>a+f = b+e</m>, sehingga <m>(a,b)\cong(e,f)</m>.
+            </p>
+        </proof>
+    </lemma>
+    <p>Karena sekarang kita mengetahui bahwa <m>\cong</m> merupakan relasi ekuivalensi pada <m>Z</m>, relasi <m>\cong</m> mempartisi <m>Z</m> menjadi kelas-kelas ekuivalensi. Untuk elemen <m>(a,b)\in Z</m>, kelas ekuivalensi dari <m>(a,b)</m> dinyatakan dengan <m>\langle (a,b)\rangle</m>.
+    </p>
+
+    <p>Misalkan <m>\ints</m> menyatakan himpunan seluruh kelas ekuivalensi <m>Z</m> yang ditentukan oleh relasi ekuivalensi <m>\cong</m>. Elemen-elemen <m>\ints</m> disebut <term>bilangan bulat</term>.<idx><h>bilangan bulat</h><h>definisi formal</h></idx>
+    </p>
+</section>

@@ -1,0 +1,66 @@
+<section xml:id="s_strings_combinations">
+    <title>Kombinasi</title>
+    <p>Untuk memotivasi topik bagian ini, kita akan membahas variasi lain dari soal pemilihan pengurus dalam <xref ref="exa_strings_officers"/>. Andaikan kelas tersebut tidak memilih mahasiswa untuk jabatan tertentu, tetapi memilih dewan eksekutif beranggotakan empat mahasiswa dari <m>80</m> mahasiswa yang tersedia. Setiap posisi dalam dewan eksekutif itu setara, sehingga tidak ada perbedaan antara Alice memperoleh kursi <q>pertama</q> dan memperoleh kursi <q>keempat</q> dalam dewan tersebut. Dengan kata lain, kita hanya ingin memilih empat dari <m>80</m> mahasiswa tanpa memperhatikan urutan. Kita akan kembali ke pertanyaan ini setelah memperkenalkan konsep berikutnya.
+    </p>
+    
+    <p>Misalkan <m>X</m> sebuah himpunan berhingga dan <m>k</m> sebuah bilangan bulat dengan <m>0\le k\le |X|</m>. Himpunan bagian beranggota <m>k</m> dari <m>X</m> juga disebut <term>kombinasi</term><idx><h>kombinasi</h></idx><idx><h>koefisien binomial</h></idx> berukuran<nbsp/><m>k</m>. Jika <m>|X| =n</m>, banyaknya himpunan bagian beranggota <m>k</m> dari <m>X</m> dinyatakan dengan <m>\binom{n}{k}</m>.<notation><usage><m>\binom{n}{k}</m></usage><description>koefisien binomial n pilih k, dengan n ditulis di atas k</description></notation> Bilangan berbentuk <m>\binom{n}{k}</m> disebut <term>koefisien binomial</term>, dan banyak ahli kombinatorika membaca <m>\binom{n}{k}</m> sebagai <q><m>n</m> <term>pilih</term> <m>k</m>.</q> Ketika kita memerlukan bentuk sebaris, notasi yang diutamakan adalah <m>C(n,k)</m><notation><usage><m>C(n,k)</m></usage><description>koefisien binomial n pilih k dalam notasi sebaris C(n,k)</description></notation>. Besaran <m>C(n,k)</m> juga disebut banyaknya kombinasi dari <m>n</m> objek yang diambil <m>k</m> sekaligus.
+    </p>
+
+    <p>Bob mencatat bahwa dengan notasi ini, banyaknya cara memilih dewan eksekutif beranggotakan empat orang dari <m>80</m> mahasiswa yang berminat adalah <m>C(80,4)</m>. Namun, ia bingung tentang cara menghitung nilai <m>C(80,4)</m>. Alice menunjukkan bahwa nilainya pasti lebih kecil daripada <m>P(80,4)</m>, karena setiap dewan eksekutif dapat diubah menjadi <m>4!</m> susunan pengurus yang berbeda. Carlos setuju dan mengatakan bahwa Alice telah menemukan gagasan kunci untuk memperoleh rumus yang menghitung <m>C(n,k)</m> secara umum.
+    </p>
+
+    <proposition xml:id="prop_strings_binomraw"><idx><h>koefisien binomial</h><h>rumus untuk</h></idx><idx><h>kombinasi</h><h>banyaknya</h><h>rumus untuk</h></idx>
+        <statement>
+            <p>Jika <m>n</m> dan <m>k</m> merupakan bilangan bulat dengan <m>0\le k\le n</m>, maka
+            <md>
+                \binom{n}{k}=C(n,k)=\frac{P(n,k)}{k!}=\frac{n!}{k!(n-k)!}
+            </md>
+            </p>
+        </statement>
+        <proof>
+            <p>Jika <m>X</m> merupakan himpunan beranggota <m>n</m>, maka <m>P(n,k)</m> menghitung banyaknya permutasi atas <m>X</m> dengan panjang <m>k</m>. Masing-masing dari <m>C(n,k)</m> himpunan bagian beranggota <m>k</m> dari <m>X</m> dapat diubah menjadi <m>k!</m> permutasi, dan cara ini memperhitungkan setiap permutasi tepat satu kali. Oleh karena itu, <m>k!  C(n,k)=P(n,k)</m>, dan pembagian dengan <m>k!</m> menghasilkan rumus untuk banyaknya himpunan bagian beranggota <m>k</m>.
+        </p>
+    </proof>
+    </proposition>
+
+    <p>Dengan menggunakan <xref ref="prop_strings_binomraw"/>, sekarang kita dapat menentukan bahwa <m>C(80,4)=1581580</m> adalah banyaknya cara memilih dewan eksekutif beranggotakan empat orang dari <m>80</m> mahasiswa yang berminat.
+    </p>
+
+    <p>Argumen di atas menggambarkan strategi pencacahan kombinatorial yang umum. Kita menghitung satu jenis objek dan menentukan bahwa setiap objek yang sebenarnya ingin kita hitung telah <em>terhitung berlebih</em> dalam jumlah yang sama, sehingga kita membagi hasilnya dengan jumlah tersebut (dalam kasus ini, <m>k!</m>).
+    </p>
+
+    <p>Hasil berikut setara dengan mengatakan bahwa memilih elemen-elemen yang akan menjadi anggota suatu himpunan (pemenang pemilihan dewan eksekutif) sama dengan memilih elemen-elemen yang tidak akan dimasukkan (pihak yang kalah dalam pemilihan).
+    </p>
+
+    <proposition xml:id="prop_strings_symmetric">
+        <statement>
+            <p>
+                Untuk semua bilangan bulat <m>n</m> dan <m>k</m> dengan <m>0\le k\le n</m>, berlaku
+                <md>
+                    \binom{n}{k}=\binom{n}{n-k}.
+                </md>
+            </p>
+        </statement>
+    </proposition>
+
+    <example>
+        <p>Sebuah restoran di wilayah Selatan Amerika Serikat mencantumkan 21 hidangan dalam kategori <q>sayuran</q> pada menunya. (Seperti restoran khas Selatan yang baik, makaroni dan keju merupakan <em>salah satu</em> pilihan sayuran.) Restoran itu menjual hidangan sayuran yang berisi empat pilihan sayuran berbeda dari menu. Karena urutan penempatan sayuran di piring tidak penting, terdapat <m>C(21,4)=5985</m> cara berbeda bagi pelanggan untuk memesan hidangan sayuran di restoran tersebut.
+        </p>
+    </example>
+    <p>Contoh berikutnya memperkenalkan korespondensi penting antara himpunan dan string bit yang akan berulang kali kita manfaatkan dalam buku ini.
+    </p>
+    <example><idx><h>string</h><h>biner</h></idx>
+        <p>Misalkan <m>n</m> sebuah bilangan bulat positif dan <m>X</m> sebuah himpunan beranggota <m>n</m>. Terdapat korespondensi satu-ke-satu yang alami antara himpunan-himpunan bagian dari <m>X</m> dan string bit dengan panjang<nbsp/><m>n</m>. Secara lebih tepat, misalkan <m>X=\{x_1,x_2,\dots,x_n\}</m>. Suatu himpunan bagian <m>A\subseteq X</m> berkorespondensi dengan string <m>s</m>, dengan <m>s(i) = 1</m> jika dan hanya jika <m>x_i\in A</m>. Sebagai contoh, jika <m>X=\{a,b,c,d,e,f,g,h\}</m>, maka himpunan bagian <m>\{b,c,g\}</m> berkorespondensi dengan string bit <m>01100010</m>. Terdapat <m>C(8,3)=56</m> string bit dengan panjang delapan yang memuat tepat tiga karakter <m>1</m>. Dengan memikirkan korespondensi ini, berapakah jumlah seluruh himpunan bagian dari sebuah himpunan beranggota <m>n</m>?
+        </p>
+    </example>
+    <reading-questions label="rqs-strings_combinations" component="runestone">
+        <exercise label="appcomb_strings_combinations_reading">
+          <statement>
+            <p>
+              Berapa banyak cara untuk membentuk string dengan panjang lima menggunakan alfabet A, B, C jika tepat tiga karakter dalam string tersebut harus berupa huruf A? Tuliskan satu atau dua kalimat untuk menjelaskan penalaran Anda.
+            </p>
+          </statement>
+          <response/>
+        </exercise>
+      </reading-questions>
+</section>

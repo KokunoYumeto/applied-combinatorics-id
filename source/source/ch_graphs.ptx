@@ -1,0 +1,26 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_graphs">
+    <title>Teori Graf</title>
+
+
+    <introduction>
+        <p>Dalam <xref ref="ex_radiostations"/>, kita membahas masalah pemberian frekuensi kepada stasiun radio ketika stasiun-stasiun yang berjarak tidak lebih dari <m>200</m> mil satu sama lain harus memancar pada frekuensi yang berbeda. Tentu saja, untuk suatu tata letak pemancar tertentu, kita ingin menggunakan sesedikit mungkin frekuensi, tetapi bagaimana kita dapat menentukan jumlah minimum tersebut?
+        </p>
+
+        <p>Misalkan tiga rumah baru sedang dibangun dan masing-masing harus dilengkapi dengan sambungan utilitas. Utilitas yang dimaksud adalah air, listrik, dan gas alam. Setiap penyedia memerlukan jalur langsung dari terminalnya ke setiap rumah (jalur itu boleh berkelok-kelok sesuka hati, tetapi harus menghubungkan terminal dengan rumah tanpa melewati terminal penyedia lain atau rumah lain di sepanjang jalur), dan ketiga penyedia ingin menanam jalur mereka tepat empat kaki di bawah tanah. Dapatkah mereka melakukannya tanpa membuat jalur-jalur tersebut berpotongan?
+        </p>
+
+        <p>
+            Kedua masalah ini hanyalah dua dari sekian banyak contoh bagaimana struktur diskret yang dikenal sebagai <term>graf</term> dapat menjadi model matematika yang memberikan wawasan. Graf mungkin merupakan struktur kombinatorial yang paling mendasar dan paling banyak dipelajari, serta dibahas secara luas dalam buku ini. Banyak konsep yang akan kita pelajari, meskipun disajikan dalam pengertian matematika yang lebih abstrak, berawal dari penerapan graf sebagai model bagi masalah dunia nyata.
+        </p>
+    </introduction>
+    <xi:include href="s_graphs_intro.ptx"/>
+    <xi:include href="s_graphs_multigraphs.ptx"/>
+    <xi:include href="s_graphs_eulerham.ptx"/>
+    <xi:include href="s_graphs_color.ptx"/>
+    <xi:include href="s_graphs_planar.ptx"/>
+    <xi:include href="s_graphs_counting-trees.ptx"/>
+    <xi:include href="s_graphs_complexity.ptx"/>
+    <xi:include href="s_graphs_discussion.ptx"/>
+    <xi:include href="s_graphs_exercises.ptx"/>
+    <xi:include href="s_graphs_peer_instruction.ptx"/>
+</chapter>

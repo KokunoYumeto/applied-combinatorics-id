@@ -1,0 +1,32 @@
+<section xml:id="s_probability_infinite-outcomes">
+    <title>Ruang Probabilitas dengan Hasil yang Tak Terhingga Banyaknya</title>
+    <p>Sejauh ini, kita sepenuhnya berfokus pada ruang probabilitas <m>(S,P)</m> dengan <m>S</m> berupa himpunan hingga. Secara lebih umum, ruang probabilitas juga didefinisikan ketika <m>S</m> berupa himpunan tak hingga. Ketika <m>S</m> tak hingga tercacah, kita tetap dapat mendefinisikan <m>P</m> pada anggota-anggota <m>S</m>, dan kini <m>\sum_{x\in S} P(x)</m> merupakan jumlah tak hingga yang konvergen mutlak (karena semua sukunya tak negatif) ke <m>1</m>. Ketika <m>S</m> tak tercacah, <m>P</m> tidak didefinisikan pada setiap anggota <m>S</m> secara terpisah. Sebagai gantinya, fungsi probabilitas didefinisikan pada suatu keluarga himpunan bagian dari <m>S</m>. Karena pembahasan kita menekankan himpunan hingga dan kombinatorika, kita akan membahas kasus pertama secara singkat dan merujuk pembaca kepada buku teks yang berfokus pada konsep umum probabilitas dan statistika untuk kasus kedua.
+    </p>
+    <example>
+        <p>Perhatikan permainan berikut. Nancy melempar sebuah dadu. Ia menang jika memperoleh angka enam. Jika memperoleh angka lain, ia terus melempar dadu hingga salah satu dari dua hal berikut terjadi untuk pertama kalinya: (1) ia memperoleh angka enam, yang mengakibatkan kekalahan, atau (2) ia memperoleh angka yang sama dengan angka pada lemparan pertamanya, yang mengakibatkan kemenangan. Sebagai contoh, berikut beberapa urutan lemparan yang mungkin terjadi dalam permainan ini:
+                  <ol>
+            <li><p><m>(4,2,3,5,1,1,1,4)</m>. Nancy menang!</p></li>
+            <li><p><m>(6)</m>. Nancy menang!</p></li>
+            <li><p><m>(5,2, 3,2,1,6)</m>. Nancy kalah. Aduh.</p></li>
+        
+                  </ol>
+                </p>
+        
+        <p>Jadi, berapakah probabilitas Nancy memenangkan permainan ini?
+        </p>
+        
+        <p>Nancy dapat menang dengan memperoleh angka enam pada lemparan pertama. Probabilitasnya adalah <m>1/6</m>. Ia juga mungkin menang pada putaran<nbsp/><m>n</m> dengan <m>n\ge2</m>. Agar hal ini terjadi, pada lemparan pertama ia mempunyai probabilitas <m>5/6</m> untuk memperoleh angka selain enam; pada setiap lemparan berikutnya ia mempunyai probabilitas <m>4/6</m> untuk memperoleh hasil yang belum menentukan menang atau kalah, yakni pada lemparan <m>2</m> hingga <m>n-1</m>; lalu ia mempunyai probabilitas <m>1/6</m> untuk memperoleh angka yang sama dengan angka pada lemparan pertama pada putaran<nbsp/><m>n</m>. Jadi, probabilitas kemenangan diberikan oleh:
+        <md>
+            \frac{1}{6}+\sum_{n\ge 2}\frac{5}{6}\left(\frac{4}{6}\right)^{n-2}\frac{1}{6} = \frac{7}{12}.
+        </md>
+        </p>
+    </example>
+
+    <example>
+        <p>Mungkin Anda menduga bahwa contoh sebelumnya menyiratkan hasil yang sedikit lebih umum<mdash/>dan memang demikian. Misalkan <m>A</m> dan <m>B</m> adalah dua kejadian saling lepas dalam ruang probabilitas <m>(S,P)</m>, dengan <m>0\lt P(A)+P(B)\lt 1</m>. Selanjutnya, misalkan kita melakukan pengambilan sampel berulang dari ruang ini, dengan setiap sampel bebas dari semua sampel sebelumnya. Kita menyebut hasilnya kemenangan jika kejadian <m>A</m> terjadi dan kekalahan jika kejadian <m>B</m> terjadi. Jika tidak, hasilnya seri dan kita mengambil sampel lagi. Probabilitas kemenangan adalah:
+        <md>
+            P(A)+P(A)\sum_{n\ge 1}(1-P(A)-P(B))^n=\frac{P(A)}{P(A)+P(B)}.
+        </md>
+        </p>
+    </example>
+</section>

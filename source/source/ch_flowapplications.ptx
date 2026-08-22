@@ -1,0 +1,14 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_flowapplications">
+    <title>Penerapan Kombinatorial Aliran
+    Jaringan</title>
+
+
+    <introduction>
+        <p>Jelas bahwa pencarian aliran maksimum dalam suatu jaringan dapat diterapkan secara langsung pada banyak masalah dalam bisnis, rekayasa, dan ilmu komputer. Namun, mungkin mengejutkan bahwa pencarian aliran jaringan juga dapat memberikan algoritma yang cukup efisien untuk menyelesaikan masalah-masalah kombinatorial. Dalam bab ini, kita meninjau bentuk terbatas aliran jaringan, yakni setiap sisinya berkapasitas <m>1</m>. Tujuan kita adalah menyusun algoritma bagi dua masalah kombinatorial: mencari pencocokan maksimum dalam graf bipartit serta mencari lebar suatu poset dan partisi rantai minimum.
+        </p>
+    </introduction>
+    <xi:include href="s_flowapplications_intro.ptx"/>
+    <xi:include href="s_flowapplications_bip-match.ptx"/>
+    <xi:include href="s_flowapplications_chain-partition.ptx"/>
+    <xi:include href="s_flowapplications_exercises.ptx"/>
+</chapter>

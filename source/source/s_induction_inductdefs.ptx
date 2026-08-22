@@ -1,0 +1,23 @@
+<section xml:id="s_induction_inductdefs">
+    <title>Definisi Induktif</title>
+    <p>Meskipun pada dasarnya merupakan masalah selera, definisi rekursif juga dapat dirumuskan kembali dalam kerangka induktif.  Sebagai contoh pertama, tetapkan <m>1!=1</m> dan, setiap kali <m>k!</m> telah didefinisikan, tetapkan <m>(k+1)!=(k+1)k!</m>.
+    </p>
+
+    <p>Sebagai contoh kedua, tetapkan
+    <md>
+        \sum_{i=1}^1 f(i) = f(1)\quad\text{and} \quad
+        \sum_{i=1}^{k+1} f(i)= \sum_{i=1}^{k} f(i)+ f(k+1)
+    </md>
+    Dalam contoh kedua ini, kita sudah menggunakan bentuk singkat karena beberapa frasa dalam bahasa alami telah dihilangkan.  Namun, maknanya seharusnya jelas.
+    </p>
+
+    <p>Sekarang, mari mundur sejenak dan berikan sebuah contoh yang sebenarnya merupakan bagian dari pengembangan sistem bilangan. Misalkan Anda mengetahui segala hal tentang <em>penjumlahan</em> bilangan bulat positif, tetapi belum pernah mendengar apa pun mengenai <em>perkalian</em>. Berikut cara operasi ini dapat didefinisikan.
+    </p>
+
+    <p>Ambil <m>m</m> sebagai bilangan bulat positif. Lalu, tetapkan
+    <md>
+        m\cdot1 = m\quad\text{and} \quad m\cdot(k+1)=m\cdot k+ m
+    </md>
+    Anda dapat melihat bahwa aturan ini <em>mendefinisikan</em> perkalian, tetapi tidak menetapkan sifat-sifat yang sudah dikenal, seperti sifat komutatif dan asosiatif. Lihat beberapa rinciannya dalam <xref ref="app_background"/>.
+    </p>
+</section>

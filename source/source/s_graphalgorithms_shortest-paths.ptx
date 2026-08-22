@@ -1,0 +1,299 @@
+<section xml:id="s_graphalgorithms_shortest-paths">
+    <title>Algoritma Dijkstra untuk Lintasan Terpendek</title>
+    <introduction>
+        <p>Seperti pada graf, pemberian bobot pada sisi-sisi berarah suatu digraf juga berguna. Secara khusus, dalam bagian ini kita meninjau pasangan <m>(\bfG,w)</m>, dengan <m>\GVE</m> suatu digraf dan <m>w\colon E\rightarrow\nonnegints</m> suatu fungsi yang memberikan kepada setiap sisi berarah <m>(x,y)</m> bobot nonnegatif <m>w(x,y)</m>. Namun, dalam bagian ini kita menafsirkan bobot sebagai <term>jarak</term><idx><h>jarak</h></idx>, sehingga <m>w(x,y)</m> disebut <term>panjang</term><idx><h>panjang</h></idx> sisi <m>(x,y)</m>. Jika <m>P=(r=u_0,u_1,\dots,u_t=x)</m> adalah lintasan berarah dari <m>r</m> ke <m>x</m>, maka <term>panjang</term> lintasan <m>P</m> adalah jumlah panjang sisi-sisi pada lintasan itu, yaitu <m>\sum_{i=0}^{t-1} w(u_i,u_{i+1})</m>. <term>Jarak</term> dari <m>r</m> ke <m>x</m> kemudian didefinisikan sebagai panjang minimum suatu lintasan berarah dari <m>r</m> ke <m>x</m>. Tujuan kita dalam bagian ini adalah menyelesaikan masalah alami berikut, yang mempunyai banyak penerapan:
+        </p>
+
+        <problem>
+            <statement>
+                <p>Untuk setiap simpul <m>x</m>, carilah jarak dari <m>r</m> ke <m>x</m>. Carilah pula lintasan terpendek dari <m>r</m> ke <m>x</m>.
+                </p>
+            </statement>
+        </problem>
+    </introduction>
+
+
+    <subsection>
+        <title>Deskripsi Algoritma</title>
+        <p>Agar <term>algoritma Dijkstra</term> dapat dijelaskan secara ringkas, kita perlu memperluas definisi fungsi <m>w</m>. Kita menetapkan <m>w(x,y)=\infty</m> apabila <m>x\neq y</m> dan <m>(x,y)</m> bukan sisi berarah dari <m>\bfG</m>. Dengan cara ini, kita akan memperlakukan <m>\infty</m> seolah-olah merupakan bilangan (padahal bukan!).<fn>Hal ini tidak menimbulkan masalah dalam implementasi komputer. Alih-alih menggunakan <m>\infty</m>, kita dapat menyimulasikan tak hingga dengan nilai berupa hasil kali banyaknya simpul dan bobot sisi maksimum.</fn>
+        </p>
+
+        <p>Sekarang kita siap menjelaskan Algoritma Dijkstra.</p>
+        <algorithm xml:id="alg_dijkstra">
+            <title>Algoritma Dijkstra</title>
+            <idx><h>algoritma Dijkstra</h></idx>
+            <idx><h>graf</h><h>lintasan terpendek dalam</h></idx>
+            <statement>
+                <p>Misalkan <m>n=|V|</m>. Pada Langkah<nbsp/><m>i</m>, dengan <m>1\le i\le n</m>, kita telah menentukan:
+                  <ol>
+                    <li><p>Suatu barisan simpul berbeda <m>\sigma=(v_1,v_2,v_3,\dots,v_i)</m> dari <m>\bfG</m>, dengan <m>r=v_1</m>. Simpul-simpul ini disebut <term>simpul permanen</term>, sedangkan simpul-simpul yang tersisa disebut <term>simpul sementara</term>.</p></li>
+                    <li><p>Untuk setiap simpul <m>x\in V</m>, kita telah menentukan bilangan <m>\delta(x)</m> dan lintasan <m>P(x)</m> dari <m>r</m> ke <m>x</m> yang panjangnya <m>\delta(x)</m>.</p></li>
+                
+                  </ol>
+                  <dl>
+                    <li>
+                        <title>Inisialisasi (Langkah<nbsp/>1)</title>
+                        <p>Tetapkan <m>i=1</m>. Tetapkan <m>\delta(r)=0</m> dan misalkan <m>P(r)=(r)</m> lintasan trivial yang hanya terdiri atas satu titik. Tetapkan pula <m>\sigma= (r)</m>. Untuk setiap <m>x\neq r</m>, tetapkan <m>\delta(x)= w(r,x)</m> dan <m>P(x)=(r,x)</m>. Misalkan <m>x</m> suatu simpul sementara yang meminimumkan <m>\delta(x)</m>. Tetapkan <m>v_2 = x</m>, lalu perbarui <m>\sigma</m> dengan menambahkan <m>v_2</m> di ujungnya. Naikkan <m>i</m> sebesar satu.
+                        </p>
+                    </li>
+                    <li>
+                        <title>Langkah Induktif (Langkah<nbsp/><m>i</m>, <m>i&gt;1</m>)</title>
+                        <p>Jika <m>i\lt n</m>, maka untuk setiap simpul sementara <m>x</m>, tetapkan
+                        <md>
+                            \delta(x) = \min\{\delta(x), \delta(v_i)+w(v_i,x)\}.
+                        </md>
+                        Jika penetapan ini menurunkan nilai <m>\delta(x)</m>, misalkan <m>P(x)</m> lintasan yang diperoleh dengan menambahkan <m>x</m> ke ujung <m>P(v_i)</m>.
+                        </p>
+                        <p>Misalkan <m>x</m> suatu simpul sementara yang meminimumkan <m>\delta(x)</m>. Tetapkan <m>v_{i+1}=x</m>, lalu perbarui <m>\sigma</m> dengan menambahkan <m>v_{i+1}</m> di ujungnya. Naikkan <m>i</m> sebesar satu.
+                        </p>
+                    </li>
+                
+                  </dl>
+                </p>
+            </statement>
+        </algorithm>
+    </subsection>
+
+
+    <subsection>
+        <title>Contoh Algoritma Dijkstra</title>
+        <p>Sebelum membuktikan mengapa algoritma Dijkstra bekerja, ada baiknya kita melihat sebuah contoh. Tinjau digraf <m>\bfG</m> pada <xref ref="fig_graphalgorithms_dijkstragraph"/>. Agar gambarnya jelas, kita memilih digraf yang merupakan <term>graf berorientasi</term>, <ie/>, untuk setiap pasangan simpul berbeda <m>x,y</m>, graf memuat paling banyak satu dari dua kemungkinan sisi berarah <m>(x,y)</m> dan <m>(y,x)</m>.
+        </p>
+        <figure xml:id="fig_graphalgorithms_dijkstragraph">
+            <caption>Digraf dengan panjang sisi</caption>
+            <image width="85%" source="dijkstragraph"><description><p>Digraf dengan panjang sisi</p>
+            </description></image>
+        </figure>
+        <p>
+            Misalkan simpul akar <m>r</m> adalah simpul berlabel<nbsp/><m>a</m>. Langkah inisialisasi algoritma Dijkstra kemudian menghasilkan nilai-nilai <m>\delta</m> dan <m>P</m> berikut:
+        </p>
+
+        <paragraphs>
+            <title>Langkah 1. Inisialisasi</title>
+            <p>
+                <md>
+                    <mrow>\sigma\amp=(a)\amp\amp</mrow>
+                    <mrow>\delta(a)\amp=0; \amp P(a)\amp=(a)</mrow>
+                    <mrow>\delta(b) \amp=\infty; \amp P(b)\amp=(a,b)</mrow>
+                    <mrow>\delta(c) \amp=47; \amp P(c)\amp=(a,c)</mrow>
+                    <mrow>\delta(d) \amp=\infty; \amp P(d)\amp=(a,d)</mrow>
+                    <mrow>\delta(e) \amp=70; \amp P(e)\amp=(a,e)</mrow>
+                    <mrow>\delta(f) \amp=24; \amp P(f)\amp=(a,f)</mrow>
+                    <mrow>\delta(g) \amp=\infty; \amp P(g)\amp=(a,g)</mrow>
+                    <mrow>\delta(h) \amp=\infty; \amp P(h)\amp=(a,h)</mrow>
+                </md>
+            </p>
+            <p>Sebelum menyelesaikan Langkah 1, algoritma mengenali simpul<nbsp/><m>f</m> sebagai simpul terdekat dengan <m>a</m> dan menambahkannya ke <m>\sigma</m>, sehingga <m>f</m> menjadi permanen. Ketika memasuki Langkah 2, algoritma Dijkstra berusaha mencari lintasan yang lebih pendek dari <m>a</m> ke setiap simpul sementara dengan melewati <m>f</m>. Proses ini kita sebut <q>pemindaian dari simpul<nbsp/><m>f</m>.</q> Dalam pemindaian ini, lintasan menuju simpul<nbsp/><m>d</m> diperbarui karena <m>\delta(f) + w(f,d)=24+120=144\lt \infty=w(a,d)</m>.
+            </p>
+        </paragraphs>
+        <paragraphs>
+            <title>Langkah 2. Pemindaian dari simpul<nbsp/><m>f</m></title>
+
+            <p>
+                <md>
+                    <mrow>\sigma\amp=(a,f)\amp\amp</mrow>
+                    <mrow>\delta(a)\amp=0; \amp P(a)\amp=(a)</mrow>
+                    <mrow>\delta(b)\amp=\infty; \amp P(b)\amp=(a,b)</mrow>
+                    <mrow>\delta(c)\amp=47; \amp P(c)\amp=(a,c)</mrow>
+                    <mrow>\delta(d)\amp=144 = 24 + 120 = \delta(f)+w(f,d); \amp P(d)\amp=(a,f,d)\quad\text{diperbarui} </mrow>
+                    <mrow>\delta(e)\amp=70; \amp P(e)\amp=(a,e)</mrow>
+                    <mrow>\delta(f)\amp=24; \amp P(f)\amp=(a,f)</mrow>
+                    <mrow>\delta(g)\amp=\infty; \amp P(g)\amp=(a,g)</mrow>
+                    <mrow>\delta(h)\amp=\infty; \amp P(h)\amp=(a,h)</mrow>
+                </md>
+            </p>
+
+            <p>Sebelum beralih ke langkah berikutnya, simpul<nbsp/><m>c</m> dijadikan permanen dengan menetapkannya sebagai <m>v_3</m>. Karena itu, pada Langkah 3 pemindaian dilakukan dari simpul <m>c</m>. Lintasan menuju simpul <m>b</m>, <m>d</m>, dan <m>g</m> diperbarui. Akan tetapi, meskipun <m>\delta(c) + w(c,e) = 47+23=70=\delta(e)</m>, kita tidak mengubah <m>P(e)</m> karena <m>\delta(e)</m> tidak <em>menurun</em> ketika <m>P(e)</m> dirutekan melalui <m>c</m>.
+            </p>
+        </paragraphs>
+        <paragraphs>
+            <title>Langkah 3. Pemindaian dari simpul<nbsp/><m>c</m></title>
+            <p>
+                <md>
+                    <mrow>\sigma\amp=(a,f,c)</mrow>
+                    <mrow>\delta(a)\amp=0; \amp P(a)\amp=(a)</mrow>
+                    <mrow>\delta(b)\amp=102=47+55= \delta(c)+w(c,b); \amp P(b)\amp=(a,c,b)\quad\text{diperbarui}</mrow>
+                    <mrow>\delta(c)\amp=47; \amp P(c)\amp=(a,c)</mrow>
+                    <mrow>\delta(d)\amp=135=47+88 = \delta(c)+w(c,d); \amp P(d)\amp=(a,c,d)\quad\text{diperbarui} </mrow>
+                    <mrow>\delta(e)\amp=70; \amp P(e)\amp=(a,e)</mrow>
+                    <mrow>\delta(f)\amp=24; \amp P(f)\amp=(a,f)</mrow>
+                    <mrow>\delta(g)\amp=113=47+66= \delta(c)+w(c,g); \amp P(g)\amp=(a,c,g)\quad\text{diperbarui} </mrow>
+                    <mrow>\delta(h)\amp=\infty; \amp P(h)\amp=(a,h)</mrow>
+                </md>
+            </p>
+
+            <p>Sekarang simpul <m>e</m> dijadikan permanen.
+            </p>
+        </paragraphs>
+        <paragraphs>
+            <title>Langkah 4. Pemindaian dari simpul<nbsp/><m>e</m></title>
+            <p>
+                <md>
+                    <mrow>\sigma\amp=(a,f,c,e)</mrow>
+                    <mrow>\delta(a)\amp=0; \amp P(a)\amp=(a)</mrow>
+                    <mrow>\delta(b)\amp=101=70+31= \delta(e)+w(e,b); \amp P(b)\amp=(a,e,b)\quad\text{diperbarui}</mrow>
+                    <mrow>\delta(c)\amp=47; \amp P(c)\amp=(a,c)</mrow>
+                    <mrow>\delta(d)\amp=135; \amp P(d)\amp=(a,c,d)</mrow>
+                    <mrow>\delta(e)\amp=70; \amp P(e)\amp=(a,e)</mrow>
+                    <mrow>\delta(f)\amp=24; \amp P(f)\amp=(a,f)</mrow>
+                    <mrow>\delta(g)\amp=112=70+42= \delta(e)+w(e,g); \amp P(g)\amp=(a,e,g)\quad\text{diperbarui}</mrow>
+                    <mrow>\delta(h)\amp=\infty; \amp P(h)\amp=(a,h)</mrow>
+                </md>
+            </p>
+
+            <p>Sekarang simpul <m>b</m> dijadikan permanen.
+            </p>
+        </paragraphs>
+        <paragraphs>
+            <title>Langkah 5. Pemindaian dari simpul<nbsp/><m>b</m></title>
+
+            <p>
+                <md>
+                    <mrow>\sigma\amp=(a,f,c,e,b)</mrow>
+                    <mrow>\delta(a)\amp=0; \amp P(a)\amp=(a)</mrow>
+                    <mrow>\delta(b)\amp=101; \amp P(b)\amp=(a,e,b)</mrow>
+                    <mrow>\delta(c)\amp=47; \amp P(c)\amp=(a,c)</mrow>
+                    <mrow>\delta(d)\amp= 132 = 101+ 31= \delta(b)+w(b,d); \amp P(d)\amp=(a,e,b,d)\quad\text{diperbarui} </mrow>
+                    <mrow>\delta(e)\amp= 70; \amp P(e)\amp=(a,e)</mrow>
+                    <mrow>\delta(f)\amp= 24; \amp P(f)\amp=(a,f)</mrow>
+                    <mrow>\delta(g)\amp=112; \amp P(g)\amp=(a,e,g)</mrow>
+                    <mrow>\delta(h)\amp=180 = 101+79=\delta(b)+w(b,h); \amp P(h)\amp=(a,e,b,h)\quad\text{diperbarui} </mrow>
+                </md>
+            </p>
+            <p>Sekarang simpul <m>g</m> dijadikan permanen.
+            </p>
+        </paragraphs>
+        <paragraphs>
+            <title>Langkah 6. Pemindaian dari simpul<nbsp/><m>g</m></title>
+
+            <p>
+                <md>
+                    <mrow>\sigma\amp=(a,f,c,e,b,g)</mrow>
+                    <mrow>\delta(a)\amp=0; \amp P(a)\amp=(a)</mrow>
+                    <mrow>\delta(b)\amp=101; \amp P(b)\amp=(a,e,b)</mrow>
+                    <mrow>\delta(c)\amp=47; \amp P(c)\amp=(a,c)</mrow>
+                    <mrow>\delta(d)\amp= 132; \amp P(d)\amp=(a,e,b,d)</mrow>
+                    <mrow>\delta(e)\amp=70; \amp P(e)\amp=(a,e)</mrow>
+                    <mrow>\delta(f)\amp=24; \amp P(f)\amp=(a,f)</mrow>
+                    <mrow>\delta(g)\amp=112; \amp P(g)\amp=(a,e,g)</mrow>
+                    <mrow>\delta(h)\amp=178 = 112+66=\delta(g)+w(g,h); \amp P(h)\amp=(a,e,g,h)\quad\text{diperbarui}</mrow>
+                </md>
+            </p>
+
+            <p>Sekarang simpul <m>d</m> dijadikan permanen.
+            </p>
+        </paragraphs>
+        <paragraphs>
+            <title>Langkah 7. Pemindaian dari simpul<nbsp/><m>d</m></title>
+
+            <p>
+                <md>
+                    <mrow>\sigma\amp=(a,f,c,e,b,g,d)</mrow>
+                    <mrow>\delta(a)\amp=0; \amp P(a)\amp=(a)</mrow>
+                    <mrow>\delta(b)\amp=101; \amp P(b)\amp=(a,e,b)</mrow>
+                    <mrow>\delta(c)\amp=47; \amp P(c)\amp=(a,c)</mrow>
+                    <mrow>\delta(d)\amp= 132; \amp P(d)\amp=(a,e,b,d)</mrow>
+                    <mrow>\delta(e)\amp=70; \amp P(e)\amp=(a,e)</mrow>
+                    <mrow>\delta(f)\amp=24; \amp P(f)\amp=(a,f)</mrow>
+                    <mrow>\delta(g)\amp=112; \amp P(g)\amp=(a,e,g)</mrow>
+                    <mrow>\delta(h)\amp=161 = 132+29=\delta(d)+w(d,h); \amp P(h)\amp=(a,e,b,d,h)\quad\text{diperbarui}</mrow>
+                </md>
+            </p>
+
+            <p>Sekarang simpul <m>h</m> dijadikan permanen. Karena ini adalah simpul terakhir, algoritma berhenti dan memberikan hasil berikut:
+            </p>
+        </paragraphs>
+        <paragraphs>
+            <title>Hasil Akhir Algoritma Dijkstra</title>
+
+            <p>
+                <md>
+                    <mrow>\sigma\amp=(a,f,c,e,b,g,d,h)</mrow>
+                    <mrow>\delta(a)\amp=0; \amp P(a)\amp=(a)</mrow>
+                    <mrow>\delta(b)\amp=101; \amp P(b)\amp=(a,e,b)</mrow>
+                    <mrow>\delta(c)\amp=47; \amp P(c)\amp=(a,c)</mrow>
+                    <mrow>\delta(d)\amp= 132; \amp P(d)\amp=(a,e,b,d)</mrow>
+                    <mrow>\delta(e)\amp=70; \amp P(e)\amp=(a,e)</mrow>
+                    <mrow>\delta(f)\amp=24; \amp P(f)\amp=(a,f)</mrow>
+                    <mrow>\delta(g)\amp=112; \amp P(g)\amp=(a,e,g)</mrow>
+                    <mrow>\delta(h)\amp=161; \amp P(h)\amp=(a,e,b,d,h)</mrow>
+                </md>
+            </p>
+        </paragraphs>
+    </subsection>
+
+
+    <subsection>
+        <title>Kebenaran Algoritma Dijkstra</title>
+        <p>Setelah melihat ilustrasi algoritma Dijkstra, kini saatnya membuktikan bahwa algoritma ini benar-benar melakukan apa yang kita nyatakan: mencari jarak dari simpul akar ke setiap simpul lainnya beserta lintasan yang memiliki panjang tersebut. Untuk itu, mula-mula kita nyatakan dua proposisi dasar. Proposisi pertama membahas lintasan terpendek secara umum, sedangkan proposisi kedua khusus mengenai barisan simpul permanen yang dihasilkan oleh algoritma Dijkstra.
+        </p>
+
+        <proposition>
+            <statement>
+                <p>Misalkan <m>x</m> suatu simpul dan <m>P=(r=u_0,u_1,\dots,u_t=x)</m> suatu lintasan terpendek dari <m>r</m> ke <m>x</m>. Maka, untuk setiap bilangan bulat <m>j</m> dengan <m>0\lt j\lt t</m>, <m>(u_0,u_1,\dots,u_j)</m> merupakan lintasan terpendek dari <m>r</m> ke <m>u_j</m>, dan <m>(u_j,u_{j+1},\dots,u_t)</m> merupakan lintasan terpendek dari <m>u_j</m> ke <m>u_t</m>.
+                </p>
+            </statement>
+        </proposition>
+
+        <proposition>
+            <statement>
+                <p>Ketika algoritma berhenti, misalkan <m>\sigma=(v_1,v_2,v_3,\dots,v_n)</m>. Maka
+                <md>
+                    \delta(v_1)\le \delta(v_2)\le\dots \le \delta(v_n).
+                </md>
+                </p>
+            </statement>
+        </proposition>
+
+        <p>Sekarang kita siap membuktikan kebenaran algoritma. Bukti yang kita berikan bersifat induktif, tetapi induksinya tidak berkaitan dengan jumlah seluruh simpul dalam digraf ataupun nomor langkah yang sedang dijalankan algoritma.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>Algoritma Dijkstra menghasilkan lintasan terpendek bagi setiap simpul <m>x</m> dalam <m>\bfG</m>. Artinya, ketika algoritma Dijkstra berhenti, untuk setiap <m>x\in V</m>, nilai <m>\delta(x)</m> merupakan jarak dari <m>r</m> ke <m>x</m> dan <m>P(x)</m> merupakan lintasan terpendek dari <m>r</m> ke <m>x</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Teorema ini berlaku secara trivial ketika <m>x=r</m>. Jadi, kita meninjau kasus <m>x\neq r</m>. Kita membuktikan bahwa <m>\delta(x)</m> merupakan jarak dari <m>r</m> ke <m>x</m> dan bahwa <m>P(x)</m> merupakan lintasan terpendek dari <m>r</m> ke <m>x</m> melalui induksi pada banyaknya sisi minimum <m>k</m> dalam lintasan terpendek dari <m>r</m> ke <m>x</m>. Ketika <m>k=1</m>, sisi <m>(r,x)</m> merupakan lintasan terpendek dari <m>r</m> ke <m>x</m>. Karena <m>v_1=r</m>, kita menetapkan <m>\delta(x)=w(r,x)</m> dan <m>P(x)=(r,x)</m> pada Langkah<nbsp/>1.
+                </p>
+
+                <p>Sekarang tetapkan suatu bilangan bulat positif <m>k</m>. Andaikan bahwa jika banyaknya sisi minimum dalam suatu lintasan terpendek dari <m>r</m> ke <m>x</m> paling banyak <m>k</m>, maka <m>\delta(x)</m> merupakan jarak dari <m>r</m> ke <m>x</m> dan <m>P(x)</m> merupakan lintasan terpendek dari <m>r</m> ke <m>x</m>. Misalkan <m>x</m> suatu simpul yang banyaknya sisi minimum dalam lintasan terpendek dari <m>r</m> ke <m>x</m> adalah <m>k+1</m>. Tetapkan suatu lintasan terpendek <m>P=(u_0,u_1,u_2,\dots,u_{k+1})</m> dari <m>r=u_0</m> ke <m>x=u_{k+1}</m>. Maka <m>Q=(u_0,u_1,\dots,u_k)</m> merupakan lintasan terpendek dari <m>r</m> ke <m>u_k</m>. (Lihat <xref ref="fig_graphalgorithms_dijkstra-proof"/>.)
+                </p>
+                <figure xml:id="fig_graphalgorithms_dijkstra-proof">
+                    <caption>Lintasan-lintasan terpendek</caption>
+                    <image width="75%">
+                        <description><p>Lintasan-lintasan terpendek</p>
+                    </description><latex-image>\begin{overpic}[width=0.6\textwidth]{external/dijkstra-proof}
+                        \put(3,13){\(r\)}
+                        \put(33,25){\(Q\)}
+                        \put(58,3){\(P(u_k)\)}
+                        \put(73,28){\(u_k\)}
+                        \put(83,25){\(P\)}
+                        \put(93,21){\(x\)}
+                        \end{overpic}</latex-image>
+                    </image>
+
+                </figure>
+                <p>Menurut hipotesis induksi, <m>\delta(u_k)</m> adalah jarak dari <m>r</m> ke <m>u_k</m>, dan <m>P(u_k)</m> merupakan lintasan terpendek dari <m>r</m> ke <m>u_k</m>. Perhatikan bahwa <m>P(u_k)</m> tidak harus sama dengan lintasan <m>Q</m>, seperti yang ditunjukkan dalam <xref ref="fig_graphalgorithms_dijkstra-proof"/>. Namun, jika berbeda, kedua lintasan itu mempunyai panjang yang sama, yaitu <m>\delta(u_k)</m>. Selain itu, jarak dari <m>r</m> ke <m>x</m> adalah <m>\delta(u_k)+w(u_k,x)\ge \delta(u_k)</m> karena <m>P</m> merupakan lintasan terpendek dari <m>r</m> ke <m>x</m> dan <m>w(u_k,x)\geq 0</m>.
+                </p>
+
+                <p>Misalkan <m>i</m> dan <m>j</m> bilangan bulat tunggal yang memenuhi <m>u_k=v_i</m> dan <m>x=v_j</m>. Jika <m>j \lt i</m>, maka
+                <md>
+                    \delta(x)= \delta(v_j)\le \delta(v_i)= \delta(u_k)\le
+                    \delta(u_k)+w(u_k,x).
+                </md>
+                Jadi, algoritma telah menemukan lintasan <m>P(x)</m> dari <m>r</m> ke <m>x</m> yang panjangnya <m>\delta(x)</m>, yang paling besar sama dengan jarak dari <m>r</m> ke <m>x</m>. Jelas bahwa ini menyiratkan <m>\delta(x)</m> merupakan jarak dari <m>r</m> ke <m>x</m> dan <m>P(x)</m> merupakan lintasan terpendek.
+                </p>
+
+                <p>Di sisi lain, jika <m>j&gt;i</m>, maka langkah induktif pada Langkah<nbsp/><m>i</m> menghasilkan
+                <md>
+                    \delta(x)\le \delta(v_i)+w(v_i,x)=\delta(u_k)+w(u_k,x).
+                </md>
+                Seperti sebelumnya, ini menyiratkan bahwa <m>\delta(x)</m> merupakan jarak dari <m>r</m> ke <m>x</m> dan <m>P(x)</m> merupakan lintasan terpendek.
+                </p>
+            </proof>
+        </theorem>
+    </subsection>
+
+</section>

@@ -1,0 +1,18 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_genfunction">
+    <title>Fungsi Pembangkit</title>
+
+
+    <introduction>
+        <p>Salah satu topik baku dalam kalkulus tahun pertama adalah penyajian fungsi sebagai jumlah tak hingga yang disebut deret pangkat; penyajian semacam itu berbentuk <m>F(x)=\sum_{n=0}^\infty a_nx^n</m>. Mungkin agak mengejutkan, deret pangkat ini juga dapat menjadi alat pencacahan yang sangat ampuh. Dalam konteks kombinatorika, kita memandang deret pangkat semacam ini sebagai cara lain untuk mengodekan nilai-nilai suatu barisan <m>\{a_n:n\ge0\}</m> yang diindeks oleh bilangan bulat tak negatif. Kekuatan deret pangkat sebagai teknik pencacahan terletak pada kenyataan bahwa deret tersebut dapat dimanipulasi seperti fungsi biasa, <ie/>, dapat dijumlahkan, dikurangkan, dan dikalikan. Untuk keperluan kita, pada umumnya kita tidak akan memedulikan apakah deret pangkat itu konvergen; hal ini mungkin melegakan bagi siapa pun yang merasa gentar menghadapi semua uji kekonvergenan yang dipelajari dalam kalkulus. Namun, apabila memudahkan, kita akan menggunakan teknik yang sudah dikenal dari kalkulus untuk mendiferensialkan atau mengintegralkan deret tersebut suku demi suku. Untuk deret-deret yang sudah dikenal dan memang konvergen, kita akan menggunakan penyajiannya sebagai fungsi untuk memudahkan manipulasi deret itu.
+        </p>
+    </introduction>
+    <xi:include href="s_genfunction_intro.ptx"/>
+    <xi:include href="s_genfunction_distributions.ptx"/>
+    <xi:include href="s_genfunction_gen-bin-thm.ptx"/>
+    <xi:include href="s_genfunction_binom-app.ptx"/>
+    <xi:include href="s_genfunction_partitions-integer.ptx"/>
+    <xi:include href="s_genfunction_exponential.ptx"/>
+    <xi:include href="s_genfunction_discussion.ptx"/>
+    <xi:include href="s_genfunction_exercises.ptx"/>
+    <xi:include href="s_genfunction_peer-instruction.ptx"/>
+</chapter>

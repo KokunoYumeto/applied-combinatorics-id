@@ -1,0 +1,107 @@
+<section xml:id="s_flowapplications_bip-match">
+    <title>Pencocokan dalam Graf Bipartit</title>
+    <p>Ingat bahwa graf bipartit<idx><h>graf</h><h>bipartit</h><h>pencocokan dalam</h></idx> <m>\GVE</m> adalah graf yang simpul-simpulnya dapat diwarnai secara layak hanya dengan dua warna. Jelas bahwa pewarnaan semacam itu mempartisi <m>V</m> menjadi dua himpunan bebas <m>V_1</m> dan <m>V_2</m>, sehingga semua sisi berada di antara <m>V_1</m> dan <m>V_2</m>. Graf bipartit mempunyai banyak penerapan berguna, khususnya ketika kita memiliki dua jenis objek berbeda dan suatu hubungan yang hanya bermakna di antara objek-objek berlainan jenis. Sebagai contoh, misalkan terdapat sekumpulan pekerja dan sekumpulan pekerjaan yang dapat mereka lakukan. Kita dapat memandang para pekerja sebagai himpunan <m>V_1</m> dan pekerjaan sebagai <m>V_2</m>, lalu menambahkan sisi dari pekerja <m>w\in V_1</m> ke pekerjaan <m>j\in V_2</m> jika dan hanya jika <m>w</m> memenuhi syarat untuk mengerjakan <m>j</m>.
+    </p>
+
+    <p>Sebagai contoh, graf pada <xref ref="fig_flowapplications_bip_graph"/> merupakan graf bipartit dengan <m>V_1</m> digambar di bagian bawah dan <m>V_2</m> di bagian atas.
+    </p>
+    <figure xml:id="fig_flowapplications_bip_graph">
+        <caption>Graf bipartit</caption>
+        <image width="40%" source="bipartite_graph"><description><p>Graf bipartit</p>
+        </description></image>
+    </figure>
+    <p>Jika <m>\GVE</m> suatu graf, himpunan <m>M\subseteq E</m> disebut <term>pencocokan</term><idx><h>pencocokan</h></idx> dalam <m>\bfG</m> apabila tidak ada dua sisi dalam <m>M</m> yang berbagi titik ujung. Jika <m>v</m> suatu simpul yang menjadi titik ujung sisi dalam <m>M</m>, kita mengatakan bahwa <m>M</m> menjenuhkan <m>v</m>, atau bahwa <m>v</m> dijenuhkan oleh <m>M</m>. Ketika <m>\bfG</m> bipartit dengan <m>V=V_1\cup V_2</m>, suatu pencocokan memasangkan simpul-simpul dalam <m>V_1</m> dengan simpul-simpul dalam <m>V_2</m> sedemikian sehingga tidak ada simpul yang dipasangkan dengan lebih dari satu simpul lain. Biasanya kita ingin mencari <term>pencocokan maksimum</term><idx><h>pencocokan</h><h>maksimum</h></idx>, yaitu pencocokan yang memuat sebanyak mungkin sisi. Dalam graf bipartit, kita biasanya menetapkan himpunan <m>V_1</m> dan <m>V_2</m>, lalu mencari pencocokan maksimum dari <m>V_1</m> ke <m>V_2</m>. Dalam contoh pekerja dan pekerjaan, masalah pencocokan menjadi pencarian penugasan pekerja kepada pekerjaan sedemikian sehingga
+    <ol marker="i"><li>setiap pekerja ditugaskan kepada pekerjaan yang memenuhi kualifikasinya
+    (artinya, terdapat sebuah sisi),</li>
+    <li>setiap pekerja ditugaskan kepada paling banyak satu pekerjaan, dan</li>
+    <li>setiap pekerjaan diberikan kepada paling banyak satu pekerja.</li>
+    </ol>
+</p>
+    <p>Sebagai contoh, pada <xref ref="fig_flowapplications_bip_match"/>, sisi-sisi tebal membentuk pencocokan dari <m>V_1</m> ke <m>V_2</m>. Misalkan Anda adalah manajer para pekerja ini (di bagian bawah) dan harus menugaskan mereka kepada pekerjaan (di bagian atas). Apakah sumber daya benar-benar digunakan sebaik mungkin jika hanya empat dari enam pekerja yang mendapat pekerjaan? Tidak ada cara langsung untuk menambah jumlah pekerja yang bertugas, sebab dua pekerja yang saat ini belum mendapat tugas tidak mampu melakukan pekerjaan mana pun yang belum diberikan. Namun, mungkin terdapat penugasan yang lebih efisien jika beberapa penugasan diatur ulang. Jika ada, bagaimana cara menemukannya? Jika tidak ada, bagaimana Anda meyakinkan atasan bahwa tidak terdapat penugasan pekerja kepada pekerjaan yang lebih baik?
+    </p>
+    <figure xml:id="fig_flowapplications_bip_match">
+        <caption>Pencocokan dalam graf bipartit</caption>
+        <image width="40%" source="bipartite_graph_part_match"><description><p>Pencocokan dalam graf bipartit</p>
+        </description></image>
+    </figure>
+    <p>Pada akhir bagian ini, kita akan melihat secara singkat suatu teorema tentang pencocokan dalam graf bipartit yang memberi tahu secara tepat kapan terdapat penugasan pekerja kepada pekerjaan yang memastikan setiap pekerja memperoleh pekerjaan. Namun, mula-mula kita ingin melihat cara menggunakan aliran jaringan untuk mencari pencocokan maksimum dalam graf bipartit. Algoritma yang kita berikan cukup baik, tetapi bukan algoritma paling efisien yang diketahui bagi masalah ini sehingga kemungkinan tidak digunakan dalam praktik. Meskipun demikian, algoritma ini merupakan contoh yang baik tentang penggunaan aliran jaringan untuk menyelesaikan masalah kombinatorial. Jaringan yang kita gunakan dibentuk dari graf bipartit <m>\bfG</m> dengan menambahkan sisi dari sumber <m>S</m> ke setiap simpul <m>V_1</m> dan sisi dari setiap simpul <m>V_2</m> ke muara <m>T</m>. Sisi-sisi di antara <m>V_1</m> dan <m>V_2</m> diarahkan dari <m>V_1</m> ke <m>V_2</m>, dan <em>setiap</em> sisi diberi kapasitas <m>1</m>. <xref ref="fig_flowapplications_bipmatch_network"/> memuat jaringan yang bersesuaian dengan graf kita pada <xref ref="fig_flowapplications_bip_graph"/>. Semua sisi dalam jaringan ini diarahkan dari bawah ke atas dan semuanya berkapasitas <m>1</m>. Simpul-simpul dalam <m>V_1</m> adalah <m>x_1,\dots,x_6</m> menurut urutan dari kiri ke kanan, sedangkan simpul-simpul dalam <m>V_2</m> adalah <m>y_1,\dots, y_7</m> dari kiri ke kanan.
+    </p>
+    <figure xml:id="fig_flowapplications_bipmatch_network">
+        <caption>Jaringan yang bersesuaian dengan graf bipartit</caption>
+        <image xml:id="img_flowapplications_bipmatch_network" width="40%">
+<description><p>Jaringan yang bersesuaian dengan graf bipartit</p>
+        </description><latex-image>\begin{overpic}[angle=90,scale=0.65]{external/bipartite_network}
+            \put(48,-6){\(S\)} \put(48,70){\(T\)}
+            \put(9,13){\(x_1\)} 
+            \put(85,13){\(x_6\)}
+            \put(3,56){\(y_1\)}
+            \put(92,56){\(y_7\)}
+            \end{overpic}</latex-image>
+        </image>
+    </figure>
+    <p>Setelah menerjemahkan graf bipartit menjadi jaringan, kita perlu membahas kesesuaian antara pencocokan dan aliran jaringan. Untuk mengubah pencocokan <m>M</m> menjadi aliran jaringan, mula-mula kita menempatkan satu unit aliran pada sisi-sisi pencocokan tersebut. Agar alirannya sah, kita juga harus menempatkan satu unit aliran pada sisi-sisi dari <m>S</m> menuju simpul-simpul <m>V_1</m> yang dijenuhkan oleh <m>M</m>. Karena setiap simpul ini bersisian dengan tepat satu sisi dalam <m>M</m>, aliran keluar dari masing-masing simpul bernilai <m>1</m>, sama dengan aliran masuknya. Demikian pula, menyalurkan satu unit aliran menuju <m>T</m> dari setiap simpul <m>V_2</m> yang dijenuhkan oleh <m>M</m> memenuhi hukum kekekalan bagi simpul-simpul yang tersisa. Untuk arah sebaliknya, cukup perhatikan bahwa sisi-sisi penuh dari <m>V_1</m> ke <m>V_2</m> dalam aliran bernilai bulat membentuk suatu pencocokan. Jadi, kita dapat mencari pencocokan maksimum dari <m>V_1</m> ke <m>V_2</m> dengan menjalankan algoritma pelabelan pada jaringan terkait untuk memperoleh aliran maksimum.
+    </p>
+
+    <p>Pada <xref ref="fig_flowapplications_initial_flow"/>, sisi-sisi tebal menunjukkan sisi beraliran <m>1</m> dalam aliran yang bersesuaian dengan dugaan pencocokan kita pada <xref ref="fig_flowapplications_bip_match"/>.
+    </p>
+    <figure xml:id="fig_flowapplications_initial_flow">
+        <caption>Aliran yang bersesuaian dengan suatu pencocokan</caption>
+        <image width="40%">
+<description><p>Aliran yang bersesuaian dengan suatu pencocokan</p>
+        </description><latex-image>\begin{overpic}[angle=90,scale=0.65]{external/bipartite_network_flow}
+            \put(48,-6){\(S\)} \put(48,70){\(T\)}
+            \put(9,13){\(x_1\)} 
+            \put(85,13){\(x_6\)}
+            \put(3,56){\(y_1\)}
+            \put(92,56){\(y_7\)}
+            \end{overpic}</latex-image>
+        </image>
+    </figure>
+    <p>Dengan barisan prioritas <m>S,T,x_1,x_2,\dots,x_6,y_1,y_2,\dots,y_7</m> sebagai pengganti urutan pseudoalfabetis yang biasa kita gunakan, algoritma pelabelan menghasilkan label-label berikut.
+    <md>
+        <mrow>  S:\quad \amp (*,+,\infty)\amp    y_6:\quad \amp (x_6,+,1)</mrow>
+        <mrow>  x_3:\quad \amp (S,+,1)\amp   x_1:\quad \amp (y_6,-,1)</mrow>
+        <mrow>  x_5:\quad \amp (S,+,1)\amp    y_1:\quad \amp (x_1,+,1)</mrow>
+        <mrow>  y_4:\quad \amp (x_3,+,1)\amp   y_2:\quad \amp  (x_1,+,1)</mrow>
+        <mrow>  y_5:\quad \amp (x_3,+,1)\amp   y_3:\quad \amp (x_1,+,1)</mrow>
+        <mrow>  x_6:\quad \amp (y_4,-,1)\amp    x_2:\quad \amp (y_1,-,1)</mrow>
+        <mrow>  x_4:\quad \amp (y_5,-,1)\amp   T:\quad \amp (y_2,+,1)</mrow>
+    </md>
+    Ini membawa kita kepada lintasan penambah <m>S,x_3,y_4,x_6,y_6,x_1,y_2,T</m>, yang menghasilkan aliran pada <xref ref="fig_flowapplications_bipmatch_maxflow"/>.
+    </p>
+    <figure xml:id="fig_flowapplications_bipmatch_maxflow">
+        <caption>Aliran yang telah ditambah</caption>
+        <image width="40%">
+            <description><p>Aliran yang telah ditambah</p>
+        </description><latex-image>\begin{overpic}[angle=90,scale=0.65]{external/bipartite_network_flow2}
+            \put(48,-6){\(S\)} \put(48,70){\(T\)}
+            \put(9,13){\(x_1\)} 
+            \put(85,13){\(x_6\)}
+            \put(3,56){\(y_1\)}
+            \put(92,56){\(y_7\)}
+            \end{overpic}</latex-image>
+        </image>
+    </figure>
+    <p>Apakah ini aliran maksimum? Pelaksanaan algoritma pelabelan sekali lagi menghasilkan
+    <md>
+        <mrow>  S:\quad \amp  (*,+,\infty)\amp   x_4:\quad \amp  (y_5,-,1)</mrow>
+        <mrow>  x_5:\quad \amp  (S,+,1)\amp   y_4:\quad \amp (x_4,+,1)</mrow>
+        <mrow>  y_5:\quad \amp  (x_5,+,1)\amp   x_3:\quad \amp (y_4,-,1)</mrow>
+    </md>
+        lalu berhenti. Jadi, aliran pada <xref ref="fig_flowapplications_bipmatch_maxflow"/> merupakan aliran maksimum.
+    </p>
+
+    <p>Karena kita sudah mengetahui bahwa aliran ini maksimum, kita juga ingin membuktikan bahwa pencocokan yang ditemukan bersifat maksimum. Lagi pula, atasan tidak akan senang jika kemudian mengetahui bahwa algoritma canggih yang Anda nyatakan menghasilkan penugasan optimal justru membiarkan pekerja kelima (<m>x_5</m>) tanpa pekerjaan, padahal keenam pekerja sebenarnya dapat ditugaskan. Mari kita periksa simpul mana saja yang diberi label oleh algoritma pelabelan Ford-Fulkerson pada pelaksanaan terakhir. Terdapat tiga simpul berlabel (<m>x_3</m>, <m>x_4</m>, dan <m>x_5</m>) dari <m>V_1</m>, tetapi hanya dua simpul berlabel (<m>y_4</m> dan <m>y_5</m>) dari <m>V_2</m>. Perhatikan bahwa <m>y_4</m> dan <m>y_5</m> merupakan satu-satunya simpul yang bertetangga dengan <m>x_3</m>, <m>x_4</m>, atau <m>x_5</m> dalam <m>\bfG</m>. Jadi, bagaimanapun kita memilih sisi pencocokan dari <m>\{x_3,x_4,x_5\}</m>, salah satu simpul tersebut akan tetap tidak jenuh. Dengan demikian, salah satu pekerja pasti tidak memperoleh pekerjaan. (Dalam contoh kita, pekerja itu adalah pekerja kelima, tetapi sisi pencocokan dapat dipilih secara berbeda sehingga salah satu pekerja lainlah yang tidak memperoleh tugas.)
+    </p>
+
+    <p>Fenomena yang baru saja kita amati tidak hanya berlaku dalam contoh ini. Bahkan, dalam <em>setiap</em> graf bipartit <m>\GVE</m> dengan <m>V=V_1\cup V_2</m> yang tidak memiliki pencocokan yang menjenuhkan semua simpul <m>V_1</m>, kita akan menemukan konfigurasi serupa. Hal ini dinyatakan oleh teorema Hall yang terkenal, yang kita berikan berikut ini.
+    </p>
+
+    <theorem xml:id="thm_flowapplications_hall">
+        <title>Teorema Hall</title>
+        <statement>
+            <p>Misalkan <m>\GVE</m> suatu graf bipartit dengan <m>V=V_1\cup V_2</m>. Terdapat pencocokan yang menjenuhkan semua simpul <m>V_1</m> jika dan hanya jika, untuk setiap subhimpunan <m>A\subseteq V_1</m>, himpunan <m>N\subseteq V</m> yang terdiri atas tetangga simpul-simpul dalam <m>A</m> memenuhi <m>|N|\geq |A|</m>.
+            </p>
+        </statement>
+    </theorem>
+</section>

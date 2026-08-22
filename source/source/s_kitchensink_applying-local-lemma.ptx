@@ -1,0 +1,39 @@
+<section xml:id="s_kitchensink_applying-local-lemma">
+    <title>Menerapkan Lemma Lokal</title>
+    <p>Daftar penerapan Lemma Lokal terus bertambah, demikian pula minat terhadap penerapan lemma ini secara algoritmik, <ie/>, dalam konteks konstruktif. Namun, di sini kita menyajikan salah satu penerapan awalnya pada teori Ramsey<mdash/>menaksir bilangan Ramsey <m>R(3,n)</m>. <idx><h>bilangan Ramsey</h></idx> Ingat bahwa kita mempunyai ketaksamaan dasar <m>R(3,n)\le \binom{n+1}{3}</m> dari <xref ref="thm_graphramsey"/>, sehingga wajar beralih ke metode probabilistik untuk mencari batas bawah yang baik. Namun, pemikiran singkat saja menunjukkan bahwa pendekatan ini menghadapi sejumlah tantangan.
+    </p>
+
+    <p>Pertama, mari mencoba perhitungan langsung. Andaikan kita mencoba graf acak pada <m>t</m> simpul dengan probabilitas sisi <m>p</m>. Kita menginginkan tidak ada segitiga, sehingga diperlukan <m>t^3p^3=1</m>, <ie/>, <m>p=1/t</m>. Selanjutnya kita menginginkan tidak ada himpunan bebas berukuran <m>n</m>, yang memerlukan <m>t^ne^{-pn^2}=1</m>, <ie/>, <m>n\ln t=pn^2</m>. Jadi, kita bahkan tidak dapat membuat <m>t</m> lebih besar daripada <m>n</m>. Hal ini tidak membantu.
+    </p>
+
+    <p>Kita dapat memperoleh hasil sedikit lebih baik dengan mengizinkan beberapa segitiga, lalu menghapus satu titik dari masing-masing segitiga, seperti yang dilakukan dalam bukti <xref ref="thm_girth"/>. Dengan cara ini, kita menetapkan <m>t^3p^3=t</m>, <ie/>, <m>p=t^{-2/3}</m>. Perhitungan tersebut sekarang menghasilkan batas bawah <m>R(3,n)\ge n^{3/2}/\ln^{3/2} n</m>, sehingga pangkat <m>n</m> pun masih berbeda dari batas atas.
+    </p>
+
+    <p>Jadi, yang mana yang benar, atau apakah jawabannya berada di antaranya? Dalam makalah klasik tahun 1961, Erd&#337;s menggunakan penerapan metode probabilistik yang sangat cerdik untuk menunjukkan keberadaan graf yang menghasilkan batas bawah yang baik. Tekniknya memberikan batas bawah <m>R(3,n)\ge n^2/\ln^2 n</m>, sehingga pangkat dua pada <m>n</m> memang benar.
+    </p>
+
+    <p>Di sini kita akan menggunakan Lemma Lokal Lov&#225;sz<idx><h>Lemma Lokal Lov&#225;sz</h></idx> untuk memperoleh batas bawah yang sama dengan cara yang jauh lebih langsung. Tinjau graf acak pada <m>t</m> simpul dengan probabilitas sisi <m>p</m>. Bagi setiap subhimpunan <m>3</m> elemen <m>S</m>, terdapat kejadian <m>E_S</m> yang terjadi ketika <m>S</m> membentuk segitiga. Bagi setiap himpunan <m>n</m> elemen <m>T</m>, terdapat kejadian <m>E_T</m> yang terjadi ketika <m>T</m> merupakan himpunan bebas. Dalam pembahasan berikut, kita sedikit menyalahgunakan notasi dengan menyebut kejadian <m>E_S</m> dan <m>E_T</m> masing-masing hanya sebagai <m>S</m> dan <m>T</m>. Perhatikan bahwa probabilitas <m>S</m> adalah <m>p^3</m> bagi setiap himpunan <m>3</m> elemen <m>S</m>, sedangkan probabilitas <m>T</m> adalah <m>q=(1-p)^{C(n,2)}\sim e^{-pn^2/2}</m> bagi setiap himpunan <m>n</m> elemen <m>T</m>.
+    </p>
+
+    <p>Ketika menerapkan Lemma Lokal, kita menetapkan <m>x=x(S)</m> sebesar <m>e^2p^3</m> bagi setiap himpunan <m>3</m> elemen <m>S</m>. Kita juga menetapkan <m>y=y(T)=q^{1/2}\sim e^{-pn^2/4}</m>. Sebentar lagi akan jelas dari mana nilai-nilai tersebut berasal.
+    </p>
+
+    <p>Selanjutnya, lingkungan suatu kejadian terdiri atas semua himpunan dalam keluarga yang mempunyai sedikitnya dua elemen bersama. Jadi, lingkungan himpunan <m>3</m> elemen <m>S</m> terdiri atas <m>3(t-3)</m> himpunan <m>3</m> elemen lainnya dan <m>C(t-3,n-3)+3C(t-3,n-2)</m> himpunan berukuran<nbsp/><m>n</m>. Demikian pula, lingkungan himpunan <m>n</m> elemen <m>T</m> terdiri atas <m>C(n,3)+ (t-n)C(n,2)</m> himpunan berukuran <m>3</m> dan <m>\sum_{i=2}^{n-1}C(n,i) C(t-n,n-i)</m> himpunan berukuran<nbsp/><m>n</m> lainnya. Jadi, ketaksamaan dasar yang perlu kita penuhi adalah:
+    <md>
+        <mrow>  p^3 \le \amp  x(1-x)^{3(t-3)}(1-y)^{C(t-3,n-3)+3C(t-3,n-2)}</mrow>
+        <mrow>  q \le \amp  y(1-x)^{C(n,3)+(t-n)C(n,2)}(1-y)^{\sum_{i=2}^{n-1}C(n,i)C(t-n,n-i)}</mrow>
+    </md>
+    Selanjutnya, andaikan <m>n^{3/2}\lt t\lt n^2</m>, lalu gunakan aproksimasi biasa dengan mengabaikan suku berorde lebih kecil dan konstanta perkalian. Ketaksamaan-ketaksamaan tersebut dapat dipandang dalam bentuk sederhana berikut:
+    <md>
+        <mrow>  p^3 \le \amp  x(1-x)^{t}(1-y)^{t^n}</mrow>
+        <mrow>  q \le \amp  y(1-x)^{tn^2}(1-y)^{t^n}</mrow>
+    </md>
+    Setelah dipikirkan sejenak, jelas bahwa kita ingin mempertahankan suku-suku yang memuat <m>(1-y)</m> agar relatif besar, <ie/>, paling sedikit <m>1/e</m>. Hal ini pasti berlaku jika kita mempertahankan <m>t^n\le 1/y</m>. Syarat tersebut ekuivalen dengan <m>n\ln t\le pn^2</m>, atau <m>\ln t\le pn</m>.
+    </p>
+
+    <p>Demikian pula, kita ingin mempertahankan suku <m>(1-x)^{t}</m> agar relatif besar, sehingga kita menjaga <m>t\le 1/x</m>, <ie/>, <m>t\le 1/p^3</m>. Di sisi lain, kita hanya perlu mempertahankan suku <m>(1-x)^{tn^2}\sim e^{-xtn^2}</m> paling sedikit sebesar <m>y</m>. Hal ini ekuivalen dengan mempertahankan <m>xt\le p</m>, dan karena <m>x\sim p^3</m>, syarat tersebut dapat ditulis ulang sebagai <m>p^{-1}\ge t^{1/2}</m>.
+    </p>
+
+    <p>Sekarang kita mengetahui sasaran kita. Tetapkan saja <m>\ln t=pn</m> dan <m>p^{-1}=t^{1/2}</m>. Setelah substitusi, diperoleh <m>t= n^2/\ln^2t</m>. Karena <m>\ln t=\Theta(\ln n)</m> dalam tingkat ketelitian aproksimasi yang kita gunakan, diperoleh hasil yang diinginkan, yaitu <m>t=\Theta(n^2/\ln^2n)</m>.
+    </p>
+</section>

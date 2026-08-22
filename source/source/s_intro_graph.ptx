@@ -1,0 +1,137 @@
+<section xml:id="s_intro_graph">
+  <title>Kombinatorika dan Teori Graf</title>
+  <p>Sebuah <term>graf</term> <m>G</m> terdiri atas suatu himpunan <term>simpul</term> <m>V</m> dan suatu koleksi <m>E</m> yang terdiri atas himpunan-himpunan bagian berukuran <m>2</m> dari <m>V</m>. Unsur-unsur <m>E</m> disebut <term>sisi</term>. Dalam mata kuliah ini, kita akan (hampir selalu) menggunakan konvensi bahwa <m>V=\{1,2,3,\dots,n\}</m> untuk suatu bilangan bulat positif <m>n</m>. Dengan konvensi ini, graf dapat dideskripsikan secara <em>tepat</em> menggunakan sebuah berkas teks:
+                  <ol>
+    <li><p>Baris pertama berkas memuat satu bilangan bulat <m>n</m>, yaitu banyaknya simpul dalam graf.</p></li>
+    <li><p>Setiap baris yang tersisa memuat sepasang bilangan bulat berbeda dan menentukan sebuah sisi graf.</p></li>
+  
+                  </ol>
+                </p>
+
+  <p>Kami menggambarkan konvensi ini dalam <xref ref="fig_graphdata"/> melalui sebuah berkas teks beserta diagram graf<nbsp/><m>G</m> yang didefinisikannya.</p>
+
+  <figure xml:id="fig_graphdata">
+    <caption>Graf yang didefinisikan oleh data</caption>
+      <sidebyside widths="20% 45%" margins="15%">
+        <pre>graph1.txt
+9
+6 2
+1 5
+1 7
+6 8
+9 1
+4 3
+5 7
+1 3
+5 9
+7 9</pre>
+      <image source="3012-fig15"><description><p>Diagram graf dengan sembilan simpul yang sesuai dengan berkas data di sebelahnya. Graf memiliki dua komponen: simpul 2, 6, dan 8 berada pada satu komponen, sedangkan enam simpul lainnya berada pada komponen yang lain.</p>
+      </description></image>
+  </sidebyside>
+  </figure>
+  <p>Sebagian besar notasi dan terminologi graf cukup alami. Cobalah menafsirkan pernyataan-pernyataan berikut yang berlaku untuk graf <m>G</m> yang didefinisikan di atas:
+                  <ol>
+    <li><p><m>G</m> memiliki <m>9</m> simpul dan <m>10</m> sisi.</p></li>
+    <li><p><m>\{2,6\}</m> adalah sebuah sisi.</p></li>
+    <li><p>Simpul <m>5</m> dan <m>9</m> bertetangga.</p></li>
+    <li><p><m>\{5,4\}</m> bukan sebuah sisi.</p></li>
+    <li><p>Simpul <m>3</m> dan <m>7</m> tidak bertetangga.</p></li>
+    <li><p><m>P = (4, 3,1, 7,9,5)</m> adalah lintasan 
+    dengan panjang<nbsp/><m>5</m> dari simpul <m>4</m> ke simpul<nbsp/><m>5</m>.</p></li>
+    <li><p><m>C=(5,9,7,1)</m> adalah siklus dengan panjang<nbsp/><m>4</m>.</p></li>
+    <li><p><m>G</m> tak terhubung dan memiliki dua komponen.
+    Salah satu komponennya memiliki himpunan simpul <m>\{2,6,8\}</m>.</p></li>
+    <li><p><m>\{1,5,7\}</m> adalah sebuah segitiga.</p></li>
+    <li><p><m>\{1,7,5,9\}</m> adalah sebuah klik berukuran<nbsp/><m>4</m>.</p></li>
+    <li><p><m>\{4,2,8,5\}</m> adalah sebuah himpunan bebas
+    berukuran<nbsp/><m>4</m>.</p></li>
+  
+                  </ol>
+                </p>
+  
+  <p>Berbekal sedikit materi latar belakang ini saja, kita sudah dapat mengajukan sejumlah masalah yang menarik dan menantang.</p>
+<example>
+<statement>
+<p>
+Perhatikan graf <m>G</m> yang ditampilkan dalam <xref ref="fig_connectedgraph"/>.
+</p>
+<figure xml:id="fig_connectedgraph">
+<caption>Graf terhubung</caption>
+<image width="81%" source="3012-fig17"><description><p>Graf terhubung dengan 24 simpul bernomor 1 sampai 24. Banyak sisi menghubungkan kelompok simpul yang rapat di bagian kiri, tengah, dan kanan diagram.</p>
+</description></image>
+</figure>
+<p>
+    <ol>
+        <li><p>Berapakah nilai <m>k</m> terbesar sehingga <m>G</m> memiliki lintasan
+        dengan panjang<nbsp/><m>k</m>?</p></li>
+        <li><p>Berapakah nilai <m>k</m> terbesar sehingga <m>G</m> memiliki siklus 
+        dengan panjang<nbsp/><m>k</m>?</p></li>
+        <li><p>Berapakah nilai <m>k</m> terbesar sehingga <m>G</m> memiliki klik
+        berukuran<nbsp/><m>k</m>?</p></li>
+        <li><p>Berapakah nilai <m>k</m> terbesar sehingga <m>G</m> memiliki
+        himpunan bebas berukuran<nbsp/><m>k</m>?</p></li>
+        <li><p>Lintasan manakah yang terpendek dari simpul<nbsp/><m>7</m> ke
+        simpul<nbsp/><m>6</m>?</p></li>
+    </ol>
+</p>
+<p>
+Misalkan kita memberikan kepada kelas sebuah berkas data teks untuk graf
+dengan <m>1500</m> simpul dan menanyakan apakah graf tersebut memuat
+siklus dengan panjang sekurang-kurangnya <m>500</m>. Raoul menjawab ya dan
+Carla menjawab tidak. Bagaimana kita menentukan siapa yang benar?
+</p>
+
+<p>
+Sebagai gantinya, misalkan kita menanyakan apakah graf tersebut memiliki klik
+berukuran<nbsp/><m>500</m>. Helene mengatakan bahwa menurutnya tidak, tetapi ia tidak
+yakin. Wajarkah jika teman-teman sekelasnya mendesak agar
+ia mengambil keputusan, ya atau tidak? Apakah menentukan bahwa
+graf ini memiliki klik berukuran<nbsp/><m>500</m> lebih sulit, lebih mudah, atau
+kurang lebih sama dengan menentukan bahwa
+graf tersebut memiliki siklus dengan panjang<nbsp/><m>500</m>?
+</p>
+</statement>
+</example>
+<p>
+Kita akan sering mempelajari masalah yang di dalamnya graf
+muncul secara sangat alami. Berikut sebuah contoh.
+</p>
+<example xml:id="ex_radiostations">
+<statement>
+<p>
+Dalam <xref ref="fig_radiostations"/>, kami menunjukkan lokasi sejumlah stasiun radio pada
+bidang beserta skala yang menunjukkan jarak<nbsp/><m>200</m> mil.
+Stasiun radio yang terpisah kurang dari<nbsp/><m>200</m> mil harus memancar
+pada frekuensi berbeda untuk menghindari gangguan.
+</p>
+<figure xml:id="fig_radiostations">
+<caption>Stasiun Radio</caption>
+<image width="79%" source="3012-fig4-id"><description><p>Diagram lokasi sejumlah stasiun radio pada bidang. Setiap stasiun ditandai dengan sebuah titik dan angka frekuensi 1 sampai 6; sebuah garis skala menunjukkan jarak 200 mil.</p>
+</description></image>
+</figure>
+<p>
+Kami telah menunjukkan bahwa<nbsp/><m>6</m> frekuensi berbeda sudah cukup.
+Dapatkah Anda menggunakan lebih sedikit frekuensi?
+</p>
+
+<p>
+Dapatkah Anda menemukan<nbsp/><m>4</m> stasiun yang masing-masing berjarak kurang dari
+<m>200</m> mil dari<nbsp/><m>3</m> stasiun lainnya? Dapatkah Anda menemukan <m>8</m> stasiun yang masing-masing
+berjarak lebih dari <m>200</m> mil dari<nbsp/><m>7</m> stasiun lainnya? Adakah cara alami
+untuk mendefinisikan graf yang berkaitan dengan masalah ini?
+</p>
+</statement>
+</example>
+
+<example>
+<statement>
+<p>
+Berapa banyak mahasiswa yang harus ada dalam suatu kelas kombinatorika terapan agar
+terdapat (a)<nbsp/>enam mahasiswa yang setiap pasangnya pernah bersama-sama mengikuti sekurang-kurangnya satu
+mata kuliah lain, atau (b)<nbsp/>enam mahasiswa yang setiap pasangnya baru pertama kali berada
+dalam satu kelas bersama? Apakah ini benar-benar masalah yang sulit, atau
+dapatkah kita menyelesaikannya hanya dalam beberapa menit sambil mencoret-coret serbet?
+</p>
+</statement>
+</example>
+</section>

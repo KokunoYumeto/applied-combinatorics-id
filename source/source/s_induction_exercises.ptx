@@ -1,0 +1,227 @@
+<exercises xml:id="s_induction_exercises">
+  <exercise>
+    <statement>
+      <p>Sebuah basis data menggunakan pengenal rekaman berupa string alfanumerik, dengan <m>10</m> digit desimal dan <m>26</m> huruf kapital sebagai simbol yang valid. Kriteria yang mendefinisikan pengenal rekaman valid bersifat rekursif. Pengenal rekaman valid sepanjang <m>n\geq 2</m> dapat dibentuk dengan cara berikut:
+        <ul>
+          <li>diawali huruf kapital apa pun selain <m>D</m>, lalu diikuti pengenal rekaman valid sepanjang <m>n-1</m>;</li>
+          <li>diawali <m>1C</m>, <m>2K</m>, atau <m>7J</m>, lalu diikuti pengenal rekaman valid sepanjang <m>n-2</m>; atau</li>
+          <li>diawali <m>D</m>, lalu diikuti string yang terdiri atas <m>n-1</m> digit desimal.</li>
+        </ul>
+        Misalkan <m>r(n)</m> menyatakan banyaknya pengenal rekaman valid sepanjang <m>n</m>. Kita tetapkan <m>r(0)=1</m> dan perhatikan bahwa <m>r(1) = 26</m>. Tentukan rekursi untuk <m>r(n)</m> ketika <m>n\geq 2</m>, lalu gunakan rekursi tersebut untuk menghitung <m>r(5)</m>.</p>
+      </statement>
+      <solution>
+        <p>
+          Soal telah memberikan nilai awal, dengan menetapkan <m>r(0) = 1</m>.
+          Butir pertama menghasilkan <m>25 r(n - 1)</m> pengenal karena posisi pertama dapat diisi oleh salah satu dari 25 huruf, kemudian diikuti salah satu dari <m>r(n - 1)</m> pengenal rekaman.
+          Butir kedua menghasilkan <m>3 r(n - 2)</m> pengenal rekaman karena posisi-posisi awalnya berupa 1C, 2K, atau 7J, kemudian dapat diikuti salah satu dari <m>r(n - 2)</m> pengenal sepanjang <m>n - 2</m>.
+          Butir ketiga tidak bersifat rekursif dan memiliki <m>10^{n-1}</m> pilihan karena pengenal rekaman harus diawali D, lalu tersedia 10 pilihan untuk masing-masing dari <m>n - 1</m> posisi yang tersisa.
+          Jadi, rekursinya adalah <m>r(n) = 25r(n-1) + 3r(n-2) + 10^{n-1}</m> untuk <m>n\geq 2</m>, dengan <m>r(0) = 1</m> dan <m>r(1) = 26</m>.
+          Kita dapat menghitung bahwa <m>r(2) = 25 r(1) + 3 r(0) + 10 = 663</m>, <m>r(3) = 25 r(2) + 3 r(1) + 10^{2} = 16753</m>, <m>r(4) = 25 r(3) + 3 r(2) + 10^{3} = 421,814</m>, dan <m>r(5) = 25 r(4) + 3 r(3) + 10^{4} = 10,605,609</m>.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Perhatikan papan kotak-kotak berukuran <m>1\times n</m>. Petak-petaknya akan diwarnai putih dan emas, tetapi tidak boleh ada dua petak berurutan yang keduanya berwarna putih. Misalkan <m>p(n)</m> menyatakan banyaknya cara mewarnai papan tersebut dengan memenuhi aturan ini. Tentukan rumus rekursif untuk <m>p(n)</m> yang berlaku bagi <m>n\geq 3</m>.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Berikan rekursi untuk banyaknya string terner <m>g(n)</m> sepanjang <m>n</m> yang tidak memuat <m>102</m> sebagai blok berurutan.</p>
+      </statement>
+      <solution>
+        <p>
+          Kita mulai dengan menentukan nilai-nilai awal.
+          Tidak ada string yang panjangnya kurang dari <m>3</m> yang dapat memuat <m>102</m>, sehingga <m>g(1) = 3</m> dan <m>g(2) = 9</m>.
+          Untuk panjang <m>3</m>, satu-satunya string yang harus dikecualikan adalah <m>102</m> itu sendiri, sehingga <m>g(3) = 3^{3}=27-1=26</m>.
+          Sekarang kita menganalisis string sepanjang <m>n\gt 3</m>.
+          Jika posisi pertama string diisi <m>0</m>, maka <m>n-1</m> posisi sisanya dapat diisi oleh sembarang string sepanjang <m>n-1</m> yang tidak memuat <m>102</m>; terdapat <m>g(n-1)</m> string semacam itu.
+          Keadaannya sama jika posisi pertama diisi <m>2</m>.
+          Karena itu, kita perlu menentukan banyaknya pilihan ketika posisi pertama diisi <m>1</m>.
+          Dalam kasus ini, <m>n-1</m> posisi yang tersisa dapat diisi oleh sembarang string yang tidak memuat <m>102</m> dan tidak diawali <m>02</m>.
+          Untuk menghitungnya, kita menghitung string sepanjang <m>n-1</m> yang tidak memuat <m>102</m> dengan menggunakan <m>g(n-1)</m>, lalu mengurangi string yang diawali <m>02</m>.
+          Jadi, kita meninjau string sepanjang <m>n-1</m> yang dua posisi pertamanya berupa <m>02</m>, sehingga bagian string yang tersisa memiliki panjang <m>n-3</m>.
+          Karena posisi kedua berupa <m>2</m>, bagian yang tersisa dapat diisi oleh sembarang string sepanjang <m>n-3</m> yang tidak memuat <m>102</m>.
+          Terdapat <m>g(n-3)</m> string semacam itu.
+          Inilah banyaknya string yang harus dikurangi. Jadi, terdapat <m>g(n-1)-g(n-3)</m> pilihan untuk bagian sepanjang <m>n-1</m> setelah awalan <m>1</m>, tanpa menghasilkan blok berurutan <m>102</m>.
+          Dengan menggabungkan semuanya, kita memperoleh <m>g(1)=3</m>, <m>g(2)=9</m>, <m>g(3)=26</m>, dan untuk <m>n\geq 4</m>, <m>g(n) = 3g(n-1) - g(n-3)</m>.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Papan kotak-kotak berukuran <m>2\times n</m> akan dipasangi dua jenis ubin. Jenis pertama adalah ubin persegi berukuran <m>1\times 1</m>. Jenis kedua disebut ubin-<m>L</m> dan dibentuk dengan membuang petak <m>1\times 1</m> di kanan atas dari ubin berukuran <m>2\times 2</m>. Ubin-<m>L</m> dapat digunakan dalam keempat orientasi hasil rotasinya. (Artinya, <q>petak yang hilang</q> dapat berada di salah satu dari empat posisi.) Misalkan <m>t(n)</m> menyatakan banyaknya cara memasang ubin pada papan <m>2\times n</m> menggunakan ubin <m>1\times 1</m> dan ubin-<m>L</m>. Tentukan rumus rekursif untuk <m>t(n)</m>, lalu gunakan rumus tersebut untuk menentukan <m>t(7)</m>.</p>
+      </statement>
+      <solution>
+        <p>Terdapat satu pilihan untuk <m>n=1</m>, yaitu ketika kita hanya dapat menggunakan dua ubin <m>1\times 1</m>.
+          Untuk <m>n=2</m>, terdapat 5 pilihan: menggunakan empat ubin <m>1\times 1</m>, atau menempatkan sebuah ubin-<m>L</m> dalam salah satu dari empat orientasi lalu menempatkan sebuah ubin <m>1\times 1</m> pada posisi yang tersisa.
+          Untuk <m>n=3</m>, terdapat 11 pilihan: dua cara menggunakan dua ubin-<m>L</m>, satu cara yang hanya menggunakan ubin <m>1\times 1</m>, dan setiap konfigurasi untuk <m>n=2</m> yang menggunakan ubin-<m>L</m> menghasilkan dua pilihan untuk <m>n=3</m> dengan menempatkan satu kolom ubin <m>1\times 1</m> di salah satu sisi konfigurasi <m>n=2</m> tersebut.
+        </p>
+        
+        <p>
+          Untuk menemukan rekursinya, bayangkan papan kotak-kotak <m>2\times n</m> dengan semua bagian tertutup kecuali 1, 2, atau 3 kolom paling kiri.
+          Kita melakukannya sedemikian rupa sehingga tidak ada ubin yang tertutup sebagian. Jika hanya satu kolom yang dibiarkan terbuka, satu-satunya kemungkinan adalah dua ubin <m>1\times 1</m>, lalu terdapat <m>t(n-1)</m> cara memasang ubin pada bagian yang tersisa.
+          Ketika beralih ke dua kolom, kita tidak perlu mempertimbangkan empat ubin <m>1\times 1</m> karena konfigurasi itu sudah dihitung ketika hanya satu kolom yang dibiarkan terbuka.
+          Jadi, hanya ada empat konfigurasi yang masing-masing terdiri atas sebuah ubin <m>1\times 1</m> dan sebuah ubin-<m>L</m>, sehingga terdapat <m>4t(n-2)</m> cara.
+          Terakhir, jika kita perlu membuka 3 kolom, terdapat <m>2t(n-3)</m> pilihan karena harus ada dua ubin-<m>L</m>.
+          Dengan demikian, kita memperoleh
+          <md>
+            t(n) = t(n-1) + 4t(n-2) + 2t(n-3)
+          </md>
+          untuk <m>n\geq 4</m>, dengan <m>t(1) = 1</m>, <m>t(2) = 5</m>, dan <m>t(3) = 11</m>. Rekursi ini memberikan nilai t(4), t(5), t(6), dan t(7) berturut-turut 33, 87, 241, dan 655.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Misalkan <m>S</m> adalah himpunan string atas alfabet <m>\{0,1,2,3\}</m> yang tidak memuat <m>12</m> maupun <m>20</m> sebagai blok berurutan. Berikan rekursi untuk banyaknya string <m>h(n)</m> dalam <m>S</m> yang panjangnya <m>n</m>. </p>
+      </statement>
+      <hint>
+        <p>Periksa rekursi Anda dengan menghitung <m>h(1)</m>, <m>h(2)</m>, <m>h(3)</m>, dan <m>h(4)</m> secara manual.</p>
+      </hint>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Tentukan <m>d=\gcd(5544,910)</m> beserta bilangan bulat <m>a</m> dan <m>b</m> sedemikian sehingga <m>5544a + 910 b = d</m>.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Tentukan <m>\gcd(827,249)</m> beserta bilangan bulat <m>a</m> dan <m>b</m> sedemikian sehingga <m>827a+249b = 6</m>.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Misalkan <m>a</m>, <m>b</m>, <m>m</m>, dan <m>n</m> adalah bilangan bulat dan andaikan <m>am+bn=36</m>. Apa yang dapat Anda simpulkan mengenai <m>\gcd(m,n)</m>?</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>(Soal menantang) Untuk setiap rumus, berikan pembuktian menggunakan Prinsip Induksi Matematika sekaligus pembuktian kombinatorial. Salah satu dari kedua pembuktian tersebut akan lebih mudah, sedangkan yang lain akan lebih menantang.
+          <ol>
+            <li><p><m>\displaystyle 1^2+2^2+3^2+\dots+ n^2= \frac{n(n+1)(2n+1)}{6}</m></p></li>
+            <li><p><m>\displaystyle\binom{n}{0}2^0+\binom{n}{1}2^1+\binom{n}{2}2^2+\dots+\binom{n}{n}2^n=3^n</m></p></li>
+            
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Berikut pembuktian induktif untuk pernyataan pertama. Kita akan membuktikannya dengan induksi.
+          Kasus dasarnya adalah <m>n=1</m>.
+          Dalam kasus ini, ruas kiri bernilai <m>1^{2} = 1</m>.
+          Ruas kanan bernilai <m>\displaystyle\frac{1(1+1)(2\cdot 1+1)}{6}= \frac{6}{6}= 1</m>.
+          Jadi, kasus dasar telah terbukti.
+        </p>
+        
+        <p>
+          Sekarang, andaikan untuk suatu bilangan bulat <m>k\geq 1</m> berlaku <m>\displaystyle 1^{2}+2^{2}+3^{2}+\dots+ k^{2}= \frac{k(k+1)(2k+1)}{6}</m>.
+          Kita akan membuktikan bahwa <m>\displaystyle 1^{2}+2^{2}+3^{2}+\dots+ k^{2} + (k+1)^{2}= \frac{(k+1)((k+1)+1)(2(k+1)+1)}{6}</m>.
+          Kita mulai dari ruas kiri dan menggunakan hipotesis induksi untuk mengganti <m>k</m> suku pertamanya:
+          <md>
+            <mrow>1^{2}+2^{2}+3^{2}+\dots+ k^{2} + (k+1)^{2}\amp= \frac{k(k+1)(2k+1)}{6}+ (k+1)^{2}= \frac{k(k+1)(2k+1)}{6}+ \frac{6(k+1)^{2}}{6}</mrow>
+            <mrow>\amp= \frac{k(k+1)(2k+1)+6(k+1)^{2}}{6}= \frac{(k+1)(k(2k+1)+6(k+1))}{6}</mrow>
+            <mrow>\amp= \frac{(k+1)(2k^{2}+k+6k+6)}{6}= \frac{(k+1)(2k^{2}+7k+6)}{6}</mrow>
+            <mrow>\amp= \frac{(k+1)(k+2)(2k+3)}{6}= \frac{(k+1)((k+1)+1)(2(k+1)+1)}{6}</mrow>
+          </md>.
+          
+          Oleh karena itu, berdasarkan Prinsip Induksi Matematika, untuk setiap bilangan bulat positif <m>n</m>, berlaku <m>\displaystyle 1^{2}+2^{2}+3^{2}+\dots+ n^{2}= \frac{n(n+1)(2n+1)}{6}</m>.
+          
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Buktikan bahwa untuk setiap bilangan bulat <m>n\geq 4</m>, berlaku <m>2^n \lt n!</m>.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Buktikan bahwa untuk setiap bilangan bulat positif <m>n</m>,
+          <md>
+            \sum_{i=0}^n 2^i = 2^{n+1}-1.
+          </md>
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Buktikan bahwa untuk setiap bilangan bulat positif <m>n</m>, <m>7^n-4^n</m> habis dibagi <m>3</m>.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Buktikan bahwa untuk setiap bilangan bulat positif <m>n</m>, <m>9^n-5^n</m> habis dibagi <m>4</m>.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Ternyata, jika <m>a</m> dan <m>b</m> adalah bilangan bulat positif dengan <m>a&gt;b+1</m>, terdapat bilangan bulat positif <m>M&gt;1</m> sedemikian sehingga <m>a^n-b^n</m> habis dibagi <m>M</m> untuk setiap bilangan bulat positif <m>n</m>. Tentukan <m>M</m> dalam suku <m>a</m> dan <m>b</m>, lalu buktikan bahwa bilangan tersebut merupakan pembagi <m>a^n-b^n</m> untuk setiap bilangan bulat positif <m>n</m>.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Gunakan induksi matematika untuk membuktikan bahwa bagi setiap bilangan bulat <m>n\geq 1</m>,
+          <md>
+            n^3 + (n+1)^3 + (n+2)^3
+          </md>
+          habis dibagi <m>9</m>.</p>
+        </statement>
+        <solution>
+          <proof>
+            <p>
+              Kita akan membuktikannya dengan induksi.
+              Kasus dasarnya adalah <m>n=1</m>.
+              Dalam kasus ini, kita memperoleh <m>1^{3}+2^{3}+3^{3} = 1+8+27 = 36 = 9\cdot 4</m>.
+              Hal ini menunjukkan bahwa jumlah tersebut habis dibagi <m>9</m>, sebagaimana diperlukan.
+            </p>
+            
+            <p>
+              Sekarang, andaikan untuk suatu bilangan bulat <m>k\geq 1</m>, bentuk <m>k^{3}+(k+1)^{3}+(k+2)^{3}</m> habis dibagi <m>9</m>.
+              Artinya, terdapat bilangan bulat <m>m</m> sedemikian sehingga <m>k^{3}+(k+1)^{3}+(k+2)^{3} = 9m</m>.
+              Selanjutnya, kita meninjau <m>(k+1)^{3}+(k+2)^{3}+(k+3)^{3}</m> dan hanya menguraikan suku <em>terakhir</em>.
+              Hasilnya adalah <md>(k+1)^3 + (k+2)^3 + k^3 + 9k^2 + 27k + 27</md>.
+              Berdasarkan hipotesis induksi, tiga suku pertama sama dengan <m>9m</m>, sehingga kita memperoleh <m>9m+9k^{2} + 27k+27 = 9(m+k^{2}+3k+3)</m>.
+              Karena <m>m</m> dan <m>k</m> adalah bilangan bulat, <m>m+k^{2}+3k+3</m> juga merupakan bilangan bulat.
+              Oleh karena itu, <m>(k+1)^{3}+(k+2)^{3}+(k+3)^{3}</m> habis dibagi <m>9</m>.
+            </p>
+            
+            <p>
+              Berdasarkan Prinsip Induksi Matematika, untuk setiap bilangan bulat <m>n\geq 1</m>,
+              <md>
+                n^{3}+(n+1)^{3}+(n+2)^{3}
+              </md>
+               habis dibagi <m>9</m>.
+            </p>
+          </proof>
+        </solution>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>Berikan pembuktian induktif untuk Teorema Binomial (<xref ref="thm_binomial"/>). Menurut Anda, bagaimana perbandingannya dengan argumen kombinatorial yang diberikan dalam <xref ref="ch_strings"/>?</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>Perhatikan rekursi <m>f(n) = 2f(n-1) - f(n-2) + 6</m> untuk <m>n\geq 2</m>, dengan <m>f(0)=2</m> dan <m>f(1)=4</m>. Gunakan induksi matematika untuk membuktikan bahwa <m>f(n) = 3n^2-n+2</m> bagi setiap bilangan bulat <m>n\geq 0</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>Perhatikan rekursi <m>f(n) = f(n-1)+f(n-2)</m> untuk <m>n\geq 3</m>, dengan <m>f(1)=f(2)=1</m>. Buktikan bahwa <m>f(n)</m> habis dibagi <m>3</m> jika dan hanya jika <m>n</m> habis dibagi <m>4</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>Andaikan <m>x\in\reals</m> dan <m>x&gt;-1</m>. Buktikan bahwa untuk setiap bilangan bulat <m>n\geq 0</m>, berlaku <m>(1+x)^n\geq 1+nx</m>.</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>Buktikan bahwa terdapat konstanta positif <m>c</m> sedemikian sehingga setiap algoritma pengurutan berbasis perbandingan untuk barisan yang terdiri atas <m>n</m> bilangan bulat positif, dalam kasus terburuk, memerlukan setidaknya <m>cn\log n</m> operasi perbandingan. </p>
+        </statement>
+        <hint>
+          <p>Petunjuk: Terdapat <m>n!</m> permutasi dari suatu himpunan yang terdiri atas <m>n</m> bilangan bulat berbeda.  Setiap operasi perbandingan memiliki dua kemungkinan hasil, sehingga pada setidaknya satu cabang, pecahan kemungkinan yang tersisa paling sedikit <m>1/2</m>.  Jadi, jika terdapat <m>t</m> operasi perbandingan, maka <m>2^t\ge n!</m>.  Sekarang, carilah pendekatan Stirling untuk <m>n!</m>, lalu lanjutkan dari sana.</p>
+        </hint>
+      </exercise>
+    </exercises>

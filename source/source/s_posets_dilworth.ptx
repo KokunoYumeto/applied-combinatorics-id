@@ -1,0 +1,207 @@
+<section xml:id="s_posets_dilworth">
+  <title>Teorema Penutupan Rantai Dilworth dan Dualnya</title>
+
+
+  <p>Dalam bagian ini, kita membuktikan teorema R.P. Dilworth berikut, yang benar-benar merupakan salah satu
+    hasil klasik dalam matematika kombinatorial.
+  </p>
+
+  <theorem xml:id="thm_dilworth">
+    <title>Teorema Dilworth</title>
+    <idx>
+      <h>Teorema Dilworth</h>
+    </idx>
+    <statement>
+      <p>Jika <m>\PXP</m> merupakan poset dan <m>\width(P)=w</m>, terdapat partisi <m>X=C_1\cup
+        C_2\cup\dots \cup C_w</m>, dengan <m>C_i</m> berupa rantai untuk <m>i=1,2,\dots,w</m>.
+        Selain itu, tidak ada partisi rantai yang menggunakan lebih sedikit rantai. </p>
+    </statement>
+  </theorem>
+
+  <p>Sebelum melanjutkan dengan pembuktian Teorema Dilworth <xref ref="para_posets_dilworth_proof" text="custom">pada bagian ini nanti</xref>,
+    kita berhenti sejenak untuk membahas versi dual bagi partisi menjadi antirantai, karena versi ini bahkan lebih mudah
+    dibuktikan. </p>
+
+  <theorem xml:id="thm_dualdilworth">
+    <title>Dual Teorema Dilworth</title>
+    <idx>
+      <h>Teorema Dilworth</h>
+      <h>dual dari</h>
+    </idx>
+    <statement>
+      <p>Jika <m>\PXP</m> merupakan poset dan <m>\height(P)=h</m>, terdapat partisi <m>X=A_1\cup
+        A_2\cup\dots\cup A_h</m>, dengan <m>A_i</m> berupa antirantai untuk <m>i=1,2,\dots,h</m>.
+        Selain itu, tidak ada partisi yang menggunakan lebih sedikit antirantai. </p>
+    </statement>
+    <proof>
+      <p>Untuk setiap <m>x\in X</m>, misalkan <m>\height(x)</m> merupakan bilangan bulat terbesar <m>t</m> sehingga
+        terdapat rantai <md>
+          x_1\lt x_2\lt \dots \lt x_t
+        </md> dengan <m>x=x_t</m>.
+        Jelas bahwa <m>\height(x)\le h</m> untuk semua <m>x\in X</m>. Selanjutnya, untuk setiap <m>i=1,2,\dots,h</m>,
+        misalkan <m>A_i=\{x\in X:\height(x)=i\}</m>. Mudah dilihat bahwa setiap <m>A_i</m> merupakan
+        antirantai. Sebab, jika <m>x,y\in A_i</m> dan <m>x\lt y</m>, terdapat rantai <m>x_1\lt
+        x_2\lt \cdots\lt x_i=x \lt x_{i+1}=y</m>, sehingga <m>\height(y)\ge i+1</m>. Karena <m>\height(P)=h</m>,
+        terdapat rantai terbesar <m>C=\{x_1,x_2,\dots,x_h\}</m>. Seandainya <m>
+        \bfP</m> dapat dipartisi menjadi <m>t\lt h</m> antirantai, maka menurut Prinsip Sarang Merpati, salah satu
+        antirantai akan memuat dua titik dari <m>C</m>, padahal hal ini tidak mungkin. </p>
+    </proof>
+  </theorem>
+
+  <p>Jika <m>\PXP</m> merupakan poset, titik <m>x\in X</m> dengan <m>\height(x)=1</m> disebut <term>titik
+    minimal</term><idx>
+      <h>minimal</h>
+      <h>titik pada poset</h>
+    </idx> dari <m>\bfP</m>. Kita menotasikan himpunan semua titik minimal dari
+    poset <m>\PXP</m> dengan <m>\min(X,P)</m>.<fn>Karena kita menggunakan notasi <m>\bfP= (X,P)</m> untuk
+    poset, himpunan elemen minimal dapat dinotasikan dengan <m>\min(\bfP)</m> atau <m>\min(X,P)</m>. Konvensi ini
+    akan digunakan untuk semua fungsi bernilai himpunan dan fungsi bernilai bilangan bulat pada poset.</fn>
+  </p>
+
+  <p>Argumen dalam pembuktian <xref ref="thm_dualdilworth"/> menghasilkan algoritma yang efisien
+    dan didefinisikan secara rekursif. Tetapkan <m>\bfP_0= \bfP</m>. Jika <m>\bfP_i</m> telah
+    didefinisikan dan <m>\bfP_i\neq \emptyset</m>, tetapkan <m>A_i=\min(\bfP_i)</m>, lalu gunakan <m>\bfP_{i+1}</m>
+    untuk menotasikan subposet yang tersisa setelah <m>A_i</m> dihapus dari <m>\bfP_i</m>. </p>
+
+  <p>Dalam <xref ref="fig_height5"/>, kita menggambarkan partisi antirantai yang dihasilkan algoritma ini
+    untuk poset <m>18</m> titik dari <xref ref="fig_17ptposet"/>. Titik-titik gelap membentuk
+    rantai berukuran<nbsp/><m>5</m>. </p>
+  <figure xml:id="fig_height5">
+    <caption>Poset dengan Tinggi 5</caption>
+    <image width="70%" source="height5"><description><p>Diagram Hasse poset 18 titik. Setiap titik diberi label tinggi 1 sampai 5, sehingga titik-titik dengan label yang sama membentuk antirantai. Lima titik gelap, masing-masing berlabel 1, 2, 3, 4, dan 5, membentuk satu rantai dari kanan bawah menuju kiri atas.</p>
+    </description></image>
+  </figure>
+  <remark>
+    <p>Alice menyatakan bahwa menemukan himpunan elemen minimal suatu poset sangat mudah. Apakah Anda
+      setuju?
+    </p>
+  </remark>
+  <p>Secara dual, kita dapat membicarakan himpunan <m>\max(\bfP)</m> yang terdiri atas <term>titik maksimal</term><idx>
+      <h>maksimal</h>
+      <h>titik pada poset</h>
+    </idx> dari <m>\bfP</m>. Kita juga dapat mempartisi <m>\bfP</m> menjadi <m>
+    \height(\bfP)</m> antirantai dengan menghapus himpunan titik maksimal secara rekursif. </p>
+
+  <p>Perhatikan bahwa jika <m>\PXP</m> merupakan poset, himpunan semua rantai dalam <m>\bfP</m>
+    terurut parsial oleh relasi inklusi. Karena itu, wajar untuk mengatakan bahwa rantai <m>C</m> bersifat <term>
+    maksimal</term><idx>
+      <h>maksimal</h>
+      <h>rantai</h>
+    </idx> apabila tidak ada rantai <m>C'</m> yang memuat <m>C</m> sebagai subhimpunan
+    sejati. Selain itu, rantai <m>C</m> disebut <term>terbesar</term><idx>
+      <h>terbesar</h>
+      <h>rantai</h>
+    </idx> apabila tidak ada rantai <m>C'</m> dengan <m>|C|\lt |C'|</m>. Tentu saja,
+    rantai terbesar bersifat maksimal, tetapi rantai maksimal belum tentu merupakan rantai terbesar. </p>
+
+  <p><term>Antirantai maksimal</term> dan <term>antirantai terbesar</term> didefinisikan secara analog.<idx>
+      <h>maksimal</h>
+      <h>antirantai</h>
+    </idx><idx>
+      <h>terbesar</h>
+      <h>antirantai</h>
+    </idx>
+  </p>
+
+  <p>Dengan terminologi ini, inti <xref ref="thm_dualdilworth"/> adalah bahwa kita dapat dengan mudah menemukan
+    tinggi <m>h</m> suatu poset serta rantai terbesar <m>C</m> yang terdiri atas <m>h</m> titik
+    dari <m>\bfP</m>. Tentu saja, kita juga memperoleh partisi praktis dari poset tersebut menjadi <m>h</m>
+    antirantai. 
+  </p>
+  <reading-questions xml:id="rqs-posets_dilworth" component="runestone">
+    <exercise label="posets_dilworth_reading">
+      <statement>
+        <p>
+          Pertimbangkan penerapan algoritma dari <xref ref="thm_dualdilworth"/> pada poset dalam <xref ref="fig_height5"/>. Pertama, pastikan bahwa Anda menyetujui pelabelan setiap titik dengan tingginya, yang menempatkan titik-titik tersebut ke dalam antirantai. Jelaskan mengapa poset ini menunjukkan dengan baik bahwa rantai berisi lima titik sebaiknya dicari dengan memulai dari titik berlabel <m>5</m> lalu bergerak ke bawah, alih-alih memulai dari titik berlabel <m>1</m> lalu bergerak ke atas.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+
+  <paragraphs xml:id="para_posets_dilworth_proof">
+    <title>Pembuktian Teorema Dilworth</title>
+    <p>Argumen untuk Teorema Dilworth menjadi lebih sederhana dengan notasi berikut. Jika <m>\PXP</m>
+      merupakan poset dan <m>x\in X</m>, tetapkan <m>D(x)=\{y\in X:y\lt x \text{ dalam } P\}</m>; <m>D[x]=\{y\in
+      X:y\le x\text{ dalam } P\}</m>; <m>U(x)=\{y\in X:y&gt;x \text{ dalam } P\}</m>; <m>U[x]=\{y\in X:y\ge
+      x\}</m>; dan <m>I(x)=\{y\in X-\{x\}:x\Vert y \text{ dalam } P\}</m>. Jika <m>S\subseteq X</m>, tetapkan
+      <m>D(S)= \{y\in X:y\lt x</m> dalam <m>P</m>, untuk suatu <m>x\in S\}</m> dan <m>D[S]=S\cup D(S)</m>.
+      Subhimpunan <m>U(S)</m> dan <m>U[S]</m> didefinisikan secara dual. Kita menyebut <m>D(x)</m>, <m>D[x]</m>, <m>
+      D(S)</m>, dan <m>D[S]</m> sebagai <term>himpunan bawah</term>, sedangkan <m>U(x)</m>, <m>U[x]</m>, <m>U(S)</m>,
+      dan <m>U[S]</m> disebut <term>himpunan atas</term>.<idx>
+        <h>himpunan bawah</h>
+      </idx><idx>
+        <h>himpunan atas</h>
+      </idx><notation>
+        <usage>
+          <m>D(x), D(S),D[x], D[S]</m>
+        </usage>
+        <description>himpunan bawah</description>
+      </notation><notation>
+        <usage>
+          <m>U(x), U(S), U[x], U[S]</m>
+        </usage>
+        <description>himpunan atas</description>
+      </notation> Perhatikan bahwa jika <m>A</m> merupakan antirantai maksimal
+      dalam <m>\bfP</m>, himpunan dasar <m>X</m> dapat dipartisi menjadi himpunan-himpunan yang saling lepas
+      sebagai <m>X=A\cup D(A)\cup U(A)</m>. </p>
+
+    <p>Sekarang kita siap membuktikan teorema tersebut. Misalkan <m>\PXP</m> suatu poset dan misalkan <m>w</m> menyatakan lebar
+      <m>\bfP</m>. Seperti dalam<nbsp/><xref ref="thm_dualdilworth"/>, Prinsip Sarang Merpati
+      menyiratkan bahwa kita memerlukan sedikitnya <m>w</m> rantai dalam setiap partisi rantai dari <m>\bfP</m>. Untuk
+      membuktikan bahwa <m>w</m> rantai mencukupi, kita menggunakan induksi pada <m>|X|</m>; hasilnya trivial
+      jika <m>|X|=1</m>. Andaikan hasil tersebut berlaku bagi semua poset dengan <m>|X|\le k</m>, dan misalkan <m>\PXP</m>
+      merupakan poset dengan <m>|X|=k+1</m>. Tanpa mengurangi keumuman, <m>w&gt;1</m>; jika tidak, partisi trivial
+      <m>X=C_1</m> memenuhi kesimpulan teorema. Selanjutnya, kita mengamati bahwa
+      jika <m>C</m> merupakan rantai tak kosong dalam <m>(X,P)</m>, kita boleh mengasumsikan bahwa subposet <m>
+      (X-C,P(X-C))</m> juga memiliki lebar <m>w</m>. Untuk melihatnya, perhatikan bahwa teorema berlaku bagi
+      subposet tersebut. Jadi, jika <m>\width(X-C,P(X-C))=w'\lt w</m>, kita dapat mempartisi <m>X-C</m> sebagai <m>X-C=C_1\cup
+      C_2\cup\dots\cup C_{w'}</m>, sehingga <m>X=C\cup C_1\cup\dots\cup C_{w'}</m> merupakan partisi
+      menjadi <m>w'+1</m> rantai. Karena <m>w'\lt w</m>, kita memiliki <m>w'+1\le w</m>, sehingga diperoleh
+      partisi <m>X</m> menjadi paling banyak <m>w</m> rantai. Karena setiap partisi <m>X</m> menjadi
+      rantai harus menggunakan sedikitnya <m>w</m> rantai, inilah partisi yang kita cari. </p>
+
+    <p>Pilih titik maksimal <m>x</m> dan titik minimal <m>y</m> dengan <m>y\le x</m> dalam <m>P</m>.
+      Selanjutnya, misalkan <m>C</m> merupakan rantai yang hanya memuat titik <m>x</m> dan <m>y</m>. Perhatikan bahwa <m>
+      C</m> memuat satu atau dua elemen, bergantung pada apakah <m>x</m> dan <m>y</m>
+      berbeda. </p>
+
+    <p>Misalkan <m>Y=X-C</m> dan <m>Q=P(Y)</m>, serta misalkan <m>A</m> merupakan antirantai berukuran <m>w</m> dalam
+      subposet <m>(Y,Q)</m>. Dalam partisi <m>X=A\cup D(A)\cup U(A)</m>, fakta bahwa <m>y</m>
+      merupakan titik minimal sedangkan <m>A</m> merupakan antirantai maksimal menyiratkan <m>y\in D(A)</m>.
+      Demikian pula, <m>x\in U(A)</m>. Secara khusus, hal ini menunjukkan bahwa <m>x</m> dan <m>y</m>
+      berbeda. </p>
+
+    <p>Labeli elemen-elemen <m>A</m> sebagai <m>\{a_1,a_2,\dots,a_w\}</m>. Perhatikan bahwa <m>U[A]\ne X</m>
+      karena <m>y\notin U[A]</m>, dan <m>D[A]\ne X</m> karena <m>x\notin D[A]</m>. Oleh karena itu, kita dapat
+      menerapkan hipotesis induksi masing-masing pada subposet <m>\bfP</m> yang ditentukan oleh <m>D[A]</m> dan <m>
+      U[A]</m>, lalu mempartisi masing-masing dari kedua subposet tersebut menjadi <m>w</m> rantai: <md>
+      U[A]= C_1\cup C_2\cup\dots\cup C_w\quad\text{dan} \quad
+        D[A]=D_1\cup D_2\cup\dots\cup D_w.
+      </md>
+      Tanpa mengurangi keumuman, kita dapat mengasumsikan bahwa rantai-rantai tersebut telah dilabeli sedemikian sehingga <m>a_i\in
+      C_i\cap D_i</m> untuk setiap <m>i=1,2,\dots,w</m>. Hal ini menyiratkan bahwa <md>
+        X=(C_1\cup D_1)\cup (C_2\cup D_2)\cup\dots\cup(C_w\cup D_w)
+      </md> merupakan
+      partisi yang diinginkan, sehingga pembuktian selesai. </p>
+
+    <p>Dalam <xref ref="fig_width7"/>, kita menggambarkan Teorema Penutupan Rantai Dilworth bagi poset
+      yang pertama kali diperkenalkan dalam <xref ref="fig_17ptposet"/>. Titik-titik gelap membentuk
+      antirantai berisi <m>7</m> elemen, sedangkan label-labelnya memberikan partisi menjadi<nbsp/><m>7</m> rantai. </p>
+    <figure xml:id="fig_width7">
+      <caption>Poset dengan Lebar 7</caption>
+      <image width="70%" source="width7"><description><p>Diagram Hasse poset 18 titik. Tujuh titik gelap membentuk antirantai, dan setiap titik diberi salah satu label 1 sampai 7. Titik-titik dengan label yang sama membentuk satu rantai, sehingga ketujuh label memberikan partisi poset menjadi tujuh rantai.</p>
+      </description></image>
+    </figure>
+    <remark>
+      <p>Alice yang selalu waspada memperhatikan bahwa pembuktian Teorema Dilworth di atas tampaknya tidak
+        memberikan algoritma yang efisien untuk menemukan lebar<nbsp/><m>w</m> suatu poset, apalagi
+        partisi poset tersebut menjadi <m>w</m> rantai. Bob masih belum memahami mengapa mendaftarkan
+        semua subhimpunan <m>X</m> merupakan gagasan buruk. Carlos duduk tenang mendengarkan
+        perdebatan mereka, tetapi akhirnya ia mengatakan bahwa pemrogram yang terampil dapat menyusun algoritma dari
+        pembuktian tersebut. Anda dianjurkan untuk membahas dilema ini<mdash/>namun tenanglah karena kita akan
+        kembali membahas persoalan ini pada bagian selanjutnya dalam buku. </p>
+    </remark>
+  </paragraphs>
+
+</section>

@@ -1,0 +1,33 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_polya">
+    <title>Teorema Enumerasi Pólya</title>
+
+
+    <introduction>
+        <p>Dalam bab ini, kita memperkenalkan teknik enumerasi yang ampuh dan umumnya disebut teorema enumerasi Pólya.<fn>Seperti banyak hasil matematika lainnya, inti hasil ini mula-mula ditemukan oleh orang selain matematikawan yang namanya kemudian dikaitkan dengannya. J.H. Redfield menerbitkan hasil ini pada tahun 1927, sepuluh tahun sebelum karya Pólya. Karya Redfield baru ditemukan kembali pada tahun 1960, ketika nama Pólya sudah terlanjur melekat kuat pada teknik tersebut.</fn> Pendekatan Pólya terhadap pencacahan memungkinkan kita menggunakan simetri (seperti simetri objek geometri, misalnya poligon) untuk membentuk fungsi pembangkit. Fungsi-fungsi pembangkit ini kemudian dapat digunakan untuk menjawab pertanyaan kombinatorial seperti
+                  <ol>
+            <li>
+                <p>Berapa banyak kalung berbeda yang terdiri atas enam manik dan dapat dibentuk menggunakan manik merah, biru, dan hijau? Bagaimana dengan kalung berisi <m>500</m> manik?</p>
+            </li>
+            <li>
+                <p>Berapa banyak tangga nada yang terdiri atas <m>6</m> nada?</p>
+            </li>
+            <li>
+                <p>Berapa banyak isomer senyawa xilenol, <m>\text{C} _6\text{H} _3(\text{CH} _3)_2(\text{OH} )</m>? Bagaimana dengan <m>\text{C} _n \text{H} _{2n+2}</m>? (Dalam kimia, <term>isomer</term> adalah senyawa kimia yang memiliki jumlah atom yang sama dari setiap unsur, tetapi susunan atom-atom tersebut berbeda.)</p>
+            </li>
+            <li>
+                <p>Berapa banyak graf tak isomorfik pada empat simpul? Berapa banyak di antaranya yang memiliki tiga sisi? Bagaimana dengan graf pada <m>1000</m> simpul dan <m>257,000</m> sisi? Berapa banyak graf <m>r</m>-reguler pada <m>40</m> simpul? (Suatu graf disebut <term><m>r</m>-reguler</term><idx><h>graf</h><h>reguler</h></idx> jika setiap simpul berderajat <m>r</m>.)</p>
+            </li>
+        
+                  </ol>
+                </p>
+
+        <p>Untuk menggunakan teknik Pólya, kita memerlukan gagasan grup permutasi. Namun, pembahasan kita akan mandiri dan digerakkan oleh contoh. Kita mulai dengan versi sederhana dari pertanyaan pertama di atas.
+        </p>
+    </introduction>
+    <xi:include href="s_polya_square.ptx"/>
+    <xi:include href="s_polya_perm-groups.ptx"/>
+    <xi:include href="s_polya_burnside.ptx"/>
+    <xi:include href="s_polya_polya.ptx"/>
+    <xi:include href="s_polya_apps.ptx"/>
+    <xi:include href="s_polya_exercises.ptx"/>
+</chapter>

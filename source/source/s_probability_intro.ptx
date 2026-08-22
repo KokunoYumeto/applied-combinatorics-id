@@ -1,0 +1,66 @@
+<section xml:id="s_probability_intro">
+    <title>Pengantar Probabilitas</title>
+    <p>Kita melanjutkan dengan pembahasan informal yang dimaksudkan untuk memotivasi pengembangan lebih terstruktur pada bagian berikutnya. Perhatikan <q>roda pemutar</q> pada <xref ref="fig_spinner"/>. Misalkan roda itu kita putar kuat-kuat sehingga penunjuknya berputar berkali-kali. Kemudian kita catat nomor daerah tempat penunjuk berhenti. Para pengamat yang belum pernah mempelajari kombinatorika mungkin memberikan komentar berikut:
+    </p>
+    <figure xml:id="fig_spinner">
+        <caption>Roda Pemutar untuk Permainan Peluang</caption>
+        <image width="33%" source="spinner"><description><p>Roda pemutar untuk permainan peluang</p>
+        </description></image>
+    </figure>
+    <p>
+        <ol>
+            <li><p>Peluang berhenti di daerah<nbsp/><m>1</m> sama dengan peluang berhenti di daerah<nbsp/><m>3</m>.</p></li>
+            <li><p>Peluang berhenti di daerah<nbsp/><m>2</m> dua kali peluang berhenti di daerah<nbsp/><m>4</m>.</p></li>
+            <li><p>Jika penunjuk berhenti di daerah bernomor ganjil, dalam 60% kejadian penunjuk akan berada di daerah<nbsp/><m>5</m>.</p></li>
+        </ol>
+    </p>
+    <p>Sekarang kita akan mengembangkan kerangka yang lebih formal agar pembahasan semacam itu dapat dinyatakan dengan jauh lebih tepat. Kita juga akan melihat apakah Alice benar-benar bersikap adil kepada Dave dalam permainan menuju seratus poin yang diusulkannya.
+    </p>
+
+    <p>Kita mulai dengan mendefinisikan <term>ruang probabilitas</term><idx><h>probabilitas</h><h>ruang</h></idx> sebagai pasangan <m>(S,P)</m>, dengan <m>S</m> suatu himpunan hingga dan <m>P</m> suatu fungsi yang domainnya merupakan keluarga semua himpunan bagian dari <m>S</m>, sedangkan jangkauannya ialah himpunan <m>[0,1]</m> yang terdiri atas semua bilangan real tak negatif yang tidak lebih dari satu. Selain itu, dua sifat utama berikut harus dipenuhi:
+                  <ol>
+        <li><p><m>P(\emptyset)=0</m> dan <m>P(S)=1</m>.</p></li>
+        <li><p>Jika <m>A</m> dan <m>B</m> merupakan himpunan bagian dari <m>S</m>, serta <m>A\cap B=\emptyset</m>,
+        maka <m>P(A\cup B)= P(A)+P(B)</m>.</p></li>
+    
+                  </ol>
+                </p>
+
+    <p>
+        Jika <m>(S,P)</m> merupakan ruang probabilitas, fungsi <m>P</m> disebut <term>ukuran probabilitas</term><idx><h>probabilitas</h><h>ukuran</h></idx>, himpunan-himpunan bagian dari <m>S</m> disebut <term>kejadian</term><idx><h>kejadian</h></idx>, dan jika <m>E\subseteq S</m>, besaran <m>P(E)</m> disebut <term>probabilitas</term><idx><h>probabilitas</h></idx> kejadian <m>E</m>.
+    </p>
+
+    <p>Perhatikan bahwa <m>P</m> dapat kita perluas menjadi pemetaan dari <m>S</m> ke <m>[0,1]</m> dengan menetapkan <m>P(x)=P(\{x\})</m> untuk setiap elemen <m>x\in S</m>. Elemen-elemen <m>S</m> kita sebut <term>hasil</term><idx><h>hasil</h></idx> (sebagian orang lebih suka menyebutnya <term>hasil elementer</term>), sedangkan besaran <m>P(x)</m> disebut <term>probabilitas</term> <m>x</m>. Penting untuk disadari bahwa jika <m>P(x)</m> diketahui untuk setiap <m>x\in S</m>, kita dapat menghitung <m>P(E)</m> untuk sebarang kejadian <m>E</m>, sebab berdasarkan sifat kedua, <m>P(E)=\sum_{x\in E}P(x)</m>.
+    </p>
+    <example>
+        <p>Untuk roda pemutar tersebut, kita dapat mengambil <m>S=\{1,2,3,4,5\}</m>, dengan <m>P(1)=P(3)=P(4)=1/8</m>, <m>P(2)=2/8=1/4</m>, dan <m>P(5)=3/8</m>. Jadi, <m>P(\{2,3\})=1/8+2/8=3/8</m>.
+        </p>
+    </example>
+
+    <example>
+        <p>Misalkan <m>S</m> merupakan himpunan hingga tak kosong dan misalkan <m>n=|S|</m>. Untuk setiap <m>E\subseteq S</m>, tetapkan <m>P(E)=|E|/n</m>. Secara khusus, <m>P(x)=1/n</m> untuk setiap elemen <m>x\in S</m>. Dalam contoh sederhana ini, semua hasil berpeluang sama.
+        </p>
+    </example>
+
+    <example>
+        <p>Jika sebuah dadu bersisi enam dilempar dan banyak titik pada sisi atasnya dicatat, himpunan dasarnya ialah <m>S=\{1,2,3,4,5,6\}</m> dan <m>P(i)=1/6</m> untuk setiap <m>i\in S</m>. Di sisi lain, jika sepasang dadu dilempar dan jumlah titik pada kedua sisi atasnya dicatat, maka <m>S=\{2,3,4,\dots,11,12\}</m>, dengan <m>P(2)=P(12) =1/36</m>, <m>P(3)=P(11)=2/36</m>, <m>P(4)=P(10)=3/36</m>, <m>P(5)=P(9)=4/36</m>, <m>P(6)=P(8)=5/36</m>, dan <m>P(7)=6/36</m>. Untuk memahaminya, anggap kedua dadu dapat dibedakan: satu dadu berwarna merah dan yang lain berwarna biru. Setiap pasangan <m>(i,j)</m> dengan <m>1\le i,j\le 6</m>, ketika dadu merah menunjukkan <m>i</m> titik dan dadu biru menunjukkan <m>j</m> titik, berpeluang sama. Jadi, masing-masing memiliki probabilitas <m>1/36</m>. Sebagai contoh, terdapat tiga pasangan yang menghasilkan jumlah empat, yaitu <m>(3,1)</m>, <m>(2,2)</m>, dan <m>(1,3)</m>. Dengan demikian, probabilitas memperoleh jumlah empat ialah <m>3/36=1/12</m>.
+        </p>
+    </example>
+
+    <example>
+        <p>Dalam permainan Alice yang dijelaskan sebelumnya, himpunan <m>S</m> dapat berupa <m>\{0,1,2,3,4,5\}</m>, yakni himpunan semua selisih yang mungkin ketika sepasang dadu dilempar. Dalam permainan ini, kita akan melihat bahwa definisi fungsi <m>P</m> yang benar menetapkan <m>P(0)=6/36</m>; <m>P(1)=10/36</m>; <m>P(2)=8/36</m>; <m>P(3)=6/36</m>; <m>P(4)=4/36</m>; dan <m>P(5)=2/36</m>. Dengan menggunakan notasi Xing yang lebih ringkas, kita dapat mengatakan bahwa <m>P(0)=1/6</m> dan <m>P(d)= 2(6-d)/36</m> apabila <m>d&gt;0</m>.
+        </p>
+    </example>
+
+    <example>
+        <p>Sebuah stoples berisi dua puluh kelereng: enam merah, sembilan biru, dan lima sisanya hijau. Tiga dari dua puluh kelereng tersebut dipilih secara acak.<fn>Prosedur ini kadang-kadang disebut <term>pengambilan sampel tanpa pengembalian</term>. Bayangkan sebuah stoples dengan dinding buram<mdash/>sehingga isinya tidak dapat dilihat. Kelereng-kelereng diaduk atau dikocok, lalu dengan mata tertutup Anda memasukkan tangan ke dalam stoples dan mengambil tiga kelereng.</fn><idx><h>pengambilan sampel</h><h>tanpa pengembalian</h></idx> Misalkan <m>X=\{0,1,2,3,4,5\}</m>, dan untuk setiap <m>x\in X</m>, misalkan <m>P(x)</m> menyatakan probabilitas bahwa banyak kelereng biru di antara tiga kelereng yang dipilih ialah <m>x</m>. Maka <m>P(i)=C(9,i)C(11,3-i)/C(20,3)</m> untuk <m>i=0,1,2,3</m>, sedangkan <m>P(4)=P(5)=0</m>. Bob mengatakan bahwa hasil dengan probabilitas nol tidak masuk akal, tetapi Carlos mengatakan bahwa hal itu masuk akal.
+        </p>
+    </example>
+
+    <example>
+        <p>Dalam beberapa permainan kartu, setiap pemain menerima lima kartu dari satu set standar berisi<nbsp/><m>52</m> kartu<mdash/>empat jenis (sekop, hati, wajik, dan keriting), masing-masing berisi<nbsp/><m>13</m> kartu dari as hingga raja. Seorang pemain memperoleh <term>full house</term><idx><h>full house (kombinasi poker)</h></idx> jika terdapat dua nilai <m>x</m> dan <m>y</m> sehingga pemain itu memiliki tiga dari empat kartu bernilai <m>x</m> dan dua dari empat kartu bernilai <m>y</m>, <eg/> tiga raja dan dua delapan. Jika lima kartu diambil secara acak dari satu set standar, probabilitas memperoleh full house ialah
+        <md>            \frac{\binom{13}{1}\binom{12}{1}\binom{4}{3}\binom{4}{2}}{\binom{52}{5}}\approx 0.00144.
+        </md>
+        </p>
+    </example>
+</section>

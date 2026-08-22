@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project ptx-version="2">
+  <targets>
+    <target name="html" format="html" source="main.ptx" publication="publication.ptx" xsl="appcomb-html-id.xsl"
+            deploy-dir="book" />
+    <target name="runestone" format="html" source="main.ptx" xsl="appcomb-html-id.xsl"
+            publication="publication_runestone.ptx"
+            platform="runestone"  />
+    <target name="latex" format="latex" source="main.ptx" publication="publication.ptx" xsl="appcomb-latex-id.xsl" />
+    <target name="pdf" format="pdf" source="main.ptx" publication="publication.ptx" xsl="appcomb-latex-id.xsl"
+            latex-engine="xelatex" />
+    <target name="activities" format="html" source="workbook.ptx" xsl="appcomb-html-id.xsl"
+            publication="publication-workbook.ptx" deploy-dir="activities" />        
+    <target name="activities-pdf" format="pdf" source="workbook.ptx" xsl="appcomb-latex-id.xsl"
+            publication="publication-workbook.ptx" latex-engine="xelatex"/>
+    <target name="activities-latex" format="latex" source="workbook.ptx" xsl="appcomb-latex-id.xsl"
+            publication="publication-workbook.ptx" />
+    <target name="notes" format="html" source="notes.ptx" xsl="appcomb-html-id.xsl"
+            publication="publication-notes.ptx" deploy-dir="notes" />
+    <target name="notes-a" format="html" source="notes.ptx" xsl="appcomb-html-id.xsl"
+            publication="publication-notes-a.ptx" deploy-dir="annotated-notes" />
+    <!-- <target name="epub">
+      <format>epub</format>
+      <source>source/main.ptx</source>
+      <publication>publication/publication.ptx</publication>
+      <output-dir>output/epub</output-dir>
+    </target>    
+    <target name="kindle">
+      <format>kindle</format>
+      <source>source/main.ptx</source>
+      <publication>publication/publication.ptx</publication>
+      <output-dir>output/kindle2023</output-dir>
+    </target>     -->
+  </targets>
+</project>

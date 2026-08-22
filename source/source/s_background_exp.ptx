@@ -1,0 +1,38 @@
+<section xml:id="s_background_exp">
+    <title>Perpangkatan</title>
+    <p>Sekarang kita mendefinisikan operasi dua argumen yang disebut <term>perpangkatan</term>. Operasi ini hanya didefinisikan pada pasangan terurut bilangan asli <m>(m,n)</m> yang kedua komponennya tidak sekaligus nol. Notasi perpangkatan tidak seragam. Dalam buku, perpangkatan ditulis <m>m^n</m>, sedangkan notasi <m>m**n</m>, <m>m\wedge n</m>, dan <m>\exp(m,n)</m> digunakan dalam teks sebaris. Kita terutama akan menggunakan notasi <m>m^n</m>.
+    </p>
+
+    <p>Jika <m>m=0</m>, kita menetapkan <m>0^n=0</m> untuk setiap <m>n\in\nonnegints</m> dengan <m>n\neq0</m>. Sekarang misalkan <m>m\neq0</m>. Kita mendefinisikan <m>m^n</m> dengan (i)<nbsp/><m>m^0=1</m> dan (ii)<nbsp/><m>m^{k+1}=mm^k</m>.
+    </p>
+
+    <theorem>
+        <statement>
+            <p>Untuk setiap <m>m,n,p\in\nonnegints</m> dengan <m>m\neq0</m>, berlaku <m>m^{n+p}=m^n\,m^p</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Misalkan <m>m,n\in\nonnegints</m> dengan <m>m\neq0</m>. Maka <m>m^{n+0}=m^n=m^n\,1=m^n\,m^0</m>. Sekarang andaikan <m>m^{n+k}=m^n\,m^k</m>. Maka
+            <md>
+                m^{n+(k+1)}=m^{(n+k)+1}=m\,m^{n+k}
+                = m(m^n\,m^k)=m^n(m\,m^k)=m^n\,m^{k+1}.
+            </md>
+            </p>
+        </proof>
+    </theorem>
+    <theorem>
+        <statement>
+            <p>Untuk setiap <m>m,n,p\in\nonnegints</m> dengan <m>m\neq0</m>, berlaku <m>(m^n)^p=m^{np}</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Misalkan <m>m,n\in\nonnegints</m> dengan <m>m\neq0</m>. Maka <m>(m^n)^0=1=m^0=m^{n0}</m>. Sekarang andaikan <m>(m^n)^k=m^{nk}</m>. Maka
+            <md>
+                (m^n)^{k+1}=m^n(m^n)^k=m^n(m^{nk})=m^{n+nk}=m^{n(k+1)}.
+            </md>
+            </p>
+        </proof>
+    </theorem>
+</section>

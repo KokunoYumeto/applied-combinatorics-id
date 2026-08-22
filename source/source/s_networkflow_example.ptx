@@ -1,0 +1,86 @@
+<section xml:id="s_networkflow_example">
+    <title>Contoh Konkret</title>
+    <introduction>
+        <p>Mari kita terapkan Algoritma Pelabelan pada aliran jaringan dalam <xref ref="fig_networkflow_netflow"/>. Kita mulai dari sumber:
+        <md>
+            S:\quad(*,+,\infty)
+        </md>
+        Karena sumber <m>S</m> merupakan simpul pertama yang diberi label, simpul itu juga yang pertama dipindai. Jadi, kita meninjau tetangga-tetangga <m>S</m> menurut urutan pseudoalfabetis pada simpul. Simpul pertama yang ditinjau adalah <m>B</m>. Karena sisi <m>(S,B)</m> tidak penuh, kita memberi <m>B</m> label
+        <md>
+            B:\quad(S,+,8).
+        </md>
+        Selanjutnya, kita meninjau simpul <m>E</m> dan memberinya label
+        <md>
+            E:\quad(S,+,28).
+        </md>
+        Berikutnya adalah simpul <m>F</m>, yang diberi label
+        <md>
+            F:\quad(S,+,15).
+        </md>
+        Pada tahap ini, pemindaian dari <m>S</m> selesai.
+        </p>
+
+        <p>Simpul pertama setelah <m>S</m> yang diberi label adalah <m>B</m>, sehingga sekarang kita memindai dari <m>B</m>. Tetangga-tetangga tak berlabel dari <m>B</m> yang ditinjau secara berurutan adalah <m>A</m>, <m>C</m>, dan<nbsp/><m>D</m>. Hasilnya adalah label-label berikut:
+        <md>
+            <mrow>  A\amp:\quad(B,+,8)</mrow>
+            <mrow>  C\amp:\quad(B,+,8)</mrow>
+            <mrow>  D\amp:\quad(B,-,6)</mrow>
+        </md>
+        Simpul berikutnya yang dipindai adalah <m>E</m>, tetapi <m>E</m> tidak mempunyai tetangga tak berlabel. Karena itu, kita beralih ke <m>F</m>, yang juga tidak mempunyai tetangga tak berlabel. Terakhir, kita memindai dari <m>A</m>. Menurut urutan pseudoalfabetis, mula-mula kita meninjau muara <m>T</m>, yang dalam kasus ini merupakan satu-satunya simpul tak berlabel yang tersisa. Hasilnya adalah label berikut bagi <m>T</m>:
+        <md>
+            T:\quad(A,+,8)
+        </md>
+        Karena muara sekarang berlabel, kita mengetahui bahwa terdapat lintasan penambah. Lintasan ini ditemukan dengan menelusuri label secara mundur. Muara <m>T</m> memperoleh labelnya dari <m>A</m>, <m>A</m> dari <m>B</m>, dan <m>B</m> dari <m>S</m>. Jadi, lintasan penambahnya adalah <m>P=(S,B,A,T)</m> dengan <m>\delta=8</m>. Semua sisi pada lintasan ini maju. Selanjutnya, aliran diperbarui dengan menaikkan aliran pada sisi-sisi <m>P</m> sebesar <m>8</m>. Hasilnya adalah aliran pada <xref ref="fig_networkflow_updated-flow"/>, yang bernilai <m>38</m>.
+        </p>
+        <figure xml:id="fig_networkflow_updated-flow">
+            <caption>Aliran Jaringan yang Telah Diperbarui</caption>
+            <image width="65%" source="webfig-31c"><description><p>Diagram jaringan setelah aliran pada lintasan penambah pertama dinaikkan sebesar 8.</p>
+            </description></image>
+        </figure>
+        <p>Berikut adalah urutan label yang ditemukan ketika algoritma pelabelan diterapkan pada aliran yang telah diperbarui; bacalah ke bawah setiap kolom. Perhatikan bahwa pada pemindaian dari <m>S</m>, simpul <m>B</m> tidak akan diberi label karena sisi <m>(S,B)</m> sekarang penuh.
+        <md>
+            <mrow>S:\amp\quad(*,+,\infty)\amp D:\amp\quad(E,+,12)</mrow>
+            <mrow>E:\amp\quad(S,+,28)\amp A:\amp\quad(F,+,12)</mrow>
+            <mrow>F:\amp\quad(S,+,15)\amp C:\amp\quad(B,+,10)</mrow>
+            <mrow>B:\amp\quad(E,+,19)\amp T:\amp\quad(A,+,12)</mrow>
+        </md>
+        Pelabelan ini menghasilkan lintasan penambah <m>P=(S,F,A,T)</m> dengan <m>\delta=12</m>.
+        </p>
+
+        <p>Setelah pembaruan ini, nilai aliran meningkat menjadi <m>50=38+12</m>. Kita memulai kembali proses pelabelan dan mengulanginya hingga mencapai tahap ketika sebagian simpul, termasuk sumber, berlabel dan sebagian lainnya, termasuk muara, tak berlabel.
+        </p>
+    </introduction>
+
+
+    <subsection>
+        <title>Bagaimana Algoritma Pelabelan Berhenti</title>
+        <p>Perhatikan aliran jaringan pada <xref ref="fig_networkflow_flow4"/>.
+        </p>
+        <figure xml:id="fig_networkflow_flow4">
+            <caption>Aliran Jaringan Lain</caption>
+            <image width="85%" source="network_flow4"><description><p>Diagram jaringan lain dengan kapasitas dan aliran saat ini dicantumkan pada setiap sisi.</p>
+            </description></image>
+        </figure>
+        <p>Nilai aliran saat ini adalah <m>172</m>. Penerapan algoritma pelabelan dengan urutan pseudoalfabetis menghasilkan label-label berikut, yang dibaca ke bawah setiap kolom:
+        <md>
+            <mrow>S:\amp\quad(*,+,\infty)\amp E:\amp\quad(I,-,3)</mrow>
+            <mrow>C:\amp\quad(S,+,8)\amp G:\amp\quad(E,-,3)</mrow>
+            <mrow>F:\amp\quad(S,+,23)\amp L:\amp\quad(E,+,3)</mrow>
+            <mrow>H:\amp\quad(C,+,7)\amp B:\amp\quad(G,+,3)</mrow>
+            <mrow>I:\amp\quad(H,+,7)\amp T:\amp\quad(L,+,3)</mrow>
+        </md>
+        Label-label ini menghasilkan lintasan penambah <m>P=(S,C,H,I,E,L,T)</m> dengan <m>\delta =3</m>. Setelah aliran diperbarui dan nilainya meningkat menjadi <m>175</m>, algoritma pelabelan berhenti dengan label-label berikut:
+        <md>
+            <mrow>S:\amp\quad(*,+,\infty)\amp H:\amp\quad(C,+,4)</mrow>
+            <mrow>C:\amp\quad(S,+,5)\amp I:\amp\quad(H,+,4)</mrow>
+            <mrow>F:\amp\quad(S,+,23)</mrow>
+        </md>
+        Sekarang kita melihat bahwa himpunan simpul berlabel dan tak berlabel masing-masing adalah <m>L=\{S,C,F,H,I\}</m> dan <m>U=\{T,A,B,D,E,G,J,K\}</m>. Selain itu, kapasitas potongan <m>V=L\cup U</m> adalah
+        <md>
+            41+8+23+8+13+29+28+25 = 175.
+        </md>
+        Hal ini menunjukkan bahwa kita telah menemukan potongan yang kapasitasnya tepat sama dengan nilai aliran saat ini. Dengan demikian, aliran tersebut optimal.
+        </p>
+    </subsection>
+
+</section>

@@ -1,0 +1,51 @@
+{
+  "schema": "r012.public-release-manifest",
+  "schema_version": "1.1.0",
+  "version": "2026.08.22.1",
+  "status": "complete, published on Zenodo and Figshare, prepared for GitHub mirror",
+  "title": "Kombinatorika Terapan — Edisi Bahasa Indonesia",
+  "language": "id-ID",
+  "family_mode": "fixed-work",
+  "source": {
+    "title": "Applied Combinatorics",
+    "edition": "2017.3",
+    "authors": ["Mitchel T. Keller", "William T. Trotter"],
+    "repository": "https://github.com/mitchkeller/applied-combinatorics",
+    "commit": "33b20df670d1f8d98266cd2f4a287a79b01649ea",
+    "tree": "a8e604cc80fbb5e1a312fa26baab2b17d2975b77",
+    "archive_bytes": 214376658,
+    "archive_sha256": "8ff7b319bb213777f29e91665fbd3c9d0bc81de56fb0b2b6cd9148652dfee95a",
+    "license": "CC BY-SA 4.0"
+  },
+  "identifiers": {
+    "concept_doi": "10.5281/zenodo.22058531",
+    "version_doi": "10.5281/zenodo.22059672",
+    "zenodo_record_id": 22059672,
+    "figshare_version_doi": "10.6084/m9.figshare.33314772.v2",
+    "repository": "https://github.com/KokunoYumeto/applied-combinatorics-id",
+    "html_reader": "https://kokunoyumeto.github.io/applied-combinatorics-id/"
+  },
+  "coverage": {
+    "claim": "complete machine-checked Indonesian draft; no human review claimed",
+    "translated_through": "source/source/s_background_ZFC.ptx",
+    "translation_boundaries": 167,
+    "admitted_source_files": 171,
+    "known_partial_or_missing_scope": []
+  },
+  "artifacts": [
+    {"path": "00_KOMBINATORIKA_TERAPAN_ID-ID_COMPLETE_LINKED_READER_2026.08.22.1.pdf", "bytes": 7487198, "sha256": "01909d0e91fc0b7ef5001368cd55f852c527d6b05f5d941a05e993aa04a46f2e", "pages": 350},
+    {"path": "01_KOMBINATORIKA_TERAPAN_ID-ID_CORRESPONDING_SOURCE_2026.08.22.1.zip", "bytes": 236912241, "sha256": "6fe7a4f79d49ecf1ffd776947e9a8bfea7604e6bc79a65b10f7f79a63841edaf", "entries": 821},
+    {"path": "02_KOMBINATORIKA_TERAPAN_ID-ID_EVIDENCE_AND_PROVENANCE_2026.08.22.1.zip", "bytes": 3877924, "sha256": "7367c95e254c98391152decf5d0b150f894bb9196274f30048c87ba8f2b6e0d8", "entries": 275},
+    {"path": "03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.1.zip", "bytes": 227070400, "sha256": "ab57743e7ba38edfb4f9c17f01dc39978332233fc512472bf5f10542429a06ac", "entries": 1495},
+    {"path": "04_KOMBINATORIKA_TERAPAN_ID-ID_SHA256_MANIFEST_2026.08.22.1.txt", "bytes": 590, "sha256": "64fa01f9348955bec77d6899ea637b5550531ead89b560bee1316bfe6a778853"}
+  ],
+  "publication_gate": {
+    "rights": "pass",
+    "backend_and_controls": "pass",
+    "pdf": "pass",
+    "html": "pass",
+    "zenodo_public_byte_readback": "pass",
+    "figshare_reader_byte_readback": "pass",
+    "release_closed": true
+  }
+}

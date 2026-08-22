@@ -1,0 +1,76 @@
+<section xml:id="s_recurrence_rubots">
+    <title>Menyelesaikan rekurensi nonlinear</title>
+    <p>Dalam bagian ini, kita akan menggunakan fungsi pembangkit untuk mencacah suatu jenis pohon tertentu. Melalui pencacahan tersebut, kita akan melihat bagaimana fungsi pembangkit dapat digunakan untuk menyelesaikan persamaan rekurensi <em>nonlinear</em><idx><h>persamaan rekurensi</h><h>nonlinear</h></idx>. Kita juga akan menghubungkannya dengan suatu barisan pencacahan yang pernah kita jumpai dalam <xref ref="ch_strings"/>. Untuk melakukan semua ini, kita perlu memperkenalkan beberapa istilah. Sebuah pohon disebut <term>berakar</term><idx><h>pohon</h><h>berakar</h></idx> jika kita menetapkan sebuah simpul khusus yang disebut <term>akar</term> pohon tersebut. Kita akan selalu menggambar pohon dengan akarnya di atas dan semua simpul lainnya di bawahnya. <term>Pohon tak berlabel</term><idx><h>pohon</h><h>tak berlabel</h></idx> adalah pohon yang tidak kita bedakan berdasarkan nama yang diberikan kepada simpul-simpulnya. Untuk keperluan kita, <term>pohon biner</term><idx><h>pohon</h><h>biner</h></idx> adalah pohon yang setiap simpulnya memiliki <m>0</m> atau <m>2</m> anak, sedangkan <term>pohon terurut</term><idx><h>pohon</h><h>terurut</h></idx> adalah pohon yang anak-anak setiap simpulnya memiliki suatu urutan (pertama, kedua, ketiga, <etc/>). Karena kita akan berfokus pada pohon berakar, tak berlabel, biner, dan terurut (disingkat RUBOT, mengikuti istilah Inggrisnya), dua anak dari setiap simpul yang memiliki anak akan kita sebut anak <term>kiri</term> dan anak <term>kanan</term>.
+    </p>
+
+    <p>Dalam <xref ref="fig_rubots"/>, kita menampilkan pohon berakar, tak berlabel, biner, dan terurut yang memiliki <m>n</m> daun untuk <m>n\leq 4</m>.
+    </p>
+    <figure xml:id="fig_rubots">
+        <caption>RUBOT dengan <m>n</m> daun untuk <m>n\leq 4</m></caption>
+        <image width="75%" source="RUBOTs"><description><p>RUBOT dengan <m>n</m> daun untuk <m>n\leq 4</m></p>
+        </description></image>
+    </figure>
+    <p>Misalkan <m>C(x) = \sum_{n=0}^\infty c_n x^n</m> merupakan fungsi pembangkit bagi barisan <m>\{c_n\colon n\geq 0\}</m>, dengan <m>c_n</m> menyatakan banyaknya RUBOT yang memiliki <m>n</m> daun. (Demi kemudahan, kita mengambil <m>c_0=0</m>.) Dari <xref ref="fig_rubots"/>, kita dapat melihat bahwa <m>C(x) = x + x^2 + 2x^3 + 5x^4 + \cdots</m>. Namun, berapakah koefisien-koefisien selanjutnya? Mari kita uraikan sebuah RUBOT dengan <m>n</m> daun menjadi gabungan dua RUBOT yang lebih kecil untuk melihat apakah <m>c_n</m> dapat dinyatakan menggunakan beberapa <m>c_k</m> dengan <m>k\lt n</m>. Ketika kita memperhatikan sebuah RUBOT dengan <m>n\geq 2</m> daun, simpul akarnya pasti memiliki dua anak. Kedua anak itu dapat dipandang sebagai simpul akar RUBOT yang lebih kecil. Misalkan anak kiri menjadi akar RUBOT dengan <m>k</m> daun; berarti anak kanan menjadi akar RUBOT dengan <m>n-k</m> daun. Karena ada <m>c_k</m> kemungkinan sub-RUBOT bagi anak kiri dan <m>c_{n-k}</m> sub-RUBOT bagi anak kanan, seluruhnya terdapat <m>c_kc_{n-k}</m> RUBOT yang sub-RUBOT pada anak kiri dari akarnya memiliki <m>k</m> daun. Kita dapat melakukan ini untuk setiap <m>k=1,2,\dots,n-1</m>, sehingga diperoleh
+    <md>
+        c_n = \sum_{k=1}^{n-1} c_kc_{n-k}.
+    </md>
+    (Rumus ini berlaku karena <m>n\geq 2</m>.) Karena <m>c_0=0</m>, kita sebenarnya dapat menuliskannya sebagai
+    <md>
+        c_n = \sum_{k=0}^{n} c_kc_{n-k}.
+    </md>
+    </p>
+    <p>Mari kita perhatikan kuadrat fungsi pembangkit <m>C(x)</m>. Berdasarkan <xref ref="prop_genfunction-product"/>, kita mempunyai
+    <md>
+        <mrow>  C^2(x) \amp = c_0^2 + (c_0c_1 + c_1c_0)x + (c_0c_2 +c_1c_1 + c_2c_0)x^2 +
+        \cdots</mrow>
+        <mrow>  \amp  = 0 + 0 + (c_0c_2 +c_1c_1 + c_2c_0)x^2 + (c_0c_3 +
+        c_1c_2+c_2c_1+c_3c_0)x^3 + \cdots.</mrow>
+    </md>
+    Namun, dari relasi rekurensi di atas, sekarang kita melihat bahwa koefisien <m>x^n</m> dalam <m>C^2(x)</m> tidak lain adalah <m>c_n</m> untuk <m>n\geq 2</m>. Satu-satunya yang belum ada ialah suku <m>x</m>; dengan menambahkannya, kita memperoleh
+    <md>
+        C(x) = x + C^2(x).
+    </md>
+        Persamaan ini merupakan persamaan kuadrat dalam <m>C(x)</m>, sehingga kita dapat menyelesaikannya untuk <m>C(x)</m> dan memperoleh
+        <md>
+            C(x) = \frac{1\pm \sqrt{1-4x}}{2} = \frac{1\pm (1-4x)^{1/2}}{2} .
+        </md>
+        Dengan demikian, kita dapat menggunakan <xref ref="thm_newton-binomial" text="title"/> untuk menguraikan <m>C(x)</m>. Untuk melakukannya, kita menggunakan lemma berikut. Buktinya hampir sama dengan bukti <xref ref="l_newbinom"/>, sehingga tidak disertakan.
+    </p>
+
+    <lemma xml:id="l_half-binomial">
+        <statement>
+            <p>
+                Untuk setiap <m>k\ge 1</m>,
+                <md>
+                    \binom{1/2}{k}=\frac{(-1)^{k-1}}{k}\frac{\binom{2k-2}{k-1}}{2^{2k-1}}.
+                </md>
+            </p>
+        </statement>
+    </lemma>
+
+    <p>Sekarang kita melihat bahwa
+    <md>
+        <mrow>  C(x) \amp = \frac{1}{2} \pm \frac{1}{2} \sum_{n=0}^\infty\binom{1/2}{n}
+        (-4)^n x^n 
+        = \frac{1}{2} \pm \frac{1}{2}\left(1+ \sum_{n=1}^\infty
+        \frac{(-1)^{n-1}}{n}\frac{\binom{2n-2}{n-1}}{2^{2n-1}}(-4)^n
+        x^n\right)</mrow>
+        <mrow>  \amp =
+        \frac{1}{2} \pm\frac{1}{2} \mp\sum_{n=1}^\infty \frac{\binom{2n-2}{n-1}}{n} x^n.</mrow>
+    </md>
+        Karena kita memerlukan <m>c_n\geq 0</m>, kita memilih tanda <q>minus</q> dari pilihan <q>plus-atau-minus</q> dalam rumus kuadrat dan dengan demikian memperoleh teorema berikut.
+    </p>
+
+    <theorem xml:id="thm_catalan-genfunction">
+        <statement>
+            <p>Fungsi pembangkit bagi bilangan <m>c_n</m> yang menyatakan banyaknya pohon berakar, tak berlabel, biner, dan terurut dengan <m>n</m> daun adalah
+            <md>
+                C(x) = \frac{1-\sqrt{1-4x}}{2} = \sum_{n=1}^\infty \frac{1}{n}\binom{2n-2}{n-1}x^n.
+            </md>
+            </p>
+        </statement>
+    </theorem>
+
+    <p>Perhatikan bahwa <m>c_n</m> merupakan bilangan Catalan, yang pertama kali kita jumpai dalam <xref ref="ch_strings"/> ketika kita mencacah lintasan kisi yang tidak memotong garis diagonal <m>y=x</m>. (Koefisien <m>c_n</m> adalah bilangan Catalan yang kita sebut <m>C(n-1)</m> dalam <xref ref="ch_strings"/>.)
+    </p>
+</section>

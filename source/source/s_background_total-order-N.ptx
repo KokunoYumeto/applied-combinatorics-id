@@ -1,0 +1,91 @@
+<section xml:id="s_background_total-order-N">
+    <title>Urutan Total pada Bilangan Asli</title>
+    <idx><h>urutan</h><h>total</h><h>pada bilangan asli</h></idx>
+    <p>Misalkan <m>m,n\in \nonnegints</m>. Definisikan relasi biner <m>\le</m> pada <m>\nonnegints</m> dengan menetapkan bahwa <m>m\le n</m> jika dan hanya jika terdapat bilangan asli <m>p</m> sedemikian sehingga <m>m+p=n</m>.
+    </p>
+
+    <proposition>
+        <statement>
+            <p>
+                <m>\le</m> merupakan urutan total pada <m>\nonnegints</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p><m>\le</m> bersifat refleksif karena <m>n+0=n</m>, sehingga <m>n\le n</m> untuk semua <m>n\in \nonnegints</m>. Selanjutnya, kita tunjukkan bahwa <m>\le</m> bersifat antisimetris. Misalkan <m>m,n\in\nonnegints</m> dan andaikan <m>m\le n</m> serta <m>n\le m</m>. Maka terdapat bilangan asli <m>p</m> dan <m>q</m> sedemikian sehingga <m>m+p=n</m> dan <m>n+q=m</m>. Akibatnya,
+            <md>
+                m+(p+q)= (m+p)+q=n+q =m=m+0
+            </md>
+            Oleh karena itu, <m>p+q=0</m>, yang mengakibatkan <m>p=q=0</m>. Jadi, <m>m+p=m+0=m=n</m>.
+            </p>
+
+            <p>Selanjutnya, kita tunjukkan bahwa <m>\le</m> bersifat transitif. Andaikan <m>m,n,p\in \nonnegints</m>, <m>m\le n</m>, dan <m>n\le p</m>. Maka terdapat bilangan asli <m>q</m> dan <m>r</m> sedemikian sehingga <m>m+q=n</m> dan <m>n+r=p</m>. Dengan demikian,
+            <md>
+                m+(q+r)=(m+q)+r=n+r=p.
+            </md>
+            Jadi, <m>m\le p</m>, dan kita telah menunjukkan bahwa <m>\le</m> merupakan urutan parsial pada <m>\nonnegints</m>.
+            </p>
+
+            <p>Terakhir, kita tunjukkan bahwa <m>\le</m> merupakan urutan total. Untuk itu, pilih sebarang unsur <m>m\in\nonnegints</m> dan tunjukkan bahwa untuk setiap <m>n\in\nonnegints</m>, berlaku <m>m\le n</m> atau <m>n\le m</m>. Kita menggunakan induksi pada <m>n</m>. Pertama, andaikan <m>n=0</m>. Karena <m>0+m=m</m>, kita menyimpulkan bahwa <m>0\le m</m>. Sekarang andaikan bahwa untuk suatu <m>k\in\nonnegints</m>, berlaku <m>m\le k</m>. Maka terdapat bilangan asli <m>p</m> sedemikian sehingga <m>m+p=k</m>. Jadi, <m>m+(p+1) =(m+p)+1=k+1</m>, sehingga <m>m\le k+1</m>.
+            </p>
+
+            <p>Di sisi lain, andaikan bahwa untuk suatu <m>k\in\nonnegints</m>, berlaku <m>k\le m</m>. Jika <m>k=m</m>, maka <m>m\le k</m> dan, seperti di atas, <m>m\le k+1</m>. Sekarang andaikan bahwa <m>k\le m</m> dan <m>k\neq m</m>. Karena <m>k\le m</m>, terdapat bilangan asli <m>p</m> sedemikian sehingga <m>k+p=m</m>. Karena <m>k\neq m</m>, kita mengetahui bahwa <m>p\neq 0</m>. Oleh karena itu, terdapat bilangan asli <m>q</m> sedemikian sehingga <m>p=q+1</m>. Maka <m>m=k+p=k+(q+1)=(k+1)+q</m>, yang menunjukkan bahwa <m>k+1\le m</m>.
+            </p>
+        </proof>
+    </proposition>
+
+    <p>Perhatikan bahwa jika <m>m,n\in\nonnegints</m>, maka <m>m\lt n</m> jika dan hanya jika terdapat bilangan asli <m>p\neq 0</m> sedemikian sehingga <m>m+p=n</m>.
+    </p>
+
+    <theorem>
+        <title>Hukum Kemonotonan Penjumlahan</title>
+        <statement>
+            <p>Misalkan <m>m,n,p\in \nonnegints</m>. Jika <m>m\le n</m>, maka <m>m+p\le n+p</m>. Selain itu, jika <m>m\lt n</m>, maka <m>m+p\lt n+p</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Cukup dibuktikan bahwa jika <m>m,n\in \nonnegints</m> dengan <m>m\lt n</m>, maka <m>m+p\lt n+p</m> untuk setiap <m>p\in\nonnegints</m>. Misalkan <m>q\neq0</m> adalah bilangan asli yang memenuhi <m>m+q =n</m>. Sekarang misalkan <m>p\in \nonnegints</m>. Maka <m>(m+p)+q=(m+q)+p=n+p</m>, sehingga <m>m+p \lt n+p</m>.
+            </p>
+        </proof>
+    </theorem>
+
+    <lemma>
+        <statement>
+            <p>Jika <m>m,n\in \nonnegints</m>, <m>m\neq0</m>, dan <m>n\neq0</m>, maka <m>mn\neq0</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Andaikan sebaliknya bahwa <m>m,n\in \nonnegints</m>, <m>m\neq0</m>, <m>n\neq0</m>, dan <m>mn=0</m>. Misalkan <m>n=s(p)</m>. Maka <m>0=mn= ms(p)+m</m>, yang mengharuskan <m>m=0</m>. Ini sebuah kontradiksi.
+            </p>
+        </proof>
+    </lemma>
+
+    <theorem>
+        <title>Hukum Kemonotonan Perkalian</title>
+        <statement>
+            <p>Misalkan <m>m,n,p\in \nonnegints</m>. Jika <m>m\le n</m>, maka <m>mp\le np</m>. Selain itu, jika <m>m\lt n</m> dan <m>p\neq0</m>, maka <m>mp\lt np</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Hanya pernyataan terakhir yang perlu dibuktikan. Misalkan <m>m,n\in\nonnegints</m> dengan <m>m\lt n</m>. Maka <m>m+q=n</m> untuk suatu <m>q\neq0</m>. Dengan demikian, <m>np=(m+q)p=mp+pq</m>. Karena <m>pq\neq0</m>, kita menyimpulkan bahwa <m>mp\lt np</m>.
+            </p>
+        </proof>
+    </theorem>
+
+    <corollary>
+        <title>Hukum Pembatalan Perkalian</title>
+        <statement>
+            <p>Jika <m>m,n,p\in \nonnegints</m>, <m>mp=np</m>, dan <m>p\neq 0</m>, maka <m>m=n</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Jika <m>m\lt n</m>, maka <m>mp\lt np</m>, dan jika <m>n\lt m</m>, maka <m>np\lt mp</m>. Kita menyimpulkan bahwa <m>m=n</m>.
+            </p>
+        </proof>
+    </corollary>
+
+</section>

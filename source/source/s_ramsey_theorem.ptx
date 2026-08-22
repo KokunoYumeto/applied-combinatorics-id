@@ -1,0 +1,21 @@
+<section xml:id="s_ramsey_theorem">
+    <title>Teorema Ramsey</title>
+    <idx><h>teorema Ramsey</h></idx>
+    <p>Pada tahap ini, Anda mungkin tidak terkejut mengetahui bahwa terdapat bentuk Teorema Ramsey yang sangat umum. Kita mempunyai sejumlah berhingga wadah atau warna dan menempatkan himpunan-himpunan bagian berukuran tetap ke dalam kategori-kategori tersebut. Kesimpulannya ialah bahwa terdapat suatu himpunan besar yang diperlakukan secara seragam.
+    </p>
+
+    <p>
+        Berikut pernyataan formalnya.
+    </p>
+
+    <theorem xml:id="thm_genramsey">
+        <idx><h>teorema Ramsey</h></idx>
+        <statement>
+            <p>Misalkan <m>r</m> dan <m>s</m> merupakan bilangan bulat positif, serta misalkan <m>\mathbf{h}=(h_1,h_2,\dots,h_r)</m> merupakan untai bilangan bulat dengan <m>h_i\ge s</m> untuk setiap <m>i=1,2,\dots,r</m>. Maka terdapat bilangan bulat positif terkecil <m>R(s:h_1,h_2,\dots,h_r)</m> sedemikian sehingga jika <m>n\ge R(s:h_1,h_2,\dots,h_r)</m> dan <m>\phi:C([n],s)\longrightarrow [r]</m> merupakan sebarang fungsi, maka terdapat bilangan bulat <m>\alpha\in[r]</m> dan himpunan bagian <m>H_\alpha\subseteq [n]</m> dengan <m>|H_\alpha|=h_\alpha</m> sedemikian sehingga <m>\phi(S)=\alpha</m> untuk setiap <m>S\in C(H_\alpha, s)</m>.
+            </p>
+        </statement>
+    </theorem>
+
+    <p>Kita tidak menyertakan bukti pernyataan umum ini, tetapi mahasiswa yang lebih berambisi dapat mencoba membuktikannya sendiri. Perhatikan bahwa kasus <m>s=1</m> hanyalah <xref ref="prop_pigeon" text="title"/>, sedangkan kasus <m>s=r=2</m> hanyalah <xref ref="thm_graphramsey" text="title"/>. Bukti untuk kasus umum memerlukan argumen induksi ganda. Induksi pertama dilakukan pada <m>r</m> dan induksi kedua pada <m>s</m>.
+    </p>
+</section>

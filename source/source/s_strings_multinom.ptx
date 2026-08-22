@@ -1,0 +1,104 @@
+<section xml:id="s_strings_multinom">
+  <title>Koefisien Multinomial</title>
+  <p>Misalkan <m>X</m> merupakan himpunan dengan <m>n</m> elemen. Misalkan kita memiliki dua warna cat, yaitu merah
+    dan biru, lalu memilih himpunan bagian yang terdiri atas <m>k</m> elemen untuk dicat merah, sedangkan
+    sisanya dicat biru. Banyaknya cara berbeda untuk melakukannya tidak lain adalah koefisien
+    binomial <m>\binom{n}{k}</m>. Sekarang, misalkan kita memiliki tiga warna berbeda, yaitu merah, biru,
+    dan hijau. Kita memilih <m>k_1</m> elemen untuk dicat merah, <m>k_2</m> elemen untuk dicat biru, dan
+    <m>k_3 = n - (k_1+k_2)</m> elemen sisanya untuk dicat hijau. Kita dapat menghitung banyaknya cara
+    dengan terlebih dahulu memilih <m>k_1</m> dari <m>n</m> elemen untuk dicat merah, kemudian, dari
+    <m>n-k_1</m> elemen yang tersisa, memilih <m>k_2</m> untuk dicat biru, lalu mengecat
+    <m>k_3</m> elemen sisanya dengan warna hijau. Mudah dilihat bahwa banyaknya cara tersebut adalah <md>
+    \binom{n}{k_1}\binom{n-k_1}{k_2} = \frac{n!}{k_1!(n-k_1)!}
+      \frac{(n-k_1)!}{k_2!(n-(k_1+k_2))!} = \frac{n!}{k_1!k_2!k_3!}
+    </md>
+    Bilangan berbentuk demikian disebut <term>koefisien multinomial</term><idx>
+      <h>koefisien multinomial</h>
+    </idx>; koefisien ini merupakan generalisasi langsung dari koefisien
+    binomial. Jika indeks-indeks bawahnya adalah bilangan bulat tak negatif yang berjumlah n, notasi umumnya adalah: <md>
+    \binom{n}{k_1,k_2,k_3,\dots,k_r}=\frac{n!}{k_1!k_2!k_3!\dots k_r!}.
+    </md>
+    <notation>
+      <usage>
+        <m>\binom{n}{k_1,k_2,k_3,\dots,k_r}</m>
+      </usage>
+      <description>koefisien multinomial n pilih k satu, k dua, dan seterusnya hingga k r</description>
+    </notation>
+  </p>
+  <p> Sebagai contoh, <md>
+      \binom{8}{3,2,1,2}=\frac{8!}{3!2!1!2!}=
+      \frac{40320}{6\cdot2\cdot1\cdot2}=1680.
+    </md>
+  </p>
+  <p>Perhatikan bahwa notasi ini agak <q>berlebihan</q>, karena nilai <m>k_r</m>
+    ditentukan oleh <m>n</m> serta nilai <m>k_1</m> dan <m>k_2,\dots,k_{r-1}</m>. Sebagai contoh,
+    untuk koefisien binomial biasa, kita cukup menulis <m>\binom{8}{3}</m>, bukan <m>
+    \binom{8}{3,5}</m>. </p>
+
+  <example>
+    <statement>
+      <p> Berapa banyak susunan ulang berbeda dari string berikut: <md>
+        \text{MITCHELTKELLERANDWILLIAMTTROTTERAREGENIUSES!!}
+        </md> yang
+        mungkin jika semua huruf dan karakter harus digunakan? </p>
+    </statement>
+    <solution>
+      <p>Untuk menjawab pertanyaan ini, perhatikan bahwa seluruhnya terdapat <m>45</m> karakter dengan rincian
+        sebagai berikut: 3<nbsp/>huruf A, 1<nbsp/>huruf C, 1<nbsp/>huruf D, 7<nbsp/>huruf E, 1<nbsp/>huruf G, 1<nbsp/>huruf H, 4<nbsp/>huruf I,
+        1<nbsp/>huruf K, 5<nbsp/>huruf L, 2<nbsp/>huruf M, 2<nbsp/>huruf N, 1<nbsp/>huruf O, 4<nbsp/>huruf R, 2<nbsp/>huruf S,
+        6<nbsp/>huruf T, 1<nbsp/>huruf U, 1<nbsp/>huruf W, dan 2<nbsp/>tanda seru. Jadi, banyaknya susunan ulang adalah <md>
+        \frac{45!}{3!1!1!7!1!1!4!1!5!2!2!1!4!2!6!1!1!2!}.
+        </md>
+      </p>
+    </solution>
+  </example>
+  <p>Seperti halnya koefisien binomial dan Teorema Binomial, koefisien multinomial muncul
+    dalam ekspansi pangkat suatu multinomial:
+  </p>
+
+  <theorem xml:id="thm-strings-multinomial">
+    <title>Teorema Multinomial</title>
+    <idx>
+      <h>teorema multinomial</h>
+    </idx>
+    <statement>
+      <p>Misalkan <m>x_1, x_2, \dots, x_r</m> merupakan bilangan real tak nol dengan <m>\sum_{i=1}^r x_i\neq 0</m>.
+        Maka, untuk setiap <m>n\in \nni</m>, <md>
+          (x_1+x_2+\cdots + x_r)^n =
+          \sum_{k_1+k_2+\cdots+k_r=n}\binom{n}{k_1,k_2,\dots,k_r}
+          x_1^{k_1}x_2^{k_2}\cdots x_r^{k_r}.
+        </md>
+      </p>
+    </statement>
+  </theorem>
+
+  <example xml:id="exa_strings_multinom">
+    <statement>
+      <p>Berapakah koefisien dari <m>x^{99}y^{60}z^{14}</m> dalam <m>(2x^3+y-z^2)^{100}</m>? Bagaimana
+        dengan <m>x^{99}y^{61}z^{13}</m>? </p>
+    </statement>
+    <solution>
+      <p>Menurut Teorema Multinomial, ekspansi <m>(2x^3+y-z^2)^{100}</m> memiliki suku-suku berbentuk
+        <md>
+          \binom{100}{k_1,k_2,k_3} (2x^3)^{k_1}y^{k_2}(-z^2)^{k_3} =
+          \binom{100}{k_1,k_2,k_3} 2^{k_1}x^{3k_1}y^{k_2}(-1)^{k_3}z^{2k_3}.
+        </md>
+        Suku <m>x^{99}y^{60}z^{14}</m> muncul ketika <m>k_1 = 33</m>, <m>k_2=60</m>, dan <m>k_3=7</m>,
+        sehingga koefisiennya adalah <md>
+          -\binom{100}{33,60,7}2^{33}.
+        </md> Untuk <m>x^{99}y^{61}z^{13}</m>,
+        pangkat <m>z</m> bernilai ganjil, sedangkan hal itu tidak mungkin muncul dalam ekspansi <m>
+        (2x^3+y-z^2)^{100}</m>; jadi, koefisiennya adalah <m>0</m>. </p>
+    </solution>
+  </example>
+  <reading-questions xml:id="rqs-strings_multinom" component="runestone">
+    <exercise label="appcomb_strings_multinom_reading">
+      <statement>
+        <p>
+          Perhatikan kembali trinomial dalam <xref ref="exa_strings_multinom"/>. Berapakah koefisien dari <m>x^{30}y^{80}z^{10}</m> dalam ekspansi tersebut? Jelaskan penalaran Anda. 
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

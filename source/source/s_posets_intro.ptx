@@ -1,0 +1,259 @@
+<section xml:id="s_posets_intro">
+  <title>Notasi dan Terminologi Dasar</title>
+  <p>Suatu <term>himpunan terurut parsial</term> atau <term>poset</term><idx>
+      <h>himpunan terurut parsial</h>
+    </idx><idx>
+      <h>poset</h>
+    </idx> <m>\bfP</m> adalah pasangan <m>(X,P)</m>, dengan <m>X</m> sebagai suatu himpunan dan <m>P</m>
+    sebagai relasi biner yang refleksif, antisimetris, dan transitif pada <m>X</m>. (Jika perlu, lihat <xref ref="s_background_order"/> untuk menyegarkan kembali pengertian sifat-sifat ini.) Kita
+    menyebut <m>X</m> sebagai <term>himpunan dasar</term><idx>
+      <h>himpunan dasar</h>
+    </idx>, sedangkan <m>P</m> merupakan <term>urutan parsial</term><idx>
+      <h>urutan</h>
+      <h>parsial</h>
+    </idx> pada <m>X</m>. Elemen-elemen himpunan dasar <m>X</m> juga disebut <term>
+    titik</term>, dan poset <m>\bfP</m> disebut <term>hingga</term> jika himpunan dasarnya <m>X</m> merupakan
+    himpunan hingga. </p>
+  <example xml:id="exa_binaryrel">
+    <statement>
+      <p>Misalkan <m>X=\{a,b,c,d,e,f\}</m>. Perhatikan relasi-relasi biner berikut pada <m>X</m>. <md>
+          <mrow>R_1=\{\amp (a,a),(b,b),(c,c),(d,d),(e,e),(f,f),(a,b),(a,c),(e,f)\}</mrow>
+          <mrow>R_2=\{\amp (a,a),(b,b),(c,c),(d,d),(e,e),(f,f),(d,b),(d,e),(b,a),(e,a),</mrow>
+          <mrow>\amp(d,a),(c,f)\}</mrow>
+          <mrow>R_3=\{\amp(a,a),(b,b),(c,c),(d,d),(e,e),(f,f),(a,c),(a,e),(a,f),(b,c),</mrow>
+          <mrow>\amp(b,d),(b,e),(b,f),(d,e),(d,f),(e,f)\}</mrow>
+          <mrow>R_4=\{\amp(a,a),(b,b),(c,c),(d,d),(e,e),(f,f),(d,b),(b,a),(e,a),(c,f)\}</mrow>
+          <mrow>R_5=\{\amp(a,a),(c,c),(d,d),(e,e),(a,e),(c,a),(c,e),(d,e)\}</mrow>
+          <mrow>R_6=\{\amp(a,a),(b,b),(c,c),(d,d),(e,e),(f,f),(d,f),(b,e),(c,a),(e,b)\}</mrow>
+        </md>
+        Relasi biner mana saja yang merupakan urutan parsial pada <m>X</m>? Untuk relasi yang bukan urutan
+        parsial pada <m>X</m>, sifat apa saja yang dilanggar? </p>
+    </statement>
+    <solution>
+      <p>Pemeriksaan singkat memastikan bahwa <m>R_1</m>, <m>R_2</m>, dan <m>R_3</m> merupakan urutan parsial pada <m>
+        X</m>, sehingga <m>\bfP_1=(X,R_1)</m>, <m>\bfP_2=(X,R_2)</m>, dan <m>\bfP_3=(X,R_3)</m> merupakan poset.
+        Beberapa contoh lain yang akan kita bahas dalam bab ini menggunakan poset <m>
+        \bfP_3=(X,R_3)</m>. </p>
+
+      <p>Sebaliknya, <m>R_4</m>, <m>R_5</m>, dan <m>R_6</m> bukan urutan parsial pada <m>X</m>.
+        Perhatikan bahwa <m>R_4</m> tidak transitif karena memuat <m>(d,b)</m> dan <m>(b,a)</m>, tetapi tidak memuat <m>
+        (d,a)</m>. Relasi <m>R_5</m> tidak refleksif karena tidak memuat <m>(b,b)</m>.
+        (Relasi ini juga tidak memuat <m>(f,f)</m>, tetapi satu kekurangan saja sudah cukup.) Perhatikan bahwa <m>
+        R_5</m> merupakan urutan parsial pada <m>\{a,c,d,e\}</m>. Relasi <m>R_6</m> tidak
+        antisimetris karena memuat <m>(b,e)</m> dan <m>(e,b)</m> sekaligus. </p>
+    </solution>
+  </example>
+
+  <p>Jika <m>\PXP</m> merupakan poset, lazim ditulis <m>x\le y</m> dalam <m>P</m> atau <m>y\ge x</m>
+    dalam <m>P</m> sebagai pengganti <m>(x,y)\in P</m>. Tentu saja, notasi <m>x\lt y</m> dalam <m>P</m>
+    dan <m>y&gt;x</m> dalam <m>P</m> berarti <m>x\le y</m> dalam <m>P</m> dan <m>x\ne y</m>. Jika poset <m>
+    \bfP</m> tetap sepanjang suatu pembahasan, kita terkadang menyingkat <m>x\le y</m> dalam <m>
+    P</m> dengan hanya menulis <m>x\le y</m>, <etc/> Jika <m>x</m> dan <m>y</m> merupakan titik-titik berbeda dari <m>
+    X</m>, kita mengatakan bahwa <m>x</m> <term>ditutupi</term><idx>
+      <h>penutup</h>
+    </idx> oleh <m>y</m> dalam <m>P</m><fn>Mencerminkan ragam ungkapan dalam bahasa Inggris,
+    matematikawan menggunakan frasa-frasa berikut secara bergantian: (1) <m>x</m> ditutupi oleh <m>y</m> dalam <m>P</m>; (2)<nbsp/><m>
+    y</m> menutupi <m>x</m> dalam <m>P</m>; dan (3)<nbsp/><m>(x,y)</m> merupakan penutup dalam <m>P</m>.</fn> jika <m>x\lt y</m> dalam <m>P</m> dan tidak ada titik <m>z\in X</m> yang
+    memenuhi <m>x\lt z</m> dan <m>z\lt y</m> dalam <m>P</m>. Sebagai contoh, dalam poset <m>\bfP_3=(X,R_3)</m>
+    dari <xref ref="exa_binaryrel"/>, <m>d</m> ditutupi oleh <m>e</m> dan <m>c</m> menutupi <m>b</m>.
+    Namun, <m>a</m> tidak ditutupi oleh <m>f</m> karena <m>a\lt e\lt f</m> dalam <m>R_3</m>. Selanjutnya,
+    kita dapat mengaitkan poset <m>\bfP</m> dengan sebuah <term>graf penutup</term><idx>
+      <h>graf</h>
+      <h>penutup</h>
+    </idx> <m>\mathbf{G}</m> yang himpunan simpulnya adalah himpunan dasar <m>X</m> dari <m>\bfP</m>,
+    dengan <m>xy</m> sebagai sisi dalam <m>\mathbf{G}</m> jika dan hanya jika salah satu dari <m>x</m> dan <m>y</m> menutupi
+    yang lainnya dalam <m>\bfP</m>. Sekali lagi, untuk poset <m>\bfP_3</m> dari <xref ref="exa_binaryrel"/>,
+    graf penutup ditampilkan di sisi kiri <xref ref="fig_covergraphs"/>. Sebenarnya, sisi
+    kanan gambar tersebut hanyalah penggambaran lain dari graf yang sama. </p>
+  <figure xml:id="fig_covergraphs">
+    <caption>Graf Penutup</caption>
+    <image width="55%" source="covergraphs"><description><p>Dua penggambaran graf penutup yang sama pada titik a, b, c, d, e, dan f, dengan sisi a–c, a–e, b–c, b–d, d–e, dan e–f. Gambar kanan menempatkan setiap titik yang lebih besar di atas titik yang ditutupinya sehingga membentuk diagram Hasse.</p>
+    </description></image>
+  </figure>
+  <p>Poset dapat digambarkan dengan mudah melalui diagram graf penutup yang ditata secara tepat pada
+    bidang Euklides. Kita memilih sistem koordinat horizontal/vertikal baku pada bidang dan
+    mensyaratkan agar koordinat vertikal titik yang bersesuaian dengan <m>y</m> lebih besar daripada
+    koordinat vertikal titik yang bersesuaian dengan <m>x</m> setiap kali <m>y</m> menutupi <m>x</m> dalam <m>
+    P</m>. Setiap sisi dalam graf penutup direpresentasikan oleh ruas garis lurus yang tidak memuat
+    titik yang bersesuaian dengan elemen poset mana pun selain kedua titik
+    ujungnya. Diagram semacam ini disebut <term>diagram Hasse</term><idx>
+      <h>diagram Hasse</h>
+    </idx> (<term>diagram poset, diagram urutan</term>, atau cukup <term>
+    diagram</term>). Sekarang jelas bahwa gambar di sisi kanan <xref ref="fig_covergraphs"/> merupakan diagram poset <m>\bfP_3</m> dari <xref ref="exa_binaryrel"/>, sedangkan gambar di sisi kiri bukan. </p>
+
+  <p>Untuk poset berukuran sedang, diagram sering digunakan untuk mendefinisikan poset<mdash/>alih-alih
+    notasi relasi biner eksplisit seperti pada <xref ref="exa_binaryrel"/>. Pada <xref ref="fig_17ptposet"/>, kita menggambarkan poset <m>\PXP</m> dengan himpunan dasar <m>
+    X=[18]=\{1,2,\dots,18\}</m>. Diperlukan beberapa baris teks untuk menuliskan relasi biner
+    <m>P</m> secara lengkap, sedangkan diagram memberi kita gambaran yang lebih nyata mengenai
+    sifat-sifat poset tersebut. </p>
+  <figure xml:id="fig_17ptposet">
+    <caption>Poset pada 18 Titik</caption>
+    <image width="65%" source="17ptposet"><description><p>Diagram Hasse suatu poset pada 18 titik berlabel. Pasangan titik yang dihubungkan oleh sisi penutup adalah delapan belas–tujuh belas, delapan–sepuluh, sepuluh–empat, empat–lima, tujuh–tiga belas, delapan–enam belas, lima belas–tujuh, sebelas–tujuh, sepuluh–enam, enam–sembilan, sepuluh–dua, tiga belas–delapan belas, sebelas–delapan belas, tiga belas–satu, sembilan–empat belas, tiga–sembilan, tiga–dua belas, dua belas–empat belas, enam–lima, dan lima–dua belas.</p>
+    </description></image>
+  </figure>
+  <remark>
+    <p>Alice dan Bob sedang membicarakan cara berkomunikasi dengan komputer ketika bekerja dengan poset.
+      Bob mengatakan bahwa komputer masa kini memiliki kemampuan grafis yang luar biasa dan Anda cukup
+      memberikan pindaian PDF suatu diagram kepada komputer. Alice mengatakan bahwa ia meragukan ada orang yang benar-benar
+      melakukannya. Carlos mengatakan bahwa ada beberapa strategi yang efektif. Salah satu caranya adalah melabeli titik-titik
+      dengan bilangan bulat positif dari <m>[n]</m>, dengan <m>n</m> sebagai banyaknya titik dalam himpunan
+      dasar, lalu mendefinisikan matriks <m>0</m><ndash/><m>1</m> berukuran <m>n\times n</m>, yaitu <m>A</m>, dengan entri <m>
+      a(i,j)=1</m> jika <m>i\le j</m> dalam <m>P</m> dan <m>a(i,j)=0</m> jika tidak. Sebagai alternatif, Anda
+      dapat memberikan, untuk setiap elemen <m>x</m> dalam himpunan dasar, sebuah vektor <m>U(x)</m> yang memuat semua
+      elemen yang lebih besar daripada <m>x</m> dalam <m>P</m>. Vektor ini dapat berbentuk apa yang oleh ilmuwan
+      komputer disebut <term>senarai berantai</term>. </p>
+  </remark>
+  <p>Urutan parsial <m>P</m> disebut <term>urutan total</term><idx>
+      <h>urutan</h>
+      <h>total</h>
+    </idx> (juga disebut <term>urutan linear</term><idx>
+      <h>urutan</h>
+      <h>linear</h>
+    </idx>) jika untuk setiap <m>x,y\in X</m>, berlaku <m>x\le y</m> dalam <m>P</m> atau <m>y\le
+    x</m> dalam <m>P</m>. Untuk himpunan hingga berukuran kecil, kita dapat menentukan suatu urutan linear dengan mendaftarkan elemen-elemennya
+    dari yang terkecil hingga yang terbesar. Sebagai contoh, <m>L=[b,c,d,a,f,g,e]</m> merupakan urutan linear pada himpunan
+    dasar <m>\{a,b,c,d,e,f,g\}</m> dengan <m>b\lt c\lt d\lt a\lt f\lt g\lt e</m> dalam <m>L</m>. </p>
+
+  <p>Himpunan bilangan real dilengkapi dengan urutan total alami. Sebagai contoh, <m>1\lt 7/5\lt
+    \sqrt{2}\lt \pi</m> dalam urutan ini. Namun, dalam bab ini kita terutama tertarik pada
+    urutan parsial yang <em>bukan</em> urutan linear. Kita juga perlu berhati-hati ketika
+    membahas urutan parsial pada himpunan dasar yang elemen-elemennya merupakan bilangan real. Pada
+    poset yang ditampilkan dalam <xref ref="fig_17ptposet"/>, perhatikan bahwa <m>14</m> lebih kecil daripada <m>8</m>, sedangkan <m>
+    3</m> dan <m>6</m> tidak dapat dibandingkan. Sebaiknya jangan memberi tahu orang tua Anda bahwa Anda telah mempelajari bahwa,
+    dalam keadaan tertentu, <m>14</m> dapat lebih kecil daripada <m>8</m> dan bahwa Anda mungkin tidak dapat mengatakan
+    mana di antara <m>3</m> dan <m>6</m> yang lebih besar. Nuansa ini mungkin akan hilang dalam perdebatan sengit
+    yang hampir pasti menyusul. </p>
+
+  <example xml:id="exa_construct">
+    <p>Ada beberapa cara yang cukup alami untuk membangun poset. <ol>
+        <li>
+          <p>Suatu keluarga himpunan <m>\mathcal{F}</m> terurut parsial oleh inklusi, <ie/>, tetapkan <m>A\le
+      B</m> jika dan hanya jika <m>A</m> merupakan subhimpunan dari <m>B</m>.</p>
+        </li>
+        <li>
+          <p>Suatu himpunan <m>X</m> bilangan bulat positif terurut parsial oleh keterbagian<mdash/>tanpa
+      sisa, <ie/>, tetapkan <m>m\le n</m> jika dan hanya jika <m>n\equiv 0\pmod{m}</m>.</p>
+        </li>
+        <li>
+          <p>Suatu himpunan <m>X</m> yang terdiri atas tupel bilangan real berukuran <m>t</m> terurut parsial menurut aturan <md>(a_1,a_2,\dots,a_t)\le
+      (b_1,b_2,\dots,b_t)</md> jika dan hanya jika <m>a_i\le b_i</m> dalam urutan alami pada <m>\reals</m>
+      untuk <m>i=1,2,\dots,t</m>.</p>
+        </li>
+        <li>
+          <p>Jika <m>L_1</m>, <m>L_2,\dots,L_k</m> merupakan urutan linear pada himpunan <m>X</m> yang sama, kita
+      dapat mendefinisikan urutan parsial <m>P</m> pada <m>X</m> dengan menetapkan <m>x\le y</m> dalam <m>P</m> jika dan
+      hanya jika <m>x\le y</m> dalam <m>L_i</m> untuk setiap <m>i=1,2,\dots,k</m>.</p>
+        </li>
+
+      </ol>
+    </p>
+
+    <p>Kita menggambarkan tiga konstruksi pertama dengan poset-poset pada <xref ref="fig_constructposets"/>. Seperti yang kini jelas, dalam pembahasan pada bagian paling awal
+      bab ini, Dave menggambar diagram poset yang ditentukan oleh irisan urutan-urutan linear
+      yang diberikan oleh Alice dan kritikus film. </p>
+  </example>
+
+  <figure xml:id="fig_constructposets">
+    <caption>Membangun Poset</caption>
+    <image width="80%" source="constructposets"><description><p>Tiga diagram Hasse: di kiri, keluarga himpunan yang terurut oleh inklusi; di tengah, bilangan bulat positif yang terurut oleh keterbagian, termasuk rantai tiga–dua puluh satu–dua ratus sepuluh; di kanan, tupel yang terurut koordinat demi koordinat, dengan antirantai yang terdiri atas tupel dua-lima-empat, enam-empat-lima, dan enam-tujuh-tiga.</p>
+    </description></image>
+  </figure>
+  <p>Titik-titik berbeda <m>x</m> dan <m>y</m> dalam poset <m>\PXP</m> disebut <term>dapat dibandingkan</term><idx>
+      <h>dapat dibandingkan</h>
+    </idx> jika berlaku <m>x\lt y</m> dalam <m>P</m> atau <m>x&gt;y</m> dalam <m>P</m>;
+    jika tidak, <m>x</m> dan <m>y</m> disebut <term>tidak dapat dibandingkan</term>.<idx>
+      <h>tidak dapat dibandingkan</h>
+    </idx> Jika <m>x</m> dan <m>y</m> tidak dapat dibandingkan dalam <m>\bfP</m>, terkadang kita
+    menulis <m>x\| y</m> dalam <m>\bfP</m>.<notation>
+      <usage>
+        <m>x\| y</m>
+      </usage>
+      <description><m>x</m> dan <m>y</m> tidak dapat dibandingkan</description>
+    </notation> Dengan poset <m>
+    \PXP</m>, kita mengaitkan sebuah <term>graf keterbandingan</term><idx>
+      <h>graf</h>
+      <h>keterbandingan</h>
+    </idx> <m>{\bfG}_1=(X,E_1)</m> dan sebuah <term>graf ketakterbandingan</term><idx>
+      <h>graf</h>
+      <h>ketakterbandingan</h>
+    </idx> <m>{\bfG}_2=(X,E_2)</m>. Sisi-sisi dalam graf keterbandingan <m>
+    {\bfG}_1</m> terdiri atas pasangan-pasangan yang dapat dibandingkan, sedangkan sisi-sisi dalam graf ketakterbandingan merupakan
+    pasangan-pasangan yang tidak dapat dibandingkan. Kita menggambarkan definisi ini pada <xref ref="fig_compincomp"/>, yang
+    menampilkan graf keterbandingan dan graf ketakterbandingan dari poset <m>\bfP_3</m>. </p>
+  <figure xml:id="fig_compincomp">
+    <caption>Graf Keterbandingan dan Ketakterbandingan</caption>
+    <image width="70%" source="compincomp"><description><p>Tiga panel untuk poset pada contoh relasi biner: diagram Hasse di kiri; graf keterbandingan di tengah dengan sisi a–c, a–e, a–f, b–c, b–d, b–e, b–f, d–e, d–f, dan e–f; serta graf ketakterbandingan di kanan dengan sisi a–b, a–d, c–d, c–e, dan c–f.</p>
+    </description></image>
+  </figure>
+
+  <p>Jika <m>\PXP</m> merupakan poset dan <m>Y\subseteq X</m>, relasi biner <m>Q=P\cap(Y\times Y)</m>
+    merupakan urutan parsial pada <m>Y</m>, dan kita menyebut poset <m>(Y,Q)</m> sebagai <term>subposet</term><idx>
+      <h>subposet</h>
+    </idx> dari <m>\bfP</m>. Pada <xref ref="fig_subposet"/>, kita menampilkan sebuah subposet
+    dari poset yang pertama kali disajikan dalam <xref ref="fig_17ptposet"/>. </p>
+  <figure xml:id="fig_subposet">
+    <caption>Sebuah Subposet</caption>
+    <image width="40%" source="subposet"><description><p>Diagram Hasse sebuah subposet dengan dua komponen. Komponen kiri memiliki sisi penutup delapan–enam, delapan–enam belas, enam–empat belas, dan tiga–empat belas. Komponen kanan memiliki sisi penutup lima belas–tiga belas, sebelas–tiga belas, tujuh belas–tiga belas, dan tiga belas–satu.</p>
+    </description></image>
+  </figure>
+  <p>Jika <m>\PXP</m> merupakan poset dan <m>C</m> adalah subhimpunan dari <m>X</m>, kita menyebut <m>C</m> sebagai <term>
+    rantai</term><idx>
+      <h>rantai</h>
+    </idx> jika setiap pasangan titik berbeda dari <m>C</m> dapat dibandingkan dalam <m>P</m>.
+    Jika <m>P</m> merupakan urutan linear, seluruh himpunan dasar <m>X</m> adalah rantai. Secara dual, jika <m>A</m>
+    merupakan subhimpunan dari <m>X</m>, kita menyebut <m>A</m> sebagai <term>antirantai</term><idx>
+      <h>antirantai</h>
+    </idx> jika setiap pasangan titik berbeda dari <m>A</m> tidak dapat dibandingkan dalam <m>
+    P</m>. Perhatikan bahwa subhimpunan berelemen tunggal merupakan rantai sekaligus antirantai. Kita juga menganggap
+    himpunan kosong sebagai rantai sekaligus antirantai. </p>
+
+  <p><term>Tinggi</term><idx>
+      <h>tinggi</h>
+    </idx> suatu poset <m>\PXP</m>, yang dinotasikan dengan <m>\height(\bfP)</m><notation>
+      <usage>
+        <m>\height(\bfP)</m>
+      </usage>
+      <description>tinggi poset <m>\bfP</m></description>
+    </notation>, adalah bilangan terbesar <m>h</m>
+    yang untuknya terdapat rantai dengan <m>h</m> titik dalam <m>\bfP</m>. Secara dual, <term>lebar</term>
+    suatu poset <m>\PXP</m>, yang dinotasikan dengan <m>\width(\bfP)</m><notation>
+      <usage>
+        <m>\width(\bfP)</m>
+      </usage>
+      <description>lebar poset <m>\bfP</m></description>
+    </notation>, adalah bilangan terbesar <m>w</m>
+    yang untuknya terdapat antirantai dengan <m>w</m> titik dalam <m>\bfP</m>. </p>
+  <remark>
+    <p>Untuk suatu poset <m>\PXP</m>, seberapa sulit menentukan tinggi dan lebarnya? Bob mengatakan bahwa hal itu
+      sangat mudah. Sebagai contoh, untuk mencari lebar suatu poset, cukup daftarkan semua subhimpunan <m>X</m>.
+      Hapus subhimpunan yang bukan antirantai. Jawabannya adalah ukuran subhimpunan terbesar yang
+      tersisa. Ia segera menyatakan bahwa pendekatan yang sama dapat digunakan untuk mencari tinggi. Alice
+      mengeluh melihat kepolosan Bob dan menyarankan agar ia membaca lebih lanjut dalam bab ini. </p>
+  </remark>
+  <reading-questions xml:id="rqs-posets_intro" component="runestone">
+    <exercise label="posets_intro_reading-comparable">
+      <statement>
+        <p>
+          Perhatikan poset pada <xref ref="fig_17ptposet"/>. Daftarkan semua elemen yang dapat dibandingkan dengan titik <m>6</m>.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="posets_intro_reading-chain">
+      <statement>
+        <p>
+          Perhatikan poset tengah pada <xref ref="fig_constructposets"/>. Berikan contoh rantai dengan tiga elemen yang memuat titik <m>21</m>.
+        </p>
+      </statement>
+      <response/>
+    </exercise>    
+    <exercise label="posets_intro_reading-antichain">
+      <statement>
+        <p>
+          Perhatikan poset paling kanan pada <xref ref="fig_constructposets"/>. Berikan contoh antirantai dengan tiga elemen yang memuat titik <m>(6,4,5)</m>.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

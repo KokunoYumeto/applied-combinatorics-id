@@ -1,0 +1,675 @@
+<section xml:id="s_inclusion-exclusion_surjections_activity" component="runestone-async">
+    <title>Aktivitas Menghitung Fungsi Surjektif</title>
+
+    <p>
+      Untuk memulai aktivitas ini, mari kita pastikan terlebih dahulu bahwa kita sepakat mengenai banyaknya suku dalam penjumlahan inklusi–eksklusi.
+    </p>
+    <exercise label="inclusion-exclusion_activity_IE-sum-terms-8">
+      <statement>
+        <p>Misalkan <m>m=8</m>. Berapa banyak suku yang terdapat dalam penjumlahan <md>\displaystyle
+          \sum_{S\subseteq [m]} (-1)^{|S|}N(S)</md>?</p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>
+              <m>2^{8-1} = 128 </m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>2^{8}-1 = 255 </m>
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>2^{8} = 256 </m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>(8-1)! </m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>8!</m>
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+  
+    <p>Sebagai contoh pertama kekuatan prinsip inklusi–eksklusi, perhatikan situasi berikut: Seorang kakek memiliki <m>15</m> lembar tiket lotre yang berbeda dan ingin membagikannya kepada keempat cucunya sedemikian sehingga setiap cucu menerima sedikitnya satu tiket. Ada berapa cara ia dapat melakukan pembagian tersebut? Sekilas, masalah ini sangat mirip dengan masalah menghitung banyaknya solusi bilangan bulat suatu persamaan, hanya saja tiket lotrenya tidak identik! Sebuah tiket bernomor <m>1</m>, <m>3</m>, <m>10</m>, <m>23</m>, <m>47</m>, dan <m>50</m> hampir pasti tidak akan memberikan hadiah yang sama besarnya dengan tiket bernomor <m>2</m>, <m>7</m>, <m>10</m>, <m>30</m>, <m>31</m>, dan <m>48</m>, sehingga siapa menerima tiket yang mana memang berpengaruh. Mudah-mudahan Anda sudah menyadari bahwa persoalan tentang tiket lotre dan cucu sebenarnya bukanlah hal yang penting di sini. Fakta yang penting justru bahwa kita ingin membagikan objek-objek yang dapat dibedakan kepada penerima-penerima yang berbeda, sehingga kita perlu menghitung fungsi dari satu himpunan (tiket lotre) ke himpunan lain (cucu). Dalam contoh kita, yang dicari bukan sekadar jumlah seluruh fungsi, melainkan jumlah fungsi surjektif, agar kita dapat memastikan bahwa setiap cucu menerima tiket.
+    </p>
+
+    <p>
+      Untuk menyamakan pemahaman, mari kita ingat kembali apa yang dimaksud dengan fungsi surjektif.
+    </p>
+    <definition xml:id="def-surjection">
+      <statement>
+        <p>
+	        Suatu fungsi <m>f\colon X\to Y</m> disebut <term>fungsi surjektif</term> jika untuk setiap <m>y\in Y</m>, terdapat sedikitnya satu <m>x\in X</m> sedemikian sehingga <m>f(x) = y</m>. Fungsi surjektif juga disebut <term>fungsi onto</term>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Cara lain untuk mendefinisikan fungsi surjektif adalah dengan memperhatikan citra fungsi tersebut; karena itu, mari kita definisikan pula citra fungsi.
+    </p>
+    <definition xml:id="def-image">
+      <statement>
+        <p>
+        <em>Citra</em> suatu fungsi <m>f\colon X\to Y</m> adalah himpunan
+        <md>
+      \{y\in Y\colon \text{ terdapat }x\in X\text{ sedemikian sehingga }f(x) = y\}</md>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Citra kadang-kadang juga disebut <term>daerah hasil</term> suatu fungsi, tetapi para penulis menggunakan istilah <q>daerah hasil</q> dengan makna yang berbeda-beda. Karena itu, kita akan menggunakan istilah <q>citra</q>, yang kemungkinan besar selaras dengan istilah yang pernah Anda jumpai dalam kuliah aljabar linear. Dengan demikian, suatu fungsi <m>f\colon X\to Y</m> merupakan fungsi surjektif jika citra <m>f</m> sama dengan himpunan <m>Y</m>.
+    </p>
+    <exercise label="inclusion-exclusion_activity_surjection">
+      <statement>
+        <p>Manakah di antara fungsi-fungsi berikut dari <m>[6]</m> ke <m>[4]</m> yang
+          merupakan fungsi surjektif?</p>
+          <sidebyside>
+            <tabular>
+              <row bottom="minor">
+                <cell><m>x</m></cell>
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>3</cell>
+                <cell>4</cell>
+                <cell>5</cell>
+                <cell>6</cell>
+              </row>
+              <row>
+                <cell><m>f(x)</m></cell>
+                <cell>3</cell>
+                <cell>3</cell>
+                <cell>3</cell>
+                <cell>2</cell>
+                <cell>4</cell>
+                <cell>2</cell>
+              </row>
+            </tabular>
+            <tabular>
+              <row bottom="minor">
+                <cell><m>x</m></cell>
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>3</cell>
+                <cell>4</cell>
+                <cell>5</cell>
+                <cell>6</cell>
+              </row>
+              <row>
+                <cell><m>g(x)</m></cell>
+                <cell>1</cell>
+                <cell>3</cell>
+                <cell>3</cell>
+                <cell>2</cell>
+                <cell>4</cell>
+                <cell>2</cell>
+              </row>
+            </tabular>
+  
+          </sidebyside>
+          <tabular>
+            <row bottom="minor">
+              <cell><m>x</m></cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+            </row>
+            <row>
+              <cell><m>h(x)</m></cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>4</cell>
+            </row>
+          </tabular>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p><m>f</m></p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p><m>g</m></p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p><m>h</m></p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>Tidak satu pun di atas</p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    <exercise label="inclusion-exclusion_activity_functions-count">
+      <statement>
+        <p>Misalkan <m>X</m> adalah himpunan semua fungsi dari <m>[n]</m> ke <m>[m]</m>. Berapa banyak elemen yang terdapat dalam himpunan <m>X</m>?</p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p><m>n^m</m></p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>n\cdot m</m></p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>P(n,m)</m></p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p><m>m^n</m></p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>P(m,n)</m></p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    <p>Untuk bilangan bulat positif <m>n</m> dan <m>m</m>, misalkan <m>S(n,m)</m> menyatakan banyaknya fungsi surjektif dari <m>[n]</m> ke <m>[m]</m>. Perhatikan bahwa <m>S(n,m)=0</m> ketika <m>n\lt m</m>. Dalam aktivitas ini, kita menerapkan rumus inklusi–eksklusi untuk menentukan rumus bagi <m>S(n,m)</m>. Kita mulai dengan menetapkan <m>X</m> sebagai himpunan semua fungsi dari <m>[n]</m> ke <m>[m]</m>. Selanjutnya, untuk setiap <m>f\in X</m> dan setiap <m>i=1,2,\dots,m</m>, kita katakan bahwa <m>f</m> memenuhi sifat <m>P_i</m> jika <m>i</m> tidak berada dalam citra <m>f</m>.
+    </p>
+    <exercise label="inclusion-exclusion_activity_function-property">
+      <statement>
+        <p>Definisikan <m>f\colon [8] \to [5]</m> sebagaimana ditunjukkan di bawah ini. Sifat-sifat manakah yang dipenuhi oleh <m>f</m>?</p>
+        <tabular>
+          <row bottom="minor">
+            <cell><m>x</m></cell>
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>3</cell>
+            <cell>4</cell>
+            <cell>5</cell>
+            <cell>6</cell>
+            <cell>7</cell>
+            <cell>8</cell>
+  
+          </row>
+          <row>
+            <cell><m>f(x)</m></cell>
+            <cell>5</cell>
+            <cell>2</cell>
+            <cell>3</cell>
+            <cell>3</cell>
+            <cell>2</cell>
+            <cell>5</cell>
+            <cell>2</cell>
+            <cell>3</cell>
+          </row>
+        </tabular>
+      </statement>
+      <choices>
+        <choice correct="yes">
+          <statement>
+            <p><m>P_1</m></p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>P_2</m></p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>P_3</m></p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p><m>P_4</m></p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>P_5</m></p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>Tidak satu pun di atas</p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+        <p>
+          Pertama-tama, mari kita fokus pada penghitungan fungsi surjektif dari <m>[8]</m> ke <m>[5]</m>.
+        </p>
+      <exercise label="act_inclusion-exclusion_surjections-8-5_properties">
+        <statement>
+          <p>
+            Himpunan <m>\mathcal{P}</m> memuat <var width="10"/> sifat.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition number="5">
+              <feedback>
+                <p>
+                  Benar! Terdapat satu sifat dalam <m>\mathcal{P}</m> untuk setiap elemen himpunan tujuan fungsi, yaitu <m>[5]</m> dalam kasus ini.
+                </p>
+              </feedback>
+            </condition>
+            <condition number="8">
+              <feedback>
+                <p>
+                  Coba lagi. Pikirkan himpunan mana di antara himpunan-himpunan yang terlibat yang menentukan sifat-sifat tersebut.
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-8-5_one-prop">
+        <statement>
+          <p>
+            Terdapat <var width="10"/> fungsi yang memenuhi <m>P_1</m> dan <var width="10"/> fungsi yang memenuhi <m>P_3</m>.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition number="65536">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string="4\^8">
+              <feedback>
+                <p>
+                  Silakan gunakan kalkulator untuk menghitung nilai jawaban Anda, lalu masukkan nilai tersebut.
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat. Silakan gunakan kalkulator untuk menghitung nilai jawaban Anda, lalu masukkan nilai tersebut.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+          <var>
+            <condition number="65536">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string="4\^8">
+              <feedback>
+                <p>
+                  Silakan gunakan kalkulator untuk menghitung nilai jawaban Anda, lalu masukkan nilai tersebut.
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat. Silakan gunakan kalkulator untuk menghitung nilai jawaban Anda, lalu masukkan nilai tersebut.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-8-5_two-prop">
+        <statement>
+          <p>
+            Terdapat <var width="10"/> fungsi yang sekaligus memenuhi <m>P_1</m> dan <m>P_3</m>.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition number="6561">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string="3\^8">
+              <feedback>
+                <p>
+                  Silakan gunakan kalkulator untuk menghitung nilai jawaban Anda, lalu masukkan nilai tersebut.
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat. Silakan gunakan kalkulator untuk menghitung nilai jawaban Anda, lalu masukkan nilai tersebut.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-8-5_two-prop-2-5">
+        <statement>
+          <p>
+            Terdapat <var width="10"/> fungsi yang sekaligus memenuhi <m>P_2</m> dan <m>P_5</m>.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition number="6561">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string="3\^8">
+              <feedback>
+                <p>
+                  Silakan gunakan kalkulator untuk menghitung nilai jawaban Anda, lalu masukkan nilai tersebut.
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat. Silakan gunakan kalkulator untuk menghitung nilai jawaban Anda, lalu masukkan nilai tersebut.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-8-5_three-prop">
+        <statement>
+          <p>
+            Misalkan <m>S\subseteq [5]</m> dengan <m>|S| = 3</m>. (Artinya, <m>S</m> adalah himpunan berunsur tiga.) Terdapat <var width="10"/> fungsi yang sekaligus memenuhi semua sifat dengan subskrip dalam <m>S</m>.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition number="256">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string="2\^8">
+              <feedback>
+                <p>
+                  Silakan gunakan kalkulator untuk menghitung nilai jawaban Anda, lalu masukkan nilai tersebut.
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat. Silakan gunakan kalkulator untuk menghitung nilai jawaban Anda, lalu masukkan nilai tersebut.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-8-5_conclusion">
+        <statement>
+          <p>
+            Dengan menggunakan rumus inklusi–eksklusi dan kalkulator daring seperti <url href="https://www.desmos.com/" visual="desmos.com">Desmos</url>, kita dapat menentukan bahwa banyaknya fungsi surjektif dari <m>[8]</m> ke <m>[5]</m> adalah <var width="10"/>.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition number="126000">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition number="331395">
+              <feedback>
+                <p>
+                  Anda sudah berada di jalur yang benar, tetapi tampaknya dalam perhitungan tersebut Anda belum memperhitungkan banyaknya himpunan berunsur <m>2</m>, banyaknya himpunan berunsur <m>3</m>, dan seterusnya.
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+
+  
+        <p>
+          Sekarang, mari kita pikirkan cara menghitung fungsi surjektif dari <m>[n]</m> ke <m>[m]</m> dengan <m>n\gt m</m>. Jawaban Anda pada aktivitas sebelumnya akan menjadi panduan yang baik, sebab sifat <q>delapan</q> pada <m>8</m> dan sifat <q>lima</q> pada <m>5</m> bukanlah hal yang menentukan.
+        </p>
+      <exercise label="act_inclusion-exclusion_surjections-formula-properties">
+        <statement>
+          <p>
+            Himpunan <m>\mathcal{P}</m> memuat <var width="10"/> sifat.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition string="m">
+              <feedback>
+                <p>
+                  Benar! Terdapat satu sifat dalam <m>\mathcal{P}</m> untuk setiap elemen himpunan tujuan fungsi, yaitu <m>[m]</m> dalam kasus ini.
+                </p>
+              </feedback>
+            </condition>
+            <condition string="n">
+              <feedback>
+                <p>
+                  Coba lagi. Pikirkan himpunan mana di antara himpunan-himpunan yang terlibat yang menentukan sifat-sifat tersebut.
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-formula_one-prop">
+        <statement>
+          <p>
+            Terdapat <var width="10"/> fungsi yang memenuhi <m>P_1</m> dan <var width="10"/> fungsi yang memenuhi <m>P_3</m>.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition string="\(m-1\)\^n">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+          <var>
+            <condition string="\(m-1\)\^n">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-formula_two-prop">
+        <statement>
+          <p>
+            Terdapat <var width="10"/> fungsi yang sekaligus memenuhi <m>P_1</m> dan <m>P_3</m>.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition string="\(m-2\)\^n">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-formula_four-prop">
+        <statement>
+          <p>
+            Misalkan <m>S\subseteq [m]</m> dengan <m>|S| = 4</m>. (Artinya, <m>S</m> adalah himpunan berunsur empat.) Terdapat <var width="10"/> fungsi yang sekaligus memenuhi semua sifat dengan subskrip dalam <m>S</m>.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition string="\(m-4\)\^n">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-formula_j-prop">
+        <statement>
+          <p>
+            Misalkan <m>S\subseteq [m]</m> dengan <m>|S| = j</m>. (Artinya, <m>S</m> adalah himpunan berunsur <m>j</m>.) Terdapat <var width="10"/> fungsi yang sekaligus memenuhi semua sifat dengan subskrip dalam <m>S</m>.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition string="\(m-j\)\^n">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-formula_j-subsets">
+        <statement>
+          <p>
+            Misalkan <m>S\subseteq [m]</m> dengan <m>|S| = j</m>. (Artinya, <m>S</m> adalah himpunan berunsur <m>j</m>.) Terdapat <var width="10"/> himpunan bagian dari <m>[m]</m> yang berukuran <m>j</m>.
+          </p>
+        </statement>
+        <setup>
+          <var>
+            <condition string="C\(m,j\)">
+              <feedback>
+                <p>
+                  Benar!
+                </p>
+              </feedback>
+            </condition>
+            <condition string=".*">
+              <feedback>
+                <p>
+                  Belum tepat. Ingat kembali koefisien binomial dari Bab 2 dan gunakan notasi <m>C(n,k)</m>.
+                </p>
+              </feedback>
+            </condition>
+          </var>
+        </setup>
+      </exercise>
+      <exercise label="act_inclusion-exclusion_surjections-formula_conclusion">
+        <statement>
+          <p>
+            Dengan menggunakan rumus inklusi–eksklusi, kita dapat menentukan bahwa rumus untuk banyaknya fungsi surjektif dari <m>[n]</m> ke <m>[m]</m> dapat dinyatakan sebagai suatu penjumlahan. Tuliskan sebaik mungkin bentuk penjumlahan tersebut dalam kotak di bawah ini.
+          </p>
+        </statement>
+        <response/>  
+      </exercise>
+
+
+    <p>Kembali ke masalah pembagian tiket lotre pada awal bagian ini, kita melihat bahwa terdapat <m>S(15,4)=1016542800</m> cara bagi sang kakek untuk membagikan <m>15</m> tiket lotrenya sedemikian sehingga setiap satu dari <m>4</m> cucunya menerima sedikitnya satu tiket.
+    </p>
+
+</section>

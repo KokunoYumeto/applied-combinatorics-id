@@ -1,0 +1,165 @@
+<section xml:id="s_graphs_planar">
+    <title>Graf Planar</title>
+    <p>Mari kita kembali ke persoalan memasang saluran air, listrik, dan gas alam menuju tiga rumah yang dibahas pada pendahuluan bab ini. Bagaimana kita dapat memodelkan persoalan tersebut dengan graf? Cara yang paling tepat ialah membuat satu simpul untuk setiap layanan utilitas dan satu simpul untuk masing-masing dari ketiga rumah. Pertanyaannya kemudian ialah apakah kita dapat menggambar graf yang memiliki sisi dari setiap layanan utilitas ke setiap rumah tanpa ada sisi yang saling berpotongan. Graf ini ditampilkan pada <xref ref="fig_graphs_utils"/>. Anda seharusnya mengenalinya sebagai graf bipartit lengkap <m>\bfK_{3,3}</m> yang telah diperkenalkan sebelumnya dalam bab ini.
+    </p>
+    <figure xml:id="fig_graphs_utils">
+        <caption>Graf yang menghubungkan rumah dengan layanan utilitas</caption>
+        <image width="55%">
+            <description><p>Graf bipartit lengkap dengan tiga simpul layanan utilitas di kiri dan tiga simpul rumah di kanan; setiap layanan terhubung ke setiap rumah, sehingga beberapa sisi berpotongan dalam tata letak ini.</p>
+        </description><latex-image>\begin{overpic}{external/k33}
+            \put(-38,92){ Air}
+            \put(-67,50){ Listrik}
+            \put(-78,5){ Gas alam}
+            \put(92,92){ Rumah 1}
+            \put(92,50){ Rumah 2}
+            \put(92,5){ Rumah 3}
+            \end{overpic}</latex-image>
+        </image>
+    </figure>
+    <p>Contoh saluran utilitas ini mungkin terasa agak dibuat-buat, sebab sebenarnya tidak ada alasan kuat yang menghalangi penyedia layanan untuk menanam salurannya pada kedalaman berbeda. Namun, pertanyaan apakah suatu graf dapat digambar pada bidang sehingga sisi-sisinya hanya berpotongan di simpul telah lama dipelajari dalam matematika dan memiliki penerapan yang berguna. Salah satu penerapannya muncul dalam perancangan mikrocip dan papan sirkuit. Dalam konteks tersebut, bahannya begitu tipis sehingga menempatkan sambungan pada kedalaman berbeda tidak mungkin dilakukan atau sangat terbatas. Banyak matematika mendalam mendasari bidang ini, dan bagian ini dimaksudkan untuk memperkenalkan beberapa konsep utamanya.
+    </p>
+
+    <p>Yang dimaksud dengan <term>penggambaran</term><idx><h>penggambaran graf</h></idx> suatu graf ialah cara mengaitkan simpul-simpulnya dengan titik-titik pada bidang Kartesius <m>\reals^2</m> dan sisi-sisinya dengan busur poligonal sederhana yang kedua ujungnya merupakan titik yang dikaitkan dengan kedua simpul ujung sisi tersebut. Busur poligonal dapat dipandang sebagai urutan berhingga ruas garis, dengan titik akhir setiap ruas garis menjadi titik awal ruas berikutnya; busur poligonal sederhana tidak memotong dirinya sendiri. (Pemilihan busur poligonal alih-alih kurva sembarang sebenarnya tidak menjadi kendala, sebab setiap kurva dapat dihampiri dengan ruas-ruas garis yang sangat, sangat, sangat pendek.) <term>Penggambaran planar</term><idx><h>penggambaran graf</h><h>planar</h></idx><idx><h>penggambaran planar</h><see>penggambaran graf, planar</see></idx> suatu graf adalah penggambaran yang membuat busur-busur poligonal bagi dua sisi hanya berpotongan pada titik yang mewakili simpul yang bersisian dengan kedua sisi tersebut. Suatu graf disebut <term>planar</term><idx><h>graf</h><h>planar</h></idx> apabila memiliki penggambaran planar. <term>Muka</term><idx><h>muka</h></idx> dari penggambaran planar suatu graf adalah daerah yang dibatasi oleh sisi dan simpul serta tidak memuat simpul atau sisi lain.
+    </p>
+
+    <p><xref ref="fig_planar"/> menampilkan penggambaran planar suatu graf dengan <m>6</m> simpul dan <m>9</m> sisi. Perhatikan bahwa salah satu sisinya digambar sebagai busur poligonal sejati, bukan sebagai ruas garis lurus. Penggambaran ini menentukan <m>5</m> daerah, karena daerah tak terbatas yang mengelilingi gambar juga dihitung.
+    </p>
+    <figure xml:id="fig_planar">
+        <caption>Penggambaran planar suatu graf</caption>
+        <image width="35%" source="planar_graph"><description><p>Graf planar dengan enam simpul dan sembilan sisi tanpa persilangan; satu sisi luar di kiri dibentuk oleh dua ruas garis, dan gambar tersebut menghasilkan empat muka terbatas serta satu muka tak terbatas.</p>
+        </description></image>
+    </figure>
+    <p><xref ref="fig_k4-planar"/> menampilkan penggambaran planar graf lengkap <m>\bfK_4</m>. Penggambaran ini memiliki <m>4</m> simpul, <m>6</m> sisi, dan <m>4</m> muka.
+    </p>
+    <figure xml:id="fig_k4-planar">
+        <caption>Penggambaran planar <m>\bfK_4</m></caption>
+        <image width="35%" source="k4_planar"><description><p>Penggambaran planar <m>\bfK_4</m> dengan tiga simpul membentuk segitiga luar dan simpul keempat di dalamnya yang terhubung ke ketiga simpul luar; keenam sisi tidak saling berpotongan.</p>
+        </description></image>
+    </figure>
+    <p>Apa yang terjadi jika kita menghitung banyaknya simpul dikurangi banyaknya sisi lalu ditambah banyaknya muka pada kedua penggambaran ini? Kita memperoleh
+    <md>
+        <mrow>  6-9+5 \amp = 2</mrow>
+        <mrow>  4-6+4 \amp =2</mrow>
+    </md>
+    </p>
+    <p>Walaupun hasil <m>2</m> pada kedua penggambaran planar tersebut mungkin tampak sebagai kebetulan, sebenarnya ada prinsip yang lebih umum, dan prinsip ini berlaku bagi <em>setiap</em> penggambaran planar dari <em>setiap</em> graf planar.
+    </p>
+
+    <p>Sesungguhnya, bilangan <m>2</m> di sini berasal dari sifat mendasar bidang, dan terdapat teorema-teorema yang bersesuaian untuk permukaan lain. Namun, kita hanya memerlukan hasil dalam bentuk yang dinyatakan di atas.
+    </p>
+
+    
+    <theorem>
+        <title>Rumus Euler</title>
+        <idx><h>Rumus Euler</h></idx>
+        <statement>
+            <p>Misalkan <m>\bfG</m> merupakan graf planar terhubung dengan <m>n</m> simpul dan <m>m</m> sisi. Setiap penggambaran planar <m>\bfG</m> memiliki <m>f</m> muka, dengan <m>f</m> memenuhi
+            <md>
+                n-m+f=2.
+            </md>
+            </p>
+        </statement>
+
+
+        <proof>
+            <p>Bukti ini menggunakan induksi pada banyak sisi <m>m</m>. Jika <m>m=0</m>, karena <m>\bfG</m> terhubung, graf kita hanya memiliki satu simpul sehingga terdapat satu muka. Jadi, <m>n-m+f = 1-0+1=2</m> sebagaimana diperlukan. Sekarang, misalkan Rumus Euler telah dibuktikan untuk semua graf dengan sisi kurang dari <m>m</m>, dan misalkan <m>\bfG</m> memiliki <m>m</m> sisi. Pilih sebuah sisi <m>e</m> dari <m>\bfG</m>. Apa yang terjadi jika kita membentuk graf baru <m>\bfG'</m> dengan menghapus <m>e</m> dari <m>\bfG</m>? Jika <m>\bfG'</m> terhubung, hipotesis induksi dapat diterapkan. Misalkan <m>\bfG'</m> memiliki <m>n'</m> simpul, <m>m'</m> sisi, dan <m>f'</m> muka. Menurut hipotesis induksi, bilangan-bilangan tersebut memenuhi
+        <md>
+            n'-m'+f'=2.
+        </md>
+        Karena hanya satu sisi yang dihapus, <m>n'=n</m> dan <m>m'=m-1</m>. Bagaimana penghapusan <m>e</m> memengaruhi banyaknya muka? Dalam <m>\bfG'</m>, dua muka yang sebelumnya dipisahkan oleh <m>e</m> dalam <m>\bfG</m> melebur menjadi satu muka. Jadi, <m>f'=f-1</m>. Dengan menyubstitusikan kesamaan-kesamaan ini ke <m>n'-m'+f'=2</m>, diperoleh
+        <md>
+            n-(m-1)+(f-1)=2 \iff n-m+f=2.
+        </md>
+        Jadi, jika <m>\bfG'</m> terhubung, pembuktian selesai. Namun, jika <m>\bfG'</m> tak terhubung, hipotesis induksi tidak dapat diterapkan langsung pada <m>\bfG'</m>. Untungnya, karena hanya satu sisi yang dihapus, <m>\bfG'</m> memiliki dua komponen yang dapat dipandang sebagai dua graf terhubung <m>\bfG'_1</m> dan <m>\bfG'_2</m>. Masing-masing memiliki sisi kurang dari <m>m</m>, sehingga hipotesis induksi dapat diterapkan. Untuk <m>i=1,2</m>, misalkan <m>n'_i</m> menyatakan banyaknya simpul dalam <m>\bfG'_i</m>, <m>m'_i</m> banyaknya sisi dalam <m>\bfG'_i</m>, dan <m>f'_i</m> banyaknya muka dalam <m>\bfG'_i</m>. Menurut hipotesis induksi, kita memperoleh
+        <md>
+            n'_1 - m'_1 + f'_1 = 2 \quad \text{and} \quad n'_2-m'_2+f'_2 =2.
+        </md>
+        Dengan menjumlahkan kedua kesamaan tersebut, diperoleh
+        <md>
+            (n'_1 + n'_2) - (m'_1 + m'_2) + (f'_1 + f'_2) = 4.
+        </md>
+        Selanjutnya, <m>n=n'_1 + n'_2</m> dan <m>m'_1 + m'_2 = m-1</m>, sehingga kesamaan tersebut menjadi
+        <md>
+            n - (m-1) + (f'_1+f'_2) = 4 \iff n-m + (f'_1 + f'_2) = 3.
+        </md>
+        Satu-satunya hal yang masih harus ditentukan ialah hubungan antara <m>f'_1+f'_2</m> dan <m>f</m>; kita berharap hubungan itu menurunkan <m>3</m> menjadi <m>2</m>. Ketika penggambaran <m>\bfG'_1</m> dan <m>\bfG'_2</m> dipandang bersama sebagai bagian dari penggambaran <m>\bfG</m>, tepat satu muka gabungan terhitung dalam daftar muka kedua komponen. Karena penghapusan <m>e</m> memutus <m>\bfG</m>, pemasangan kembali <m>e</m> hanya menghubungkan kedua komponen di dalam muka bersama tersebut dan tidak membelahnya menjadi dua muka. Jadi, tepat satu muka terhitung dua kali dalam jumlah <m>f'_1 + f'_2</m>, sehingga <m>f=f'_1 + f'_2 -1</m>. Inilah hubungan yang diperlukan untuk menyelesaikan pembuktian.
+            </p>
+        </proof>
+    </theorem>
+
+    <p>Jika berdiri sendiri, Rumus Euler mungkin tidak tampak begitu berguna karena mengharuskan kita menghitung banyaknya muka dalam penggambaran planar. Namun, rumus ini dapat memberikan cara cepat untuk memastikan bahwa suatu graf tidak planar. Jika graf semula tak terhubung, kita dapat menambahkan sisi tanpa persilangan untuk menghubungkan komponen-komponennya; operasi ini tidak mengubah banyaknya simpul dan hanya menambah sisi, sehingga cukup membuktikan batas bagi graf terhubung. Pertimbangkan penggambaran tanpa persilangan sisi dari graf terhubung dengan <m>n</m> simpul dan <m>m</m> sisi, dengan <m>n\ge3</m>. Kita menghitung insidensi sisi–muka <m>(e,F)</m> dengan multiplisitas: <m>e</m> adalah sisi dari <m>\bfG</m>, <m>F</m> adalah muka yang terletak pada salah satu dari dua sisi lokal <m>e</m>, dan satu insidensi dihitung untuk masing-masing sisi lokal tersebut. Berapa banyak insidensi semacam itu? Misalkan banyaknya adalah <m>p</m>. Setiap sisi graf memiliki tepat dua sisi lokal, sehingga <m>p=2m</m>. Kita juga dapat membatasi <m>p</m> dengan menghitung insidensi yang melibatkan suatu muka <m>F</m>. Jalan batas setiap muka memiliki panjang sekurang-kurangnya <m>3</m>, dengan kemunculan sisi berulang tetap dihitung, sehingga setiap muka muncul dalam sekurang-kurangnya <m>3</m> insidensi dan akibatnya <m>p\geq 3f</m>. Jadi, <m>3f\leq 2m</m>, atau <m>f\leq 2m/3</m>. Dengan menggunakan Rumus Euler, kita memperoleh
+    <md>
+        m = n+f-2 \leq n + \frac{2m}{3} - 2 \iff \frac{m}{3} \leq n-2.
+    </md>
+        Dengan demikian, teorema berikut telah dibuktikan.
+    </p>
+
+    <theorem xml:id="thm_max-edge-planar">
+        <statement>
+            <p>
+                Graf planar dengan <m>n</m> simpul memiliki paling banyak <m>3n-6</m> sisi apabila <m>n\ge 3</m>.
+            </p>
+        </statement>
+    </theorem>
+
+    <p>Kontraposisi teorema ini—yakni bahwa graf dengan <m>n</m> simpul dan lebih dari <m>3n-6</m> sisi tidak planar—biasanya merupakan bentuk hasil yang paling berguna. Sebagai contoh, kita telah melihat pada <xref ref="fig_k4-planar"/> bahwa <m>\bfK_4</m> planar. Bagaimana dengan <m>\bfK_5</m>? Graf ini memiliki <m>5</m> simpul dan <m>C(5,2)=10 &gt; 9 = 3\cdot 5-6</m> sisi, sehingga tidak planar. Akibatnya, untuk <m>n\geq 5</m>, graf <m>\bfK_n</m> tidak planar karena mengandung <m>\bfK_5</m>. Penting untuk dicatat bahwa <xref ref="thm_max-edge-planar"/> bukanlah satu-satunya alat untuk menentukan apakah suatu graf planar. Untuk melihat hal ini, mari kembali ke persoalan menggambar <m>\bfK_{3,3}</m> pada bidang. Graf ini memiliki <m>6</m> simpul dan <m>9</m> sisi, sehingga lolos uji <xref ref="thm_max-edge-planar"/>. Namun, setelah mencoba selama beberapa menit untuk menggambar <m>\bfK_{3,3}</m> pada bidang tanpa sisi yang berpotongan, Anda akan segera menduga bahwa hal itu mustahil dilakukan<mdash/>dan dugaan Anda benar!
+    </p>
+
+    <p>Untuk melihat mengapa <m>\bfK_{3,3}</m> tidak planar, kita harus kembali ke Rumus Euler dan sekali lagi menghitung insidensi sisi–muka. Pada <m>\bfK_{3,3}</m>, setiap sisi harus menjadi bagian dari batas dua muka, sedangkan setiap muka dibatasi oleh suatu siklus. Selain itu, karena graf ini bipartit, tidak ada siklus ganjil. Jadi, dengan menghitung insidensi sisi–muka dari sisi, terdapat <m>2m = 18</m> insidensi. Misalkan <m>f_k</m> menyatakan banyaknya muka yang dibatasi oleh siklus dengan panjang <m>k</m>; maka <m>f= f_4 + f_6</m>. Dengan menghitung insidensi dari muka, terdapat <m>4f_4 + 6f_6</m> insidensi. Menurut Rumus Euler, banyaknya muka <m>f</m> haruslah <m>5</m>, sehingga <m>4f_4+6f_6\geq 20</m>. Namun, penghitungan dari sisi memberikan <m>2m=4f_4+6f_6</m>, yang menghasilkan <m>18\geq 20</m>; ini jelas mustahil. Jadi, <m>\bfK_{3,3}</m> tidak planar.
+    </p>
+
+    <p>Pada titik ini, Anda mungkin bertanya, <q>Lalu apa gunanya?</q> Kita telah mencurahkan cukup banyak upaya untuk menunjukkan bahwa <m>\bfK_5</m> dan <m>\bfK_{3,3}</m> tidak planar. Jelas bahwa setiap graf yang mengandung salah satunya juga tidak planar. Namun, karena jumlah graf sangat banyak, Anda mungkin menduga bahwa pekerjaan ini tidak akan pernah selesai. Untungnya tidak demikian: pada dasarnya, keplanaran ditentukan hanya oleh kedua graf tersebut, seperti yang segera akan kita lihat.
+    </p>
+
+    <p>Jika <m>\GVE</m> adalah graf dan <m>uv\in E</m>, kita dapat membentuk graf baru <m>\bfG'</m> yang disebut <term>subdivisi elementer</term><idx><h>subdivisi</h><h>elementer</h></idx> dari <m>\bfG</m> dengan menambahkan simpul baru <m>v'</m> dan mengganti sisi <m>uv</m> dengan sisi <m>uv'</m> dan <m>v'v</m>. Dengan kata lain, <m>\bfG'</m> memiliki himpunan simpul <m>V'=V\cup\{v'\}</m> dan himpunan sisi <m>E'=(E-\{uv\})\cup \{uv',v'v\}</m>. Dua graf <m>\bfG_1</m> dan <m>\bfG_2</m> disebut <term>homeomorfik</term><idx><h>homeomorfik</h></idx> apabila keduanya dapat diperoleh dari graf yang sama melalui suatu barisan subdivisi elementer, yang boleh saja trivial.
+    </p>
+
+    <p>Graf homeomorfik dibahas karena dua graf homeomorfik memiliki sifat yang sama dalam hal penggambarannya pada bidang. Untuk melihatnya, perhatikan apa yang terjadi pada <m>\bfK_5</m> jika kita melakukan subdivisi elementer pada salah satu sisinya. Graf tersebut jelas tetap tidak planar. Bahkan, jika subdivisi elementer dilakukan pada sembarang sisi suatu graf yang tidak planar, graf hasilnya juga tidak planar. Teorema sangat mendalam berikut dibuktikan oleh matematikawan Polandia Kazimierz Kuratowski pada tahun 1930. Pembuktiannya berada di luar cakupan buku ini.
+    </p>
+
+    <theorem xml:id="thm_kuratowski">
+        <title>Teorema Kuratowski</title>
+        <statement>
+            <p>Suatu graf planar jika dan hanya jika tidak mengandung subgraf yang homeomorfik dengan <m>\bfK_5</m> maupun <m>\bfK_{3,3}</m>.
+            </p>
+        </statement>
+    </theorem>
+
+    <p>Teorema Kuratowski memberikan cara yang berguna untuk memeriksa apakah suatu graf planar. Walaupun mencari secara manual subgraf yang homeomorfik dengan <m>\bfK_5</m> atau <m>\bfK_{3,3}</m> tidak selalu mudah, terdapat algoritma efisien untuk menguji keplanaran yang memanfaatkan karakterisasi ini. Untuk melihat penerapan teorema tersebut, perhatikan graf Petersen pada <xref ref="fig_petersen"/>. Graf Petersen memiliki <m>10</m> simpul dan <m>15</m> sisi, sehingga lolos uji <xref ref="thm_max-edge-planar"/>. Selain itu, argumen dengan Rumus Euler untuk membuktikan bahwa <m>\bfK_{3,3}</m> tidak planar sudah cukup rumit, jadi kita tentu tidak ingin mengulang pendekatan itu untuk graf Petersen. Untuk menggunakan Teorema Kuratowski, kita perlu memutuskan apakah akan mencari subgraf yang homeomorfik dengan <m>\bfK_5</m> atau dengan <m>\bfK_{3,3}</m>. Walaupun graf Petersen tampak sangat mirip dengan <m>\bfK_5</m>, sesungguhnya graf itu sekaligus <em>terlalu</em> mirip dan terlalu berbeda untuk memuat subgraf yang homeomorfik dengan <m>\bfK_5</m>, sebab setiap simpulnya berderajat <m>3</m>. Karena itu, kita mencari subgraf dari graf Petersen yang homeomorfik dengan <m>\bfK_{3,3}</m>. Perhatikan bahwa <m>\bfK_{3,3}</m> mengandung siklus dengan panjang <m>6</m> serta tiga sisi yang menghubungkan pasangan simpul yang berseberangan pada siklus tersebut. Kita mengenali sebuah siklus-enam pada graf Petersen, menggambarnya sebagai segi enam, dan menempatkan empat simpul sisanya di dalam siklus. Penggambaran ini ditampilkan pada <xref ref="fig_petersen-graph-k33"/>. Subgraf yang homeomorfik dengan <m>\bfK_{3,3}</m> diperoleh dengan menghapus simpul hitam; setelah itu, semua simpul putih berderajat dua dan masing-masing beserta dua sisi yang bersisian dengannya (digambar tebal) dapat diganti dengan satu sisi.
+    </p>
+    <figure xml:id="fig_petersen-graph-k33">
+        <caption>Penggambaran graf Petersen yang lebih informatif</caption>
+        <image width="52%" source="petersen_graph_k33"><description><p>Graf Petersen digambar dengan enam simpul kuning pada siklus luar berbentuk segi enam serta tiga simpul putih dan satu simpul hitam di dalamnya. Setelah simpul hitam dihapus, simpul-simpul putih berderajat dua dan lintasan tebal melalui ketiganya dapat disusutkan menjadi sisi-sisi graf bipartit lengkap yang dimaksud.</p>
+        </description></image>
+    </figure>
+    <p>Kita menutup bagian ini dengan persoalan yang menghubungkan pembahasan sekarang dengan topik pewarnaan graf. Pada tahun 1852, Francis Guthrie, seorang Inggris yang ketika itu sedang belajar untuk menjadi pengacara dan kemudian menjadi profesor matematika di Afrika Selatan, mencoba mewarnai peta wilayah-wilayah administratif di Inggris sedemikian rupa sehingga setiap dua wilayah yang berbagi suatu ruas batas (artinya bersentuhan di lebih dari satu titik) diberi warna berbeda. Ia menyadari bahwa empat warna saja sudah cukup dan tidak berhasil menggambar peta apa pun yang memerlukan lima warna. (Ia dapat menemukan peta yang memang memerlukan empat warna; salah satu contohnya ditampilkan pada <xref ref="fig_needs-four-colors"/>.)
+    </p>
+    <figure xml:id="fig_needs-four-colors">
+        <caption>Peta yang memerlukan empat warna</caption>
+        <image width="30%" source="needs_four_colors"><description><p>Peta berbentuk lingkaran yang terbagi menjadi empat daerah: satu daerah biru muda di tengah serta tiga daerah luar berwarna hijau, kuning, dan ungu. Setiap daerah berbagi ruas batas dengan ketiga daerah lainnya, sehingga keempatnya harus diberi warna berbeda.</p>
+        </description></image>
+    </figure>
+    <p>
+        Mungkinkah <em>setiap</em> peta dapat diwarnai hanya dengan empat warna? Guthrie menanyakan persoalan ini kepada saudaranya, Frederick Guthrie, yang merupakan mahasiswa matematika di University College, London. Frederick kemudian menyampaikannya kepada salah seorang gurunya, Augustus de Morgan, yang terkenal melalui Hukum de Morgan. Dengan cara inilah lahir salah satu persoalan paling terkenal—atau paling masyhur karena kesulitannya—dalam teori graf, yang selama satu abad dikenal sebagai Masalah Empat Warna dan kini sebagai Teorema Empat Warna. De Morgan sangat tertarik pada Masalah Empat Warna dan menyampaikannya kepada Sir William Rowan Hamilton, matematikawan Irlandia terkemuka yang namanya diabadikan dalam istilah siklus Hamilton. Namun, Hamilton tidak menganggap persoalan tersebut menarik. Ia termasuk sedikit orang yang pernah mempertimbangkan Masalah Empat Warna tanpa terpikat olehnya.
+    </p>
+    <p>Kita akan segera melanjutkan pembahasan sejarah Teorema Empat Warna, tetapi terlebih dahulu kita perlu mengubah persoalan pewarnaan peta menjadi pertanyaan teori graf. Wajar jika setiap daerah dipasangkan dengan satu simpul. Karena daerah-daerah yang berbagi batas harus memiliki warna berbeda, kita menempatkan sisi di antara dua simpul jika dan hanya jika daerah yang bersesuaian memiliki batas bersama. (Sebagai contoh, peta pada <xref ref="fig_needs-four-colors"/> bersesuaian dengan graf <m>\bfK_4</m>.) Konstruksi ini menghasilkan graf planar, sebab sisi-sisinya dapat digambar melalui ruas batas bersama. Sebaliknya, dengan sedikit pemikiran, Anda dapat melihat bahwa dari penggambaran planar suatu graf dapat dibuat peta yang setiap simpulnya menjadi sebuah daerah dan setiap sisinya menjadi ruas batas bersama. Jadi, Masalah Empat Warna dapat dinyatakan sebagai <q>Apakah setiap graf planar memiliki bilangan kromatik paling besar empat?</q>
+    </p>
+
+    <p>Minat terhadap Masalah Empat Warna meredup hingga tahun 1877, ketika matematikawan Inggris Arthur Cayley menulis surat kepada Royal Society untuk menanyakan apakah persoalan itu telah diselesaikan. Surat tersebut menarik perhatian jauh lebih banyak orang. <q>Bukti</q> pertama Teorema Empat Warna, karya Alfred Bray Kempe, selesai pada tahun 1878 dan diterbitkan setahun kemudian. Baru <m>11</m> tahun kemudian Percy John Heawood menemukan kekeliruan dalam bukti tersebut, tetapi ia berhasil mempertahankan cukup banyak bagiannya untuk menunjukkan bahwa setiap graf planar memiliki bilangan kromatik paling besar lima. Pada tahun 1880, Peter Guthrie Tait, fisikawan Inggris yang paling dikenal melalui buku <pubtitle>Treatise on Natural Philosophy</pubtitle> bersama Sir William Thomson (Lord Kelvin), membuat pengumuman yang menyiratkan bahwa ia memiliki bukti Teorema Empat Warna dengan menggunakan siklus Hamilton pada graf planar tertentu. Namun, sejalan dengan cara Tait menangani beberapa konjektur dalam teori knot matematis, tampaknya sekitar tahun 1883 ia kemudian menyadari bahwa dirinya tidak dapat membuktikan keberadaan siklus Hamilton yang digunakan. Karena itu, mungkin Tait hanya dalam waktu singkat meyakini bahwa ia memiliki bukti Teorema Empat Warna, jika ia pernah benar-benar meyakininya. Meskipun demikian, contoh penyangkal bagi konjektur yang digunakan Tait baru ditemukan pada tahun 1946.
+    </p>
+
+    <p>Pada paruh pertama abad kedua puluh, terdapat sejumlah kemajuan bertahap menuju penyelesaian Masalah Empat Warna, tetapi hanya sedikit matematikawan terkemuka yang menaruh minat serius. Dorongan terakhir untuk membuktikan Teorema Empat Warna berlangsung kira-kira bersamaan dengan mulai meluasnya penggunaan komputer elektronik pertama dalam industri dan penelitian. Pada tahun 1976, dua matematikawan di University of Illinois mengumumkan bukti Teorema Empat Warna berbantuan komputer. Bukti Kenneth Appel dan Wolfgang Haken mendorong University of Illinois menambahkan frasa <q>FOUR COLORS SUFFICE (EMPAT WARNA CUKUP)</q> pada cap mesin perangkonya.<fn>Foto sebuah amplop dengan cap mesin semacam itu dapat ditemukan dalam buku <pubtitle>The Four-Color Theorem: History, Topological Foundations, and Idea of Proof</pubtitle> karya Rudolf dan Gerda Fritsch. (Springer, 1998)</fn>
+    </p>
+
+    <theorem xml:id="thm_4ct">
+        <title>Teorema Empat Warna</title>
+        <statement>
+            <p>
+                Setiap graf planar memiliki bilangan kromatik paling besar empat.
+            </p>
+        </statement>
+    </theorem>
+
+    <p>Bukti Teorema Empat Warna oleh Appel dan Haken setidaknya tidak memuaskan bagi banyak matematikawan, bahkan bagi sebagian orang sama sekali bukan sebuah bukti. Para matematikawan tersebut menganggap penggunaan komputer untuk memeriksa berbagai kasus terlalu tidak pasti: bagaimana Anda dapat yakin bahwa kode yang memeriksa 1.482 <q>konfigurasi tak terhindarkan</q> tidak mengandung kesalahan logika? Memang, beberapa kesalahan ditemukan dalam kasus-kasus yang dianalisis, tetapi tidak satu pun terbukti sebagai kekeliruan fatal. Pada tahun 1989, Appel dan Haken menerbitkan karya setebal 741 halaman berjudul <pubtitle>Every Planar Map is Four Colorable</pubtitle>, yang memperbaiki semua kelemahan yang diketahui dalam argumen awal mereka. Hal ini masih belum memuaskan banyak orang. Pada awal 1990-an, tim yang terdiri atas Neil Robertson dari The Ohio State University; Daniel P. Sanders, mahasiswa pascasarjana di Georgia Institute of Technology; Paul Seymour dari Bellcore; dan Robin Thomas dari Georgia Tech mengumumkan bukti baru Teorema Empat Warna. Namun, bukti tersebut tetap memerlukan komputer. Bukti baru itu diterima secara lebih luas daripada bukti Appel dan Haken, antara lain karena menggunakan kurang dari separuh jumlah konfigurasi dalam bukti Appel–Haken, yaitu <m>633</m>, dan kode komputernya disediakan daring agar dapat diperiksa oleh siapa pun. Walaupun tetap tidak memuaskan bagi sebagian orang, bukti Robertson dan rekan-rekannya diterima secara umum, dan kini persoalan Teorema Empat Warna pada dasarnya dianggap selesai. Namun, banyak orang masih bertanya-tanya apakah kelak akan ditemukan bukti bagi pernyataan sederhana ini yang tidak memerlukan bantuan komputer.
+    </p>
+</section>

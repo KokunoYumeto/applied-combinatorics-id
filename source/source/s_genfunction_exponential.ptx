@@ -1,0 +1,168 @@
+<section xml:id="s_genfunction_exponential">
+  <title>Fungsi pembangkit eksponensial</title>
+  <p>Seandainya kita ingin benar-benar cermat pada bagian awal bab ini, kita akan menyebut
+    fungsi pembangkit yang telah dipelajari sebagai <term>fungsi pembangkit biasa</term> atau bahkan <term>fungsi pembangkit
+    deret pangkat biasa</term>.<idx>
+      <h>fungsi pembangkit</h>
+      <h>biasa</h>
+    </idx> Alasannya, terdapat jenis-jenis fungsi pembangkit lain yang didasarkan
+    pada jenis deret pangkat yang berbeda. Dalam bagian ini, kita memperkenalkan secara singkat jenis fungsi pembangkit
+    lain, yaitu <term>fungsi pembangkit eksponensial</term>.<idx>
+      <h>fungsi pembangkit</h>
+      <h>eksponensial</h>
+    </idx> Jika fungsi pembangkit biasa berbentuk <m>\sum_{n}
+    a_n x^n</m>, fungsi pembangkit eksponensial didasarkan pada deret pangkat bagi fungsi
+    eksponensial <m>e^x</m>. Jadi, fungsi pembangkit eksponensial bagi barisan <m>\{a_n\colon
+    n\geq 0\}</m> adalah <m>\sum_n a_n x^n/n!</m>. Dalam bagian ini, kita akan melihat beberapa cara menggunakan
+    fungsi pembangkit eksponensial untuk menyelesaikan persoalan yang tidak dapat ditangani dengan fungsi
+    pembangkit biasa. Namun, kita baru akan menyinggung sebagian kecil potensi jenis
+    fungsi pembangkit ini. Kita mulai dengan fungsi pembangkit eksponensial yang paling mendasar, sebagai
+    analogi fungsi pembangkit biasa <m>1/(1-x)</m> dalam <xref ref="exam_genfunction_geom-series"/>. </p>
+  <example>
+    <p>Perhatikan barisan konstan <m>1, 1, 1, 1, \dots</m>. Fungsi pembangkit
+      eksponensial bagi barisan ini adalah <md>
+        E(x) = \sum_{n=0}^\infty \frac{x^n}{n!}.
+      </md> Dari kalkulus, Anda
+      mungkin ingat bahwa ini merupakan deret pangkat bagi fungsi eksponensial <m>e^x</m>. Itulah
+      sebabnya jenis fungsi pembangkit ini disebut fungsi pembangkit eksponensial. Dari
+      contoh ini, kita dapat segera mengenali bahwa fungsi pembangkit eksponensial untuk banyaknya
+      untai biner dengan panjang <m>n</m> adalah <m>e^{2x}</m> karena <md>
+        e^{2x} = \sum_{n=0}^\infty \frac{(2x)^n}{n!} = \sum_{n=0}^\infty
+        2^n\frac{x^n}{n!}.
+      </md>
+    </p>
+  </example>
+  <p>Dalam pembahasan fungsi pembangkit biasa sebelumnya pada bab ini, kita meninjau contoh-contoh
+    yang mementingkan jumlah (banyaknya apel, <etc/>), tetapi tidak mementingkan urutan. Salah satu bidang yang membuat
+    fungsi pembangkit eksponensial lebih sesuai daripada fungsi pembangkit biasa adalah
+    penerapan yang mementingkan urutan, seperti pencacahan untai. Sebagai contoh, meskipun untai bit
+    <m>10001</m> dan <m>01100</m> sama-sama memuat tiga nol dan dua satu, keduanya bukan
+    untai yang sama. Sebaliknya, dua keranjang buah yang masing-masing memuat dua apel dan tiga jeruk akan
+    dianggap setara, bagaimanapun buah-buah itu ditata. Sekarang kita tinjau beberapa
+    contoh untuk menggambarkan teknik ini. </p>
+  <example>
+    <idx>
+      <h>untai</h>
+      <h>terner</h>
+    </idx>
+    <p>Misalkan kita ingin menentukan banyaknya untai terner dengan jumlah digit <m>0</m> yang
+      genap. (Banyaknya digit <m>1</m> dan <m>2</m> tidak dibatasi.) Seperti pada fungsi
+      pembangkit biasa, kita menentukan fungsi pembangkit bagi setiap digit, lalu mengalikan
+      semuanya. Untuk digit <m>1</m> dan <m>2</m>, karena masing-masing boleh muncul berapa kali pun, kita memasukkan
+      satu faktor <m>e^x</m> untuk setiap digit tersebut. Untuk banyaknya digit <m>0</m> yang genap, kita memerlukan <md>
+        1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \frac{x^6}{6!} + \cdots =
+        \sum_{n=0}^\infty \frac{x^{2n}}{(2n)!}.
+      </md>
+      Berbeda dengan fungsi pembangkit biasa, kita tidak dapat menyatakan deret ini dalam bentuk yang lebih ringkas
+      hanya dengan menyubstitusikan suatu fungsi dari <m>x</m> ke dalam deret bagi <m>e^y</m>. Namun,
+      dengan sedikit kecerdikan, kita dapat memperoleh hasil yang diinginkan. Untuk itu,
+      mula-mula perhatikan bahwa <md>
+        e^{-x} = 1 - x + \frac{x^2}{2!} - \frac{x^3}{3!} + \cdots =
+        \sum_{n=0}^\infty \frac{(-1)^nx^n}{n!}.
+      </md>
+      Jadi, ketika kita menjumlahkan deret bagi <m>e^{-x}</m> dengan deret bagi <m>e^x</m>, semua suku
+      dengan pangkat <m>x</m> yang ganjil akan saling meniadakan! Dengan demikian, kita memperoleh <md>
+        e^x+e^{-x} = 2+2\frac{x^2}{2!} + 2\frac{x^4}{4!} + \cdots,
+      </md> yang nilainya
+      tepat dua kali lipat dari yang kita perlukan. Oleh karena itu, faktor yang kita masukkan untuk digit <m>0</m> adalah <m>
+      (e^x+e^{-x})/2</m>. </p>
+
+    <p>Sekarang kita memperoleh fungsi pembangkit eksponensial <md>
+        \frac{e^x+e^{-x}}{2}e^x e^x = \frac{e^{3x} + e^x}{2} =
+        \frac{1}{2}\left(\sum_{n=0}^\infty \frac{3^nx^n}{n!} +
+        \sum_{n=0}^\infty \frac{x^n}{n!}\right).
+      </md>
+      Untuk menentukan banyaknya untai terner dengan jumlah digit <m>0</m> yang genap, kita perlu
+      melihat koefisien <m>x^n/n!</m> dalam penjabaran deret tersebut. Dengan cara ini, kita mendapati
+      bahwa banyaknya untai terner dengan jumlah digit <m>0</m> genap adalah <m>(3^n+1)/2</m>. </p>
+  </example>
+  <p>Kita juga dapat menggunakan fungsi pembangkit eksponensial ketika terdapat batas pada banyaknya kemunculan suatu
+    simbol, seperti dalam contoh berikut.
+  </p>
+  <example>
+    <idx>
+      <h>untai</h>
+      <h>terner</h>
+    </idx>
+    <statement>
+      <p>Ada berapa untai terner dengan panjang <m>n</m> yang memuat sedikitnya satu digit <m>0</m> dan sedikitnya satu digit <m>
+        1</m>?</p>
+    </statement>
+    <solution>
+      <p>Untuk memastikan bahwa suatu simbol muncul sedikitnya sekali, kita memerlukan fungsi pembangkit
+        eksponensial berikut <md>
+          x+\frac{x^2}{2!} + \frac{x^3}{3!} + \cdots = \sum_{n=1}^\infty
+          \frac{x^n}{n!}.
+        </md>
+        Perhatikan bahwa deret ini hampir sama dengan deret bagi <m>e^x</m>, kecuali suku
+        pertamanya tidak ada. Jadi, <m>\sum_{n=1}^\infty x^n/n! = e^x-1</m>. Dengan menggunakan fakta ini, kita memperoleh <md>
+        (e^x-1)(e^x-1)e^x=e^{3x}-2e^{2x}+e^x
+        </md> sebagai fungsi pembangkit
+        eksponensial untuk persoalan ini. Dengan mencari penjabaran deretnya, kita memperoleh <md>
+        \sum_{n=0}^\infty \frac{3^nx^n}{n!} - 2\sum_{n=0}^\infty
+          \frac{2^nx^n}{n!} + \sum_{n=0}^\infty \frac{x^n}{n!}.
+        </md>
+        Sekarang kita dapat menjawab pertanyaan tersebut dengan langsung membaca koefisien <m>x^n/n!</m>, yaitu <m>3^n
+        - 2\cdot 2^n + 1</m>. </p>
+    </solution>
+  </example>
+  <p>Sebelum beralih ke contoh tambahan, mari kita luangkan waktu sejenak untuk melihat cara lain
+    menjawab pertanyaan pada contoh sebelumnya. Untuk menghitung banyaknya untai terner dengan panjang <m>
+    n</m> yang memuat sedikitnya satu digit <m>0</m> dan sedikitnya satu digit <m>1</m>, kita dapat menghitung semua untai terner dengan
+    panjang <m>n</m>, lalu menggunakan prinsip inklusi–eksklusi untuk menyingkirkan untai yang tidak diinginkan,
+    yaitu yang tidak memiliki digit <m>0</m> dan/atau digit <m>1</m>. Jika suatu untai terner tidak memiliki digit <m>0</m>, kita
+    menghitung semua untai yang tersusun atas digit <m>1</m> dan <m>2</m>, sehingga terdapat <m>2^n</m> untai.
+    Hal yang sama berlaku jika digit <m>1</m> tidak ada. Namun, jika kita mengurangkan <m>2\cdot 2^n</m>, kita telah
+    mengurangkan dua kali untai yang sekaligus tidak memiliki digit <m>0</m> <em>dan</em> digit <m>1</m>. Untai terner
+    tanpa digit <m>0</m> dan tanpa digit <m>1</m> hanya terdiri atas digit <m>2</m>. Tepat ada satu untai terner
+    dengan panjang <m>n</m> yang memenuhi kriteria ini. Jadi, melalui cara lain ini kita juga memperoleh <m>3^n-2\cdot 2^n+1</m>. </p>
+  <example xml:id="ex_genfunction_exponential_passcode">
+    <p>Alice perlu menetapkan kode sandi delapan digit untuk telepon selulernya. Pembatasan pada
+      kode sandi itu agak tidak biasa. Secara khusus, kode tersebut harus memuat digit <m>0</m> dalam jumlah genap,
+      sedikitnya satu digit <m>1</m>, dan paling banyak tiga digit <m>2</m>. Bob berpendapat bahwa meskipun pembatasan ini
+      tidak biasa, banyaknya kemungkinan kode sandi tidak jauh berkurang dari keseluruhan
+      <m>10^8</m> untai delapan digit. Carlos tidak yakin akan hal itu, jadi ia menyusun
+      fungsi pembangkit eksponensial sebagai berikut. Untuk tujuh digit yang tidak dikenai
+      pembatasan, dimasukkan faktor <m>e^{7x}</m>. Untuk memperhitungkan jumlah digit <m>0</m> yang genap,
+      ia menggunakan <m>(e^x+e^{-x})/2</m>. Untuk sedikitnya satu digit <m>1</m>, diperlukan faktor <m>e^x-1</m>.
+      Terakhir, <m>1+x+x^2/2!+x^3/3!</m> memperhitungkan pembatasan paling banyak tiga digit <m>2</m>.
+      Jadi, fungsi pembangkit eksponensial untuk banyaknya kode sandi <m>n</m> digit adalah <md>
+      e^{7x}\frac{e^x+e^{-x}}{2}(e^x-1)\left(1+x+\frac{x^2}{2!} +
+        \frac{x^3}{3!}\right).
+      </md>
+    </p>
+    <p>Dave melihat rumus rumit di papan tulis itu dan mengeluh. Menurutnya, mereka akan menghabiskan waktu seharian
+      mengalikan dan membuat kesalahan aljabar saat berusaha mencari koefisien yang diinginkan. Alice
+      menunjukkan bahwa mereka sebenarnya tidak perlu mencari koefisien <m>x^n/n!</m> untuk semua <m>n</m>.
+      Sebagai gantinya, ia menyarankan penggunaan SageMath untuk mencari koefisien <m>x^8/8!</m> saja.</p>
+    <sage>
+      <input>
+        f(x) = (exp(7*x)*((exp(x)+exp(-1*x))/(2))*(exp(x)-1)*\
+        (1+x+x^2/2+x^3/factorial(3))).series(x,9)
+        f(x).list()[8]
+      </input>
+      <output>33847837/40320</output>
+    </sage>
+    <p>Karena <m>8! = 40320</m>, hasil ini menunjukkan bahwa terdapat <m>33847837</m> kode sandi yang sah untuk
+      telepon seluler tersebut. Perhitungan singkat menunjukkan bahwa Bob keliru besar ketika menyatakan bahwa
+      banyaknya untai yang dapat digunakan sebagai kode sandi tidak berkurang secara berarti. Jumlah
+      kode sandi yang sah hanya <m>33.85\%</m> dari jumlah seluruh untai
+      delapan digit! </p>
+  </example>
+  <p>Fungsi pembangkit eksponensial berguna dalam banyak situasi lain di luar pencacahan
+    untai. Sebagai contoh, fungsi ini dapat digunakan untuk menghitung banyaknya graf terhubung berlabel dengan <m>n</m> simpul.
+    Namun, pembahasan tersebut berada di luar cakupan buku ini. Jika Anda berminat
+    mempelajari fungsi pembangkit secara jauh lebih mendalam, buku <pubtitle>generatingfunctionology</pubtitle>
+    karya Herbert S. Wilf tersedia daring di <url href="http://www.math.upenn.edu/~wilf/DownldGF.html"/>. 
+    </p>
+    <reading-questions xml:id="rqs-genfunction_exponential" component="runestone">
+      <exercise label="rq-genfunction_exponential_passcode">
+        <statement>
+          <p>
+            Misalkan pembatasan kode sandi telepon seluler Alice dalam <xref ref="ex_genfunction_exponential_passcode"/> diubah sehingga banyaknya digit <m>3</m> harus sedikitnya dua. Faktor apakah yang harus menggantikan salah satu faktor <m>e^x</m> dalam fungsi pembangkit? Anda dapat menyatakan jawaban sebagai deret atau dalam bentuk <m>e^x</m> dengan penyesuaian yang sesuai.
+          </p>
+        </statement>
+        <response/>
+      </exercise>
+    </reading-questions>
+</section>

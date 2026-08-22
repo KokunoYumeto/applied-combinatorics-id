@@ -1,0 +1,96 @@
+<section xml:id="s_recurrence_genfunction">
+    <title>Menggunakan fungsi pembangkit untuk menyelesaikan rekurensi</title>
+    <idx><h>fungsi pembangkit</h><h>dan penyelesaian rekurensi</h></idx>
+    <p>Pendekatan yang telah kita pelajari sejauh ini dalam bab ini bukanlah satu-satunya cara untuk menyelesaikan persamaan rekurensi. Selain itu, pendekatan tersebut pada dasarnya hanya berlaku untuk persamaan rekurensi linear berkoefisien konstan. Pada bagian selanjutnya dalam bab ini, kita akan melihat beberapa contoh penggunaan fungsi pembangkit sebagai alat lain untuk menyelesaikan persamaan rekurensi. Dalam bagian ini, kita akan berfokus pada persamaan rekurensi linear. Dalam <xref ref="s_recurrence_rubots"/>, kita akan melihat bagaimana fungsi pembangkit dapat menyelesaikan rekurensi nonlinear.
+    </p>
+
+    <p>Contoh pertama kita adalah rekurensi homogen yang bersesuaian dengan persamaan operator pemajuan dalam <xref ref="ex_recurrence_deg2"/>.
+    </p>
+    <example xml:id="ex_recurrence_gf-homog">
+        <p>Perhatikan persamaan rekurensi <m>r_{n}+r_{n-1}-6r_{n-2} = 0</m> untuk barisan <m>\{r_n\colon n\geq 0\}</m> dengan <m>r_0=1</m> dan <m>r_1=3</m>. Barisan ini memiliki fungsi pembangkit
+        <md>
+            f(x) = \sum_{n=0}^\infty r_n x^n = r_0+r_1
+            x+r_2x^2+r_3x^3+\cdots.
+        </md>
+        Sekarang, perhatikan sejenak bentuk fungsi <m>xf(x)</m>. Fungsi tersebut memiliki <m>r_{n-1}</m> sebagai koefisien <m>x^n</m>. Demikian pula, dalam fungsi <m>-6x^2 f(x)</m>, koefisien <m>x^n</m> adalah <m>-6r_{n-2}</m>.
+        </p>
+
+        <p>Apa tujuan semua ini? Jika ketiga fungsi tersebut dijumlahkan, perhatikan apa yang terjadi. Koefisien <m>x^n</m> menjadi <m>r_n+r_{n-1}-6r_{n-2}</m>, yang bernilai <m>0</m> karena persamaan rekurensinya! Sekarang mari kita lihat bagaimana semua sukunya sejajar:
+        <md>
+            <mrow>  f(x) \amp = r_0 + r_1 x + r_2x^2 + r_3 x^3 + \cdots + r_nx^n + \cdots</mrow>
+            <mrow>  xf(x) \amp = 0 + r_0 x + r_1x^2 + r_2 x^3 + \cdots + r_{n-1}x^n + \cdots</mrow>
+            <mrow>  -6x^2f(x) \amp  = 0 + 0 -6r_0x^2 - 6r_1 x^3 + \cdots - 6r_{n-2}x^n + \cdots</mrow>
+        </md>
+        Ketika ruas kiri dijumlahkan, kita memperoleh <m>f(x)(1+x-6x^2)</m>. Pada ruas kanan, koefisien <m>x^n</m> untuk <m>n\geq 2</m> adalah <m>0</m> karena persamaan rekurensinya. Namun, dengan menggunakan syarat awal, masih tersisa <m>r_0 + (r_0+r_1)x = 1 + 4x</m>. Jadi, kita memperoleh persamaan
+        <md>
+            f(x)(1+x-6x^2)= 1+4x,
+        </md>
+        atau <m>f(x) = (1+4x)/(1+x-6x^2)</m>. Fungsi pembangkit ini dapat kita uraikan menggunakan pecahan parsial dalam SageMath:
+        </p>
+        <sage>
+            <input>
+                f(x) = (1+4*x)/(1+x-6*x^2)
+                pretty_print(f(x).partial_fraction())
+            </input>
+        </sage>
+        <p>
+            Hasil ini menunjukkan bahwa
+            <md>
+                f(x) =
+                \frac{6}{5}\frac{1}{1-2x}-\frac{1}{5}\frac{1}{1+3 x} =
+                \frac{6}{5}\sum_{n=0}^\infty 2^n x^n -\frac{1}{5}
+                \sum_{n=0}^\infty (-3)^n x^n </md>.
+                Dari sini, kita langsung membaca <m>r_n</m> sebagai koefisien <m>x^n</m>
+                dan memperoleh <m>r_n = (6/5) 2^n -(1/5)(-3)^n</m>.
+        </p>
+    </example>
+    <p>Meskipun memerlukan sedikit lebih banyak pekerjaan, metode ini juga dapat digunakan untuk menyelesaikan persamaan rekurensi nonhomogen, sebagaimana diperlihatkan oleh contoh berikut.
+    </p>
+    <example xml:id="ex_recurrence_gf-nonhomog">
+        <p>Persamaan rekurensi <m>r_n - r_{n-1}-2r_{n-2} = 2^n</m> bersifat nonhomogen. Misalkan <m>r_0=2</m> dan <m>r_1=1</m>. Kali ini, untuk menyelesaikan rekurensi tersebut, kita mulai dengan mengalikan kedua ruas dengan <m>x^n</m>. Langkah ini menghasilkan persamaan
+        <md>
+            r_nx^n - r_{n-1}x^n-2r_{n-2}x^n = 2^nx^n.
+        </md>
+        Jika persamaan ini kita jumlahkan untuk semua nilai <m>n\geq 2</m>, kita memperoleh
+        <md>
+            \sum_{n=2}^\infty r_nx^n - \sum_{n=2}^\infty r_{n-1}x^n-2
+            \sum_{n=2}^\infty r_{n-2}x^n = \sum_{n=2}^\infty 2^nx^n.
+        </md>
+        Anda seharusnya segera mengenali bahwa ruas kanan hampir sama dengan <m>1/(1-2x)</m>. Namun, suku <m>1</m> dan <m>2x</m> tidak ada, sehingga keduanya harus dikurangkan dari bentuk fungsi rasional dari deret tersebut. Sementara itu, pada ruas kiri kita perlu melakukan sedikit lebih banyak pekerjaan.
+        </p>
+
+        <p>Jumlah pertama hanya kehilangan dua suku pertama deret, sehingga kita dapat menggantinya dengan <m>R(x) - (2+x)</m>, dengan <m>R(x)=\sum_{n=0}^\infty r_n x^n</m>. Jumlah kedua hampir sama dengan <m>xR(x)</m>, kecuali bahwa suku pertamanya tidak ada. Jadi, jumlah itu sama dengan <m>xR(x) - 2x</m>. Jumlah pada suku terakhir hanyalah <m>x^2 R(x)</m>. Dengan demikian, persamaannya dapat dituliskan kembali sebagai
+        <md>
+            R(x) - (2+x) -(xR(x)-2x)-2x^2R(x) = \frac{1}{1-2x} - 1- 2x.
+        </md>
+        Sedikit manipulasi aljabar kemudian menghasilkan fungsi pembangkit
+        <md>
+            R(x) = \frac{6x^2-5x+2}{(1-2x)(1-x-2x^2)}.
+        </md>
+        Fungsi pembangkit ini dapat diuraikan menggunakan pecahan parsial dalam SageMath:</p>
+        <sage>
+            <input>
+                f(x) = (6*x^2-5*x+2)/((1-2*x)*(1-x-2*x^2))
+                pretty_print(f(x).partial_fraction())
+            </input>
+        </sage>
+        
+        <p>Oleh karena itu, dengan menggunakan <xref ref="exa_genfunction_multisets"/> untuk fungsi rasional kedua, kita memperoleh
+        <md>
+            <mrow>  R(x) \amp = -\frac{1}{9(1-2x)} + \frac{2}{3(1-2x)^2} +
+            \frac{13}{9(1+x)}</mrow>
+            <mrow>  \amp = -\frac{1}{9} \sum_{n=0}^\infty 2^nx^n +
+            \frac{2}{3}\sum_{n=0}^\infty \binom{n+2-1}{1}2^n x^n +
+            \frac{13}{9}\sum_{n=0}^\infty (-1)^nx^n</mrow>
+        </md>.
+        Dari fungsi pembangkit ini, kita dapat langsung membaca bahwa
+        <md>
+            r_n = -\frac{1}{9}2^n + \frac{2(n+1)}{3}2^{n} + \frac{13}{9}(-1)^n =
+            \frac{5}{9} 2^n + \frac{2}{3}n2^n + \frac{13}{9}(-1)^n
+        </md>.
+        </p>
+    </example>
+    <p>Persamaan rekurensi dalam kedua contoh pada bagian ini juga dapat diselesaikan menggunakan teknik yang telah kita pelajari sebelumnya dalam bab ini. Salah satu kemungkinan manfaat pendekatan fungsi pembangkit untuk persamaan nonhomogen ialah bahwa pendekatan ini tidak mengharuskan kita menentukan bentuk yang sesuai bagi solusi partikular. Namun, metode fungsi pembangkit sering mengharuskan fungsi pembangkit yang dihasilkan diuraikan menggunakan pecahan parsial. Kedua pendekatan memiliki kelebihan dan kekurangan; jadi, kecuali Anda diminta menggunakan metode tertentu, pilihlah metode yang tampak paling sesuai untuk situasi yang dihadapi. Pada bagian berikutnya, kita akan melihat persamaan rekurensi yang paling mudah diselesaikan menggunakan fungsi pembangkit karena persamaan tersebut nonlinear.
+    </p>
+
+</section>

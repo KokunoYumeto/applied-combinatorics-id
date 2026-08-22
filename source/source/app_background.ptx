@@ -1,0 +1,28 @@
+<appendix xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="app_background">
+    <title>Materi Dasar untuk Kombinatorika</title>
+
+
+    <introduction>
+        <p>Lampiran ini membahas materi dasar yang penting untuk mempelajari matematika kombinatorial. Banyak mahasiswa akan mendapati bahwa sebagian besar<mdash/>dan mungkin seluruh<mdash/>materi ini telah dibahas dalam perkuliahan mereka sebelumnya, dan kami memperkirakan hanya sedikit pengajar yang akan memasukkan lampiran ini ke dalam silabus. Meskipun demikian, mahasiswa mungkin merasa terbantu dengan merujuk lampiran ini dari waktu ke waktu, dan kami menduga banyak pengajar akan menganjurkan mahasiswa membaca materi ini untuk menyegarkan ingatan mengenai konsep-konsep utama.
+        </p>
+    </introduction>
+    <xi:include href="s_background_intro.ptx"/>
+    <xi:include href="s_background_int-union.ptx"/>
+    <xi:include href="s_background_products.ptx"/>
+    <xi:include href="s_background_relations.ptx"/>
+    <xi:include href="s_background_finite-sets.ptx"/>
+    <xi:include href="s_background_notation.ptx"/>
+    <xi:include href="s_background_formal-num-sys.ptx"/>
+    <xi:include href="s_background_mult.ptx"/>
+    <xi:include href="s_background_exp.ptx"/>
+    <xi:include href="s_background_order.ptx"/>
+    <xi:include href="s_background_total-order-N.ptx"/>
+    <xi:include href="s_background_decimal.ptx"/>
+    <xi:include href="s_background_equivalence.ptx"/>
+    <xi:include href="s_background_integers.ptx"/>
+    <xi:include href="s_background_prop-integers.ptx"/>
+    <xi:include href="s_background_rationals.ptx"/>
+    <xi:include href="s_background_reals.ptx"/>
+    <xi:include href="s_background_complex.ptx"/>
+    <xi:include href="s_background_ZFC.ptx"/>
+</appendix>

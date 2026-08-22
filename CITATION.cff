@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "Kutip edisi Bahasa Indonesia dengan sitasi pilihan berikut."
+title: "Sumber dan sistem bangun untuk Kombinatorika Terapan — Edisi Bahasa Indonesia"
+type: software
+authors:
+  - name: "KokunoYumeto"
+repository-code: "https://github.com/KokunoYumeto/applied-combinatorics-id"
+version: "2026.08.22.1"
+date-released: "2026-08-22"
+preferred-citation:
+  type: book
+  title: "Kombinatorika Terapan — Edisi Bahasa Indonesia"
+  authors:
+    - family-names: "Keller"
+      given-names: "Mitchel T."
+    - family-names: "Trotter"
+      given-names: "William T."
+  translators:
+    - name: "Codex (OpenAI), acting on Floris's request"
+  languages:
+    - "ind"
+  doi: "10.5281/zenodo.22059672"
+  version: "2026.08.22.1"
+  year: 2026
+  url: "https://doi.org/10.5281/zenodo.22059672"
+license: "CC-BY-SA-4.0"

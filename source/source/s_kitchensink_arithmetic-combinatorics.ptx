@@ -1,0 +1,19 @@
+<section xml:id="s_kitchensink_arithmetic-combinatorics">
+    <title>Kombinatorika Aritmetika</title>
+    <p>Dalam beberapa tahun terakhir, berbagai topik dalam kombinatorika aritmetika mendapat perhatian besar, dan sejumlah penemuan mendalam serta menarik tampaknya akan segera hadir. Dalam beberapa hal, bidang ini berkaitan erat dengan teori Ramsey dan teori bilangan, tetapi karya terbaru juga menunjukkan keterkaitan dengan analisis real dan analisis kompleks. Selain itu, akar kombinatorika aritmetika dapat ditelusuri jauh ke masa lalu. Pada bagian ini, kita menyajikan tinjauan singkat mengenai bidang yang kaya dan berkembang pesat ini.
+    </p>
+
+    <p>Ingat bahwa barisan bilangan bulat yang meningkat <m>a_1\lt a_2\lt a_3\lt \dots\lt a_t</m> disebut <term>barisan aritmetika</term><idx><h>barisan aritmetika</h></idx> jika terdapat bilangan bulat positif <m>d</m> sedemikian sehingga <m>a_{i+1}-a_i=d</m> untuk setiap <m>i=1,2,\dots,t-1</m>. Bilangan bulat <m>t</m> disebut <term>panjang</term><idx><h>panjang</h><h>barisan aritmetika</h></idx> barisan aritmetika tersebut.
+    </p>
+
+    <theorem>
+        <statement>
+            <p>Untuk setiap pasangan bilangan bulat positif <m>r,t</m>, terdapat bilangan bulat <m>n_0</m> sedemikian sehingga, jika <m>n\ge n_0</m> dan <m>\phi:\{1,2,\dots,n\}\rightarrow\{1,2,\dots,r\}</m> adalah sembarang fungsi, maka terdapat barisan aritmetika dengan <m>t</m> suku <m>1\le a_1\lt a_2\lt \dots\lt a_t\le n</m> dan unsur <m>\alpha\in\{1,2,\dots,r\}</m> sedemikian sehingga <m>\phi(a_i)=\alpha</m> untuk setiap <m>i=1,2,\dots,t</m>.
+            </p>
+        </statement>
+    </theorem>
+
+    <p>
+        Materi akan ditambahkan di sini.
+    </p>
+</section>

@@ -1,0 +1,458 @@
+<section xml:id="s_recurrence_solving">
+  <title>Menyelesaikan Persamaan Operator Pemajuan</title>
+  <introduction>
+    <p>Pada bagian ini, kita akan mempelajari beberapa cara menyelesaikan persamaan operator
+      pemajuan. Sebagian persamaan akan kita buat sekadar untuk diselesaikan, sedangkan yang lain
+      diambil dari contoh-contoh yang kita kembangkan dalam <xref ref="s_recurrence_intro"/>. Sekali
+      lagi, pembaca yang mengenal persamaan diferensial akan melihat banyak kemiripan antara teknik
+      yang digunakan di sini dan teknik untuk menyelesaikan persamaan diferensial linear
+      berkoefisien konstan, tetapi kita tidak akan memberikan contoh tambahan untuk menunjukkan
+      kesejajaran tersebut secara eksplisit. </p>
+  </introduction>
+
+
+  <subsection xml:id="s_recurrence_solving_homogeneous">
+    <title>Persamaan Homogen</title>
+    <p>Ternyata, persamaan homogen dapat diselesaikan dengan metode yang sangat eksplisit dan dapat
+      digunakan setiap kali kita mampu menemukan akar-akar suatu polinom. Mari kita mulai dengan
+      contoh lain yang cukup langsung.
+    </p>
+    <example xml:id="ex_recurrence_deg2">
+      <statement>
+        <p> Carilah semua solusi persamaan operator pemajuan <md number="yes" xml:id="eqn_recurrence_deg2">
+            (A^2+A-6)f = 0.
+          </md>
+        </p>
+      </statement>
+      <solution>
+        <p>Sebelum memusatkan perhatian pada pencarian <em>semua</em> solusi sebagaimana diminta,
+          mari kita terlebih dahulu mencoba menemukan <em>sebuah</em> solusi. Kita mulai dengan
+          memperhatikan bahwa di sini <m>p(A) = A^2+A-6 =
+          (A+3)(A-2)</m>. Dengan <m>p(A)</m>
+          difaktorkan seperti ini, kita menyadari bahwa sebenarnya kita telah menyelesaikan sebagian
+          persoalan ini dalam <xref ref="ex_recurrence_adveq"/>! Pada contoh itu, polinom dalam
+          <m>A</m> yang kita jumpai adalah (meskipun tidak dinyatakan secara eksplisit sebagai
+          demikian di sana) <m>
+          A-2</m>. Solusi bagi <m>(A-2)f_1=0</m> berbentuk <m>f_1(n) = c_12^n</m>. Apa yang terjadi
+          jika kita mencoba fungsi seperti itu di sini? Kita memperoleh
+          <md>
+            (A+3)(A-2)f_1(n) = (A+3)0 = 0,
+          </md> sehingga <m>f_1</m> merupakan solusi persamaan operator pemajuan yang diberikan.
+          Tentu saja, fungsi ini tidak mungkin mencakup <em>semua</em> solusi. Namun, kini tidak sulit
+          melihat bahwa <m>(A+3)f_2 = 0</m> memiliki solusi <m>f_2(n)
+          = c_2(-3)^n</m> berdasarkan
+          penalaran yang sama seperti dalam <xref ref="ex_recurrence_adveq"/>. Karena
+          <m>(A+3)(A-2) = (A-2)(A+3)</m>, langsung terlihat bahwa <m>f_2</m> juga merupakan solusi
+          <xref ref="eqn_recurrence_deg2"/>. </p>
+
+        <p>Kini kita memiliki dua keluarga tak hingga solusi bagi <xref
+          ref="eqn_recurrence_deg2"/>. Apakah keduanya memberikan <em>semua</em> solusi? Ternyata,
+          dengan menggabungkannya, kita memang memperoleh semua solusi. Perhatikan apa yang terjadi
+          jika kita mengambil <m>f(n) = c_1 2^n +
+          c_2 (-3)^n</m> dan menerapkan <m>p(A)</m> padanya.
+          Kita memperoleh <md>
+            <mrow> (A+3)(A-2)f(n) \amp = (A+3)(c_1 2^{n+1} + c_2 (-3)^{n+1} - 2(c_12^n +
+              c_2(-3)^n))</mrow>
+            <mrow> \amp = (A+3)(-5c_2(-3)^{n})</mrow>
+            <mrow> \amp = -5c_2(-3)^{n+1}-15c_2(-3)^n</mrow>
+            <mrow> \amp = 15c_2(-3)^n - 15c_2(-3)^n</mrow>
+            <mrow> \amp =0.</mrow>
+          </md>
+        </p>
+        <p>Tidak terlalu sulit melihat bahwa karena <m>f</m> memberikan keluarga solusi berparameter
+          dua bagi <xref ref="eqn_recurrence_deg2"/>, fungsi tersebut memberikan semua solusi,
+          sebagaimana akan kita tunjukkan secara terperinci dalam <xref
+          ref="s_recurrence_rigorous"/>. </p>
+      </solution>
+    </example>
+    <p>Apa yang terjadi dalam contoh ini sama sekali bukan suatu kebetulan. Jika terdapat persamaan
+      operator pemajuan berbentuk <m>p(A)f=0</m> (dengan suku konstan <m>p</m> tidak nol) dan
+      <m>p</m> berderajat <m>k</m>, maka <term>solusi umum</term><idx>
+        <h>persamaan rekurensi</h>
+        <h>solusi umum</h>
+      </idx> dari <m>p(A)f=0</m> akan berupa keluarga berparameter <m>k</m> (pada contoh sebelumnya,
+      parameternya adalah konstanta <m>c_1</m> dan <m>c_2</m>) yang suku-sukunya berasal dari solusi
+      persamaan-persamaan lebih sederhana yang muncul dari faktor-faktor <m>p</m>. Kita akan kembali
+      ke gagasan ini sebentar lagi, tetapi terlebih dahulu mari kita lihat contoh lain. </p>
+    <example xml:id="ex_recurrence_ternary-strings-no-20-solved">
+      <idx>
+        <h>untai</h>
+        <h>terner</h>
+      </idx>
+      <p>Mari kita kembali ke persoalan mencacah untai terner dengan panjang <m>n</m> yang tidak
+        memuat <m>
+        (2,0)</m> sebagai subuntai pada dua posisi berurutan, yang kita jumpai dalam <xref
+        ref="ex_recurrence_ternary-strings-no-20"/>. Di sana kita melihat bahwa banyaknya untai
+        tersebut memenuhi persamaan rekurensi <md>
+          t_{n+2} = 3t_{n+1} - t_n,\qquad n\geq 1
+        </md> dengan <m>t_1 = 3</m> dan <m>t_2=8</m>. Sebelum berusaha menyelesaikannya, mari kita
+        tuliskan kembali persamaan rekurensi tersebut sebagai persamaan operator pemajuan. Kita
+        memperoleh <md number="yes" xml:id="eqn_recurrence_ternary">
+        p(A)t=(A^2-3A+1)t=0.
+        </md>
+      </p>
+      <p>Akar-akar <m>p(A)</m> adalah <m>(3\pm\sqrt{5})/2</m>. Dengan mengikuti pendekatan pada contoh
+        sebelumnya, solusi umumnya adalah <md>
+          t(n) = c_1\left(\frac{3+\sqrt{5}}{2}\right)^n +
+          c_2\left(\frac{3-\sqrt{5}}{2}\right)^n.
+        </md>
+        Bentuk ini mungkin tampak mencurigakan; di sini kita sedang <em>mencacah untai</em>, sehingga
+        <m>t(n)</m> harus berupa bilangan bulat tak negatif, tetapi bentuk yang diberikan bukan hanya
+        memuat pecahan, melainkan juga akar kuadrat! Anda dapat meniru verifikasi pada contoh
+        sebelumnya untuk melihat bahwa bentuk ini memang memenuhi <xref
+        ref="eqn_recurrence_ternary"/>. Jika itu terasa menjemukan, pertimbangkan cara menggunakan
+        Teorema Binomial untuk menjabarkan suku-suku dalam ekspresi <m>t(n)</m> ini. Dengan nilai
+        <m>c_1</m> dan <m>c_2</m> yang sesuai, tampaknya akar kuadrat dan pecahan tersebut dapat saling
+        menghilangkan. Karena kita memiliki nilai awal untuk <m>t(n)</m>, kita dapat menentukan
+        <m>c_1</m> dan <m>c_2</m>. Dengan mengevaluasi pada <m>n=1</m> dan <m>n=2</m>, kita memperoleh
+        <md>
+          <mrow> 3 \amp = c_1\left(\frac{3+\sqrt{5}}{2}\right) + c_2 \left(\frac{3-\sqrt{5}}{2}\right)</mrow>
+          <mrow> 8 \amp = c_1\left(\frac{3+\sqrt{5}}{2}\right)^2 + c_2 \left(\frac{3-\sqrt{5}}{2}\right)^2</mrow>
+        </md>. 
+        Sedikit perhitungan memberikan <md>
+          c_1 = \frac{3\sqrt{5}}{10} + \frac{1}{2} \quad\text{dan} \quad c_2 =
+          -\frac{3\sqrt{5}}{10} +\frac{1}{2}
+        </md>
+        sehingga <md>
+          t(n) = \left(\frac{3\sqrt{5}}{10} + \frac{1}{2}\right)
+          \left(\frac{3+\sqrt{5}}{2}\right)^n+ \left(-\frac{3\sqrt{5}}{10} +\frac{1}{2}\right) \left(\frac{3-\sqrt{5}}{2}\right)^n.
+        </md>
+      </p>
+    </example>
+
+    <example>
+      <statement>
+        <p>Carilah solusi umum persamaan operator pemajuan <md>
+            (A+1)(A-6)(A+4)f = 0.
+          </md>
+        </p>
+      </statement>
+      <solution>
+        <p>Pada tahap ini, tidak mengherankan jika kita langsung memanfaatkan akar-akar <m>p(A)</m>
+          dan memperoleh solusi <md>
+            f(n) = c_1(-1)^n + c_2 6^n + c_3 (-4)^n.
+          </md>
+        </p>
+      </solution>
+    </example>
+    <p>Pada tahap ini, Anda seharusnya sudah dapat melihat sebagian besar pola untuk menyelesaikan
+      persamaan operator pemajuan homogen. Namun, semua contoh yang telah kita tinjau sejauh ini
+      memiliki satu kesamaan: semua akar <m>p(A)</m> berbeda. Menyelesaikan persamaan operator
+      pemajuan yang tidak memiliki sifat ini tidak jauh lebih sulit daripada yang telah kita
+      lakukan, tetapi kasus tersebut perlu ditangani secara tersendiri. </p>
+    <example xml:id="ex_recurrence_deg2-repeated">
+      <idx>
+        <h>persamaan rekurensi</h>
+        <h>akar berulang</h>
+      </idx>
+      <statement>
+        <p> Carilah solusi umum persamaan operator pemajuan <md>
+            (A-2)^2 f=0.
+          </md>
+        </p>
+      </statement>
+      <solution>
+        <p>Di sini kita menghadapi persoalan akar berulang yang baru saja disebutkan. Langsung
+          terlihat bahwa <m>f_1(n) = c_12^n</m> merupakan solusi persamaan ini, tetapi itu tidak
+          mungkin mencakup semuanya, sebab sebelumnya kita telah menyebutkan bahwa persamaan semacam
+          ini harus memiliki keluarga solusi berparameter <m>2</m>. Anda mungkin tergoda untuk
+          mencoba <m>f_2(n) = c_2 2^n</m> dan <m>f(n) = f_1(n) +
+          f_2(n)</m>, tetapi hasilnya hanyalah
+          <m>(c_1+c_2)2^n</m>, yang sebenarnya hanya memiliki satu parameter, yaitu
+          <m>c=c_1+c_2</m>. </p>
+
+        <p>Apa yang dapat kita lakukan untuk mengatasi kebuntuan ini? Bagaimana jika kita mencoba
+          <m>f_2(n) = c_2 n2^n</m>? Sekali lagi, jika Anda mengenal persamaan diferensial, inilah
+          pilihan analog yang patut dicoba. Mari kita terapkan <m>(A-2)^2</m> pada <m>f_2</m> ini.
+          Kita memperoleh <md>
+            <mrow> (A-2)^2 f_2(n) \amp = (A-2)(c_2(n+1)2^{n+1} - 2c_2 n2^n)</mrow>
+            <mrow> \amp = (A-2)(c_2 2^{n+1})</mrow>
+            <mrow> \amp = c_22^{n+2} - 2c_2 2^{n+1}</mrow>
+            <mrow> \amp = 0.</mrow>
+          </md> Karena <m>f_2</m> memenuhi persamaan operator pemajuan tersebut, solusi umumnya
+          adalah <md>
+            f(n) = c_1 2^n + c_2 n2^n.
+          </md>
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ex_recurrence_deg4-repeated">
+      <statement>
+        <p>Perhatikan persamaan rekurensi <md>
+            f_{n+4} = -2f_{n+3} + 12f_{n+2} + -14 f_{n+1} + 5f_n
+          </md>
+          dengan syarat awal <m>f_0 = 1</m>, <m>f_1= 2</m>, <m>f_2 = 4</m>, dan <m>f_3 = 4</m>.
+          Carilah rumus eksplisit untuk <m>f_n</m>. </p>
+      </statement>
+      <solution>
+        <p>Sekali lagi, kita mulai dengan menuliskan persamaan rekurensi yang diberikan sebagai
+          persamaan operator pemajuan bagi fungsi <m>f(n)</m>: <md number="yes" xml:id="eqn_recurrence_deg4-repeated">
+            (A^4 +2A^3 -12A^2+14A-5)f = 0.
+          </md> Memfaktorkan <m>p(A)
+          = A^4 +2A^3 -12A^2+14A-5</m> memberikan <m>p(A) = (A+5)(A-1)^3</m>. Langsung terlihat
+          bahwa <m>f_1(n)
+          = c_1 (-5)^n</m> merupakan sebuah solusi. Contoh sebelumnya seharusnya telah meyakinkan
+          Anda bahwa <m>f_2(n)
+          = c_2\cdot 1^n = c_2</m> dan <m>f_3(n) = c_3 n \cdot 1^n = c_3 n</m> juga merupakan solusi,
+          dan Anda mungkin tidak akan terkejut ketika kita menyarankan <m>f_4(n) = c_4 n^2</m>
+          sebagai solusi lainnya. Untuk memverifikasi bahwa fungsi ini bekerja, kita memperoleh
+          <md>
+            <mrow> (A+5)(A-1)^3 f_4(n) \amp = (A+5)(A-1)^2(c_4(n+1)^2 - c_4 n^2)</mrow>
+            <mrow> \amp = (A+5)(A-1)^2 (2c_4 n + c_4)</mrow>
+            <mrow> \amp = (A+5)(A-1)(2c_4(n+1) + c_4 - 2c_4 n -c_4)</mrow>
+            <mrow> \amp = (A+5)(A-1)(2c_4)</mrow>
+            <mrow> \amp = (A+5)(2c_4-2c_4)</mrow>
+            <mrow> \amp = 0.</mrow>
+          </md> Dengan demikian, solusi umumnya adalah <md>
+            f(n) = c_1 (-5)^n + c_2 + c_3 n + c_4n^2.
+          </md>
+        </p>
+        <p> Karena kita memiliki syarat awal, terlihat bahwa <md>
+            <mrow> 1= f(0) \amp = c_1+c_2</mrow>
+            <mrow> 2 = f(1) \amp = -5c_1 + c_2 + c_3 + c_4</mrow>
+            <mrow> 4 = f(2) \amp = 25c_1 + c_2 + 2c_3 + 4c_4</mrow>
+            <mrow> 4 = f(3) \amp = -125c_1 + c_2 +3c_3 +9c_4</mrow>
+          </md> merupakan sistem persamaan yang solusinya memberikan nilai-nilai <m>c_i</m>.
+          Menyelesaikan sistem ini memberikan solusi yang diinginkan, yaitu <md>
+            f(n) = \frac{1}{72} (-5)^n +\frac{71}{72} + \frac{5}{6} n +\frac{1}{4} n^2.
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+
+
+  <subsection xml:id="s_recurrence_solving_nonhomogeneous">
+    <title>Persamaan Nonhomogen</title>
+    <idx>
+      <h>persamaan rekurensi</h>
+      <h>nonhomogen</h>
+    </idx>
+    <p>Seperti disebutkan sebelumnya, persamaan nonhomogen sedikit lebih rumit untuk diselesaikan
+      daripada persamaan homogen. Kadang-kadang percobaan pertama kita tidak berhasil, tetapi justru
+      menyarankan fungsi yang lebih baik untuk dicoba. Sebelum selesai, kita akan kembali ke
+      persoalan garis-garis pada bidang yang telah beberapa kali ditinjau, tetapi mari kita mulai
+      dengan contoh yang lebih ilustratif.
+    </p>
+    <example>
+      <p>Perhatikan persamaan operator pemajuan <md>
+          (A+2)(A-6)f=3^n.
+        </md> Mari kita mencoba mencari solusi umumnya, sebab setelah solusi umum diperoleh, kita
+        dapat menemukan solusi tertentu yang bersesuaian dengan sebarang himpunan syarat awal. </p>
+
+      <p>Ketika menangani persamaan nonhomogen, kita menempuh dua langkah. Alasan di balik prosedur
+        ini akan dijelaskan dalam <xref ref="lem_particular"/>, tetapi untuk saat ini mari kita
+        pusatkan perhatian pada metodenya. Langkah pertama adalah mencari solusi umum persamaan
+        homogen yang bersesuaian dengan persamaan nonhomogen yang diberikan. Dalam kasus ini,
+        persamaan homogen yang ingin kita selesaikan adalah <md>
+          (A+2)(A-6)f=0,
+        </md> dan pada tahap ini Anda seharusnya sudah cukup lancar untuk langsung menyebutkan solusi
+        umumnya, yaitu <md>
+          f_1(n) = c_1 (-2)^n + c_2 6^n.
+        </md>
+      </p>
+      <p>Sekarang kita menangani bagian nonhomogen dari persamaan operator pemajuan tersebut. Cukup
+        bagi kita untuk menemukan <em>sebarang</em> solusi persamaan nonhomogen, yang akan disebut
+        <term>solusi partikular</term>.<idx>
+          <h>persamaan rekurensi</h>
+          <h>solusi partikular</h>
+        </idx> Setelah memperoleh solusi partikular <m>f_0</m> bagi persamaan itu, solusi umumnya
+        cukup dituliskan sebagai <m>f=f_0 + f_1</m>, dengan <m>f_1</m> merupakan solusi umum persamaan
+        homogen. </p>
+
+      <p>Mencari solusi partikular <m>f_0</m> sedikit lebih rumit daripada mencari solusi umum
+        persamaan homogen. Intuisi untuk melakukannya dapat dikembangkan dengan menyelesaikan banyak
+        persoalan, tetapi bahkan dengan intuisi yang baik tentang apa yang perlu dicoba, sesekali
+        Anda mungkin masih harus mencoba lebih dari satu bentuk untuk memperoleh solusi partikular.
+        Apa titik awal terbaik untuk membangun intuisi ini? Ternyata, pilihan awal terbaik biasanya
+        (dan tidak terlalu mengejutkan) berupa sesuatu yang sangat mirip dengan ruas kanan
+        persamaan, tetapi kita perlu menyertakan satu atau beberapa konstanta baru agar benar-benar
+        memperoleh solusi. Jadi, di sini kita mencoba <m>f_0(n) = d 3^n</m>. Kita memperoleh <md>
+          <mrow> (A+2)(A-6)f_0(n) \amp = (A+2)(d3^{n+1}-6d3^n)</mrow>
+          <mrow> \amp = (A+2)(-d3^{n+1})</mrow>
+          <mrow> \amp = -d3^{n+2} -2d3^{n+1}</mrow>
+          <mrow> \amp = -5d 3^{n+1}.</mrow>
+        </md> Kita menginginkan <m>f_0</m> menjadi solusi persamaan nonhomogen, yang berarti
+        <m>(A+2)(A-6)f_0 = 3^n</m>. Hal ini mengharuskan kita mengambil <m>d=-1/15</m>. Jadi, seperti
+        disebutkan sebelumnya, solusi umumnya adalah <md>
+          f(n) = f_0(n) + f_1(n) = -\frac{1}{15}3^n + c_1 (-2)^n + c_2
+          6^n.
+        </md>
+      </p>
+      <p>
+        Silakan verifikasi bahwa fungsi ini memang memenuhi persamaan yang diberikan.
+      </p>
+    </example>
+    <p>Semoga Anda memperhatikan bahwa pada contoh sebelumnya kita mengatakan bahwa tebakan pertama
+      untuk solusi partikular sangat mirip dengan ruas kanan persamaan, tetapi tidak selalu sama
+      persis. Contoh berikutnya akan menunjukkan mengapa kita tidak selalu dapat mengambil bentuk
+      yang persis sama.
+    </p>
+    <example>
+      <statement>
+        <p> Carilah solusi persamaan operator pemajuan <md>
+            (A+2)(A-6)f=6^n
+          </md> jika <m>f(0) = 1</m> dan <m>f(1)
+          = 5</m>. </p>
+      </statement>
+      <solution>
+        <p>Persamaan homogen yang bersesuaian sama dengan persamaan pada contoh sebelumnya, sehingga
+          solusi umumnya kembali berupa <m>f_1(n) = c_1(-2)^n + c_2 6^n</m>. Jadi, pekerjaan utama di
+          sini adalah mencari solusi partikular <m>f_0</m> bagi persamaan operator pemajuan yang
+          diberikan. Mari kita coba bentuk yang disarankan oleh contoh sebelumnya, yaitu <m>f_0(n)
+          = d6^n</m>. Menerapkan polinom operator pemajuan <m>(A+2)(A-6)</m> pada <m>f_0</m> ternyata
+          menghasilkan nol, sebab <m>(A-6)(d6^n) = d6^{n+1}-6d6^n =0</m>. Jadi, percobaan ini tidak
+          berhasil. Namun, kita dapat mengikuti cara menangani persamaan operator pemajuan homogen
+          yang berakar berulang dan menyertakan faktor <m>n</m>. Mari kita coba <m>f_0(n)
+          = dn6^n</m>.
+          Sekarang kita memperoleh <md>
+            <mrow> (A+2)(A-6)(dn6^n) \amp = (A+2)(d(n+1)6^{n+1}-6dn6^n)</mrow>
+            <mrow> \amp = (A+2)d6^{n+1}</mrow>
+            <mrow> \amp = d6^{n+2} + 2d 6^{n+1}</mrow>
+            <mrow> \amp = 6^n(36d+12d) = 48d6^n.</mrow>
+          </md> Kita menginginkan hasil ini sama dengan <m>
+          6^n</m>, sehingga <m>d = 1/48</m>. Oleh
+          karena itu, solusi umumnya adalah <md>
+            f(n) = \frac{1}{48}n6^n + c_1 (-2)^n + c_2 6^n.
+          </md>
+        </p>
+        <p>Yang tersisa hanyalah menggunakan syarat awal untuk mencari konstanta <m>c_1</m> dan <m>
+          c_2</m>. Kedua konstanta tersebut memenuhi pasangan persamaan berikut: <md>
+            <mrow> 1 \amp = c_1 + c_2</mrow>
+            <mrow> 5 \amp = \frac{1}{8} -2c_1+6c_2</mrow>
+          </md> Dengan menyelesaikan keduanya, kita memperoleh solusi yang diinginkan, yaitu <md>
+            f(n) = \frac{1}{48}n6^n + \frac{9}{64} (-2)^n + \frac{55}{64} 6^n.
+          </md>
+        </p>
+      </solution>
+    </example>
+    <p>Pelajaran apa yang perlu kita ambil dari contoh ini? Ketika menebak solusi partikular suatu
+      persamaan operator pemajuan nonhomogen, tidak ada gunanya menggunakan suku yang juga merupakan
+      solusi persamaan homogen yang bersesuaian, sebab suku tersebut akan dilenyapkan oleh polinom
+      operator pemajuan. Mari kita lihat bagaimana gagasan ini berperan ketika akhirnya kita
+      menyelesaikan salah satu contoh lama.
+    </p>
+    <example xml:id="ex_recurrence_lines-solved">
+      <p>Sekarang kita siap menjawab pertanyaan tentang banyaknya daerah yang dibentuk oleh <m>n</m>
+        garis pada bidang dalam posisi umum, seperti yang dibahas dalam <xref
+        ref="s_recurrence_intro_lines"/>. Kita memiliki persamaan rekurensi <md>
+          r_{n+1} = r_n + n+1,
+        </md> yang menghasilkan persamaan operator pemajuan nonhomogen <m>(A-1)r = n+1</m>. Seperti
+        biasa, kita perlu memulai dengan solusi umum persamaan homogen yang bersesuaian. Solusinya
+        adalah <m>f_1(n) = c_1</m>. Kita mungkin tergoda untuk mencoba <m>f_0(n)=d_1n+d_2</m> sebagai
+        solusi partikular. Namun, karena suku konstantanya merupakan solusi persamaan homogen, kita
+        memerlukan bentuk yang sedikit lebih besar. Mari kita naikkan setiap pangkat <m>n</m> sebesar
+        <m>1</m>, sehingga diperoleh <m>f_0(n) = d_1n^2 + d_2n</m>. Sekarang kita mempunyai <md>
+          <mrow> (A-1)(d_1n^2+d_2n) \amp = d_1(n+1)^2+d_2(n+1) - d_1n^2 -d_2n</mrow>
+          <mrow> \amp = 2d_1n+d_1+d_2.</mrow>
+        </md> Hal ini menunjukkan bahwa kita memerlukan <m>d_1=1/2</m> dan <m>d_2=1/2</m>, sehingga
+        <m>f_0(n) = n^2/2 + n/2</m>. Jadi, solusi umumnya adalah <md>
+        f(n) = c_1 + \frac{n^2+n}{2}.
+        </md>
+      </p>
+      <p>Apa syarat awalnya? Satu garis membagi bidang menjadi dua daerah, sehingga <m>f(1)
+        = 2</m>.
+        Di sisi lain, <m>f(1) = c_1 + 1</m>, sehingga <m>c_1=1</m> dan dengan demikian <md>
+          f(n) = 1 + \frac{n^2+n}{2} = \binom{n+1}{2} + 1
+        </md> merupakan banyaknya daerah yang terbentuk ketika bidang dibagi oleh <m>n</m> garis
+        dalam posisi umum. </p>
+    </example>
+    <p>Kita mengakhiri bagian ini dengan satu contoh lagi yang menunjukkan cara menangani persamaan
+      operator pemajuan nonhomogen yang ruas kanannya bertipe <q>campuran</q>. </p>
+    <example>
+      <statement>
+        <p> Berikan solusi umum persamaan operator pemajuan <md>
+            (A-2)^2 f = 3^n + 2n.
+          </md>
+        </p>
+      </statement>
+      <solution>
+        <p>Pada tahap ini, mencari solusi persamaan homogen yang bersesuaian sudah cukup mudah; cukup
+          perhatikan bahwa <md>
+            f_1(n) = c_1 2^n + c_2 n2^n.
+          </md>
+        </p>
+        <p>Apa yang perlu kita coba sebagai solusi partikular? Untungnya, di sini tidak ada tumpang
+          tindih dengan solusi homogen untuk <m>
+          p(A)=(A-2)^2</m>. Naluri pertama kita mungkin menyarankan <m>f_0(n) = d_1 3^n + d_2 n</m>.
+          Namun, bentuk ini tidak akan berhasil. (Silakan coba. Akan tersisa sebuah suku
+          konstan yang tidak dapat begitu saja dibuat nol.) Kuncinya adalah bahwa jika kita
+          menggunakan suku yang memuat pangkat tak nol dari <m>
+          n</m>, kita juga perlu menyertakan
+          pangkat-pangkat yang lebih rendah (selama pangkat-pangkat itu tidak menjadi mubazir akibat
+          <m>p(A)</m>). Jadi, kita mencoba <md>
+            f_0(n) = d_1 3^n + d_2 n + d_3.
+          </md> Ini menghasilkan <md>
+            <mrow> (A-2)^2(d_1 3^n + d_2 n + d_3) \amp = (A-2)(d_13^{n+1} + d_2(n+1)+d_3
+              - 2d_1 3^n - 2d_2 n -2d_3)</mrow>
+            <mrow> \amp = (A-2)(d_13^n - d_2n + d_2 -d_3)</mrow>
+            <mrow> \amp = d_1 3^{n+1} - d_2(n+1) + d_2 - d_3 - 2 d_1 3^n + 2d_2 n -2d_2
+              + 2d_3</mrow>
+            <mrow> \amp = d_1 3^n + d_2 n -2d_2 + d_3.</mrow>
+          </md> Kita menginginkan hasil ini sama dengan <m>
+          3^n+2n</m>, sehingga pencocokan koefisien
+          memberikan <m>d_1 = 1</m>, <m>d_2 =2</m>, dan <m>d_3=4</m>. Dengan demikian, solusi umumnya
+          adalah <md>
+            f(n) = 3^n+2n+4 + c_1 2^n + c_2 n 2^n.
+          </md>
+        </p>
+      </solution>
+    </example>
+  </subsection>
+  <reading-questions xml:id="rqs-recurrence_solving" component="runestone">
+    <exercise label="rq-recurrence_solving-solve-plus-4">
+      <statement>
+        <p>
+          Selesaikan persamaan operator pemajuan <m>(A+4)f(n) = 0</m> dengan syarat awal
+          <m>f(0)=2</m>. Pada kotak di bawah ini, ketik jawaban Anda dalam bentuk <m>f(n) = \text{sesuatu}</m>
+          dan jelaskan secara singkat dalam beberapa kalimat bagaimana Anda
+          memperoleh solusi tersebut.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="rq-recurrence_solving-solve-plus-deg-two">
+      <statement>
+        <p>
+          Misalkan <m>c_1</m> dan <m>c_2</m> merupakan konstanta, dan definisikan <m>f(n) = c_1 3^n + c_2 (-4)^n</m>.
+          Hitung <md>(A+4)(A-3)f(n)</md> dalam dua langkah. Pertama, hitung
+          <m>(A-3)f(n)</m>, lalu tuliskan hasil langkah pertama setelah disederhanakan pada kotak di
+          bawah ini. (Jangan masukkan seluruh pekerjaan Anda ke dalam kotak!) Kedua, ambil jawaban
+          dari langkah pertama dan terapkan <m>(A+4)</m> padanya. Pada kotak di bawah ini, tuliskan
+          hasil langkah kedua setelah disederhanakan.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="rq-recurrence_solving-async-nonlinear">
+      <statement>
+        <p>
+          Berikan ringkasan singkat jawaban Anda atas tiga pertanyaan yang ditugaskan dalam
+          aktivitas Persamaan Operator Pemajuan Nonhomogen. Jangan sertakan aljabarnya, tetapi
+          cantumkan hal-hal berikut:
+          <ol marker="1.">
+            <li>
+              <p>
+                Apa masalah dalam pertanyaan pertama?
+              </p>
+            </li>
+            <li>
+              <p>
+                Bagaimana Anda menyesuaikan <m>f_1</m> dalam pertanyaan kedua, dan solusi partikular
+                apa yang Anda peroleh (atau di bagian mana Anda mengalami kebuntuan jika belum
+                memperolehnya)?
+              </p>
+            </li>
+            <li>
+              <p>
+                Apa solusi umum yang Anda peroleh?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

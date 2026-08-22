@@ -1,0 +1,88 @@
+{
+  "schema": "r012.final-public-html-browser-qa",
+  "schema_version": "1.1.0",
+  "created_at": "2026-08-22T17:31:39Z",
+  "result": "pass",
+  "publication_gate": "pass",
+  "corpus_id": "R012",
+  "version": "2026.08.22.1",
+  "language": "id-ID",
+  "version_doi": "10.5281/zenodo.22059672",
+  "concept_doi": "10.5281/zenodo.22058531",
+  "artifact": {
+    "path": "source/output/html-public-2026.08.22.1",
+    "files": 1495,
+    "bytes": 287593006,
+    "manifest_sha256": "940a3f877c81436c0147dd098684922d6d42bca09384033737e142d8f67fd98d"
+  },
+  "build_receipt": {
+    "path": "qa/HTML_RELEASE_METADATA_INJECTION_20260822_1.json",
+    "bytes": 6165,
+    "sha256": "0ffb438505dfd035a6755558f30a707ecfe54b8a7b6c3b839bb39ee3d7c62d8e",
+    "result": "pass"
+  },
+  "pages_checked": [
+    "app-comb.html",
+    "app-comb-2.html"
+  ],
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 720,
+      "metadata_block_width": 876.8055419921875,
+      "horizontal_overflow": false,
+      "visual_review": "pass"
+    },
+    "phone": {
+      "width": 390,
+      "height": 844,
+      "metadata_block_width": 340,
+      "metadata_block_left": 17.55555534362793,
+      "metadata_block_right": 357.55555534362793,
+      "horizontal_overflow": false,
+      "visual_review": "pass"
+    }
+  },
+  "identity_and_link_checks": {
+    "metadata_blocks_per_page": 1,
+    "visible_version": "2026.08.22.1",
+    "visible_version_doi": true,
+    "visible_concept_doi": true,
+    "visible_zenodo_repository": true,
+    "visible_frozen_source_commit": true,
+    "visible_ai_and_nonendorsement_disclosure": true,
+    "expected_links_on_each_page": [
+      "https://doi.org/10.5281/zenodo.22059672",
+      "https://doi.org/10.5281/zenodo.22058531",
+      "https://zenodo.org/records/22059672",
+      "https://github.com/mitchkeller/applied-combinatorics/tree/33b20df670d1f8d98266cd2f4a287a79b01649ea"
+    ],
+    "unavailable_edition_repository_references": 0,
+    "result": "pass"
+  },
+  "runtime_sanitization": {
+    "upstream_public_jobe_client_identifier_in_executable_reader": false,
+    "USE_API_KEY_enabled_assignments": 0,
+    "activecode_component_state": "disabled by the existing open-reader runtime transform",
+    "requests_for_sanitized_chunk_717_during_bounded_browser_check": 0,
+    "unmodified_upstream_corresponding_source_preserved_separately": true,
+    "result": "pass"
+  },
+  "layout_and_accessibility": {
+    "html_lang": "id-ID",
+    "metadata_aria_label_present": true,
+    "block_visible_and_centered": true,
+    "text_clipping_or_overlap": false,
+    "desktop_and_phone_text_complete": true,
+    "horizontal_overflow": false,
+    "result": "pass"
+  },
+  "console": {
+    "errors": 0,
+    "nonblocking_warning_classes": [
+      "Retained Runestone bundle reports that its optional user-dropdown template is absent in the intentionally offline, authentication-free reader."
+    ]
+  },
+  "review_method": "Read-only in-app browser inspection against a bounded local HTTP server after runtime sanitization; desktop and 390-pixel phone layouts were checked by computed DOM geometry and visually replayed against the previously inspected identical metadata layout. Server requests were reviewed; the disabled credential-bearing chunk was not requested. External links were not activated.",
+  "publication_blockers": []
+}

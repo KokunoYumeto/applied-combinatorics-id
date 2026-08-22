@@ -1,0 +1,16 @@
+<section xml:id="s_graphs_multigraphs">
+    <title>Multigraf: Gelang dan Sisi Rangkap</title>
+    <p>Pertimbangkan sebuah graf dengan simpul-simpul yang mewakili kota dan sisi-sisi yang mewakili jalan raya. Pasangan kota tertentu dihubungkan oleh sebuah sisi, sedangkan pasangan lainnya tidak. Graf itu dapat terhubung ataupun tidak terhubung (meskipun graf yang tidak terhubung kemungkinan besar akan membuat para komuter kesal). Namun, beberapa aspek jaringan jalan raya yang sesungguhnya tidak tertangkap oleh model ini. Pertama, di antara dua kota yang berdekatan, dapat saja terdapat beberapa jalan raya yang saling menghubungkan, dan menempuh salah satunya pada dasarnya berbeda dari menempuh yang lain. Hal ini menghasilkan konsep <term>sisi rangkap</term><idx><h>sisi</h><h>rangkap</h></idx>, <ie/>, memperbolehkan lebih dari satu sisi di antara dua simpul yang bertetangga. Kita juga dapat memiliki jalan raya yang meninggalkan sebuah kota, melintasi daerah pedesaan di sekitarnya, lalu kembali ke kota asalnya. Hal ini menghasilkan konsep <term>gelang</term><idx><h>gelang</h></idx>, <ie/>, sebuah sisi yang kedua titik ujungnya merupakan simpul yang sama. Kita bahkan dapat memperbolehkan lebih dari satu gelang dengan titik ujung yang sama.
+    </p>
+
+    <p>Karena itu, penulis sering membuka pembahasan suatu topik teori graf dengan satu atau dua kalimat seperti:
+                  <ol>
+        <li><p>Dalam tulisan ini, semua graf bersifat <term>sederhana</term>, <ie/>, kita tidak memperbolehkan gelang ataupun sisi rangkap.</p></li>
+        <li><p>Dalam tulisan ini, graf boleh memiliki gelang dan sisi rangkap.</p></li>
+    
+                  </ol>
+                </p>
+
+    <p>Terminologinya masih jauh dari baku, tetapi dalam buku ini sebuah graf selalu merupakan graf <term>sederhana</term><idx><h>graf</h><h>sederhana</h></idx>, <ie/>, tanpa gelang ataupun sisi rangkap. Ketika ingin memperbolehkan gelang dan sisi rangkap, kita akan menggunakan istilah <term>multigraf</term><idx><h>multigraf</h></idx>. Hal ini menimbulkan pertanyaan tentang sebutan bagi graf yang boleh memiliki gelang tetapi tidak memiliki sisi rangkap, atau yang boleh memiliki sisi rangkap tetapi tidak memiliki gelang. Jika kita <em>benar-benar</em> perlu membahas graf semacam itu, bahasa memberi kita jalan keluar: nyatakan saja batasannya secara eksplisit!
+    </p>
+</section>

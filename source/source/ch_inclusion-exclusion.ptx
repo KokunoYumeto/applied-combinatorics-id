@@ -1,0 +1,18 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_inclusion-exclusion">
+    <title>Inklusi–Eksklusi</title>
+
+
+    <introduction>
+        <p>Dalam bab ini, kita mempelajari teknik enumerasi yang dikenal sebagai Inklusi–Eksklusi. Dalam kasus yang paling sederhana, teknik ini sepenuhnya intuitif. Kekuatannya terletak pada kenyataan bahwa dalam banyak situasi, kita memulai dengan perhitungan berskala eksponensial yang kemudian menyusut ke ukuran yang mudah ditangani. Kita berfokus pada tiga penerapan yang perlu dipahami oleh setiap mahasiswa kombinatorika: (1)<nbsp/>menghitung banyaknya fungsi surjektif, (2)<nbsp/>permutasi tanpa titik tetap, dan (3)<nbsp/>fungsi <m>\phi</m> Euler.
+        </p>
+    </introduction>
+    <xi:include href="s_inclusion-exclusion_intro.ptx"/>
+    <xi:include href="s_inclusion-exclusion_statement.ptx"/>
+    <xi:include href="s_inclusion-exclusion_surjections.ptx"/>
+    <xi:include href="s_inclusion-exclusion_derangements.ptx"/>
+    <xi:include href="s_inclusion-exclusion_euler-phi.ptx"/>
+    <xi:include href="s_inclusion-exclusion_discussion.ptx"/>
+    <xi:include href="s_inclusion-exclusion_exercises.ptx"/>
+    <xi:include href="s_inclusion-exclusion_peer_instruction.ptx"/>
+    <xi:include href="s_inclusion-exclusion_activity.ptx"/>
+</chapter>

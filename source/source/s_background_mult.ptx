@@ -1,0 +1,137 @@
+<section xml:id="s_background_mult">
+    <title>Perkalian sebagai Operasi Biner</title>
+    <p>Kita mendefinisikan operasi biner <m>\times</m>, yang disebut <term>perkalian</term>, pada himpunan bilangan asli. Jika <m>m</m> dan <m>n</m> merupakan bilangan asli, <m>m\times n</m> juga disebut <term>hasil kali</term> dari <m>m</m> dan <m>n</m>, serta kadang-kadang dinotasikan dengan <m>m*n</m>, atau secara lebih ringkas dengan <m>mn</m>. Dalam materi berikutnya, kita menggunakan konvensi terakhir ini. Misalkan <m>n\in \nonnegints</m>. Kita definisikan
+    <ol marker="i">
+        <li><m>n0=0</m>, dan</li>
+        <li><m>n(k+1)=nk +n</m>.</li>
+    </ol>
+    </p>
+    <p>Perhatikan bahwa <m>10=0</m> dan <m>01=00+0=0</m>. Perhatikan pula bahwa <m>11=10+1=0+1=1</m>. Secara lebih umum, dari<nbsp/>(ii) dan <xref ref="lem_sum0"/>, kita menyimpulkan bahwa jika <m>m,n\neq0</m>, maka <m>mn\neq0</m>.
+    </p>
+
+    <theorem>
+        <title>Hukum Distributif Kiri</title>
+        <statement>
+            <p>
+                <m>m(n+p)=mn + mp</m> untuk setiap <m>m,n,p\in \nonnegints</m>.
+            </p>
+        </statement>
+        <proof>
+            <p>Misalkan <m>m,n\in \nonnegints</m>. Maka
+            <md>
+                m(n+0)=mn = mn +0 = mn+ m0.
+            </md>
+            Sekarang andaikan <m>m(n+k) = mn + mk</m>.
+            Maka
+            <md>
+                <mrow>  m[n+(k+1)] \amp = m[(n+k)+1]=m(n+k)+m</mrow>
+                <mrow>  \amp =(mn+mk)+m=mn+(mk+m)= mn+m(k+1).</mrow>
+            </md>
+            </p>
+        </proof>
+    </theorem>
+
+    <theorem>
+        <title>Hukum Distributif Kanan</title>
+        <statement>
+            <p>
+                <m>(m+n)p=mp + np</m> untuk setiap <m>m,n,p\in \nonnegints</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>
+                Misalkan <m>m,n\in \nonnegints</m>. Maka
+                <md>
+                    (m+n)0 =0 = 0+0 = m0 + n0.
+                </md>
+                Sekarang andaikan <m>(m+n)k = mk + nk</m>.
+                Maka
+                <md>
+                    <mrow>  (m+n)(k+1)\amp =(m+n)k+(m+n)= (mk+nk) +(m+n)</mrow>
+                    <mrow>  \amp =(mk+m)+(nk+n)=m(k+1)+n(k+1).</mrow>
+                </md>
+            </p>
+        </proof>
+    </theorem>
+
+    <theorem>
+        <title>Hukum Asosiatif Perkalian</title>
+        <statement>
+            <p>
+                <m>m(np) = (mn)p</m> untuk setiap <m>m,n,p\in \nonnegints</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Misalkan <m>m,n\in \nonnegints</m>. Maka
+            <md>
+                m(n0)= m0 = 0 = (mn)0.
+            </md>
+            Sekarang andaikan <m>m(nk)=(mn)k</m>. Maka
+            <md>
+                m[n(k+1)]= m(nk + n)= m(nk) + mn =(mn)k + mn = (mn)(k+1).
+            </md>
+            </p>
+        </proof>
+    </theorem>
+
+    <p>
+        Hukum komutatif memerlukan beberapa hasil pendahuluan.
+    </p>
+
+    <lemma>
+        <statement>
+            <p>
+                <m>n0= 0n=0</m> untuk setiap <m>n\in \nonnegints</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>
+                Lemma ini langsung berlaku ketika <m>n=0</m>. Andaikan <m>k0=
+                0k=0</m>. Maka
+                <md>
+                    (k+1)0 =0 = 0+0= 0k+0=0(k+1).
+                </md>
+            </p>
+        </proof>
+    </lemma>
+
+    <lemma>
+        <statement>
+            <p>
+                <m>n1 =1n=n</m> untuk setiap <m>n\in \nonnegints</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>
+                <m>01=00+0=0 =10</m>. Andaikan
+                <m>k1=1k=k</m>. Maka
+                <md>
+                    (k+1)1=k1+11=1k+1=1(k+1).
+                </md>
+            </p>
+        </proof>
+    </lemma>
+
+    <theorem>
+        <title>Hukum Komutatif Perkalian</title>
+        <statement>
+            <p>
+                <m>mn=nm</m> untuk setiap <m>m,n\in \nonnegints</m>.
+            </p>
+        </statement>
+
+
+        <proof>
+            <p>
+                Misalkan <m>m\in \nonnegints</m>. Maka <m>m0=0m</m>. Andaikan <m>mk=km</m>. Maka
+                <md>
+                    m (k+1) = mk +m = km+m= km +1m=(k+1)m.
+                </md>
+            </p>
+        </proof>
+    </theorem>
+</section>

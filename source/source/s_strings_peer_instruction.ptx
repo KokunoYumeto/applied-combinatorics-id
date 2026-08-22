@@ -1,0 +1,725 @@
+<exercises xml:id="s_strings_PI" component="runestone-PI">
+  <title>Pertanyaan untuk Instruksi Sejawat</title>
+  <exercise label="appcomb_strings_PI_factorial">
+    <statement>
+      <p>
+        Menurut definisi, berapakah <m>0!</m>?
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            0
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            1
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Tidak terdefinisi
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Bergantung pada suasana hati saya
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="appcomb_strings_PI_password">
+    <statement>
+      <p>
+        Misalkan kita membuat kata sandi (yang agak tidak aman) sepanjang <m>8</m> karakter.
+        Dua karakter pertama berupa huruf kapital, karakter ketiga dan keempat berupa digit, dan empat karakter terakhir dapat berupa huruf atau digit apa pun.
+        Berapa banyak kata sandi yang mungkin?
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            <m>26\cdot 26\cdot 10\cdot 10\cdot (36)^4</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>26\cdot 26\cdot 10\cdot 10\cdot (52)^4</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>26\cdot 26\cdot 10\cdot 9\cdot (52)^4</m>
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>26\cdot 26\cdot 10\cdot 10\cdot (62)^4</m>
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="appcomb_strings_PI_password_varlength">
+    <statement>
+      <p>
+        Misalkan kita membuat kata sandi yang panjangnya dapat berupa <m>7</m> atau <m>8</m> karakter.
+        Dua karakter pertama berupa huruf kapital, karakter ketiga dan keempat berupa digit, dan karakter yang tersisa dapat berupa huruf atau digit apa pun.
+        Berapa banyak kata sandi yang mungkin?
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            <m>26\cdot 26\cdot 10\cdot 10\cdot (62)^3\cdot (62)^4</m>
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>26\cdot 26\cdot 10\cdot 10\cdot ((62)^3 + (62)^4)</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>26\cdot 26\cdot 10\cdot 10\cdot (62)^3 + (62)^4</m>
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>26\cdot 26\cdot 10\cdot 10\cdot (62)^3 + 26\cdot 26\cdot 10\cdot 10\cdot (62)^4</m>
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="appcomb_strings_PI_password_distinct">
+    <statement>
+      <p>
+        Misalkan kita membuat kata sandi (yang agak tidak aman) sepanjang <m>8</m> karakter.
+        Empat karakter pertama berupa huruf kapital yang berbeda-beda.
+        Dua karakter berikutnya berupa digit.
+        Dua karakter terakhir berupa huruf kecil yang berbeda-beda.
+        Berapa banyak kata sandi yang mungkin?
+      </p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>P(26,4)\cdot 10^2\cdot 26\cdot 25</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>26\cdot 25\cdot 24\cdot 23\cdot 22\cdot 10^2\cdot 26\cdot 25</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>26\cdot 25\cdot 24\cdot 23\cdot 10^2\cdot 22\cdot 21</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>P(26,4)\cdot 10^2\cdot P(22,2)</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>P(26,4)\cdot 10\cdot 9\cdot P(22,2)</m>
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="appcomb_strings_PI_bincoeff_setup">
+    <statement>
+      <p>
+        Misalkan ada <m>80</m> kandidat dan kita harus memilih lima ketua bersama yang berkedudukan setara.
+        Jika urutan berpengaruh, akan ada <m>P(80,5)</m> hasil yang mungkin.
+        Misalkan kita mengelompokkan semua hasil tersebut berdasarkan kandidat yang terpilih.
+        Lalu, berapa banyak hasil di dalam setiap kelompok?
+      </p>
+    </statement>
+    <choices multiple-correct="yes">
+      <choice>
+        <statement>
+          <p>
+            <m>5</m>
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>5!</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>P(5,80)</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>P(5,4)</m>
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="appcomb_strings_PI_bincoeff_formula">
+    <statement>
+      <p>
+        Kita mendefinisikan <m>\binom{n}{k}</m> sebagai banyaknya cara memilih <m>k</m> unsur dari suatu himpunan dengan <m>n</m> unsur.
+        Jika gagasan yang telah kita bahas digeneralisasi, identitas manakah yang diperoleh?
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            <m>P(n,k) = \frac{1}{k!}\binom{n}{k}</m>
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>P(n,k) = k!\cdot \binom{n}{k}</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>k! P(n,k) = \binom{n}{k}</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>P(n,k) = n!\cdot \binom{n}{k}</m>
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="appcomb_strings_PI_bincoeff_complement">
+    <statement>
+      <p>
+        Manakah yang lebih besar, <m>\binom{n}{k}</m> atau <m>\binom{n}{n-k}</m>?
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            <m>\binom{n}{k}</m> selalu lebih besar
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\binom{n}{n-k}</m> selalu lebih besar
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            Keduanya selalu sama
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Bergantung pada nilai <m>n</m> dan <m>k</m>
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="appcomb_strings_PI_comb-proof-theme">
+    <statement>
+      <p>
+        Tema yang berulang dalam bacaan pada Bagian 2.4 adalah
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            bilangan bulat positif <m>n</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            string bit sepanjang <m>n</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            menghitung dengan pemartisian
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            kombinatorika
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            menghitung objek yang sama dengan beberapa cara berbeda
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            penjumlahan
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+  <exercise label="appcomb_strings_PI_sum-ell">
+    <statement>
+      <p>
+        Berapa banyak titik jika kisi berukuran <m>n\times n</m>?
+      </p>
+      
+      <image source="3012-fig21" width="50%">
+        <description>Larik titik berukuran <m>7\times 7</m>.
+          Titik kiri atas dilingkupi oleh sebuah persegi.
+          Berikutnya terdapat sejumlah bentuk siku-siku bersarang yang titik sudutnya terletak pada diagonal larik; masing-masing memanjang hingga sisi atas dan sisi kiri larik.</description>
+        </image>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>
+              <m>\displaystyle \frac{n(n+1)}{2}</m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>1 + 2 + \cdots + 2n-1</m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>1^2 + 2^2 + 3^2 + n^2</m>
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>1 + 3 + 5 + \cdots + 2n-1</m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>1 + 3 + 5 + \cdots + 2n+1</m>
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    
+    <exercise label="strings_PI_sum-bincoeff-square">
+      <statement>
+        <p>
+          <m>\displaystyle \binom{n}{0}^2 + \binom{n}{1}^2 + \binom{n}{2}^2 + \cdots +\binom{n}{n-1}^2 + \binom{n}{n}^2</m> menghitung banyaknya
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>
+              semua string bit sepanjang <m>n</m>.
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              string bit sepanjang <m>n</m> dengan tepat separuh digitnya bernilai <m>1</m>.
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              string bit sepanjang <m>n</m> dengan setidaknya separuh digitnya bernilai <m>1</m>.
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              semua string bit sepanjang <m>2n</m>.
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              string bit sepanjang <m>2n</m> dengan tepat separuh digitnya bernilai <m>1</m>.
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              string bit sepanjang <m>2n</m> dengan setidaknya separuh digitnya bernilai <m>1</m>.
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    
+    <exercise label="appcomb_strings_PI_committee-model">
+      <statement>
+        <p>
+          Misalkan ada <m>n</m> orang di kampus yang memenuhi syarat menjadi anggota
+          panitia perencanaan konferensi.
+          Panitia tersebut harus beranggotakan <m>r</m>
+          orang, dan sebuah subpanitia beranggotakan <m>k</m> orang harus dipilih untuk mengurus
+          jamuan.
+          Ada berapa cara untuk melakukannya?
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>
+              <m>\displaystyle \binom{n}{r} + \binom{r}{k}</m>
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>\displaystyle \binom{n}{r} \binom{r}{k}</m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\displaystyle \binom{n}{r} \binom{n}{k}</m>
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>\displaystyle \binom{n}{k} \binom{n-k}{r-k}</m>
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    
+    <exercise label="strings_PI_folders-dividers-PTX">
+      <statement>
+        <p>
+          Jika kita membagikan sekumpulan map kepada tujuh orang, kita
+          memerlukan tujuh pembatas.
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>
+              Benar, sangat yakin
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Benar, kurang yakin
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Salah, kurang yakin
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              Salah, sangat yakin
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    
+    <exercise label="strings_PI_folders-zero-one-PTX">
+      <statement>
+        <p>
+          Misalkan kita ingin membagikan 20 map kepada Alice, Bob, Carlos,
+          dan Dave.
+          Alice dan Bob masing-masing harus mendapat setidaknya satu map, tetapi
+          Carlos dan Dave boleh tidak mendapat map sama sekali.
+          Menurut cara dalam buku ini, kita perlu
+        </p>
+      </statement>
+      <choices multiple-correct="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              menggunakan map semu
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              menyisihkan sejumlah map
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              menggunakan satu pembatas tambahan
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Tidak satu pun di atas
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    
+    <exercise label="strings_PI_folders-ge-four-PTX">
+      <statement>
+        <p>
+          Misalkan kita ingin membagikan 20 map kepada Alice, Bob, Carlos,
+          dan Dave.
+          Alice harus mendapat setidaknya empat map, Bob dan Carlos
+          masing-masing harus mendapat setidaknya satu map, sedangkan Dave boleh tidak mendapat
+          map sama sekali.
+          Menurut cara dalam buku ini, kita perlu
+        </p>
+      </statement>
+      <choices multiple-correct="yes">
+        <choice correct="yes">
+          <statement>
+            <p>
+              menggunakan map semu
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              menyisihkan sejumlah map
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              menggunakan satu pembatas tambahan
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Tidak satu pun di atas
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    
+    <exercise label="strings_PI_folders-save-some-PTX">
+      <statement>
+        <p>
+          Misalkan kita ingin membagikan map kepada Alice, Bob, dan Carlos dari kumpulan <m>20</m> map.
+          Setiap orang harus mendapat setidaknya satu map, tetapi mungkin saja sebagian map tidak dibagikan kepada siapa pun.
+          Menurut cara dalam buku ini, kita perlu
+        </p>
+      </statement>
+      <choices multiple-correct="yes">
+        <choice>
+          <statement>
+            <p>
+              menggunakan map semu
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              menyisihkan sejumlah map
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              menggunakan satu pembatas tambahan
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Tidak satu pun di atas
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    
+    <exercise label="strings_PI_lattice-path-good-bad-PTX">
+      <statement>
+        <p>
+          Lintasan kisi buruk <m>HHVVHVVHHVVH</m> dari <m>(0,0)</m> ke <m>(6,6)</m> mulai menjadi buruk (melintasi diagonal) pada posisi
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>
+              5
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              7
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              11
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Ini merupakan lintasan kisi yang baik
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    
+    <exercise label="strings_PI_lattice-path-transform-PTX">
+      <statement>
+        <p>
+          Lintasan kisi buruk <m>HHVVHVVHHVVH</m> dari <m>(0,0)</m> ke <m>(6,6)</m> diubah menjadi yang mana di antara lintasan kisi berikut, dari <m>(0,0)</m> ke <m>(5,7)</m>?
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>
+              <m>HHVVHVHVVHHV</m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>HHVVHVVHHVVV</m>
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>HHVVHVVVVHHV</m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>VVHHVHHVVHHV</m>
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+  </exercises>

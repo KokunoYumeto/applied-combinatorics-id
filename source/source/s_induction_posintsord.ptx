@@ -1,0 +1,17 @@
+<section xml:id="s_induction_posintsord">
+    <title>Bilangan Bulat Positif Terurut Baik</title>
+    <p>Kemungkinan besar, Anda menjawab pertanyaan dalam <xref ref="s_induction_intro"/> dengan <q>ya</q> penuh semangat. Sebagian alasannya mungkin karena Anda ingin berkesempatan memperoleh uang itu, tetapi alasan yang lebih nyata ialah bahwa jawabannya terasa begitu wajar. Namun, Anda mungkin terkejut mengetahui bahwa persoalan ini sesungguhnya jauh lebih rumit daripada yang tampak pada awalnya. Dalam <xref ref="app_background"/>, kita membahas pengembangan sistem bilangan yang berawal dari Postulat Peano. Walaupun bab ini tidak akan mencurahkan banyak ruang untuk topik tersebut, penting untuk mengetahui bahwa bilangan bulat positif <q>perlu dirakit dahulu.</q> Secara khusus, operasi dasar penjumlahan dan perkalian tidak tersedia begitu saja; keduanya harus didefinisikan.
+    </p>
+
+    <p>Sebagai hasil sampingan dari pengembangan tersebut, kita memperoleh sifat yang sangat mendasar berikut bagi himpunan bilangan bulat positif <m>\posints</m>:
+    </p>
+
+    <principle xml:id="princ_well-order">
+        <title>Sifat Terurut Baik pada Bilangan Bulat Positif</title>
+        <idx><h>sifat terurut baik</h></idx>
+        <statement><p>Setiap himpunan tak kosong yang terdiri atas bilangan bulat positif memiliki elemen terkecil.</p></statement>
+    </principle>
+
+    <p>Konsekuensi langsung dari sifat terurut baik ialah bahwa profesor tersebut memang harus membayar satu dolar kepada seseorang<mdash/>bahkan jika kelas itu memiliki tak berhingga banyak mahasiswa.
+    </p>
+</section>

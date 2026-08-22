@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "version": "2026.08.22.1",
+  "coverage_claim_verified": "pass",
+  "source_replay": "pass",
+  "protected_math_replay": "pass",
+  "model_or_agent_checks": "pass",
+  "deterministic_html_build": "pass",
+  "html_rendered_inspection": "pass",
+  "pdf_rendered_inspection": "pass",
+  "rights_and_corresponding_source": "pass",
+  "backend_export_manifest": "backend/exports/BACKEND_EXPORT_MANIFEST.csv",
+  "artifact_manifest": "evidence/ARTIFACT_SHA256.tsv",
+  "unresolved_items": "evidence/UNRESOLVED_ITEMS.tsv",
+  "human_review_required": false,
+  "release_closed": true,
+  "closure_reason": "Complete machine-checked translation, source/protected replay, deterministic readers, all-page PDF review, representative browser review, rights closure, and hash-bound evidence all pass; no human-review claim is made.",
+  "gates": {
+    "full_corpus_closeout": "pass",
+    "protected_math_replay": "pass",
+    "public_html_browser_qa": "pass",
+    "rights_publication_readiness": "pass",
+    "backend_export_and_validation": "pass",
+    "pdf_visual_qa": "pass"
+  }
+}

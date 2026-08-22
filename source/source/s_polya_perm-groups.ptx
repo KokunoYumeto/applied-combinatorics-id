@@ -1,0 +1,79 @@
+<section xml:id="s_polya_perm-groups">
+    <title>Grup Permutasi</title>
+    <introduction>
+        <p>Banyak buku telah ditulis khusus tentang teori struktur matematika yang disebut <term>grup</term><idx><h>grup</h></idx>. Namun, untuk mempelajari teorema enumerasi P&#243;lya, kita hanya memerlukan beberapa fakta tentang suatu kelas grup tertentu yang diperkenalkan dalam bagian ini. Ingat bahwa bijeksi dari suatu himpunan <m>X</m> ke dirinya sendiri disebut <term>permutasi</term><idx><h>permutasi</h></idx>. Sebuah <term>grup permutasi</term><idx><h>grup</h><h>permutasi</h></idx> ialah himpunan <m>P</m> yang terdiri atas permutasi-permutasi suatu himpunan <m>X</m> sedemikian sehingga
+        <ol>
+            <li>permutasi identitas <m>\iota</m> berada dalam <m>P</m>;</li>
+            <li>jika <m>\pi_1,\pi_2\in P</m>, maka <m>\pi_2\circ \pi_1\in P</m>; dan</li>
+            <li>jika <m>\pi_1\in P</m>, maka <m>\pi_1\inv\in P</m>.</li>
+        </ol>
+        Untuk keperluan kita, <m>X</m> selalu hingga dan biasanya kita ambil <m>X=[n]</m> untuk suatu bilangan bulat positif <m>n</m>. <term>Grup simetris pada <m>n</m> elemen</term><idx><h>grup</h><h>simetris</h></idx>, yang dinyatakan dengan <m>S_n</m>, ialah himpunan seluruh permutasi <m>[n]</m>. Setiap grup permutasi hingga (dan, secara lebih umum, setiap grup hingga) merupakan subgrup <m>S_n</m> untuk suatu bilangan bulat positif <m>n</m>.
+        </p>
+
+        <p>Sebagai contoh pertama grup permutasi, perhatikan himpunan permutasi yang dibahas dalam <xref ref="s_polya_square"/>, yang disebut <term>grup dihedral persegi</term>. Grup ini kita nyatakan dengan <m>D_8</m>. Grup transformasi serupa kita nyatakan dengan <m>D_{2n}</m> untuk segi-<m>n</m> beraturan; subskrip <m>2n</m> digunakan karena grup ini memuat <m>2n</m> permutasi.<fn>Sebagian penulis dan sistem aljabar komputer menggunakan <m>D_n</m> sebagai notasi untuk grup dihedral segi-<m>n</m>.</fn> Kriteria pertama grup permutasi jelas dipenuhi oleh <m>D_8</m>. Memeriksa kedua kriteria lainnya cukup melelahkan, sehingga kita hanya menyajikan beberapa contoh. Pertama, perhatikan bahwa <m>r_2\circ r_1=r_3</m>. Hal ini dapat ditentukan dengan melakukan komposisi fungsi-fungsi tersebut sebagai permutasi atau dengan memperhatikan bahwa rotasi <m>90^\circ</m> searah jarum jam yang diikuti rotasi <m>180^\circ</m> searah jarum jam sama dengan rotasi <m>270^\circ</m> searah jarum jam. Untuk <m>v\circ r_1</m>, kita memperoleh <m>v\circ r_1(1) = 1</m>, <m>v\circ r_1(3)=3</m>, <m>v\circ r_1(2)=4</m>, dan <m>v\circ r_1(4)=2</m>, sehingga <m>v\circ r_1=n</m>. Untuk invers, sebelumnya telah kita bahas bahwa <m>r_1\inv = r_3</m>. Selain itu, <m>v\inv = v</m>, dan secara lebih umum, invers dari <em>setiap</em> pencerminan ialah pencerminan itu sendiri.
+        </p>
+    </introduction>
+
+
+    <subsection xml:id="ss_polya_perm-groups_rep">
+        <title>Menyatakan permutasi</title>
+        <p>Cara suatu permutasi menyusun ulang elemen-elemen <m>X</m> merupakan inti teorema enumerasi P&#243;lya. Pemilihan representasi permutasi yang tepat sangat penting di sini, sehingga mari kita bahas cara menyatakan permutasi. Salah satu cara menyatakan permutasi <m>\pi</m> dari <m>[n]</m> ialah sebagai matriks <m>2\times n</m>. Baris pertama menyatakan domain, sedangkan baris kedua menyatakan <m>\pi</m> dengan menempatkan <m>\pi(i)</m> pada posisi <m>i</m>. Sebagai contoh,
+        <md>
+            \pi=
+            \begin{pmatrix}1 \amp  2 \amp  3 \amp  4 \amp  5\\
+            2 \amp  4 \amp  3 \amp  5 \amp  1
+            \end{pmatrix}
+        </md>
+        merupakan permutasi <m>[5]</m> dengan <m>\pi(1) =2</m>, <m>\pi(2)=4</m>, <m>\pi(3)=3</m>, <m>\pi(4) = 5</m>, dan <m>\pi(5) = 1</m>. Notasi ini agak merepotkan dan hanya memberikan informasi paling dasar tentang permutasi. Notasi yang lebih ringkas (dan lebih berguna bagi keperluan kita) disebut <term>notasi siklus</term><idx><h>permutasi</h><h>notasi siklus untuk</h></idx>. Salah satu cara memvisualisasikan pembentukan notasi siklus ialah dengan membangun digraf dari suatu permutasi <m>\pi</m> atas <m>[n]</m>. Digraf tersebut mempunyai himpunan verteks <m>[n]</m> dan sisi berarah dari <m>i</m> ke <m>j</m> jika dan hanya jika <m>\pi(i) = j</m>. (Di sini kita mengizinkan sisi berarah dari suatu verteks ke dirinya sendiri jika <m>\pi(i) = i</m>.) Digraf yang bersesuaian dengan permutasi <m>\pi</m> di atas ditunjukkan pada <xref ref="fig_polya_perm-digraph"/>.
+        </p>
+        <figure xml:id="fig_polya_perm-digraph">
+            <caption>Digraf yang bersesuaian dengan permutasi <m>\pi=(1245)(3)</m></caption>
+            <image width="35%">
+<description><p>Digraf yang bersesuaian dengan permutasi <m>\pi=(1245)(3)</m></p>
+            </description><latex-image>\begin{overpic}[scale=0.9]{external/permutation-cycles}
+                \put(0,50){\(1\)}
+                \put(-1,5){\(2\)}
+                \put(87,6){\(3\)}
+                \put(60,5){\(4\)}
+                \put(60,50){\(5\)}
+                \end{overpic}</latex-image>
+            </image>
+
+        </figure>
+        <p>Karena <m>\pi</m> merupakan permutasi, setiap komponen digraf semacam itu berupa siklus berarah. Siklus-siklus ini dapat digunakan untuk menuliskan permutasi secara ringkas. Untuk setiap siklus, kita mulai dari verteks berlabel terkecil lalu mengelilingi siklus mengikuti arah sisi sambil menuliskan label-label verteks secara berurutan. Barisan bilangan bulat ini ditempatkan di dalam tanda kurung. Untuk siklus-<m>4</m> pada <xref ref="fig_polya_perm-digraph"/>, kita memperoleh <m>(1245)</m>. (Jika <m>n\geq 10</m>, kita menempatkan spasi atau koma di antara bilangan-bilangan bulat tersebut.) Komponen yang hanya memuat satu verteks cukup dinyatakan dengan <m>(3)</m>, sehingga kita dapat menulis <m>\pi=(1245)(3)</m>. Berdasarkan konvensi, siklus-siklus saling lepas suatu permutasi didaftarkan sedemikian sehingga entri pertamanya berurutan naik.
+        </p>
+        <example>
+            <p>Permutasi <m>\pi=(1483)(27)(56)</m> memenuhi <m>\pi(1)=4</m>, <m>\pi(8)=3</m>, <m>\pi(3)=1</m>, dan <m>\pi(5)=6</m>. Permutasi <m>\pi'=(13)(2)(478)(56)</m> memenuhi <m>\pi'(1)=3</m>, <m>\pi'(2) = 2</m>, dan <m>\pi'(8)=4</m>. Kita mengatakan bahwa <m>\pi</m> terdiri atas dua siklus dengan panjang <m>2</m> dan satu siklus dengan panjang <m>4</m>. Untuk <m>\pi'</m>, terdapat satu siklus dengan panjang <m>1</m>, dua siklus dengan panjang <m>2</m>, dan satu siklus dengan panjang <m>3</m>. Dalam bab ini, siklus dengan panjang <m>k</m> juga disebut siklus-<m>k</m>.
+            </p>
+        </example>
+    </subsection>
+
+
+    <subsection xml:id="ss_polya_perm-groups_mult">
+        <title>Mengalikan permutasi</title>
+        <p>Karena operasi dalam suatu grup sembarang sering disebut perkalian, komposisi permutasi lazim disebut perkalian dan ditulis <m>\pi_2\pi_1</m>, bukan <m>\pi_2\circ \pi_1</m>. Namun, hal penting yang perlu diingat ialah bahwa operasi tersebut hanyalah komposisi fungsi. Mari kita lihat beberapa contoh.
+        </p>
+        <example>
+            <p>Misalkan <m>\pi_1 = (1234)</m> dan <m>\pi_2 = (12)(34)</m>. (Perhatikan bahwa keduanya berturut-turut merupakan permutasi <m>r_1</m> dan <m>v</m> dari <m>D_8</m>.) Misalkan <m>\pi_3=\pi_2\pi_1</m>. Untuk menentukan <m>\pi_3</m>, mula-mula kita hitung <m>\pi_3(1) = \pi_2\pi_1(1) = \pi_2(2) = 1</m>. Selanjutnya, kita memperoleh <m>\pi_3(2) = \pi_2\pi_1(2) = \pi_2(3)=4</m>. Demikian pula, <m>\pi_3(3) = 3</m> dan <m>\pi_3(4)=2</m>. Jadi, <m>\pi_3=(1)(24)(3)</m>, yang sebelumnya kita sebut <m>n</m>.
+            </p>
+
+            <p>Sekarang misalkan <m>\pi_4 = \pi_1\pi_2</m>. Maka <m>\pi_4(1) = 3</m>, <m>\pi_4(2)=2</m>, <m>\pi_4(3)=1</m>, dan <m>\pi_4(4)=4</m>. Oleh karena itu, <m>\pi_4=(13)(2)(4)</m>, yang sebelumnya kita sebut <m>p</m>. Penting untuk diperhatikan bahwa <m>\pi_1\pi_2\neq \pi_2\pi_1</m>. Hal ini semestinya tidak mengejutkan karena komposisi fungsi pada umumnya tidak komutatif. Untuk menggambarkan lebih lanjut ketidakkomutatifan grup permutasi, ambillah sebuah buku (Bukan buku ini! Anda masih perlu membaca petunjuk di sini.) dengan sampul menghadap ke atas dan punggung buku berada di kiri. Pertama, balik buku dari kiri ke kanan. Kemudian putar buku <m>90^\circ</m> searah jarum jam. Di mana letak punggung buku? Sekarang kembalikan buku ke posisi semula, dengan sampul menghadap ke atas dan punggung di kiri. Putar buku <m>90^\circ</m> searah jarum jam, lalu balik dari kiri ke kanan. Di mana letak punggung buku kali ini?
+            </p>
+        </example>
+        <p>Menuliskan ke mana hasil kali dua (atau lebih) permutasi memetakan setiap elemen dengan cepat menjadi melelahkan. Pendekatan yang lebih efisien ialah menggambar digraf, lalu menuliskan struktur siklusnya. Namun, dengan sedikit latihan, Anda dapat membangun notasi siklus sambil melakukan perhitungan, seperti yang ditunjukkan dalam contoh berikut.
+        </p>
+        <example>
+            <p>Misalkan <m>\pi_1=(123)(487)(5)(6)</m> dan <m>\pi_2=(18765)(234)</m>. Misalkan <m>\pi_3 = \pi_2\pi_1</m>. Untuk mulai membangun notasi siklus <m>\pi_3</m>, kita harus menentukan ke mana <m>\pi_3</m> memetakan <m>1</m>. Kita memperoleh bahwa elemen tersebut dipetakan ke <m>3</m>, sebab <m>\pi_1</m> memetakan <m>1</m> ke <m>2</m> dan <m>\pi_2</m> memetakan <m>2</m> ke <m>3</m>. Jadi, siklus pertama dimulai dengan <m>13</m>. Sekarang, ke mana <m>3</m> dipetakan? Elemen ini dipetakan ke <m>8</m>, lalu ke <m>6</m>, kemudian ke <m>5</m>, dan akhirnya ke <m>1</m>. Dengan demikian, siklus pertama lengkap sebagai <m>(13865)</m>. Bilangan bulat pertama yang tidak berada dalam siklus ini ialah <m>2</m>, yang kita gunakan untuk memulai siklus berikutnya. Kita memperoleh bahwa <m>2</m> dipetakan ke <m>4</m>, kemudian ke <m>7</m>, lalu kembali ke <m>2</m>. Jadi, siklus kedua ialah <m>(247)</m>. Sekarang seluruh <m>8</m> elemen telah terwakili dalam siklus-siklus tersebut, sehingga <m>\pi_3 = (13865)(247)</m>.
+            </p>
+        </example>
+        <p>Kita menutup bagian ini dengan satu contoh lagi.
+        </p>
+        <example>
+            <p>Mari kita tentukan <m>[(123456)][(165432)]</m>, dengan kedua permutasi yang dikalikan ditulis di dalam tanda kurung siku. Karena kita bekerja dari <em>kanan</em> ke <em>kiri</em>, permutasi pertama yang diterapkan memetakan <m>1</m> ke <m>6</m>, sedangkan permutasi kedua memetakan <m>6</m> ke <m>1</m>. Jadi, siklus pertama ialah <m>(1)</m>. Selanjutnya, kita memperoleh bahwa hasil kali tersebut memetakan <m>2</m> ke <m>2</m>. Hasil kali itu juga memetakan <m>i</m> ke <m>i</m> untuk setiap <m>i\leq 6</m> lainnya. Jadi, hasil kalinya ialah <m>(1)(2)(3)(4)(5)(6)</m>, yang lebih dikenal sebagai permutasi identitas. Dengan demikian, <m>(123456)</m> dan <m>(165432)</m> saling invers.
+                </p>
+        </example>
+        <p>Dalam bagian berikutnya, kita akan menggunakan teknik pencacahan standar yang telah dibahas sebelumnya untuk membuktikan hasil-hasil tentang grup yang bertindak pada himpunan. Kita akan menyatakan hasil tersebut untuk grup sembarang, tetapi Anda dapat mengganti <q>grup</q> dengan <q>grup permutasi</q> tanpa kehilangan pemahaman yang diperlukan untuk sisa bab ini.
+        </p>
+    </subsection>
+
+</section>

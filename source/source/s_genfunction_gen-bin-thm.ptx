@@ -1,0 +1,63 @@
+<section xml:id="s_genfunction_gen-bin-thm">
+    <title>Teorema Binomial Newton</title>
+    <p>Dalam <xref ref="ch_strings"/>, kita membahas teorema binomial dan melihat bahwa rumus berikut berlaku untuk setiap bilangan bulat <m>p\ge1</m>:
+    <md>
+        (1+x)^p =\sum_{n=0}^{p}\binom{p}{n} x^n.
+    </md>
+        Anda dapat segera melihat bahwa rumus ini menyiratkan bahwa fungsi pembangkit untuk banyaknya himpunan bagian beranggotakan <m>n</m> dari suatu himpunan beranggotakan <m>p</m> adalah <m>(1+x)^p</m>. Kajian fungsi pembangkit mendorong kita untuk mempertimbangkan apa yang terjadi jika <m>(1+x)^p</m> muncul sebagai fungsi pembangkit ketika <m>p</m> bukan bilangan bulat positif. Ternyata, dengan memperluas definisi koefisien binomial secara tepat ke bilangan real, kita juga dapat memperluas teorema binomial dengan cara yang mula-mula ditemukan oleh Sir Isaac Newton.
+    </p>
+
+    <p>Kita telah melihat beberapa ekspresi yang dapat digunakan untuk menghitung koefisien binomial, tetapi untuk memperluas <m>C(p,k)</m> ke nilai real <m>p</m>, kita akan menggunakan bentuk
+    <md>
+        \binom{p}{k}=\frac{P(p,k)}{k!},
+    </md>
+    dengan mengingat bahwa kita telah mendefinisikan <m>P(p,k)</m> secara rekursif sebagai <m>P(p,0)=1</m> untuk setiap bilangan bulat <m>p\geq 0</m> dan <m>P(p,k)=p P(p-1,k-1)</m> ketika <m>p\geq k &gt; 0</m> (<m>k</m> bilangan bulat). Namun, perhatikan bahwa ekspresi untuk <m>P(p,k)</m> tetap bermakna bagi sembarang bilangan real <m>p</m>, asalkan <m>k</m> merupakan bilangan bulat tak negatif. Sekarang kita formalkan definisi ini.
+    </p>
+    <definition>
+        <statement>
+            <p>Untuk setiap bilangan real <m>p</m> dan bilangan bulat tak negatif <m>k</m>, bilangan <m>P(p,k)</m> didefinisikan oleh
+            <ol>
+                <li><m>P(p,0)=1</m> untuk setiap bilangan real <m>p</m>, dan</li>
+                <li><m>P(p,k) = p P(p-1,k-1)</m> untuk setiap bilangan real <m>p</m> dan bilangan bulat <m>k&gt;0</m>.</li>
+            </ol>
+            </p>
+        </statement>
+    </definition>
+    <p>(Perhatikan bahwa definisi ini tidak mensyaratkan <m>p\geq k</m> seperti pada definisi untuk bilangan bulat.)
+    </p>
+
+    <p>Sekarang kita siap memperluas definisi koefisien binomial sehingga <m>C(p,k)</m> terdefinisi untuk setiap <m>p</m> real dan setiap nilai bilangan bulat tak negatif <m>k</m>. Definisinya adalah sebagai berikut.
+    </p>
+    <definition>
+        <statement>
+            <p>Untuk setiap bilangan real <m>p</m> dan bilangan bulat tak negatif <m>k</m>,
+            <md>
+                \binom{p}{k}=\frac{P(p,k)}{k!}.
+            </md>            <notation><usage><m>\binom{p}{k}</m></usage><description>koefisien binomial umum</description></notation><idx><h>koefisien binomial</h><h>umum</h></idx>
+            </p>
+        </statement>
+    </definition>
+    <p>Perhatikan bahwa <m>P(p,k)=C(p,k)= 0</m> ketika <m>p</m> dan <m>k</m> merupakan bilangan bulat dengan <m>0\le p\lt k</m>. Di sisi lain, kita memperoleh konsep-konsep baru yang menarik, seperti <m>P(-5,4)=(-5)(-6)(-7)(-8)</m> dan
+    <md>
+        \binom{-7/2}{5}=\frac{(-7/2)(-9/2)(-11/2)(-13/2)(-15/2)}{5!}.
+    </md>
+    </p>
+    <p>Dengan definisi koefisien binomial yang lebih umum ini, kita siap menyatakan Teorema Binomial Newton untuk setiap bilangan real tak nol. Bukti teorema ini dapat ditemukan di sebagian besar buku kalkulus tingkat lanjut.
+    </p>
+
+    <theorem xml:id="thm_newton-binomial">
+        <title>Teorema Binomial Newton</title>
+        <idx><h>teorema binomial</h><h>Newton</h></idx>
+        <statement>
+            <p>
+                Untuk setiap bilangan real <m>p</m> dengan <m>p\neq0</m>,
+            <md>
+                (1+x)^p=\sum_{n=0}^\infty\binom{p}{n}x^n.
+            </md>
+            </p>
+        </statement>
+    </theorem>
+
+    <p>Perhatikan bahwa bentuk umum ini kembali menjadi versi awal teorema binomial ketika <m>p</m> merupakan bilangan bulat positif.
+    </p>
+</section>

@@ -1,0 +1,575 @@
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="s_posets_PI" component="runestone-PI">
+  <title>Pertanyaan Instruksi Sejawat</title>
+  <exercise label="posets_PI_movie-poset">
+    <statement correct="yes">
+      <p>Saya memahami cara Bob menyusun gambarnya dalam tugas persiapan kelas.
+      </p>
+      <image width="65%" source="movies">
+        <description>Diagram Hasse peringkat Bob atas tujuh film: Saving Private Ryan, Life is Beautiful, Forrest Gump, Braveheart, Good Will Hunting, Titanic, dan Jurassic Park. Sepuluh relasi penutupnya, dengan film pertama di bawah film kedua, adalah Braveheart–Saving Private Ryan, Braveheart–Life is Beautiful, Jurassic Park–Braveheart, Titanic–Good Will Hunting, Forrest Gump–Saving Private Ryan, Good Will Hunting–Saving Private Ryan, Good Will Hunting–Life is Beautiful, Jurassic Park–Forrest Gump, Jurassic Park–Titanic, dan Forrest Gump–Life is Beautiful.</description>
+      </image>
+    </statement>
+  </exercise>
+  <exercise label="posets_PI_antichains">
+    <statement>
+      <p>Manakah di antara himpunan-himpunan berikut yang merupakan antirantai?
+      </p>
+      <image width="50%">
+        <description>
+          <p>
+            Diagram urutan 35 titik berlabel 1 sampai 35. Pasangan penutupnya, dengan titik pertama di bawah titik kedua, adalah 2–1, 25–1, 14–2, 22–2, 23–2, 3–25, 4–19, 31–4, 4–26, 4–13, 25–5, 6–27, 6–31, 35–6, 7–8, 13–7, 14–9, 9–33, 25–10, 11–30, 12–17, 12–29, 34–13, 19–15, 15–28, 16–17, 21–16, 27–16, 18–21, 27–19, 31–20, 22–25, 26–24, 24–29, 24–32, dan 27–30.
+          </p>
+        </description>
+        <prefigure xmlns="https://prefigure.org" label="big-poset-PI1">
+          <xi:include href="prefig/big-poset.xml"/>
+        </prefigure>
+      </image>
+    </statement>
+    <choices multiple-correct="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>\{20,7,32,15\}</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\{9,7,32,6\}</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\{19,27,6,35\}</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>\{9,25,26,7,12\}</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>  
+  <exercise label="posets_PI_chains">
+    <statement>
+      <p>Manakah di antara himpunan-himpunan berikut yang merupakan rantai?
+      </p>
+      <image width="50%">
+        <description>
+          <p>
+            Diagram urutan 35 titik berlabel 1 sampai 35. Pasangan penutupnya, dengan titik pertama di bawah titik kedua, adalah 2–1, 25–1, 14–2, 22–2, 23–2, 3–25, 4–19, 31–4, 4–26, 4–13, 25–5, 6–27, 6–31, 35–6, 7–8, 13–7, 14–9, 9–33, 25–10, 11–30, 12–17, 12–29, 34–13, 19–15, 15–28, 16–17, 21–16, 27–16, 18–21, 27–19, 31–20, 22–25, 26–24, 24–29, 24–32, dan 27–30.
+          </p>
+        </description>
+        <prefigure xmlns="https://prefigure.org" label="big-poset-PI2">
+          <xi:include href="prefig/big-poset.xml"/>
+        </prefigure>
+      </image>
+    </statement>
+    <choices multiple-correct="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>\{8,4,35\}</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\{8,4,31,2,22\}</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>\{19,27,6,35\}</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>\{29,24,26,4,31,6,35\}</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>  
+  <exercise label="posets_PI_antichain-type">
+    <statement>
+      <p>Himpunan <m>\{12,13,30,16\}</m> merupakan
+      </p>
+      <image width="50%">
+        <description>
+          <p>
+            Diagram urutan 35 titik berlabel 1 sampai 35. Pasangan penutupnya, dengan titik pertama di bawah titik kedua, adalah 2–1, 25–1, 14–2, 22–2, 23–2, 3–25, 4–19, 31–4, 4–26, 4–13, 25–5, 6–27, 6–31, 35–6, 7–8, 13–7, 14–9, 9–33, 25–10, 11–30, 12–17, 12–29, 34–13, 19–15, 15–28, 16–17, 21–16, 27–16, 18–21, 27–19, 31–20, 22–25, 26–24, 24–29, 24–32, dan 27–30.
+          </p>
+        </description>
+        <prefigure xmlns="https://prefigure.org" label="big-poset-PI3">
+          <xi:include href="prefig/big-poset.xml"/>
+        </prefigure>
+      </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>antirantai maksimal (tetapi bukan terbesar).</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>antirantai terbesar.</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>antirantai, tetapi bukan maksimal maupun terbesar.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>bukan antirantai.</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>  
+  <exercise label="posets_PI_chain-type1">
+    <statement>
+      <p>Himpunan <m>\{3,25,10\}</m> merupakan
+      </p>
+      <image width="50%">
+        <description>
+          <p>
+            Diagram urutan 35 titik berlabel 1 sampai 35. Pasangan penutupnya, dengan titik pertama di bawah titik kedua, adalah 2–1, 25–1, 14–2, 22–2, 23–2, 3–25, 4–19, 31–4, 4–26, 4–13, 25–5, 6–27, 6–31, 35–6, 7–8, 13–7, 14–9, 9–33, 25–10, 11–30, 12–17, 12–29, 34–13, 19–15, 15–28, 16–17, 21–16, 27–16, 18–21, 27–19, 31–20, 22–25, 26–24, 24–29, 24–32, dan 27–30.
+          </p>
+        </description>
+        <prefigure xmlns="https://prefigure.org" label="big-poset-PI4">
+          <xi:include href="prefig/big-poset.xml"/>
+        </prefigure>
+      </image>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>rantai maksimal (tetapi bukan terbesar).</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>rantai terbesar.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>rantai, tetapi bukan maksimal maupun terbesar.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>bukan rantai.</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>  
+  <exercise label="posets_PI_chain-type2">
+    <statement>
+      <p>Himpunan <m>\{8,7,13,4,31,6,35\}</m> merupakan
+      </p>
+      <image width="50%">
+        <description>
+          <p>
+            Diagram urutan 35 titik berlabel 1 sampai 35. Pasangan penutupnya, dengan titik pertama di bawah titik kedua, adalah 2–1, 25–1, 14–2, 22–2, 23–2, 3–25, 4–19, 31–4, 4–26, 4–13, 25–5, 6–27, 6–31, 35–6, 7–8, 13–7, 14–9, 9–33, 25–10, 11–30, 12–17, 12–29, 34–13, 19–15, 15–28, 16–17, 21–16, 27–16, 18–21, 27–19, 31–20, 22–25, 26–24, 24–29, 24–32, dan 27–30.
+          </p>
+        </description>
+        <prefigure xmlns="https://prefigure.org" label="big-poset-PI5">
+          <xi:include href="prefig/big-poset.xml"/>
+        </prefigure>
+      </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>rantai maksimal (tetapi bukan terbesar).</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>rantai terbesar.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>rantai, tetapi bukan maksimal maupun terbesar.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>bukan rantai.</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>  
+
+
+  <exercise label="posets_PI_17-pt-chain">
+    <statement>
+      <p>Jika kita menemukan rantai <m>C</m> dengan 17 titik dalam suatu poset <m>\bfP</m>, maka kita mengetahui bahwa
+      </p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>\height(\bfP) = 17</m>.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\height(\bfP) \leq 17</m>.</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>\height(\bfP) \geq 17</m>.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Sama sekali tidak ada informasi tentang <m>\height(\bfP)</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>    
+  <exercise label="posets_PI_points-subset-lattice">
+    <statement>
+      <p>Berapa banyak titik yang terdapat dalam <m>\mathbf{2}^n</m>?</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>n</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>2^n</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>n!</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak satu pun di atas</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="posets_PI_subset-lattice-minimal">
+    <statement>
+      <p>Berapa banyak elemen minimal yang dimiliki <m>\mathbf{2}^n</m>?</p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p><m>1</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>n/2</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>n</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>2^n</m></p>
+        </statement>
+      </choice>
+
+    </choices>
+  </exercise>
+  <exercise label="posets_PI_subset-lattice-height">
+    <statement>
+      <p>Berapakah tinggi <m>\mathbf{2}^n</m>?</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>1</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>n</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>n+1</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\displaystyle\binom{n}{n/2}</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak dapat dinyatakan sebagai fungsi dari <m>n</m></p>
+        </statement>
+      </choice>
+
+    </choices>
+  </exercise>
+  <exercise label="posets_PI_intord-less">
+    <statement>
+      <p>Perhatikan interval-interval di bawah sebagai suatu urutan interval. Interval manakah yang kurang dari <m>k</m> dalam urutan interval tersebut?</p>
+      <image source="intervals" width="80%">
+        <description>Sekumpulan interval tertutup horizontal. Pada skala gambar, rentangnya adalah c dari 11 sampai 93, e dari 13 sampai 62, i dari 58 sampai 91, d dari 69 sampai 138, j dari 86 sampai 158, f dari 107 sampai 231, k dari 115 sampai 129, l dari 144 sampai 201, h dari 149 sampai 273, g dari 168 sampai 193, dan m dari 207 sampai 283.</description>
+      </image>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p><m>c</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>g</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>d</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>i</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="posets_PI_intord-incomp">
+    <statement>
+      <p>Perhatikan interval-interval di bawah sebagai suatu urutan interval. Interval manakah yang tidak dapat dibandingkan dengan <m>d</m> dalam urutan interval tersebut?</p>
+      <image source="intervals" width="80%">
+        <description>Sekumpulan interval tertutup horizontal. Pada skala gambar, rentangnya adalah c dari 11 sampai 93, e dari 13 sampai 62, i dari 58 sampai 91, d dari 69 sampai 138, j dari 86 sampai 158, f dari 107 sampai 231, k dari 115 sampai 129, l dari 144 sampai 201, h dari 149 sampai 273, g dari 168 sampai 193, dan m dari 207 sampai 283.</description>
+      </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>e</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>j</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>g</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>f</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>i</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>  
+  <exercise label="posets_PI_find-two-plus-two">
+    <statement>
+      <p>Himpunan manakah yang membentuk <m>\mathbf{2}+\mathbf{2}</m> dalam poset di bawah?</p>
+      <image source="find_2plus2" width="30%">
+        <description>Diagram urutan dengan sepuluh titik berlabel c sampai l. Pasangan penutupnya, dengan titik pertama di bawah titik kedua, adalah j–k, l–j, i–f, f–g, h–f, i–d, g–k, g–e, c–e, l–c, dan d–c.</description>
+      </image>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p><m>\{k,j,e,c\}</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\{j,l,e,c\}</m></p>
+        </statement>
+      </choice>      
+      <choice>
+        <statement>
+          <p><m>\{e,c,f,i\}</m></p>
+        </statement>
+      </choice>        
+      <choice>
+        <statement>
+          <p>Tidak satu pun di atas</p>
+        </statement>
+      </choice>  
+    </choices>
+  </exercise>
+  <exercise label="posets_PI_find-intrep-interval">
+    <statement>
+      <p>  Anda telah menjalankan empat langkah pertama algoritma untuk memperoleh representasi interval dan memiliki himpunan-himpunan bawah
+        <md>\{\}\subsetneq
+        \{e\}\subsetneq\{a,e\}\subsetneq\{a,b,e\}\subsetneq \{a,b,e,f\}</md>
+        serta himpunan-himpunan atas
+        <md>\{b,c,d,f\}\supsetneq \{b,c,d\}\supsetneq \{c,d\}\supsetneq
+        \{d\}\supsetneq \{\}</md>. Anda mengetahui bahwa <m>D(f) = \{e\}</m> dan <m>U(f) =
+        \{d\}</m>. Maka <m>I(f)=</m></p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p><m>[2,4]</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>[1,3]</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>[4,2]</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>[3,1]</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>[2,2]</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="posets_PI_intord-findrep-nocontain">
+    <statement>
+      <p>  Anda sedang berusaha menemukan representasi interval bagi suatu poset dan menentukan bahwa <m>D(x)\not\subseteq D(z)</m> serta <m>D(z)\not\subseteq D(x)</m>. Anda</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>harus memulai lagi karena hal itu mustahil.</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>menemukan sebuah <m>\mathbf{2}+\mathbf{2}</m>.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>tetap melanjutkan karena masalahnya akan beres sendiri.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>masih belum yakin apa arti <m>D(x)</m>.</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="posets_PI_intord-findrep-small-downset">
+    <statement>
+      <p>  Misalkan Anda sedang mencari representasi interval bagi suatu urutan interval <m>\mathbf{P}</m> dan menentukan bahwa <m>D(x) = D_1</m>, yaitu himpunan bawah terkecil. Maka Anda mengetahui bahwa</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>x</m> maksimal dalam <m>\mathbf{P}</m>.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>I(x)</m> memiliki titik ujung kanan terkecil.</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>x</m> minimal dalam <m>\mathbf{P}</m>.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>I(x)</m> memiliki titik ujung kiri terbesar.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            tidak satu pun di atas.
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="posets_PI_intord-firstfit-chains">
+    <statement>
+      <p>Perhatikan interval-interval dalam urutan <m>h,e,a,b,d,j,i,c,f,g</m>. Berapa banyak rantai yang digunakan First Fit?</p>
+      <image source="intord_for_firstfit" width="75%">
+        <description>Representasi pada sumbu titik ujung 1 sampai 5: interval c adalah [1,1]; f dan g adalah [1,2]; d adalah [2,5]; h adalah [3,3]; a dan j adalah [3,4]; b dan i adalah [4,5]; serta e adalah [5,5].</description>
+      </image>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>4</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>5</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>6</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>7</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="posets_PI_intord-firstfit-already-assigned">
+    <statement>
+      <p>  Anda sedang mempartisi urutan interval ini menjadi rantai-rantai dengan First Fit, dengan mengurutkan interval menurut titik ujung kirinya dan, jika sama, mendahulukan label terkecil. Ketika menjumpai <m>h</m>, titik-titik manakah yang telah Anda tempatkan ke dalam rantai?</p>
+      <image source="intord_for_firstfit" width="75%">
+        <description>Representasi pada sumbu titik ujung 1 sampai 5: interval c adalah [1,1]; f dan g adalah [1,2]; d adalah [2,5]; h adalah [3,3]; a dan j adalah [3,4]; b dan i adalah [4,5]; serta e adalah [5,5].</description>
+      </image>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p><m>g</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>j</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>a</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>d</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+</exercises>

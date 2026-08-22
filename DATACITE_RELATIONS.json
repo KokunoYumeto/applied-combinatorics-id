@@ -1,0 +1,30 @@
+{
+  "schema_version": "DataCite-4.7-intent",
+  "family_mode": "fixed-work",
+  "language": "id",
+  "language_bcp47": "id-ID",
+  "language_concept_doi": "10.5281/zenodo.22058531",
+  "exact_version_doi": "10.5281/zenodo.22059672",
+  "relations": [
+    {
+      "from": "10.5281/zenodo.22059672",
+      "relationType": "IsVersionOf",
+      "to": "10.5281/zenodo.22058531"
+    },
+    {
+      "from": "10.5281/zenodo.22058531",
+      "relationType": "IsTranslationOf",
+      "to": "https://github.com/mitchkeller/applied-combinatorics/tree/33b20df670d1f8d98266cd2f4a287a79b01649ea",
+      "relatedMetadataScheme": "URL"
+    },
+    {
+      "from": "10.5281/zenodo.22059672",
+      "relationType": "IsSupplementedBy",
+      "to": "https://github.com/KokunoYumeto/applied-combinatorics-id",
+      "relatedMetadataScheme": "URL"
+    }
+  ],
+  "reciprocals_requested_from_external_maintainers": false,
+  "component_dois_required": false,
+  "zenodo_translation_vocabulary_available_at_release": false
+}

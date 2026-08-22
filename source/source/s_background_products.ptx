@@ -1,0 +1,19 @@
+<section xml:id="s_background_products">
+    <title>Produk Kartesius</title>
+    <p>Jika <m>X</m> dan <m>Y</m> merupakan himpunan, <term>produk Kartesius</term><idx><h>produk Kartesius</h></idx> dari <m>X</m> dan <m>Y</m>, yang dinotasikan dengan <m>X\times Y</m><notation><usage><m>X\times Y</m></usage><description>produk Kartesius dari <m>X</m> dan <m>Y</m></description></notation>, didefinisikan oleh
+    <md>
+        X\times Y=\{(x,y): x\in X \text{ dan }  y\in Y\}
+    </md>
+    Sebagai contoh, jika <m>X=\{a,b\}</m> dan <m>Y=[3]</m>, maka <md>X\times Y=\{(a,1),(b,1),(a,2),(b,2),(a,3),(b,3)\}.</md> Elemen-elemen <m>X\times Y</m> disebut <term>pasangan terurut</term><idx><h>pasangan terurut</h></idx>. Jika <m>p=(x,y)</m> merupakan pasangan terurut, elemen <m>x</m> disebut <term>koordinat pertama</term> dari <m>p</m>, sedangkan <m>y</m> disebut <term>koordinat kedua</term> dari <m>p</m>. Perhatikan bahwa jika <m>X</m> atau <m>Y</m> merupakan himpunan kosong, maka <m>X\times Y=\emptyset</m>.
+    </p>
+    <example>
+        <p>Misalkan <m>X=\{\emptyset,(1,0),\{\emptyset\}\}</m> dan <m>Y=\{(\emptyset,0)\}</m>. Apakah <m>((1,0),\emptyset)</m> merupakan anggota <m>X\times Y</m>?
+        </p>
+    </example>
+    <p>Produk Kartesius dapat didefinisikan untuk lebih dari dua faktor. Jika <m>n\ge 2</m> merupakan bilangan bulat positif dan <m>X_1,X_2,\dots,X_n</m> merupakan himpunan-himpunan tak kosong, <term>produk Kartesius</term> mereka didefinisikan oleh
+    <md>
+        X_1\times X_2\times\dots\times X_n=\{(x_1,x_2,\dots,x_n): x_i\in X_i
+        \text{ untuk }  i = 1,2,\dots,n\}
+    </md>
+    </p>
+</section>

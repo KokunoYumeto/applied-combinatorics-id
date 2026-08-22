@@ -1,0 +1,91 @@
+<section xml:id="s_background_int-union">
+    <title>Irisan dan Gabungan</title>
+
+
+    <introduction>
+        <p>Jika <m>X</m> dan <m>Y</m> merupakan himpunan, <term>irisan</term><idx><h>irisan</h></idx> dari <m>X</m> dan <m>Y</m>, yang dinotasikan dengan <m>X\cap Y</m><notation><usage><m>X\cap Y</m></usage><description>irisan dari <m>X</m> dan <m>Y</m></description></notation>, didefinisikan oleh
+        <md>
+            X\cap Y = \{x: x\in X, x\in Y\}
+        </md>
+        Perhatikan bahwa notasi ini menggunakan konvensi yang diikuti banyak bahasa pemrograman. Tepatnya, <q>koma</q> dalam definisi tersebut berarti bahwa <em>kedua</em> syarat keanggotaan harus dipenuhi. Sebagai contoh, jika <m>X=\{b,c,e,g,m\}</m> dan <m>Y=\{a,c,d,h,m,n,p\}</m>, maka <m>X\cap Y=\{c,m\}</m>.
+        </p>
+    </introduction>
+
+
+    <subsection>
+        <title>Arti Kata yang Terdiri atas <m>2</m> Huruf</title>
+        <p>Belum terlalu lama berselang, media massa ramai memperdebatkan arti kata bahasa Inggris yang terdiri atas <m>2</m> huruf, <em>is</em>. Bagi matematikawan dan ilmuwan komputer, pembahasan kata lain yang terdiri atas <m>2</m> huruf, <em>or</em>, jauh lebih penting. Masalahnya, bahasa Inggris menggunakan <em>or</em> dalam dua cara yang secara mendasar berbeda. Perhatikan kalimat-kalimat berikut:
+                  <ol>
+            <li><p>Sebuah restoran di dekat sini menawarkan menu makan malam khusus dengan dua pilihan pencuci mulut: flan de casa <em>atau</em> tiramisu.</p></li>
+            <li><p>Sebuah universitas negeri menerima semua siswa yang lulus dari sekolah menengah di negara bagian tersebut dan memperoleh skor SAT di atas <m>1000</m> <em>atau</em> memiliki nilai rata-rata di atas <m>3.0</m>.</p></li>
+            <li><p>Sebuah surat kabar setempat menawarkan kepada pelanggannya pilihan untuk membayar tagihan surat kabar secara bulanan <em>atau</em> setengah tahunan.</p></li>
+        
+                  </ol>
+                </p>
+
+        <p>Dalam pernyataan pertama dan ketiga, jelas terdapat dua pilihan, tetapi <em>hanya</em> satu yang diperbolehkan. Namun, pada pernyataan kedua, penafsirannya ialah bahwa siswa akan diterima jika memenuhi <em>sekurang-kurangnya satu</em> dari kedua syarat tersebut. Kedua penafsiran kata <term>atau</term> ini masing-masing disebut versi <term>eksklusif</term> dan <term>inklusif</term>.<idx><h>atau</h><h>eksklusif</h></idx> <idx><h>atau</h><h>inklusif</h></idx> Dalam mata kuliah ini, setiap penggunaan kata <q>atau</q> akan dianggap bermakna inklusif<mdash/>kecuali dinyatakan lain.
+        </p>
+
+        <p>Sebagai contoh, jika <m>X</m> dan <m>Y</m> merupakan himpunan, <term>gabungan</term><idx><h>gabungan</h></idx> dari <m>X</m> dan <m>Y</m>, yang dinotasikan dengan <m>X\cup Y</m>,<notation><usage><m>X\cup Y</m></usage><description>gabungan dari <m>X</m> dan <m>Y</m></description></notation> didefinisikan oleh
+        <md>
+            X\cup Y = \{x: x\in X \text{ atau }  x\in Y\}.
+        </md>
+        Sebagai contoh, jika <m>X=\{b,c,e,g,m\}</m> dan <m>Y=\{a,c,d,h,m,n,p\}</m>, maka <md>X\cup Y=\{a,b,c,d,e,g,h,m,n,p\}.</md>
+        </p>
+
+        <p>Perhatikan bahwa <m>\cap</m> dan <m>\cup</m> merupakan operasi biner yang <term>komutatif</term> dan <term>asosiatif</term>, sebagaimana penjumlahan dan perkalian pada himpunan bilangan bulat positif <m>\posints</m>, <ie/>, jika <m>X</m>, <m>Y</m>, dan <m>Z</m> merupakan himpunan, maka
+        <md>
+            X\cap Y = Y\cap X \quad\text{ dan } \quad X\cup Y = Y\cup X.
+        </md>
+        Selain itu,
+        <md>
+            X\cap(Y\cap Z)= (X\cap Y)\cap Z\quad\text{ dan } \quad
+            X\cup(Y\cup Z)= (X\cup Y)\cup Z.
+        </md>
+        Perhatikan pula bahwa masing-masing operasi <m>\cap</m> dan <m>\cup</m> bersifat distributif terhadap operasi lainnya, <ie/>,
+        <md>
+            X\cap(Y\cup Z)= (X\cap Y)\cup (X\cap Z)\quad\text{ dan } \quad
+            X\cup(Y\cap Z)= (X\cup Y)\cap (X\cup Z)
+        </md>
+        Sebaliknya, pada <m>\posints</m>, perkalian bersifat distributif terhadap penjumlahan, tetapi penjumlahan tidak bersifat distributif terhadap perkalian.
+        </p>
+    </subsection>
+
+
+    <subsection>
+        <title>Himpunan Kosong: Banyak Membahas Ketiadaan</title>
+        <p>
+            <term>Himpunan kosong</term><idx><h>himpunan</h><h>kosong</h></idx>, yang dinotasikan dengan <m>\emptyset</m><notation><usage><m>\emptyset</m></usage><description>himpunan kosong</description></notation>, adalah himpunan yang memenuhi <m>x\notin \emptyset</m> untuk setiap unsur <m>x</m>. Perhatikan bahwa <m>X\cap \emptyset =\emptyset</m> dan <m>X\cup \emptyset=X</m> untuk setiap himpunan <m>X</m>.
+        </p>
+
+        <p>Himpunan kosong bersifat tunggal: jika <m>x\notin X</m> untuk setiap unsur <m>x</m>, maka <m>X=\emptyset</m>.
+        </p>
+    </subsection>
+
+
+    <subsection>
+        <title>Bilangan-Bilangan Bulat Positif Pertama</title>
+        <p>Dalam buku ini, kita menggunakan simbol <m>\posints</m>, <m>\ints</m>, <m>\rats</m>, dan <m>\reals</m> untuk masing-masing menyatakan himpunan bilangan bulat positif, himpunan semua bilangan bulat (positif, negatif, dan nol), himpunan bilangan rasional (pecahan), serta himpunan bilangan real (rasional dan irasional). Sesekali, kita akan membahas himpunan <m>\nonnegints</m> yang terdiri atas <term>bilangan bulat tak negatif</term>. Jika <m>n</m> merupakan bilangan bulat positif, kita menggunakan singkatan <m>[n]</m> bagi himpunan <m>\{1,2,\dots,n\}</m> yang terdiri atas <m>n</m> bilangan bulat positif pertama. Sebagai contoh, <m>[5]=\{1,2,3,4,5\}</m>. Untuk alasan yang mungkin belum jelas sekarang, tetapi semoga akan menjadi jelas pada saat yang tepat, kita menggunakan notasi <m>\bfn</m> bagi himpunan berunsur <m>n</m>, yaitu <m>\{0,1,2,\dots,n-1\}</m>. Tentu saja, <m>\bfn</m> tidak lain adalah himpunan <m>n</m> bilangan bulat tak negatif pertama. Sebagai contoh, <m>\mathbf{5}=\{0,1,2,3,4\}</m>.
+        <notation><usage><m>\posints</m></usage><description>himpunan bilangan bulat positif</description></notation>
+        <notation><usage><m>\ints</m></usage><description>himpunan bilangan bulat</description></notation>
+        <notation><usage><m>\rats</m></usage><description>himpunan bilangan rasional</description></notation>
+        <notation><usage><m>\reals</m></usage><description>himpunan bilangan real</description></notation>
+        <notation><usage><m>\nonnegints</m></usage><description>himpunan bilangan bulat tak negatif</description></notation>
+        <notation><usage><m>[n]</m></usage><description><m>\{1,2,\dots,n\}</m></description></notation>
+        </p>
+    </subsection>
+
+
+    <subsection>
+        <title>Himpunan Bagian, Himpunan Bagian Sejati, dan Kesamaan Himpunan</title>
+        <p>Jika <m>X</m> dan <m>Y</m> merupakan himpunan, kita mengatakan bahwa <m>X</m> adalah <term>himpunan bagian</term><idx><h>himpunan bagian</h></idx> dari <m>Y</m> dan menulis <m>X\subseteq Y</m> <notation><usage><m>X\subseteq Y</m></usage><description><m>X</m> adalah himpunan bagian dari <m>Y</m></description></notation> jika <m>x\in Y</m> untuk setiap <m>x\in X</m>. Jika <m>X</m> merupakan himpunan bagian dari <m>Y</m> dan terdapat sekurang-kurangnya satu unsur <m>y\in Y</m> yang memenuhi <m>y\notin X</m>, kita mengatakan bahwa <m>X</m> adalah <term>himpunan bagian sejati</term><idx><h>himpunan bagian</h><h>sejati</h></idx> dari <m>Y</m> dan menulis <m>X\subsetneq Y</m><notation><usage><m>X\subsetneq Y</m></usage><description><m>X</m> adalah himpunan bagian sejati dari <m>Y</m></description></notation>. Sebagai contoh, himpunan bilangan prima <m>P</m> merupakan himpunan bagian sejati dari himpunan bilangan bulat positif <m>\posints</m>.
+        </p>
+
+        <p>Cukup sering kita menjumpai situasi ketika himpunan <m>X</m> dan <m>Y</m> mempunyai aturan keanggotaan yang berbeda, tetapi sebenarnya merupakan himpunan yang sama. Sebagai contoh, misalkan <m>X=\{0,2\}</m> dan <m>Y=\{z\in\ints: z+z=z\times z\}</m>. Maka <m>X=Y</m>. Karena itu, kriteria untuk menentukan kesamaan dua himpunan sangat berguna. Jika <m>X</m> dan <m>Y</m> merupakan himpunan, maka
+        <md>
+            X = Y \quad\text{ jika dan hanya jika } \quad X\subseteq Y \text{ dan }  Y\subseteq X.
+        </md>
+        </p>
+    </subsection>
+
+</section>

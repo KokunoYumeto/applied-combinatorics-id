@@ -1,0 +1,11 @@
+<section xml:id="s_graphs_discussion">
+    <title>Diskusi</title>
+    <p>Sambil minum kopi, percakapan hari itu berlangsung antusias dan sesekali memanas. Zori memulainya dengan gebrakan, <q>Menurutku graf sama sekali tidak berguna<ellipsis/></q> Namun, ia bahkan belum sempat menyelesaikan kalimatnya ketika Yolanda, tidak seperti biasanya, menyela, <q>Kali ini kamu keliru. Aku melihat banyak cara menggunakan graf untuk memodelkan masalah dunia nyata. Profesor sebenarnya sudah menunjukkan beberapa contoh pada pertemuan pertama kita. Sekarang setelah kita membahas graf lebih mendalam, semuanya bahkan semakin jelas.</q> Bob menambahkan, <q>Masalah siklus Euler dan Hamilton ini pasti memiliki penerapan dalam perutean jaringan.</q> Xing mendukung Bob, <q>Tepat sekali. Ada pertanyaan penting tentang integritas jaringan dan pertukaran informasi yang pada dasarnya sama dengan masalah-masalah dasar ini.</q> Alice ikut menimpali, <q>Bahkan konsep bilangan kromatik jelas memiliki penerapan praktis.</q> Pada saat itu Zori menyadari bahwa pendiriannya tidak dapat dipertahankan, tetapi ia enggan mengakuinya. Ia hanya menjawab, <q>Terserah.</q>
+    </p>
+
+    <p>Suasana kemudian sedikit mereda dan Dave berkata, <q>Menemukan siklus Hamilton tentu tidak terlalu sulit jika seseorang menjamin bahwa siklus itu ada. Informasi tambahan ini pasti berguna dalam pencarian.</q> Xing menambahkan, <q>Mungkin saja. Rasanya wajar bahwa sesuatu lebih mudah ditemukan jika kita tahu bahwa sesuatu itu memang ada.</q> Alice bertanya, <q>Apakah hal yang sama berlaku untuk bilangan kromatik?</q> Bob tidak memahami pertanyaannya, <q>Hah?</q> Alice melanjutkan, kali ini dengan sengaja tidak memandang ke arah Bob, <q>Maksudku, jika seseorang memberi tahu bahwa suatu graf dapat diwarnai dengan <m>3</m> warna, apakah informasi itu membantu kita menemukan pewarnaan yang hanya menggunakan tiga warna?</q> Dave berkata, <q>Menurutku masuk akal.</q>
+    </p>
+
+    <p>Setelah terdiam sejenak, Carlos berpendapat, <q>Menurutku pengetahuan tambahan ini tidak membantu sama sekali. Bagaimanapun juga, masalah-masalah ini cukup sulit.</q> Mereka berdebat cukup lama, tetapi pada akhirnya satu-satunya hal yang benar-benar jelas adalah bahwa graf dan sifat-sifatnya telah menyita perhatian mereka, setidaknya untuk sementara.
+    </p>
+</section>

@@ -1,0 +1,69 @@
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude">
+	<docinfo>
+		<directories external="../assets"/>
+		<initialism>ACW</initialism>
+		<xi:include href="macros.ptx"/>
+    <xi:include href="latex-image-preamble.ptx"/>
+		<defaults>
+			<xrefs text="type-global"/>
+		</defaults>
+		<rename element="remark" xml:lang="en-US">Discussion</rename>
+		<rename element="worksheetexercise" xml:lang="en-US">Problem</rename>
+	</docinfo>
+
+	<book xml:id="appcomb-activities">
+		<title>
+		<line>Activities to Accompany</line>
+		<line><pubtitle>Applied Combinatorics</pubtitle></line>
+		</title>
+
+		<frontmatter>
+			<bibinfo>
+				<author>
+					<personname>Mitchel T.
+					Keller</personname>
+					<department>Department of Mathematics</department>
+					<institution>
+					<line>University of Wisconsin-Madison</line>
+					<line>Madison, Wisconsin</line>
+					</institution>
+					<email>mitch.keller@wisc.edu</email>
+				</author>
+
+				<author>
+					<personname>William T.
+					Trotter</personname>
+					<department>School of Mathematics</department>
+					<institution>
+					<line>Georgia Institute of Technology</line>
+					<line>Atlanta, Georgia</line>
+					</institution>
+					<email>wtt.math@gmail.com</email>
+				</author>
+			</bibinfo>
+			<titlepage>
+				<titlepage-items/>
+			</titlepage>
+		</frontmatter>
+    <xi:include href="worksheets/intro.ptx"/>
+		<xi:include href="worksheets/strings.ptx"/>
+		<xi:include href="worksheets/induction.ptx"/>
+		<chapter xml:id="ch-php-notes" component="graphs">
+			<title>Placeholder</title>
+			<p>
+				This is a placeholder for a chapter for which there are not currently notes.
+			</p>
+		</chapter>
+		<xi:include href="worksheets/graphs.ptx"/>
+		<xi:include href="worksheets/posets.ptx"/>
+		<xi:include href="worksheets/inclusion-exclusion.ptx"/>
+		<xi:include href="worksheets/genfunction.ptx"/>
+		<xi:include href="worksheets/recurrence.ptx"/>
+		<!-- <backmatter>
+			<solutions worksheet="statement solution">
+				<title>Solutions</title>
+			</solutions>
+				
+		</backmatter> -->
+	</book>
+</pretext>

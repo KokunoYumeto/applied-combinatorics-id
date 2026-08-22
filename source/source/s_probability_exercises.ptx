@@ -1,0 +1,61 @@
+<exercises xml:id="s_probability_exercises">
+    <exercise>
+        <statement>
+            <p>Kelompok kita yang beranggotakan tujuh orang (Alice, Bob, Carlos, Dave, Xing, Yolanda, dan Zori) mengikuti kelas dengan jumlah keseluruhan 35 mahasiswa. Dosen memilih tiga mahasiswa secara acak untuk maju ke papan tulis dan mengerjakan soal tantangan.
+                  <ol>
+                <li><p>Berapakah probabilitas bahwa Yolanda terpilih?</p></li>
+                <li><p>Berapakah probabilitas bahwa Yolanda terpilih dan Zori tidak?</p></li>
+                <li><p>Berapakah probabilitas bahwa tepat dua anggota kelompok terpilih?</p></li>
+                <li><p>Berapakah probabilitas bahwa tidak satu pun dari ketujuh anggota kelompok terpilih?</p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Tanpa berbicara kepada siapa pun secara khusus, Bob berkata, <q>Tahukah kalian bahwa probabilitas memperoleh jumlah <sq>7</sq> sedikitnya satu kali dalam tiga lemparan sepasang dadu sedikit lebih kecil daripada <m>1/2</m>? Di sisi lain, probabilitas memperoleh jumlah <sq>5</sq> sedikitnya satu kali dalam enam lemparan dadu sedikit lebih besar daripada <m>1/2</m>.</q> Apakah pernyataan Bob tepat atau sama sekali meleset?</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Perhatikan roda pemutar pada <xref ref="fig_spinner"/> di awal bab.
+                  <ol>
+                <li><p>Berapakah probabilitas memperoleh sedikitnya satu <q>5</q> dalam tiga putaran?</p></li>
+                <li><p>Berapakah probabilitas memperoleh sedikitnya satu <q>3</q> dalam tiga putaran?</p></li>
+                <li><p>Jika roda terus diputar hingga diperoleh <q>2</q> atau <q>5</q>, berapakah probabilitas memperoleh <q>2</q> terlebih dahulu?</p></li>
+                <li><p>Jika Anda menerima <m>i</m> dolar ketika roda berhenti di daerah<nbsp/><m>i</m>, berapakah nilai harapannya? Karena tiga tepat berada di tengah semua hasil yang mungkin, apakah wajar membayar tiga dolar untuk memainkan permainan ini?</p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Alice mengusulkan permainan berikut kepada Bob. Bob membayar satu dolar untuk bermain. Lima puluh bola bernomor <m>1,2,\dots,50</m> dimasukkan ke dalam stoples besar, diaduk, lalu dikeluarkan satu per satu oleh Zori yang matanya tertutup. Hasilnya berupa permutasi acak <m>\sigma</m> dari bilangan bulat <m>1</m>, <m>2,\dots,50</m>. Bob menang dan menerima pembayaran dua dolar lima puluh sen jika permutasi <m>\sigma</m> merupakan permutasi tanpa titik tetap, <ie/>, <m>\sigma(i)\neq i</m> untuk semua <m>i=1,2,\dots,50</m>. Apakah permainan ini adil bagi Bob? Jika tidak, bagaimana pembayaran harus disesuaikan agar permainan menjadi adil?</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Sebuah graf acak dengan himpunan verteks <m>\{1,2,\dots,10\}</m> dibangun menggunakan metode berikut. Untuk setiap himpunan bagian dua elemen <m>\{i,j\}</m> dari <m>\{1,2,\dots,10\}</m>, sebuah koin seimbang dilempar; sisi <m>\{i,j\}</m> menjadi bagian dari graf jika hasil lemparannya <q>sisi angka.</q> Untuk setiap himpunan bagian <m>3</m>-elemen <m>S\subseteq\{1,2,\dots,10\}</m>, misalkan <m>E_S</m> merupakan kejadian bahwa <m>S</m> adalah subgraf lengkap dalam graf acak tersebut.
+                  <ol>
+                <li><p>Jelaskan mengapa <m>P(E_S)= 1/8</m> untuk setiap himpunan bagian <m>3</m>-elemen <m>S</m>.</p></li>
+                <li><p>Jelaskan mengapa <m>E_S</m> dan <m>E_T</m> saling bebas apabila <m>|S\cap T|\le 1</m>.</p></li>
+                <li><p>Misalkan <m>S=\{1,2,3\}</m>, <m>T=\{2,3,4\}</m>, dan <m>U=\{3,4,5\}</m>. Tunjukkan bahwa <md>P(E_S|E_T)= P(E_S|E_T\cap E_U).</md></p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Sepuluh kelereng bernomor <m>1,2,\dots,10</m> dimasukkan ke dalam stoples besar lalu diaduk. Dengan mata tertutup, Zori mengeluarkan kelereng dari stoples dua buah sekaligus. Para pemain boleh bertaruh apakah jumlah kedua kelereng dalam satu pasangan ialah <m>11</m>. Terdapat <m>C(10,2)= 45</m> pasangan berbeda, dan tepat <m>5</m> di antaranya berjumlah sebelas.</p>
+
+<p> Misalkan Zori mengeluarkan satu pasangan dan hasilnya diamati; kemudian ia mengembalikan kedua kelereng ke dalam stoples, dan kesepuluh kelereng diaduk sebelum sampel berikutnya diambil. Karena probabilitas memperoleh jumlah <q>11</q> ialah <m>5/45=1/9</m>, membayar satu dolar untuk bermain akan adil jika pembayaran untuk jumlah <q>11</q> ialah sembilan dolar. Demikian pula, pembayaran untuk taruhan seratus dolar seharusnya sembilan ratus dolar.</p>
+
+            <p>Sekarang perhatikan cara lain untuk memainkan permainan tersebut. Zori mengeluarkan satu pasangan dan hasilnya diamati, lalu kelereng-kelereng itu disisihkan. Selanjutnya, ia mengambil pasangan lain dari delapan kelereng yang tersisa, kemudian satu pasangan dari enam kelereng yang tersisa, <etc/> Akhirnya, pasangan kelima hanyalah pasangan yang tersisa setelah pasangan keempat dipilih. Para pemain kini bebas bertaruh pada hasil semua, beberapa, atau salah satu dari kelima putaran. Jelaskan mengapa semua orang seharusnya bertaruh pada putaran kelima atau tidak seorang pun seharusnya bertaruh. Oleh karena itu, putaran terakhir dilewati, semua kelereng dikembalikan ke dalam stoples, dan permainan dimulai lagi.</p>
+
+            <p>Jelaskan juga mengapa pemain yang cermat dapat memperoleh banyak uang dengan rasio pembayaran sembilan banding satu. Sekarang untuk persoalan yang lebih menantang: berapakah rasio pembayaran minimum yang jika dilampaui memberi pemain suatu strategi kemenangan?</p>
+        </statement>
+    </exercise>
+</exercises>

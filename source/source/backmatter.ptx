@@ -1,0 +1,22 @@
+<backmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="backmatter">
+    <title>Bagian Akhir</title> <!-- terutama untuk pembagian bagian HTML -->
+
+    <xi:include href="./ch_epilogue.ptx"/>
+    <xi:include href="./app_background.ptx"/>
+
+    <!--    <xi:include href="./gfdl-mathbook.xml" />  -->         <!-- GFDL License text -->
+    <appendix>
+        <title>Daftar Notasi</title>
+        <notation-list/>
+    </appendix>
+    <!-- Index follows appendices, preceded only colophon -->
+    <index>
+        <title>Indeks</title>
+        <index-list/>
+    </index>
+
+    <colophon>
+        <p>Buku ini ditulis menggunakan <url href="https://pretextbook.org" visual="pretextbook.org"><pretext/></url>. Untuk versi <latex/>, <tex/> Gyre Pagella digunakan sebagai fon teks utama, sedangkan <c>newpxmath</c> digunakan untuk memilih fon simbol matematika. Kelas dokumen <latex/> yang digunakan adalah <c>scrbook</c> dari paket KOMA-Script. Versi <init>HTML</init> menggunakan skema warna <c>mathbook-4.css</c>.</p>
+    </colophon>
+
+</backmatter>

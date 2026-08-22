@@ -1,0 +1,444 @@
+{
+  "schema": "applied-combinatorics-id.qa.protected-math-delta-audit",
+  "schema_version": "1.0.0",
+  "generated_at": "2026-08-22T19:40:00+02:00",
+  "result": "pass",
+  "scope": {
+    "resource_id": "R012",
+    "authority_commit": "33b20df670d1f8d98266cd2f4a287a79b01649ea",
+    "locale": "id-ID",
+    "admitted_through_boundary_id": "r012:boundary:background-zfc-foundations",
+    "admitted_through_files": [
+      "s_background_ZFC.ptx"
+    ],
+    "admitted_translation_boundary_count": 167,
+    "admitted_file_count": 171,
+    "authority_root": "upstream/applied-combinatorics-33b20df670d1f8d98266cd2f4a287a79b01649ea/source",
+    "target_root": "source/source",
+    "control_path": "backend/protected_math_deltas.json",
+    "audit_boundary": "only the 171 unique files named by the 167 live id-ID boundaries"
+  },
+  "cursor_observation": {
+    "reported_verified_translation_boundary_count": 167,
+    "reported_translated_through": "source/source/s_background_ZFC.ptx",
+    "reported_next_source_path": null,
+    "reported_concept_record_count": 701,
+    "reported_terminology_record_count": 633,
+    "reported_adverse_correction_event_count": 354,
+    "consistent_with_translation_boundaries_at_audit_time": true
+  },
+  "inputs": {
+    "control": {
+      "path": "backend/protected_math_deltas.json",
+      "bytes": 159122,
+      "sha256": "f794ee1f74cad766170d0302dc62c6bf3518e2bc884563d55209e03f8edbd1ba"
+    },
+    "controlling_files": [
+      {
+        "path": "00_control/CURRENT_CURSOR.json",
+        "bytes": 3913,
+        "sha256": "c6a73f1a66abdc4b67abf961b8681269d30c448d4b19f450bc701ab9ecda9e64"
+      },
+      {
+        "path": "backend/translation_boundaries.json",
+        "bytes": 235087,
+        "sha256": "ba020e0bbebfd8cc776b09740c61d011ab9f272479bfb7745f0e7eb7570b61a8"
+      },
+      {
+        "path": "00_control/ADVERSE_CORRECTIONS.csv",
+        "bytes": 175467,
+        "sha256": "eb1fc15cb40e085952b3dd696f6a3eee020d693e418c7a1f7f011d6b3800bc90"
+      }
+    ],
+    "qa_witness_count": 70,
+    "qa_witness_manifest_sha256": "1e0f637160a2354d7c7efc998afcc3b508879b83968e91caf117fbf57a427414",
+    "qa_witnesses": [
+      {
+        "path": "qa/BACKGROUND_APPENDIX_ASSIGNED_MODULES_QA_20260822.json",
+        "bytes": 82960,
+        "sha256": "5167adc02eff0a72f097c18682b70c54e364a73ddb7d60579135d29c583332d0"
+      },
+      {
+        "path": "qa/BACKGROUND_COMPLEX_MODULE_QA_20260822.json",
+        "bytes": 31578,
+        "sha256": "f37964ba96d82191bdc65f5c190d1c93628c3106f568e758ab4b3628807ce292"
+      },
+      {
+        "path": "qa/BACKGROUND_DECIMAL_MODULE_QA_20260822.json",
+        "bytes": 32084,
+        "sha256": "250c233d91d5ab4c90aeea67dcdedc7cd12c96cb541eca91ed6cdab2532f084d"
+      },
+      {
+        "path": "qa/BACKGROUND_INTEGERS_MODULE_QA_20260822.json",
+        "bytes": 21489,
+        "sha256": "06bed8178837287cb22d74fc122a6be203c208783e6fa0ba8a53e1a9168a2c83"
+      },
+      {
+        "path": "qa/BACKGROUND_INTEGER_PROPERTIES_MODULE_QA_20260822.json",
+        "bytes": 30109,
+        "sha256": "347a350b53b56e51ba7fc11f57b648c6317e128712cc192935c8e054cce27231"
+      },
+      {
+        "path": "qa/BACKGROUND_INTRO_MODULE_QA_20260822.json",
+        "bytes": 20012,
+        "sha256": "da7cded98687b9f67d787ebefe28c333d312f926cb8c63377ab9e0b78c86be43"
+      },
+      {
+        "path": "qa/BACKGROUND_PRODUCTS_MODULE_QA_20260822.json",
+        "bytes": 21145,
+        "sha256": "5c6d787549a5206d7c73b3e3eb848bdbe54e86c36102e6206b3c68e516d834a3"
+      },
+      {
+        "path": "qa/BACKGROUND_RATIONALS_MODULE_QA_20260822.json",
+        "bytes": 34284,
+        "sha256": "80783bd46b3cdb02e4c76964b83935a5b6ccbc58123a0071d82f3be9d0978dce"
+      },
+      {
+        "path": "qa/BACKGROUND_ZFC_MODULE_QA_20260822.json",
+        "bytes": 23987,
+        "sha256": "8ae09c1b740b5f44d9eb68d9bdbc8a73fe6e77c8dd24438781d9b50910b5c4b7"
+      },
+      {
+        "path": "qa/BASICS_COMPLEXITY_MODULE_QA_20260821.json",
+        "bytes": 5137,
+        "sha256": "32556ad51c45d51439bddb0337763dd390fc7d298d22fec182b34df9219fa111"
+      },
+      {
+        "path": "qa/BASICS_EXACT_MODULE_QA_20260821.json",
+        "bytes": 4010,
+        "sha256": "f441952f2b4ded250db732f3f339cb96b6739effbc155913827960cc5ef80710"
+      },
+      {
+        "path": "qa/FLOWAPPLICATIONS_BIPARTITE_MATCHING_MODULE_QA_20260822.json",
+        "bytes": 27415,
+        "sha256": "beaf01b3b9e6afddd203359713efcff7741eb391c3d9d674a5e77a0ffe3b7556"
+      },
+      {
+        "path": "qa/FLOWAPPLICATIONS_CHAIN_PARTITION_MODULE_QA_20260822.json",
+        "bytes": 34870,
+        "sha256": "3c2640c7193866aad76636af856aaf31cf73a9611273e1fb7d5b6927d7df1a05"
+      },
+      {
+        "path": "qa/GENFUNCTION_EXPONENTIAL_MODULE_QA_20260822.json",
+        "bytes": 18058,
+        "sha256": "c2b803c810eb190a80e06add23a9ae94324398fdc63f7069f6a7d01c71039987"
+      },
+      {
+        "path": "qa/GENFUNCTION_INTRO_MODULE_QA_20260822.json",
+        "bytes": 16152,
+        "sha256": "e5add483b7c5701d5cf40afcdf7322797aff55be2879d1e18cee84f0b24e55e2"
+      },
+      {
+        "path": "qa/GENFUNCTION_PEER_INSTRUCTION_MODULE_QA_20260822.json",
+        "bytes": 23362,
+        "sha256": "bf058244df27e8031faaba1cab1eaf1bf048bb8a0505012fd970f619018937ad"
+      },
+      {
+        "path": "qa/GRAPHALGORITHMS_DIGRAPHS_MODULE_QA_20260822.json",
+        "bytes": 14130,
+        "sha256": "1db652a3c0d9d56d3aeeb649f623dd41fb65561ca34e2d74c3c3a1e265d93219"
+      },
+      {
+        "path": "qa/GRAPHALGORITHMS_MINIMUM_WEIGHT_SPANNING_TREES_MODULE_QA_20260822.json",
+        "bytes": 31406,
+        "sha256": "6e77116244106609e9cbc494540bb7f22dbe65221c558679adcc6ff4b1a3d6e9"
+      },
+      {
+        "path": "qa/GRAPHALGORITHMS_SHORTEST_PATHS_MODULE_QA_20260822.json",
+        "bytes": 59715,
+        "sha256": "7e0526e241a32c782979dbbda2193229faf29acc170e81b197f56ccf0b385cbc"
+      },
+      {
+        "path": "qa/GRAPHS_COLOR_MODULE_QA_20260821.json",
+        "bytes": 20571,
+        "sha256": "9108dbf28cf5b4c7a05c7a3a10271f87d8089d9b0adbe59f7f918fd1178d51b1"
+      },
+      {
+        "path": "qa/GRAPHS_EXERCISES_MODULE_QA_20260821.json",
+        "bytes": 20092,
+        "sha256": "a1c749957d7e84609e5e9f1818eb824373b9715bfbe0dfd1459b7927b2e3452a"
+      },
+      {
+        "path": "qa/GRAPHS_INTRO_MODULE_QA_20260821.json",
+        "bytes": 13391,
+        "sha256": "5581e525ccf2c07794a3f6698879178ed6c2da9cca3e22e346734192f74ba041"
+      },
+      {
+        "path": "qa/GRAPHS_PLANAR_MODULE_QA_20260821.json",
+        "bytes": 13581,
+        "sha256": "96c90e428bfeb7b3895957f9c93d0585a37010165738d273e093d2239a70a735"
+      },
+      {
+        "path": "qa/INCLUSION_EXCLUSION_ACTIVITY_MODULE_QA_20260822.json",
+        "bytes": 24647,
+        "sha256": "9501c825069f013e3b5535a645be81329339e845884af993eec2117a57533993"
+      },
+      {
+        "path": "qa/INCLUSION_EXCLUSION_EULER_PHI_MODULE_QA_20260821.json",
+        "bytes": 28738,
+        "sha256": "abd0a1cd9fd6edf777c2806e6cdca2e0376bfa9c370322954f77311dc19ae26e"
+      },
+      {
+        "path": "qa/INCLUSION_EXCLUSION_EXERCISES_MODULE_QA_20260822.json",
+        "bytes": 86504,
+        "sha256": "c7744e232a97ee1c54aa798a61b2d22c91fdd756c0a2a94c9d3844c7af89d405"
+      },
+      {
+        "path": "qa/INCLUSION_EXCLUSION_INTRO_MODULE_QA_20260821.json",
+        "bytes": 10597,
+        "sha256": "003b1d4b851ca19dce5b9dd24209267355538a57fc50b9efb71ad487ed7c8744"
+      },
+      {
+        "path": "qa/INCLUSION_EXCLUSION_PEER_INSTRUCTION_MODULE_QA_20260822.json",
+        "bytes": 27751,
+        "sha256": "8601155a75e78e040fbb3740eb42640e9d37a91b52288fc4a46a9da7478c5453"
+      },
+      {
+        "path": "qa/INCLUSION_EXCLUSION_STATEMENT_MODULE_QA_20260821.json",
+        "bytes": 17572,
+        "sha256": "bac21dbd96f28a192d3ddd21e6011b363aab20489f0ffec45eadb0deeea2c68c"
+      },
+      {
+        "path": "qa/INDUCTION_EXERCISES_MODULE_QA_20260821.json",
+        "bytes": 20984,
+        "sha256": "7331c8ef6c49831b3d75d6415a67227686eb62e22f979f6108257b47b2078e80"
+      },
+      {
+        "path": "qa/INDUCTION_MATHEMATICAL_INDUCTION_MODULE_QA_20260821.json",
+        "bytes": 3887,
+        "sha256": "b6b529b6da21b1d854fd449a3b2ebc2abd7aa8d268467931b6d5cfdf8bfd3e7e"
+      },
+      {
+        "path": "qa/INDUCTION_PEER_INSTRUCTION_MODULE_QA_20260821.json",
+        "bytes": 3633,
+        "sha256": "d88eb707bd62f055db1ba4912ab89c5463576390a933846f502494733d4138f3"
+      },
+      {
+        "path": "qa/INDUCTION_PROOFS_MODULE_QA_20260821.json",
+        "bytes": 10772,
+        "sha256": "3a9b92d44d8cf469be9e694d52089afad72bc886ff66b344f0e0336c75064743"
+      },
+      {
+        "path": "qa/KITCHENSINK_APPLYING_LOCAL_LEMMA_MODULE_QA_20260822.json",
+        "bytes": 47197,
+        "sha256": "1a0d6ff02dba85e08ece5a696b848a7bd425cf48605dfdd58e21ca64fcfcb4ef"
+      },
+      {
+        "path": "qa/KITCHENSINK_EXTREMAL_SET_THEORY_MODULE_QA_20260822.json",
+        "bytes": 35376,
+        "sha256": "30280b51dd90a5a5a2c48d4992628570a7378a38d6c14a6928acf6101eea59bb"
+      },
+      {
+        "path": "qa/KITCHENSINK_LOVASZ_LOCAL_LEMMA_MODULE_QA_20260822.json",
+        "bytes": 44596,
+        "sha256": "7b43776077640b3700578cdac2abcf701c21c762156146613be81a1b371456d7"
+      },
+      {
+        "path": "qa/KITCHENSINK_MARKOV_CHAINS_MODULE_QA_20260822.json",
+        "bytes": 24729,
+        "sha256": "337ffa3ebf541bc176a0c25e869ca36d08142b655faed046a2461c53141b0dbf"
+      },
+      {
+        "path": "qa/KITCHENSINK_ONLINE_ALGORITHMS_MODULE_QA_20260822.json",
+        "bytes": 31361,
+        "sha256": "adb7afd977d14d57bd11cb51672ac1f0982ede9ae0491cd5e2ba8408163ffb36"
+      },
+      {
+        "path": "qa/KITCHENSINK_OPENING_MODULES_QA_20260822.json",
+        "bytes": 20285,
+        "sha256": "9b42d937e76eba70e281ea00f519171902a86ae9564fbe04fe23f3f15366673e"
+      },
+      {
+        "path": "qa/KITCHENSINK_STABLE_MATCHING_MODULE_QA_20260822.json",
+        "bytes": 17474,
+        "sha256": "8d5a58cf6ff19e2a985718491d9d1c39d1b57e511319ac87c7de10226254a943"
+      },
+      {
+        "path": "qa/KITCHENSINK_ZERO_ONE_MATRICES_MODULE_QA_20260822.json",
+        "bytes": 47836,
+        "sha256": "c9928e563b3bd3f7a2bff0689f7f9eec9a2815ab95f63d665d9c679c87c65d85"
+      },
+      {
+        "path": "qa/NETWORKFLOW_CHAPTER_MODULE_QA_20260822.json",
+        "bytes": 109126,
+        "sha256": "71af76d43eb3cf27a5d7576a9d599eab3039e72b25ae83a56efe688b635e2d35"
+      },
+      {
+        "path": "qa/POLYA_APPLICATIONS_MODULE_QA_20260822.json",
+        "bytes": 45107,
+        "sha256": "e261d75c88ebc23b0f9c37149993af2bb02f5ad736721375ec77b1df7492334a"
+      },
+      {
+        "path": "qa/POLYA_EXERCISES_MODULE_QA_20260822.json",
+        "bytes": 31523,
+        "sha256": "8b522302d4ac7446eee1d1179a853be8c0a54dcd75c220658e1a4dad416ec332"
+      },
+      {
+        "path": "qa/POLYA_PERM_GROUPS_MODULE_QA_20260822.json",
+        "bytes": 36479,
+        "sha256": "1db92e5d64e6f91d2335657431b1bfd9ae30f1e4df2feed4ebc5a3416a11bc77"
+      },
+      {
+        "path": "qa/POLYA_THEOREM_MODULE_QA_20260822.json",
+        "bytes": 39402,
+        "sha256": "884f85096d042d032bb224630c96d71e173b988f44d40f754b16c766bea1da41"
+      },
+      {
+        "path": "qa/POSETS_DILWORTH_INTERVAL_ORDER_MODULE_QA_20260821.json",
+        "bytes": 7655,
+        "sha256": "1c46d97a1514bc7ffddac006f5b35382450ecc7eb02ce3de44a330900cf0f165"
+      },
+      {
+        "path": "qa/POSETS_DILWORTH_MODULE_QA_20260821.json",
+        "bytes": 7816,
+        "sha256": "db690587c0304ef241e3ff63055c5d87fdc79aaa1414f4bd89431046ff6ff5cf"
+      },
+      {
+        "path": "qa/POSETS_EXERCISES_MODULE_QA_20260821.json",
+        "bytes": 32311,
+        "sha256": "42bd7689582d3003fc419dd5c88b5e4237d3d99af1a4ee26f4d10d0ecd45e097"
+      },
+      {
+        "path": "qa/POSETS_INTERVAL_ORDER_FINDREP_MODULE_QA_20260821.json",
+        "bytes": 8525,
+        "sha256": "20269961b9caf71a3dc5206712dfd99ad433fa8a5a0cd3b43935dc8a32e6e94b"
+      },
+      {
+        "path": "qa/POSETS_INTRO_MODULE_QA_20260821.json",
+        "bytes": 11043,
+        "sha256": "30760eb59abcf6eb10029f91524537bd9178092847367041c01f7a491e373d9d"
+      },
+      {
+        "path": "qa/POSETS_SUBSET_LATTICE_MODULE_QA_20260821.json",
+        "bytes": 8176,
+        "sha256": "2074f3797e6670ef73a64c79332aeba2356538546f94a3508f47c519d5119611"
+      },
+      {
+        "path": "qa/PROBABILITY_BERNOULLI_TRIALS_MODULE_QA_20260822.json",
+        "bytes": 20197,
+        "sha256": "7d877dcd2b8ebb3cc36cb8e37a3d7cfe0a30375034cf45cdbb9c05c1da027d16"
+      },
+      {
+        "path": "qa/PROBABILITY_CENTRAL_TENDENCY_MODULE_QA_20260822.json",
+        "bytes": 44436,
+        "sha256": "7516920d0800750f35194e6d121d4766f23cc19411253eb00eb36a4dc85467fd"
+      },
+      {
+        "path": "qa/PROBABILITY_CONDITIONAL_MODULE_QA_20260822.json",
+        "bytes": 20961,
+        "sha256": "fc4afc2d6c468c397f50dbe9256be05763246ac505c7f3897280d33ec35298fb"
+      },
+      {
+        "path": "qa/PROBABILITY_DISCRETE_RANDOM_VARIABLES_MODULE_QA_20260822.json",
+        "bytes": 34670,
+        "sha256": "351203cfebc15e8c054fe4f12d5d97b39b0327c070022ca3c9053fb04115e489"
+      },
+      {
+        "path": "qa/PROBABILITY_EXERCISES_MODULE_QA_20260822.json",
+        "bytes": 26313,
+        "sha256": "4e69053e085bbc666654bd26b8114e5489e80d74436fcba8d84a1a359321f66a"
+      },
+      {
+        "path": "qa/PROBABILITY_INFINITE_OUTCOMES_MODULE_QA_20260822.json",
+        "bytes": 21600,
+        "sha256": "da850305fb1f4a5d2c4b4b905eed7811383080eb815c8c4cdce91e49ff521829"
+      },
+      {
+        "path": "qa/PROBABILITY_INTRO_MODULE_QA_20260822.json",
+        "bytes": 27186,
+        "sha256": "52838b837932b46a91ddb46d99ec11d0020659c137adfe93c172f9cee6c969bb"
+      },
+      {
+        "path": "qa/RAMSEY_CHAPTER_MODULE_QA_20260822.json",
+        "bytes": 108026,
+        "sha256": "77bfb04946507877afcde0a037f0d05dbc09c1ab064b4a07a824da406c0fcd97"
+      },
+      {
+        "path": "qa/RECURRENCE_ADVANCEMENT_OPERATORS_MODULE_QA_20260822.json",
+        "bytes": 31284,
+        "sha256": "ceaf82b629bbd02d9ad688875e70550180f6914c00758dfff4af63ac9f75909a"
+      },
+      {
+        "path": "qa/RECURRENCE_DISCUSSION_MODULE_QA_20260822.json",
+        "bytes": 16907,
+        "sha256": "547ab576672ba95bb39d624813a15e094390f574dea49517ece8f6a6cb89be76"
+      },
+      {
+        "path": "qa/RECURRENCE_EXERCISES_MODULE_QA_20260822.json",
+        "bytes": 24242,
+        "sha256": "515326bd7596fbf662085b1f71326ffeffce4682c5979a98e3a4366d9f3f6218"
+      },
+      {
+        "path": "qa/RECURRENCE_GENERATING_FUNCTIONS_MODULE_QA_20260822.json",
+        "bytes": 30858,
+        "sha256": "f5bde5f79777b79e75f767be08ebf12d11634a5d89d710f2a5637ca4a59594b2"
+      },
+      {
+        "path": "qa/RECURRENCE_RIGOROUS_MODULE_QA_20260822.json",
+        "bytes": 44095,
+        "sha256": "882a763c54f038ba7a25be2fe9ece30cfdd200b68de00f0856365fd99049e476"
+      },
+      {
+        "path": "qa/RECURRENCE_SOLVING_MODULE_QA_20260822.json",
+        "bytes": 18012,
+        "sha256": "dc829229933fbf064602a67f7b4141bb3771030cf62b7892df3432bde77f3682"
+      },
+      {
+        "path": "qa/STRINGS_EXERCISES_MODULE_QA_20260821.json",
+        "bytes": 14218,
+        "sha256": "d89928b323b81426bf0cae80d3635f55936da4f479918ee28e07014c47415168"
+      },
+      {
+        "path": "qa/STRINGS_INTRO_MODULE_QA_20260821.json",
+        "bytes": 5234,
+        "sha256": "5ad025d1d5775c6c748a6fce1d459211f5457ee45deb301ebd8b5b8180dab1a6"
+      },
+      {
+        "path": "qa/STRINGS_LATTICE_BINOMIAL_ACTIVITY_QA_20260821.json",
+        "bytes": 5261,
+        "sha256": "64dff93ba890f192cb43b5994e744c55a0fc2287a73f20fd5e261f7d2ccb74bc"
+      },
+      {
+        "path": "qa/STRINGS_PERMUTATIONS_MODULE_QA_20260821.json",
+        "bytes": 7244,
+        "sha256": "6453b2f8a5a11d1d65ebc887780d33ad28e2c95b5711b188dd20085834cb5ee2"
+      }
+    ]
+  },
+  "protected_topology_replay": {
+    "source_node_count": 12031,
+    "target_node_count": 12031,
+    "path_and_tag_sequence_equal_in_every_admitted_file": true
+  },
+  "delta_replay": {
+    "live_delta_count": 236,
+    "control_entry_count": 236,
+    "classification_counts": {
+      "reader-language-localization": 56,
+      "recorded-source-correction": 180
+    },
+    "live_and_control_keysets_equal": true,
+    "all_tags_and_hashes_match_live_trees": true
+  },
+  "correction_linkage": {
+    "all_referenced_ids_exist_in_adverse_corrections": true,
+    "all_referenced_corrections_have_status_corrected_in_target": true
+  },
+  "localization_linkage": {
+    "correction_event_ids_are_empty_for_all_localization_entries": true
+  },
+  "unexplained_items": [],
+  "mutation_and_execution": {
+    "authority_files_edited": false,
+    "target_translation_files_edited": false,
+    "shared_controls_admitted": true,
+    "git_used": false,
+    "network_used": false
+  },
+  "maintenance_context": {
+    "reason": "Refresh exact cursor byte/hash binding after publication-state updates that did not alter translation, protected mathematics, correction controls, boundaries, or module QA witnesses.",
+    "source_witness": "qa/PROTECTED_MATH_DELTAS_AUDIT_20260822.json",
+    "source_witness_sha256": "0022e59d711821aa4013e4cd04e873f87330292b1a1d1447cf0da004467ec88f",
+    "protected_math_recomputed_by_exporter_and_validator": true
+  }
+}

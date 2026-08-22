@@ -1,0 +1,374 @@
+<exercises xml:id="s_inclusion-exclusion_PI" component="runestone-PI">
+  <title>Pertanyaan Instruksi Sejawat</title>
+  <exercise label="inclusion-exclusion_PI_IE-sum-terms">
+    <statement>
+      <p>Misalkan <m>m=4</m>. Ada berapa suku dalam penjumlahan <md>\displaystyle
+        \sum_{S\subseteq [m]} (-1)^{|S|}N(S)</md>?</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            <m>2^{4-1} = 8 </m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>2^{4}-1 = 15 </m>
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>2^{4} = 16 </m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>(4-1)! = 6 </m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>4! = 24 </m>
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="inclusion-exclusion_PI_surjection">
+    <statement>
+      <p>Manakah di antara fungsi-fungsi berikut dari <m>[6]</m> ke <m>[4]</m> yang
+        merupakan fungsi surjektif?
+        <md>
+          \begin{array}{c|cccccc}
+          x \amp 1 \amp 2 \amp 3 \amp 4 \amp 5 \amp 6\\\hline
+          f(x) \amp 3 \amp 3 \amp 3 \amp 2 \amp 4 \amp 2\\
+          g(x) \amp 1 \amp 3 \amp 3 \amp 2 \amp 4 \amp 2\\
+          h(x) \amp 1 \amp 2 \amp 3 \amp 1 \amp 2 \amp 4
+          \end{array}
+        </md>
+      </p>
+
+        <!-- TODO Restore this after getting Runestone to do a better job rendering tables -->
+          <!-- <tabular>
+            <col right="minor"/>
+            <col right="minor"/>
+            <col right="minor"/>
+            <col right="minor"/>
+            <col right="minor"/>
+            <col right="minor"/>
+            <col/>
+            <row bottom="minor">
+              <cell><m>x</m></cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>5</cell>
+              <cell>6</cell>
+            </row>
+            <row>
+              <cell><m>f(x)</m></cell>
+              <cell>3</cell>
+              <cell>3</cell>
+              <cell>3</cell>
+              <cell>2</cell>
+              <cell>4</cell>
+              <cell>2</cell>
+            </row>
+            <row>
+              <cell><m>g(x)</m></cell>
+              <cell>1</cell>
+              <cell>3</cell>
+              <cell>3</cell>
+              <cell>2</cell>
+              <cell>4</cell>
+              <cell>2</cell>
+            </row>
+          <row>
+            <cell><m>h(x)</m></cell>
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>3</cell>
+            <cell>1</cell>
+            <cell>2</cell>
+            <cell>4</cell>
+          </row>
+        </tabular> -->
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>f</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>g</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>h</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak satu pun di atas</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="inclusion-exclusion_PI_functions-count">
+    <statement>
+      <p>Misalkan <m>X</m> adalah himpunan semua fungsi dari <m>[n]</m> ke <m>[m]</m>. Berapa banyak elemen dalam <m>X</m>?</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>n^m</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>n\cdot m</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>P(n,m)</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>m^n</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>P(m,n)</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="inclusion-exclusion_PI_function-property">
+    <statement>
+      <p>Definisikan <m>f\colon [8] \to [5]</m> seperti diperlihatkan di bawah. Sifat mana saja yang dipenuhi oleh <m>f</m>?
+      <md>
+          \begin{array}{c|cccccccc}
+          x \amp 1 \amp 2 \amp 3 \amp 4 \amp 5 \amp 6 \amp 7\amp 8\\\hline
+          f(x) \amp 5 \amp 2 \amp 3 \amp 3 \amp 2 \amp 5 \amp 2 \amp 3
+          \end{array}
+        </md>
+      </p>
+      <!-- TODO Restore this after getting Runestone to do a better job rendering tables -->
+      <!-- <tabular>
+        <col right="minor"> </col> <col right="minor"> </col> <col right="minor"> </col> <col right="minor"> </col> <col right="minor"> </col> <col right="minor"> </col>
+        <col right="minor"> </col> <col right="minor"> </col> <col> </col>
+        <row bottom="minor">
+          <cell><m>x</m></cell>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>4</cell>
+          <cell>5</cell>
+          <cell>6</cell>
+          <cell>7</cell>
+          <cell>8</cell>
+
+        </row>
+        <row>
+          <cell><m>f(x)</m></cell>
+          <cell>5</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>3</cell>
+          <cell>2</cell>
+          <cell>5</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+        </row>
+      </tabular> -->
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p><m>P_1</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>P_2</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>P_3</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>P_4</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>P_5</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak satu pun di atas</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="inclusion-exclusion_PI_perms-count">
+    <statement>
+      <p>Perhatikan himpunan <m>X</m> yang terdiri atas semua permutasi dari <m>[n]</m>. Berapa banyak elemen dalam <m>X</m>?</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>n</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>n^2</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\displaystyle \binom{n}{\left\lfloor \frac{n}{2}\right\rfloor}</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>n!</m></p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="inclusion-exclusion_PI_perm-prop">
+    <statement>
+      <p>
+        Suatu permutasi <m>\sigma</m> dari <m>[n]</m> memenuhi sifat <m>P_{i}</m> jika <m>\sigma(i)=i</m>.
+      </p>
+      <p>Definisikan <m>\sigma\colon [6]\to [6]</m> seperti diperlihatkan dalam tabel di bawah. Sifat mana saja yang dipenuhi oleh <m>\sigma</m>?</p>
+      <md>
+          \begin{array}{c|cccccc}
+          x \amp 1 \amp 2 \amp 3 \amp 4 \amp 5 \amp 6\\\hline
+          \sigma(x) \amp 2 \amp 5 \amp 3 \amp 1 \amp 4 \amp 6
+          \end{array}
+        </md>
+      <!-- TODO Restore this after getting Runestone to do a better job rendering tables -->
+      <!-- <tabular>
+        <col right="minor"> </col> <col right="minor"> </col> <col right="minor"> </col> <col right="minor"> </col>
+        <col right="minor"> </col> <col right="minor"> </col> <col> </col>
+        <row bottom="minor">
+          <cell><m>x</m></cell>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>4</cell>
+          <cell>5</cell>
+          <cell>6</cell>
+        </row>
+        <row>
+          <cell><m>\sigma(x)</m></cell>
+          <cell>2</cell>
+          <cell>5</cell>
+          <cell>3</cell>
+          <cell>1</cell>
+          <cell>4</cell>
+          <cell>6</cell>
+        </row>
+      </tabular> -->
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>P_1</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>P_2</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>P_3</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>P_4</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>P_5</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>P_6</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak satu pun di atas</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="inclusion-exclusion_PI_rel-prime">
+    <statement>
+      <p>Di antara bilangan bulat berikut, manakah yang relatif prima terhadap <m>10</m>?</p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p><m>3</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>5</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>6</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>9</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>15</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak satu pun di atas</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+
+</exercises>

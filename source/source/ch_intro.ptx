@@ -1,0 +1,18 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_intro">
+    <title>Pengantar Kombinatorika</title>
+
+
+    <introduction>
+        <p>
+            Seperti yang kami harap dapat Anda rasakan sejak awal, kami meyakini bahwa matematika kombinatorial merupakan salah satu bidang yang paling menarik dan memikat. Kombinatorika bersifat <em>sangat</em> konkret dan memiliki beragam penerapan, tetapi juga mempunyai sisi teoretis yang menarik secara intelektual. Tujuan kami adalah memperkenalkan kedua sisinya kepada Anda. Sebagai permulaan, melalui serangkaian contoh kami ingin membangun intuisi mengenai jenis-jenis masalah yang ditangani kombinatorika.
+        </p>
+    </introduction>
+    <xi:include href="s_intro_intro.ptx"/>
+    <xi:include href="s_intro_enum.ptx"/>
+    <xi:include href="s_intro_graph.ptx"/>
+    <xi:include href="s_intro_number.ptx"/>
+    <xi:include href="s_intro_geom.ptx"/>
+    <xi:include href="s_intro_opt.ptx"/>
+    <xi:include href="s_intro_sudoku.ptx"/>
+    <xi:include href="s_intro_discussion.ptx"/>
+</chapter>

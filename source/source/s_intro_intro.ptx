@@ -1,0 +1,18 @@
+<section xml:id="s_intro_intro">
+    <title>Pendahuluan</title>
+    <p>
+        Mata kuliah ini memiliki tiga tema utama:
+                  <dl>
+        <li><title>Struktur Diskret</title>
+        <p>Graf, digraf, jaringan, desain, poset, 
+        string, pola, distribusi, penutup, dan partisi.</p></li>
+        <li><title>Enumerasi</title> <p>Permutasi, kombinasi, inklusi/eksklusi, fungsi pembangkit, relasi rekurensi, dan pencacahan P&#243;lya.</p></li>
+        <li><title>Algoritma dan Optimisasi</title>
+        <p>Pengurutan, sirkuit Euler, siklus Hamilton, pengujian planaritas, pewarnaan graf, pohon merentang, lintasan terpendek, aliran jaringan, pencocokan bipartit, dan partisi rantai.</p></li>
+    
+                  </dl>
+                </p>
+
+    <p>Untuk menggambarkan sifat kombinatorika yang konkret dan mudah dipahami sekaligus memotivasi topik-topik yang akan kita pelajari, bab pendahuluan ini memberikan tinjauan awal atas masalah kombinatorial dengan memilih contoh dari enumerasi, teori graf, teori bilangan, dan optimisasi. Pembahasannya sangat informal<mdash/>tetapi hal ini akan menjelaskan mengapa kita perlu lebih cermat pada tahap-tahap berikutnya. Kami mengajukan banyak pertanyaan, tetapi pada tahap ini Anda hanya akan mampu menjawab beberapa di antaranya. Kelak, Anda akan mampu menjawab jauh lebih banyak <ellipsis/> tetapi, seperti telah dijanjikan, kemungkinan besar Anda tidak akan pernah mampu menjawab semuanya. Jika pernyataan kami ternyata salah, Anda pasti akan menjadi <em>sangat</em> terkenal. Anda juga akan memperoleh nilai A<m>++</m> dalam mata kuliah ini dan mungkin bahkan gelar Ph.D.
+    </p>
+</section>

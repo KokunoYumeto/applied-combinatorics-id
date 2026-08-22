@@ -1,0 +1,80 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_probmeth">
+    <title>Menerapkan Probabilitas pada Kombinatorika</title>
+
+
+    <section xml:id="s_probmeth_graph-ramsey">
+        <title>Sekilas Teori Ramsey</title>
+        <p>Bob suka menganggap dirinya liar dan gila, serta sama sekali tidak dapat diprediksi. Kebanyakan pria memang demikian. Namun, Alice mengatakan bahwa Bob tidak dapat mengubah sifat dasarnya yang luar biasa membosankan. Carlos berkomentar bahwa mungkin mereka tidak seharusnya terlalu keras kepada Bob, sebab dalam keadaan tertentu kita semua dapat dipaksa menjadi membosankan dan berulang-ulang.
+        </p>
+
+        <p>Ingatlah bahwa apabila <m>n</m> merupakan bilangan bulat positif, kita menetapkan <m>[n]=\{1,2,\dots,n\}</m>. Dalam bab ini, apabila <m>X</m> merupakan suatu himpunan dan <m>k</m> merupakan bilangan bulat tak negatif dengan <m>k\le |X|</m>, kita meminjam notasi sebaris untuk koefisien binomial dan menggunakan <m>C(X,k)</m><notation><usage><m>C(X,k)</m></usage><description>keluarga semua himpunan bagian <m>k</m>-elemen dari <m>X</m></description></notation> untuk menyatakan keluarga semua himpunan bagian <m>k</m>-elemen dari <m>X</m>. Jadi, <m>|C([n],k)|=C(n,k)</m> apabila <m>0\le k\le n</m>.
+        </p>
+
+        <p>Ingatlah bahwa <xref ref="prop_pigeon" text="title"/> menyatakan bahwa jika <m>n+1</m> merpati ditempatkan ke dalam <m>n</m> sangkar, harus ada suatu sangkar yang ditempati dua merpati atau lebih. Secara lebih formal, jika <m>n</m> dan <m>k</m> merupakan bilangan bulat positif, <m>t&gt;n(k-1)</m>, dan <m>f:[t]\longrightarrow[n]</m> merupakan sebarang fungsi, maka terdapat suatu himpunan bagian <m>k</m>-elemen <m>H\subseteq [t]</m> dan suatu elemen <m>j\in[n]</m> sedemikian sehingga <m>f(i)=j</m> untuk setiap <m>i\in H</m>.
+        </p>
+
+        <p>Sekarang kita mulai mempelajari perluasan yang elegan dari hasil dasar ini, yang terus memikat sekaligus menantang.
+        </p>
+
+        <p>Kembali ke pembahasan pada awal bagian ini, kita dapat mengatakan bahwa subgraf terinduksi <m>H</m> dari graf <m>G</m> bersifat <q>membosankan</q> jika subgraf itu merupakan klik atau himpunan bebas. Dalam kedua kasus tersebut, setiap pasangan simpul dalam <m>H</m> berperilaku dengan cara membosankan yang sama persis. Jadi, apakah kebosanan tidak dapat dihindari? Jawabannya ya<mdash/>setidaknya dalam arti relatif. Sebagai permulaan, mari kita tunjukkan bahwa setiap graf dengan enam simpul atau lebih mempunyai subgraf membosankan berukuran tiga.
+        </p>
+
+        <lemma xml:id="lem_r33">
+            <statement>
+                <p>Misalkan <m>G</m> merupakan sebarang graf dengan enam simpul atau lebih. Maka <m>G</m> memuat klik berukuran<nbsp/><m>3</m> atau himpunan bebas berukuran<nbsp/><m>3</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Misalkan <m>x</m> merupakan sebarang simpul dalam <m>G</m>. Bagi simpul-simpul lainnya menjadi dua himpunan <m>S_1</m> dan <m>S_2</m>, dengan <m>S_1</m> terdiri atas tetangga-tetangga <m>x</m> dan <m>S_2</m> terdiri atas simpul-simpul yang bukan tetangga. Karena <m>G</m> mempunyai sedikitnya enam simpul, kita mengetahui bahwa <m>|S_1|\ge 3</m> atau <m>|S_2|\ge 3</m>. Pertama, misalkan <m>|S_1|\ge 3</m> dan pilih simpul-simpul berbeda <m>y_1</m>, <m>y_2</m>, dan <m>y_3</m> dari <m>S_1</m>. Jika <m>y_iy_j</m> merupakan sisi dalam <m>G</m> untuk suatu pasangan berbeda <m>i, j\in\{1,2,3\}</m>, maka <m>\{x,y_i,y_j\}</m> merupakan klik berukuran <m>3</m> dalam <m>G</m>. Di sisi lain, jika tidak ada sisi di antara simpul-simpul dalam <m>\{y_1,y_2,y_3\}</m>, kita memperoleh himpunan bebas berukuran<nbsp/><m>3</m>.
+                </p>
+
+                <p>Argumen untuk kasus <m>|S_2|\ge3</m> bersifat dual.
+                </p>
+            </proof>
+        </lemma>
+
+        <p>Perhatikan bahwa batas enam dalam lemma sebelumnya bersifat tajam, sebab siklus pada lima simpul tidak memuat klik berukuran<nbsp/><m>3</m> maupun himpunan bebas berukuran<nbsp/><m>3</m>.
+        </p>
+
+        <p>Berikut adalah pernyataan yang memperumum hasil tersebut.
+        </p>
+
+        <theorem xml:id="thm_graphramsey">
+            <title>Teorema Ramsey untuk Graf</title>
+            <idx><h>teorema Ramsey</h></idx>
+            <statement>
+                <p>Jika <m>m</m> dan <m>n</m> merupakan bilangan bulat positif, terdapat bilangan bulat positif terkecil <m>R(m,n)</m> sedemikian sehingga apabila <m>G</m> merupakan graf dan <m>G</m> mempunyai sedikitnya <m>R(m,n)</m> simpul, maka <m>G</m> memuat klik berukuran <m>m</m> atau <m>G</m> memuat himpunan bebas berukuran <m>n</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Kita menunjukkan bahwa <m>R(m,n)</m> ada dan paling besar <m>\binom{m+n-2}{m-1}</m>. Pernyataan ini langsung diperoleh jika <m>m\le 2</m> atau <m>n\le2</m>, sehingga kita dapat mengasumsikan <m>m,n\ge3</m>. Selanjutnya, kita menggunakan induksi pada <m>t=m+n</m>, dengan kasus <m>t\le 5</m> sebagai kasus dasar.
+            </p>
+
+            <p>Sekarang misalkan <m>x</m> merupakan sebarang simpul dalam <m>G</m>. Terdapat sedikitnya <m>\binom{m+n-2}{m-1}-1</m> simpul lain, yang kita partisi sebagai <m>S_1\cup S_2</m>, dengan <m>S_1</m> terdiri atas simpul-simpul yang bertetangga dengan <m>x</m> dalam <m>G</m> dan <m>S_2</m> terdiri atas simpul-simpul yang tidak bertetangga dengan <m>x</m>.
+            </p>
+
+            <p>Ingatlah bahwa koefisien binomial memenuhi
+            <md>
+                <mrow>\binom{m+n-2}{m-1} \amp=\binom{m+n-3}{m-2}+\binom{m+n-3}{m-1}</mrow>
+                <mrow> \amp = \binom{m+n-3}{m-2}+\binom{m+n-3}{n-2}</mrow>
+            </md>.
+            Dengan demikian, <m>|S_1|\ge \binom{m+n-3}{m-2}</m> atau <m>|S_2|\ge\binom{m+n-3}{m-1}</m>. 
+        </p>
+        <p>Jika kemungkinan pertama berlaku dan <m>S_1</m> tidak mempunyai himpunan bebas berukuran <m>n</m>, maka <m>S_1</m> memuat klik berukuran <m>m-1</m>. Dengan menambahkan <m>x</m> ke himpunan tersebut, kita memperoleh klik berukuran <m>m</m> dalam <m>G</m>.
+            </p>
+
+            <p>Demikian pula, jika kemungkinan kedua berlaku dan <m>S_2</m> tidak memuat klik berukuran <m>m</m>, maka <m>S_2</m> memuat himpunan bebas berukuran <m>n-1</m>; dengan menambahkan <m>x</m> ke himpunan tersebut, kita memperoleh himpunan bebas berukuran <m>n</m> dalam <m>G</m>.
+            </p>
+            </proof>
+        </theorem>
+    </section>
+    <xi:include href="s_ramsey_small.ptx"/>
+    <xi:include href="s_ramsey_estimatesize.ptx"/>
+    <xi:include href="s_ramsey_probability.ptx"/>
+    <xi:include href="s_ramsey_theorem.ptx"/>
+    <xi:include href="s_ramsey_girth.ptx"/>
+    <xi:include href="s_ramsey_discussion.ptx"/>
+    <xi:include href="s_ramsey_exercises.ptx"/>
+</chapter>

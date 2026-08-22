@@ -1,0 +1,79 @@
+<section xml:id="s_basics_complexity">
+    <title>Pengantar Teori Kompleksitas</title>
+
+
+    <introduction>
+        <remark>
+            <p>Bob mengatakan bahwa ia mulai benar-benar menyukai matematika kombinatorik. Sifat konkret bidang ini terasa menarik. Namun, ia belum yakin bahwa dirinya memahami aspek algoritmiknya. Kadang-kadang ia dapat melihat bagaimana jawaban suatu soal bisa benar-benar dihitung<mdash/>asalkan ia memiliki akses ke komputer yang sangat bertenaga. Pada kesempatan lain, pendekatan komputasional tampak tidak terjangkau, bahkan jika komputer terbaik dan tercepat di dunia tersedia. Carlos mengatakan bahwa keadaannya bisa jauh lebih buruk. Ada soal-soal yang mudah dirumuskan, tetapi tak seorang pun tahu cara menanganinya sekalipun seluruh daya komputasi dunia digunakan secara bersama-sama. Belum tampak pula sesuatu yang akan mengubah keadaan itu. Bahkan, membangun komputer yang lebih cepat hanya menggeser batas mengenai apa yang dapat dihitung. Tetap akan ada soal-soal yang mudah dipahami tetapi belum terpecahkan.
+            </p>
+        </remark>
+    </introduction>
+
+
+    <subsection xml:id="s_basics_questions">
+        <title>Tiga Pertanyaan</title>
+        <p>Kita akan membahas tiga soal dengan titik awal yang sama. Anda diberi<fn>Rincian mengenai cara himpunan itu diberikan tidak penting bagi pembahasan ini. Sebagai contoh, datanya dapat diberikan sebagai berkas teks dengan satu bilangan pada setiap baris.</fn> sebuah himpunan <m>S</m> yang terdiri atas <m>10,000</m> bilangan bulat positif berbeda, masing-masing paling besar <m>100,000</m>, lalu diminta menjawab pertanyaan-pertanyaan berikut.
+                  <ol>
+            <li><p>Apakah <m>83,172</m> merupakan salah satu bilangan bulat dalam himpunan <m>S</m>?</p></li>
+            <li><p>Adakah tiga bilangan bulat dalam <m>S</m> yang jumlahnya <m>143,297</m>?</p></li>
+            <li><p>Dapatkah himpunan <m>S</m> dipartisi sebagai <m>S=A\cup B</m> dengan
+            <m>A\cap B=\emptyset</m>, sedemikian sehingga <m>\sum_{a\in A}a=\sum_{b\in B}b</m>?</p></li>
+        
+                  </ol>
+                </p>
+
+        <p>Soal pertama dari ketiga soal tersebut terdengar mudah, dan memang demikian. Anda cukup memeriksa bilangan-bilangan dalam himpunan itu satu per satu untuk mengetahui apakah salah satunya adalah <m>83,172</m>. Anda dapat berhenti begitu menemukan bilangan ini dan melaporkan bahwa jawabannya ya. Jika jawaban yang Anda berikan adalah tidak, Anda harus sudah membaca setiap bilangan dalam daftar. Dalam kedua keadaan itu, Anda berhenti dengan jawaban yang benar setelah melakukan paling banyak <m>10,000</m> pengujian, dan netbook yang paling sederhana sekalipun dapat melakukannya dalam sekejap. Bahkan jika daftar itu diperbesar menjadi <m>1,000,000</m> bilangan bulat yang semuanya paling besar satu miliar, Anda masih dapat menyelesaikannya dengan mudah. Secara lebih umum, jika Anda diberi sebuah himpunan <m>S</m> yang terdiri atas <m>n</m> bilangan dan sebuah bilangan bulat <m>x</m>, dengan pertanyaan <q>Apakah <m>x</m> merupakan anggota <m>S</m>?</q>, Anda dapat menjawab pertanyaan ini dalam <m>n</m> langkah. Setiap langkah merupakan operasi untuk menguji apakah sebuah bilangan dalam <m>S</m> tepat sama dengan <m>x</m>. Jadi, waktu eksekusi algoritma ini sebanding dengan <m>n</m>, dengan konstanta yang bergantung pada waktu yang diperlukan komputer untuk menjalankan operasi dasar berupa pemeriksaan apakah suatu bilangan bulat sama dengan nilai sasaran.
+        </p>
+
+        <p>Soal kedua sedikit lebih menantang. Kini tampaknya kita harus mempertimbangkan himpunan-himpunan bagian beranggota <m>3</m> dari sebuah himpunan berukuran <m>10,000</m>. Ada <m>C(10,000,3)</m> himpunan bagian semacam itu. Memeriksa apakah jumlah tiga bilangan sama dengan <m>143,297</m> memang sangat mudah, tetapi ada sangat banyak himpunan yang harus diperiksa. Perhatikan bahwa <m>C(10,000,3)=166,616,670,000</m>, dan tidak banyak komputer yang mampu menangani operasi sebanyak ini. Lebih jauh lagi, jika daftar itu diperbesar menjadi satu juta bilangan, terdapat lebih dari <m>10^{17}</m> tripel yang harus diperiksa, dan jumlah itu berada di luar jangkauan perangkat keras masa kini.
+        </p>
+
+        <p>Meskipun demikian, kita dapat membahas kasus umumnya. Kita diberi sebuah himpunan <m>S</m> yang terdiri atas <m>n</m> bilangan bulat dan sebuah bilangan <m>x</m>. Kemudian kita ditanya apakah ada tiga bilangan bulat dalam <m>S</m> yang jumlahnya <m>x</m>. Algoritma yang telah kita uraikan akan memiliki waktu eksekusi yang sebanding dengan <m>n^3</m>. Konstanta kesebandingannya bergantung pada waktu yang diperlukan untuk memeriksa apakah jumlah suatu tripel bilangan sama dengan <m>x</m>. Tentu saja, lamanya pengujian itu pada gilirannya bergantung pada seberapa besar nilai bilangan bulat <m>x</m> dan bilangan-bilangan bulat dalam <m>S</m>.
+        </p>
+
+        <p>Soal ketiga berbeda. Pertama-tama, soal ini tampak jauh lebih sulit. Ada <m>2^{n-1}</m> pasangan himpunan bagian yang saling melengkapi dari suatu himpunan berukuran<nbsp/><m>n</m>, dan salah satu pasangan tersebut terdiri atas himpunan kosong dan seluruh himpunan. Dengan demikian, masih tersisa <m>2^{n-1}-1</m> pasangan yang harus diperiksa. Setiap pemeriksaan itu sendiri tidak terlalu sulit. Sebuah netbook dapat dengan mudah menentukan apakah dua himpunan bagian mempunyai jumlah yang sama, bahkan ketika kedua himpunan tersebut membentuk partisi dari sebuah himpunan berukuran <m>10,000</m>. Namun, ada sekitar <m>10^{3000}</m> partisi yang harus diperiksa, dan tidak ada perangkat keras di planet ini yang mampu menangani tugas tersebut. Jika ukurannya dinaikkan menjadi <m>1,000,000</m>, gabungan daya komputasi seluruh mesin di bumi pun tidak akan mampu menyelesaikannya.
+        </p>
+
+        <p>Dalam situasi ini, kita memang memiliki sebuah algoritma, yaitu memeriksa semua partisi, tetapi algoritma tersebut sama sekali tidak praktis untuk himpunan beranggota <m>n</m> ketika <m>n</m> besar karena waktu eksekusinya sebanding dengan <m>2^n</m>.
+        </p>
+    </subsection>
+
+
+    <subsection>
+        <title>Sertifikat</title>
+        <idx><h>sertifikat</h></idx>
+        <p>Masing-masing dari ketiga soal yang telah kita ajukan berbentuk pertanyaan <q>ya/tidak</q>. Jawaban <q>ya</q> untuk soal mana pun dapat dibenarkan dengan memberikan sebuah sertifikat yang dapat diperiksa secara efisien. Sebagai contoh, jika Anda menjawab ya untuk pertanyaan pertama, Anda dapat memberikan informasi tambahan bahwa bilangan bulat <m>83,172</m> terdapat pada baris <m>584</m> dalam berkas masukan. Tentu saja, Anda juga dapat memberikan kode sumber program komputer tersebut dan meminta seorang pemeriksa menjalankan seluruh prosedurnya.
+        </p>
+
+        <p>Demikian pula, jika Anda menjawab ya untuk pertanyaan kedua, Anda dapat menyebutkan ketiga bilangan tersebut beserta letaknya dalam berkas masukan. Jika diperlukan, seorang pemeriksa yang tidak memihak kemudian dapat memastikan bahwa jumlah ketiga bilangan bulat itu benar-benar <m>143,297</m> dan bahwa bilangan-bilangan tersebut memang berada di tempat yang disebutkan dalam berkas masukan. Sebagai alternatif, Anda dapat kembali memberikan kode sumber, yang mengharuskan pemeriksa menguji semua tripel dan memastikan bahwa ada satu tripel yang memenuhi syarat.
+        </p>
+
+        <p>Serupa dengan itu, jawaban ya untuk pertanyaan ketiga memiliki sertifikat berukuran wajar. Anda hanya perlu menyebutkan unsur-unsur himpunan bagian <m>A</m>. Pemeriksa, yang dilengkapi komputer, dapat (a)<nbsp/>memastikan bahwa semua bilangan dalam <m>A</m> termasuk dalam <m>S</m>; (b)<nbsp/>menyusun daftar himpunan bagian <m>B</m> yang terdiri atas bilangan-bilangan bulat dalam <m>S</m> yang tidak termasuk dalam <m>A</m>; dan (c)<nbsp/>menghitung jumlah bilangan bulat dalam <m>A</m> serta jumlah bilangan bulat dalam <m>B</m>, lalu memastikan bahwa kedua jumlah tersebut sama. Akan tetapi, dalam kasus ini Anda tidak akan memberikan kode sumber algoritma karena tampaknya tidak ada strategi yang masuk akal untuk memutuskan soal tersebut ketika ukuran soalnya besar (setidaknya, pembahasan kita sejauh ini belum memberikan strategi semacam itu).
+        </p>
+
+        <p>Sekarang mari kita pertimbangkan keadaan ketika jawabannya <q>tidak</q>. Jika jawaban untuk pertanyaan pertama adalah tidak, sertifikatnya sekali lagi dapat berupa program komputer yang memungkinkan pemeriksa meninjau semua unsur <m>S</m> dan memastikan bahwa bilangan yang dimaksud tidak ada. Hal serupa berlaku untuk pertanyaan kedua, <ie/>, program itulah sertifikatnya.
+        </p>
+
+        <p>Namun, keadaan untuk pertanyaan ketiga sekali lagi sangat berbeda. Kita tidak dapat mengatakan kepada pemeriksa, <q>Kami telah memeriksa semua kemungkinan dan tidak ada satu pun yang berhasil.</q> Pernyataan itu mustahil benar. Kita juga tidak memiliki program komputer yang dapat dijalankan oleh kita ataupun oleh pemeriksa. Hal terbaik yang dapat kita katakan ialah bahwa kita telah mencoba mencari partisi yang sesuai, tetapi tidak berhasil menemukannya. Akibatnya, kita tidak mengetahui jawaban yang sebenarnya untuk pertanyaan tersebut.
+        </p>
+    </subsection>
+
+
+    <subsection>
+        <title>Operasi</title>
+        <p>Banyak algoritma yang kita kembangkan dalam buku ini, serta banyak program komputer yang dihasilkan dari algoritma-algoritma tersebut, melibatkan langkah-langkah dasar yang disebut <term>operasi</term><idx><h>operasi</h></idx>. Arti kata operasi sengaja dibiarkan sebagai gagasan yang tidak didefinisikan secara presisi. Sebuah operasi mungkin sekadar membandingkan dua bilangan bulat untuk mengetahui apakah keduanya sama; mungkin memperbarui nilai sebuah variabel <m>x</m> dengan menggantinya menjadi <m>x^2-3x+7</m>; atau mungkin memeriksa apakah jumlah dua himpunan sama. Dalam contoh ketiga, biasanya kita akan membatasi ukuran kedua himpunan bagian serta besarnya bilangan-bilangan bulat di dalamnya. Karena itu, kita ingin dapat mengatakan bahwa terdapat suatu konstanta <m>c</m> sedemikian sehingga sebuah operasi dapat dijalankan pada komputer dalam waktu paling lama <m>c</m>. Komputer yang berbeda menghasilkan nilai <m>c</m> yang berbeda, tetapi perbedaan ini dapat kita abaikan dengan aman.
+        </p>
+    </subsection>
+
+
+    <subsection>
+        <title>Ukuran Masukan</title>
+        <idx><h>ukuran masukan</h></idx>
+        <p>Soal dapat memiliki berbagai ukuran. Ketiga soal yang telah kita bahas dalam bab ini mempunyai ukuran masukan yang sama. Secara kasar, ukurannya adalah <m>10,000</m> blok, dengan setiap blok mampu memuat sebuah bilangan bulat yang besarnya paling tinggi <m>100,000</m>. Dalam buku ini, kita akan mengatakan bahwa ukuran masukan soal tersebut adalah <m>n=10,000</m>, dan dalam arti tertentu mengabaikan persoalan mengenai besarnya bilangan-bilangan bulat dalam himpunan itu. Pendekatan ini jelas memiliki keterbatasan. Kita dapat saja diberi sebuah himpunan <m>S</m> berukuran<nbsp/><m>1</m> dan sebuah calon unsur <m>x</m>, lalu ditanya apakah <m>x</m> termasuk dalam <m>S</m>. Sekarang, andaikan <m>x</m> merupakan untai bit sebesar cakram padat biasa, <ie/>, panjangnya sekitar <m>700</m> megabita. Membaca satu-satunya entri dalam <m>S</m> untuk mengetahui apakah entri tersebut tepat sama dengan <m>x</m> saja akan memerlukan waktu.
+        </p>
+
+        <p>Dengan gagasan serupa, pertimbangkan soal menentukan apakah sebuah berkas <m>x</m> berada di suatu tempat dalam struktur direktori di bawah <m>y</m> pada sistem berkas Unix. Jika Anda hanya menggunakan nama sebagai dasar pencarian, soal ini mungkin relatif mudah. Namun, bagaimana jika Anda ingin memastikan bahwa terdapat salinan persis dari <m>x</m>? Soal itu kini menjadi jauh lebih menantang.
+        </p>
+    </subsection>
+
+</section>

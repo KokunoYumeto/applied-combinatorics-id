@@ -1,0 +1,879 @@
+<exercises xml:id="s_graphs_exercises">
+  <exercise>
+    <statement>
+      <p>Pertanyaan-pertanyaan dalam latihan ini berkaitan dengan graf <m>\bfG</m> pada <xref ref="fig_graphs_graph_ex"/>.
+      </p>
+      <sidebyside widths="60% 35%">
+        <ol>
+          <li><p>Berapakah derajat simpul <m>8</m>?</p></li>
+          <li><p>Berapakah derajat simpul <m>10</m>?</p></li>
+          <li><p>Berapa banyak simpul berderajat <m>2</m> dalam <m>\bfG</m>? Tuliskan
+            semua simpul tersebut.</p></li>
+            <li><p>Temukan sebuah siklus dengan panjang <m>8</m> dalam <m>\bfG</m>.</p></li>
+            <li><p>Berapakah panjang lintasan terpendek dari <m>3</m> ke <m>4</m>?</p></li>
+            <li><p>Berapakah panjang lintasan terpendek dari <m>8</m> ke <m>7</m>?</p></li>
+            <li><p>Temukan lintasan dengan panjang <m>5</m> dari simpul <m>4</m> ke simpul <m>6</m>.</p></li>
+          </ol>
+          <figure xml:id="fig_graphs_graph_ex">
+            <caption>Sebuah graf</caption>
+            <image source="graph_ex"><description><p>Graf dengan sepuluh simpul berlabel 1 hingga 10; sisi-sisinya membentuk beberapa siklus dan lintasan yang saling berbagi simpul.</p>
+            </description></image>
+          </figure>
+        </sidebyside>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Gambarlah graf dengan <m>8</m> simpul yang semuanya berderajat ganjil dan tidak mengandung lintasan dengan panjang <m>3</m>, atau jelaskan mengapa graf semacam itu tidak ada.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Gambarlah graf dengan <m>6</m> simpul yang derajatnya berturut-turut <m>5</m>, <m>4</m>, <m>4</m>, <m>2</m>, <m>1</m>, dan <m>1</m>, atau jelaskan mengapa graf semacam itu tidak ada.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Untuk Olimpiade Musim Dingin berikutnya, panitia ingin menambah jumlah tim yang bertanding dalam cabang curling. Mereka ingin mengikutsertakan <m>14</m> tim yang dibagi menjadi dua grup, masing-masing berisi tujuh tim. Dalam rancangan saat ini, pada babak penyisihan setiap tim harus memainkan tujuh pertandingan melawan lawan yang berbeda: lima lawan berasal dari grup yang sama dan dua lawan dari grup lain. Panitia kesulitan menyusun jadwal tersebut dan meminta bantuan Anda. Dengan menggunakan model teori graf yang sesuai, buktikan bahwa rancangan itu tidak dapat diterapkan atau susunlah cara untuk menerapkannya.</p>
+      </statement>
+      <solution>
+        <p>
+          Kita mencoba membangun graf yang simpul-simpulnya mewakili tim, dengan sisi di antara dua tim jika dan hanya jika keduanya bertanding.
+          Untuk melihat mengapa usulan panitia mustahil, cukup perhatikan subgraf yang terdiri atas tim-tim dalam satu grup.
+          Subgraf ini memiliki tujuh simpul. Karena setiap tim memainkan lima pertandingan melawan tim dalam grup yang sama, setiap simpul berderajat lima.
+          Dengan demikian, subgraf itu harus memiliki jumlah ganjil, yaitu tujuh, simpul berderajat ganjil, yaitu lima; hal ini mustahil.
+          Secara ekuivalen, jumlah derajat semua simpul dalam subgraf tersebut adalah <m>7\cdot 5 = 35</m>, yang tidak genap sebagaimana diwajibkan oleh <xref ref="thm-graphs-first"/>.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Untuk latihan ini, perhatikan graf <m>\bfG</m> pada <xref ref="fig_graphs_subgraphs_ex"/>.
+          <ol>
+            <li><p>Misalkan <m>V_1=\{g,j,c,h,e,f\}</m> dan <m>E_1=\{ge,jg,ch,ef\}</m>. Apakah <m>(V_1,E_1)</m> merupakan subgraf dari <m>\bfG</m>?</p></li>
+            <li><p>Misalkan <m>V_2=\{g,j,c,h,e,f\}</m> dan <m>E_2=\{ge,jg,ch,ef,cj\}</m>. Apakah <m>(V_2,E_2)</m> merupakan subgraf dari <m>\bfG</m>?</p></li>
+            <li><p>Misalkan <m>V_3=\{a,d,c,h,b\}</m> dan <m>E_3=\{ch,ac,ad,bc\}</m>. Apakah <m>(V_3,E_3)</m> merupakan subgraf terinduksi dari <m>\bfG</m>?</p></li>
+            <li><p>Gambarlah subgraf dari <m>\bfG</m> yang diinduksi oleh <m>\{g,j,d,a,c,i\}</m>.</p></li>
+            <li><p>Gambarlah subgraf dari <m>\bfG</m> yang diinduksi oleh <m>\{c,h,f,i,j\}</m>.</p></li>
+            <li><p>Gambarlah subgraf dari <m>\bfG</m> dengan himpunan simpul <m>\{e,f,b,c,h,j\}</m> yang <em>bukan</em> subgraf terinduksi.</p></li>
+            <li><p>Gambarlah subgraf rentang dari <m>\bfG</m> yang memiliki tepat <m>10</m> sisi.</p></li>
+            
+          </ol>
+        </p>
+        <figure xml:id="fig_graphs_subgraphs_ex">
+          <caption>Graf <m>\bfG</m></caption>
+          <image width="50%" source="subgraphs_ex"><description><p>Graf berlabel <m>\bfG</m> yang digunakan untuk menentukan dan menggambar berbagai subgraf, subgraf terinduksi, serta subgraf rentang.</p>
+          </description></image>
+        </figure>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Buktikan bahwa setiap pohon dengan <m>n</m> simpul memiliki tepat <m>n-1</m> sisi.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p><xref ref="fig_graphs_isomorphic_ex"/> memuat empat graf dengan enam simpul. Tentukan pasangan graf mana saja, jika ada, yang isomorfik. Untuk pasangan yang isomorfik, berikan suatu isomorfisme di antara keduanya. Untuk pasangan yang tidak isomorfik, jelaskan alasannya.</p>
+        <figure xml:id="fig_graphs_isomorphic_ex">
+          <caption>Apakah graf-graf ini isomorfik?</caption>
+          <image width="55%">
+            <description><p>Empat graf dengan enam simpul, berlabel G satu hingga G empat; tata letaknya berbeda-beda sehingga struktur derajat dan ketetanggaannya perlu dibandingkan untuk menentukan isomorfisme.</p>
+            </description><latex-image>\begin{overpic}[scale=0.6]{external/isomorphic_ex}
+              \put(22,47){\(\bfG_1\)}
+              \put(74,47){\(\bfG_2\)}
+              \put(22,-5){\(\bfG_3\)}
+              \put(74,-5){\(\bfG_4\)}
+              \put(4,87){\(v_1\)} \put(22,87){\(v_2\)} \put(41,87){\(v_3\)}
+              \put(4,54){\(v_4\)} \put(22,54){\(v_5\)} \put(41,54){\(v_6\)}
+              \put(63,96){\(u_1\)} \put(84,96){\(u_2\)} \put(99,73){\(u_3\)}
+              \put(89,55){\(u_4\)} \put(57,55){\(u_5\)} \put(46.5,73){\(u_6\)}
+              \put(10,41){\(w_1\)} \put(31.5,41){\(w_2\)} \put(45.5,20){\(w_3\)}
+              \put(37,3){\(w_4\)} \put(3,3){\(w_5\)} \put(-7.5,21){\(w_6\)}
+              \put(56,38.3){\(x_1\)} \put(74,38.3){\(x_2\)} \put(92,38.3){\(x_3\)}
+              \put(56,5){\(x_4\)} \put(74,5){\(x_5\)} \put(92,5){\(x_6\)}
+              \end{overpic}</latex-image>
+            </image>
+          </figure>
+        </statement>
+        <solution>
+          <p>
+            Pertama, perhatikan bahwa <m>\mathbf{G}_{4}</m> merupakan satu-satunya di antara keempat graf yang memiliki simpul berderajat 1.
+            Karena itu, graf tersebut tidak isomorfik dengan ketiga graf lainnya.
+            Selanjutnya, dalam <m>\mathbf{G}_{2}</m> terdapat dua simpul berderajat <m>3</m>, yaitu <m>u_{3}</m> dan <m>u_{6}</m>.
+            Kedua simpul ini tidak bertetangga dalam <m>\mathbf{G}_{2}</m>.
+            Sebaliknya, <m>\mathbf{G}_{1}</m> dan <m>\mathbf{G}_{3}</m> juga masing-masing memiliki dua simpul berderajat <m>3</m>, tetapi kedua simpul tersebut saling bertetangga.
+            Oleh sebab itu, <m>\mathbf{G}_{2}</m> tidak isomorfik dengan <m>\mathbf{G}_{1}</m> maupun <m>\mathbf{G}_{3}</m>.
+          </p>
+          
+          <p>
+            Graf <m>\mathbf{G}_{1}</m> dan <m>\mathbf{G}_{3}</m> isomorfik.
+            Terdapat dua isomorfisme di antara keduanya; salah satunya diberikan berikut ini:
+            <md>
+              <mrow>f(v_{1})\amp= w_{2}</mrow>
+              <mrow>f(v_{2})\amp= w_{3}</mrow>
+              <mrow>f(v_{3})\amp= w_{4}</mrow>
+              <mrow>f(v_{4})\amp= w_{1}</mrow>
+              <mrow>f(v_{5})\amp= w_{6}</mrow>
+              <mrow>f(v_{6})\amp= w_{5}</mrow>
+            </md>
+          </p>
+        </solution>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Temukan sirkuit Euler dalam graf <m>\bfG</m> pada <xref ref="fig_graphs_euler_exercise"/>, atau jelaskan mengapa sirkuit semacam itu tidak ada.
+          </p>
+          <figure xml:id="fig_graphs_euler_exercise">
+            <caption>Graf <m>\bfG</m></caption>
+            <image width="75%">
+              <description><p>Graf <m>\bfG</m> dengan dua belas simpul bernomor yang digunakan untuk mencari sirkuit Euler.</p>
+              </description><latex-image>\begin{overpic}[width=4in]{external/euler_exercise}
+                \put(6,19.5){\(1\)}
+                \put(64.3,5){\(2\)}
+                \put(43.8,15){\(3\)}
+                \put(60,23.5){\(4\)}
+                \put(26,2){\(5\)}
+                \put(21,32){\(6\)}
+                \put(85,9){7}
+                \put(32.3,26.3){\(8\)}
+                \put(53,-1){\(9\)}
+                \put(42,33){\(10\)}
+                \put(71,26){\(11\)}
+                \put(83,21){\(12\)}
+                \end{overpic}</latex-image>
+              </image>
+            </figure>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>Perhatikan graf <m>\bfG</m> pada <xref ref="fig_graphs_euler_hamilton_ex"/>. Tentukan apakah graf tersebut Euler. Jika ya, temukan sebuah sirkuit Euler; jika tidak, jelaskan alasannya. Tentukan pula apakah graf tersebut Hamilton. Jika ya, temukan sebuah siklus Hamilton; jika tidak, jelaskan alasannya.</p>
+            <figure xml:id="fig_graphs_euler_hamilton_ex">
+              <caption>Graf <m>\bfG</m></caption>
+              <image width="65%" source="euler_hamilton_ex"><description><p>Graf <m>\bfG</m> dengan empat belas simpul berlabel a hingga n, digunakan untuk membandingkan sifat Euler dan Hamilton.</p>
+              </description></image>
+            </figure>
+          </statement>
+          <solution>
+            <p>
+              Pertama, kita membahas sifat Hamilton.
+              Karena <m>g</m> dan <m>n</m> sama-sama berderajat <m>2</m>, setiap siklus Hamilton, jika ada, harus menggunakan semua sisi yang bersisian dengan <m>g</m> dan <m>n</m>.
+              Namun, kedua simpul tersebut bertetangga dengan <m>m</m>.
+              Akibatnya, dua sisi pada <m>m</m> sudah terpakai dalam siklus Hamilton hipotetis, sehingga simpul-simpul lain tidak mungkin turut dimasukkan. Jadi, tidak terdapat siklus Hamilton.
+            </p>
+            
+            <p>
+              Selanjutnya, kita menerapkan algoritma untuk mencari sirkuit Euler.
+              Algoritma tersebut menemukan sirkuit Euler tanpa memerlukan beberapa tahap, yaitu <m>(a,b,l,a,e,f,c,i,d,h,m,c,j,d,l,j,m,g,n,m,i,f,k,a)</m>.
+            </p>
+          </solution>
+        </exercise>
+        <exercise>
+          <statement>
+              <p>Jelaskan mengapa graf <m>\bfG</m> pada <xref ref="fig_graphs_noneuler_exercise"/> tidak memiliki sirkuit Euler, lalu tunjukkan bahwa penambahan satu sisi dapat menjadikannya graf Euler.</p>
+            <figure xml:id="fig_graphs_noneuler_exercise">
+              <caption>Graf <m>\bfG</m></caption>
+              <image width="75%">
+                <description><p>Graf <m>\bfG</m> dengan dua belas simpul bernomor; dua simpul berderajat ganjil menghalangi sirkuit Euler sebelum satu sisi tambahan dipasang.</p>
+                </description><latex-image>\begin{overpic}[width=4in]{external/noneuler_exercise}
+                  \put(6,19.5){\(1\)}
+                  \put(67,3){\(2\)}
+                  \put(48,11){\(3\)}
+                  \put(64,33){\(4\)}
+                  \put(3,4){\(5\)}
+                  \put(21,26){\(6\)}
+                  \put(85,9){7}
+                  \put(24.7,12.8){\(8\)}
+                  \put(45,-1){\(9\)}
+                  \put(32,35){\(10\)}
+                  \put(72,24){\(11\)}
+                  \put(61,10){\(12\)}
+                  \end{overpic}</latex-image>
+                </image>
+              </figure>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p><term>Jejak Euler</term><idx><h>Euler</h><h>jejak</h></idx> didefinisikan dengan cara yang sama seperti sirkuit Euler (lihat <xref ref="s_graphs_eulerham"/>), kecuali bahwa syarat <m>x_0=x_t</m> dihapus. Buktikan bahwa suatu graf memiliki jejak Euler jika dan hanya jika graf itu terhubung dan memiliki paling banyak dua simpul berderajat ganjil.</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Alice dan Bob sedang membahas graf dengan <m>17</m> simpul dan <m>129</m> sisi. Bob menyatakan bahwa graf itu Hamilton, sedangkan Alice menyatakan bahwa Bob keliru. Tanpa mengetahui informasi lain tentang graf tersebut, apakah salah satu dari mereka pasti benar? Jika ya, siapa dan mengapa? Jika tidak, jelaskan alasannya.</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Tentukan bilangan kromatik graf <m>\bfG</m> pada <xref ref="fig_graphs_bipartite_ex"/> dan berikan pewarnaan yang menggunakan <m>\chi(\bfG)</m> warna.</p>
+              <figure xml:id="fig_graphs_bipartite_ex">
+                <caption>Graf <m>\bfG</m> yang akan diwarnai</caption>
+                <image width="50%" source="bipartite_ex"><description><p>Graf <m>\bfG</m> berlabel yang harus diwarnai secara tepat dengan sesedikit mungkin warna.</p>
+                </description></image>
+              </figure>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Tentukan bilangan kromatik graf <m>\bfG</m> pada <xref ref="fig_graphs_coloring_ex"/> dan berikan pewarnaan yang menggunakan <m>\chi(\bfG)</m> warna.</p>
+              <figure xml:id="fig_graphs_coloring_ex">
+                <caption>Graf <m>\bfG</m> yang akan diwarnai</caption>
+                <image width="60%" source="coloring_ex"><description><p>Graf <m>\bfG</m> berlabel yang memuat klik empat simpul dan harus diwarnai secara tepat.</p>
+                </description></image>
+              </figure>
+            </statement>
+            <solution>
+              <p>
+                Perhatikan bahwa simpul-simpul <m>\{f,b,g,l\}</m> membentuk klik berukuran 4.
+                Jadi, bilangan kromatik <m>\mathbf{G}</m> sekurang-kurangnya 4.
+                Terdapat banyak pewarnaan tepat dengan empat warna, sehingga <m>\chi(\mathbf{G}) = 4</m>.
+                Solusi yang lengkap dan benar harus menampilkan salah satu pewarnaan tepat tersebut.
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Sebuah produsen farmasi sedang membangun gudang baru untuk menyimpan persediaan <m>10</m> bahan kimia yang digunakan dalam produksi. Sebagian bahan kimia tidak boleh disimpan dalam ruangan yang sama karena dapat menimbulkan reaksi yang tidak diinginkan. Matriks berikut berisi <m>1</m> pada posisi <m>(i,j)</m> jika dan hanya jika bahan kimia <m>i</m> dan bahan kimia <m>j</m> tidak boleh disimpan dalam ruangan yang sama. Susunlah model teori graf yang sesuai dan tentukan jumlah minimum ruangan yang harus dibuat di dalam gudang agar seluruh <m>10</m> bahan kimia dapat disimpan dengan aman.
+                <md>
+                  \begin{bmatrix}0 \amp  1 \amp  0 \amp  1 \amp  1 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0\\
+                  1 \amp  0 \amp  0 \amp  1 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1\\
+                  0 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  1 \amp  1 \amp  0\\
+                  1 \amp  1 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0\\
+                  1 \amp  1 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0\\
+                  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  1\\
+                  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  1 \amp  0 \amp  0\\
+                  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0\\
+                  0 \amp  0 \amp  1 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0 \amp  0\\
+                  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  1 \amp  0 \amp  0 \amp  0 \amp  0
+                  \end{bmatrix}
+                </md>
+              </p>
+            </statement>
+            <solution>
+              <p>
+                Kita memodelkan keadaan ini dengan graf yang simpul-simpulnya mewakili bahan kimia.
+                Dua simpul dihubungkan oleh sisi jika dan hanya jika kedua bahan kimia yang bersesuaian tidak boleh disimpan dalam ruangan yang sama, yaitu jika dan hanya jika entri matriksnya bernilai 1.
+                Pewarnaan tepat graf tersebut bersesuaian dengan rencana penyimpanan, sebab semua bahan kimia dengan warna yang sama dapat ditempatkan dengan aman dalam satu ruangan.
+                Jadi, bilangan kromatik graf merupakan jumlah minimum ruangan yang diperlukan.
+                Setelah menggambar graf tersebut dan melabeli simpul dengan nomor baris atau kolom yang bersesuaian, kita melihat bahwa <m>\{1,2,4,5\}</m> merupakan klik berukuran 4.
+                Karena itu, bilangan kromatiknya sekurang-kurangnya 4.
+                Terdapat banyak pewarnaan tepat dengan 4 warna, sehingga bilangan kromatiknya 4 dan jumlah minimum ruangan yang diperlukan juga 4.
+                Solusi yang lengkap dan benar harus menampilkan salah satu pewarnaan tepat tersebut.
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Sebuah sekolah sedang menyusun jadwal pelajaran untuk tahun ajaran berikutnya. Sekolah itu akan menawarkan masing-masing satu kelas Kalkulus, Fisika, Bahasa Inggris, Statistika, Ekonomi, Kimia, dan Bahasa Jerman. Berikut adalah daftar mata pelajaran yang harus diambil oleh masing-masing dari enam siswa agar dapat lulus. Tentukan jumlah minimum jam pelajaran yang dapat digunakan untuk menjadwalkan semua mata pelajaran jika setiap siswa hanya dapat mengikuti paling banyak satu mata pelajaran pada setiap jam. Jelaskan mengapa jumlah jam yang lebih sedikit tidak mungkin digunakan.</p>
+              <tabular>
+                <col halign="center"/><col/>
+                <row bottom="minor"><cell>Siswa</cell><cell>Mata pelajaran</cell></row>
+                <row><cell>1</cell><cell>Kimia, Fisika, Ekonomi</cell></row>
+                <row><cell>2</cell><cell>Bahasa Inggris, Bahasa Jerman, Statistika</cell></row>
+                <row><cell>3</cell><cell>Statistika, Kalkulus, Bahasa Jerman</cell></row>
+                <row><cell>4</cell><cell>Kimia, Fisika</cell></row>
+                <row><cell>5</cell><cell>Bahasa Inggris, Kimia</cell></row>
+                <row><cell>6</cell><cell>Kimia, Ekonomi</cell></row>
+              </tabular>
+            </statement>
+            <solution>
+              <p>
+                Kita menggunakan model teori graf yang simpul-simpulnya mewakili mata pelajaran.
+                Dua simpul atau mata pelajaran dihubungkan oleh sisi jika dan hanya jika ada siswa yang harus mengambil keduanya. Dengan demikian, pewarnaan tepat memastikan bahwa tidak ada dua mata pelajaran yang harus diambil oleh siswa yang sama dijadwalkan pada waktu bersamaan.
+                Setelah membangun graf, kita melihat beberapa klik berukuran <m>3</m>, misalnya Kimia, Fisika, dan Ekonomi. Jadi, diperlukan sekurang-kurangnya tiga warna atau jam pelajaran.
+                Sebagai contoh pewarnaan tepat dengan tiga warna, Fisika, Bahasa Inggris, dan Kalkulus dapat diberi warna 1; Kimia dan Bahasa Jerman diberi warna 2; sedangkan Ekonomi dan Statistika diberi warna 3.
+                Hal ini menunjukkan bahwa jumlah minimum jam pelajaran yang diperlukan adalah 3.
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Semua pohon dengan lebih dari satu simpul memiliki bilangan kromatik yang sama. Berapakah nilainya, dan mengapa?</p>
+            </statement>
+            <solution>
+              <p>
+                Menurut definisi, pohon adalah graf terhubung tanpa siklus.
+                Jika <m>\mathbf{T}</m> merupakan pohon, graf tersebut tidak mungkin mengandung siklus ganjil karena sama sekali tidak memiliki siklus.
+                Jadi, <m>\mathbf{T}</m> merupakan graf bipartit.
+                Karena pohon diasumsikan memiliki sekurang-kurangnya dua simpul, pohon itu memiliki setidaknya satu sisi.
+                Oleh karena itu, satu warna saja tidak cukup.
+                Dengan demikian, <m>\chi(\mathbf{T}) = 2</m>.
+              </p>
+            </solution>
+          </exercise>
+          <exercise xml:id="ex_color">
+            <statement>
+              <p> Temukan pewarnaan tepat dengan <m>(t+1)</m> warna untuk graf <m>\bfG_{t+1}</m> dalam bukti Mycielski bagi <xref ref="prop_triangle-free"/>. Hasil ini menunjukkan bahwa <m>\chi(\bfG_{t+1})\leq t+1</m>.</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Berapa banyak simpul yang dimiliki graf <m>\bfG_4</m> dari bukti Kelly dan Kelly bagi
+                <xref ref="prop_triangle-free"/>
+                ?</p>
+              </statement>
+            </exercise>
+            <exercise>
+              <statement>
+                <p>Bangun dan gambarlah graf <m>\bfG_5</m> dari bukti Mycielski bagi <xref ref="prop_triangle-free"/>.</p>
+              </statement>
+            </exercise>
+            <exercise>
+              <statement>
+                <p>Temukan rumus rekursif untuk banyaknya simpul <m>n_t</m> dalam graf <m>\bfG_t</m> dari bukti Kelly dan Kelly bagi <xref ref="prop_triangle-free"/>.</p>
+              </statement>
+            </exercise>
+            <exercise>
+              <statement>
+                <p>Misalkan <m>b_t</m> menyatakan banyaknya simpul dalam graf <m>\bfG_t</m> dari bukti Mycielski bagi <xref ref="prop_triangle-free"/>. Temukan rumus rekursif untuk <m>b_t</m>.</p>
+              </statement>
+            </exercise>
+            <exercise>
+              <statement>
+                <p><term>Girth</term><idx><h>girth</h></idx> suatu graf <m>\bfG</m> adalah banyaknya simpul dalam siklus terpendek dari <m>\bfG</m>. Tentukan girth graf <m>\bfG_t</m> dalam bukti Kelly dan Kelly bagi <xref ref="prop_triangle-free"/>, lalu buktikan bahwa jawaban Anda benar. Sebagai tantangan, cobalah mengubah konstruksi <m>\bfG_t</m> untuk memperbesar girth. Jika berhasil, seberapa besar Anda dapat memperbesarnya?</p>
+              </statement>
+            </exercise>
+            <exercise xml:id="ex_graphs_first-fit-color">
+              <statement>
+                <p> Gunakan algoritma First Fit untuk mewarnai graf pada <xref ref="fig_k44minus"/> dengan dua urutan himpunan simpul berbeda yang ditampilkan di sana.</p>
+              </statement>
+            </exercise>
+            <exercise>
+              <statement>
+                  <p>Gambarlah graf interval yang bersesuaian dengan interval-interval pada <xref ref="fig_graphs_intervals-ex"/>.</p>
+                <figure xml:id="fig_graphs_intervals-ex">
+                  <caption>Sekumpulan interval</caption>
+                  <image width="80%" source="firstfit-intgraph">
+                    <description>
+                      <p>
+                        Sekumpulan 14 interval yang disusun dalam empat baris sedemikian sehingga interval-interval pada setiap baris tidak saling tumpang tindih.
+                      </p>
+                    </description></image>
+                  </figure>
+                </statement>
+                <solution>
+                  <image width="50%">
+                    <description>
+                      <p>
+                        Graf dengan 14 simpul. Tetangga setiap simpul diberikan dalam tabel.
+                      </p>
+                      <tabular>
+                        <row>
+                          <cell>Simpul</cell>
+                          <cell>Tetangga</cell>
+                        </row>
+                        <row>
+                          <cell><m>c</m></cell>
+                          <cell><m>h</m>, <m>l</m>, <m>e</m>, <m>p</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>d</m></cell>
+                          <cell><m>f</m>, <m>h</m>, <m>l</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>e</m></cell>
+                          <cell><m>h</m>, <m>l</m>, <m>c</m>, <m>i</m>, <m>j</m>, <m>p</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>f</m></cell>
+                          <cell><m>k</m>, <m>d</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>g</m></cell>
+                          <cell><m>m</m>, <m>o,n</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>h</m></cell>
+                          <cell><m>d</m>, <m>l</m>, <m>c</m>, <m>e</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>i</m></cell>
+                          <cell><m>e</m>, <m>j</m>, <m>p</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>j</m></cell>
+                          <cell><m>e</m>, <m>i</m>, <m>p</m>, <m>m</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>k</m></cell>
+                          <cell><m>f</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>l</m></cell>
+                          <cell><m>d</m>, <m>h</m>, <m>c</m>, <m>e</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>m</m></cell>
+                          <cell><m>j</m>, <m>p</m>, <m>o</m>, <m>n</m>, <m>g</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>n</m></cell>
+                          <cell><m>m</m>, <m>o,g</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>o</m></cell>
+                          <cell><m>m</m>, <m>n</m>, <m>g</m></cell>
+                        </row>
+                        <row>
+                          <cell><m>p</m></cell>
+                          <cell><m>c</m>, <m>e</m>, <m>i</m>, <m>j</m>, <m>m</m></cell>
+                        </row>
+                        
+                      </tabular>
+                    </description>
+                    <prefigure xmlns="https://prefigure.org" label="graphs-ex-interval-graph-soln">
+                      <diagram dimensions="(300,300)" margins="5">
+                        <definition>graph={1:[2],2:[3],3:[4,5],4:[5,6,7],5:[6,7],6:[7,10],
+                          7:[8,9,10],8:[9,10],9:[10,11],10:[11],11:[14,13,12],12:[13,14]}</definition>
+                          <definition>labels={1:'k',2:'f',3:'d',4:'h',5:'l',6:'c',
+                            7:'e',8:'i',9:'j',10:'p',11:'m',12:'o',13:'n',14:'g'}
+                          </definition>
+                          <coordinates bbox="(-4,-4,4,4)">
+                            <network graph="graph" labels="yes" label-dictionary="labels" layout="spring" seed="39" node-fill="#ccc">
+                            </network>
+                          </coordinates>
+                        </diagram>
+                      </prefigure>
+                    </image>
+                  </solution>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Gunakan algoritma pewarnaan First Fit untuk menentukan bilangan kromatik graf interval yang representasi intervalnya ditampilkan pada <xref ref="fig_graphs_intervals-ex"/>, serta berikan pewarnaan tepat dengan sesedikit mungkin warna.</p>
+                  </statement>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>
+                      <ol>
+                        <li><p>Dari <xref ref="ex_graphs_first-fit-color"/>, Anda mengetahui bahwa urutan simpul yang buruk dapat membuat algoritma pewarnaan First Fit menghasilkan pewarnaan yang jauh dari optimal. Namun, algoritma ini dapat digunakan untuk membuktikan batas bilangan kromatik. Tunjukkan bahwa jika setiap simpul <m>\bfG</m> berderajat paling besar <m>D</m>, maka <m>\chi(\bfG)\leq D+1</m>.</p></li>
+                        <li><p>Berikan contoh graf bipartit dengan <m>D=1000</m> untuk menunjukkan bahwa batas ini tidak selalu ketat.</p></li>
+                      </ol>
+                    </p>
+                  </statement>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Apakah graf pada <xref ref="fig_graphs_coloring_ex"/> planar? Jika ya, berikan penggambaran tanpa persilangan sisi. Jika tidak, jelaskan alasannya.</p>
+                  </statement>
+                  <solution>
+                    <p>
+                      Graf tersebut planar. Jawaban dapat bervariasi.
+                    </p>
+                  </solution>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Apakah graf pada <xref ref="fig_graphs_planar_ex"/> planar? Jika ya, berikan penggambaran tanpa persilangan sisi. Jika tidak, jelaskan alasannya.</p>
+                    <figure xml:id="fig_graphs_planar_ex">
+                      <caption>Apakah graf ini planar?</caption>
+                      <image width="40%" source="planar_ex">
+                        <description>
+                          <p>Graf dengan <m>12</m> simpul berlabel a hingga l yang memuat subdivisi graf bipartit lengkap.</p>
+                        </description>
+                      </image>
+                    </figure>
+                  </statement>
+                  <solution>
+                    <p>
+                      Graf ini tidak planar.
+                      Graf tersebut mengandung subdivisi <m>\mathbf{K}_{3,3}</m>.
+                      Simpul-simpul pada satu bagian <m>\mathbf{K}_{3,3}</m> adalah <m>\{d,a,g\}</m>, sedangkan bagian lainnya adalah <m>\{e,l,i\}</m>.
+                      Keenam simpul tersebut membentuk <m>\mathbf{C}_{6}</m> dalam graf yang diberikan, sehingga kita hanya memerlukan lintasan atau sisi dari <m>d</m> ke <m>l</m>, dari <m>a</m> ke <m>i</m>, dan dari <m>g</m> ke <m>e</m>.
+                      Untuk itu, kita dapat menggunakan <m>(d,j,c,l)</m>, <m>(a,f,i)</m>, dan <m>(g,k,h,e)</m>.
+                      (Perhatikan bahwa karena tidak terdapat lima simpul berderajat sekurang-kurangnya <m>4</m>, tidak mungkin terdapat subdivisi <m>\mathbf{K}_{5}</m>.)
+                    </p>
+                  </solution>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Temukan penggambaran planar graf <m>\bfK_5-e</m>, yaitu graf yang dibentuk dari graf lengkap dengan <m>5</m> simpul dengan menghapus sembarang satu sisi.</p>
+                  </statement>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Tampilkan penggambaran planar dari graf planar Euler dengan <m>10</m> simpul dan <m>21</m> sisi.</p>
+                  </statement>
+                  <solution>
+                    <image>
+                      <description>
+                        <p>
+                          Graf dengan <m>10</m> simpul dan <m>21</m> sisi. Simpul-simpulnya berlabel dari <m>0</m> hingga <m>9</m>. Ketetanggaannya diberikan dalam tabel berikut.
+                        </p>
+                        <tabular>
+                        <row>
+                          <cell>Simpul</cell>
+                          <cell>Tetangga</cell>
+                        </row>
+                        <row>
+                          <cell>0</cell>
+                          <cell>1,2,4,6,8,9</cell>
+                        </row>
+                        <row>
+                          <cell>1</cell>
+                          <cell>0,2,3,9</cell>
+                        </row>
+                        <row>
+                          <cell>2</cell>
+                          <cell>0,1,3,4</cell>
+                        </row>
+                        <row>
+                          <cell>3</cell>
+                          <cell>1,2,4,5</cell>
+                        </row>
+                        <row>
+                          <cell>4</cell>
+                          <cell>0,2,3,5</cell>
+                        </row>
+                        <row>
+                          <cell>5</cell>
+                          <cell>3,4,6,7</cell>
+                        </row>
+                        <row>
+                          <cell>6</cell>
+                          <cell>0,5,7,8</cell>
+                        </row>
+                        <row>
+                          <cell>7</cell>
+                          <cell>5,6,8,9</cell>
+                        </row>
+                        <row>
+                          <cell>8</cell>
+                          <cell>0,6,7,9</cell>
+                        </row>
+                        <row>
+                          <cell>9</cell>
+                          <cell>0,1,7,8</cell>
+                        </row>
+                      </tabular>
+                      </description>
+                      <prefigure xmlns="https://prefigure.org" label="planar-eulerian-n-10-m-21">
+                        <diagram dimensions="(300,300)" margins="15">
+                          <coordinates bbox="(-1,-1,1,1)">
+                            <network scale="0.9" labels="yes" node-fill="#ddd" layout="planar" node-stroke="black">
+                              <node at="0"  edges="[1,2,9]"/>
+                              <node at="1"  edges="[2,3,9]"/>
+                              <node at="2"  edges="[3,4]"/>
+                              <node at="3"  edges="[4,5]"/>
+                              <node at="4"  edges="[5,0]"/>
+                              <node at="5"  edges="[6,7]"/>
+                              <node at="6"  edges="[7,8,0]"/>
+                              <node at="7"  edges="[8,9]"/>
+                              <node at="8"  edges="[9,0]"/>
+                              <node at="9" />
+                            </network>
+                          </coordinates>
+                        </diagram>
+                      </prefigure>
+                    </image>
+                </solution>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Tunjukkan bahwa setiap graf planar memiliki sebuah simpul yang bersisian dengan paling banyak lima sisi.</p>
+                  </statement>
+                </exercise>
+                <exercise xml:id="ex_graphs_degseq">
+                  <statement>
+                    <p> Misalkan <m>\GVE</m> merupakan graf dengan <m>V=\{v_1,v_2,\dots,v_n\}</m>. <em>Barisan derajat</em> graf tersebut adalah daftar derajat simpul-simpulnya yang disusun dalam urutan tak naik. Jadi, barisan derajat <m>\mathbf{G}</m> adalah <m>(\deg_\mathbf{G}(v_1),\deg_\mathbf{G}(v_2),\dots,\deg_\mathbf{G}(v_n))</m>, dengan simpul-simpul disusun sedemikian sehingga <m>\deg_\mathbf{G}(v_1) \geq \deg_\mathbf{G}(v_2)\geq \cdots\geq \deg_\mathbf{G}(v_n)</m>. Berikut diberikan lima barisan bilangan bulat beserta <m>n</m>, yaitu banyaknya bilangan dalam barisan. Tentukan
+                      <ul>
+                        <li><em>satu</em> barisan yang <alert>tidak mungkin menjadi barisan derajat graf mana pun</alert>;</li>
+                        <li><em>dua</em> barisan yang mungkin menjadi barisan derajat graf <alert>planar</alert>;</li>
+                        <li><em>satu</em> barisan yang mungkin menjadi barisan derajat sebuah <alert>pohon</alert>;</li>
+                        <li><em>satu</em> barisan yang merupakan barisan derajat graf <alert>Euler</alert>; dan</li>
+                        <li><em>satu</em> barisan yang merupakan barisan derajat graf yang pasti <alert>Hamilton</alert>.</li>
+                      </ul>
+                      Jelaskan jawaban Anda. (Perhatikan bahwa satu barisan akan memperoleh dua kategori di atas.)
+                      <ol marker="a.">
+                        <li><p><m>n=10</m>: <m>(4,4,2,2,1,1,1,1,1,1)</m></p></li>
+                        <li><p><m>n=9</m>: <m>(8,8,8,6,4,4,4,4,4)</m></p></li>
+                        <li><p><m>n=7</m>: <m>(5,4,4,3,2,1,0)</m></p></li>
+                        <li><p><m>n=10</m>: <m>(7,7,6,6,6,6,5,5,5,5)</m></p></li>
+                        <li><p><m>n=6</m>: <m>(5,4,3,2,2,2)</m></p></li>
+                        
+                      </ol>
+                    </p>
+                  </statement>
+                  <solution>
+                    <p>
+                      <ol marker="a.">
+                        <li>Dapat menjadi pohon. Salah satu realisasinya diperoleh dengan menghubungkan kedua simpul berderajat empat, menempatkan masing-masing simpul berderajat dua sebagai cabang pada salah satu simpul tersebut, lalu memasang keenam daun untuk memenuhi derajat yang tersisa. Graf itu memiliki 10 simpul dan 9 sisi karena jumlah derajatnya 18.
+                          Karena realisasi tersebut berupa pohon, graf itu juga planar dan memenuhi <m>9\leq 3\cdot 10-6 = 24</m>.</li>
+                          <li>Graf ini pasti Euler.
+                            Semua derajatnya genap, dan adanya simpul berderajat 8 dalam graf dengan <m>9</m> simpul berarti simpul tersebut bertetangga dengan semua simpul lain, sehingga graf terhubung.
+                            Graf ini tidak planar karena memiliki 25 sisi, sedangkan <m>3\cdot 9 -6 = 21</m> adalah jumlah maksimum sisi pada graf planar dengan <m>9</m> simpul.</li>
+                            <li>Tidak ada graf dengan barisan derajat ini karena harus memiliki tiga simpul berderajat ganjil. Banyaknya simpul berderajat ganjil tidak mungkin ganjil menurut Teorema Pertama Teori Graf.</li>
+                            <li>Menurut Teorema Dirac, graf ini pasti Hamilton karena memiliki 10 simpul dan setiap simpul berderajat sekurang-kurangnya <m>10/2 = 5</m>.
+                              Graf ini tidak planar karena memiliki <m>29</m> sisi, sedangkan <m>3\cdot 10-6=24</m> adalah jumlah maksimum sisi pada graf planar dengan <m>10</m> simpul.</li>
+                              <li>Dapat menjadi graf planar. Ambil satu simpul universal, lalu pada lima simpul lainnya gunakan empat sisi yang membentuk pohon dengan barisan derajat sisa 3, 2, 1, 1, 1; realisasi ini dapat digambar planar. Graf tersebut memiliki 9 sisi dan memenuhi batas <m>3\cdot 6-6 = 12</m> untuk graf planar dengan <m>6</m> simpul.</li>
+                            </ol>
+                          </p>
+                        </solution>
+                      </exercise>
+                      <exercise xml:id="ex_graphs_degseq2">
+                        <statement>
+                          <p> Berikut diberikan tiga barisan dengan panjang <m>10</m>. Salah satunya tidak mungkin menjadi barisan derajat (lihat <xref ref="ex_graphs_degseq"/>) graf mana pun. Tentukan barisan tersebut dan jelaskan alasannya. Untuk masing-masing dari dua barisan lainnya, jelaskan <em>mengapa</em>, jika informasinya cukup, graf <em>terhubung</em> dengan barisan derajat itu
+                            <ul>
+                              <li>pasti Hamilton/tidak mungkin Hamilton;</li>
+                              <li>pasti Euler/tidak mungkin Euler;</li>
+                              <li>pasti pohon/tidak mungkin pohon; dan</li>
+                              <li>pasti planar/tidak mungkin planar.</li>
+                            </ul>
+                            (Jika Anda tidak memiliki cukup informasi untuk menentukan suatu sifat tanpa melihat graf tertentu dengan barisan derajat tersebut, tulislah <q>informasi tidak cukup</q> untuk sifat itu.)
+                            <ol>
+                              <li><p><m>(6,6,4,4,4,4,2,2,2,2)</m></p></li>
+                              <li><p><m>(7,7,7,7,6,6,6,2,1,1)</m></p></li>
+                              <li><p><m>(8,6,4,4,4,3,2,2,1,1)</m></p></li>
+                              
+                            </ol>
+                          </p>
+                        </statement>
+                      </exercise>
+                      <exercise>
+                        <statement>
+                          <p>Untuk kedua barisan derajat pada <xref ref="ex_graphs_degseq2"/> yang bersesuaian dengan graf, terdapat beberapa sifat yang tidak dapat ditentukan hanya dari barisan derajat. Untuk setiap keadaan tersebut, cobalah menggambar satu graf yang memiliki sifat itu dan satu graf yang tidak memilikinya.</p>
+                        </statement>
+                      </exercise>
+                      <exercise>
+                        <statement>
+                          <p>Gambarlah seluruh <m>16</m> pohon berlabel dengan <m>4</m> simpul.</p>
+                        </statement>
+                      </exercise>
+                      <exercise>
+                        <statement>
+                          <p>Tentukan <m>\prufer(\bfT)</m> untuk pohon <m>\bfT</m> pada <xref ref="fig_graphs_tree-10verts-ex1"/>.</p>
+                          <figure xml:id="fig_graphs_tree-10verts-ex1">
+                            <caption>Pohon dengan <m>10</m> simpul</caption>
+                            <image width="75%">
+                              <description><p>Pohon berlabel dengan <m>10</m> simpul yang digunakan untuk menentukan kode Prüfer.</p>
+                              </description><latex-image>\begin{overpic}{external/tree-10verts-ex1}
+                                \put(35,11.2){\(1\)}
+                                \put(46,2){\(2\)}
+                                \put(22,25){\(3\)}
+                                \put(22,9){\(4\)}
+                                \put(68,2.5){\(5\)}
+                                \put(90,11){\(6\)}
+                                \put(5,16){\(7\)}
+                                \put(77,21){\(8\)}
+                                \put(62,14.5){\(9\)}
+                                \put(0.5,2){\(10\)}
+                                \end{overpic}</latex-image>
+                              </image>
+                              
+                            </figure>
+                          </statement>
+                          <solution>
+                            <p>
+                              Dengan menerapkan algoritma, diperoleh <m>(1,4,6,9,4,9,1,4)</m>.
+                            </p>
+                          </solution>
+                        </exercise>
+                        <exercise>
+                          <statement>
+                          <p>Tentukan <m>\prufer(\bfT)</m> untuk pohon <m>\bfT</m> pada <xref ref="fig_graphs_tree-10verts-ex2"/>.</p>
+                            <figure xml:id="fig_graphs_tree-10verts-ex2">
+                            <caption>Pohon dengan <m>8</m> simpul</caption>
+                              <image width="65%">
+                              <description><p>Pohon berlabel dengan <m>8</m> simpul yang digunakan untuk menentukan kode Prüfer.</p>
+                                </description><latex-image>\begin{overpic}{external/tree-8verts-ex2}
+                                  \put(50,32){\(1\)}
+                                  \put(44,2){\(2\)}
+                                  \put(26,22){\(3\)}
+                                  \put(31,48){\(4\)}
+                                  \put(62,56){\(5\)}
+                                  \put(94,32){\(6\)}
+                                  \put(5,16){\(7\)}
+                                  \put(77,21){\(8\)}
+                                  \end{overpic}</latex-image>
+                                </image>
+                                
+                              </figure>
+                            </statement>
+                          </exercise>
+                          <exercise>
+                            <statement>
+                            <p>Tentukan <m>\prufer(\bfT)</m> untuk pohon <m>\bfT</m> pada <xref ref="fig_graphs_tree-14verts-ex3"/>.</p>
+                              <figure xml:id="fig_graphs_tree-14verts-ex3">
+                              <caption>Pohon dengan <m>14</m> simpul</caption>
+                                <image width="65%">
+                                <description><p>Pohon berlabel dengan <m>14</m> simpul yang digunakan untuk menentukan kode Prüfer.</p>
+                                  </description><latex-image>\begin{overpic}{external/tree-14verts-ex3}
+                                    \put(50,32){\(1\)}
+                                    \put(44,2){\(2\)}
+                                    \put(2,34){\(3\)}
+                                    \put(31,48){\(4\)}
+                                    \put(62,56){\(5\)}
+                                    \put(77,21){\(6\)}
+                                    \put(17,51){\(7\)}
+                                    \put(94,32){\(8\)}
+                                    \put(34,20){\(9\)}
+                                    \put(5,16){\(10\)}
+                                    \put(74,2){\(11\)}
+                                    \put(44,9){\(12\)}
+                                    \put(87,14){\(13\)}
+                                    \put(64,14){\(14\)}
+                                    \end{overpic}</latex-image>
+                                  </image>
+                                </figure>
+                              </statement>
+                              <solution>
+                                <p>
+                                  Dengan menerapkan algoritma, diperoleh kode Prüfer pohon ini, yaitu <m>(9,3,9,5,9,4,5,14,1,6,5,1)</m>.
+                                </p>
+                              </solution>
+                            </exercise>
+                            <exercise>
+                              <statement>
+                                <p>Bangunlah pohon berlabel <m>\bfT</m> dengan kode Prüfer <m>96113473</m>.</p>
+                              </statement>
+                              <solution>
+                                <p>
+                                  Diberikan kode Prüfer <m>96113473</m>.
+                                  Kode ini memiliki panjang 8, sehingga pohonnya mempunyai <m>10=8+2</m> simpul.
+                                  Kita menyusun tabel berikut untuk menentukan sisi-sisinya:
+                                </p>
+                                <tabular>
+                                  <col right="minor"/>
+                                  <col right="minor"/>
+                                  <col/>
+                                  <row bottom="minor" header="yes">
+                                    <cell>Kode Prüfer</cell>
+                                    <cell>Label yang Tersisa</cell>
+                                    <cell>Sisi yang Ditambahkan</cell>
+                                  </row>
+                                  <row>
+                                    <cell>96113473</cell>
+                                    <cell>\(\{1,2,3,4,5,6,7,8,9,10\}\)</cell>
+                                    <cell>2<ndash/>9</cell>
+                                  </row>
+                                  <row>
+                                    <cell>6113473</cell>
+                                    <cell>\(\{1,3,4,5,6,7,8,9,10\}\)</cell>
+                                    <cell>5<ndash/>6</cell>
+                                  </row>
+                                  <row>
+                                    <cell>113473</cell>
+                                    <cell>\(\{1,3,4,6,7,8,9,10\}\)</cell>
+                                    <cell>6<ndash/>1</cell>
+                                  </row>
+                                  <row>
+                                    <cell>13473</cell>
+                                    <cell>\(\{1,3,4,7,8,9,10\}\)</cell>
+                                    <cell>8<ndash/>1</cell>
+                                  </row>
+                                  <row>
+                                    <cell>3473</cell>
+                                    <cell>\(\{1,3,4,7,9,10\}\)</cell>
+                                    <cell>1<ndash/>3</cell>
+                                  </row>
+                                  <row>
+                                    <cell>473</cell>
+                                    <cell>\(\{3,4,7,9,10\}\)</cell>
+                                    <cell>9<ndash/>4</cell>
+                                  </row>
+                                  <row>
+                                    <cell>73</cell>
+                                    <cell>\(\{3,4,7,10\}\)</cell>
+                                    <cell>4<ndash/>7</cell>
+                                  </row>
+                                  <row>
+                                    <cell>3</cell>
+                                    <cell>\(\{3,7,10\}\)</cell>
+                                    <cell>7<ndash/>3</cell>
+                                  </row>
+                                  <row>
+                                    <cell>string kosong</cell>
+                                    <cell>\(\{3,10\}\)</cell>
+                                    <cell>10<ndash/>3</cell>
+                                  </row>
+                                </tabular>
+
+                              </solution>
+                            </exercise>
+                            <exercise>
+                              <statement>
+                                <p>Bangunlah pohon berlabel <m>\bfT</m> dengan kode Prüfer <m>23134</m>.</p>
+                              </statement>
+                            </exercise>
+                            <exercise>
+                              <statement>
+                                <p>Bangunlah pohon berlabel <m>\bfT</m> dengan kode Prüfer berikut; tanda koma digunakan untuk memisahkan simbol dalam string karena terdapat label yang lebih besar dari <m>9</m>: <m>10,1,7,4,3,4,10,2,2,8</m>.</p>
+                              </statement>
+                              <solution>
+                                <tabular>
+                                  <col right="minor"></col>
+                                  <col right="minor"></col>
+                                  <col></col>
+                                  <row bottom="minor" header="yes">
+                                    <cell>Kode Prüfer</cell>
+                                    <cell>Label yang Tersisa</cell>
+                                    <cell>Sisi yang Ditambahkan</cell>
+                                  </row>
+                                  <row>
+                                    <cell>(10,1,7,4,3,4,10,2,2,8)</cell>
+                                    <cell>\(\{1,2,3,4,5,6,7,8,9,10,11,12\}\)</cell>
+                                    <cell>5<ndash/>10</cell>
+                                  </row>
+                                  <row>
+                                    <cell>(1,7,4,3,4,10,2,2,8)</cell>
+                                    <cell>\(\{1,2,3,4,6,7,8,9,10,11,12\}\)</cell>
+                                    <cell>6<ndash/>1</cell>
+                                  </row>
+                                  <row>
+                                    <cell>(7,4,3,4,10,2,2,8)</cell>
+                                    <cell>\(\{1,2,3,4,7,8,9,10,11,12\}\)</cell>
+                                    <cell>1<ndash/>7</cell>
+                                  </row>
+                                  <row>
+                                    <cell>(4,3,4,10,2,2,8)</cell>
+                                    <cell>\(\{2,3,4,7,8,9,10,11,12\}\)</cell>
+                                    <cell>7<ndash/>4</cell>
+                                  </row>
+                                  <row>
+                                    <cell>(3,4,10,2,2,8)</cell>
+                                    <cell>\(\{2,3,4,8,9,10,11,12\}\)</cell>
+                                    <cell>9<ndash/>3</cell>
+                                  </row>
+                                  <row>
+                                    <cell>(4,10,2,2,8)</cell>
+                                    <cell>\(\{2,3,4,8,10,11,12\}\)</cell>
+                                    <cell>3<ndash/>4</cell>
+                                  </row>
+                                  <row>
+                                    <cell>(10,2,2,8)</cell>
+                                    <cell>\(\{2,4,8,10,11,12\}\)</cell>
+                                    <cell>4<ndash/>10</cell>
+                                  </row>
+                                  <row>
+                                    <cell>(2,2,8)</cell>
+                                    <cell>\(\{2,8,10,11,12\}\)</cell>
+                                    <cell>10<ndash/>2</cell>
+                                  </row>
+                                  <row>
+                                    <cell>(2,8)</cell>
+                                    <cell>\(\{2,8,11,12\}\)</cell>
+                                    <cell>11<ndash/>2</cell>
+                                  </row>
+                                  <row>
+                                    <cell>(8)</cell>
+                                    <cell>\(\{2,8,12\}\)</cell>
+                                    <cell>2<ndash/>8</cell>
+                                  </row>
+                                  <row>
+                                    <cell>string kosong</cell>
+                                    <cell>\(\{8,12\}\)</cell>
+                                    <cell>8<ndash/>12</cell>
+                                  </row>
+                                </tabular>
+                              </solution>
+                            </exercise>
+                            <exercise>
+                              <statement>
+                                <p>(Soal tantangan) Jika <m>\GVE</m> adalah graf, misalkan <m>\Delta(\bfG)</m> menyatakan derajat maksimum dalam <m>\bfG</m>. Buktikan <em>Teorema Brooks</em>: Jika <m>\bfG</m> terhubung dan <m>\Delta(\bfG)=k</m>, maka <m>\chi(\bfG)\le k+1</m>. Selanjutnya, kesamaan berlaku jika dan hanya jika (a)<nbsp/><m>k=2</m> dan <m>\bfG</m> merupakan siklus ganjil, atau (b)<nbsp/><m>k\neq2</m> dan <m>\bfG=\bfK_{k+1}</m>.</p>
+                              </statement>
+                              <hint><p>Petunjuk: Jelas bahwa <m>\chi(\bfG)\le k+1</m>; bahkan, hasil ini sudah diberikan sebagai latihan. Andaikan <m>\chi(\bfG)=k+1</m>, tetapi kesimpulan (a) maupun (b) tidak berlaku. Ambil pohon rentang dari <m>\bfG</m> dan urutan simpul yang sesuai, dengan dua daun pohon ditempatkan paling awal. Kemudian tunjukkan bahwa pewarnaan First Fit pada graf hanya menggunakan <m>k</m> warna.</p>
+                              </hint>
+                            </exercise>
+                          </exercises>

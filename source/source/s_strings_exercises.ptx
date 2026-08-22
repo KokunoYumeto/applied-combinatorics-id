@@ -1,0 +1,666 @@
+<exercises xml:id="s_strings_exercises">
+  <exercise>
+    <statement>
+      <p>Alfabet Hawaii terdiri atas <m>12</m> huruf. Berapa banyak string enam karakter yang dapat dibuat menggunakan alfabet Hawaii?</p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>Berapa banyak bilangan bulat positif <m>2n</m> digit yang dapat dibentuk jika digit pada posisi ganjil (dengan digit paling kanan dihitung sebagai posisi <m>1</m>) harus ganjil dan digit pada posisi genap harus genap serta positif?</p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>Matt sedang merancang sistem autentikasi situs web. Ia tahu bahwa kata sandi paling aman jika memuat huruf, angka, dan simbol. Namun, ia belum sepenuhnya memahami bahwa keamanan tambahan ini hilang jika ia menentukan posisi kemunculan setiap jenis karakter. Ia memutuskan bahwa kata sandi yang valid untuk sistemnya diawali tiga huruf (huruf besar maupun kecil diperbolehkan), diikuti dua digit, lalu satu dari <m>10</m> simbol, dua huruf besar, satu digit, dan akhirnya satu dari <m>10</m> simbol. Berapa banyak kata sandi berbeda yang tersedia dalam sistem situs webnya? Bagaimana jumlah ini dibandingkan dengan banyaknya semua string panjang <m>10</m> yang dibuat dari alfabet yang terdiri atas semua huruf besar dan kecil bahasa Inggris, digit desimal, serta <m>10</m> simbol?</p>
+    </statement>
+    <answer>
+      <p>
+        <m>52^{3}\cdot 10^{2}\cdot 10\cdot 26^{2}\cdot 10\cdot 10 = 9,505,100,800,000</m>; <m>72^{10}= 3,743,906,242,624,487,424</m>
+      </p>
+    </answer>
+    <solution>
+      <p>
+        Terdapat 52 pilihan untuk masing-masing dari tiga posisi pertama karena huruf besar maupun kecil diperbolehkan.
+        Terdapat 10 pilihan untuk masing-masing dari dua posisi berikutnya karena keduanya harus berupa digit.
+        Terdapat 10 pilihan untuk posisi berikutnya, yang harus berupa simbol.
+        Masing-masing dari dua huruf besar memiliki 26 pilihan.
+        Dua posisi terakhir masing-masing memiliki 10 pilihan, pertama sebagai digit lalu sebagai simbol.
+        Jadi, situs webnya memiliki <m>52^{3}\cdot 10^{2}\cdot 10\cdot 26^{2}\cdot 10\cdot 10 = 9,505,100,800,000</m> kemungkinan kata sandi.
+        Sebaliknya, jika ia memperbolehkan sembarang dari 72 karakter pada masing-masing dari 10 posisi, ia akan memiliki <m>72^{10}= 3,743,906,242,624,487,424</m> kata sandi, yakni pilihan yang lebih banyak hingga beberapa orde besaran!
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>Berapa banyak string terner panjang <m>2n</m> yang angka nolnya hanya muncul pada posisi bernomor ganjil?</p>
+    </statement>
+    <answer>
+      <p>
+        <m>3^n\cdot 2^n</m>
+      </p>
+    </answer>
+    <solution>
+      <p>
+        Untuk posisi bernomor ganjil, yang jumlahnya <m>n</m>, kita memiliki 3 pilihan. Untuk posisi bernomor genap, yang juga berjumlah <m>n</m>, kita hanya memiliki 2 pilihan. Jadi, banyaknya string terner semacam ini adalah <m>3^{n}\cdot 2^{n}</m>. 
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>Misalkan kita membuat pelat nomor berbentuk <m>l_1l_2l_3-d_1d_2d_3</m>, dengan <m>l_1,l_2,l_3</m> merupakan huruf besar dalam alfabet bahasa Inggris dan <m>d_1,d_2,d_3</m> merupakan digit desimal (<ie/>, anggota himpunan <m>\{0,1,2,3,4,5,6,7,8,9\}</m>), dengan syarat sedikitnya satu digit tidak nol dan sedikitnya satu huruf adalah <m>K</m>. Berapa banyak pelat nomor yang dapat kita buat?</p>
+    </statement>
+    <answer>
+      <p>
+        <m>(26^{3}-25^{3})\cdot 999</m>
+      </p>
+    </answer>
+    <solution>
+      <p>
+        Ada beberapa cara untuk menyelesaikan soal ini.
+        Anda dapat menguraikan <q>sedikitnya satu K</q> sebagai <q>tepat satu K, tepat dua K, atau tepat tiga K</q>, dan menguraikan <q>sedikitnya satu digit tidak nol</q> sebagai <q>tepat dua digit bernilai 0, tepat satu digit bernilai 0, atau tidak ada digit bernilai 0</q>.
+        Untuk huruf K, kita memperoleh <m>C(3,1)25^{2} + C(3,2) 25^{1} + C(3,3)</m> karena kita perlu memilih posisi yang diisi K lalu mengisi posisi lainnya dengan salah satu dari 25 huruf yang lain.
+        Untuk digit, kita memperoleh <m>C(3,1)9^{1} + C(3,2) 9^{2} + C(3,3)9^{3}</m>, lalu mengalikan kedua hasil tersebut untuk memperoleh jumlah keseluruhan pelat nomor:
+        <md>
+          \left(\binom{3}{1}25^{2} + \binom{3}{2}25^{1} + \binom{3}{3}\right)\left( \binom{3}{1}9^{1} + \binom{3}{2}9^{2} + \binom{3}{3}9^{3}\right)
+        </md>.
+      </p>
+      
+      <p>
+        Sebagai cara lain, Anda dapat menyadari bahwa satu-satunya string huruf yang tidak diperbolehkan adalah string tanpa K. Karena itu, jumlah string tanpa K dapat dikurangkan dari jumlah seluruh string sehingga diperoleh <m>26^{3}-25^{3}</m>.
+        Demikian pula untuk digit, kita cukup mengurangkan satu-satunya kasus 000 sehingga terdapat <m>10^{3}-1 = 999</m> string digit.
+        Jadi, kita memperoleh <m>(26^{3}-25^{3})\cdot 999</m>.
+      </p>
+      
+      <p>
+        Meskipun kedua ekspresi ini mungkin tidak tampak sama, Anda dapat memeriksa dengan kalkulator bahwa nilainya memang sama!
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>Kelas tiga Ibu<nbsp/>Steffen terdiri atas <m>30</m> siswa. Para siswa dibagi menjadi tiga kelompok (bernomor <m>1</m>, <m>2</m>, dan <m>3</m>), masing-masing beranggotakan <m>10</m> siswa.
+        <ol>
+          <li><p>Para siswa dalam kelompok <m>1</m> memperoleh tambahan waktu istirahat selama <m>10</m> menit karena memenangi perlombaan kelas. Sebelum keluar untuk menikmati waktu istirahat tambahan tersebut, mereka berbaris satu-satu. Dalam berapa cara mereka dapat berbaris?</p></li>
+          <li><p>Ketika seluruh <m>30</m> siswa kembali dari waktu istirahat bersama-sama, mereka
+            kembali berbaris satu-satu. Namun, kali ini para siswa
+            diatur sedemikian rupa sehingga siswa pertama berasal dari kelompok <m>1</m>, siswa
+            kedua dari kelompok <m>2</m>, siswa ketiga dari kelompok <m>3</m>, dan selanjutnya
+            kelompok mereka terus berselang-seling menurut
+            urutan tersebut. Dalam berapa cara mereka dapat berbaris untuk kembali dari waktu istirahat?</p></li>
+            
+          </ol>
+        </p>
+      </statement>
+      <answer>
+        <p>
+          <ol>
+            <li>
+              <p>
+                <m>10!</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(10!)^{3}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </answer>
+      <solution>
+        <p>
+          <ol>
+            <li>
+              <p>
+                Terdapat <m>P(10,10)=10!</m> cara bagi 10 siswa dalam Kelompok 1 untuk berbaris.
+              </p>
+            </li>
+            <li>
+              <p>
+                Kita dapat memandangnya sebagai pengisian 30 tempat kosong, dengan tempat pertama, keempat, ketujuh, dan seterusnya
+                harus diisi siswa dari kelompok 1; tempat kedua, kelima, kedelapan, dan seterusnya
+                harus diisi siswa dari kelompok 2; serta tempat ketiga, keenam, kesembilan, dan seterusnya
+                harus diisi siswa dari kelompok 3.
+                Karena itu, masing-masing dari tempat pertama, kedua, dan ketiga memiliki 10 pilihan; masing-masing dari tempat keempat, kelima, dan keenam memiliki 9 pilihan; dan seterusnya.
+                Pola ini berlanjut hingga tempat ke-28, ke-29, dan ke-30 masing-masing hanya memiliki satu pilihan karena hanya tersisa satu siswa dalam setiap kelompok.
+                Oleh karena itu, terdapat <m>(10!)^{3}</m> cara bagi para siswa untuk berbaris.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Berapa banyak string berbentuk <m>l_1l_2d_1d_2d_3l_3l_4d_4l_5l_6</m>
+          yang memenuhi ketentuan berikut?
+          <ul>
+            <li>untuk <m>1\leq i\leq 6</m>, <m>l_i</m> merupakan huruf besar dalam
+              alfabet bahasa Inggris;</li>
+              <li>untuk <m>1\leq i\leq 4</m>, <m>d_i</m> merupakan digit desimal;</li>
+              <li><m>l_2</m> bukan huruf vokal (<ie/>, <m>l_2\nin\{\text{A,E,I,O,U} \}</m>); dan</li>
+              <li>digit <m>d_1</m>, <m>d_2</m>, dan <m>d_3</m> semuanya berbeda (<ie/>,
+                <m>d_1\neq d_2\neq d_3\neq d_1</m>).</li>
+              </ul>
+            </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>Dalam latihan ini, kita mempertimbangkan string yang dibuat dari huruf besar dalam alfabet bahasa Inggris dan digit desimal. Berapa banyak string panjang <m>10</m> yang dapat dibuat dalam setiap skenario berikut?
+              <ol>
+                <li><p>Karakter pertama dan terakhir string merupakan huruf.</p></li>
+                <li><p>Karakter pertama merupakan huruf vokal, karakter kedua merupakan
+                  huruf konsonan, dan karakter terakhir merupakan digit.</p></li>
+                  <li><p>Huruf vokal (tidak harus berbeda) muncul pada posisi ketiga,
+                    keenam, dan kedelapan, serta tidak muncul pada posisi lain.</p></li>
+                    <li><p>Huruf vokal (tidak harus berbeda) muncul tepat pada dua
+                      posisi.</p></li>
+                      <li><p>Tepat empat karakter dalam string merupakan digit dan tidak ada
+                        digit yang muncul lebih dari sekali.</p></li>
+                        
+                      </ol>
+                    </p>
+                  </statement>
+                  <solution>
+                    <p>
+                      <ol>
+                        <li>
+                          <p>
+                            Kita memiliki 26 pilihan untuk masing-masing posisi pertama dan terakhir, serta 36 pilihan untuk masing-masing dari delapan posisi di antaranya, sehingga terdapat <m>26^{2}\cdot 36^{8}</m> string.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Terdapat lima huruf vokal (pilihan untuk karakter pertama), 21 huruf konsonan (pilihan untuk karakter kedua), dan 10 digit (pilihan untuk posisi terakhir).
+                            Terdapat 36 pilihan untuk masing-masing dari tujuh posisi yang tersisa, sehingga kita memperoleh <m>5\cdot 21\cdot 10\cdot 36^{7}</m> string.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Kita memiliki lima pilihan untuk masing-masing posisi ketiga, keenam, dan kedelapan.
+                            Karena huruf vokal tidak muncul pada posisi lain, kita memiliki <m>21+10 = 31</m> pilihan untuk masing-masing dari tujuh posisi yang tersisa.
+                            Jadi, kita memperoleh <m>5^{3}\cdot 31^{7}</m> string.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Pertama, kita memilih dua posisi untuk huruf vokal dalam <m>C(10,2)</m> cara.
+                            Karena kedua huruf vokal itu tidak harus berbeda, kita memiliki lima pilihan untuk masing-masing dari kedua posisi tersebut.
+                            Kini terdapat <m>21+10=31</m> pilihan untuk masing-masing posisi yang tersisa karena kita tidak dapat menggunakan huruf vokal.
+                            Jadi, kita memperoleh <m>C(10,2)\cdot 5^{2}\cdot 31^{8}</m> string.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Pertama, kita memilih empat posisi untuk digit dalam <m>C(10,4)</m> cara.
+                            Karena tidak ada digit yang boleh muncul lebih dari sekali, kita memiliki <m>P(10,4)=10\cdot 9\cdot 8\cdot 7</m> cara untuk mengisi posisi digit tersebut.
+                            Untuk masing-masing dari enam posisi yang tersisa, kita memiliki 26 pilihan.
+                            Jadi, kita memperoleh <m>C(10,4) P(10,4) 26^{6}</m> string.
+                          </p>
+                        </li>
+                      </ol>
+                    </p>
+                  </solution>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Sebuah basis data menggunakan string <m>20</m> karakter sebagai pengenal rekaman. Karakter yang valid dalam string tersebut adalah huruf besar dalam alfabet bahasa Inggris dan digit desimal. (Ingatlah bahwa terdapat <m>26</m> huruf dalam alfabet bahasa Inggris dan <m>10</m> digit desimal.) Berapa banyak pengenal rekaman valid yang mungkin jika setiap pengenal rekaman valid harus memenuhi <em>semua</em> kriteria berikut?
+                      <ul>
+                        <li><p>Huruf dari himpunan <m>\{A,E,I,O,U\}</m> muncul pada <em>tepat</em> tiga posisi dalam string.</p></li>
+                        <li><p>Tiga karakter terakhir dalam string merupakan digit desimal yang <em>semuanya berbeda</em> dan tidak muncul di tempat lain dalam string.</p></li>
+                        <li><p>Posisi karakter yang tersisa boleh diisi dengan sembarang huruf atau digit desimal yang masih tersedia.</p></li>
+                        
+                      </ul>
+                    </p>
+                  </statement>
+                  <answer>
+                    <p>
+                      <m>P(10,3)\cdot \binom{17}{3}\cdot 5^{3} \cdot 28^{14}</m>
+                    </p>
+                  </answer>
+                  <solution>
+                    <p>
+                      Cara yang paling masuk akal adalah menentukan pilihan mulai dari syarat yang paling ketat.
+                      Karena tiga posisi terakhir berupa digit yang tidak boleh berulang, kita memiliki <m>P(10,3)</m> cara untuk mengisi posisi tersebut.
+                      Dari 17 posisi yang tersisa, kita harus memilih 3 posisi untuk diisi huruf vokal.
+                      Terdapat <m>\binom{17}{3}</m> cara untuk menentukan pilihan ini.
+                      Setelah posisi huruf vokal dipilih, kita memiliki lima pilihan untuk masing-masing posisi tersebut, sehingga seluruhnya terdapat <m>5^{3}</m> cara untuk mengisi huruf vokal.
+                      Kini kita memiliki <m>26+10 - 5 - 3= 28</m> simbol yang masih tersedia (huruf konsonan dan digit yang belum digunakan) untuk mengisi masing-masing dari 14 posisi yang tersisa.
+                      Oleh karena itu, jumlah keseluruhan pengenal rekaman adalah <m>P(10,3)\cdot \binom{17}{3}\cdot 5^{3} \cdot 28^{14}</m>.
+                    </p>
+                  </solution>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Misalkan <m>X</m> adalah himpunan yang terdiri atas <m>26</m> huruf kecil bahasa Inggris dan <m>10</m> digit desimal. Berapa banyak string-<m>X</m> panjang <m>15</m> yang memenuhi <em>semua</em> sifat berikut secara bersamaan?
+                      <ul>
+                        <li><p>Simbol pertama dan terakhir dalam string merupakan digit yang berbeda (dan boleh muncul di tempat lain dalam string).</p></li>
+                        <li><p>Tepat empat simbol dalam string merupakan huruf '<m>t</m>'.</p></li>
+                        <li><p>Tepat tiga karakter dalam string merupakan anggota himpunan <m>V=\{a,e,i,o,u\}</m>, dan ketiga karakter tersebut semuanya berbeda.</p></li>
+                        
+                      </ul>
+                    </p>
+                  </statement>
+                  <solution>
+                    <p>
+                      Terdapat 10 pilihan untuk digit pertama dan 9 pilihan untuk digit yang berbeda pada posisi terakhir.
+                      Selanjutnya, kita memilih tempat untuk meletakkan huruf t. Terdapat <m>C(13,4)</m> cara untuk melakukannya karena huruf t tidak boleh diletakkan pada posisi pertama atau terakhir.
+                      Kemudian, kita memilih tiga dari sembilan posisi yang tersisa untuk diisi huruf dari <m>V</m> dalam <m>C(9,3)</m> cara.
+                      Karena huruf vokal yang digunakan harus semuanya berbeda, terdapat <m>P(5,3) = 5\cdot 4\cdot 3</m> cara untuk mengisi posisi tersebut.
+                      Kini tersisa 20 huruf dan 10 digit (karena kita <em>boleh</em> menggunakan kembali digit pada posisi pertama dan terakhir) untuk digunakan pada enam posisi yang tersisa.
+                      Oleh karena itu, banyaknya string adalah
+                      <md>
+                        10\cdot 9\cdot \binom{13}{4}\cdot \binom{9}{3}\cdot P(5,3)\cdot 30^{6}
+                      </md>.
+                    </p>
+                  </solution>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Sebuah toko donat menjual 12 jenis donat. Seorang manajer ingin membeli enam donat, masing-masing satu untuk dirinya dan lima orang pegawainya.
+                      <ol>
+                        <li><p>Misalkan ia melakukannya dengan memilih jenis donat tertentu untuk setiap orang. (Ia boleh memilih jenis donat yang sama untuk lebih dari satu orang.) Dalam berapa cara ia dapat melakukannya?</p></li>
+                        <li><p>Dalam berapa cara ia dapat memilih donat jika ia ingin memastikan bahwa setiap orang memperoleh jenis donat yang berbeda?</p></li>
+                        <li><p>Sebagai kemungkinan lain, misalkan ia ingin memilih masing-masing satu donat dari enam jenis yang <em>berbeda</em> dan meletakkannya di ruang istirahat. Dalam berapa cara ia dapat melakukannya? (Urutan donat di dalam kotak tidak diperhitungkan.)</p></li>
+                        
+                      </ol>
+                    </p>
+                  </statement>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Olahraga korfball dimainkan oleh tim yang terdiri atas delapan pemain. Setiap tim beranggotakan empat pria dan empat wanita. SMA Halliday memiliki tujuh siswa pria dan <m>11</m> siswa wanita yang berminat bermain korfball. Dalam berapa cara mereka dapat membentuk tim korfball dari 18 siswa yang berminat tersebut?</p>
+                  </statement>
+                  <answer>
+                    <p>
+                      <m>\binom{7}{4}\cdot \binom{11}{4}</m>
+                    </p>
+                  </answer>
+                  <solution>
+                    <p>
+                      Terdapat <m>\binom{7}{4}</m> cara untuk memilih pemain pria dan <m>\binom{11}{4}</m> cara untuk memilih pemain wanita.
+                      Karena setiap pilihan pemain pria dapat dipadukan dengan sembarang pilihan pemain wanita, kita harus mengalikannya sehingga terdapat <m>\binom{7}{4}\cdot \binom{11}{4}</m> tim korfball yang mungkin.
+                    </p>
+                  </solution>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Dua puluh siswa mengikuti kompetisi pemrograman. Empat siswa terbaik menerima trofi untuk juara pertama, kedua, ketiga, dan keempat.
+                      <ol>
+                        <li><p>Berapa banyak hasil berbeda yang mungkin untuk empat peringkat teratas?</p></li>
+                        <li><p>Pada saat terakhir, para juri memutuskan untuk memberikan piagam penghargaan kepada empat peserta yang tidak menerima trofi. Dalam berapa cara penerima piagam penghargaan dapat dipilih (setelah empat peringkat teratas ditentukan)? Lalu, berapa banyak hasil keseluruhan yang mungkin (trofi beserta piagam)?</p></li>
+                        
+                      </ol>
+                    </p>
+                  </statement>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Sebuah kedai es krim menawarkan promosi khusus banana split, dan Xing memanfaatkannya. Ia terkesima melihat begitu banyak pilihan untuk meracik banana split-nya:
+                      <ul>
+                        <li><p>Ia harus memilih tiga rasa es krim yang berbeda untuk ditempatkan dalam mangkuk asimetris tempat banana split disajikan. Kedai tersebut menyediakan 20 rasa es krim.</p></li>
+                        <li><p>Setiap sendok es krim harus diberi saus yang dipilih dari enam pilihan berbeda. Xing boleh menggunakan jenis saus yang sama pada lebih dari satu sendok es krim.</p></li>
+                        <li><p>Tersedia <m>10</m> macam taburan, dan ia harus memilih tiga di antaranya untuk ditaburkan di seluruh banana split.</p></li>
+                        
+                      </ul>
+                      <ol>
+                        <li><p>Dalam berapa cara berbeda Xing dapat meracik banana split di kedai es krim ini?</p></li>
+                        <li><p>Misalkan Xing tidak diwajibkan memilih tepat tiga macam taburan, tetapi diperbolehkan memilih antara nol dan tiga macam taburan. Dalam skenario ini, dalam berapa cara berbeda ia dapat meracik banana split?</p></li>
+                        
+                      </ol>
+                    </p>
+                  </statement>
+                  <solution>
+                    <p>
+                      <ol>
+                        <li>
+                          <p>
+                            Karena mangkuknya tidak simetris, posisi setiap sendok es krim berpengaruh. Jadi, terdapat <m>P(20,3)=20\cdot 19\cdot 18</m> cara untuk memilih dan menempatkan es krim.
+                            Karena saus boleh berulang (dan tempat saus dituangkan berpengaruh), terdapat <m>6^{3}</m> cara untuk menambahkan saus.
+                            Taburan disebarkan di seluruh banana split sehingga urutannya tidak diperhitungkan.
+                            Jadi, terdapat <m>C(10,3)</m> cara untuk memilih taburan.
+                            Kita harus mengalikan jumlah-jumlah tersebut agar semua pilihan ditentukan, sehingga terdapat <m>P(20,3)\cdot 6^{3}\cdot C(10,3)</m> pilihan banana split.
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Satu-satunya hal yang berubah dari jawaban bagian a adalah analisis kita terhadap taburan.
+                            Kini Xing dapat memilih 0, 1, 2, atau 3 macam taburan, dan banyaknya cara untuk masing-masing pilihan itu secara berurutan adalah <m>C(10,0)</m>, <m>C(10,1)</m>, <m>C(10,2)</m>, dan <m>C(10,3)</m>.
+                            Karena ia harus memilih tepat satu di antara kemungkinan jumlah taburan tersebut, jumlah keseluruhan cara memilih taburan adalah jumlah semua nilai ini.
+                            Kemudian, kita mengganti <m>C(10,3)</m> dalam jawaban semula dengan jumlah tersebut untuk memperoleh jawaban bagian ini:
+                            <md>
+                              P(20,3)\cdot 6^{3}\cdot\left[\binom{10}{0}+\binom{10}{1}+\binom{10}{2}+\binom{10}{3}\right]
+                            </md>.
+                          </p>
+                        </li>
+                      </ol>
+                    </p>
+                  </solution>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Misalkan seorang guru ingin membagikan <m>25</m> pensil identik kepada Ahmed, Barbara, Casper, dan Dieter, dengan syarat Ahmed dan Dieter masing-masing menerima sedikitnya satu pensil, Casper menerima paling banyak lima pensil, dan Barbara menerima sedikitnya empat pensil. Dalam berapa cara pembagian semacam itu dapat dilakukan?</p>
+                  </statement>
+                  <solution>
+                    <p>
+                      Kita menyelesaikannya dengan terlebih dahulu menghitung pembagian tanpa batas atas bagi Casper, lalu mengurangkan banyaknya pembagian yang memberi Casper lebih dari 5 pensil.
+                      Jadi, mula-mula kita mempertimbangkan keadaan ketika Casper boleh menerima 0 pensil sehingga kita memerlukan satu pensil buatan untuknya.
+                      Kita sisihkan tiga pensil untuk Barbara sehingga setelah itu Barbara, Ahmed, dan Dieter masing-masing harus menerima sedikitnya satu pensil dari sisanya.
+                      Jadi, kita memiliki <m>25 +1 -3 = 23</m> pensil, yang menentukan 22 celah.
+                      Kita memerlukan 3 pembatas sehingga bagian pertama menghasilkan <m>C(22,3)</m> pembagian.
+                      Sekarang, kita mempertimbangkan banyaknya cara Casper menerima lebih dari 5 pensil.
+                      Dalam kasus ini, kita menyisihkan <m>5</m> pensil untuk Casper (sehingga ia masih harus menerima sedikitnya satu lagi agar jumlahnya lebih dari 5) dan <m>3</m> pensil untuk Barbara.
+                      Jadi, kita memiliki <m>25-5-3 = 17</m> pensil, yang menentukan <m>16</m> celah.
+                      Seperti sebelumnya, kita memerlukan <m>3</m> pembatas sehingga terdapat <m>C(16,3)</m> pembagian yang memberi Casper lebih dari <m>5</m> pensil.
+                      Jadi, penyelesaian akhirnya adalah
+                      <md>
+                        \binom{22}{3}- \binom{16}{3}.
+                      </md>
+                    </p>
+                  </solution>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Berapa banyak solusi bernilai bilangan bulat untuk setiap persamaan dan pertidaksamaan berikut?
+                      <ol>
+                        <li><p><m>x_1+x_2+x_3+x_4+x_5=63</m>, semua <m>x_i&gt;0</m></p></li>
+                        <li><p><m>x_1+x_2+x_3+x_4+x_5=63</m>, semua <m>x_i\geq 0</m></p></li>
+                        <li><p><m>x_1+x_2+x_3+x_4+x_5\leq 63</m>, semua <m>x_i\geq 0</m></p></li>
+                        <li><p><m>x_1+x_2+x_3+x_4+x_5=63</m>, semua <m>x_i\geq 0</m>, <m>x_2\geq 10</m></p></li>
+                        <li><p><m>x_1+x_2+x_3+x_4+x_5=63</m>, semua <m>x_i\geq 0</m>, <m>x_2\leq 9</m></p></li>
+                        
+                      </ol>
+                    </p>
+                  </statement>
+                </exercise>
+                <exercise>
+                  <statement>
+                    <p>Berapa banyak solusi bilangan bulat untuk persamaan
+                      <md>
+                        x_1+x_2+x_3+x_4 = 132
+                      </md>
+                      jika <m>x_1&gt;0</m> dan <m>x_2,x_3,x_4\geq 0</m>? Bagaimana jika kita menambahkan syarat <m>x_4\lt 17</m>?</p>
+                    </statement>
+                    <solution>
+                      <p>
+                        Untuk soal yang pertama kali diberikan, kita dapat memandangnya sebagai pembagian 132 map.
+                        Kita memerlukan 3 map buatan untuk <m>x_{2},x_{3},x_{4}</m>.
+                        Jadi, kita memiliki 135 map, yang menentukan 134 celah.
+                        Kita memerlukan 3 pembatas sehingga jawabannya adalah <m>C(134,3)</m>.
+                        Dengan syarat tambahan <m>x_{4} \lt 17</m>, penyelesaian paling ringkas diperoleh dengan mengambil penyelesaian semula lalu mengurangkan kasus-kasus ketika pertidaksamaan tersebut tidak berlaku.
+                        Artinya, kita mengurangkan kasus yang memenuhi <m>x_{4}\geq 17</m>.
+                        Setelah menyisihkan 17 map untuk <m>x_{4}</m>, kita memiliki 115 map.
+                        Kita masih memperbolehkan <m>x_{4}</m> tidak menerima satu pun map yang tersisa sehingga, seperti sebelumnya, kita memerlukan map buatan untuk <m>x_{2},x_{3},x_{4}</m>.
+                        Jadi, kita membagikan 118 map, yang menentukan 117 celah.
+                        Kita memerlukan 3 pembatas sehingga terdapat <m>C(117,3)</m> solusi yang hendak kita singkirkan.
+                        Jadi, jawaban pertanyaan kedua adalah <m>C(134,3)-C(117,3)</m>.
+                      </p>
+                    </solution>
+                  </exercise>
+                  <exercise>
+                    <statement>
+                      <p>Berapa banyak solusi bilangan bulat untuk pertidaksamaan
+                        <md>
+                          x_1+x_2+x_3+x_4+x_5\leq 782
+                        </md>
+                        jika <m>x_1,x_2&gt;0</m>, <m>x_3\geq 0</m>, dan <m>x_4,x_5\geq 10</m>?</p>
+                      </statement>
+                      <solution>
+                        <p>
+                          Ini merupakan pembagian map dengan satu tumpukan simpanan yang boleh kosong.
+                          Kita juga perlu menyisihkan map untuk <m>x_{4},x_{5}</m>.
+                          Agar tidak memerlukan map buatan untuk kedua variabel ini, kita menyisihkan 9 map untuk masing-masing variabel sehingga keduanya harus menerima sedikitnya satu map dari sisanya.
+                          Jadi, kita memiliki <m>782-9-9 = 764</m> map untuk dibagikan.
+                          Namun, kita memerlukan satu map buatan agar <m>x_{3}</m> boleh tidak menerima apa pun dan satu map buatan lagi agar tumpukan simpanan boleh kosong.
+                          Jadi, kita menghitung banyaknya cara membagikan <m>766</m> map, yang menentukan 765 celah.
+                          Karena ada tumpukan simpanan, kita memerlukan 5 pembatas sehingga penyelesaiannya adalah <m>C(765,5)</m>.
+                        </p>
+                      </solution>
+                    </exercise>
+                    <exercise>
+                      <introduction>
+                        <p>Seorang guru memiliki <m>450</m> butir permen identik. Ia ingin membagikannya kepada kelas yang terdiri atas <m>65</m> siswa, meskipun ia bersedia membawa pulang sebagian permen yang tersisa. (Namun, ia tidak mengharuskan adanya permen yang dibawa pulang.) Siswa yang memenangi perlombaan pada pertemuan sebelumnya akan menerima sedikitnya <m>10</m> butir permen sebagai hadiah. Di antara siswa lainnya, <m>34</m> siswa bersikeras menerima sedikitnya satu butir permen, sedangkan <m>30</m> siswa yang tersisa bersedia tidak menerima permen sama sekali.
+                          
+                        </p>
+                      </introduction>
+                      <task>
+                        <statement><p>Dalam berapa cara guru tersebut dapat membagikan permen?</p></statement>
+                        <answer>
+                          <p>
+                            <m>C(471,65)</m>
+                          </p>
+                        </answer>
+                        <solution>
+                          <p>
+                            Kita memiliki 450 butir permen.
+                            Kita menyisihkan 9 butir untuk siswa pemenang perlombaan sehingga setelah itu ia harus menerima sedikitnya satu butir lagi.
+                            Kita memerlukan 30 permen buatan untuk siswa yang bersedia tidak menerima permen. Karena guru boleh menyimpan sebagian permen, kita juga perlu mengakomodasi tumpukan simpanan yang mungkin kosong sehingga dibutuhkan satu permen buatan tambahan.
+                            Jadi, kita membagikan <m>450-9+31 = 472</m> butir permen, yang menentukan <m>471</m> celah.
+                            Terdapat <m>66</m> penerima sehingga kita memerlukan <m>65</m> pembatas.
+                            Jadi, terdapat <m>C(471,65)</m> cara untuk membagikan permen.
+                          </p>
+                        </solution>
+                      </task>
+                      <task>
+                        <statement>
+                          <p>Dalam berapa cara guru tersebut dapat membagikan permen jika, selain syarat di atas, salah seorang siswanya menderita diabetes dan boleh menerima paling banyak <m>7</m> butir permen? (Siswa ini merupakan salah satu dari <m>34</m> siswa yang bersikeras menerima sedikitnya satu butir permen.)</p>
+                        </statement>
+                        <answer>
+                          <p>
+                            <m>C(471,65)-C(464,65)</m>
+                          </p>
+                        </answer>
+                        <solution>
+                          <p>
+                            Untuk menjawab bagian ini, kita menggunakan jawaban bagian sebelumnya lalu mengurangkan pembagian yang membuat siswa penderita diabetes menerima lebih dari <m>7</m> butir permen.
+                            Untuk melakukannya, kita menyisihkan <m>7</m> butir permen bagi siswa tersebut sehingga setelah itu ia masih harus menerima sedikitnya satu butir lagi.
+                            Kita juga tetap harus menyisihkan <m>9</m> butir untuk siswa pemenang perlombaan.
+                            Karena siswa penderita diabetes termasuk siswa yang harus menerima sedikitnya satu butir permen, tetap ada <m>30</m> siswa yang boleh tidak menerima permen serta tumpukan simpanan yang mungkin kosong. Karena itu, kita memerlukan <m>31</m> permen buatan.
+                            Jadi, kita membagikan <m>450-7-9+31=465</m> butir permen, yang menentukan <m>464</m> celah.
+                            Kita tetap memerlukan <m>65</m> pembatas.
+                            Jadi, terdapat <m>C(464,65)</m> pembagian yang membuat siswa penderita diabetes menerima lebih dari <m>7</m> butir permen.
+                            Jika digabungkan dengan bagian sebelumnya, ini berarti terdapat <m>C(471,65)-C(464,65)</m> cara membagikan permen sehingga siswa penderita diabetes menerima sedikitnya satu dan paling banyak tujuh butir permen.
+                          </p>
+                        </solution>
+                      </task>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Berikan argumen kombinatorial untuk membuktikan identitas
+                          <md>
+                            k\binom{n}{k} = n\binom{n-1}{k-1}.
+                          </md>
+                        </p>
+                      </statement>
+                      <hint>
+                        <p>Pikirkan proses memilih sebuah tim beserta kaptennya.</p>
+                      </hint>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Misalkan <m>m</m> dan <m>w</m> adalah bilangan bulat positif. Berikan argumen kombinatorial untuk membuktikan bahwa bagi bilangan bulat <m>k\geq 0</m>,
+                          <md>
+                            \sum_{j=0}^k \binom{m}{j}\binom{w}{k-j} = \binom{m+w}{k}.
+                          </md>
+                        </p>
+                      </statement>
+                      <solution>
+                        <p>
+                          Misalkan terdapat <m>m</m> orang Minnesota dan <m>w</m> orang Wisconsin, dan kita ingin memilih panitia yang beranggotakan <m>k</m> orang.
+                          Karena jumlah keseluruhan orang adalah <m>m+w</m>, ruas kanan secara langsung menghitung banyaknya pilihan.
+                          Ruas kiri mengelompokkan panitia berdasarkan banyaknya orang Minnesota, yakni <m>j</m>, yang menjadi anggota panitia.
+                          Jika terdapat <m>j</m> orang Minnesota, harus terdapat <m>k-j</m> orang Wisconsin agar jumlah keseluruhan anggota menjadi <m>k</m>.
+                          Terdapat <m>C(m,j)</m> cara untuk memilih orang Minnesota dan <m>C(w,k-j)</m> cara untuk memilih orang Wisconsin.
+                          Untuk menentukan sebuah panitia sepenuhnya, kedua pilihan tersebut harus dibuat sehingga kita mengalikan keduanya.
+                          Kemudian, kita menjumlahkan semua kemungkinan banyaknya orang Minnesota dalam panitia dan memperoleh ruas kiri.
+                        </p>
+                      </solution>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Berapa banyak lintasan kisi dari <m>(0,0)</m> ke <m>(10,12)</m>?</p>
+                      </statement>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Berapa banyak lintasan kisi dari <m>(3,5)</m> ke <m>(10,12)</m>?</p>
+                      </statement>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Berapa banyak lintasan kisi dari <m>(0,0)</m> ke <m>(10,12)</m> yang melalui <m>(3,5)</m>?</p>
+                      </statement>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Berapa banyak lintasan kisi dari <m>(0,0)</m> ke <m>(17,12)</m> yang melalui <m>(7,6)</m> dan <m>(12,9)</m>?</p>
+                      </statement>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Berapa banyak lintasan kisi dari <m>(0,0)</m> ke <m>(14,73)</m> yang <em>tidak</em> melalui <m>(6,37)</m>?</p>
+                      </statement>
+                      <solution>
+                        <p>
+                            Kita menghitung semua lintasan kisi dari (0,0) ke (14,73), lalu mengurangkan lintasan yang melalui (6,37).
+                            Secara keseluruhan, diperlukan <m>14+73 = 87</m> langkah dan 14 di antaranya harus berupa langkah H.
+                            Jadi, jumlah seluruh lintasan kisi adalah <m>C(87,14)</m>.
+                            Untuk menghitung lintasan kisi yang melalui (6,37), kita perlu menghitung lintasan dari (0,0) ke (6,37), lalu menghitung lintasan dari (6,37) ke (14,73), dan mengalikan kedua jumlah tersebut agar sebuah lintasan kisi ditentukan sepenuhnya.
+                            Pada bagian pertama terdapat <m>6+37 = 43</m> langkah, dengan 6 di antaranya berupa langkah H, sehingga terdapat <m>C(43,6)</m> cara untuk menempuh bagian pertama.
+                            Pada bagian kedua diperlukan <m>14-6=8</m> langkah H dan <m>73-37 = 36</m> langkah V, sehingga jumlahnya 44 langkah.
+                            Jadi, terdapat <m>C(44,8)</m> cara untuk menempuh bagian kedua.
+                            Oleh karena itu, jawaban akhirnya adalah <m>C(87,14)-C(43,6)C(44,8)</m>.
+                        </p>
+                      </solution>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Seorang perampok bank di kota kecil sedang mengendarai mobil pelariannya dari bank yang baru saja dirampok menuju tempat persembunyiannya. Bank tersebut berada di persimpangan Jalan <m>1^\text{st}</m> dan Adimarga <m>1^\text{st}</m>. Ia harus kembali ke tempat persembunyiannya di persimpangan Jalan <m>7^\text{th}</m> dan Adimarga <m>5^\text{th}</m>. Namun, salah seorang pengintainya melaporkan bahwa satu-satunya polisi di kota itu sedang berhenti di persimpangan Jalan <m>4^\text{th}</m> dan Adimarga <m>4^\text{th}</m>. Dengan menganggap bahwa perampok bank tersebut tidak ingin ditangkap dan hanya berkendara di jalan dan adimarga, dalam berapa cara ia dapat kembali dengan aman ke tempat persembunyiannya? (Jalan dan adimarga di kota kecil ini berjarak seragam dan diberi nomor secara berurutan.)</p>
+                      </statement>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Soal ini berlatar di kota fiktif Mascotville, yang ditata seperti kisi. Para maskot hanya boleh berjalan di sepanjang jalan, bukan menempuh lintasan lurus <q>seperti tawon terbang.</q> Buzz, maskot Georgia Tech, ingin mengunjungi temannya Thundar, maskot North Dakota State University, yang tinggal <m>6</m> blok di sebelah timur dan <m>7</m> blok di sebelah utara sarang Buzz. Namun, Uga VIII baru saja pindah ke rumah anjing yang terletak <m>2</m> blok di sebelah timur dan <m>3</m> blok di sebelah utara sarang Buzz, dan sudah memiliki perintah hukum yang melarang Buzz mendekatinya. Ada pula sepasang harimau (induk dan anak) dari Clemson yang tinggal <m>1</m> blok di sebelah timur dan <m>2</m> blok di sebelah utara Uga VIII; keduanya dikenal suka memasang perangkap untuk Buzz. Buzz ingin pergi dari sarangnya ke kandang Thundar setiap hari tanpa bertemu Uga VIII maupun The Tiger dan The Tiger Cub. Namun, ia ingin menghindari kebosanan akibat menggunakan rute yang pernah dilaluinya. Berapa banyak hari berturut-turut paling lama Buzz dapat melakukan perjalanan untuk mengunjungi Thundar tanpa mengulangi rute (Anda boleh menganggap bahwa rute yang ditempuh Buzz hanya bergerak ke timur dan ke utara)?</p>
+                      </statement>
+                      <solution>
+                        <p>
+                            Kita dapat memandangnya sebagai soal lintasan kisi.
+                            Sarang Buzz berada di (0,0), kandang Thundar di (6,7), Uga VIII di (2,3), dan kedua harimau di (3,5).
+                            Jadi, kita perlu menghitung lintasan kisi dari (0,0) ke (6,7) yang menghindari (2,3) maupun (3,5).
+                            Untuk melakukannya, kita perlu mengurangkan lintasan kisi yang melalui (2,3) serta lintasan yang melalui (3,5).
+                            Namun, dengan melakukan ini, kita telah dua kali mengurangkan lintasan kisi yang melalui (2,3) dan (3,5) sekaligus sehingga lintasan tersebut harus ditambahkan kembali.
+                            Komponen-komponennya adalah:
+                            <ul>
+                                <li>
+                                    <p>
+                                        Semua lintasan—13 langkah, 6 langkah H: <m>C(13,6)</m> 
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Melalui (2,3)—5 langkah, 2 langkah H pada bagian pertama dan <m>4+4 = 8</m> langkah, 4 langkah H pada bagian kedua: <m>C(5,2)C(8,4)</m>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Melalui (3,5)—8 langkah, 3 langkah H pada bagian pertama dan <m>3+2 = 5</m> langkah, 3 langkah H pada bagian kedua: <m>C(8,3)C(5,3)</m> 
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Melalui (2,3) maupun (3,5)—5 langkah, 2 langkah H pada bagian pertama; 1+2 = 3 langkah, 1 langkah H pada bagian kedua; dan <m>3+2=5</m> langkah, 3 langkah H pada bagian ketiga: <m>C(5,2)C(3,1)C(5,3)</m>
+                                    </p>
+                                </li>
+                            </ul>
+                            Oleh karena itu, jumlah keseluruhannya adalah
+                            <md>
+                                \binom{13}{6}-\binom{5}{2}\binom{8}{4}-\binom{8}{3}\binom{5}{3}+ \binom{5}{2}\binom{3}{1}\binom{5}{3}
+                            </md>.
+                        </p>
+                      </solution>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Tentukan koefisien <m>x^{15}y^{120}z^{25}</m> dalam <m>(2x+3y^2+z)^{100}</m>.</p>
+                      </statement>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Tentukan koefisien <m>x^{12}y^{24}</m> dalam <m>(x^3+2xy^2+y+3)^{18}</m>. (Berhati-hatilah karena kini <m>x</m> dan <m>y</m> masing-masing muncul dalam beberapa suku!)</p>
+                      </statement>
+                      <solution>
+                        <p>
+                            Teorema Multinomial memberi tahu kita bahwa
+                            <md>
+                                (x^{3}+2xy^{2}+y+3)^{18}= \sum_{k_1+k_2+k_3+k_4 = 18}\binom{18}{k_1,k_2,k_3,k_4}(x^{3})^{k_1}(2xy^{2})^{k_2}y^{k_3}\cdot 3^{k_4}= \sum_{k_1+k_2+k_3+k_4 = 18}\binom{18}{k_1,k_2,k_3,k_4}2^{k_2}3^{k_4}x^{3k_1+k_2}y^{2k_2+k_3}
+                            </md>.
+                        </p>
+                        
+                        <p>
+                            Jadi, kita memerlukan <m>12=3k_{1}+k_{2}</m> dan <m>24 = 2k_{2}+k_{3}</m>, dengan semua variabel bernilai bilangan bulat tak negatif.
+                            Kedua persamaan ini menyiratkan bahwa <m>k_{3} = 6k_{1}</m>.
+                            Karena jumlah semua <m>k_{i}</m> harus <m>18</m>, satu-satunya kemungkinan untuk <m>k_{1}</m> adalah 0, 1, dan 2.
+                            Jika <m>k_{1} = 0</m>, kita memperoleh <m>k_{2} = 12</m>, <m>k_{3} = 0</m>, dan <m>k_{4} = 6</m>.
+                            Jika <m>k_{1} = 1</m>, kita memperoleh <m>k_{2} = 9</m>, <m>k_{3} = 6</m>, dan <m>k_{4} = 2</m>.
+                            Jika <m>k_{1} = 2</m>, kita memerlukan <m>k_{3} = 12</m> dan <m>k_{2} = 6</m>, tetapi jumlah variabelnya kemudian melebihi <m>18</m>.
+                            Jadi, koefisien <m>x^{12}y^{24}</m> adalah
+                            <md>
+                                \binom{18}{0,12,0,6}2^{12}3^{6} + \binom{18}{1,9,6,2}2^{9}3^{2}
+                            </md>.
+                        </p>
+                      </solution>
+                    </exercise>
+                    <exercise>
+                      <statement>
+                        <p>Untuk setiap kata di bawah ini, tentukan banyaknya susunan ulang yang menggunakan semua huruf dalam kata tersebut.
+                          <ol>
+                            <li><p>OVERNUMEROUSNESSES</p></li>
+                            <li><p>OPHTHALMOOTORHINOLARYNGOLOGY</p></li>
+                            <li><p>HONORIFICABILITUDINITATIBUS (kata terpanjang dalam bahasa
+                              Inggris yang huruf konsonan dan vokalnya berselang-seling secara ketat<fn><url href="http://www.rinkworks.com/words/oddities.shtml"/></fn>)</p></li>
+                              
+                            </ol>
+                          </p>
+                        </statement>
+                      </exercise>
+                      <exercise>
+                        <statement>
+                          <p>Dalam berapa cara anggota suatu himpunan dengan <m>27</m> anggota dapat diwarnai sedemikian rupa sehingga <m>7</m> anggota berwarna putih, <m>6</m> berwarna emas tua, <m>2</m> berwarna biru, <m>7</m> berwarna kuning, <m>5</m> berwarna hijau, dan <m>0</m> berwarna merah?</p>
+                        </statement>
+                      </exercise>
+                      <exercise>
+                        <statement>
+                          <p>Ada banyak himpunan berguna yang banyak anggotanya dihitung oleh bilangan Catalan. (Jilid kedua karya R.P.<nbsp/>Stanley, <pubtitle>Enumerative Combinatorics</pubtitle>, memuat sebuah latihan terkenal—atau mungkin terkenal buruk—dengan <m>66</m> bagian yang meminta pembaca menemukan bijeksi untuk menunjukkan bahwa banyaknya berbagai struktur kombinatorial adalah <m>C(n)</m>, sedangkan <url href="http://www-math.mit.edu/~rstan/ec/catadd.pdf" visual="www-math.mit.edu/~rstan/ec/catadd.pdf">laman web</url>-nya memuat daftar tambahan dengan sedikitnya <m>100</m> bagian.) Berikan argumen bijektif untuk menunjukkan bahwa banyaknya setiap kelas objek di bawah ini dihitung oleh <m>C(n)</m>. (Ketiganya dipilih dari daftar dalam buku Stanley.)
+                            <ol>
+                              <li><p>Banyaknya cara memberi tanda kurung lengkap pada hasil kali <m>n+1</m>
+                                faktor seolah-olah operasi <q>perkalian</q> yang digunakan
+                                tidak harus asosiatif. Sebagai contoh, terdapat satu cara untuk
+                                memberi tanda kurung pada hasil kali dua faktor <m>(a_1a_2)</m>, terdapat dua
+                                cara untuk memberi tanda kurung pada hasil kali tiga faktor (<m>(a_1(a_2a_3))</m>
+                                dan <m>((a_1a_2)a_3)</m>), serta terdapat lima cara untuk memberi tanda kurung pada hasil kali
+                                empat faktor:
+                                <md>
+                                  (a_1(a_2(a_3a_4))),
+                                  (a_1((a_2a_3)a_4)), ((a_1a_2)(a_3a_4)),
+                                  ((a_1(a_2a_3))a_4), (((a_1a_2)a_3)a_4).
+                                </md>
+                              </p></li>
+                              <li><p>Barisan yang terdiri atas <m>n</m> buah <m>1</m> dan <m>n</m> buah <m>-1</m>, dengan jumlah
+                                <m>i</m> suku pertamanya merupakan bilangan bulat tak negatif untuk setiap <m>i</m>.</p></li>
+                                <li xml:id="ex_part_seq_cat"><p>Barisan bilangan bulat <m>1\leq a_1\leq \cdots \leq a_n</m> yang memenuhi
+                                  <m>a_i\leq i</m>. Sebagai contoh, untuk <m>n=3</m>, barisan tersebut adalah
+                                  <md>
+                                    111\qquad 112\qquad 113\qquad 122\qquad 123.
+                                  </md>
+                                </p>
+                              </li>
+                              
+                            </ol>
+                          </p>
+                        </statement>
+                        <hint>
+                          <p>Untuk <xref ref="ex_part_seq_cat">bagian ini</xref>, pikirkan cara menggambar lintasan kisi pada kertas bergaris kotak-kotak dan, pada dasarnya, menghitung banyaknya kotak di bawah suatu lintasan kisi dalam kolom tertentu.</p>
+                        </hint>
+                      </exercise>
+                    </exercises>

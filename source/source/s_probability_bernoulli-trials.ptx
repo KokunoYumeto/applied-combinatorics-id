@@ -1,0 +1,35 @@
+<section xml:id="s_probability_bernoulli-trials">
+    <title>Percobaan Bernoulli</title>
+    <p>Misalkan kita mempunyai stoples berisi <m>7</m> kelereng, empat merah dan tiga biru. Sebuah kelereng diambil secara acak, lalu kita mencatat apakah warnanya merah atau biru. Probabilitas <m>p</m> memperoleh kelereng merah ialah <m>4/7</m>; sedangkan probabilitas memperoleh kelereng biru ialah <m>1-p=3/7</m>.
+    </p>
+
+    <p>Sekarang misalkan kelereng tersebut dikembalikan ke dalam stoples, semua kelereng diaduk, lalu percobaannya diulangi. Probabilitas memperoleh kelereng merah pada percobaan kedua kembali sebesar <m>4/7</m>, dan pola ini berlaku berapa kali pun percobaan tersebut diulangi.
+    </p>
+
+    <p>Situasi ini lazim disebut rangkaian <term>percobaan Bernoulli</term>.<idx><h>percobaan Bernoulli</h></idx> Secara lebih formal, kita mempunyai percobaan dengan tepat dua hasil: <term>keberhasilan</term> dan <term>kegagalan</term>. Probabilitas keberhasilan ialah <m>p</m> dan probabilitas kegagalan ialah <m>1-p</m>. Yang terpenting, ketika percobaan diulangi, setiap percobaan saling bebas dan probabilitas keberhasilan pada masing-masing percobaan tetap tepat sebesar <m>p</m>.
+    </p>
+
+    <p>Kita tetapkan suatu bilangan bulat positif <m>n</m> dan meninjau kasus ketika percobaan diulangi <m>n</m> kali. Hasilnya berupa untai biner sepanjang <m>n</m> dari alfabet dua huruf <m>\{S,F\}</m>, yang masing-masing menyatakan keberhasilan (mengikuti istilah Inggris success) dan kegagalan (failure). Jika <m>x</m> merupakan untai dengan <m>i</m> keberhasilan dan <m>n-i</m> kegagalan, maka <m>P(x)=p ^i(1-p)^{n-i}</m>. Tentu saja, dalam penerapan, keberhasilan dan kegagalan dapat diganti dengan: angka/gambar, atas/bawah, baik/buruk, maju/mundur, merah/biru, <etc/>
+    </p>
+    <example>
+        <p>Ketika sebuah dadu dilempar, sebut hasilnya suatu keberhasilan jika yang muncul adalah dua atau lima. Probabilitas keberhasilan <m>p</m> ialah <m>2/6=1/3</m> dan probabilitas kegagalan ialah <m>2/3</m>. Jika dadu dilempar sepuluh kali berturut-turut, probabilitas memperoleh tepat empat keberhasilan ialah <m>C(10,4)(1/3)^4 (2/3)^{6}</m>.
+        </p>
+    </example>
+
+    <example>
+        <p>Sebuah koin seimbang dilempar <m>100</m> kali dan hasilnya (sisi angka atau gambar) dicatat. Probabilitas memperoleh sisi angka sebanyak <m>40</m> kali dan sisi gambar pada <m>60</m> lemparan lainnya ialah
+        <md>
+            \binom{100}{40}\left(\frac{1}{2}\right)^{40}\left(\frac{1}{2}\right)^{60} =\frac{\binom{100}{40}}{2^{100}}.
+        </md>
+        </p>
+    </example>
+
+    <remark>
+        <p>Bob mengatakan bahwa jika sebuah koin seimbang dilempar <m>100</m> kali, kemungkinan besar akan diperoleh tepat <m>50</m> sisi angka dan <m>50</m> sisi gambar. Dave tidak begitu yakin bahwa pernyataan itu benar. Carlos menyalakan komputernya dan beberapa detik kemudian melaporkan bahwa probabilitas memperoleh tepat <m>50</m> sisi angka ketika sebuah koin seimbang dilempar <m>100</m> kali ialah
+        <md>
+           \frac{12611418068195524166851562157}{158456325028528675187087900672}
+        </md>
+        yang bernilai <m>.079589</m> hingga enam tempat desimal. Dengan kata lain, hal itu sama sekali tidak terlalu mungkin. Xing melakukan perhitungan yang sedikit lebih rumit dan melaporkan bahwa terdapat peluang <m>99</m>% bahwa banyak sisi angka sedikitnya <m>20</m> dan paling banyak <m>80</m>. Carlos menambahkan bahwa apabila <m>n</m> sangat besar, semakin dapat dipastikan bahwa banyak sisi angka dalam <m>n</m> lemparan akan mendekati <m>n/2</m>. Dave bertanya apa yang dimaksud dengan “mendekati” dan apa yang dimaksud dengan “sangat besar”.
+        </p>
+    </remark>
+</section>

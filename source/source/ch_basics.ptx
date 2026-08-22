@@ -1,0 +1,15 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_basics">
+    <title>Dasar-Dasar Kombinatorika</title>
+
+
+    <introduction>
+        <p>Dave tidak suka melakukan hal yang sama dua kali. Ia menganggap dirinya berjiwa bebas dan tidak pernah ingin terjebak dalam rutinitas. Menurut Alice, cara menjalani hidup seperti ini mengharuskan seseorang memiliki sangat banyak pilihan, sebab jika ada sesuatu yang harus dilakukan berulang kali, seperti bangun pagi dan berpakaian, orang mungkin tidak dapat menghindari pengulangan mekanis, betapapun menjemukan dan membosankannya hal itu.
+        </p>
+    </introduction>
+    <xi:include href="s_basics_pigeonhole.ptx"/>
+    <xi:include href="s_basics_complexity.ptx"/>
+    <xi:include href="s_basics_big-oh.ptx"/>
+    <xi:include href="s_basics_exact.ptx"/>
+    <xi:include href="s_basics_discussion.ptx"/>
+    <xi:include href="s_basics_exercises.ptx"/>
+</chapter>

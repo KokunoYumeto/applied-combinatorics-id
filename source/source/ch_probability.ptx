@@ -1,0 +1,24 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_probability">
+    <title>Probabilitas</title>
+    <introduction>
+        <p>Hari itu berjalan lambat, dan Dave berkata bahwa ia bosan. Saat itu baru saja lewat waktu makan siang, dan ia mengeluh bahwa tidak ada yang dapat dilakukan. Tampaknya tidak ada seorang pun yang benar-benar mendengarkan, meskipun Alice menyarankan agar Dave belajar, bahkan membaca bagian berikutnya dalam bab ini. Tanpa menyerah, Dave berkata, <q>Hei, Alice, bagaimana kalau kita bermain? Kita dapat bergiliran melempar koin, sementara orang yang lain menebak sisi angka atau gambar. Kita catat skornya, dan orang pertama yang mencapai seratus menjadi pemenang.</q> Alice memutar bola matanya mendengar gagasan yang begitu payah. Menyadari bahwa Alice tidak tertarik, Dave mengusulkan, <q>Baiklah, bagaimana kalau seratus kali bermain Batu, Kertas, atau Gunting?</q> Zori berkata, <q>Mengapa harus bermain seratus kali? Kalau itu yang akan kalian lakukan, mainkan satu kali saja.</q>
+        </p>
+
+        <p>Sekarang giliran Alice. <q>Kalau kamu ingin bermain, aku punya permainan yang bagus untukmu. Seperti yang kamu inginkan, orang pertama yang mencapai seratus poin menang. Kamu melempar sepasang dadu. Jika kedua dadu menunjukkan angka yang sama, aku memperoleh <m>2</m> poin. Jika selisih kedua dadu adalah satu, aku memperoleh <m>1</m> poin. Jika selisihnya <m>2</m>, hasilnya seri. Jika selisihnya <m>3</m>, kamu memperoleh satu poin; jika selisihnya<nbsp/><m>4</m>, kamu memperoleh dua poin; dan jika selisihnya <m>5</m>, kamu memperoleh tiga poin.</q> Xing menyela, <q>Dengan kata lain, jika selisihnya <m>d</m>, Dave memperoleh <m>d-2</m> poin.</q> Alice melanjutkan, <q>Benar! Ada tiga cara bagi Dave untuk menang, dan salah satunya memberi hadiah terbesar. Selain itu, dua dadu jarang menunjukkan angka yang sama, jadi permainan ini pasti menguntungkan Dave.</q>
+        </p>
+
+        <p>Penjelasan Alice membuat Zori memasang telinga. Firasatnya mengatakan bahwa permainan ini sebenarnya tidak menguntungkan Dave dan bahwa Alice mengetahui keadaan yang sesungguhnya. Gagasan tentang hasil permainan yang melibatkan ketidakpastian terasa sangat relevan. Carlos mencoret-coret selembar kertas, lalu berkata dengan sopan, <q>Dave, kamu benar-benar sebaiknya membaca bagian berikutnya dalam bab ini.</q>
+        </p>
+
+        <p>Jadi, bagaimana menurut Anda? Apakah permainan ini adil? Apa arti sebuah permainan disebut adil? Patutkah Dave bermain<mdash/>terlepas dari pertanyaan apakah kegiatan konyol semacam itu layak menyita waktu seseorang? Dan apa hubungan percakapan ini dengan kombinatorika?
+        </p>
+    </introduction>
+    <xi:include href="s_probability_intro.ptx"/>
+    <xi:include href="s_probability_conditional.ptx"/>
+    <xi:include href="s_probability_bernoulli-trials.ptx"/>
+    <xi:include href="s_probability_discrete-random-variables.ptx"/>
+    <xi:include href="s_probability_central-tendency.ptx"/>
+    <xi:include href="s_probability_infinite-outcomes.ptx"/>
+    <xi:include href="s_probability_discussion.ptx"/>
+    <xi:include href="s_probability_exercises.ptx"/>
+</chapter>

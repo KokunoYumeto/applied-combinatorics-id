@@ -1,0 +1,2 @@
+component_id	component_title	source_edition	source_identifier	translation_status	exact_coverage	artifact_path	artifact_sha256	added_in_version	notes
+R012	Applied Combinatorics	2017.3	https://github.com/mitchkeller/applied-combinatorics/tree/33b20df670d1f8d98266cd2f4a287a79b01649ea	complete	167 boundaries; 171 active source files; through source/s_background_ZFC.ptx	01_KOMBINATORIKA_TERAPAN_ID-ID_CORRESPONDING_SOURCE_2026.08.22.1.zip	6fe7a4f79d49ecf1ffd776947e9a8bfea7604e6bc79a65b10f7f79a63841edaf	2026.08.22.1	Complete machine-checked Indonesian draft; no human-review claim.

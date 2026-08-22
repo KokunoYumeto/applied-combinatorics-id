@@ -1,0 +1,218 @@
+<section xml:id="s_graphalgorithms_min-wt-span">
+    <title>Pohon Rentang Berbobot Minimum</title>
+
+
+    <introduction>
+        <p>Dalam bagian ini, kita meninjau pasangan <m>(\bfG,w)</m>, dengan <m>\GVE</m> suatu graf terhubung dan <m>w\colon E\rightarrow\nonnegints</m>. Untuk setiap sisi <m>e\in E</m>, besaran <m>w(e)</m> disebut <term>bobot</term><idx><h>bobot</h></idx> dari <m>e</m>. Untuk suatu himpunan sisi <m>S</m>, kita mendefinisikan <term>bobot</term> dari <m>S</m>, yang dilambangkan dengan <m>w(S)</m>, dengan menetapkan <m>w(S)=\sum_{e\in S} w(e)</m>. Khususnya, bobot pohon rentang <m>T</m> adalah jumlah bobot sisi-sisi dalam <m>T</m>.<idx><h>pohon</h><h>rentang</h></idx>
+        </p>
+
+        <p>Graf berbobot muncul dalam banyak konteks. Salah satu yang paling wajar ialah ketika bobot sisi menyatakan jarak atau biaya. Sebagai contoh, tinjau graf berbobot pada <xref ref="fig_graphalgorithms_spantreegraph"/>. Misalkan simpul-simpulnya mewakili titik-titik suatu jaringan dan sisi-sisinya mewakili kemungkinan membangun hubungan fisik langsung di antara titik-titik tersebut. Bobot pada sisi menyatakan biaya membangun hubungan itu (misalnya dalam ribuan dolar). Perusahaan yang membangun jaringan tersebut hanya berkepentingan agar data dapat dikirimkan di antara setiap pasangan titik. Hubungan tambahan akan menimbulkan redundansi yang belum mereka perlukan. Pohon rentang dari graf menjamin bahwa setiap titik dapat berkomunikasi dengan setiap titik lainnya tanpa redundansi, sebab penghapusan sisi mana pun akan memutus graf tersebut. Jadi, untuk meminimumkan biaya pembangunan jaringan, kita ingin mencari pohon rentang berbobot (atau berbiaya) minimum.
+        </p>
+        <figure xml:id="fig_graphalgorithms_spantreegraph">
+            <caption>Graf berbobot</caption>
+            <image width="90%" source="spantreegraph"><description><p>Graf berbobot</p>
+            </description></image>
+        </figure>
+        <p>Untuk itu, bagian ini membahas masalah berikut:
+        </p>
+        <problem>
+            <p>Carilah pohon rentang berbobot minimum <m>\bfT</m> dari <m>\bfG</m>.
+            </p>
+        </problem>
+        <p>Untuk menyelesaikan masalah ini, kita akan mengembangkan <em>dua</em> algoritma graf yang efisien, masing-masing dengan kelebihan dan kekurangan komputasional tertentu. Sebelum mengembangkan algoritma tersebut, kita perlu menetapkan beberapa fakta pendahuluan mengenai pohon rentang dan hutan rentang.
+        </p>
+    </introduction>
+
+
+    <subsection>
+        <title>Pendahuluan</title>
+        <p>Proposisi berikut tentang banyaknya komponen dalam hutan rentang dari graf <m>\bfG</m> mempunyai bukti induktif yang mudah. Anda diminta menyusun buktinya dalam latihan.
+        </p>
+
+        <proposition xml:id="prop_graphalgorithms_spanforest">
+            <statement>
+                <p>Misalkan <m>\GVE</m> suatu graf dengan <m>n</m> simpul dan <m>\bfH=(V,S)</m> suatu hutan rentang. Maka <m>0\le |S|\le n-1</m>. Selanjutnya, jika <m>|S|= n-k</m>, maka <m>\bfH</m> memiliki <m>k</m> komponen. Khususnya, <m>\bfH</m> merupakan pohon rentang jika dan hanya jika memuat <m>n-1</m> sisi.
+                </p>
+            </statement>
+        </proposition>
+
+        <p>Proposisi berikut memberikan cara untuk mengambil sebuah pohon rentang dari suatu graf, menghapus satu sisinya, lalu menambahkan sisi graf yang tidak berada dalam pohon rentang itu sehingga terbentuk pohon rentang baru. Pada dasarnya, proses ini mempertukarkan dua sisi untuk membentuk pohon rentang baru; karena itu kita menyebutnya <term>prinsip pertukaran</term>.
+        </p>
+
+        <proposition xml:id="prop_graphalgorithms_exchange">
+            <title>Prinsip Pertukaran</title>
+            <statement>
+                <p>Misalkan <m>\bfT=(V,S)</m> suatu pohon rentang dalam graf <m>\bfG</m>, dan misalkan <m>e=xy</m> suatu sisi <m>\bfG</m> yang tidak termasuk dalam <m>\bfT</m>. Maka
+                  <ol>
+                    <li><p>Terdapat lintasan <em>tunggal</em> <m>P=(x_0,x_1,x_2,\dots,x_t)</m> yang memenuhi (a)<nbsp/><m>x=x_0</m>; (b)<nbsp/><m>y=x_t</m>; dan (c)<nbsp/><m>x_ix_{i+1}\in S</m> untuk setiap <m>i=0,1,2,\dots,t-1</m>.</p></li>
+                    <li><p>Untuk setiap <m>i=0,1,2,\dots,t-1</m>, misalkan <m>f_i=x_ix_{i+1}</m>, lalu tetapkan
+                    <md>
+                        S_i = \{e\}\cup\{g\in S: g\neq f_i\},
+                    </md>
+                    <ie/>, kita <term>mempertukarkan</term> sisi <m>f_i</m> dengan sisi <m>e</m>. Maka <m>\bfT_i=(V,S_i)</m> merupakan pohon rentang dari <m>\bfG</m>.</p></li>
+                
+                  </ol>
+                </p>
+            </statement>
+
+            <proof>
+                <p>Untuk fakta pertama, cukup perhatikan bahwa jika terdapat lebih dari satu lintasan berbeda dari <m>x</m> ke <m>y</m> dalam <m>\bfT</m>, kita dapat menemukan suatu siklus dalam <m>\bfT</m>. Hal ini mustahil karena graf tersebut adalah pohon. Untuk fakta kedua, perhatikan <xref ref="fig_graphalgorithms_exchange"/>. Sisi-sisi hitam dan hijau pada graf sebelah kiri menyatakan pohon rentang <m>\bfT</m>. Jadi, <m>f</m> terletak pada lintasan tunggal dari <m>x</m> ke <m>y</m> dalam <m>\bfT</m>, sedangkan <m>e=xy</m> adalah sisi <m>\bfG</m> yang <em>tidak</em> berada dalam <m>\bfT</m>. Penambahan <m>e</m> ke <m>\bfT</m> menghasilkan graf dengan tepat satu siklus, sebab <m>\bfT</m> semula memiliki lintasan tunggal dari <m>x</m> ke <m>y</m>. Penghapusan <m>f</m> (yang dapat berupa sisi <m>f_i</m> mana pun pada lintasan tersebut, sebagaimana dinyatakan dalam proposisi) memutus siklus ini. Dengan demikian, <m>\bfT_i</m> merupakan subgraf terhubung dan asiklik dari <m>\bfG</m> dengan <m>n-1+1-1=n-1</m> sisi, sehingga merupakan pohon rentang.
+                </p>
+                <figure xml:id="fig_graphalgorithms_exchange">
+                    <caption>Prinsip pertukaran</caption>
+                    <sidebyside widths="48% 48%">
+                        <image width="95%" source="exchange1"><description><p>Prinsip pertukaran</p>
+                    </description></image>
+                        <image width="95%" source="exchange2"><description><p>Prinsip pertukaran</p>
+                    </description></image>
+                    </sidebyside>
+                </figure>
+            </proof>
+        </proposition>
+        <p>Untuk kedua algoritma yang kita kembangkan, argumen yang menunjukkan optimalitas algoritma bertumpu pada lema teknis berikut. Untuk menghindari kasus sepele, kita mengasumsikan <m>n\ge3</m>.
+        </p>
+
+        <lemma xml:id="lem_graphalgorithms_tech">
+            <statement>
+                <p>Misalkan <m>\bfF</m> suatu hutan rentang dari <m>\bfG</m> dan <m>C</m> suatu komponen dari <m>\bfF</m>. Misalkan pula <m>e=xy</m> suatu sisi berbobot minimum di antara semua sisi dengan satu titik ujung dalam <m>C</m> dan titik ujung lainnya di luar <m>C</m>. Maka, di antara semua pohon rentang dari <m>\bfG</m> yang memuat hutan <m>\bfF</m>, terdapat satu pohon berbobot minimum yang memuat sisi <m>e</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Ambil sebarang pohon rentang <m>\bfT=(V,S)</m> yang berbobot minimum di antara semua pohon rentang yang memuat hutan <m>\bfF</m>, dan andaikan bahwa <m>e=xy</m> bukan sisi dalam <m>\bfT</m>. (Jika sisi itu berada dalam <m>\bfT</m>, pembuktian selesai.) Misalkan <m>P=(x_0,x_1,x_2,\dots,x_t)</m> lintasan tunggal dalam <m>\bfT</m> yang memenuhi (a)<nbsp/><m>x=x_0</m>; (b)<nbsp/><m>y=x_t</m>; dan (c)<nbsp/><m>x_ix_{i+1}\in S</m> untuk setiap <m>i=0,1,2,\dots,t-1</m>. Tanpa mengurangi keumuman, kita dapat mengasumsikan bahwa <m>x=x_0</m> merupakan simpul dalam <m>C</m>, sedangkan <m>y=x_t</m> tidak termasuk dalam <m>C</m>. Maka terdapat bilangan bulat nonnegatif terkecil <m>i</m> sedemikian sehingga <m>x_i</m> berada dalam <m>C</m> dan <m>x_{i+1}</m> tidak berada dalam <m>C</m>. Akibatnya, <m>x_j</m> berada dalam <m>C</m> untuk semua <m>j</m> dengan <m>0\le j\le i</m>.
+                </p>
+
+                <p>Misalkan <m>f=x_ix_{i+1}</m>. Sisi <m>e</m> memiliki bobot minimum di antara semua sisi dengan satu titik ujung dalam <m>C</m> dan titik ujung lainnya di luar <m>C</m>, sehingga <m>w(e)\le w(f)</m>. Sekarang misalkan <m>\bfT_i</m> pohon yang diperoleh dengan mempertukarkan sisi <m>f</m> dengan sisi<nbsp/><m>e</m>. Dengan demikian, <m>w(\bfT_i) = w(\bfT) - w(f) +w(e)\le w(\bfT)</m>. Selain itu, <m>\bfT_i</m> memuat hutan rentang <m>\bfF</m> serta sisi<nbsp/><m>e</m>. Jadi, inilah pohon rentang berbobot minimum yang kita cari.
+                </p>
+            </proof>
+        </lemma>
+        <remark>
+            <p>Meskipun intuisi kombinatorial Bob telah meningkat selama perkuliahan, ia belum sepenuhnya memahami mengapa kita memerlukan algoritma khusus untuk mencari pohon rentang berbobot minimum. Menurutnya, jumlah pohon rentang tentu tidak mungkin terlalu banyak, jadi ia ingin menuliskan semuanya saja. Alice mengeluh karena menduga Bob pasti tidak hadir ketika materi pada <xref ref="s_graphs_counting-trees"/> dibahas. Dalam bagian tersebut, kita mempelajari bahwa graf dengan <m>n</m> simpul dapat memiliki sebanyak <m>n^{n-2}</m> pohon rentang (atau, mengerikannya, mungkin pengajar tidak memasukkannya ke dalam silabus). Bagaimanapun, pendekatan menyeluruh ini sudah tidak dapat digunakan ketika <m>n = 20</m>. Dave bergumam tentang bersikap rakus: tambahkan sisi-sisi teringan satu demi satu, tetapi jangan pernah menambahkan sisi yang akan membentuk siklus. Zori ingat bahwa strategi serupa berhasil untuk mencari tinggi suatu poset, tetapi ia khawatir akan situasi buruk seperti yang kita jumpai ketika menggunakan FirstFit untuk mewarnai graf. Alice setuju bahwa rekam jejak algoritma rakus tidak konsisten, tetapi ia menduga <xref ref="lem_graphalgorithms_tech"/> cukup untuk menjamin keberhasilan strategi tersebut di sini.
+            </p>
+        </remark>
+
+    </subsection>
+
+
+
+    <subsection>
+        <title>Algoritma Kruskal</title>
+        <p>Dalam bagian ini, kita mengembangkan salah satu algoritma paling terkenal untuk mencari pohon rentang berbobot minimum. Algoritma ini dikenal sebagai <term>Algoritma Kruskal</term>, meskipun sebagian orang lebih menyukai nama deskriptif <em>Hindari Siklus</em> karena cara algoritma tersebut membangun pohon rentang.
+        </p>
+
+        <p>Untuk memulai algoritma Kruskal, kita mengurutkan sisi-sisi menurut bobotnya. Lebih tepatnya, misalkan <m>m</m> menyatakan banyaknya sisi dalam <m>\GVE</m>. Beri label sisi-sisi itu sebagai <m>e_1,e_2,e_3,\dots,e_m</m> sedemikian sehingga <m>w(e_1)\le w(e_2)\le \dots \le w(e_m)</m>. Langkah ini dapat dilakukan dengan salah satu dari sekian banyak algoritma pengurutan yang efisien.
+        </p>
+
+        <p>Setelah sisi-sisi diurutkan, algoritma Kruskal menjalankan langkah inisialisasi, lalu membangun pohon rentang <m>\bfT=(V,S)</m> secara induktif:
+        </p>
+
+        <algorithm xml:id="alg_kruskal">
+            <title>Algoritma Kruskal</title>
+            <idx><h>pohon rentang berbobot minimum</h><h>algoritma Kruskal untuk</h></idx>
+            <idx><h>algoritma Kruskal</h></idx>
+        <statement>
+            <p>
+               <dl>
+                    <li>
+                    <title>Inisialisasi.</title><p>Tetapkan <m>S=\emptyset</m> dan <m>i=0</m>.  </p></li>
+                    
+                    <li>
+                        <title>Langkah Induktif.</title>
+                        <p>Selama <m>|S| \lt n-1</m>, misalkan <m>j</m> bilangan bulat nonnegatif terkecil sedemikian sehingga <m>j &gt; i</m> dan tidak terdapat siklus dalam <m>S\cup\{e_j\}</m>. Kemudian (dengan notasi kode semu) tetapkan
+                        <md>
+                            i = j\quad\text{dan} \quad S= S\cup\{e_j\}.
+                        </md>
+                        </p>
+                    </li>
+               </dl>
+            </p>
+        </statement>
+        </algorithm>
+
+        <p>Kebenaran Algoritma Kruskal mengikuti suatu argumen induktif. Mula-mula, himpunan <m>S</m> diinisialisasi sebagai himpunan kosong, sehingga tentu terdapat pohon rentang berbobot minimum yang memuat semua sisi dalam <m>S</m>. Sekarang andaikan bahwa, untuk suatu <m>i</m> dengan <m>0\le i \lt n</m>, berlaku <m>|S|=i</m> dan terdapat pohon rentang berbobot minimum yang memuat semua sisi dalam <m>S</m>. Misalkan <m>\bfF</m> hutan rentang yang ditentukan oleh sisi-sisi dalam <m>S</m>, dan misalkan <m>C_1, C_2,\dots,C_s</m> komponen-komponen dari <m>\bfF</m>. Untuk setiap <m>k=1,2,\dots,s</m>, misalkan <m>f_k</m> suatu sisi berbobot minimum dengan satu titik ujung dalam <m>C_k</m> dan titik ujung lainnya di luar <m>C_k</m>. Sisi <m>e</m> yang ditambahkan ke <m>S</m> oleh Algoritma Kruskal adalah sisi berbobot minimum di antara sisi-sisi dalam <m>\{f_1,f_2,\dots,f_s\}</m>. Dengan menerapkan <xref ref="lem_graphalgorithms_tech"/> dan hipotesis induksi, kita mengetahui bahwa masih terdapat pohon rentang berbobot minimum dari <m>\bfG</m> yang memuat semua sisi dalam <m>S\cup\{e\}</m>.
+        </p>
+        <example>
+            <title>Algoritma Kruskal</title>
+            <sidebyside widths="78% 17%">
+            <p>Mari kita lihat cara kerja algoritma Kruskal pada graf berbobot di <xref ref="fig_graphalgorithms_spantreegraph"/>. Pertama-tama algoritma mengurutkan semua sisi menurut bobotnya. Kita tidak akan menuliskan kembali daftar itu karena tidak semuanya diperlukan. Sisi berbobot terkecil adalah <m>ck</m>, dengan bobot <m>23</m>. Algoritma kemudian terus menambahkan sisi berbobot terkecil, yaitu <m>ag</m>, <m>fg</m>, <m>fi</m>, <m>fj</m>, dan <m>bj</m>. Namun, setelah itu sisi berbobot terkecil berikutnya adalah <m>fb</m>, dengan bobot <m>38</m>. Sisi ini tidak dapat ditambahkan karena akan menjadikan <m>fjb</m> suatu siklus. Karena itu, algoritma melewatinya dan menambahkan <m>bc</m>. Sisi <m>ai</m> diperiksa berikutnya, tetapi sisi ini juga akan membentuk siklus sehingga dikesampingkan. Kemudian <m>em</m> ditambahkan, disusul <m>dl</m>. Sekarang terdapat <em>dua</em> sisi berbobot <m>56</m> yang harus dipertimbangkan: <m>al</m> dan <m>dj</m>. Algoritma pengurutan kita telah menempatkan salah satunya lebih dahulu; misalkan sisi itu adalah <m>dj</m>. Setelah <m>dj</m> ditambahkan, kita tidak dapat menambahkan <m>al</m> karena <m>agfjdl</m> akan membentuk siklus. Sisi <m>dk</m> dipertimbangkan berikutnya, tetapi sisi itu juga akan membentuk siklus. Sebaliknya, <m>ek</m> dapat ditambahkan. Selanjutnya sisi <m>km</m> dan <m>dm</m> dilewati. Terakhir, sisi <m>ch</m> ditambahkan sebagai sisi kedua belas sekaligus sisi terakhir bagi pohon rentang dengan <m>13</m> simpul ini. Daftar lengkap sisi yang ditambahkan (menurut urutan) ditampilkan di sebelah kanan. Bobot total pohon rentang ini adalah <m>504</m>.
+            </p>
+            <pre>c k 23
+a g 25
+f g 26
+f i 29
+f j 30
+b j 34
+b c 39
+e m 49
+d l 55
+d j 56
+e k 59
+c h 79</pre>
+            </sidebyside>
+        </example>
+
+    </subsection>
+
+
+    <subsection xml:id="alg_prim">
+        <title>Algoritma Prim</title>
+        <p>Sekarang kita mengembangkan <term>Algoritma Prim</term> untuk mencari pohon rentang berbobot minimum. Algoritma ini juga dikenal dengan nama yang lebih deskriptif: <em>Bangun Pohon</em>. Kita mulai dengan memilih simpul akar <m>r</m>. Sekali lagi, algoritma menjalankan langkah inisialisasi yang disusul serangkaian langkah induktif.
+        </p>
+        <algorithm>
+            <title>Algoritma Prim</title>
+            <idx><h>pohon rentang berbobot minimum</h><h>algoritma Prim untuk</h></idx>
+            <idx><h>algoritma Prim</h></idx>
+        <statement>
+            <p>
+               <dl>
+                    <li>
+                        <title>Inisialisasi.</title>
+                        <p>Tetapkan <m>W=\{r\}</m> dan <m>S=\emptyset</m>.
+                        </p>
+                    </li>
+                    <li>
+                        <title>Langkah Induktif.</title>
+                        <p>Selama <m>|W| \lt n</m>, misalkan <m>e</m> suatu sisi berbobot minimum di antara semua sisi dengan satu titik ujung dalam <m>W</m> dan titik ujung lainnya di luar <m>W</m>. Jika <m>e=xy</m>, <m>x\in W</m>, dan <m>y\not\in W</m>, perbarui <m>W</m> dan <m>S</m> dengan menetapkan (dalam notasi kode semu)
+                        <md>
+                            W = W\cup\{y\}\quad\text{dan} \quad S = S\cup\{e\}.
+                        </md>
+                        </p>
+                    </li>
+               </dl>
+            </p>
+        </statement>
+        </algorithm>
+        <p>Kebenaran algoritma Prim langsung mengikuti <xref ref="lem_graphalgorithms_tech"/>.
+        </p>
+        <example>
+            <title>Algoritma Prim</title>
+            <sidebyside widths="78% 17%">
+            <p>Mari kita lihat cara kerja algoritma Prim pada graf berbobot di <xref ref="fig_graphalgorithms_spantreegraph"/>. Kita mulai dengan simpul <m>a</m> sebagai simpul akar. Sisi teringan yang menghubungkan <m>a</m> (satu-satunya simpul yang sejauh ini berada dalam pohon) dengan bagian graf lainnya adalah <m>ag</m>. Berikutnya, <m>fg</m> ditambahkan. Setelah itu ditambahkan <m>fi</m>, <m>fj</m>, <m>bj</m>, dan <m>bc</m>. Selanjutnya, algoritma mengenali <m>ck</m> sebagai sisi teringan yang menghubungkan <m>\{a,g,i,f,j,b,c\}</m> dengan simpul-simpul yang tersisa. Perhatikan bahwa sisi yang sama baru ditemukan jauh lebih lambat daripada oleh algoritma Kruskal. Algoritma kemudian menentukan bahwa <m>al</m> dan <m>jd</m>, yang keduanya berbobot <m>56</m>, merupakan sisi-sisi teringan yang menghubungkan simpul dalam pohon dengan simpul di luar pohon. Algoritma memilih salah satunya secara sebarang; misalkan yang dipilih adalah <m>al</m>. Berikutnya algoritma menemukan <m>dl</m>, kemudian <m>ek</m>, lalu <m>em</m>. Sisi terakhir yang ditambahkan adalah <m>ch</m>. Daftar lengkap sisi yang ditambahkan (menurut urutan) ditampilkan di sebelah kanan. Bobot total pohon rentang ini adalah <m>504</m>. Tidak mengherankan, bobot ini sama dengan yang kita peroleh menggunakan algoritma Kruskal. Akan tetapi, perhatikan bahwa pohon rentang yang ditemukan berbeda karena pohon ini memuat <m>al</m>, bukan <m>dj</m>. Tentu saja hal ini tidak menjadi masalah, sebab dalam kedua kasus dibuat pilihan sebarang di antara dua sisi berbobot sama.
+            </p>
+            <pre>a g 25
+f g 26
+f i 29
+f j 30
+b j 34
+b c 39
+c k 23
+a l 56
+d l 55
+e k 59
+e m 49
+c h 79</pre>
+            </sidebyside>
+        </example>
+    </subsection>
+
+
+    <subsection>
+        <title>Catatan tentang Efisiensi</title>
+        <p>Implementasi algoritma Kruskal tampaknya mengharuskan sisi-sisi diurutkan. Jika graf memiliki <m>n</m> simpul dan <m>m</m> sisi, pengurutan saja memerlukan <m>m\log m</m> operasi. Namun, setelah pengurutan selesai, prosesnya hanya memerlukan <m>n-1</m> langkah<mdash/>asalkan kita terus mencatat komponen-komponen ketika hutan rentang bertumbuh. Bagaimanapun, mudah dilihat bahwa paling banyak diperlukan <m>O(n^2\log n)</m> operasi.
+        </p>
+
+        <p>Di sisi lain, implementasi algoritma Prim mengharuskan program menyimpan informasi sisi-sisi yang bersisian dengan setiap simpul secara efisien dan selalu dapat mengenali sisi berbobot terkecil dalam suatu subhimpunan sisi tersebut. Dalam ilmu komputer, struktur data yang memungkinkan tugas ini dilakukan disebut <term>heap</term>.
+        </p>
+    </subsection>
+
+</section>

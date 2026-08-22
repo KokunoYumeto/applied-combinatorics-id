@@ -1,0 +1,934 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ws-posets" component="posets">
+  
+    <!-- </page> -->
+     
+  <title>Partially Ordered Sets</title>
+
+  <worksheet xml:id="ws-posets-antichain-partitioning" component="posets-partioning">
+    <title>Posets and Graphs; Antichain Partitioning</title>
+    <page>
+      <activity>
+          <task>
+            <statement>
+              <p>
+                Classify each of the terms below as a poset term or a graph theory term. You will have six terms of each type.
+                <ul cols="4">
+                  <li>Antichain</li>
+                  <li>Chain</li>
+                  <li>Chromatic number</li>
+                  <li>Clique</li>
+                  <li>Clique number</li>
+                  <li>Height</li>
+                  <li>Independent set</li>
+                  <li>Partition into disjoint antichains</li>
+                  <li>Partition into disjoint chains</li>
+                  <li>Partition into disjoint cliques</li>
+                  <li>Proper coloring</li>
+                  <li>Width</li>
+                </ul>
+              </p>
+            </statement>
+            <solution component="posets-partioning-solns">
+              <p>
+                The poset terms are:
+                <ul cols="3">
+                  <li>Antichain</li>
+                  <li>Chain</li>
+                  <li>Height</li>
+                  <li>Partition into disjoint antichains</li>
+                  <li>Partition into disjoint chains</li>
+                  <li>Width</li>
+                </ul>
+              </p>
+              <p>
+                The graph theory terms are:
+                <ul cols="3">
+                  <li>Chromatic number</li>
+                  <li>Clique</li>
+                  <li>Clique number</li>
+                  <li>Independent set</li>
+                  <li>Partition into disjoint cliques</li>
+                  <li>Proper coloring</li>
+                </ul>
+              </p>
+            </solution>
+          </task>
+          <task>
+            <statement>
+              <p>
+                Write the six poset terms from the previous part on separate rows in the Poset column of the table below. Place each of the six graph theory terms into <em>both</em> the Comparability Graph column and the Incomparability Graph column, choosing the row in which a term is placed so that the graph term for that type of graph corresponds to the poset term in that row. <alert>You will have one empty cell in each of the graph columns and one cell in each graph column will contain two graph theory terms! </alert>
+              </p>
+              <tabular>
+                <col right="minor" width="33%"/>
+                <col right="minor" width="33%"/>
+                <col width="33%"/>
+                <row bottom="minor" header="yes">
+                  <cell halign="center">Poset</cell>
+                  <cell halign="center">Comparability Graph</cell>
+                  <cell halign="center">Inomparability Graph</cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row bottom="minor">
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+                <row>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                  <cell><m>\phantom{\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad\quad}</m></cell>
+                </row>
+              </tabular>
+            </statement>
+            <solution component="posets-partioning-solns">
+              <tabular>
+                <col right="minor" width="33%"/>
+                <col right="minor" width="33%"/>
+                <col width="33%"/>
+                <row bottom="minor" header="yes">
+                  <cell halign="center">Poset</cell>
+                  <cell halign="center">Comparability Graph</cell>
+                  <cell halign="center">Inomparability Graph</cell>
+                </row>
+                <row bottom="minor">
+                  <cell>Antichain</cell>
+                  <cell>Independent set</cell>
+                  <cell>Clique</cell>
+                </row>
+                <row bottom="minor">
+                  <cell>Chain</cell>
+                  <cell>Clique</cell>
+                  <cell>Independent set</cell>
+                </row>
+                <row bottom="minor">
+                  <cell>Height</cell>
+                  <cell>Clique number / Chromatic number</cell>
+                  <cell></cell>
+                </row>
+                <row bottom="minor">
+                  <cell>Partition into disjoint antichains</cell>
+                  <cell>Proper coloring</cell>
+                  <cell>Partition into disjoint cliques</cell>
+                </row>
+                <row bottom="minor">
+                  <cell>Partition into disjoint chains</cell>
+                  <cell>Partition into disjoint cliques</cell>
+                  <cell>Proper coloring</cell>
+                </row>
+                <row bottom="minor">
+                  <cell>Width</cell>
+                  <cell></cell>
+                  <cell>Clique number / Chromatic number</cell>
+                </row>
+              </tabular>
+            </solution>
+          </task>
+        </activity>
+    </page>
+    <page>
+    <activity>
+      <task>
+        <statement>
+          <p>
+            Use the algorithm to find the height <m>h</m>, a partition into <m>h</m> antichains, and a maximum chain for each of the posets below.
+          </p>
+        </statement>
+        <solution component="posets-partioning-solns">
+          <p>
+            For the poset on the left, the height is <m>4</m>. A partition into <m>4</m> antichains is given by 
+            <md>
+              <mrow>A_1 \amp= \set{6,7,10}</mrow>
+              <mrow>A_2 \amp= \set{2,4,8}</mrow>
+              <mrow>A_3 \amp= \set{1,5}</mrow>
+              <mrow>A_4 \amp= \set{3,9}</mrow>
+            </md>
+            and a maximum chain is <m>\set{9,5,4,6}</m>.
+          </p>
+          <p>
+            For the poset on the right, the height is <m>9</m>. A partition into <m>9</m> antichains is given by
+            <md>
+              <mrow> A_1 \amp= \set{7,18,19,25}</mrow>
+              <mrow> A_2 \amp= \set{3,10,16,17}</mrow>
+              <mrow> A_3 \amp= \set{2,12,20,24}</mrow>
+              <mrow> A_4 \amp= \set{14,21}</mrow>
+              <mrow> A_5 \amp= \set{1,8,9}</mrow>
+              <mrow> A_6 \amp= \set{13,11,22}</mrow>
+              <mrow> A_7 \amp= \set{4,15}</mrow>
+              <mrow> A_8 \amp= \set{5,23}</mrow>
+              <mrow> A_9 \amp= \set{6}</mrow>
+            </md>
+            and a maximum chain is <m>\set{6,5,15,22,9,14,24,16,25}</m>.
+          </p>
+        </solution>
+      </task>
+      <task>
+        <statement>
+          <p>
+            What can you say about the width of these posets? In particular, is one of the antichains in your antichain partition maximum?
+          </p>
+        </statement>
+        <solution component="posets-partioning-solns">
+          <p>
+            We will not learn an algorithm for chain partitioning in this class, as it requires material from Chapters 13 and 14. However, finding the width, a maximum antichain, and a partition into disjoint chains for the poset on the left is reasonable as homework or a test question. Will give the solution for the poset on the right, but it's much larger than would be reasonable for a test question.
+          </p>
+          <p>
+            The width of the poset on the left is <m>3</m>. A maximum antichain is <m>\set{2,4,8}</m>. A partition into disjoint chains is given by
+            <md>
+              <mrow> C_1 \amp=\set{7,2,1,3} </mrow>
+              <mrow> C_2 \amp=\set{10,8} </mrow>
+              <mrow> C_3 \amp=\set{6,4,5,9} </mrow>
+            </md>.
+          </p>
+          <p>
+            The width of the poset on the right is <m>7</m>, which is much larger than any antichain found by the height algorithm! A maximum antichain is <m>\set{10,11,1,15,2,8,12}</m>. A partition into disjoint chains is given by
+            <md>
+              <mrow> C_1 \amp=\set{25,16,24,14,8} </mrow>
+              <mrow> C_2 \amp=\set{18,3,2,13} </mrow>
+              <mrow> C_3 \amp=\set{19,17,12,6} </mrow>
+              <mrow> C_4 \amp=\set{20,21,22,15,5} </mrow>
+              <mrow> C_5 \amp=\set{9,11} </mrow>
+              <mrow> C_6 \amp=\set{1,4} </mrow>
+              <mrow> C_7 \amp=\set{7,10,23} </mrow>
+            </md>.
+          </p>
+        </solution>
+      </task> 
+    </activity>
+    <sidebyside widths="30% 45%">
+      <image width="30%">
+        <description><p>The diagram of a poset with 10 points.</p></description>
+        <prefigure xmlns="https://prefigure.org" label="poset-antichain-part-10pts">
+          <diagram dimensions="(200,300)" margins="15">
+            <coordinates bbox="(0,0,2,4)">
+              <network node-fill="#ccc" labels="yes" scale="0.8">
+                <node at="1" p="(1.7,3)" edges="[2,3,10]"/>
+                <node at="2" p="(0.1,1.5)" edges="[7]"/>
+                <node at="3" p="(1.5,3.85)" edges="[5]"/>
+                <node at="4" p="(1.9,2.6)" edges="[5,6,7]"/>
+                <node at="5" p="(1,3)" edges="[9]"/>
+                <node at="6" p="(0.75,0.3)"/>
+                <node at="7" p="(1.75,0.3)"/>
+                <node at="8" p="(0.15,2.4)" edges="[9,10]"/>
+                <node at="9" p="(0.6,3.8)"/>
+                <node at="10" p="(1,1.8)"/>
+              </network>
+            </coordinates>
+          </diagram>        
+        </prefigure>
+      </image>
+      <image width="45%">
+        <description><p>The diagram of a poset with 25 points.</p></description>
+        <prefigure xmlns="https://prefigure.org" label="poset-antichain-part-25pts">
+          <diagram dimensions="(300,600)" margins="15">
+            <coordinates bbox="(0,0,4,7)">
+              <network node-fill="#ccc" labels="yes" scale="0.8">
+                <node at="1" p="(2,5.5)" edges="[4,7,14,23]"/>
+                <node at="2" p="(0.05,4.2)" edges="[3,13]"/>
+                <node at="3" p="(2.5,2)" edges="[9,18,25]"/>
+                <node at="4" p="(0.8,6.8)" edges="[10,13]"/>
+                <node at="5" p="(3.5,5.7)" edges="[6,7,15]"/>
+                <node at="6" p="(3.8,6.7)" edges="[12]"/>
+                <node at="7" p="(1.9,4.5)" edges="[10,11]"/>
+                <node at="8" p="(0.8,4.1)" edges="[13,14]"/>
+                <node at="9" p="(1.7,3.5)" edges="[11,13,14,22,17]"/>
+                <node at="10" p="(0.3,6)" edges="[23]"/>
+                <node at="11" p="(1.42,5.64)" edges="[]"/>
+                <node at="12" p="(3.8,3.5)" edges="[17]"/>
+                <node at="13" p="(0.7,4.9)" edges="[]"/>
+                <node at="14" p="(0.65,3.1)" edges="[18,24]"/>
+                <node at="15" p="(3.5,4.7)" edges="[22,23]"/>
+                <node at="16" p="(0.75,1.2)" edges="[24,25]"/>
+                <node at="17" p="(3.5,1.3)" edges="[19,20]"/>
+                <node at="18" p="(2,0.55)" edges="[20]"/>
+                <node at="19" p="(3.8,0.35)" edges="[24]"/>
+                <node at="20" p="(3.3,2.3)" edges="[21]"/>
+                <node at="21" p="(3.2,3.3)" edges="[22,24]"/>
+                <node at="22" p="(3.3,4)" edges="[]"/>
+                <node at="23" p="(2.5,6.8)" edges="[]"/>
+                <node at="24" p="(.6,2.1)" edges="[]"/>
+                <node at="25" p="(0.55,0.2)" edges="[]"/>
+              </network>
+            </coordinates>
+          </diagram>        
+        </prefigure>
+      </image>
+    </sidebyside>
+    </page>
+  </worksheet>
+  <worksheet xml:id="ws-posets-subset-lattice" component="posets-subset">
+    <title>Width of the Subset Lattice</title>
+    <!-- <page> -->
+      <exercise workspace="1.5in">
+        <statement>
+          <p>
+            Below are diagrams for <m>\mbf{2}^{4}</m> and <m>\mbf{2}^{5}</m>.
+            (Without any of the points labeled with corresponding sets.) In the space provided, draw <m>\mbf{2}^{1}</m>, <m>\mbf{2}^{2}</m>, and <m>\mbf{2}^{3}</m>.
+            (Label the sets, too.
+            You can just write <q><m>12</m></q> instead of <q><m>\{1,2\}</m></q>.) Label a few of the points in the diagrams provided for <m>\mbf{2}^{4}</m> and <m>\mbf{2}^{5}</m> to make sure you understand how to do it.
+          </p>
+        </statement>
+      </exercise>
+      <image width="40%">
+        <description>
+          <p>The unlabeled lattice of subsets of <m>\set{1,2,3,4}</m>. The points are displayed in five layers. The bottom layer has a single point. The second layer from the bottom contains four points. The third layer from the bottom contains six points. The fourth layer from the bottom contains four points. The top layer contains a single point.</p>
+        </description>
+        <prefigure xmlns="https://prefigure.org" label="subset-lattice-4">
+          <diagram dimensions="(300,240)" margins="15">
+            <definition>graph={0:[1,2,3,4],1:[12,13,14],2:[12,23,24],3:[13,23,34],
+              4:[14,24,34],12:[123,124],23:[123,234],24:[124,234],34:[134,234],13:[123,134],
+              14:[124,134],
+              1234:[123,124,134,234]}</definition>
+              <coordinates bbox="(1,1,6,5)">
+                <network directed="no" graph="graph" arrows="end" scale="0.8" node-fill="#ccc" node-stroke="black" labels="no">
+                <node at="0" p="(2,1)"/>
+                <node at="1" p="(1,2)"/>
+                <node at="2" p="(2,2)"/>
+                <node at="3" p="(3,2)"/>
+                <node at="4" p="(5,2)"/>
+                <node at="12" p="(1,3)"/>
+                <node at="13" p="(2,3)"/>
+                <node at="14" p="(4,3)"/>
+                <node at="23" p="(3,3)"/>
+                <node at="24" p="(5,3)"/>
+                <node at="34" p="(6,3)"/>
+                <node at="123" p="(2,4)"/>
+                <node at="124" p="(4,4)"/>
+                <node at="134" p="(5,4)"/>
+                <node at="234" p="(6,4)"/>
+                <node at="1234" p="(5,5)"/>
+                
+              </network>
+            </coordinates>
+          </diagram>
+        </prefigure>
+      </image>
+      <image width="80%">
+        <description>
+          <p>The unlabeled lattice of subsets of <m>\set{1,2,3,4,5}</m>. The points are displayed in five layers. The bottom layer has a single point. The second layer from the bottom contains five points. The third and fourth layers from the bottom each contain 10 points. The fifth layer from the bottom contains five points. The top layer contains a single point.</p>  
+        </description>
+        <prefigure xmlns="https://prefigure.org" label="subset-lattice-5">
+          <diagram dimensions="(600,280)" margins="15">
+            <definition>graph={0:[1,2,3,4,5],1:[12,13,14,15],2:[12,23,24,25],3:[13,23,34,35],
+              4:[14,24,34,45],12:[123,124,125],23:[123,234,235],24:[124,234,245],34:[134,234,345],
+              13:[123,134,135],
+              14:[124,134,145],
+              1234:[123,124,134,234,12345],
+              123:[1235],124:[1245],234:[2345],134:[1345],
+              5:[15,25,35,45],15:[125,135,145],25:[125,235,245],35:[135,235,345],
+              45:[145,245,345],125:[1235,1245],235:[1235,2345],245:[1245,2345],345:[1345,2345],
+              135:[1235,1345],
+              145:[1245,1345],
+              12345:[1235,1245,1345,2345]}</definition>
+              <coordinates bbox="(1,1,12,6)">
+                <network directed="no" graph="graph" arrows="end" scale="0.8" node-fill="#ccc" node-stroke="black" labels="no">
+                <node at="0" p="(2,1)"/>
+                <node at="1" p="(1,2)"/>
+                <node at="2" p="(2,2)"/>
+                <node at="3" p="(3,2)"/>
+                <node at="4" p="(5,2)"/>
+                <node at="12" p="(1,3)"/>
+                <node at="13" p="(2,3)"/>
+                <node at="14" p="(4,3)"/>
+                <node at="23" p="(3,3)"/>
+                <node at="24" p="(5,3)"/>
+                <node at="34" p="(6,3)"/>
+                <node at="123" p="(2,4)"/>
+                <node at="124" p="(4,4)"/>
+                <node at="134" p="(5,4)"/>
+                <node at="234" p="(6,4)"/>
+                <node at="1234" p="(5,5)"/>
+                <node at="5" p="(8,2)"/>
+                <node at="15" p="(7,3)"/>
+                <node at="25" p="(8,3)"/>
+                <node at="35" p="(9,3)"/>
+                <node at="45" p="(11,3)"/>
+                <node at="125" p="(7,4)"/>
+                <node at="135" p="(8,4)"/>
+                <node at="145" p="(10,4)"/>
+                <node at="235" p="(9,4)"/>
+                <node at="245" p="(11,4)"/>
+                <node at="345" p="(12,4)"/>
+                <node at="1235" p="(8,5)"/>
+                <node at="1245" p="(10,5)"/>
+                <node at="1345" p="(11,5)"/>
+                <node at="2345" p="(12,5)"/>
+                <node at="12345" p="(11,6)"/>
+              </network>
+            </coordinates>
+          </diagram>
+        </prefigure>
+      </image>
+      <exercise>
+        <introduction>
+          <p>
+            Let's investigate the width of the subset lattice.
+          </p>
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              For <m>n=1,2,3,4</m>, find the width <m>w</m> of <m>\mbf{2}^{n}</m> and a partition into <m>w</m> chains.
+            </p>
+              <tabular>
+                <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> 
+                <row bottom="minor">
+                  <cell> <m>n</m> </cell>
+                  <cell>1</cell>
+                  <cell>2</cell>
+                  <cell>3</cell>
+                  <cell>4</cell>
+                </row>
+                <row>
+                  <cell> <m>\width(\mathbf{2}^{n})</m> </cell>
+                  <cell><nbsp/><nbsp/><nbsp/><nbsp/> </cell>
+                  <cell><nbsp/><nbsp/><nbsp/><nbsp/> </cell>
+                  <cell><nbsp/><nbsp/><nbsp/><nbsp/> </cell>
+                  <cell><nbsp/><nbsp/><nbsp/><nbsp/> </cell>
+                </row>
+              </tabular>
+            
+          </statement>
+          <solution component="sublat-width-soln">
+            <tabular>
+              <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center"> </col>
+              <row bottom="minor">
+                <cell> <m>n</m> </cell>
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>3</cell>
+                <cell>4</cell>
+              </row>
+              
+              <row>
+                <cell> <m>\width(\mathbf{2}^{n})</m> </cell>
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>3</cell>
+                <cell>6</cell>
+              </row>
+            </tabular>
+          </solution>
+        </task>
+        <task workspace="1.25cm">
+          <statement>
+            <p>
+              Develop a conjecture about the width of <m>\mbf{2}^{n}</m> for general <m>n</m>.
+            </p>
+          </statement>
+          <solution component="sublat-width-soln">
+            <p>
+              It looks like the width of <m>\mbf{2}^{n}</m> is the largest binomial coefficient <m>C(n,k)</m>, and it appears this happens when <m>k</m> is around <m>n/2</m>.
+            </p>
+          </solution>
+        </task>
+      </exercise>
+      <exercise workspace="0.5in">
+        <statement>
+          <p>
+            To be able to verify our conjecture, let's think about a seemingly unrelated question: counting maximal chains in <m>\mbf{2}^{n}</m>. How many maximal chains are there in <m>\mbf{2}^{n}</m>? 
+          </p>
+        </statement>
+        <hint>
+            <p>
+              Start with <m>n=1,2,3</m>.
+              Think about the number of choices of the <q>next</q> set when forming a maximal chain.
+            </p>
+          </hint>
+        
+          
+          <solution component="sublat-width-soln">
+            <p>
+              There are <m>n!</m> maximal chains, since you can start from the empty set and add elements one-by-one in <m>n!</m> orders until you get to <m>[n]</m>.
+            </p>
+          </solution>
+        </exercise>
+        <exercise>
+          <introduction>
+            <p>
+              Now let's think about maximal chains through particular sets.
+              Look at <m>\mbf{2}^{5}</m>.
+            </p>
+          </introduction>
+          <task workspace="0.5in">
+            <statement>
+              <p>
+                How many maximal chains pass through the set <m>\{2,4\}</m>?
+              </p>
+            </statement>
+            <solution component="sublat-width-soln">
+              <p>
+                <m>2!3! = 12</m> since we have <m>2!</m> in which to add <m>2</m> and <m>4</m> and then <m>3!</m> orders in which to add the remaining three elements.
+              </p>
+            </solution>
+          </task>
+          <task workspace="0.5in">
+            <statement>
+              <p>
+                How many maximal chains pass through the set <m>\{1,3,4\}</m>?
+              </p>
+            </statement>
+            <solution component="sublat-width-soln">
+              <p>
+                Here we have <m>3!</m> ways to add the elements <m>1,3,4</m> and then <m>2!</m> ways to add <m>2</m> and <m>5</m>.
+                Thus, there are <m>3!2!</m> maximal chains through this set.
+              </p>
+            </solution>
+          </task>
+        </exercise>
+          <exercise>
+            <introduction>
+              <p>
+                Now think about <m>\mbf{2}^{n}</m>.
+              </p>
+            </introduction>
+            <task workspace="0.5in">
+              <statement>
+                <p>
+                  How many maximal chains pass through the set <m>\{2,4\}</m>?
+                </p>
+              </statement>
+              <solution component="sublat-width-soln">
+                <p>
+                  <m>2!(n-2)!</m> since we have <m>2!</m> in which to add <m>2</m> and <m>4</m> and then <m>(n-2)!</m> orders in which to add the remaining <m>n-2</m> elements.
+                </p>
+              </solution>
+            </task>
+            <task workspace="0.5in">
+              <statement>
+                <p>
+                  How many maximal chains pass through the set <m>\{1,3,4\}</m>?
+                </p>
+              </statement>
+              <solution component="sublat-width-soln">
+                <p>
+                  Here we have <m>3!</m> ways to add the elements <m>1,3,4</m> and then <m>(n-3)!</m> ways to add the remaining <m>n-3</m> elements.
+                  Thus, there are <m>3!(n-3)!</m> maximal chains through this set.
+                </p>
+              </solution>
+            </task>
+            <task workspace="0.5in">
+              <statement>
+                <p>
+                  How many maximal chains pass through a set <m>S</m> with <m>|S|=k</m>?
+                </p>
+              </statement>
+              <solution component="sublat-width-soln">
+                <p>
+                  Here we have <m>k!</m> ways to add the <m>k</m> elements that are in the set and then <m>(n-k)!</m> ways to add the remaining <m>n-k</m> elements.
+                  Thus, there are <m>k!(n-k)!</m> maximal chains through this set.
+                </p>
+              </solution>
+            </task>
+          </exercise>
+        
+        
+      <exercise workspace="1in">
+        <statement>
+          <p>
+            Now let's see how we can use counting maximal chains through a set to get an upper bound on <m>\width(\mbf{2}^{n})</m>.
+          </p>
+          <p>
+              Fix an antichain <m>\mc{A}=\{S_{1},S_{2},\dots,S_{t}\}</m> with <m>|S_{i}|=s_{i}</m>.
+              How many maximal chains pass through <em>some</em> set in <m>\mc{A}</m>? Express your answer as a summation.
+            </p>
+        </statement>
+          <solution component="sublat-width-soln">
+            <p>
+              We know that the number of maximal chains passing through <m>S_{i}</m> is <m>s_{i}!(n-s_{i})!</m>, so then we add up and get
+              <md>
+                \sum_{i=1}^{t} s_{i}!(n-s_{i})!.
+              </md>
+            </p>
+          </solution>
+        </exercise>
+        <exercise workspace="0.5in">
+          <statement>
+            <p>
+              Can a maximal chain <m>\mc{C}</m> pass through two different sets <m>S_{i},S_{j}\in\mc{A}</m> with <m>i\neq j</m>? What does this tell you that the sum from the previous question must be less than or equal to?
+            </p>
+          </statement>
+          <solution component="sublat-width-soln">
+            <p>
+              <m>n!</m>
+            </p>
+          </solution>
+        </exercise>
+        <exercise workspace="1in">
+          <statement>
+            <p>
+              As a result of the previous step, you should have an inequality with a summation on the small side and a factorial on the big side.
+              Divide the factorial over (and into the summation) so that you have a summation less than or equal to <m>1</m>.
+              Rewrite your summation so that it is a sum of reciprocals of binomial coefficients.
+            </p>
+          </statement>
+          <solution component="sublat-width-soln">
+            <p>
+              <md>
+                \sum_{i=1}^{t} \frac{1}{\binom{n}{s_i}}\leq 1
+              </md>
+            </p>
+          </solution>
+        </exercise>
+        <exercise workspace="1in">
+          <statement>
+            <p>
+              We will establish a formula for <m>w=\width(\mbf{2}^{n})</m> by showing that <m>w</m> is bounded above and below by the same quantity.
+              Explain why <m>w\geq C(n,k)</m> for each possible value of <m>k</m>.
+              What is the largest lower bound that you get for <m>w</m> in this way?
+            </p>
+          </statement>
+          <solution component="sublat-width-soln">
+            <p>
+              Since the <m>k</m>-element subsets of <m>[n]</m> each form an antichain and there are <m>C(n,k)</m> <m>k</m>-element subsets of <m>[n]</m>, we know that <m>w\geq C(n,k)</m> for all <m>k</m>.
+              The largest possible bound is thus the largest binomial coefficient, which happens when <m>k=\lceil n/2\rceil</m>.
+              (Because of the symmetry of binomial coefficients, when <m>n</m> is odd, we have the same value if <m>k = \lfloor n/2\rfloor</m>.)
+            </p>
+          </solution>
+        </exercise>
+        <exercise workspace="1in">
+          <statement>
+            <p>
+              Let us now return to the inequality involving a summation and <m>1</m> that you obtained earlier.
+              To find an upper bound for <m>w</m>, we assume that <m>\mc{A}</m> is a maximum antichain so that <m>t = w=\width(\mbf{2}^{n})</m>.
+              Also assume that <m>s_{i} = \lceil n/2\rceil</m> for all <m>i</m>.
+              We can do this since the inequality is true for any antichain.
+              Explain how this lets you eliminate the summation from your inequality and then give an upper bound for <m>\width(\mbf{2}^{n})</m>.
+            </p>
+          </statement>
+          <solution component="sublat-width-soln">
+            <p>
+              When all the terms have the same value, the inequality can be rewritten as
+              <md>
+                \frac{w}{\binom{n}{\left\lceil \frac{n}{2}\right\rceil}}\leq 1,
+              </md>
+              which implies <m>w\leq \binom{n}{\lceil n/2\rceil}</m>.
+              We now have matching upper and lower bounds for the width, since we know there is an antichain with <m>\binom{n}{\lceil n/2\rceil}</m> elements.
+              Thus, this is the width.
+            </p>
+          </solution>
+        </exercise>
+      </worksheet>
+      <worksheet xml:id="ws-posets-intord-draw-diag" component="posets-intord-draw-diag">
+        <title>Interval Representations to Diagrams</title>
+        
+        <page>
+        <activity>
+          <introduction>
+            <p>
+              Below are two collections of intervals. For each, draw the order diagram of the interval order represented by these intervals.
+            </p>
+          </introduction>
+          <task workspace="4cm">
+            <statement>
+              <image width="40%" source="workbook/intrep-draw-diagram-1">
+                <description>
+                  <p>A collection of intervals. The intervals are displayed with a number line that allows identification of the endpoints of the intervals.
+                    <md>
+                      <mrow>a \amp = [6,6]</mrow>
+                      <mrow>b \amp = [6,6]</mrow>
+                      <mrow>c \amp = [1,3]</mrow>
+                      <mrow>d \amp = [5,6]</mrow>
+                      <mrow>e \amp = [1,1]</mrow>
+                      <mrow>f \amp = [4,6]</mrow>
+                      <mrow>g \amp = [4,5]</mrow>
+                      <mrow>h \amp = [2,2]</mrow>
+                      <mrow>i \amp = [3,4]</mrow>
+                      <mrow>j \amp = [2,2]</mrow>
+                    </md>
+                  </p>
+                </description></image>
+            </statement>
+            <solution component="posets-intord-draw-diag-solns">
+              <image>
+                <description>
+                  <p>
+                    The order diagram of the poset whose interval representation was given. Annotations give cover relations for each of the points.
+                  </p>
+                </description>
+                <prefigure xmlns="https://prefigure.org" label="intrep-draw-diagram-1-soln">
+                  <diagram dimensions="(400,300)" margins="15">
+                    <coordinates bbox="(0,0,5,3)">
+                      <definition>labels={1:'a',2:'b',3:'c',4:'d',5:'e',6:'f',7:'g',8:'h',9:'i',10:'j'}</definition>
+                      <network scale="0.9" labels="yes"
+                              node-fill="#ddd" label-dictionary="labels" node-stroke="black">
+                        <node at="1"  p="(3,3)" edges="[]"/>       <!-- a -->
+                        <node at="2"  p="(4,3)" edges="[]"/>       <!-- b -->
+                        <node at="3"  p="(3,0)" edges="[4,6,7]"/>  <!-- c -->
+                        <node at="4"  p="(2,3)" edges="[]"/>       <!-- d -->
+                        <node at="5"  p="(0,0)" edges="[8,10]"/>   <!-- e -->
+                        <node at="6"  p="(5,2)" edges="[]"/>       <!-- f -->
+                        <node at="7"  p="(3,2)" edges="[1,2]"/>    <!-- g -->
+                        <node at="8"  p="(1,1)" edges="[9,7,6]"/>  <!-- h -->
+                        <node at="9"  p="(1,2)" edges="[1,2,4]"/>  <!-- i -->
+                        <node at="10" p="(0,1)" edges="[9,7,6]"/>  <!-- j -->
+                      </network>
+                    </coordinates>
+                    <annotations>
+                      <annotation ref="figure"
+                                  text="The order diagram of an interval order with points labeled by letters from a to j">
+                          <annotation ref="node-1" text="The maximal point a covers points g and i."/>
+                          <annotation ref="node-2" text="The maximal point b covers points g and i."/>
+                          <annotation ref="node-3" text="The minimal point c is covered by points d, g, and f."/>
+                          <annotation ref="node-4" text="The maximal point d covers points c and i."/>
+                          <annotation ref="node-5" text="The minimal point e is covered by points h and j."/>
+                          <annotation ref="node-6" text="The maximal point f covers points c, h, and j."/>
+                          <annotation ref="node-7" text="The point g covers points c, h, and j and is covered by points a and b."/>
+                          <annotation ref="node-8" text="The point h covers point e and is covered by points f, g, and i."/>
+                          <annotation ref="node-9" text="The point i covers points h and j and is covered by points a, b, and d."/>
+                          <annotation ref="node-10" text="The point j covers point e and is covered by points f, g, and i."/>
+                      </annotation>
+                    </annotations>
+                  </diagram>
+                </prefigure>
+              </image>
+            </solution>
+          </task>
+          <task workspace="8cm">
+            <statement>
+              <image width="65%" source="workbook/intrep-draw-diagram-2">
+                <description>
+                  <p>
+                    A collection of intervals labeled with letters from <m>a</m> to <m>l</m>. The intervals are not displayed with a number line. Using <m>\ell(x)</m> and <m>r(x)</m> to denote the left and right endpoints of the interval <m>x</m>, respectively, we have the following (strict) ordering of the endpoints
+                    <md>
+                      \ell(c) \lt \ell(d) \lt \ell(l) \lt r(d) \lt \ell(b)\lt r(b)\lt \ell(i)\lt r(c)\lt r(l)\lt \ell(h)\lt \ell(a)\lt r(h)\lt \ell(g)\lt r(a)\lt \ell(e)\lt r(g)\lt r(i)\lt \ell(f)\lt \ell(j)\lt r(e)\lt \ell(k)\lt r(f)\lt r(k)\lt r(j)
+                    </md>.
+                  </p>
+                  </description>
+                </image>
+            </statement>
+            <solution component="posets-intord-draw-diag-solns">
+              <image>
+                <description>
+                  <p>
+                    The order diagram of the poset whose interval representation was given. Annotations give cover relations for each of the points.
+                  </p>
+                </description>
+                <prefigure xmlns="https://prefigure.org" label="intrep-draw-diagram-2-soln">
+                  <diagram dimensions="(200,300)" margins="15">
+                    <coordinates bbox="(0,0,4,5)">
+                      <definition>labels={1:'a',2:'b',3:'c',4:'d',5:'e',6:'f',7:'g',8:'h',9:'i',10:'j',11:'k',12:'l'}</definition>
+                      <network scale="0.9" labels="yes"
+                              node-fill="#ddd" label-dictionary="labels" node-stroke="black">
+                        <node at="1"  p="(3,2.5)" edges="[5,6,10]"/>       <!-- a -->
+                        <node at="2"  p="(0,1)" edges="[1,8,9]"/>       <!-- b -->
+                        <node at="3"  p="(4,0)" edges="[1,8]"/>  <!-- c -->
+                        <node at="4"  p="(0,0)" edges="[2]"/>       <!-- d -->
+                        <node at="5"  p="(0,4)" edges="[11]"/>   <!-- e -->
+                        <node at="6"  p="(4,4.5)" edges="[]"/>       <!-- f -->
+                        <node at="7"  p="(1.7,3.5)" edges="[6,10,11]"/>    <!-- g -->
+                        <node at="8"  p="(0,2)" edges="[5,7]"/>  <!-- h -->
+                        <node at="9"  p="(1,2)" edges="[6,10,11]"/>  <!-- i -->
+                        <node at="10" p="(1.5,4.5)" edges="[]"/>  <!-- j -->
+                        <node at="11" p="(0,5)" edges="[]"/>  <!-- k -->
+                        <node at="12" p="(2,0)" edges="[1,8]"/>  <!-- l -->
+                      </network>
+                    </coordinates>
+                    <annotations>
+                      <annotation ref="figure"
+                                  text="The order diagram of an interval order with points labeled by letters from a to l.">
+                          <annotation ref="node-1" text="The point a covers points b, c, and l and is covered by points e, f, and j."/>
+                          <annotation ref="node-2" text="The point b covers point d and is covered by points a, h, and i."/>
+                          <annotation ref="node-3" text="The minimal point c is covered by points a and h ."/>
+                          <annotation ref="node-4" text="The minimal point d is covered by point b."/>
+                          <annotation ref="node-5" text="The point e covers points a and h and is covered by point k."/>
+                          <annotation ref="node-6" text="The maximal point f covers points a, h, and i."/>
+                          <annotation ref="node-7" text="The point g covers the point h and is covered by points f, j, and k."/>
+                          <annotation ref="node-8" text="The point h covers point b and is covered by points e and g."/>
+                          <annotation ref="node-9" text="The point i covers point b and is covered by points f, j, and k."/>
+                          <annotation ref="node-10" text="The maximal point j covers points a, g, and i."/>
+                          <annotation ref="node-11" text="The maximal point k covers points e, g, and i."/>
+                          <annotation ref="node-12" text="The minimal point l is covered by points a and h."/>
+                      </annotation>
+                    </annotations>
+                  </diagram>                  
+                </prefigure>
+              </image>
+            </solution>
+          </task>
+        </activity>
+      </page>
+      </worksheet>
+      <worksheet label="posets-intord-findrep" component="posets-intord-findrep">
+      <title>Finding Representations of Interval Orders; First Fit for Chain Partitioning</title>
+      <exercise>
+        <statement>
+          <p>
+            For each of the posets below, determine if the poset is an interval order. If a poset is an interval order, use the algorithm to find a representation.
+          </p>
+          <p>
+            The images are currently provided separately on Canvas.
+          </p>
+        </statement>
+        <solution component="posets-intord-findrep-solns">
+          <p>
+            For the first poset, we have
+            <md>
+              <mrow>D_6 \amp = D(a)=D(b) = \set{i,g,h,j,c,e} </mrow>
+              <mrow>D_5 \amp = D(d) = \set{i,c,h,j,e}</mrow>
+              <mrow>D_4 \amp = D(f)=D(g) = \set{h,c,j,e}</mrow>
+              <mrow>D_3 \amp = D(i) = \set{h,j,e}</mrow>
+              <mrow>D_2 \amp = D(h) = D(j) = \set{e}</mrow>
+              <mrow>D_1 \amp = D(c) = D(e) = \set{}</mrow>
+            </md>
+            and
+            <md>
+              <mrow>U_6 \amp = U(a) = U(b) = U(d) = U(f) = \set{}</mrow>
+              <mrow>U_5 \amp = U(g) = \set{a,b}</mrow>
+              <mrow>U_4 \amp = U(i) = \set{a,d,b}</mrow>
+              <mrow>U_3 \amp = U(c) = \set{d,f,g,a,b}</mrow>
+              <mrow>U_2 \amp = U(h) = U(j) = \set{i,f,g,a,d,b}</mrow>
+              <mrow>U_1 \amp = U(e) = \set{h,i,j,f,g,a,d,b}</mrow>
+            </md>
+            From these, we can put together 
+            <md>
+              <mrow>I(a) \amp = [6,6] \amp I(f)\amp = [4,6]</mrow>
+              <mrow>I(b) \amp = [6,6] \amp I(g)\amp = [4,5]</mrow>
+              <mrow>I(c) \amp = [1,3] \amp I(h)\amp = [2,2]</mrow>
+              <mrow>I(d) \amp = [5,6] \amp I(i)\amp = [3,4]</mrow>
+              <mrow>I(e) \amp = [1,1] \amp I(j)\amp = [2,2]</mrow>
+            </md>.
+          </p>
+          <p>
+            The second poset is not an interval order because the points <m>\set{d,h,g,c}</m> form a <m>\mathbf{2}+\mathbf{2}</m>.
+          </p>
+        </solution>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>
+            Use First Fit to find the width of the interval orders whose interval representations are given below. Also find a partition into as few chains as possible and a maximum antichain.
+          </p>
+        </statement>
+        <solution component="posets-intord-findrep-solns">
+          <p>
+            For the first interval order, First Fit gives us
+            <md>
+              <mrow>C_1 \amp = \set{c,f}</mrow>
+              <mrow>C_2 \amp = \set{e,h,i,d}</mrow>
+              <mrow>C_3 \amp = \set{j,g,a}</mrow>
+              <mrow>C_4 \amp = \set{b}</mrow>
+            </md>
+            The width is thus <m>4</m>, and a maximum antichain is <m>\set{f,d,b,a}</m>.
+          </p>
+          <p>
+            For the second interval order, First Fit gives us
+            <md>
+              <mrow>C_1 \amp = \set{c,h,g,f}</mrow>
+              <mrow>C_2 \amp = \set{d,b,i,j}</mrow>
+              <mrow>C_3 \amp = \set{l,a,e,k}</mrow>
+            </md>
+            The width is thus <m>e</m>, and a maximum antichain is <m>\set{l,d,c}</m>.
+          </p>
+        </solution>
+      </exercise>
+    </worksheet>
+</chapter>

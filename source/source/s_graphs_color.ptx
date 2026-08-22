@@ -1,0 +1,403 @@
+<section xml:id="s_graphs_color">
+  <title>Pewarnaan Graf</title>
+  <introduction>
+    <p>Sekarang mari kita kembali ke pokok bahasan dalam <xref ref="ex_radiostations"/>, yaitu menetapkan frekuensi
+      kepada stasiun radio agar tidak saling mengganggu. Hal pertama yang perlu kita lakukan ialah
+      mengubah peta stasiun radio menjadi graf yang sesuai, yang pada tahap ini semestinya terasa cukup
+      wajar. Kita definisikan graf <m>\GVE</m>, dengan <m>V</m> sebagai himpunan stasiun radio dan <m>xy\in
+      E</m> jika dan hanya jika stasiun radio <m>x</m> dan stasiun radio <m>y</m> berjarak paling jauh <m>200</m>
+      mil satu sama lain. Dengan model ini, kita harus menetapkan frekuensi yang berbeda kepada dua
+      stasiun apabila simpul-simpul yang bersesuaian bertetangga. Hal ini membawa kita ke pokok bahasan
+      berikutnya, yaitu pewarnaan graf. </p>
+
+    <p>Jika <m>\GVE</m> adalah graf dan <m>C</m> adalah himpunan unsur yang disebut <term>warna</term>, suatu <term>pewarnaan
+      tepat</term><idx>
+        <h>pewarnaan</h>
+        <h>tepat</h>
+      </idx> pada <m>\bfG</m> adalah fungsi <m>\phi:V\to C</m> sedemikian sehingga <m>\phi(x)\neq
+      \phi(y)</m> setiap kali <m>xy</m> merupakan sisi di <m>\bfG</m>. Bilangan terkecil <m>t</m> yang membuat <m>\bfG</m>
+      memiliki pewarnaan tepat dengan menggunakan himpunan <m>C</m> yang terdiri atas <m>t</m> warna disebut <term>bilangan
+      kromatik</term><idx>
+        <h>bilangan kromatik</h>
+      </idx> dari <m>\bfG</m> dan dinotasikan dengan <m>\chi(\bfG)</m><notation>
+        <usage>
+          <m>\chi(\bfG)</m>
+        </usage>
+        <description>bilangan kromatik dari graf <m>\bfG</m></description>
+      </notation>. Dalam <xref ref="fig_graphs_chi4"/>, diperlihatkan pewarnaan tepat suatu graf menggunakan <m>5</m> warna. Sekarang kita
+      dapat melihat bahwa masalah penetapan frekuensi radio kita merupakan persoalan yang banyak dipelajari, yaitu menentukan
+      bilangan kromatik graf yang sesuai. </p>
+    <figure xml:id="fig_graphs_chi4">
+      <caption>Pewarnaan tepat menggunakan <m>5</m> warna</caption>
+      <image width="65%" source="chi4"><description><p>Pewarnaan tepat menggunakan <m>5</m> warna</p>
+      </description></image>
+    </figure>
+    <remark xml:id="disc-graphs_color-intro">
+      <p>Semua orang sepakat bahwa graf <m>\bfG</m> dalam <xref ref="fig_graphs_chi4"/> memiliki bilangan
+        kromatik paling besar <m>5</m>. Namun, masih ada sedikit perdebatan mengenai apakah <m>\chi(\bfG)=5</m>.
+        Bob menduga para penulis tidak akan menggunakan lima warna jika tidak diperlukan. Carlos mengatakan
+        bahwa ia senang mereka membahasnya, sebab adanya suatu pewarnaan tepat hanya memberi mereka
+        batas atas bagi <m>\chi(\bfG)</m>. Bob melihat bahwa graf tersebut memiliki sebuah simpul berderajat
+        <m>5</m> dan mengklaim bahwa hal itu pasti berarti <m>\chi(\bfG)=5</m>. Alice mengeluh lalu menggambar
+        graf dengan <m>101</m> simpul, salah satunya berderajat <m>100</m>, tetapi bilangan kromatiknya
+        <m>2</m>. Bob terkejut, tetapi mengakui bahwa Alice benar. Xing bertanya-tanya apakah fakta bahwa
+        graf tersebut tidak memuat <m>\bfK_3</m> berpengaruh terhadap bilangan kromatiknya. Dave sedang
+        terburu-buru pergi ke pusat kebugaran, tetapi ketika hendak keluar ia mengatakan bahwa mereka cukup mudah memperoleh pewarnaan tepat
+        dengan <m>4</m> warna, sehingga <m>\chi(\bfG)\leq 4</m>. Yang lain memutuskan bahwa sudah waktunya melanjutkan membaca. <ul>
+          <li>
+            <p>Graf apa yang digambar Alice hingga mengejutkan Bob?</p>
+          </li>
+          <li>
+            <p>Perubahan apa yang dilakukan Dave terhadap pewarnaan dalam <xref ref="fig_graphs_chi4"/> untuk memperoleh
+        pewarnaan tepat menggunakan empat warna?</p>
+          </li>
+
+        </ul>
+      </p>
+    </remark>
+  </introduction>
+
+
+  <subsection>
+    <title>Graf Bipartit</title>
+    <p>Graf <m>\GVE</m> dengan <m>\chi(\bfG)\le 2</m> disebut <term>graf yang <m>2</m>-dapat diwarnai</term><idx>
+        <h>graf</h>
+        <h><m>2</m>-dapat diwarnai</h>
+      </idx>. Dengan merenungkannya selama beberapa menit, Anda semestinya yakin
+      bahwa untuk <m>n\geq 2</m>, siklus <m>\bfC_{2n}</m> dengan <m>2n</m> simpul merupakan graf yang <m>2</m>-dapat diwarnai.
+      Sebaliknya, <m>\bfC_3\cong \bfK_3</m> jelas tidak <m>2</m>-dapat diwarnai. Lebih jauh lagi,
+      tidak ada siklus ganjil <m>\bfC_{2n+1}</m> untuk <m>n\geq 1</m> yang <m>2</m>-dapat diwarnai. Ternyata,
+      keberadaan siklus ganjil merupakan satu-satunya penghalang bagi suatu graf untuk menjadi <m>2</m>-dapat diwarnai;
+      artinya, graf yang <m>2</m>-dapat diwarnai mudah dikenali, sebagaimana diperlihatkan oleh teorema
+      berikut. </p>
+
+    <theorem xml:id="thm_graphs_bipartite">
+      <statement>
+        <p>Suatu graf <m>2</m>-dapat diwarnai jika dan hanya jika graf tersebut tidak memuat siklus ganjil. </p>
+      </statement>
+
+      <proof>
+
+        <p>Misalkan <m>\GVE</m> adalah graf yang <m>2</m>-dapat diwarnai, dengan fungsi pewarnaannya mempartisi <m>V</m>
+          menjadi <m>A\cup B</m>. Karena tidak ada sisi di antara simpul-simpul pada bagian partisi yang sama,
+          setiap siklus dalam <m>\bfG</m> harus berselang-seling antara simpul di <m>A</m> dan simpul di <m>B</m>.
+          Oleh karena itu, agar siklus tersebut tertutup, banyaknya simpul pada siklus yang berasal dari <m>A</m>
+          harus sama dengan banyaknya yang berasal dari <m>B</m>; akibatnya, panjang siklus tersebut genap.</p>
+
+        <p>Sekarang andaikan <m>\bfG</m> tidak memuat siklus ganjil. Perhatikan bahwa kita boleh mengasumsikan <m>
+          \bfG</m> terhubung, karena setiap komponennya dapat diwarnai secara terpisah. <term>Jarak</term> <m>
+          d(u,v)</m> antara simpul <m>u,v\in V</m> adalah panjang lintasan terpendek dari <m>u</m>
+          ke <m>v</m>, dan tentu saja <m>d(u,u) = 0</m>. Tetapkan sebuah simpul <m>u_0\in V</m> dan definisikan <md>A
+          = \{v\in V\colon d(u_0,v)\text{ is even}\}\qquad\text{and}\qquad B = \{v\in V\colon
+          d(u_0,v)\text{ is odd}\}.</md> Kita mengklaim bahwa mewarnai simpul-simpul di <m>A</m> dengan warna <m>
+          1</m> dan simpul-simpul di <m>B</m> dengan warna <m>2</m> menghasilkan pewarnaan tepat. Andaikan tidak demikian.
+          Maka, tanpa mengurangi keumuman, terdapat simpul <m>x,y\in A</m> sedemikian sehingga <m>xy\in E</m>.
+          Karena <m>x,y\in A</m>, <m>d(u_0,x)</m> dan <m>d(u_0,y)</m> keduanya genap. Misalkan <md>
+          u_0,x_1,x_2,\dots,x_n=x</md> dan <md>u_0,y_1,y_2,\dots,y_m= y</md> merupakan lintasan terpendek dari <m>
+          u_0</m> masing-masing ke <m>x</m> dan <m>y</m>. Jika <m>x_i\neq y_j</m> untuk setiap <m>1\leq
+          i\leq n</m> dan <m>1\leq j\leq m</m>, maka karena <m>m</m> dan <m>n</m> keduanya genap, <md>
+          u_0,x_1,x_2,\dots,x_n=x,y=y_m,y_{m-1},\dots,y_2,y_1,u_0</md> merupakan siklus ganjil dalam <m>\bfG</m>,
+          yang bertentangan dengan asumsi. Jadi, harus ada <m>i,j</m> sedemikian sehingga <m>x_i=y_j</m>, dan kita
+          dapat memilih <m>i,j</m> sebesar mungkin. (Artinya, setelah <m>x_i=y_j</m>, kedua lintasan tersebut tidak
+          berpotongan lagi.) Dengan demikian, <md>x_i,x_{i+1},\dots,x_n = x,y=y_m,y_{m-1},\dots,y_j=x_i</md>
+          merupakan siklus dalam <m>\bfG</m>. Berapa banyak simpul yang terdapat dalam siklus ini? Perhitungan singkat menunjukkan
+          bahwa siklus tersebut memiliki <md>n-(i-1)+m-(j-1)-1=n+m-(i+j)+1</md> simpul. Kita mengetahui bahwa <m>n</m> dan <m>
+          m</m> genap, dan perhatikan bahwa <m>i</m> dan <m>j</m> keduanya genap atau keduanya ganjil,
+          sebab <m>x_i = y_j</m>, sementara simpul-simpul lintasan kita yang berindeks ganjil berada di <m>B</m>
+          dan yang berindeks genap berada di <m>A</m>. Jadi, <m>i+j</m> genap, sehingga <m>
+          n+m-(i+j)+1</m> ganjil, yang menghasilkan kontradiksi.</p>
+      </proof>
+    </theorem>
+    <p>Graf <m>\bfG</m> disebut <term>graf bipartit</term><idx>
+        <h>graf</h>
+        <h>bipartit</h>
+      </idx> jika terdapat partisi himpunan simpul <m>V</m> menjadi dua
+      himpunan <m>A</m> dan <m>B</m> sedemikian sehingga subgraf yang diinduksi oleh <m>A</m> dan <m>B</m>
+      tidak memiliki sisi, <ie/>, tidak ada sisi pada <m>\bfG</m> yang kedua ujungnya berada di <m>A</m> atau keduanya berada di <m>
+      B</m>. Jelas bahwa graf bipartit merupakan graf yang <m>2</m>-dapat diwarnai. Di sisi lain, apabila suatu graf yang <m>2</m>-dapat diwarnai
+      tidak terhubung, terdapat lebih dari satu cara untuk mendefinisikan partisi himpunan simpul
+      yang sesuai menjadi dua himpunan bebas. </p>
+
+    <p>Graf bipartit lazim digunakan sebagai model ketika terdapat dua jenis objek berbeda
+      yang dimodelkan dan hubungan hanya diperbolehkan di antara dua objek berlainan jenis. Sebagai
+      contoh, pada satu sisi kita dapat mencantumkan para kandidat yang menghadiri bursa kerja dan pada sisi lain mencantumkan
+      lowongan yang tersedia. Sisi-sisinya secara alami dapat bersesuaian dengan pasangan kandidat/lowongan yang
+      menghubungkan seseorang dengan tanggung jawab yang mampu ditanganinya.
+    </p>
+
+    <p>Sebagai contoh kedua, graf bipartit dapat digunakan untuk menggambarkan bahasa-bahasa yang dikuasai oleh
+      sekelompok mahasiswa. Simpul-simpul pada satu sisi mewakili para mahasiswa, sedangkan bahasa dicantumkan pada
+      sisi lainnya. Kemudian terdapat sisi <m>xy</m> apabila mahasiswa <m>x</m> menguasai bahasa <m>y</m>.
+      Contoh konkret graf ini untuk kelompok mahasiswa favorit kita diperlihatkan dalam <xref ref="fig_graphs_languages"/>, meskipun Alice tidak begitu yakin bahwa seharusnya ada sisi
+      yang menghubungkan Dave dan bahasa Inggris. </p>
+    <figure xml:id="fig_graphs_languages">
+      <caption>Graf bipartit</caption>
+      <image width="60%" source="languages"><description><p>Graf bipartit</p>
+      </description></image>
+    </figure>
+    <p>Salah satu kelas khusus graf bipartit yang perlu disebutkan adalah kelas <term>graf bipartit
+      lengkap</term>. Graf bipartit lengkap <m>\bfK_{m,n}</m> memiliki himpunan simpul <m>V=V_1\cup
+      V_2</m> dengan <m>|V_1|=m</m> dan <m>|V_2|=n</m>. Graf tersebut memiliki sisi <m>xy</m> jika dan hanya jika <m>x\in
+      V_1</m> dan <m>y\in V_2</m>. Graf bipartit lengkap <m>\bfK_{3,3}</m> diperlihatkan dalam <xref ref="fig_graphs_k33"/>. </p>
+    <figure xml:id="fig_graphs_k33">
+      <caption>Graf bipartit lengkap <m>\bfK_{3,3}</m></caption>
+      <image width="25%" source="k33_rotated"><description><p>Graf bipartit lengkap <m>\bfK_{3,3}</m></p>
+      </description></image>
+    </figure>
+  </subsection>
+
+
+  <subsection>
+    <title>Klik dan Bilangan Kromatik</title>
+    <p>Sebuah <term>klik</term><idx>
+        <h>klik</h>
+      </idx> dalam graf <m>\GVE</m> adalah himpunan <m>K\subseteq V</m> sedemikian sehingga
+      subgraf yang diinduksi oleh <m>K</m> isomorfik dengan graf lengkap <m>\bfK_{|K|}</m>.
+      Secara ekuivalen, kita dapat mengatakan bahwa setiap pasangan simpul dalam <m>K</m> saling bertetangga. <term>Ukuran
+      klik maksimum</term><idx>
+        <h>klik</h>
+        <h>ukuran maksimum</h>
+      </idx> atau <term>bilangan klik</term><idx>
+        <h>bilangan klik</h>
+      </idx> dari graf <m>\bfG</m>, yang dinotasikan dengan <m>\omega(\bfG)</m><notation>
+        <usage>
+          <m>\omega(\bfG)</m>
+        </usage>
+        <description>bilangan klik dari <m>\bfG</m></description>
+      </notation>, adalah bilangan terbesar <m>
+      t</m> yang membuat terdapat klik <m>K</m> dengan <m>|K|=t</m>. Sebagai contoh, graf dalam <xref ref="fig_graphs_eulerexample"/> memiliki bilangan klik <m>4</m>, sedangkan graf dalam <xref ref="fig_graphs_chi4"/> memiliki ukuran klik maksimum<nbsp/><m>2</m>. </p>
+
+    <p>Untuk setiap graf <m>\bfG</m>, jelas bahwa <m>\chi(\bfG)\ge \omega(\bfG)</m>. Di sisi
+      lain, pertidaksamaan tersebut dapat sangat jauh dari ketat. Sebelum memperlihatkan seberapa besar selisihnya dapat terjadi, kita perlu
+      memperkenalkan versi yang lebih umum dari <xref ref="prop_pigeon" text="title"/>. Perhatikan
+      fungsi <m>f\colon X\to Y</m> dengan <m>|X| = 2|Y|+1</m>. Karena <m>|X|&gt;|Y|</m>, Prinsip Sarang
+      Merpati sebagaimana dinyatakan dalam <xref ref="prop_pigeon"/> hanya memberi tahu kita bahwa terdapat <m>x,x'\in
+      X</m> yang berbeda dengan <m>f(x)=f(x')</m>. Namun, kita dapat mengatakan lebih banyak. Andaikan setiap unsur <m>Y</m>
+      memiliki paling banyak dua unsur <m>X</m> yang dipetakan kepadanya. Jika kita menjumlahkan banyaknya unsur <m>
+      X</m> berdasarkan berapa banyak yang dipetakan ke setiap unsur <m>Y</m>, maka <m>X</m> hanya mungkin
+      memiliki (paling banyak) <m>2|Y|</m> unsur. Jadi, harus ada <m>y\in Y</m> sedemikian sehingga terdapat tiga
+      unsur berbeda <m>x,x',x''\in X</m> dengan <m>f(x)=f(x')=f(x'')=y</m>. Argumen ini
+      dapat diperumum sehingga menghasilkan versi Prinsip Sarang Merpati berikut: </p>
+
+    <proposition xml:id="prop_graphs_pigeon-general">
+      <title>Prinsip Sarang Merpati yang Diperumum</title>
+      <idx>
+        <h>prinsip sarang merpati</h>
+        <h>diperumum</h>
+      </idx>
+      <statement>
+        <p>Jika <m>f\colon X\to Y</m> adalah fungsi dan <m>|X|\geq (m-1)|Y|+1</m>, maka terdapat
+          unsur <m>y\in Y</m> dan unsur-unsur berbeda <m>x_1,\dots,x_m \in X</m> sedemikian sehingga <m>
+          f(x_i)=y</m> untuk <m>i=1,\dots,m</m>. </p>
+      </statement>
+    </proposition>
+
+    <p>Sekarang kita siap menyajikan proposisi berikut, yang menunjukkan bahwa bilangan klik dan
+      bilangan kromatik sama sekali tidak harus berdekatan. Kita memberikan dua bukti. Bukti pertama merupakan hasil karya J.
+      Kelly dan L. Kelly, sedangkan bukti kedua dikemukakan oleh J. Mycielski.
+    </p>
+
+    <proposition xml:id="prop_triangle-free">
+      <statement>
+        <p>Untuk setiap <m>t\ge3</m>, terdapat graf <m>\bfG_t</m> sedemikian sehingga <m>\chi(\bfG_t)=t</m>
+          dan <m>\omega(\bfG_t)=2</m>. </p>
+      </statement>
+      <proof>
+        <p>Kita menggunakan induksi pada <m>t</m>. Untuk <m>t=3</m>, kita mengambil <m>\bfG_3</m> sebagai
+          siklus <m>\bfC_5</m> pada lima simpul. Sekarang andaikan bahwa untuk suatu <m>t\ge3</m>, kita telah
+          menentukan graf <m>\bfG_t</m>. Andaikan <m>\bfG_t</m> memiliki <m>n_t</m> simpul.
+          Beri label simpul-simpul <m>\bfG_t</m> sebagai <m>x_1,x_2,\dots,x_{n_t}</m>. Konstruksikan <m>
+          \bfG_{t+1}</m> sebagai berikut. Mulailah dengan himpunan bebas <m>I</m> yang berukuran <m>
+          t(n_t-1)+1</m>. Untuk setiap subhimpunan <m>S</m> dari <m>I</m> dengan <m>|S|=n_t</m>, beri label
+          unsur-unsur <m>S</m> sebagai <m>y_1,y_2,\dots,y_{n_t}</m>. Untuk subhimpunan khusus berukuran <m>n_t</m>
+          ini, tambahkan salinan <m>\bfG_t</m> dengan <m>y_i</m> bertetangga dengan <m>x_i</m> untuk <m>
+          i=1,2,\dots,n_t</m>. Simpul-simpul dalam salinan <m>\bfG_t</m> untuk subhimpunan-subhimpunan berbeda yang berukuran <m>n_t</m> dari <m>I</m>
+          tidak saling bertetangga, dan sebuah simpul dalam <m>I</m> memiliki paling banyak satu tetangga dalam
+          setiap salinan tertentu dari <m>\bfG_t</m>. </p>
+
+        <p>Untuk melihat bahwa <m>\omega(\bfG_{t+1})=2</m>, cukup ditunjukkan bahwa <m>\bfG_{t+1}</m>
+          tidak memuat segitiga (<m>\bfK_3</m>). Karena <m>\bfG_t</m> bebas segitiga, setiap segitiga
+          dalam <m>\bfG_{t+1}</m> harus memuat sebuah simpul dari <m>I</m>. Karena tidak ada dua simpul dalam <m>I</m>
+          yang bertetangga, setiap segitiga dalam <m>\bfG_{t+1}</m> hanya memuat satu simpul dari <m>I</m>. Karena
+          setiap simpul dalam <m>I</m> bertetangga dengan paling banyak satu simpul dari setiap salinan tetap <m>\bfG_t</m>,
+          jika <m>y\in I</m> merupakan bagian dari sebuah segitiga, kedua simpul lainnya harus berasal dari
+          salinan <m>\bfG_t</m> yang berbeda. Namun, simpul-simpul dalam salinan <m>\bfG_t</m> yang berbeda tidak
+          bertetangga, sehingga <m>\omega(\bfG_{t+1})=2</m>. Perhatikan bahwa <m>\chi(\bfG_{t+1})\ge t</m> karena <m>
+          \bfG_{t+1}</m> memuat <m>\bfG_t</m>. Di sisi lain, <m>\chi(\bfG_{t+1})\le t+1</m>
+          karena kita dapat menggunakan <m>t</m> warna pada salinan-salinan <m>\bfG_t</m> dan satu warna baru pada
+          himpunan bebas <m>I</m>. Untuk melihat bahwa <m>\chi(\bfG_{t+1})=t+1</m>, perhatikan bahwa jika kita hanya menggunakan
+          <m>t</m> warna, maka berdasarkan Prinsip Sarang Merpati yang Diperumum, terdapat subhimpunan berukuran <m>n_t</m> dari <m>I</m>
+          yang semua simpulnya berwarna sama. Warna tersebut kemudian tidak dapat digunakan dalam salinan <m>\bfG_t</m>
+          yang dipasangkan dengan subhimpunan berukuran <m>n_t</m> itu. </p>
+      </proof>
+
+      <proof>
+        <p>Kita kembali memulai dengan <m>\bfG_3</m> sebagai siklus <m>\bfC_5</m>. Seperti sebelumnya, kita mengasumsikan bahwa untuk
+          suatu <m>t\ge3</m> kita telah mengonstruksikan graf <m>\bfG_t</m> dengan <m>\omega(\bfG_t)=2</m>
+          dan <m>\chi(\bfG_t) = t</m>. Sekali lagi, beri label simpul-simpul <m>\bfG_t</m> sebagai <m>
+          x_1,x_2,\dots,x_{n_t}</m>. Untuk mengonstruksikan <m>\bfG_{t+1}</m>, kali ini kita mulai dengan
+          himpunan bebas <m>I</m>, tetapi sekarang <m>I</m> hanya memiliki <m>n_t</m> simpul, yang kita beri label <m>
+          y_1,y_2,\dots,y_{n_t}</m>. Kemudian kita tambahkan salinan <m>\bfG_t</m> dengan <m>y_i</m> bertetangga dengan <m>
+          x_j</m> jika dan hanya jika <m>x_i</m> bertetangga dengan <m>x_j</m>. Terakhir, tambahkan simpul baru <m>
+          z</m> yang bertetangga dengan semua simpul dalam <m>I</m>. </p>
+
+        <p>Jelas bahwa <m>\omega(\bfG_{t+1})=2</m>. Selain itu, <m>\chi(\bfG_{t+1})\ge t</m>, karena graf tersebut
+          memuat <m>\bfG_t</m> sebagai subgraf. Lebih lanjut, <m>\chi(\bfG_{t+1})\leq t+1</m>, karena
+          kita dapat mewarnai <m>\bfG_t</m> dengan warna-warna dari <m>\{1,2,\dots,t\}</m>, menggunakan warna <m>t+1</m>
+          pada himpunan bebas <m>I</m>, lalu menetapkan warna<nbsp/><m>1</m> kepada simpul baru <m>
+          z</m>. Kita mengklaim bahwa sebenarnya <m>\chi(\bfG_{t+1})=t+1</m>. Andaikan tidak demikian. Maka harus berlaku <m>
+          \chi(\bfG_{t+1})=t</m>. Misalkan <m>\phi</m> adalah pewarnaan tepat dari <m>\bfG_{t+1}</m>. Tanpa
+          mengurangi keumuman, <m>\phi</m> menggunakan warna-warna dalam <m>\{1,2,\dots,t\}</m> dan <m>\phi</m>
+          menetapkan warna<nbsp/><m>t</m> kepada <m>z</m>. Sekarang perhatikan himpunan tak kosong <m>S</m> yang terdiri atas
+          simpul-simpul dalam salinan <m>\bfG_t</m> yang oleh <m>\phi</m> diberi warna <m>t</m>. Untuk
+          setiap <m>x_i</m> dalam <m>S</m>, ubah warna <m>x_i</m> agar sama dengan warna <m>y_i</m>
+          menurut <m>\phi</m>; warna ini tidak mungkin <m>t</m> karena <m>z</m> berwarna <m>
+          t</m>. Hasilnya adalah pewarnaan tepat pada salinan <m>\bfG_t</m> yang hanya menggunakan <m>t-1</m>
+          warna, sebab <m>x_i</m> dan <m>y_i</m> bertetangga dengan simpul-simpul yang sama dalam salinan <m>
+          \bfG_t</m>. Kontradiksi ini menunjukkan bahwa <m>\chi(\bfG_{t+1})=t+1</m>, sebagaimana diklaim. </p>
+      </proof>
+    </proposition>
+
+    <p>Karena klik berukuran <m>3</m> berbentuk segitiga, <xref ref="prop_triangle-free"/> sering
+      dinyatakan sebagai <q>Terdapat graf bebas segitiga dengan bilangan kromatik besar.</q> Sebagai
+      ilustrasi konstruksi dalam bukti Mycielski, kita kembali merujuk ke <xref ref="fig_graphs_chi4"/>. Graf yang diperlihatkan adalah <m>\bfG_4</m>. Kita akan kembali ke pokok bahasan
+      graf dengan bilangan kromatik besar dalam <xref ref="s_ramsey_girth"/>, tempat kita menunjukkan bahwa terdapat
+      graf dengan bilangan kromatik besar yang bukan hanya tidak memiliki klik dengan lebih dari dua simpul,
+      melainkan juga tidak memiliki <em>siklus</em> dengan kurang dari <m>g</m> simpul untuk <em>setiap</em> nilai <m>g</m>.
+      Dengan kata lain, terdapat graf <m>\bfG</m> dengan <m>\chi(\bfG)=10^6</m>, tetapi tidak memiliki siklus dengan
+      kurang dari <m>10^{10}</m> simpul! </p>
+  </subsection>
+
+
+  <subsection>
+    <title>Dapatkah Kita Menentukan Bilangan Kromatik?</title>
+    <p>Andaikan Anda diberi sebuah graf <m>\bfG</m>. Tampaknya tidak mudah menemukan
+      algoritma yang menjawab pertanyaan <q>Apakah <m>\chi(\bfG)\leq t</m>?</q> Mudah untuk memverifikasi
+      suatu sertifikat (yakni pewarnaan tepat yang menggunakan paling banyak <m>t</m> warna), tetapi bagaimana Anda dapat menemukan
+      pewarnaan tepat, apalagi pewarnaan dengan warna sesedikit mungkin? Demikian pula, untuk
+      pertanyaan <q>Apakah <m>\omega(\bfG)\geq k</m>?</q>, suatu sertifikat mudah diverifikasi. Namun,
+      menemukan klik maksimum tampaknya merupakan masalah yang sangat sulit. Tentu saja, karena selisih antara <m>
+      \chi(\bfG)</m> dan <m>\omega(\bfG)</m> dapat sebesar apa pun, kemampuan menemukan salah satu nilai
+      pada umumnya tidak membantu kita menemukan nilai yang lain. Belum ada algoritma waktu-polinomial yang
+      diketahui untuk kedua masalah ini, dan banyak orang meyakini bahwa algoritma semacam itu tidak ada. Dalam
+      subbagian ini, kita meninjau salah satu pendekatan untuk menentukan bilangan kromatik dan melihat suatu kasus ketika pendekatan tersebut
+      bekerja secara efisien. </p>
+
+    <p>Pendekatan algoritmik yang sangat naif terhadap pewarnaan graf adalah algoritma First Fit, atau algoritma <q>rakus</q>.
+      Untuk algoritma ini, tetapkan suatu urutan pada himpunan simpul <m>V=\{v_1,v_2,\dots,v_n\}</m>.
+      Kita mendefinisikan fungsi pewarnaan <m>\phi</m> satu simpul demi satu simpul menurut urutan
+      subskrip yang menaik. Kita mulai dengan <m>\phi(v_1)=1</m>, lalu mendefinisikan <m>\phi(v_{i+1})</m> (dengan mengasumsikan
+      simpul-simpul <m>v_1,v_2,\dots,v_i</m> telah diwarnai) dengan mengambil bilangan bulat positif terkecil sebagai warna
+      yang belum digunakan pada satu pun tetangganya dalam himpunan <m>\{v_1,\dots v_i\}</m>. </p>
+    <figure xml:id="fig_k44minus">
+      <caption>Dua pengurutan simpul dari sebuah graf bipartit.</caption>
+      <image width="70%" label="img_k44minus">
+        <description><p>Dua pengurutan simpul dari sebuah graf bipartit.</p>
+      </description><latex-image>
+\begin{picture}(0,0)
+    \put(0,76){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_1$}}}%
+    \put(0,52){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_3$}}}%
+    \put(0,29){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_5$}}}%
+    \put(0,7){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_7$}}}%
+    \put(65,76){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_2$}}}%
+    \put(65,52){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_4$}}}%
+    \put(65,29){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_6$}}}%
+    \put(65,7){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_8$}}}%
+    \put(113,76){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_1$}}}%
+    \put(113,52){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_2$}}}%
+    \put(113,29){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_3$}}}%
+    \put(113,7){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_4$}}}%
+    \put(178,76){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_5$}}}%
+    \put(178,52){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_6$}}}%
+    \put(178,29){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_7$}}}%
+    \put(178,7){\raisebox{0mm}[0mm][0mm]{\makebox[0mm]{$v_8$}}}%
+  \end{picture}
+\includegraphics{external/k44-M_crop}\hspace{.75in}\includegraphics{external/k44-M_crop}
+        </latex-image>
+      </image>
+    </figure>
+    <p><xref ref="fig_k44minus"/> memperlihatkan dua pengurutan berbeda dari graf yang sama. <xref ref="ex_graphs_first-fit-color"/> menunjukkan bahwa pengurutan <m>V</m> sangat menentukan
+      kemampuan algoritma First Fit untuk mewarnai <m>\bfG</m> menggunakan <m>\chi(\bfG)</m> warna. Secara
+      umum, menemukan pengurutan optimal sama sulitnya dengan mewarnai <m>\bfG</m>. Karena itu, algoritma yang
+      sangat sederhana ini pada umumnya tidak bekerja dengan baik. Namun, untuk beberapa kelas graf,
+      terdapat pengurutan <q>alami</q> yang membuat First Fit bekerja secara optimal. Berikut salah satu
+      contohnya<mdash/>contoh yang akan kita pelajari kembali dalam bab berikutnya pada konteks yang berbeda. </p>
+
+    <p>Diberikan keluarga himpunan berindeks <m>\cgF=\{S_\alpha:\alpha\in V\}</m>, kita mengaitkan <m>
+      \cgF</m> dengan graf <m>\bfG</m> yang didefinisikan sebagai berikut. Himpunan simpul <m>\bfG</m> adalah himpunan <m>V</m>,
+      dan simpul <m>x</m> dan <m>y</m> dalam <m>V</m> bertetangga di <m>\bfG</m> jika dan hanya jika <m>S_x\cap
+      S_y \neq\emptyset</m>. Kita menyebut <m>\bfG</m> sebagai <term>graf irisan</term><idx>
+        <h>graf</h>
+        <h>irisan</h>
+      </idx>. Mudah dilihat bahwa setiap graf merupakan graf irisan
+      (<em>Mengapa?</em>), sehingga masuk akal untuk membatasi himpunan-himpunan yang menjadi anggota <m>\cgF</m>. Sebagai
+      contoh, kita menyebut <m>\bfG</m> sebagai <term>graf interval</term><idx>
+        <h>graf</h>
+        <h>interval</h>
+      </idx> jika graf tersebut merupakan graf irisan dari suatu keluarga interval tertutup
+      pada garis bilangan real <m>\reals</m>. Sebagai contoh, dalam <xref ref="fig_graphs_interval-graph"/>, di sebelah kiri kita
+      memperlihatkan kumpulan enam interval pada garis bilangan real. Di sebelah kanan, kita memperlihatkan
+      graf interval yang bersesuaian, dengan sisi di antara simpul <m>x</m> dan <m>y</m> jika dan hanya
+      jika interval <m>x</m> dan <m>y</m> saling bertumpang tindih. </p>
+    <figure xml:id="fig_graphs_interval-graph">
+      <caption>Kumpulan interval beserta graf intervalnya</caption>
+      <image width="75%" source="interval-graph"><description><p>Kumpulan interval beserta graf intervalnya</p>
+      </description></image>
+    </figure>
+
+    <theorem xml:id="thm_intgraphcol">
+      <statement>
+        <p>Jika <m>\GVE</m> adalah graf interval, maka <m>\chi(\bfG)=\omega(\bfG)</m>. </p>
+      </statement>
+
+      <proof>
+        <p>Untuk setiap <m>v\in V</m>, misalkan <m>I(v)=[a_v,b_v]</m> adalah interval tertutup pada garis bilangan real
+          sedemikian sehingga <m>uv</m> merupakan sisi dalam <m>\bfG</m> jika dan hanya jika <m>I(u)\cap I(v)\neq\emptyset</m>.
+          Urutkan himpunan simpul <m>V</m> sebagai <m>\{v_1,v_2,\dots,v_n\}</m> sedemikian sehingga <m>a_1\leq a_2\leq
+          \cdots \leq a_n</m>. (Nilai yang sama dapat diurutkan secara sembarang.) Terapkan algoritma pewarnaan First Fit
+          pada <m>\bfG</m> dengan pengurutan <m>V</m> ini. Ketika algoritma pewarnaan First Fit
+          mewarnai <m>v_i</m>, semua tetangganya yang telah diwarnai memiliki ujung kiri yang nilainya tidak lebih dari <m>a_i</m>.
+          Namun, karena simpul-simpul tersebut bertetangga dengan <m>v_i</m>, kita mengetahui bahwa semua ujung kanannya
+          tidak kurang dari <m>a_i</m>. Jadi, <m>v_i</m> beserta tetangga-tetangganya yang telah diwarnai membentuk
+          klik. Karena itu, <m>v_i</m> bertetangga dengan paling banyak <m>\omega(\bfG)-1</m> simpul lain yang
+          telah diwarnai, sehingga ketika algoritma mewarnai <m>v_i</m>, akan tersedia sebuah warna
+          dari <m>\{1,2,\dots,\omega(\bfG)\}</m> yang belum digunakan pada tetangga-tetangganya. Algoritma tersebut
+          menetapkan kepada <m>v_i</m> warna terkecil semacam itu. Jadi, kita tidak pernah perlu menggunakan lebih dari <m>
+          \omega(\bfG)</m> warna, sehingga <m>\chi(\bfG)=\omega(\bfG)</m>. </p>
+      </proof>
+    </theorem>
+    <p>Graf <m>\bfG</m> disebut <term>sempurna</term><idx>
+        <h>graf</h>
+        <h>sempurna</h>
+      </idx> jika <m>\chi(\bfH)=\omega(\bfH)</m> untuk setiap subgraf terinduksi <m>
+      \bfH</m>. Karena subgraf terinduksi dari graf interval juga merupakan graf interval, <xref ref="thm_intgraphcol"/> menunjukkan bahwa graf interval bersifat sempurna. Kajian tentang graf sempurna
+      bermula dari kaitannya dengan teori jaringan komunikasi dan selama bertahun-tahun telah berkembang menjadi
+      bidang penelitian utama dalam teori graf. </p>
+  </subsection>
+  <reading-questions xml:id="rqs-graphs_color" component="runestone">
+    <exercise label="graphs_color_reading_high-degree">
+      <statement>
+        <p>
+          Uraikan dengan cukup jelas sebuah graf yang mungkin digambar Alice untuk mengejutkan Bob dalam <xref ref="disc-graphs_color-intro"/>.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="graphs_color_reading_recolor">
+      <statement>
+        <p>
+          Uraikan salah satu cara Dave dapat mewarnai ulang graf dalam <xref ref="fig_graphs_chi4"/> untuk memperoleh pewarnaan tepat menggunakan empat warna.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="graphs_color_reading_firstfit">
+      <statement>
+        <p>
+          Gunakan algoritma First Fit untuk mewarnai simpul-simpul graf dalam <xref ref="fig_k44minus"/> menurut masing-masing pengurutan yang diberikan. Berapa banyak warna yang digunakan First Fit jika Anda menggunakan pengurutan di sebelah kiri? Berapa banyak warna yang digunakan First Fit jika Anda menggunakan pengurutan di sebelah kanan? Uraikan perumuman graf ini menjadi graf bipartit pada <m>2n</m> simpul beserta pengurutan simpulnya yang memaksa First Fit menggunakan <m>n</m> warna.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "family_mode": "fixed-work",
+  "declared_object_scope": "Applied Combinatorics, edition 2017.3, complete active PreTeXt book closure",
+  "original_or_source_title": "Applied Combinatorics",
+  "original_or_source_edition": "2017.3",
+  "original_or_source_identifier": "https://github.com/mitchkeller/applied-combinatorics/tree/33b20df670d1f8d98266cd2f4a287a79b01649ea",
+  "source_repository": "https://github.com/mitchkeller/applied-combinatorics",
+  "source_commit": "33b20df670d1f8d98266cd2f4a287a79b01649ea",
+  "source_tree": "a8e604cc80fbb5e1a312fa26baab2b17d2975b77",
+  "frozen_archive_local_path_not_deposited": "authority/archives/applied-combinatorics-33b20df670d1f8d98266cd2f4a287a79b01649ea.zip",
+  "source_artifact_bytes": 214376658,
+  "source_artifact_sha256": "8ff7b319bb213777f29e91665fbd3c9d0bc81de56fb0b2b6cd9148652dfee95a",
+  "source_artifact_file_count": 750,
+  "coverage_and_topology": "167 admitted translation boundaries across 171 active source files, through source/s_background_ZFC.ptx",
+  "authority_hierarchy": [
+    "pinned official GitHub commit and archive",
+    "official reader https://appliedcombinatorics.org/appcomb/"
+  ],
+  "excluded_scope": [
+    "request-gated instructor material",
+    "external services not part of the open source closure"
+  ]
+}

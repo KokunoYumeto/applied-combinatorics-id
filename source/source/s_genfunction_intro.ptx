@@ -1,0 +1,88 @@
+<section xml:id="s_genfunction_intro">
+    <title>Notasi dan Istilah Dasar</title>
+    <p>Dengan suatu barisan bilangan real <m>\sigma=\{a_n:n\ge0\}</m>, kita mengaitkan sebuah <q>fungsi</q> <m>F(x)</m> yang didefinisikan oleh
+    <md>
+        F(x)=\sum_{n=0}^\infty a_n x^n.
+    </md>
+    Kata <q>fungsi</q> diapit tanda petik karena kita tidak selalu berkepentingan untuk menyubstitusikan suatu nilai <m>x</m> dan memperoleh nilai tertentu bagi <m>F(x)</m>. Dengan kata lain, kita memandang <m>F(x)</m> sebagai deret pangkat formal dan sering mengabaikan persoalan konvergensi.
+    </p>
+
+    <p>Sudah lazim untuk menyebut <m>F(x)</m> sebagai <term>fungsi pembangkit</term><idx><h>fungsi pembangkit</h></idx> dari barisan <m>\sigma</m>. Seperti yang telah kita kemukakan, kita tidak selalu berkepentingan untuk menghitung <m>F(x)</m> pada nilai-nilai <m>x</m> tertentu. Namun, berdasarkan konvensi, kita menetapkan <m>F(0)=a_0</m>.
+    </p>
+    <example xml:id="exam_genfunction_geom-series">
+        <idx><h>deret</h><h>geometri tak hingga</h></idx>
+        <idx><h>deret</h><h>geometri tak hingga</h><h>jumlah</h></idx>
+        <p>Perhatikan barisan konstan <m>\sigma=\{a_n:n\ge0\}</m> dengan <m>a_n=1</m> untuk setiap <m>n\ge0</m>. Fungsi pembangkit <m>F(x)</m> dari <m>\sigma</m> kemudian diberikan oleh
+        <md>
+            F(x)=1+x+x^2+x^3+x^4+x^5+x^6+\cdots
+            </md>, yang disebut <term>deret geometri tak hingga</term>.
+        </p>
+        <p>Anda mungkin ingat bahwa ungkapan terakhir ini merupakan deret Maclaurin bagi fungsi <m>F(x)=1/(1-x)</m> dan bahwa deret tersebut konvergen ketika <m>|x|\lt 1</m>. Karena kita ingin berpikir dalam kerangka deret pangkat formal, mari kita lihat bahwa ungkapan
+        <md>
+            \frac{1}{1-x}=1+x+x^2+x^3+x^4+x^5+x^6+\cdots=\sum_{n=0}^\infty x^n
+        </md>
+        dapat dibenarkan tanpa menggunakan teknik kalkulus. Perhatikan hasil kali
+        <md>
+            (1-x)(1+x+x^2+x^3+x^4+x^5+x^6+\cdots)
+        </md>
+        dan perhatikan bahwa, karena deret pangkat formal dikalikan dengan cara yang sama seperti polinom (deret pangkat pada dasarnya adalah polinom yang berlanjut tanpa akhir), hasil kali ini adalah
+        <md>            (1+x+x^2+x^3+x^4+x^5+x^6+\cdots)-x(1+x+x^2+x^3+x^4+x^5+x^6+\cdots)
+            = 1.
+        </md>
+        Dengan demikian, kita memperoleh
+        <md>
+            (1-x)(1+x+x^2+x^3+x^4+x^5+x^6+\cdots) = 1,
+        </md>
+        atau, dalam bentuk yang lebih berguna, setelah membagi kedua ruas dengan <m>1-x</m>,
+        <md>
+            \frac{1}{1-x} = \sum_{n=0}^\infty x^n.
+        </md><idx><h>deret</h><h>geometri tak hingga</h><h>jumlah</h></idx>
+        </p>
+    </example>
+
+    <p>
+        Metode dalam <xref ref="exam_genfunction_geom-series"/> dapat diadaptasi untuk menangani <term>deret geometri hingga</term><idx><h>deret</h><h>geometri hingga</h></idx> <m>\sum_{j=0}^n x^j</m>. Dalam hal ini, kita meninjau
+        <md>
+            <mrow>(1-x) \sum_{j=0}^nx^j \amp= \sum_{j=0}^n x^j - \sum_{j=0}^n x^{j+1}</mrow>
+            <mrow>\amp= (1+x+\cdots + x^n) - (x+x^2+\cdots + x^n + x^{n+1})</mrow>
+            </md>.
+            Jika diperhatikan dengan saksama, semua suku pada ungkapan terakhir saling meniadakan kecuali <m>1-x^{n+1}</m>. Dengan membagi kedua ruas oleh <m>1-x</m>, kita memperoleh
+            <md number="yes" xml:id="eq_genfunction_finite-geom">1+x+\cdots + x^n = \frac{1-x^{n+1}}{1-x}</md><idx><h>deret</h><h>geometri hingga</h><h>jumlah</h></idx>
+            sebagai rumus jumlah deret geometri hingga.
+    </p>
+    
+    <example>
+        <p>Seperti yang Anda pelajari dalam kalkulus untuk deret Maclaurin, deret pangkat formal dapat diturunkan dan diintegralkan suku demi suku. Kerangka matematis ketat yang mendasari operasi tersebut bukanlah fokus kita di sini. Karena itu, terimalah tanpa pembuktian bahwa hal ini dapat dilakukan pada deret pangkat formal tanpa perlu mempersoalkan konvergensi.
+        </p>
+
+        <p>Untuk melihat penerapannya, tinjau hasil penurunan deret pangkat pada contoh sebelumnya. Kita memperoleh
+        <md>
+            \frac{1}{(1-x)^2}=1+2x+3x^2+4x^3+5x^4+6x^5+7x^6+\dots=\sum_{n=1}^\infty nx^{n-1}.
+        </md>
+        Mengintegralkan deret yang dinyatakan oleh <m>1/(1+x) = 1/(1-(-x))</m> menghasilkan (setelah sedikit manipulasi aljabar)
+        <md>
+            \log(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\frac{x^5}{5}-
+            \frac{x^6}{6}+\dots=\sum_{n=1}^\infty (-1)^{n+1}\frac{x^n}{n}.
+        </md>
+        </p>
+    </example>
+    <p>Sebelum Anda menyimpulkan bahwa kita hanya akan membahas fungsi pembangkit yang benar-benar konvergen, mari kita lihat bahwa kita tetap dapat membicarakan deret pangkat formal
+    <md>
+        F(x)=\sum_{n=0}^{\infty} n! x^n,
+    </md>
+    meskipun jari-jari konvergensinya adalah<nbsp/><m>0</m>, <ie/>, deret <m>F(x)</m> hanya konvergen untuk <m>x=0</m>, sehingga <m>F(0)=1</m>. Meskipun demikian, deret pangkat formal <m>F(x)</m> tetap dapat disebut sebagai fungsi pembangkit bagi barisan <m>\{a_n:n\ge0\}</m>, dengan <m>a_0=1</m> dan <m>a_n</m> menyatakan banyaknya permutasi dari <m>\{1,2,\dots,n\}</m> ketika <m>n\ge1</m>.
+    </p>
+
+    <p>Sebagai rujukan, berikut kita nyatakan suatu hasil dasar yang menekankan bentuk hasil kali dua deret pangkat.
+    </p>
+
+    <proposition xml:id="prop_genfunction-product">
+        <statement>
+            <p>Misalkan <m>A(x)=\sum_{n=0}^\infty a_nx^n</m> dan <m>B(x)=\sum_{n=0}^\infty b_nx^n</m> adalah fungsi pembangkit. Maka <m>A(x)B(x)</m> merupakan fungsi pembangkit bagi barisan yang sukunya pada posisi <m>n^{th}</m> diberikan oleh
+            <md>
+                a_0b_n+a_1b_{n-1}+a_2b_{n-2}+\dots+a_nb_0=\sum_{k=0}^n a_kb_{n-k}.
+            </md>
+            </p>
+        </statement>
+    </proposition>
+</section>

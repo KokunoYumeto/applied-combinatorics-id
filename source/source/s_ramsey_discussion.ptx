@@ -1,0 +1,8 @@
+<section xml:id="s_ramsey_discussion">
+    <title>Diskusi</title>
+    <p>Zori memulai percakapan dengan berkata, <q>Siapa yang waras akan memercayakan nyawanya kepada algoritma yang menggunakan metode acak?</q> Xing segera menjawab, <q>Semua orang. Setidaknya semua orang seharusnya demikian. Kita secara rutin berhadapan dengan konsep probabilistik, seperti kemungkinan tertabrak bus ketika menyeberang jalan atau tertimpa piano. Masyarakat umum jauh lebih nyaman dengan gagasan probabilitas, meskipun mereka mungkin tidak pernah mengetahui definisi formal ruang probabilitas. Aku sendiri sepenuhnya nyaman naik pesawat jika dapat diyakinkan bahwa probabilitas terjadinya bencana kurang dari <m>10^{-20}</m>.</q>
+    </p>
+
+    <p>Dave tidak terpancing oleh topik itu. Sebaliknya, ia berkata, <q>Pernyataan bahwa sulit membangun objek yang dapat dibuktikan ada dalam jumlah melimpah benar-benar mencolok. Aku penasaran mengapa demikian.</q> Alice berkata, <q>Kami semua menganggap otakmu benar-benar acak: kadang masuk akal, tetapi sering kali tidak.</q> Terdengar tawa, atau setidaknya beberapa cekikikan. Namun setelah beberapa saat, Carlos berkata, <q>Ada sesuatu yang mendasar di sini. Mungkin dapat dibuktikan bahwa ada teorema yang mudah dinyatakan tetapi hanya mempunyai bukti yang panjang.</q> Bob menyela, <q>Itu sama sekali tidak masuk akal.</q> Zori melihat peluang: dengan bayaran besar, seorang klien dapat menugaskannya memecahkan persoalan yang mudah dipahami tetapi pada akhirnya entah bagaimana sulit, setidaknya dengan hasil yang lebih baik daripada pesaingnya. Ia mengetahui kelas <m>\cgN\cgP</m>, tetapi mungkin ada tantangan yang lebih besar—dan bayaran yang lebih besar—di luar sana.
+    </p>
+</section>

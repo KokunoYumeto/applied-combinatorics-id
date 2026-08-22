@@ -1,0 +1,211 @@
+<section xml:id="s_strings_bin-coeff">
+  <title>Koefisien Binomial yang Muncul di Mana-Mana</title>
+  <idx>
+    <h>koefisien binomial</h>
+  </idx>
+  <p>Dalam bagian ini, kita menyajikan beberapa soal kombinatorial yang dapat diselesaikan dengan
+    menggunakan koefisien binomial, meskipun pada pandangan pertama soal-soal tersebut tampaknya tidak
+    berkaitan dengan himpunan.
+  </p>
+  <example>
+    <p>Asisten kantor sedang membagikan perlengkapan. Ada berapa cara untuk membagikan 18
+      map yang identik kepada empat pegawai kantor—Audrey, Bart, Cecilia, dan Darren—dengan
+      syarat tambahan bahwa masing-masing menerima setidaknya satu map?
+    </p>
+
+    <p>Bayangkan map-map tersebut ditempatkan dalam satu baris. Terdapat 17 celah di antaranya. Dari celah-celah itu,
+      pilih tiga dan letakkan sebuah pemisah pada masing-masing celah terpilih. Pilihan ini membagi map-map tersebut menjadi empat
+      kelompok yang tidak kosong. Kelompok pertama diberikan kepada Audrey, kelompok kedua kepada Bart, <etc/> Jadi, jawabannya adalah <m>
+      C(17,3)</m>. Dalam <xref ref="fig_distrib"/>, skema ini digambarkan dengan Audrey menerima<nbsp/><m>
+      6</m> map, Bart menerima<nbsp/><m>1</m>, Cecilia<nbsp/><m>4</m>, dan Darren<nbsp/>7. </p>
+    <figure xml:id="fig_distrib">
+      <caption>Membagikan Objek Identik ke dalam Kelompok yang Berbeda</caption>
+      <image width="80%" source="3012-fig23"><description><p>Delapan belas ikon map tersusun dalam satu baris. Tiga garis pemisah vertikal membaginya, dari kiri ke kanan, menjadi kelompok berisi 6, 1, 4, dan 7 map untuk Audrey, Bart, Cecilia, dan Darren.</p>
+      </description></image>
+    </figure>
+  </example>
+
+  <example>
+    <statement>
+      <p>Andaikan kita mengerjakan kembali soal sebelumnya, tetapi menghapus syarat bahwa masing-masing dari keempat
+        pegawai harus menerima setidaknya satu map. Sekarang, ada berapa cara untuk melakukan pembagian tersebut?
+      </p>
+    </statement>
+    <solution>
+      <p>Penyelesaiannya melibatkan semacam <q>trik</q>. Pertama, kita mengubah soal ini menjadi soal yang
+        sudah kita ketahui cara menyelesaikannya. Caranya adalah dengan menambah jatah setiap orang secara
+        <em>semu</em> sebanyak satu. Dengan kata lain, jika Bart sebenarnya akan menerima <m>7</m> map, kita mengatakan bahwa
+        ia akan menerima <m>8</m>. Kita juga menambah banyaknya map secara semu sebanyak <m>4</m>, satu untuk
+        masing-masing dari empat orang. Jadi, sekarang bayangkan satu baris yang terdiri atas <m>22=18+4</m> map. Sekali lagi, pilih <m>3</m>
+        celah. Pilihan ini menentukan jatah tak nol untuk setiap orang. Jatah yang sebenarnya satu lebih
+        sedikit<mdash/>dan mungkin saja nol. Jadi, jawabannya adalah <m>C(21,3)</m>. </p>
+    </solution>
+  </example>
+
+  <example>
+    <p>Sekali lagi kita mempunyai soal yang sama seperti sebelumnya, tetapi sekarang kita ingin menghitung banyaknya
+      pembagian ketika hanya Audrey dan Cecilia yang dipastikan menerima sebuah map. Bart dan Darren
+      boleh tidak menerima map. Triknya sekarang ialah menambah jatah Bart dan Darren secara semu,
+      tetapi membiarkan jatah Audrey dan Cecilia apa adanya. Jadi, jawabannya adalah <m>C(19,3)</m>
+      .
+        </p>
+  </example>
+
+  <example>
+    <p>Berikut adalah perumusan ulang pembahasan sebelumnya dalam bentuk solusi bilangan bulat
+      dari pertidaksamaan.
+    </p>
+
+    <p>Kita menghitung banyaknya solusi bilangan bulat dari pertidaksamaan <md>
+        x_1+x_2+x_3+x_4+x_5+x_6\le 538
+      </md> dengan berbagai kumpulan
+      syarat pada nilai <m>x_1,x_2,\dots,x_6</m>. Beberapa syarat tersebut
+      mengharuskan pertidaksamaan itu sebenarnya berupa persamaan. </p>
+
+    <p>Banyaknya solusi bilangan bulat adalah: <ol>
+        <li><m>C(537,5)</m>, jika semua <m>x_i&gt; 0</m> dan berlaku kesamaan;</li>
+        <li><m>C(543,5)</m>, jika semua <m>x_i\ge 0</m> dan berlaku kesamaan;</li>
+        <li><m>C(291,3)</m>, jika <m>x_1,x_2,x_4,x_6&gt;0</m>, <m>x_3=52</m>, <m>x_5=194</m>, dan
+      berlaku kesamaan;</li>
+        <li><m>C(537,6)</m>, jika semua <m>x_i &gt; 0</m> dan pertidaksamaannya ketat (Bayangkan sebuah
+      variabel baru <m>x_7</m> yang menyatakan sisa. Perhatikan bahwa <m>x_7</m> harus positif.);</li>
+        <li><m>C(543,6)</m>, jika semua <m>x_i \ge 0</m> dan pertidaksamaannya ketat (Tambahkan sebuah
+      variabel baru <m>x_7</m> seperti di atas. Sekarang, hanya variabel inilah yang harus positif.); dan</li>
+        <li><m>C(544,6)</m>, jika semua <m>x_i \ge 0</m>.</li>
+      </ol>
+    </p>
+  </example>
+  <p>Salah satu soal enumerasi klasik, yang berkaitan dengan beberapa soal lain, adalah menghitung
+    lintasan kisi. Sebuah <term>lintasan kisi</term><idx>
+      <h>lintasan kisi</h>
+    </idx> pada bidang merupakan barisan pasangan terurut bilangan bulat: <md>
+    (m_1,n_1), (m_2,n_2), (m_3,n_3),\dots,(m_t,n_t)
+    </md> sedemikian sehingga untuk setiap <m>
+    i=1,2,\dots,t-1</m>, salah satu kondisi berikut berlaku: <ol>
+      <li><m>m_{i+1}=m_{i}+1</m> dan <m>n_{i+1}=n_i</m>, atau</li>
+      <li><m>m_{i+1}=m_i</m> dan <m>n_{i+1}=n_{i}+1</m>.</li>
+    </ol>
+  </p>
+  <p>Dalam <xref ref="fig_latticepath"/>, kita menampilkan sebuah lintasan kisi dari <m>(0,0)</m> ke <m>(13,8)</m>. </p>
+  <figure xml:id="fig_latticepath">
+    <caption>Sebuah Lintasan Kisi</caption>
+    <image width="51%" source="3012-fig22">
+      <description>Kisi yang terdiri atas 14 kolom dan 9 baris titik, sesuai dengan koordinat 0 sampai 13 dan 0 sampai 8. Titik di sudut kiri bawah berlabel <m>(0,0)</m>, sedangkan titik di sudut kanan atas berlabel <m>(13,8)</m>. Sebuah lintasan menghubungkan kedua titik itu dengan hanya bergerak ke kanan dan ke atas: tiga langkah ke kanan, dua ke atas, satu ke kanan, satu ke atas, satu ke kanan, tiga ke atas, lima ke kanan, satu ke atas, satu ke kanan, satu ke atas, lalu dua ke kanan.</description>
+    </image>
+  </figure>
+  <example>
+    <idx>
+      <h>lintasan kisi</h>
+      <h>pencacahan</h>
+    </idx>
+    <p>Banyaknya lintasan kisi dari <m>(m,n)</m> ke <m>(p,q)</m> adalah <m>C((p-m)+(q-n),p-m)</m>. </p>
+
+    <p>Untuk memahami mengapa rumus ini berlaku, perhatikan bahwa lintasan kisi tidak lain adalah string atas <m>X</m> dengan <m>
+      X=\{H,V\}</m>, dengan <m>H</m> menyatakan langkah <em>horizontal</em> dan <m>V</m> menyatakan langkah <em>
+      vertikal</em>. Dalam kasus ini, terdapat tepat <m>(p-m)+(q-n)</m> langkah, dan <m>p-m</m> di antaranya
+      merupakan langkah horizontal. </p>
+  </example>
+
+  <example xml:id="exa_lattice-Catalan">
+    <p>Misalkan <m>n</m> sebuah bilangan bulat tak negatif. Banyaknya lintasan kisi dari <m>(0,0)</m> ke <m>
+      (n,n)</m> yang tidak pernah berada di atas garis diagonal <m>y=x</m> adalah <term>bilangan Catalan</term><idx>
+        <h>bilangan Catalan</h>
+      </idx><idx>
+        <h>lintasan kisi</h>
+        <h>banyaknya yang tidak melintasi <m>y=x</m></h>
+      </idx>
+        <md>
+        C(n) =\frac{1}{n+1}\binom{2n}{n}.
+      </md>
+    </p>
+    <p>Untuk melihat bahwa rumus ini berlaku, pertimbangkan keluarga <m>\cgP</m> yang terdiri atas semua lintasan kisi dari <m>
+      (0,0)</m> ke <m>(n,n)</m>. Lintasan kisi dari <m>(0,0)</m> ke <m>(n,n)</m> tidak lain adalah string atas <m>
+      \{H,V\}</m> dengan panjang <m>2n</m> yang memuat tepat <m>n</m> karakter <m>H</m>. Jadi, <m>
+      |\cgP|=\binom{2n}{n}</m>. Kita menggolongkan lintasan dalam <m>\cgP</m> sebagai <em>baik</em> jika lintasan itu tidak pernah
+      berada di atas diagonal; jika tidak, lintasan tersebut <em>buruk</em>. Sebuah string <m>s\in\cgP</m> bersifat baik jika
+      banyaknya karakter <m>V</m> dalam setiap segmen awal <m>s</m> tidak pernah melebihi banyaknya karakter <m>H</m>.
+      Sebagai contoh, string <q>
+        <m>HHVHVVHHHVHVVV</m>
+      </q> merupakan lintasan kisi yang baik dari <m>(0,0)</m> ke <m>(7,7)</m>,
+      sedangkan lintasan <q>
+        <m>HVHVHHVVVHVHHV</m>
+      </q> bersifat buruk. Dalam kasus kedua, perhatikan bahwa setelah<nbsp/><m>9</m>
+      langkah, terdapat<nbsp/><m>5</m> karakter <m>V</m> dan<nbsp/><m>4</m> karakter<nbsp/><m>H</m>. </p>
+
+    <p>Misalkan <m>\cgG</m> dan <m>\cgB</m> masing-masing menyatakan keluarga semua lintasan baik dan semua lintasan buruk. Tentu
+      saja, tujuan kita adalah menentukan <m>|\cgG|</m>. </p>
+
+    <p>Pertimbangkan sebuah lintasan <m>s\in\cgB</m>. Terdapat bilangan bulat terkecil <m>i</m> sedemikian sehingga <m>s</m> memuat
+      lebih banyak karakter <m>V</m> daripada karakter <m>H</m> dalam <m>i</m> posisi pertamanya. Dari sifat minimal <m>i</m>,
+      mudah dilihat bahwa <m>i</m> harus ganjil (jika tidak, kita dapat mundur satu langkah). Jika kita menetapkan <m>
+      i=2j+1</m>, maka dalam <m>2j+1</m> posisi pertama <m>s</m> terdapat tepat <m>j</m> karakter <m>
+      H</m> dan <m>j+1</m> karakter <m>V</m>. Sisa <m>2n-2j-1</m> posisi (<q>ekor <m>s</m></q>)
+      memuat <m>n-j</m> karakter <m>H</m> dan <m>n-j-1</m> karakter <m>V</m>. Sekarang kita mengubah <m>s</m> menjadi
+      string baru <m>s'</m> dengan mengganti setiap <m>H</m> pada ekor <m>s</m> dengan <m>V</m> dan setiap <m>
+      V</m> pada ekor <m>s</m> dengan <m>H</m>, serta membiarkan <m>2j+1</m> posisi awal
+      tetap. Sebagai contoh, lihat <xref ref="flippath"/>. Di sana, lintasan <m>s</m> digambar dengan garis penuh,
+      sedangkan <m>s'</m> berimpit dengan <m>s</m> hingga lintasan melintasi garis <m>y=x</m>, kemudian dilanjutkan sebagai lintasan bergaris
+      putus-putus. String <m>s'</m> memiliki panjang <m>2n</m> dengan <m>(n-j)+(j+1) = n+1</m> karakter <m>V</m>
+      dan <m>(n-j-1)+j=n-1</m> karakter <m>H</m>, sehingga <m>s'</m> merupakan lintasan kisi dari <m>(0,0)</m> ke <m>
+      (n-1,n+1)</m>. Perhatikan bahwa terdapat <m>\binom{2n}{n-1}</m> lintasan kisi semacam itu. </p>
+    <figure xml:id="flippath">
+      <caption>Mentransformasikan Lintasan Kisi</caption>
+      <image width="50%" source="3012-fig26"><description><p>Kisi titik menampilkan dua lintasan yang berawal di (0,0). Lintasan bergaris penuh s berakhir di (n,n). Lintasan bergaris putus-putus s' berimpit dengan s hingga lintasan pertama kali melintasi y=x; setelah itu, setiap langkah horizontal dan vertikal ditukar, sehingga s' berakhir di (n-1,n+1).</p>
+      </description></image>
+    </figure>
+    <p>Kita juga dapat mengamati bahwa transformasi yang telah diuraikan sebenarnya merupakan bijeksi antara <m>
+      \cgB</m> dan <m>\cgP'</m>, yaitu himpunan lintasan kisi dari <m>(0,0)</m> ke <m>(n-1,n+1)</m>. Untuk
+      melihat kebenarannya, perhatikan bahwa setiap lintasan <m>s'</m> dalam <m>\cgP'</m> harus melintasi garis <m>
+      y=x</m>. Jadi, terdapat saat pertama lintasan itu melintasinya, misalkan pada posisi <m>i</m>. Sekali lagi, <m>i</m>
+      harus ganjil, sehingga <m>i=2j+1</m>, dan terdapat <m>j</m> karakter <m>H</m> serta <m>j+1</m> karakter <m>V</m> dalam
+      <m>i</m> posisi pertama <m>s'</m>. Oleh karena itu, ekor <m>s'</m> memuat <m>
+      n+1-(j+1)=n-j</m> karakter <m>V</m> dan <m>(n-1)-j</m> karakter <m>H</m>. Dengan menukar karakter <m>H</m> dan <m>V</m>
+      dalam ekor <m>s'</m>, kita memperoleh string baru <m>s</m> yang memuat <m>n</m> karakter <m>H</m> dan <m>n</m> karakter <m>
+      V</m>, sehingga string itu menyatakan lintasan kisi dari <m>(0,0)</m> ke <m>(n,n)</m>. Namun, lintasan tersebut tetap
+      buruk karena kita tidak mengubah bagian awal lintasan, yang mengakibatkan lintasan melintasi
+      garis <m>y=x</m> pada posisi <m>i</m>. Oleh karena itu, <m>|\cgB|=|\cgP'|</m>, sehingga <md>
+      C(n)=|\cgG|=|\cgP|-|\cgB|=|\cgP|-|\cgP'| = \binom{2n}{n} -
+        \binom{2n}{n-1} = \frac{1}{n+1}\binom{2n}{n},
+      </md>
+      setelah sedikit manipulasi aljabar. </p>
+  </example>
+  <p>Perlu diperhatikan bahwa dalam <xref ref="exa_lattice-Catalan"/>, kita menggunakan dua teknik
+    enumerasi yang umum: memberikan bijeksi antara dua kelas objek, dengan salah satu kelas <q>
+    lebih mudah</q> dihitung daripada yang lain, serta menghitung objek yang <em>tidak</em> ingin
+    kita enumerasi lalu mengurangkan banyaknya dari jumlah keseluruhan. </p>
+  <reading-questions xml:id="rqs-strings_bin-coeff" component="runestone">
+    <exercise label="appcomb_strings_bin-coeff_reading_candy">
+      <statement>
+        <p>
+          Andaikan kita membagikan <m>12</m> permen batangan yang identik kepada empat anak yang beruntung dan ingin menentukan banyaknya cara pembagian itu dapat dilakukan. Tuliskan beberapa kalimat untuk menjelaskan cara Anda menangani soal ini dengan metode dalam bagian ini. Sertakan pembahasan tentang bagaimana metode tersebut berbeda, jika memang berbeda, antara keadaan ketika setiap anak harus menerima setidaknya satu permen batangan dan keadaan ketika satu anak atau lebih boleh tidak menerima permen batangan.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="appcomb_strings_bin-coeff_reading_pens">
+      <statement>
+        <p>
+          Alice dan Bob sedang membahas cara membagikan <m>20</m> pena yang identik kepada Alice, Bob, Carlos, Dave, Xing, Yolanda, dan Zori, yaitu <xref ref="ch_prologue" text="custom">tujuh tokoh yang berulang kali muncul</xref> dalam buku ini. Bob dan Dave masing-masing harus menerima setidaknya satu pena karena mereka lupa membawanya. Masing-masing dari lima orang lainnya boleh tidak menerima pena.
+        </p>
+        <p>
+          Alice menangani soal ini dengan menambahkan lima pena semu, sehingga jumlah keseluruhannya menjadi <m>25</m>. Menurutnya, hal ini menghasilkan <m>24</m> celah dan diperlukan enam pemisah. Dengan demikian, ia memperoleh <m>C(24,6)</m> cara untuk membagikan pena-pena tersebut.
+        </p>
+        <p>
+          Bob mengaku memperoleh jawaban yang sama melalui pendekatan berbeda. Mula-mula, ia menyisihkan masing-masing satu pena untuk dirinya dan Dave, sehingga jumlah pena yang tersisa menjadi <m>18</m>. Setelah itu, masing-masing dari ketujuh orang boleh tidak menerima pena, sehingga ia menambahkan <m>7</m> pena semu dan memperoleh jumlah <m>25</m>. Sekali lagi, menurutnya hal ini berarti diperlukan <m>24</m> celah dan <m>6</m> pemisah. Ia pun menyimpulkan bahwa terdapat <m>C(24,6)</m> cara untuk membagikan pena-pena tersebut.
+        </p>
+        <p>
+          Apakah terdapat kekeliruan dalam penalaran salah satu (atau kedua) argumen tersebut? Jika ya, apa kekeliruannya? Jika kedua argumen benar, jelaskan cara penyelesaian mana yang lebih Anda sukai dan alasannya.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="appcomb_strings_bin-coeff_reading_lattice-path">
+      <statement>
+        <p>
+          Pertimbangkan lintasan kisi <m>HHVHVHVVVHHV</m> dari <m>(0,0)</m> ke <m>(6,6)</m>. Dalam istilah <xref ref="exa_lattice-Catalan"/>, lintasan kisi ini <q>buruk</q>. Jika langkah-langkah lintasan kisi diberi nomor dari <m>1</m> sampai <m>12</m>, pada posisi manakah lintasan kisi tersebut pertama kali menjadi buruk? (Untuk lintasan kisi dalam paragraf pertama <xref ref="exa_lattice-Catalan"/>, kita akan mengatakan bahwa lintasan itu menjadi buruk pada langkah <m>9</m>.) Jelaskan mengapa lintasan kisi menjadi buruk pada posisi yang Anda sebutkan, dan bukan sebelumnya.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

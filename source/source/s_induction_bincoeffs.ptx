@@ -1,0 +1,214 @@
+<section xml:id="s_induction_bincoeffs">
+  <title>Meninjau Kembali Koefisien Binomial</title>
+  <p>Koefisien binomial <m>\binom{n}{k}</m> mula-mula didefinisikan menggunakan notasi faktorial.
+    Dengan definisi rekursif notasi faktorial, kita juga memiliki definisi koefisien binomial yang
+    lengkap dan sah secara formal. Rumus rekursif berikut memberikan skema komputasi yang efisien. </p>
+
+  <p>Misalkan <m>n</m> dan <m>k</m> bilangan bulat dengan <m>0\le k\le n</m>. Jika <m>k=0</m> atau <m>k=n</m>, tetapkan <m>
+    \binom{n}{k}=1</m>. Jika <m>0\lt k\lt n</m>, tetapkan<idx>
+      <h>koefisien binomial</h>
+      <h>rumus rekursif untuk</h>
+    </idx>
+    <md>
+      \binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}.
+    </md> Rekursi ini memiliki interpretasi
+    kombinatorial yang alami. Kedua ruas menghitung banyaknya himpunan bagian beranggota <m>k</m> dari <m>
+    \{1,2,\dots,n\}</m>. Ruas kanan mula-mula mengelompokkannya menjadi himpunan bagian yang memuat
+    elemen<nbsp/><m>n</m> dan yang tidak memuatnya. Bentuk tradisional untuk menampilkan
+    rekursi ini diperlihatkan dalam <xref ref="fig_pascal"/>. Pola tersebut disebut <q>Segitiga Pascal.</q>
+    Selain angka <m>1</m> pada kedua ujung setiap baris, suatu entri segitiga diperoleh dengan
+    menjumlahkan dua entri yang terletak di kiri atas dan kanan atasnya. </p>
+  <figure xml:id="fig_pascal">
+    <caption>Segitiga Pascal</caption>
+    <tabular>
+      <row>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+      </row>
+      <row>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+      </row>
+      <row>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell>2</cell>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+      </row>
+      <row>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell>3</cell>
+        <cell/>
+        <cell>3</cell>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+      </row>
+      <row>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell>4</cell>
+        <cell/>
+        <cell>6</cell>
+        <cell/>
+        <cell>4</cell>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell/>
+      </row>
+      <row>
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell>5</cell>
+        <cell/>
+        <cell>10</cell>
+        <cell/>
+        <cell>10</cell>
+        <cell/>
+        <cell>5</cell>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell/>
+        <cell/>
+      </row>
+      <row>
+        <cell/>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell>6</cell>
+        <cell/>
+        <cell>15</cell>
+        <cell/>
+        <cell>20</cell>
+        <cell/>
+        <cell>15</cell>
+        <cell/>
+        <cell>6</cell>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell/>
+      </row>
+      <row>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+        <cell>7</cell>
+        <cell/>
+        <cell>21</cell>
+        <cell/>
+        <cell>35</cell>
+        <cell/>
+        <cell>35</cell>
+        <cell/>
+        <cell>21</cell>
+        <cell/>
+        <cell>7</cell>
+        <cell/>
+        <cell>1</cell>
+        <cell/>
+      </row>
+      <row>
+        <cell>1</cell>
+        <cell/>
+        <cell>8</cell>
+        <cell/>
+        <cell>28</cell>
+        <cell/>
+        <cell>56</cell>
+        <cell/>
+        <cell>70</cell>
+        <cell/>
+        <cell>56</cell>
+        <cell/>
+        <cell>28</cell>
+        <cell/>
+        <cell>8</cell>
+        <cell/>
+        <cell>1</cell>
+      </row>
+    </tabular>
+  </figure>
+  <p>Xing tertarik karena kini ia memiliki dua cara yang secara mendasar berbeda untuk menghitung
+    koefisien binomial. Cara pertama ialah menulis <m>\binom{n}{m}=P(n,m)/m!</m>, lalu melakukan
+    operasi aritmetika yang ditentukan. Cara kedua menggunakan rekursi Segitiga Pascal, sehingga
+    hanya memerlukan penjumlahan. Ia pun bereksperimen dengan menulis program komputer untuk menghitung
+    koefisien binomial menggunakan pustaka yang memperlakukan bilangan bulat besar sebagai string. Menurut Anda,
+    cara manakah yang ternyata lebih cepat ketika, misalnya, <m>n</m> berada di antara <m>1800</m> dan <m>2000</m>,
+    sedangkan <m>m</m> sekitar <m>800</m>? </p>
+  <reading-questions xml:id="rqs-induction_bincoeffs" component="runestone">
+    <exercise label="induction_bincoeffs_reading">
+      <statement>
+        <p>
+          Tuliskan beberapa kalimat untuk menjelaskan mengapa <m>C(n-1,k-1)</m> menghitung banyaknya himpunan bagian beranggota <m>k</m> dari <m>\{1,2,\dots,n\}</m> yang memuat elemen <m>n</m>.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

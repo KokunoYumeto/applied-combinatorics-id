@@ -1,0 +1,53 @@
+<section xml:id="s_posets_sorting">
+    <title>Perluasan Linear Himpunan Terurut Parsial</title>
+    <p>Misalkan <m>\PXP</m> merupakan suatu himpunan terurut parsial. Suatu urutan linear <m>L</m> pada <m>X</m> disebut <term>perluasan linear</term><idx><h>perluasan linear</h></idx> (juga disebut <term>pengurutan topologis</term>) dari <m>P</m> jika <m>x\lt y</m> dalam <m>L</m> setiap kali <m>x\lt y</m> dalam <m>P</m>. Sebagai contoh, tabel yang ditampilkan pada <xref ref="fig_posets_lin-extn"/> memperlihatkan bahwa contoh yang telah kita kenal, <m>\bfP_3</m>, memiliki<nbsp/>11 perluasan linear.
+    </p>
+    <figure xml:id="fig_posets_lin-extn">
+        <caption>Suatu poset dan perluasan-perluasan linearnya</caption>
+        <sidebyside widths="18% 75%" valigns="middle middle">
+        <image>
+            <description><p>Diagram Hasse suatu poset enam titik: z ditutupi oleh b dan c; a ditutupi oleh b dan w; w ditutupi oleh c; serta c ditutupi oleh d.</p>
+        </description><latex-image>\begin{overpic}[scale=.4]{external/wttfig-9}
+            \put(-3,2){\(z\)}
+            \put(48,32.5){\(w\)}
+            \put(48,2){\(a\)}
+            \put(-3,32.5){\(b\)}
+            \put(48,63){\(c\)}
+            \put(48,93){\(d\)}
+            \end{overpic}</latex-image>
+        </image>
+        <p>
+            <md>
+                \begin{array}{ccccccccccc}
+                L_1\amp  L_2 \amp  L_3 \amp  L_4 \amp  L_5 \amp  L_6 \amp  L_7 \amp  L_8 \amp  L_9 \amp  L_{10} \amp  L_{11}\\[.2in]
+                d \amp  d \amp  d \amp  b \amp  d \amp  d \amp  d \amp  b \amp  d \amp  d \amp  b \\
+                c \amp  c \amp  b \amp  d \amp  c \amp  c \amp  b \amp  d \amp  c \amp  b \amp  d \\
+                w \amp  b \amp  c \amp  c \amp  w \amp  b \amp  c \amp  c \amp  b \amp  c \amp  c \\
+                b \amp  w \amp  w \amp  w \amp  b \amp  w \amp  w \amp  w \amp  z \amp  z \amp  z \\
+                a \amp  a \amp  a \amp  a \amp  z \amp  z \amp  z \amp  z \amp  w \amp  w \amp  w \\
+                z \amp  z \amp  z \amp  z \amp  a \amp  a \amp  a \amp  a \amp  a \amp  a \amp  a \\
+                \end{array}
+            </md>
+        </p>
+    </sidebyside>
+    </figure>
+    <remark>
+        <p>Bob mengatakan bahwa ia belum yakin setiap poset hingga memiliki perluasan linear. Alice mengatakan bahwa hal tersebut mudah dibuktikan. Apakah Alice benar?
+        </p>
+
+        <p>Carlos mengatakan bahwa pertanyaan ini memiliki seluk-beluk ketika himpunan dasar <m>X</m> tak hingga. Anda mungkin ingin menelusuri nama Szpilrajn di web dan membaca sumbangsihnya terhadap persoalan ini.
+        </p>
+    </remark>
+    <p>Masalah pengurutan klasik yang dipelajari dalam semua mata kuliah dasar ilmu komputer adalah menentukan urutan linear <m>L</m> yang tidak diketahui pada suatu himpunan <m>X</m> dengan mengajukan serangkaian pertanyaan berbentuk: Apakah <m>x\lt y</m> dalam <m>L</m>? Semua algoritme pengurutan yang terkenal (pengurutan gelembung, urut gabung, pengurutan cepat, <etc/>) bekerja dengan cara ini.
+    </p>
+
+    <p>Berikut ini sebuah kasus khusus yang penting: tentukan perluasan linear <m>L</m> yang tidak diketahui dari suatu poset <m>\bfP</m> dengan mengajukan serangkaian pertanyaan berbentuk: Apakah <m>x \lt y</m> dalam <m>L</m>?
+    </p>
+    <remark>
+        <p>Dengan poset <m>\PXP</m> yang ditampilkan pada <xref ref="fig_17ptposet"/> dan persoalan untuk menentukan suatu perluasan linear yang belum diketahui dari <m>P</m>, bagaimana sebaiknya Alice memutuskan pertanyaan mana (berbentuk: Apakah <m>x\lt y</m> dalam <m>L</m>?) yang akan diajukan?
+        </p>
+
+        <p>Bagaimana perasaan Anda jika diberi tugas menghitung banyaknya perluasan linear poset ini? Secara umum, seberapa sulit menentukan banyaknya perluasan linear suatu poset? Dapatkah Anda (dan komputer Anda) melakukan penghitungan ini untuk poset dengan <m>100,000</m> titik?
+        </p>
+    </remark>
+</section>

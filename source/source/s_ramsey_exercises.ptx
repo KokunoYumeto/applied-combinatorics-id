@@ -1,0 +1,33 @@
+<exercises xml:id="s_ramsey_exercises">
+    <exercise>
+        <statement>
+            <p>Perhatikan graf acak dengan himpunan simpul <m>\{1,2,\dots,n\}</m>. Jika setiap sisi mempunyai probabilitas <m>p=1/2</m>, misalkan <m>X</m> menyatakan banyaknya klik berukuran <m>t=2\log n</m> dan <m>Y</m> menyatakan banyaknya himpunan bebas berukuran <m>t=2\log n</m>.
+                  <ol>
+                <li><p>Tunjukkan bahwa <m>E(X+Y)\lt 1</m> apabila <m>n</m> cukup besar.</p></li>
+                <li><p>Gunakan hasil bagian<nbsp/>a untuk menunjukkan bahwa <m>\omega(G)</m> kurang dari <m>2\log n</m>, sedangkan bilangan kromatik <m>G</m> sedikitnya <m>n/(2\log n)</m> (kedua pernyataan berlaku dengan probabilitas tinggi). Akibatnya, pertidaksamaan dasar <m>\chi(G)\ge\omega(G)</m> jauh dari tajam untuk graf acak.</p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Kita membentuk turnamen acak sebagai berikut. Mulailah dengan graf lengkap yang mempunyai himpunan simpul <m>\{1,2,\dots,n\}</m>. Untuk setiap pasangan berbeda <m>i</m>, <m>j</m> dengan <m>1\le i\lt j\le n</m>, lempar sebuah koin seimbang. Jika hasilnya sisi angka, arahkan sisi dari <m>i</m> ke <m>j</m>, yang kita nyatakan dengan <m>(i,j)</m>. Jika hasilnya sisi gambar, arahkan sisi dari <m>j</m> ke <m>i</m>, yang dinyatakan dengan <m>(j,i)</m>. Tunjukkan bahwa apabila <m>n</m> besar, pernyataan berikut berlaku dengan probabilitas tinggi: Untuk setiap himpunan <m>S</m> berukuran <m>\log n/10</m>, terdapat simpul <m>x</m> sedemikian sehingga <m>(x,y)</m> merupakan sisi berarah dalam <m>T</m> untuk setiap <m>y\in S</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Misalkan <m>T</m> merupakan turnamen acak pada <m>n</m> simpul. Tunjukkan bahwa pernyataan berikut berlaku dengan probabilitas tinggi: Untuk setiap pasangan simpul berbeda <m>x</m>, <m>y</m>, berlaku salah satu dari (1)<nbsp/><m>(x,y)</m> merupakan sisi berarah dalam <m>T</m>, atau (2)<nbsp/>terdapat simpul <m>z</m> sedemikian sehingga <m>(x,z)</m> dan <m>(z,y)</m> keduanya merupakan sisi berarah dalam <m>T</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Banyak pernyataan tentang graf acak memperlihatkan <term>perilaku ambang</term>.<idx><h>probabilitas ambang</h></idx> Tunjukkan bahwa graf acak dengan probabilitas sisi <m>p=10\log n/n</m> hampir pasti tidak mempunyai simpul terisolasi, sedangkan graf acak dengan probabilitas sisi <m>p=\log n/(10 n)</m> hampir pasti mempunyai sedikitnya satu simpul terisolasi.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Dalam pengertian soal sebelumnya, tentukan probabilitas ambang agar suatu graf terhubung. <idx><h>probabilitas ambang</h></idx></p>
+        </statement>
+    </exercise>
+</exercises>

@@ -1,0 +1,39 @@
+<section xml:id="s_basics_pigeonhole">
+    <title>Prinsip Sarang Merpati</title>
+    <p>Suatu fungsi <m>f:X\longrightarrow Y</m> dikatakan <m>1</m><ndash/><m>1</m> (dibaca <term>satu-ke-satu</term><idx><h>fungsi</h><h>satu-ke-satu</h></idx>) apabila <m>f(x)\neq f(x')</m> untuk setiap <m>x,x'\in X</m> dengan <m>x\neq x'</m>. Fungsi <m>1</m><ndash/><m>1</m> juga disebut suatu <term>injeksi</term>, atau kita mengatakan bahwa <m>f</m> bersifat <term>injektif</term><idx><h>fungsi</h><h>injektif</h></idx><idx><h>injeksi</h></idx>. Apabila <m>f:X\longrightarrow Y</m> bersifat <m>1</m><ndash/><m>1</m>, kita perhatikan bahwa <m>|X|\le |Y|</m>. Sebaliknya, kita mempunyai pernyataan jelas berikut, yang dikenal luas sebagai prinsip <q>Sarang Merpati</q>.
+    </p>
+
+    <proposition xml:id="prop_pigeon">
+        <title>Prinsip Sarang Merpati</title>
+        <idx><h>prinsip sarang merpati</h></idx>
+        <statement>
+            <p>Jika <m>f:X\longrightarrow Y</m> adalah suatu fungsi dan <m>|X|&gt;|Y|</m>, maka terdapat sebuah unsur <m>y\in Y</m> dan unsur-unsur berbeda <m>x,x'\in X</m> sedemikian sehingga <m>f(x)=f(x')=y</m>.
+            </p>
+        </statement>
+    </proposition>
+
+    <p>Dalam bahasa yang lebih santai, jika Anda harus memasukkan <m>n+1</m> merpati ke dalam <m>n</m> sarang, maka setidaknya dua merpati harus dimasukkan ke sarang yang sama.
+    </p>
+
+    <p>Berikut adalah hasil klasik yang pembuktiannya segera diperoleh dari <xref ref="prop_pigeon" text="title"/>.
+    </p>
+
+    <theorem xml:id="thm_ErdosSzekeres">
+        <title>Teorema Erd&#337;s–Szekeres</title>
+        <statement>
+            <p>Jika <m>m</m> dan <m>n</m> adalah bilangan bulat tak negatif, maka setiap barisan yang terdiri atas <m>mn+1</m> bilangan real berbeda memiliki subbarisan menaik dengan <m>m+1</m> suku atau subbarisan menurun dengan <m>n+1</m> suku.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Misalkan <m>\sigma=(x_1,x_2,x_3,\dots,x_{mn+1})</m> adalah barisan yang terdiri atas <m>mn+1</m> bilangan real berbeda. Untuk setiap <m>i=1,2,\dots,mn+1</m>, misalkan <m>a_i</m> adalah banyaknya suku maksimum dalam suatu subbarisan menaik dari <m>\sigma</m> yang suku pertamanya adalah <m>x_i</m>. Misalkan pula <m>b_i</m> adalah banyaknya suku maksimum dalam suatu subbarisan menurun dari <m>\sigma</m> yang suku terakhirnya adalah <m>x_i</m>. Jika terdapat suatu <m>i</m> dengan <m>a_i\ge m+1</m>, maka <m>\sigma</m> memiliki subbarisan menaik yang terdiri atas <m>m+1</m> suku. Demikian pula, jika untuk suatu <m>i</m> berlaku <m>b_i\ge n+1</m>, maka kita menyimpulkan bahwa <m>\sigma</m> memiliki subbarisan menurun yang terdiri atas <m>n+1</m> suku.
+            </p>
+
+            <p>Tinggal kita pertimbangkan kasus ketika <m>a_i\le m</m> dan <m>b_i\le n</m> untuk setiap <m>i=1,2,\dots,mn+1</m>. Karena terdapat <m>mn</m> pasangan terurut berbentuk <m>(a,b)</m> dengan <m>1\le a\le m</m> dan <m>1\le b\le n</m>, berdasarkan prinsip Sarang Merpati kita menyimpulkan bahwa pasti terdapat bilangan bulat <m>i_1</m> dan <m>i_2</m> dengan <m>1\le i_1\lt i_2\le mn+1</m> sedemikian sehingga <m>(a_{i_1},b_{i_1})=(a_{i_2},b_{i_2})</m>. Karena <m>x_{i_1}</m> dan <m>x_{i_2}</m> berbeda, berlaku <m>x_{i_1}\lt x_{i_2}</m> atau <m>x_{i_1}&gt;x_{i_2}</m>. Dalam kasus pertama, setiap subbarisan menaik yang suku pertamanya adalah <m>x_{i_2}</m> dapat diperpanjang dengan menempatkan <m>x_{i_1}</m> di awal. Hal ini menunjukkan bahwa <m>a_{i_1}&gt;a_{i_2}</m>. Dalam kasus kedua, setiap subbarisan menurun yang suku terakhirnya adalah <m>x_{i_1}</m> dapat diperpanjang dengan menambahkan <m>x_{i_2}</m> di bagian paling akhir. Hal ini menunjukkan bahwa <m>b_{i_2}&gt;b_{i_1}</m>.
+            </p>
+        </proof>
+    </theorem>
+
+    <p>Dalam <xref ref="ch_probmeth"/>, kita akan mempelajari beberapa perumuman kuat dari <xref ref="prop_pigeon" text="title"/>. Semua hasil ini mencerminkan gagasan umum bahwa ketidakteraturan mutlak tidak mungkin terjadi.
+    </p>
+</section>

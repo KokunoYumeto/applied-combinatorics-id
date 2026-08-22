@@ -1,0 +1,94 @@
+<section xml:id="s_background_rationals">
+    <title>Memperoleh Bilangan Rasional dari Bilangan Bulat</title>
+    <introduction>
+        <p>Perhatikan himpunan <m>\rats</m> yang terdiri atas semua pasangan terurut dalam <m>\ints\times \ints</m> berbentuk <m>(x,y)</m> dengan <m>y\neq 0</m>. Elemen-elemen <m>\rats</m> disebut <term>bilangan rasional</term><idx><h>bilangan rasional</h></idx>, atau <term>pecahan</term>. Definisikan suatu relasi ekuivalensi, yang dinyatakan dengan <m>=</m>, pada <m>\rats</m> dengan menetapkan <m>(x,y)=(z,w)</m> jika dan hanya jika <m>xw=yz</m>. Perlu ditekankan bahwa simbol <m>=</m> dapat digunakan—dan memang sering digunakan—untuk menyatakan relasi ekuivalensi. Maknanya tidak terbatas pada <q>benar-benar objek yang sama.</q>
+        </p>
+
+        <p>Jika <m>q=(x,y)</m> merupakan suatu pecahan, <m>x</m> disebut <term>pembilang</term><idx><h>pembilang</h></idx> dan <m>y</m> disebut <term>penyebut</term><idx><h>penyebut</h></idx> dari <m>q</m>. Ingat bahwa penyebut suatu pecahan tidak pernah nol.
+        </p>
+
+        <p>
+            Penjumlahan pecahan didefinisikan dengan
+        <md>
+            (a,b)+(c,d) = (ad+bc,bd),
+        </md>
+            sedangkan perkalian didefinisikan dengan
+        <md>
+            (a,b)(c,d) = (ac,bd).
+        </md>
+            Seperti pada bilangan bulat, kita perlu berhenti sejenak dan membuktikan bahwa kedua operasi tersebut terdefinisi dengan baik.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>Misalkan <m>x,y,z,w\in\rats</m>. Jika <m>x=y</m> dan <m>z=w</m>, maka <m>x+z=y+w</m> dan <m>xz=yw</m>.
+                </p>
+            </statement>
+        </theorem>
+
+        <p>Penjumlahan dan perkalian sama-sama bersifat asosiatif dan komutatif. Selain itu, berlaku sifat distributif.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                    Misalkan <m>x,y,z\in \rats</m>. Maka
+                  <ol>
+                    <li><p><m>x+y=y+x</m> dan <m>xy=yx</m>.</p></li>
+                    <li><p><m>x+(y+z) = (x+y)+z</m> dan <m>x(yz)=(xy)z</m>.</p></li>
+                    <li><p><m>x(y+z)=xy+xz</m>.</p></li>
+                
+                  </ol>
+                </p>
+            </statement>
+        </theorem>
+
+        <p>Invers aditif pecahan <m>(a,b)</m> ialah <m>(-a,b)</m>. Dengan menggunakan hal ini, kita mendefinisikan pengurangan pecahan: <m>(a,b)-(c,d)=(a,b)+(-c,d)</m>.
+        </p>
+
+        <p>Jika <m>(a,b)</m> merupakan suatu pecahan dan <m>a\neq 0</m>, pecahan <m>(b,a)</m> merupakan <term>kebalikan</term><idx><h>kebalikan</h></idx> dari <m>(a,b)</m>. Kebalikan juga disebut <term>invers perkalian</term><idx><h>invers perkalian</h></idx>, dan kebalikan <m>x</m> dinyatakan dengan <m>x^{-1}</m>. Jika <m>y\neq0</m>, kita kemudian dapat mendefinisikan <term>pembagian</term> dengan menetapkan <m>x/y=xy^{-1}</m>, <ie/>, <m>(a,b)/(c,d)=(ad, bc)</m>. Tentu saja, pembagian dengan nol tidak didefinisikan, suatu fakta yang mungkin sudah Anda ketahui!
+        </p>
+
+        <p>Seperti pada <m>\nonnegints</m> dan <m>\ints</m>, jika <m>n</m> merupakan bilangan bulat positif dan <m>0</m> merupakan nol dalam <m>\rats</m>, kita definisikan <m>0^n=0</m>. Jika <m>x=(a,b)</m> merupakan pecahan dengan <m>x\neq0</m> dan <m>n</m> merupakan bilangan bulat tak negatif, kita mendefinisikan <m>x^n</m> secara induktif melalui (i)<nbsp/><m>x^0=1</m> dan (ii)<nbsp/><m>x^{n+1}=xx^n</m>.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>Jika <m>x\in\rats</m>, <m>x\neq0</m>, dan <m>m,n\in\nonnegints</m>, maka <m>x^mx^n=x^{m+n}</m> dan <m>(x^m)^n=x^{mn}</m>.
+                </p>
+            </statement>
+        </theorem>
+
+        <p>Banyak orang lebih menyukai notasi alternatif bagi pecahan, yaitu pembilang ditulis tepat di atas penyebut dengan garis horizontal di antaranya. Jadi, <m>(2,5)</m> juga dapat ditulis sebagai <m>\frac{2}{5}</m>.
+        </p>
+
+        <p>Melalui pemetaan <m>g(x) = (x,1)=\frac{x}{1}</m>, sekali lagi kita mengatakan bahwa bilangan bulat merupakan <q>himpunan bagian</q> dari bilangan rasional. Seperti sebelumnya, perhatikan bahwa <m>g(x+y) = g(x)+g(y)</m>, <m>g(x-y)=g(x)-g(y)</m>, dan <m>g(xy)=g(x)g(y)</m>.
+        </p>
+
+        <p>Di kelas tiga sekolah dasar, Anda mungkin diberi tahu bahwa <m>5 =\frac{5}{1}</m>, tetapi sekarang Anda menyadari bahwa hal itu tidak sepenuhnya benar. Demikian pula, jika dahulu Anda mengatakan kepada guru bahwa <m>\frac{3}{4}</m> dan <m>\frac{6}{8}</m> sebenarnya tidak sama dan hanya <q>setara</q> dalam arti relasi ekuivalensi yang lebih luas pada suatu himpunan bagian dari produk Kartesius bilangan bulat, Anda mungkin akan dikirim ke ruang kepala sekolah.
+        </p>
+
+        <p>Bayangkan masalah yang mungkin Anda hadapi jika bersikeras bahwa arti sebenarnya dari <m>\frac{1}{2}</m> ialah
+        <md>
+            \frac{1}{2} =\langle(\langle(s(s(0)),s(0))\rangle,
+            \langle(s(s(0)),0)\rangle)\rangle
+        </md>
+        Kita juga dapat mendefinisikan urutan total pada <m>\rats</m>. Untuk melakukannya, kita menganggap bahwa <m>(a,b),(c,d)\in\rats</m> memenuhi <m>b,d&gt;0</m>. (Sebagai contoh, jika <m>b\lt 0</m>, kita menggantinya dengan <m>(a',b')=(-a,-b)</m>, yang berada dalam kelas ekuivalensi yang sama dengan <m>(a,b)</m> dan memenuhi <m>b'&gt;0</m>.) Kemudian kita menetapkan <m>(a,b)\leq (c,d)</m> dalam <m>\rats</m> jika <m>ad\leq bc</m> dalam <m>\ints</m>.
+        </p>
+    </introduction>
+
+
+    <subsection>
+        <title>Eksponen Bilangan Bulat</title>
+        <p>Jika <m>n</m> merupakan bilangan bulat positif dan <m>0</m> merupakan nol dalam <m>\rats</m>, kita definisikan <m>0^n=0</m>. Jika <m>x\in\rats</m>, <m>x\neq 0</m>, dan <m>n\in\nonnegints</m>, kita mendefinisikan <m>x^n</m> secara induktif melalui<nbsp/>(i)<nbsp/><m>x^0=1</m> dan (ii) <m>x^{k+1}=xx^k</m>. Jika <m>n\in\ints</m> dan <m>n\lt 0</m>, kita menetapkan <m>x^n=1/x^{-n}</m>.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>Jika <m>x\in\rats</m>, <m>x\neq0</m>, dan <m>m,n\in\ints</m>, maka <m>x^mx^n=x^{m+n}</m> dan <m>(x^m)^n=x^{mn}</m>.
+                </p>
+            </statement>
+        </theorem>
+    </subsection>
+
+</section>

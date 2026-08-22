@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+.cache/
+logs/
+output/
+tmp/
+generated-assets/
+*.zip

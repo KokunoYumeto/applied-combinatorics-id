@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<publication>
+    <source>
+        <directories generated="../generated-assets"/>
+        <version include="main" />
+    </source>
+    <common>
+      <tableofcontents level="2" />
+      <exercise-divisional statement="yes" hint="yes" answer="no" solution="no"/>
+    </common>
+    <numbering>
+      <blocks level="1" />
+    </numbering>
+  
+    <!-- EPUB-Specific Options -->
+    <epub>
+      <cover front="covers/2017-front-cover.png" />
+    </epub>
+
+    <!-- HTML-Specific Options -->
+    <html>
+      <css theme="default-modern" palette="blues" provide-dark-mode="no"/>
+	    <knowl example="no" />
+	    <analytics google-gst="G-DKXSTE8Z4T" />
+      <brandlogo url="https://www.appliedcombinatorics.org/" source="front-cover.png"/>
+	<!-- <search google-cx="009375931950235294692:hxgsc7lzdau" /> -->
+    </html>
+    <latex sides="two" />
+</publication>

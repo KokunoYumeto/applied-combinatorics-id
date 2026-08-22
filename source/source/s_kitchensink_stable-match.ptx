@@ -1,0 +1,25 @@
+<section xml:id="s_kitchensink_stable-match">
+    <title>Teorema Pencocokan Stabil</title>
+    <p>Sekarang kita menyajikan sebuah masalah optimisasi ringan dengan penyelesaian yang cukup cerdik, yang disebut <em>Teorema Pencocokan Stabil</em>. Terdapat <m>n</m> calon pembeli rumah <m>b_1</m>, <m>b_2,\dots,b_n</m> dan <m>n</m> calon penjual rumah <m>s_1</m>, <m>s_2,\dots,s_n</m>. Kita akan mengatur <m>n</m> penjualan rumah, masing-masing melibatkan satu pembeli dan satu penjual. Dalam prosesnya, kita akan berusaha membuat semua orang senang<mdash/>atau setidaknya menjaga agar keadaan tetap stabil.
+        </p>
+
+        <p>Setiap penjual mengurutkan para pembeli secara linear menurut preferensinya, yaitu, untuk setiap <m>i=1,2,\dots,n</m>, terdapat permutasi <m>\sigma_i</m> dari <m>[n]</m> sedemikian sehingga, jika <m>s_i</m> lebih memilih <m>b_j</m> daripada <m>b_k</m>, maka <m>\sigma_i(j)\gt  \sigma_i(k)</m>. Penjual yang berbeda dapat mempunyai urutan preferensi yang sangat berbeda. Demikian pula, setiap pembeli mengurutkan para penjual secara linear (sebenarnya, rumah yang mereka jual!) menurut preferensinya, yaitu, untuk setiap <m>i=1,2,\dots,n</m>, terdapat permutasi <m>\tau_i</m> dari <m>[n]</m> sedemikian sehingga, jika <m>b_i</m> lebih memilih <m>s_j</m> daripada <m>s_k</m>, maka <m>\tau_i(j)\gt\tau_i(k)</m>.
+        </p>
+
+        <p>Suatu pencocokan <m>1</m><ndash/><m>1</m> antara <m>n</m> pembeli dan <m>n</m> penjual disebut <term>stabil</term><idx><h>pencocokan</h><h>stabil</h></idx> jika tidak terdapat dua pembeli <m>b</m> dan <m>b'</m> serta dua penjual <m>s</m> dan <m>s'</m> sedemikian sehingga
+        <ol>
+            <li><m>b</m> dicocokkan dengan <m>s</m>;</li>
+            <li><m>b'</m> dicocokkan dengan <m>s'</m>;</li>
+            <li><m>b</m> lebih memilih <m>s'</m> daripada <m>s</m>; dan</li>
+            <li><m>s'</m> lebih memilih <m>b</m> daripada <m>b'</m>.</li>
+        </ol>
+        Gagasannya adalah bahwa, dengan preferensi tersebut, <m>b</m> dan <m>s'</m> mungkin sama-sama cenderung mengatur agar <m>s'</m> menjual rumahnya kepada <m>b</m>, sehingga meninggalkan kesepakatan lain yang sudah dibuat. (Karena <m>b</m> dan <m>s'</m> bertindak demi kepentingannya masing-masing, preferensi <m>b'</m> dan <m>s</m> tidak relevan di sini.)
+        </p>
+
+        <p>Pertanyaannya adalah apakah kita selalu dapat menghasilkan pencocokan stabil, apa pun preferensi masing-masing pihak. Jawabannya adalah <q>ya</q>, dan terdapat argumen yang cerdik. Bahkan, argumen tersebut menghasilkan algoritma yang efisien. Mula-mula, setiap pembeli mengetuk pintu depan penjual yang menduduki urutan pertama dalam daftarnya. Mungkin ada penjual yang didatangi lebih dari satu calon pembeli, sedangkan penjual lain tidak didatangi siapa pun. Namun, jika seorang penjual didatangi satu atau lebih pembeli, penjual itu mengundang masuk pembeli yang paling disukainya dan menyuruh pembeli lainnya, jika ada, pergi. Setiap pembeli yang ditolak pada tahap ini mendatangi pintu depan rumah yang berada pada urutan kedua dalam daftarnya. Sekali lagi, penjual yang didatangi satu atau lebih pembeli, termasuk pembeli yang sebelumnya sudah diundang masuk jika ada, memilih yang terbaik di antara mereka dan menyuruh yang lain pergi. Proses ini berlanjut sampai akhirnya setiap penjual mempunyai tepat satu pembeli di rumahnya.
+        </p>
+
+        <p>Menarik untuk dicatat bahwa prospek setiap penjual membaik seiring waktu, yaitu, setelah memperoleh seorang pembeli, pilihannya hanya menjadi lebih baik. Sebaliknya, prospek setiap pembeli memburuk seiring waktu. Bagaimanapun, kita menyatakan bahwa pencocokan yang dihasilkan bersifat stabil. Untuk melihatnya, andaikan pencocokan itu tidak stabil dan pilih pembeli <m>b</m> dan <m>b'</m> serta penjual <m>s</m> dan <m>s'</m> sedemikian sehingga <m>b</m> dicocokkan dengan <m>s</m>, <m>b'</m> dicocokkan dengan <m>s'</m>, tetapi <m>b</m> lebih memilih <m>s'</m> daripada <m>s</m> dan <m>s'</m> lebih memilih <m>b</m> daripada <m>b'</m>. Algoritma mengharuskan pembeli <m>b</m> mulai dari urutan teratas dalam daftarnya dan bergerak turun. Karena akhirnya ia berhenti di pintu penjual <m>s</m>, sedangkan ia lebih memilih <m>s'</m> daripada <m>s</m>, pada suatu tahap algoritma pembeli <m>b</m> pernah berada di pintu <m>s'</m>, lalu penjual <m>s'</m> menolak pembeli <m>b</m>. Artinya, tepat pada saat itu <m>s'</m> sedang mempertahankan pembeli lain <m>c</m> yang lebih disukainya daripada <m>b</m>. Karena pilihan yang dipertahankan setiap penjual hanya membaik seiring waktu, ketika pencocokan selesai penjual <m>s'</m> memiliki pembeli <m>b'</m> yang lebih disukainya daripada <m>b</m>. Oleh karena itu, pencocokan tersebut sebenarnya tidaklah tidak stabil.
+        </p>
+
+</section>

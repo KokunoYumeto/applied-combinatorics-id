@@ -1,0 +1,15 @@
+<section xml:id="s_graphalgorithms_digraphs">
+    <title>Digraf</title>
+    <p>Dalam bagian ini, kita memperkenalkan varian graf lain yang berguna. Dalam graf, keberadaan sisi <m>xy</m> dapat digunakan untuk memodelkan hubungan dua arah antara <m>x</m> dan <m>y</m>. Namun, kadang-kadang model semacam itu tidak memadai. Sebagai contoh, mungkin tersedia penerbangan langsung dari Atlanta ke Fargo, tetapi tidak tersedia penerbangan langsung dari Fargo ke Atlanta. Dalam graf yang merepresentasikan jaringan penerbangan, sisi antara Atlanta dan Fargo akan menghilangkan informasi bahwa penerbangan hanya beroperasi dalam satu arah. Untuk menangani persoalan ini, kita memperkenalkan struktur diskret baru. Sebuah <term>digraf</term><idx><h>digraf</h></idx><idx><h>graf</h><h>berarah</h><see>digraf</see></idx> <m>\bfG</m> adalah pasangan <m>(V,E)</m>, dengan <m>V</m> himpunan simpul dan <m>E\subset V\times V</m>, serta <m>x\neq y</m> untuk setiap <m>(x,y)\in E</m>. Kita memandang pasangan <m>(x,y)</m> sebagai <term>sisi berarah</term><idx><h>sisi</h><h>berarah</h></idx> dari <m>x</m> ke <m>y</m>. Perhatikan bahwa untuk simpul-simpul berbeda <m>x</m> dan <m>y</m> dalam <m>V</m>, pasangan terurut <m>(x,y)</m> dan <m>(y,x)</m> berbeda. Jadi, digraf dapat mempunyai salah satu, keduanya, atau tidak satu pun dari sisi berarah <m>(x,y)</m> dan <m>(y,x)</m>. Hal ini berbeda dari graf biasa, yang sisinya berupa himpunan, sehingga <m>\{x,y\}</m> dan <m>\{y,x\}</m> sama.
+    </p>
+
+    <p>Diagram digraf menggunakan ujung panah pada sisi untuk menunjukkan arah, seperti diperlihatkan dalam <xref ref="fig_graphalgorithms_digraph"/>. Sebagai contoh, digraf pada gambar tersebut memuat sisi <m>(a,f)</m>, tetapi tidak memuat sisi <m>(f,a)</m>. Namun, digraf itu memuat kedua sisi <m>(c,d)</m> dan <m>(d,c)</m>.
+    </p>
+    <figure xml:id="fig_graphalgorithms_digraph">
+        <caption>Sebuah Digraf</caption>
+        <image width="85%" source="digraph"><description><p>Sebuah digraf</p>
+        </description></image>
+    </figure>
+    <p>Jika <m>\bfG</m> merupakan digraf, barisan simpul berbeda <m>P=(r=u_0,u_1,\dots,u_t=x)</m> disebut <term>lintasan berarah</term><idx><h>lintasan</h><h>berarah</h></idx> dari <m>r</m> ke <m>x</m> apabila <m>(u_i,u_{i+1})</m> merupakan sisi berarah dalam <m>\bfG</m> untuk setiap <m>i=0,1,\dots,t-1</m>. Lintasan berarah <m>C=(r=u_0,u_1,\dots,u_t=x)</m> disebut <term>siklus berarah</term><idx><h>siklus</h><h>berarah</h></idx> apabila <m>(u_t,u_0)</m> merupakan sisi berarah dalam <m>\bfG</m>.
+    </p>
+</section>

@@ -1,0 +1,77 @@
+<section xml:id="s_kitchensink_zero-one-matrices">
+    <title>Matriks Nol<ndash/>Satu</title>
+
+
+    <introduction>
+        <p>Matriks yang semua entrinya berupa <m>0</m> dan <m>1</m><idx><h>matriks</h><h>nol<ndash/>satu</h></idx> muncul dalam banyak konteks kombinatorial. Di sini kita menyajikan hasil klasik yang disebut teorema Gale-Ryser. Teorema ini membahas matriks nol<ndash/>satu dengan string jumlah baris dan jumlah kolom yang ditentukan. Jika <m>M</m> merupakan matriks berukuran <m>m\times n</m> nol<ndash/>satu, string <m>R=(r_1,r_2,\dots,r_m)</m>, dengan <m>r_i=\sum_{1\le j\le n}m_{i,j}</m>, disebut <term>string jumlah baris</term><idx><h>string</h><h>jumlah baris</h></idx> dari <m>M</m>. <term>String jumlah kolom</term><idx><h>string</h><h>jumlah kolom</h></idx> <m>C=(c_1,c_2,\dots,c_n)</m> didefinisikan secara analog. Sebaliknya, misalkan <m>m</m> dan <m>n</m> bilangan bulat positif, serta <m>R=(r_1,r_2,\dots,r_m)</m> dan <m>C=(c_1,c_2,\dots,c_n)</m> string bilangan bulat tak negatif. Pertanyaannya adalah apakah terdapat matriks berukuran <m>m\times n</m> nol<ndash/>satu <m>M</m> dengan string jumlah baris <m>R</m> dan string jumlah kolom <m>C</m>.
+        </p>
+
+        <p>Untuk menangani masalah ini, kita berhenti sejenak guna mengembangkan beberapa materi latar tambahan. Perhatikan bahwa tanpa mengurangi keumuman kita dapat mengandaikan terdapat bilangan bulat positif <m>t</m> sehingga <m>\sum_{i=1}^mr_i=\sum_{j=1}^nc_j=t</m>; jika tidak, jelas tidak ada matriks nol<ndash/>satu dengan string jumlah baris <m>R</m> dan string jumlah kolom <m>C</m>. Selain itu, kita dapat mengandaikan bahwa <m>R</m> dan <m>C</m> sama-sama merupakan string tak menaik, <ie/>, <m>r_1\ge r_2\ge \dots\ge r_m</m> dan <m>c_1\ge c_2\ge\dots\ge c_n</m>.
+        </p>
+
+        <p>Untuk melihatnya, perhatikan bahwa setiap kali dua baris dalam matriks nol<ndash/>satu dipertukarkan, string jumlah kolom tidak berubah. Karena itu, setelah permutasi baris yang sesuai, kita dapat mengandaikan <m>R</m> tak menaik. Proses yang sama kemudian diterapkan pada kolom.
+        </p>
+
+        <p>Terakhir, mudah dilihat bahwa kita dapat mengandaikan semua entri dalam <m>R</m> dan <m>C</m> berupa bilangan bulat positif, sebab nol dalam string-string ini bersesuaian dengan baris nol atau kolom nol dalam matriks. Dengan demikian, string jumlah baris <m>R</m> dan string jumlah kolom <m>C</m> dapat dipandang sebagai partisi bilangan bulat <m>t</m>, topik yang pertama kali kita perkenalkan dalam <xref ref="ch_genfunction"/>.
+        </p>
+
+        <p>Sepanjang sisa bagian ini, misalkan <m>t</m> bilangan bulat positif dan <m>\cgP(t)</m> menyatakan keluarga semua partisi bilangan bulat <m>t</m>. Terdapat urutan parsial alami pada <m>\cgP(t)</m> yang didefinisikan dengan menetapkan <m>V=(v_1,v_2,\dots,v_m) \ge W=(w_1,w_2,\dots,w_n)</m> jika dan hanya jika <m>m\le n</m> dan <m>\sum_{1\le i\le j}v_i\ge \sum_{1\le i\le j}w_i</m> untuk setiap <m>j=1,2,\dots,m</m>, <ie/>, barisan jumlah parsial bagi <m>V</m> selalu paling sedikit sebesar barisan jumlah parsial bagi <m>W</m>, suku demi suku. Sebagai contoh, dalam <xref provisional="fig-partitionlattice"/> kita menampilkan urutan parsial <m>\cgP(7)</m>.
+        </p>
+
+        <p>
+            GAMBAR BELUM TERSEDIA DALAM SUMBER
+        </p>
+
+        <p>Dalam bukti teorema Gale-Ryser, kita perlu memahami sepenuhnya kapan suatu partisi menutupi partisi lainnya. Proposisi berikut dinyatakan secara khusus untuk menekankan hal tersebut; buktinya cukup dengan menelaah perincian definisi urutan parsial pada partisi.
+        </p>
+
+        <proposition xml:id="prop_partitioncover">
+            <statement>
+                <p>Misalkan <m>V=(v_1,v_2,\dots,v_m)</m> dan <m>W=(w_1,w_2,\dots,w_n)</m> partisi suatu bilangan bulat<nbsp/><m>t</m>. Jika <m>V</m> menutupi <m>W</m> dalam poset <m>\cgP(t)</m>, maka <m>n\le m+1</m> dan terdapat bilangan bulat <m>i</m> serta <m>j</m> dengan <m>1\le i\lt j\le n</m> sehingga pernyataan-pernyataan berikut berlaku.
+                  <ol>
+                    <li><p><m>v_\alpha=w_\alpha</m>, apabila <m>1\le \alpha\lt i</m>.</p></li>
+                    <li><p><m>v_\beta=w_\beta</m>, apabila <m>j\lt \beta\le m</m>.</p></li>
+                    <li><p><m>v_i=1+w_i</m>.</p></li>
+                    <li><p>Salah satu dari (a)<nbsp/><m>j\le m</m> dan <m>w_j=1+v_j</m>, atau (b)<nbsp/><m>j=n=m+1</m> dan <m>w_j=1</m>, berlaku.</p></li>
+                    <li><p>Jika <m>j&gt;i+1</m>, maka <m>w_\gamma=v_\gamma=v_i-1</m> apabila <m>i\lt \gamma\lt j</m>.</p></li>
+                
+                  </ol>
+                </p>
+            </statement>
+        </proposition>
+
+        <p>Untuk menggambarkan konsep ini, perhatikan bahwa <m>(5,4,3)</m> menutupi <m>(5,3,3,1)</m> dalam <m>\cgP(12)</m>. Selain itu, kita melihat bahwa <m>(6,6,4,3,3,3,1,1,1,1)</m> menutupi <m>(6,6,3,3,3,3,2,1,1,1)</m> dalam <m>\cgP(29)</m>.
+        </p>
+
+        <p>Dengan suatu partisi <m>V=(v_1,v_2,\dots,v_m)</m> dari <m>\cgP(t)</m>, kita kaitkan <term>partisi dual</term><idx><h>partisi</h><h>dual</h></idx> <m>W=(w_1,w_2,\dots,w_n)</m> yang didefinisikan sebagai berikut: (1)<nbsp/><m>n=v_1</m> dan, untuk setiap <m>j=1,\dots,n</m>, <m>w_j</m> adalah banyaknya entri dalam <m>V</m> yang paling sedikit sebesar <m>j</m>. Sebagai contoh, partisi dual dari <m>V=(8,6,6,6,5,5,3,1,1,1)</m> adalah <m>(10,7,7,6,6,4,1,1)</m>. Tentu saja, keduanya merupakan partisi dari <m>42</m>, rahasia alam semesta! Selanjutnya, kita menyatakan dual dari partisi <m>V</m> dengan <m>V^d</m>. Perhatikan bahwa jika <m>W=V^d</m>, maka <m>V=W^d</m>, <ie/>, dual dari dual adalah partisi semula.
+        </p>
+    </introduction>
+
+
+    <subsection>
+        <title>Syarat Perlu yang Jelas</title>
+        <p>Sekarang misalkan <m>M</m> matriks berukuran <m>m\times n</m> nol<ndash/>satu dengan string jumlah baris <m>R=(r_1,r_2,\dots,r_m)</m> dan string jumlah kolom <m>C=(c_1,c_2,\dots,c_n)</m>. Seperti telah dicatat, kita mengandaikan semua entri dalam <m>R</m> dan <m>C</m> positif. Selanjutnya, kita mengubah <m>M</m> untuk membentuk matriks baru <m>M'</m> sebagai berikut: untuk setiap <m>i=1,2,\dots,m</m>, kita menggeser <m>r_i</m> buah satu pada baris<nbsp/><m>i</m> sejauh mungkin ke kiri, <ie/>, <m>m'_{i,j}=1</m> jika dan hanya jika <m>1\le j\le r_i</m>. Perhatikan bahwa <m>M</m> dan <m>M'</m> sama-sama mempunyai <m>R</m> sebagai string jumlah baris. Namun, jika <m>C'</m> menyatakan string jumlah kolom <m>M'</m>, maka <m>C'</m> merupakan string tak menaik, dan substring <m>C''</m> dari <m>C'</m> yang terdiri atas entri-entri positif adalah <m>R^d</m>, partisi dual dari <m>R</m>. Selain itu, untuk setiap <m>j=1,2,\dots,r_1</m>, berlaku ketaksamaan <m>\sum_{1\le i\le j} c''_i\ge \sum_{1\le i\le j} c_i</m>, sebab operasi menggeser satu ke kiri hanya dapat memperbesar jumlah parsial. Dengan demikian, <m>R^d\ge C</m> dalam poset <m>\cgP(t)</m>.
+        </p>
+
+        <p>
+            Jadi, berikut teorema Gale-Ryser.
+        </p>
+
+        <theorem>
+            <title>Gale-Ryser</title>
+            <idx><h>teorema Gale-Ryser</h></idx>
+            <idx><h>partisi</h><h>bilangan bulat</h></idx>
+            <idx><h>matriks</h><h>nol<ndash/>satu</h></idx>
+            <statement>
+                <p>Misalkan <m>R</m> dan <m>C</m> partisi suatu bilangan bulat positif <m>t</m>. Terdapat matriks nol<ndash/>satu dengan string jumlah baris <m>R</m> dan string jumlah kolom<nbsp/><m>C</m> jika dan hanya jika <m>R^d\ge C</m> dalam poset <m>\cgP(t)</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Keperluan syarat tersebut telah dibuktikan. Kita membuktikan kecukupannya. Bukti ini bersifat konstruktif. Dalam poset <m>\cgP(t)</m>, misalkan <m>W_0&gt;W_1&gt;\dots&gt;W_s</m> suatu rantai sedemikian sehingga (1)<nbsp/><m>W_0=R^d</m>, (2)<nbsp/><m>W_s=C</m>, dan (3)<nbsp/>jika <m>0\le p\lt s</m>, maka <m>W_p</m> menutupi <m>W_{p+1}</m>. Kita mulai dengan matriks nol-satu <m>M_0</m> yang mempunyai string jumlah baris <m>R</m> dan string jumlah kolom <m>W_0</m>, sebagaimana diilustrasikan dalam <xref provisional="fig-dualpartition"/> bagi partisi <m>(8,4,3,1,1,1)</m>. Jika <m>s=0</m>, kita selesai. Jadi, andaikan untuk suatu <m>p</m> dengan <m>0\le p\lt s</m>, kita mempunyai matriks nol<ndash/>satu <m>M_p</m> dengan string jumlah baris <m>R</m> dan string jumlah kolom <m>W_p</m>. Misalkan <m>i</m> dan <m>j</m> bilangan bulat dari <xref ref="prop_partitioncover"/> yang menjelaskan cara <m>W_p</m> menutupi <m>W_{p+1}</m>. Pilih baris <m>q</m> sedemikian sehingga entri <m>q,i</m> dari <m>M_p</m> adalah <m>1</m>, sedangkan entri <m>q,j</m> dari <m>M_p</m> adalah <m>0</m>. Pertukarkan kedua entri tersebut untuk membentuk matriks <m>M_{p+1}</m>. Perhatikan bahwa pertukaran ini mungkin memang mengharuskan penambahan kolom baru pada matriks.
+                </p>
+            </proof>
+        </theorem>
+    </subsection>
+
+</section>

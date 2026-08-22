@@ -1,0 +1,159 @@
+<section xml:id="s_strings_comb-proof">
+    <title>Bukti Kombinatorial</title>
+    <idx><h>bukti</h><h>kombinatorial</h></idx>
+    <p>Argumen kombinatorial termasuk argumen yang paling indah dalam matematika. Sering kali, pernyataan yang dapat dibuktikan dengan metode lain yang lebih rumit (biasanya melibatkan banyak manipulasi aljabar yang membosankan) ternyata memiliki bukti sangat singkat setelah kita menemukan kaitannya dengan pencacahan. Dalam bagian ini, kita memperkenalkan cara baru untuk memikirkan masalah kombinatorial melalui beberapa contoh. Tujuannya adalah membantu Anda mengembangkan <q>intuisi</q> terhadap masalah kombinatorial.
+    </p>
+    <example xml:id="ex_strings_comb-proof_sum-ints">
+        <statement>
+            <p>
+                Misalkan <m>n</m> merupakan bilangan bulat positif. Gunakan <xref ref="fig_squaredots"/> untuk menjelaskan mengapa
+            <md>
+                1+2+3+\dots+n=\frac{n(n+1)}{2}.
+            </md>
+            </p>
+            <figure xml:id="fig_squaredots">
+                <caption>Jumlah <m>n</m> bilangan bulat positif pertama</caption>
+                <image width="40%" source="3012-fig25"><description><p>Susunan persegi yang pada contoh terdiri atas tujuh baris dan tujuh kolom titik, mewakili susunan dengan n tambah satu baris dan n tambah satu kolom. Sebuah pita diagonal dari kiri atas ke kanan bawah menandai titik-titik pada diagonal utama. Titik-titik di atas dan di bawah diagonal membentuk dua daerah segitiga kongruen; masing-masing memuat baris yang banyak titiknya berturut-turut satu, dua, dan seterusnya hingga <m>n</m>.</p>
+                </description></image>
+            </figure>
+        </statement>
+        <solution>
+            <p>Perhatikan susunan titik berukuran <m>(n+1)\times (n+1)</m> seperti yang ditampilkan dalam <xref ref="fig_squaredots"/>. Seluruhnya terdapat <m>(n+1)^2</m> titik, dengan tepat <m>n+1</m> titik pada diagonal utama. Titik-titik di luar diagonal secara alami terbagi menjadi dua bagian yang sama besar, yaitu bagian di atas dan bagian di bawah diagonal.
+            </p>
+
+            <p>Selain itu, masing-masing dari kedua bagian tersebut memuat <m>S(n)=1+2+3+\dots+n</m> titik. Dengan demikian,
+            <md>
+                S(n)=\frac{(n+1)^2-(n+1)}{2}
+            </md>
+                dan hasil ini tampak langsung dari gambar. Sedikit manipulasi aljabar pada ruas kanan persamaan tersebut menghasilkan rumus yang diberikan sebelumnya.
+            </p>
+        </solution>
+    </example>
+
+    <example>
+        <statement>
+            <p>
+                Misalkan <m>n</m> merupakan bilangan bulat positif. Jelaskan mengapa
+                <md>
+                    1+3+5+\dots+2n-1=n^2.
+                </md>
+            </p>
+            <figure xml:id="fig_oddsum2">
+                <caption>Jumlah <m>n</m> bilangan bulat ganjil positif pertama</caption>
+                <image width="40%" source="3012-fig21"><description><p>Susunan titik persegi yang dibagi menjadi lapisan-lapisan berbentuk L. Lapisan pertama memuat satu titik; setiap lapisan berikutnya menambahkan bilangan ganjil berikutnya. Gabungan <m>n</m> lapisan membentuk persegi dengan n baris dan n kolom; banyak titik pada lapisan-lapisannya adalah satu, tiga, lima, dan seterusnya hingga dua n dikurangi satu.</p>
+                </description></image>
+            </figure>
+        </statement>
+        <solution>
+            <p>
+                Ruas kiri tidak lain adalah
+                jumlah <m>n</m> bilangan bulat ganjil positif pertama. Seperti yang ditunjukkan dalam
+                <xref ref="fig_oddsum2"/>, jumlah ini jelas sama dengan <m>n^2</m>.
+            </p>
+        </solution>
+    </example>
+
+    <example>
+        <idx><h>koefisien binomial</h><h>identitas yang melibatkan</h></idx>
+        <statement>
+            <p>
+                Misalkan <m>n</m> merupakan bilangan bulat positif. Jelaskan mengapa
+            <md>
+                \binom{n}{0}+\binom{n}{1}+\binom{n}{2}+\dots+\binom{n}{n}=2^n.
+            </md>
+            </p>
+        </statement>
+        <solution>
+            <p>Kedua ruas menghitung banyaknya string bit dengan panjang <m>n</m>; ruas kiri lebih dahulu mengelompokkannya menurut banyaknya angka <m>0</m>.
+            </p>
+        </solution>
+    </example>
+
+    <example>
+        <idx><h>koefisien binomial</h><h>identitas yang melibatkan</h></idx>
+        <statement>
+            <p>Misalkan <m>n</m> dan <m>k</m> merupakan bilangan bulat dengan <m>0\le k\lt n</m>. Jelaskan mengapa
+            <md>
+                \binom{n}{k+1} = \binom{k}{k} + \binom{k+1}{k} +
+                \binom{k+2}{k} +\dots+
+                \binom{n-1}{k}.
+            </md>
+            </p>
+        </statement>
+        <solution>
+            <p>Untuk membuktikan rumus ini, cukup perhatikan bahwa kedua ruas menghitung banyaknya string bit dengan panjang<nbsp/><m>n</m> yang memuat <m>k+1</m> angka <m>1</m>; ruas kanan lebih dahulu mempartisinya menurut posisi kemunculan terakhir angka<nbsp/><m>1</m>. (Sebagai contoh, jika angka <m>1</m> terakhir muncul pada posisi <m>k+5</m>, maka <m>k</m> angka <m>1</m> lainnya harus muncul dalam <m>k+4</m> posisi sebelumnya, sehingga terdapat <m>C(k+4,k)</m> string jenis ini.) Perhatikan bahwa ketika <m>k=1</m> (sehingga <m>k+1=2</m>), kita memperoleh rumus yang sama seperti rumus terdahulu untuk jumlah semua bilangan bulat positif yang lebih kecil daripada <m>n</m>.
+            </p>
+        </solution>
+    </example>
+
+    <example>
+        <idx><h>koefisien binomial</h><h>identitas yang melibatkan</h></idx>
+        <statement>
+            <p>
+                Jelaskan identitas
+            <md>
+                3^n=\binom{n}{0}2^0+\binom{n}{1}2^1+\binom{n}{2}2^2+
+                \dots+\binom{n}{n}2^n.
+            </md>
+            </p>
+        </statement>
+        <solution>
+            <p>Kedua ruas menghitung banyaknya string atas <m>\{0,1,2\}</m> dengan panjang<nbsp/><m>n</m>; ruas kanan lebih dahulu mempartisinya menurut posisi-posisi dalam string yang tidak berisi angka<nbsp/><m>2</m>. (Sebagai contoh, jika <m>6</m> posisi tidak berisi angka<nbsp/><m>2</m>, mula-mula kita harus memilih <m>6</m> posisi tersebut dengan <m>C(n,6)</m> cara, lalu terdapat <m>2^6</m> cara untuk mengisinya dengan memilih angka <m>0</m> atau <m>1</m> pada setiap posisi.)
+            </p>
+        </solution>
+    </example>
+
+    <example xml:id="ex_strings_comb-proof_2n-choose-n">
+        <idx><h>koefisien binomial</h><h>identitas yang melibatkan</h></idx>        
+        <statement>
+            <p>
+                Jelaskan mengapa, untuk setiap bilangan bulat tak negatif<nbsp/><m>n</m>, 
+                <md>
+                \binom{2n}{n}=
+                {\binom{n}{0}}^2+{\binom{n}{1}}^2+{\binom{n}{2}}^2+\dots+
+                {\binom{n}{n}}^2.
+                </md>
+            </p>
+        </statement>
+        <solution>
+            <p>Kedua ruas menghitung banyaknya string bit dengan panjang <m>2n</m> yang separuh bitnya berupa angka <m>0</m>; ruas kanan lebih dahulu mempartisinya menurut banyaknya angka <m>1</m> yang muncul dalam <m>n</m> posisi pertama string. Perhatikan bahwa kita juga menggunakan identitas sederhana <m>\binom{n}{k}=\binom{n}{n-k}</m>.
+            </p>
+        </solution>
+    </example>
+    <reading-questions label="rqs-strings_comb-proof" component="runestone">
+        <exercise label="appcomb_strings_comb-proof_reading_sum-ints">
+          <statement>
+            <p>
+              Perhatikan ilustrasi di bawah ini. Meskipun kisi lingkaran tersebut terdiri atas delapan baris dan tujuh kolom, anggaplah kisi itu memiliki <m>n+1</m> baris dan <m>n</m> kolom. Jelaskan bagaimana ilustrasi ini memberikan cara lain untuk memperoleh rumus 
+              <md>
+                1 + 2 + 3+\cdots + n  = \frac{n(n+1)}{2}
+              </md>
+              dari <xref ref="ex_strings_comb-proof_sum-ints"/>.
+            </p>
+            <image width="40%">
+                <description>
+                    <p>
+                        Kisi persegi panjang dengan delapan baris dan tujuh kolom lingkaran. Baris teratas terdiri atas tujuh lingkaran kosong. Baris kedua terdiri atas enam lingkaran kosong diikuti satu lingkaran terisi, dan baris ketiga terdiri atas lima lingkaran kosong diikuti dua lingkaran terisi. Pola ini berlanjut hingga baris kedelapan, yang terdiri atas tujuh lingkaran terisi. Lingkaran kosong dan terisi membentuk dua daerah segitiga yang saling melengkapi dan dipisahkan oleh batas bertangga.
+                    </p>
+                </description>
+                <latex-image label="img-rectangular-grid-sum-ints">
+                    \begin{tikzpicture}[line width=.7pt, outer sep=0pt]
+                    \foreach \x in {1,...,7}
+                      \foreach \y in {1,...,8}
+                        \ifthenelse{\x \gt \y \OR \x = \y}{\draw [fill=gray](\x,\y) circle (0.2cm);}{\draw (\x,\y) circle (0.2cm)};
+                    \end{tikzpicture}
+                </latex-image>
+            </image>
+          </statement>
+          <response/>
+        </exercise>
+        <exercise label="appcomb_strings_comb-proof_reading_2n-choose-n">
+            <statement>
+              <p>
+                Jelaskan bagaimana identitas <m>C(n,k) = C(n,n-k)</m> digunakan dalam <xref ref="ex_strings_comb-proof_2n-choose-n"/>.
+              </p>
+            </statement>
+            <response/>
+          </exercise>
+      </reading-questions>
+</section>

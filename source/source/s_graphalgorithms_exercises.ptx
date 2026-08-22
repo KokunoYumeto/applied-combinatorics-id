@@ -1,0 +1,276 @@
+<exercises xml:id="s_graphalgorithms_exercises">
+    <exercise>
+        <statement>
+            <p>Untuk graf pada <xref ref="fig_span_tree_ex1"/>, gunakan algoritma Kruskal (<q>hindari siklus</q>) untuk mencari pohon rentang berbobot minimum. Jawaban Anda harus memuat daftar lengkap sisi, dengan menunjukkan sisi mana yang Anda pilih untuk pohon dan sisi mana (jika ada) yang Anda tolak selama algoritma dijalankan.
+            </p>
+            <figure xml:id="fig_span_tree_ex1">
+                <caption>Carilah pohon rentang berbobot minimum</caption>
+                <image width="65%" source="span_tree_ex1"><description><p>Carilah pohon rentang berbobot minimum</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Untuk graf pada <xref ref="fig_span_tree_ex1"/>, gunakan algoritma Prim (<q>bangun pohon</q>) untuk mencari pohon rentang berbobot minimum. Jawaban Anda harus mencantumkan sisi-sisi yang dipilih algoritma menurut urutan pemilihannya.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Untuk graf pada <xref ref="fig_span_tree_ex2"/>, gunakan algoritma Kruskal (<q>hindari siklus</q>) untuk mencari pohon rentang berbobot minimum. Jawaban Anda harus memuat daftar lengkap sisi, dengan menunjukkan sisi mana yang Anda pilih untuk pohon dan sisi mana (jika ada) yang Anda tolak selama algoritma dijalankan.</p>
+            <figure xml:id="fig_span_tree_ex2">
+                <caption>Carilah pohon rentang berbobot minimum</caption>
+                <image width="65%" source="span_tree_ex2"><description><p>Carilah pohon rentang berbobot minimum</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Untuk graf pada <xref ref="fig_span_tree_ex2"/>, gunakan algoritma Prim (<q>bangun pohon</q>) untuk mencari pohon rentang berbobot minimum. Jawaban Anda harus mencantumkan sisi-sisi yang dipilih algoritma menurut urutan pemilihannya.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Untuk graf pada <xref ref="fig_span_tree_ex3"/>, gunakan algoritma Kruskal (<q>hindari siklus</q>) untuk mencari pohon rentang berbobot minimum. Jawaban Anda harus memuat daftar lengkap sisi, dengan menunjukkan sisi mana yang Anda pilih untuk pohon dan sisi mana (jika ada) yang Anda tolak selama algoritma dijalankan.
+            </p>
+            <figure xml:id="fig_span_tree_ex3">
+                <caption>Carilah pohon rentang berbobot minimum</caption>
+                <image width="45%" source="span_tree_ex3"><description><p>Carilah pohon rentang berbobot minimum</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Untuk graf pada <xref ref="fig_span_tree_ex3"/>, gunakan algoritma Prim (<q>bangun pohon</q>) untuk mencari pohon rentang berbobot minimum. Jawaban Anda harus mencantumkan sisi-sisi yang dipilih algoritma menurut urutan pemilihannya.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Sebuah bank lokal baru sedang didirikan dan akan membangun kantor pusat <m>h</m>, dua kantor cabang <m>b_1</m> dan <m>b_2</m>, serta empat ATM <m>a_1</m>, <m>a_2</m>, <m>a_3</m>, dan <m>a_4</m>. Mereka perlu membangun jaringan komputer agar kantor pusat, kantor-kantor cabang, dan semua ATM dapat saling berkomunikasi. Selain itu, semuanya perlu terhubung ke Federal Reserve Bank of Atlanta, <m>f</m>. Biaya hubungan jaringan yang dapat dibangun (dalam satuan $10.000) dicantumkan di bawah ini:
+            
+            <md>
+                <mrow>  h f \amp  \quad 80 \amp 
+                h b_1 \amp  \quad 10\amp  h b_2 \amp  \quad 20\amp 
+                b_1 b_2 \amp  \quad 8</mrow>
+                <mrow>  f b_1 \amp  \quad 12\amp 
+                f a_1 \amp  \quad 20\amp  b_1 a_1 \amp  \quad 3\amp 
+                a_1 a_2 \amp  \quad 13</mrow>
+                <mrow>  h a_2 \amp  \quad 6\amp 
+                b_2 a_2 \amp  \quad 9\amp  b_2 a_3 \amp  \quad 40\amp 
+                a_1 a_4 \amp  \quad 3</mrow>
+                <mrow>  a_3 a_4 \amp \quad 6</mrow>
+            </md>
+            
+            Bank tersebut ingin meminimumkan biaya pembangunan jaringannya (yang harus memungkinkan hubungan, mungkin melalui titik-titik lain, dari setiap titik ke setiap titik lainnya). Namun, karena membutuhkan komunikasi berkecepatan tinggi, mereka <alert>wajib</alert> membayar pembangunan hubungan dari <m>h</m> ke <m>f</m> serta hubungan dari <m>b_2</m> ke <m>a_3</m>. Berikan daftar hubungan yang harus dibangun bank agar biaya totalnya minimum dengan memenuhi kendala tersebut. Jelaskan cara Anda memilih hubungan-hubungan itu dan alasan biaya totalnya benar-benar minimum.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Graf berbobot yang tidak terhubung jelas tidak memiliki pohon rentang. Namun, kita dapat mencari hutan rentang berbobot minimum dalam graf semacam itu. Jelaskan cara memodifikasi algoritma Kruskal dan algoritma Prim untuk melakukannya.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Buktikan
+            <xref ref="prop_graphalgorithms_spanforest"/>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Dalam makalah tempat algoritma Kruskal pertama kali muncul, Kruskal menganggap algoritma tersebut sebagai jalan menuju bukti yang lebih baik bahwa setiap graf berbobot terhubung yang tidak memiliki dua sisi berbobot sama mempunyai pohon rentang berbobot minimum yang <em>tunggal</em>. Buktikan fakta ini menggunakan algoritma Kruskal.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Gunakan algoritma Dijkstra untuk mencari jarak dari <m>a</m> ke setiap simpul lain dalam digraf pada <xref ref="fig_graphalgorithms_dijkstra_ex1"/> beserta lintasan berarah yang memiliki panjang tersebut.
+            </p>
+            <figure xml:id="fig_graphalgorithms_dijkstra_ex1">
+                <caption>Graf berarah</caption>
+                <image width="65%" source="dijkstra_ex1"><description><p>Graf berarah</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p><xref ref="tab_digraph1"/> memuat panjang sisi berarah <m>(x,y)</m> pada perpotongan <em>baris</em> <m>x</m> dan <em>kolom</em> <m>y</m> dalam digraf dengan himpunan simpul <m>\{a,b,c,d,e,f\}</m>. Sebagai contoh, <m>w(b,d)=21</m>. (Di sisi lain, <m>w(d,b)=10</m>.) Gunakan data ini dan algoritma Dijkstra untuk mencari jarak dari <m>a</m> ke setiap simpul lainnya beserta lintasan berarah dari <m>a</m> yang memiliki panjang tersebut.
+            </p>
+            <figure xml:id="tab_digraph1">
+                <caption>Digraf yang disajikan sebagai tabel data
+                </caption>
+                <tabular>
+                   <col right="minor"/> <col/> <col/><col/><col/><col/><col/>
+                    <row bottom="minor">
+                        <cell><m>w</m></cell>
+                        <cell><m>a</m></cell>
+                        <cell><m>b</m></cell>
+                        <cell><m>c</m></cell>
+                        <cell><m>d</m></cell>
+                        <cell><m>e</m></cell>
+                        <cell><m>f</m></cell>
+                    </row>
+                    <row>
+                        <cell><m>a</m></cell>
+                        <cell>0</cell>
+                        <cell>12</cell>
+                        <cell>8</cell>
+                        <cell>43</cell>
+                        <cell>79</cell>
+                        <cell>35</cell>
+                    </row>
+
+                    <row>
+                        <cell><m>b</m></cell>
+                        <cell>93</cell>
+                        <cell>0</cell>
+                        <cell>18</cell>
+                        <cell>21</cell>
+                        <cell>60</cell>
+                        <cell>33</cell>
+                    </row>
+                    <row>
+                        <cell><m>c</m></cell>
+                        <cell>17</cell>
+                        <cell>3</cell>
+                        <cell>0</cell>
+                        <cell>37</cell>
+                        <cell>50</cell>
+                        <cell>30</cell>
+                    </row>
+                    <row>
+                        <cell><m>d</m></cell>
+                        <cell>85</cell>
+                        <cell>10</cell>
+                        <cell>91</cell>
+                        <cell>0</cell>
+                        <cell>17</cell>
+                        <cell>7</cell>
+                    </row>
+                    <row>
+                        <cell><m>e</m></cell>
+                        <cell>28</cell>
+                        <cell>47</cell>
+                        <cell>39</cell>
+                        <cell>14</cell>
+                        <cell>0</cell>
+                        <cell>108</cell>
+                    </row>
+                    <row>
+                        <cell><m>f</m></cell>
+                        <cell>31</cell>
+                        <cell>7</cell>
+                        <cell>29</cell>
+                        <cell>73</cell>
+                        <cell>20</cell>
+                        <cell>0</cell>
+                    </row>
+                </tabular>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Gunakan algoritma Dijkstra untuk mencari jarak dari <m>a</m> ke setiap simpul lain dalam digraf pada <xref ref="fig_graphalgorithms_dijkstra_ex2"/> beserta lintasan berarah yang memiliki panjang tersebut.
+            </p>
+            <figure xml:id="fig_graphalgorithms_dijkstra_ex2">
+                <caption>Graf berarah</caption>
+                <image width="65%" source="dijkstra_ex2"><description><p>Graf berarah</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p><xref ref="tab_digraph2"/> memuat panjang sisi berarah <m>(x,y)</m> pada perpotongan <em>baris</em> <m>x</m> dan <em>kolom</em> <m>y</m> dalam digraf dengan himpunan simpul <m>\{a,b,c,d,e,f\}</m>. Sebagai contoh, <m>w(b,d)=47</m>. (Di sisi lain, <m>w(d,b)=6</m>.) Gunakan data ini dan algoritma Dijkstra untuk mencari jarak dari <m>a</m> ke setiap simpul lainnya beserta lintasan berarah dari <m>a</m> yang memiliki panjang tersebut.</p>
+            <figure xml:id="tab_digraph2">
+                <caption>Digraf yang disajikan sebagai tabel data
+                </caption>
+
+                <tabular>
+                    <col right="minor"/><col/> <col/> <col/><col/><col/><col/>
+                    <row bottom="minor">
+                        <cell><m>w</m></cell>
+                    <cell><m>a</m></cell>
+                    <cell><m>b</m></cell>
+                    <cell><m>c</m></cell>
+                    <cell><m>d</m></cell>
+                    <cell><m>e</m></cell>
+                    <cell><m>f</m></cell>
+                </row>
+                <row>
+                    <cell><m>a</m></cell>
+                    <cell>0</cell>
+                    <cell>7</cell>
+                    <cell>17</cell>
+                    <cell>55</cell>
+                    <cell>83</cell>
+                    <cell>42</cell>
+                </row>
+                <row>
+                    <cell><m>b</m></cell>
+                    <cell>14</cell>
+                    <cell>0</cell>
+                    <cell>13</cell>
+                    <cell>47</cell>
+                    <cell>27</cell>
+                    <cell>17</cell>
+                </row>
+                <row>
+                    <cell><m>c</m></cell>
+                    <cell>37</cell>
+                    <cell>42</cell>
+                    <cell>0</cell>
+                    <cell>16</cell>
+                    <cell>93</cell>
+                    <cell>28</cell>
+                </row>
+                <row>
+                    <cell><m>d</m></cell>
+                    <cell>10</cell>
+                    <cell>6</cell>
+                    <cell>8</cell>
+                    <cell>0</cell>
+                    <cell>4</cell>
+                    <cell>32</cell>
+                </row>
+                <row>
+                    <cell><m>e</m></cell>
+                    <cell>84</cell>
+                    <cell>19</cell>
+                    <cell>42</cell>
+                    <cell>8</cell>
+                    <cell>0</cell>
+                    <cell>45</cell>
+                </row>
+                <row>
+                    <cell><m>f</m></cell>
+                    <cell>36</cell>
+                    <cell>3</cell>
+                    <cell>76</cell>
+                    <cell>5</cell>
+                    <cell>17</cell>
+                    <cell>0</cell>
+                </row>
+                </tabular>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Berikan contoh digraf yang mempunyai lintasan <em>tak berarah</em> di antara setiap pasangan simpul, tetapi mempunyai simpul akar <m>r</m> sedemikian sehingga algoritma Dijkstra tidak dapat menemukan lintasan berpanjang hingga dari <m>r</m> ke suatu simpul <m>x</m>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Perhatikan bahwa dalam pembahasan algoritma Dijkstra, kita mensyaratkan bobot sisi nonnegatif. Jika bobot sisi merupakan panjang dan dimaksudkan untuk memodelkan jarak, syarat ini sangat masuk akal. Namun, dalam beberapa keadaan mungkin wajar untuk mengizinkan bobot sisi negatif. Sebagai contoh, misalkan bobot positif berarti ada biaya untuk melintasi sisi berarah, sedangkan bobot negatif berarti Anda memperoleh uang ketika melintasinya. Dalam keadaan ini, lintasan berarah berbobot total positif membuat Anda harus membayar untuk melintasinya, sedangkan lintasan berbobot total negatif menghasilkan keuntungan.
+                  <ol>
+                <li><p>Berikan contoh yang menunjukkan bahwa algoritma Dijkstra tidak selalu menemukan lintasan berbobot total minimum apabila bobot sisi negatif diizinkan.</p></li>
+                <li><p>Bob dan Xing sedang mempertimbangkan keadaan ini, dan Bob menyarankan sedikit modifikasi algoritma untuk menyelesaikan masalah tersebut. Menurutnya, jika terdapat bobot negatif, mereka hanya perlu mencari bobot terkecil (<ie/>, bobot paling negatif), lalu menambahkan nilai mutlak bobot itu kepada setiap sisi berarah. Sebagai contoh, jika <m>w(x,y)\geq -10</m> untuk setiap sisi berarah <m>(x,y)</m>, Bob menyarankan agar mereka menambahkan <m>10</m> kepada setiap bobot sisi. Xing merasa ragu, dan keraguannya beralasan. Berikan contoh yang menunjukkan mengapa modifikasi Bob tidak berhasil.</p></li>
+            
+                  </ol>
+                </p>
+        </statement>
+    </exercise>
+</exercises>

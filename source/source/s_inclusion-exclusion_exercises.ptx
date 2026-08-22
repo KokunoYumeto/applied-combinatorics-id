@@ -1,0 +1,296 @@
+<exercises xml:id="s_inclusion-exclusion_exercises">
+  <exercise>
+    <statement>
+      <p>Sebuah sekolah memiliki <m>147</m> siswa kelas tiga. Para guru kelas tiga telah merencanakan sajian istimewa untuk hari terakhir sekolah dan membawa es krim bagi siswa mereka. Tersedia tiga rasa: mint dengan kepingan cokelat, cokelat, dan stroberi. Misalkan <m>60</m> siswa menyukai (sedikitnya) rasa mint dengan kepingan cokelat, <m>103</m> menyukai cokelat, <m>50</m> menyukai stroberi, <m>30</m> menyukai mint dengan kepingan cokelat dan stroberi, <m>40</m> menyukai mint dengan kepingan cokelat dan cokelat, <m>25</m> menyukai cokelat dan stroberi, serta <m>18</m> menyukai ketiga rasa tersebut. Berapa banyak siswa yang tidak menyukai satu pun rasa yang tersedia?</p>
+    </statement>
+    <solution>
+      <p>
+        Ini merupakan penerapan langsung Prinsip Inklusi–Eksklusi, dan kita memperoleh
+        <md>
+          147 - 60-103-50+30+40+25-18 = 11
+        </md>
+        siswa yang tidak menyukai satu pun rasa tersebut.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>Terdapat <m>1189</m> mahasiswa yang mengambil program studi ilmu komputer di sebuah universitas tertentu. Mereka disurvei mengenai pengetahuan tentang tiga bahasa pemrograman: C++, Java, dan Python. Hasil survei menunjukkan bahwa <m>856</m> mahasiswa menguasai C++, <m>792</m> menguasai Java, dan <m>692</m> menguasai Python. Selain itu, <m>639</m> mahasiswa menguasai C++ dan Java, <m>519</m> menguasai C++ dan Python, serta <m>632</m> menguasai Java dan Python. Terdapat <m>488</m> mahasiswa yang melaporkan bahwa mereka menguasai ketiga bahasa tersebut. Berapa banyak mahasiswa yang melaporkan bahwa mereka tidak menguasai satu pun dari ketiga bahasa pemrograman itu?</p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>Berapa banyak bilangan bulat positif yang kurang dari atau sama dengan <m>100</m> yang
+        habis dibagi <m>2</m>? Berapa banyak bilangan bulat positif yang kurang dari atau sama dengan
+        <m>100</m> yang habis dibagi <m>5</m>? Gunakan informasi ini untuk menentukan berapa
+        banyak bilangan bulat positif yang kurang dari atau sama dengan <m>100</m> yang
+        <em>bukan kelipatan</em> <m>2</m> maupun <m>5</m>.</p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>Berapa banyak bilangan bulat positif yang kurang dari atau sama dengan <m>100</m> yang
+          tidak habis dibagi oleh satu pun dari <m>2</m>, <m>3</m>, dan <m>5</m>?</p>
+        </statement>
+      </exercise>
+      <exercise>
+        <statement>
+          <p>Berapa banyak bilangan bulat positif yang kurang dari atau sama dengan <m>1000</m> yang
+            tidak habis dibagi oleh satu pun dari <m>3</m>, <m>8</m>, dan <m>25</m>?</p>
+          </statement>
+          <solution>
+            <p>
+              Terdapat 333 kelipatan <m>3</m> di antara 1 dan 1000.
+              Terdapat 125 kelipatan 8 di antara 1 dan 1000.
+              Terdapat 40 kelipatan 25 dalam rentang ini.
+              Karena 3, 8, dan 25 tidak memiliki faktor prima yang sama, bilangan yang habis dibagi oleh dua di antaranya masing-masing berarti habis dibagi oleh 24, 75, atau 200.
+              Banyaknya kelipatan tersebut dalam rentang ini masing-masing adalah 41, 13, dan 5.
+              Terakhir, habis dibagi oleh ketiganya sama artinya dengan habis dibagi oleh 600 sehingga terdapat 1 bilangan.
+              Jadi, dengan menerapkan Prinsip Inklusi–Eksklusi, kita memperoleh
+              <md>
+                1000-333-125-40+41+13+5-1=560
+              </md>
+              bilangan di antara 1 dan 1000 yang tidak habis dibagi oleh satu pun dari 3, 8, dan 25.
+            </p>
+          </solution>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>Negara Bagian Georgia membagikan dana sebesar $<m>173</m> juta kepada wilayah administratif Fulton, Gwinnett, DeKalb, Cobb, dan Clayton (dalam jutaan dolar). Dalam berapa cara dana ini dapat dibagikan jika setiap wilayah menerima sedikitnya $<m>1</m> juta, wilayah Clayton menerima paling banyak $<m>10</m> juta, dan wilayah Cobb menerima paling banyak $<m>30</m> juta? Bagaimana jika kita menambahkan syarat bahwa wilayah Fulton harus menerima sedikitnya $<m>5</m> juta (alih-alih sedikitnya $<m>1</m> juta)?</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Berapa banyak solusi bilangan bulat tak negatif untuk persamaan <m>x_1 + x_2 + x_3 + x_4 = 32</m> dengan <m>0\leq x_i\leq 10</m> untuk <m>i=1,2,3,4</m>?</p>
+        </statement>
+          <solution>
+            <p>
+              Kita dapat memandangnya sebagai masalah pembagian map, tetapi kini kita memiliki empat syarat batas atas.
+              Untungnya, semua batas atas tersebut sama sehingga kita tidak perlu mempertimbangkannya satu per satu.
+              Kita menyelesaikannya dengan menghitung semua solusi tanpa memperhatikan syarat batas atas, lalu mengurangkan solusi-solusi yang melanggar sedikitnya satu syarat batas atas.
+              Karena terdapat empat syarat batas atas, kita akan menggunakan inklusi–eksklusi untuk melakukan pengurangan tersebut.
+              Perhatikan bahwa pelanggaran suatu syarat batas atas berarti <m>x_{i}\gt 10</m> atau <m>x_{i}\geq 11</m>.
+              Jadi, karena jumlah semua variabel harus <m>32</m>, paling banyak 2 syarat batas atas dapat dilanggar secara bersamaan:
+            </p>
+            
+            <p>
+              Dengan mengabaikan syarat batas atas, kita memiliki 32 map untuk dibagikan, tetapi membutuhkan 4 map buatan karena setiap variabel boleh bernilai 0.
+              Kita memerlukan 3 pembatas sehingga terdapat <m>32 +4 = 36</m> map, yang menentukan 35 celah, dan kita memilih 3 di antaranya dalam <m>C(35,3)</m> cara.
+            </p>
+            
+            <p>
+              Ketika satu syarat batas atas dilanggar, kita menyisihkan 10 map untuk variabel yang lebih besar dari 10.
+              Variabel ini masih harus menerima sedikitnya 1 map lagi sehingga kita hanya membutuhkan 3 map buatan.
+              Oleh karena itu, kita membagikan <m>32 - 10 + 3 = 25</m> map, yang menentukan 24 celah.
+              Kita harus memilih 3 celah.
+              Terdapat <m>C(24,3)</m> cara untuk melakukannya.
+            </p>
+            
+            <p>
+              Ketika dua syarat batas atas dilanggar, kita menyisihkan 10 map untuk setiap variabel yang lebih besar dari 10.
+              Kedua variabel ini masih harus menerima sedikitnya 1 map lagi sehingga kita hanya membutuhkan 2 map buatan.
+              Oleh karena itu, kita membagikan <m>32-10-10 + 2 = 14</m> map, yang menentukan 13 celah.
+              Kita tetap harus memilih 3 celah.
+              Terdapat <m>C(13,3)</m> cara untuk melakukannya.
+            </p>
+            
+            <p>
+              Perhatikan bahwa terdapat <m>C(4,1)</m> cara untuk memilih satu syarat batas atas yang dilanggar dan <m>C(4,2)</m> cara untuk memilih dua syarat batas atas yang dilanggar.
+              Jadi, jumlah seluruh solusi adalah
+              <md>
+                \binom{35}{3}- \binom{4}{1}\binom{24}{3}+ \binom{4}{2}\binom{13}{3}=165
+              </md>.
+            </p>
+          </solution>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>Berapa banyak solusi bilangan bulat untuk pertidaksamaan
+              <md>
+                y_1 + y_2 + y_3 + y_4 \lt 184
+              </md>
+              dengan <m>y_1&gt;0</m>, <m>0\lt y_2\leq 10</m>, <m>0\leq y_3\leq 17</m>, dan <m>0\leq y_4 \lt 19</m>?</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Seorang mahasiswa pascasarjana makan siang di pujasera kampus setiap hari Selasa selama satu semester yang berlangsung <m>15</m> minggu. Setiap minggu, ia ditemani oleh suatu subhimpunan dari kelompok enam orang temannya yang berasal dari berbagai penjuru kampus. Selama satu semester, ia makan siang dengan setiap teman sebanyak <m>11</m> kali, setiap pasangan teman sebanyak <m>9</m> kali, dan setiap kelompok tiga teman sebanyak <m>6</m> kali. Ia makan siang dengan setiap kelompok empat teman sebanyak <m>4</m> kali dan setiap kelompok lima teman sebanyak <m>4</m> kali. Ketujuh orang tersebut makan siang bersama-sama hanya sekali pada semester itu. Apakah mahasiswa pascasarjana tersebut pernah makan siang sendirian? Jika ya, berapa kali?</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Sekelompok <m>268</m> mahasiswa disurvei mengenai kemampuan mereka berbahasa Mandarin, Korea, dan Jepang. Terdapat <m>37</m> mahasiswa yang tidak dapat berbicara dalam satu pun dari ketiga bahasa yang disurvei. Bahasa Mandarin dikuasai oleh <m>174</m> mahasiswa, bahasa Jepang dikuasai oleh <m>139</m> mahasiswa, dan bahasa Korea dikuasai oleh <m>112</m> mahasiswa. Hasil survei juga menunjukkan bahwa <m>102</m> mahasiswa menguasai bahasa Mandarin dan Jepang, <m>81</m> mahasiswa menguasai bahasa Mandarin dan Korea, serta <m>71</m> mahasiswa menguasai bahasa Jepang dan Korea. Berapa banyak mahasiswa yang menguasai ketiga bahasa tersebut?</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Seperti dalam <xref ref="exa_inclusion-exclusion_prop-inject"/>, misalkan <m>X</m> adalah himpunan fungsi dari <m>[n]</m> ke <m>[m]</m> dan suatu fungsi <m>f\in X</m> memenuhi sifat <m>P_i</m> jika tidak ada <m>j</m> sedemikian sehingga <m>f(j)=i</m>.
+                <ol>
+                  <li><p>Misalkan fungsi <m>f\colon [8]\to [7]</m> didefinisikan oleh <xref ref="tab_function_e-i-ex"/>. Apakah <m>f</m> memenuhi sifat <m>P_2</m>? Mengapa demikian atau mengapa tidak? Bagaimana dengan sifat <m>P_3</m>? Cantumkan semua sifat <m>P_i</m> (dengan <m>i\leq 7</m>) yang dipenuhi oleh <m>f</m>.</p></li>
+                  <li><p>Apakah mungkin mendefinisikan fungsi <m>g\colon [8]\to [7]</m> yang tidak memenuhi satu pun sifat <m>P_i</m>, <m>i\leq 7</m>? Jika mungkin, berikan sebuah contoh. Jika tidak, jelaskan alasannya.</p></li>
+                  <li><p>Apakah mungkin mendefinisikan fungsi <m>h\colon [8]\to [9]</m> yang tidak memenuhi satu pun sifat <m>P_i</m>, <m>i\leq 9</m>? Jika mungkin, berikan sebuah contoh. Jika tidak, jelaskan alasannya.</p></li>
+                  
+                </ol>
+              </p>
+              <figure xml:id="tab_function_e-i-ex">
+                <caption>Fungsi yang didefinisikan melalui tabel</caption>
+                <tabular>
+                  <row bottom="minor"><cell><m>i</m></cell><cell>1</cell><cell>2</cell><cell>3</cell><cell>4</cell><cell>5</cell><cell>6</cell><cell>7</cell><cell>8</cell></row>
+                  <row><cell><m>f(i)</m></cell><cell>4</cell><cell>2</cell><cell>6</cell><cell>1</cell><cell>6</cell><cell>2</cell><cell>4</cell><cell>2</cell></row>
+                </tabular>
+              </figure>
+              
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Seperti dalam <xref ref="exa_inclusion-exclusion_prop-derange"/>, misalkan <m>X</m> adalah himpunan permutasi pada <m>[n]</m> dan katakan bahwa <m>\sigma\in X</m> memenuhi sifat <m>P_i</m> jika <m>\sigma(i) = i</m>.
+                <ol>
+                  <li><p>Misalkan permutasi <m>\sigma\colon [8]\to [8]</m> didefinisikan oleh <xref ref="tab_perm-e-i-ex"/>.  Apakah <m>\sigma</m> memenuhi sifat <m>P_2</m>? Mengapa demikian atau mengapa tidak? Bagaimana dengan sifat <m>P_6</m>? Cantumkan semua sifat <m>P_i</m> (dengan <m>i\leq 8</m>) yang dipenuhi oleh <m>\sigma</m>.</p></li>
+                  <li><p>Berikan contoh permutasi <m>\tau\colon[8]\to[8]</m> yang memenuhi sifat <m>P_1</m>, <m>P_4</m>, dan <m>P_8</m>, tetapi tidak memenuhi sifat <m>P_i</m> lainnya dengan <m>1\leq i\leq 8</m>.</p></li>
+                  <li><p>Berikan contoh permutasi <m>\pi\colon [8]\to[8]</m> yang tidak memenuhi satu pun sifat <m>P_i</m> dengan <m>1\leq i\leq 8</m>.</p></li>
+                  
+                </ol>
+              </p>
+              <figure xml:id="tab_perm-e-i-ex">
+                <caption>Permutasi yang didefinisikan melalui tabel</caption>
+                <tabular>
+                  <row bottom="minor"><cell><m>i</m></cell><cell>1</cell><cell>2</cell><cell>3</cell><cell>4</cell><cell>5</cell><cell>6</cell><cell>7</cell><cell>8</cell></row>
+                  <row><cell><m>\sigma(i)</m></cell><cell>3</cell><cell>1</cell><cell>8</cell><cell>4</cell><cell>7</cell><cell>6</cell><cell>5</cell><cell>2</cell></row>
+                </tabular>
+              </figure>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Seperti dalam <xref ref="exa_inclusion-exclusion_prop-divis"/>, misalkan <m>m</m> dan <m>n</m> adalah bilangan bulat positif dan <m>X=[n]</m>. Kita katakan bahwa <m>j\in X</m> memenuhi sifat <m>P_i</m> untuk suatu <m>i</m> dengan <m>1\leq i\leq m</m> jika <m>i</m> merupakan pembagi dari <m>j</m>.
+                <ol>
+                  <li><p>Misalkan <m>m=n=15</m>. Apakah <m>12</m> memenuhi sifat <m>P_3</m>? Mengapa demikian atau mengapa tidak? Bagaimana dengan sifat <m>P_5</m>? Cantumkan sifat-sifat <m>P_i</m> dengan <m>1\leq i\leq 15</m> yang dipenuhi oleh <m>12</m>.</p></li>
+                  <li><p>Berikan contoh bilangan bulat <m>j</m> dengan <m>1\leq j\leq 15</m> yang memenuhi tepat dua sifat <m>P_i</m> dengan <m>1\leq i\leq 15</m>.</p></li>
+                  <li><p>Berikan contoh bilangan bulat <m>j</m> dengan <m>1\leq j\leq 15</m> yang memenuhi tepat empat sifat <m>P_i</m> dengan <m>1\leq i\leq 15</m>, atau jelaskan mengapa bilangan bulat semacam itu tidak ada.</p></li>
+                  <li><p>Berikan contoh bilangan bulat <m>j</m> dengan <m>1\leq j\leq 15</m> yang memenuhi tepat tiga sifat <m>P_i</m> dengan <m>1\leq i\leq 15</m>, atau jelaskan mengapa bilangan bulat semacam itu tidak ada.</p></li>
+                  
+                </ol>
+              </p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Berapa banyak fungsi surjektif dari himpunan beranggotakan delapan elemen ke himpunan beranggotakan enam elemen?</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Seorang guru memiliki <m>10</m> buku (semuanya berbeda) yang ingin ia bagikan kepada John, Paul, Ringo, dan George dengan memastikan bahwa setiap orang menerima sedikitnya satu buku. Dalam berapa cara ia dapat melakukannya?</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Seorang penyelia memiliki sembilan tugas yang harus diselesaikan dan lima karyawan yang dapat ia beri tugas-tugas tersebut. Jika ia ingin memastikan bahwa setiap karyawan diberi sedikitnya satu tugas untuk dikerjakan, ada berapa cara untuk membagikan tugas-tugas tersebut kepada para karyawan?</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Seorang profesor bekerja bersama enam mahasiswa sarjana dalam kegiatan penelitian. Ia memiliki <m>12</m> topik yang ingin mulai diteliti oleh para mahasiswa tersebut. Karena ia telah bekerja bersama Katie selama beberapa semester, ia ingin memastikan bahwa Katie diberi topik yang paling menantang (dan mungkin topik-topik lainnya). Setiap topik harus diberikan kepada tepat satu mahasiswa. Dengan ketentuan ini, dalam berapa cara ia dapat membagikan topik-topik tersebut kepada para mahasiswanya jika setiap mahasiswa harus diberi sedikitnya satu topik?</p>
+            </statement>
+            <solution>
+              <p>
+                Kita melakukan perhitungan dengan mempertimbangkan dua kasus.
+                Pertama, kita menghitung kasus ketika Katie hanya menerima satu topik, yaitu topik tersulit.
+                Kedua, kita menghitung kasus ketika Katie menerima topik tersebut dan sedikitnya satu topik tambahan.
+                Ketika Katie hanya menerima satu topik tersulit itu, kita cukup membagikan 11 topik yang tersisa kepada lima mahasiswa lainnya dengan menggunakan fungsi surjektif agar setiap mahasiswa menerima sedikitnya satu topik.
+                Terdapat <m>S(11,5)</m> cara untuk melakukannya.
+                Ketika Katie menerima lebih dari sekadar topik tersulit, kita masih memiliki 11 topik lain untuk dibagikan, tetapi sekarang kita harus memiliki fungsi surjektif ke himpunan yang terdiri atas keenam mahasiswa tersebut.
+                Jadi, terdapat <m>S(11,6)</m> cara untuk kasus ini.
+                Jumlah keseluruhannya adalah jumlah kedua nilai tersebut: <m>S(11,5)+S(11,6)</m>.
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Cantumkan semua permutasi tanpa titik tetap pada <m>[4]</m>. (Agar ringkas, Anda boleh menuliskan permutasi <m>\sigma</m> sebagai string <m>\sigma(1)\sigma(2)\sigma(3)\sigma(4)</m>.)</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Berapa banyak permutasi tanpa titik tetap pada himpunan beranggotakan sembilan elemen?</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Petugas perlengkapan sebuah tim sepak bola sedang terburu-buru membagikan seragam kepada enam pemain terakhir yang datang sebelum pertandingan. Alih-alih memastikan bahwa setiap pemain menerima seragamnya sendiri, ia sekadar menyerahkan satu seragam kepada masing-masing dari keenam pemain tersebut. Dalam berapa cara ia dapat membagikan seragam-seragam itu sehingga tidak ada pemain yang menerima seragamnya sendiri?  (Anggaplah bahwa enam seragam yang tersisa memang milik enam pemain yang datang terakhir.)</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Seorang petugas penggajian yang ceroboh memasukkan cek gaji para karyawan ke dalam amplop-amplop yang telah diberi label. Amplop-amplop itu sudah disegel sebelum petugas tersebut menyadari bahwa ia tidak mencocokkan nama pada cek gaji dengan nama pada amplop. Jika terdapat tujuh karyawan, dalam berapa cara ia mungkin telah memasukkan cek-cek gaji ke dalam amplop sehingga tepat tiga karyawan menerima cek gaji yang benar?</p>
+            </statement>
+            <solution>
+              <p>
+                Pertama, kita memilih tiga karyawan yang benar-benar menerima cek gaji yang tepat.
+                Terdapat <m>C(7,3)</m> cara untuk melakukannya.
+                Kemudian, keempat cek lainnya harus dibagikan menggunakan permutasi tanpa titik tetap sehingga kita memperoleh
+                <md>
+                  \binom{7}{3}d_{4} = \binom{7}{3}\sum_{k=0}^{4}(-1)^{k}\binom{4}{k}(4-k)!
+                </md>
+                cara.
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Prinsip inklusi–eksklusi bukan satu-satunya pendekatan yang tersedia untuk menghitung permutasi tanpa titik tetap. Kita mengetahui bahwa <m>d_1=0</m> dan <m>d_2=1</m>. Dengan menggunakan informasi awal ini, kita dapat memberikan bentuk rekursif untuk <m>d_n</m>. Dalam latihan ini, kita mempertimbangkan dua relasi rekursif untuk <m>d_n</m>.
+                <ol>
+                  <li><p>Berikan argumen kombinatorial untuk membuktikan bahwa banyaknya permutasi tanpa titik tetap memenuhi rumus rekursif <m>d_n = (n-1)(d_{n-1}+d_{n-2})</m> untuk <m>n\geq 3</m>.</p></li>
+                  <li><p>Buktikan bahwa banyaknya permutasi tanpa titik tetap juga memenuhi rumus rekursif <m>d_n = nd_{n-1} + (-1)^n</m> untuk <m>n\geq 2</m>. </p></li>
+                  
+                </ol>
+              </p>
+            </statement>
+            <hint>
+              <p>
+                <ol>
+                  <li><p>Untuk suatu permutasi tanpa titik tetap <m>\sigma</m>, tinjau bilangan bulat <m>k</m> dengan <m>\sigma(k)=1</m>. Susun argumen berdasarkan banyaknya pilihan untuk <m>k</m>, lalu berdasarkan apakah <m>\sigma(1)=k</m> atau tidak.</p></li>
+                  <li><p>Anda mungkin akan merasa paling mudah membuktikannya dengan menggunakan rumus rekursif yang lain dan induksi matematika.</p>
+                  </li>
+                </ol>
+              </p>
+            </hint>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Tentukan <m>\phi(18)</m> dengan mencantumkan bilangan-bilangan bulat yang dihitungnya sekaligus dengan menggunakan rumus pada <xref ref="thm_eulerphi"/>.</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Hitung <m>\phi(756)</m>.</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Diketahui bahwa <m>1625190883965792 = (2)^5(3)^4(11)^2(13)(23)^3(181)^2</m>, hitung
+                <md>
+                  \phi(1625190883965792).
+                </md>
+              </p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Buktikan <xref ref="prop_num-divisible"/>.</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Di sebuah sekolah yang sangat kecil, terdapat satu kelas yang berisi sembilan siswa. Para siswa, yang akan kita nyatakan sebagai <m>A</m>, <m>B</m>, <m>C</m>, <m>D</m>, <m>E</m>, <m>F</m>, <m>G</m>, <m>H</m>, dan <m>I</m>, berjalan dari ruang kelas menuju ruang makan dalam urutan <m>ABCDEFGHI</m>. (Anggaplah <m>A</m> berada paling depan dalam barisan.) Dalam perjalanan kembali ke ruang kelas setelah makan siang, mereka ingin berjalan dalam suatu urutan sedemikian sehingga tidak ada siswa yang berjalan tepat di belakang teman sekelas yang sama dengan saat berangkat makan siang. (Sebagai contoh, <m>ACBDIHGFE</m> dan <m>IHGFEDCBA</m> akan memenuhi kriteria mereka. Namun, mereka tidak akan puas dengan <m>CEFGBADHI</m> karena urutan tersebut memuat <m>FG</m> dan <m>HI</m>, sehingga <m>G</m> kembali mengikuti <m>F</m> dan <m>I</m> kembali mengikuti <m>H</m>.)
+                <ol>
+                  <li><p>Seorang siswa bertanya-tanya ada berapa kemungkinan bagi mereka untuk berbaris dengan memenuhi kriteria ini. Bantulah ia dengan menentukan nilai tepat dari banyaknya kemungkinan tersebut.</p></li>
+                  <li><p>Apakah bilangan ini lebih besar, lebih kecil, atau sama dengan banyaknya cara mereka dapat kembali sedemikian sehingga tidak ada siswa yang berjalan di posisi yang sama seperti sebelumnya (<ie/>, <m>A</m> tidak berada di posisi pertama, <m>B</m> tidak berada di posisi kedua, <ellipsis/>, dan <m>I</m> tidak berada di posisi terakhir)?</p></li>
+                  <li><p>Berapa proporsi (nyatakan sebagai bilangan desimal) dari seluruh kemungkinan susunan barisan mereka yang memenuhi kriteria bahwa dalam perjalanan pulang tidak ada siswa yang berjalan tepat di belakang siswa yang sama seperti sebelumnya?</p></li>
+                  
+                </ol>
+              </p>
+            </statement>
+          </exercise>
+        </exercises>

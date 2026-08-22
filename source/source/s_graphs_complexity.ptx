@@ -1,0 +1,14 @@
+<section xml:id="s_graphs_complexity">
+    <title>Selingan tentang Teori Kompleksitas</title>
+    <p>Dalam <xref ref="ch_basics"/>, kita telah memperkenalkan beberapa gagasan tentang algoritma yang efisien. Sebelumnya dalam bab ini, kita juga membahas kesulitan menentukan bilangan kromatik dan bilangan klik suatu graf. Sebagai penutup, kita akan membahas secara singkat beberapa persoalan kompleksitas komputasi bagi masalah-masalah lain yang telah dibahas dalam bab ini.
+    </p>
+
+    <p>Mari kita mulai dengan beberapa masalah yang memiliki algoritma waktu polinomial. Misalkan Anda diberi sebuah graf dengan <m>n</m> simpul dan ditanya apakah graf tersebut terhubung. Jawaban positif dapat dibenarkan dengan memberikan sebuah pohon merentang. Sebaliknya, jawaban negatif dapat dibenarkan dengan memberikan partisi himpunan simpul <m>V=V_1\cup V_2</m>, dengan <m>V_1</m> dan <m>V_2</m> sebagai subhimpunan tak kosong serta tidak ada sisi yang satu titik ujungnya berada di <m>V_1</m> dan titik ujung lainnya berada di <m>V_2</m>. Dalam <xref ref="ch_graphalgorithms"/>, kita akan membahas dua algoritma efisien yang menemukan pohon merentang pada graf terhubung. Kedua algoritma itu dapat dengan mudah dimodifikasi untuk menghasilkan partisi yang menunjukkan bahwa graf tersebut tidak terhubung.
+    </p>
+
+    <p>Jika Anda ditanya apakah suatu graf terhubung merupakan graf Euler, jawaban positif dapat dibenarkan dengan menghasilkan barisan yang sesuai. Sebelumnya dalam bab ini, kita telah memberikan algoritma untuk melakukannya. Jawaban negatif dapat dibenarkan dengan menunjukkan sebuah simpul berderajat ganjil, dan algoritma kita akan mengidentifikasi simpul semacam itu jika memang ada. (Bergantung pada struktur data yang digunakan untuk merepresentasikan graf, mungkin akan lebih efisien jika kita langsung mencari simpul berderajat ganjil tanpa menggunakan algoritma untuk menemukan sirkuit Euler.)
+    </p>
+
+    <p>Sepintas, masalah menentukan apakah suatu graf merupakan graf Hamilton tampak serupa dengan masalah menentukan apakah graf tersebut merupakan graf Euler. Keduanya memerlukan barisan simpul dengan setiap pasangan simpul berurutan dihubungkan oleh sebuah sisi. Tentu saja, masing-masing masalah memiliki persyaratan tambahan pada sertifikat untuk jawaban ya. Namun, membenarkan jawaban negatif bagi pertanyaan apakah suatu graf merupakan graf Hamilton bukanlah hal yang mudah. <xref ref="thm_graphs_dirac"/> hanya memberikan cara untuk memastikan bahwa suatu graf <em>merupakan</em> graf Hamilton; ada banyak graf non-Hamilton yang tidak memenuhi hipotesisnya. Sampai saat ini, belum ada yang mengetahui cara efisien untuk membenarkan jawaban negatif<mdash/>setidaknya tidak dalam kasus umum.
+    </p>
+</section>

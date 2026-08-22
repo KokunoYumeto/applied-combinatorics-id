@@ -1,0 +1,44 @@
+<section xml:id="s_probability_conditional">
+    <title>Probabilitas Bersyarat dan Kejadian Saling Bebas</title>
+    <introduction>
+        <p>Sebuah stoples berisi dua puluh kelereng: enam merah, sembilan biru, dan lima sisanya hijau. Dengan mata tertutup, Xing memilih secara acak dua dari dua puluh kelereng tersebut (tanpa pengembalian), lalu memasukkan satu ke saku kirinya dan satu ke saku kanannya. Setelah itu, ia membuka penutup matanya.
+        </p>
+
+        <p>Probabilitas bahwa kelereng di saku kirinya berwarna merah ialah <m>6/20</m>. Namun, Xing terlebih dahulu merogoh saku kanannya, mengeluarkan kelereng di sana, dan mendapati bahwa kelereng itu berwarna biru. Apakah probabilitas bahwa kelereng di saku kirinya berwarna merah masih <m>6/20</m>? Intuisi mengatakan bahwa probabilitasnya sedikit lebih besar. Berikut kerangka yang lebih formal untuk menjawab pertanyaan semacam itu.
+        </p>
+
+        <p>Misalkan <m>(S,P)</m> merupakan ruang probabilitas dan misalkan <m>B</m> merupakan kejadian dengan <m>P(B)&gt;0</m>. Untuk setiap kejadian <m>A\subseteq S</m>, kita mendefinisikan <term>probabilitas <m>A</m> dengan syarat <m>B</m></term><idx><h>probabilitas</h><h>bersyarat</h></idx>, yang dinyatakan dengan <m>P(A|B)</m><notation><usage><m>P(A|B)</m></usage><description>probabilitas <m>A</m> dengan syarat <m>B</m></description></notation>, melalui <m>P(A|B)=P(A\cap B)/P(B)</m>.
+        </p>
+        <remark>
+            <p>Kembali ke pertanyaan pada awal bagian ini, Bob mengatakan bahwa persoalan tersebut hanyalah probabilitas bersyarat. Misalkan <m>B</m> merupakan kejadian bahwa kelereng di saku kanan berwarna biru dan <m>A</m> merupakan kejadian bahwa kelereng di saku kiri berwarna merah. Maka <m>P(B)=9/20</m>, <m>P(A) = 6/20</m>, dan <m>P(A\cap B)=(9\cdot6)/380</m>, sehingga <m>P(A|B)= \frac{54}{380}\frac{20}{9}=6/19</m>, yang tentu saja sedikit lebih besar daripada <m>6/20</m>. Alice terkesan.
+            </p>
+        </remark>
+        <example xml:id="exa_twojars">
+            <p>Perhatikan stoples berisi dua puluh kelereng dari contoh sebelumnya. Sekarang ditambahkan stoples kedua. Stoples ini berisi delapan belas kelereng: sembilan merah, lima biru, dan empat hijau. Salah satu stoples dipilih secara acak, lalu dua kelereng dari stoples tersebut dipilih secara acak. Berapakah probabilitas bahwa keduanya berwarna hijau? Bob sedang bersemangat. Ia berkata, <lq/>Misalkan <m>G</m> merupakan kejadian bahwa kedua kelereng berwarna hijau, serta <m>J_1</m> dan <m>J_2</m> berturut-turut merupakan kejadian bahwa kelereng-kelereng berasal dari stoples pertama dan stoples kedua. Maka <m>G= (G\cap J_1)\cup (G\cap J_2)</m>, dan <m>(G\cap J_1)\cap(G\cap J_2)=\emptyset</m>. Selanjutnya, <m>P(G|J_1)=\binom{5}{2}/\binom{20}{2}</m> dan <m>P(G|J_2)=\binom{4}{2}/\binom{18}{2}</m>, sedangkan <m>P(J_1)=P(J_2)=1/2</m>. Selain itu, <m>P(G\cap J_i)=P(J_i)P(G|J_i)</m> untuk setiap <m>i=1,2</m>. Oleh karena itu,
+            <md>
+                P(G)=\frac{1}{2}\frac{\binom{5}{2}}{\binom{20}{2}}+
+                    \frac{1}{2}\frac{\binom{4}{2}}{\binom{18}{2}}=\frac{1}{2}\left(\frac{20}{380}+
+                    \frac{12}{306}\right).
+            </md>
+            Nilainya sekitar <m>4.6</m>%.<rq/></p>
+            <p>Sekarang Alice kehilangan kata-kata.
+            </p>
+        </example>
+    </introduction>
+
+
+    <subsection>
+        <title>Kejadian Saling Bebas</title>
+        <p>Misalkan <m>A</m> dan <m>B</m> merupakan kejadian dalam ruang probabilitas <m>(S,P)</m>. Kita mengatakan bahwa <m>A</m> dan <m>B</m> <term>saling bebas</term><idx><h>kejadian</h><h>saling bebas</h></idx><idx><h>saling bebas</h><h>kejadian</h></idx> jika <m>P(A\cap B)=P(A)P(B)</m>. Perhatikan bahwa apabila <m>P(B)\neq 0</m>, kejadian <m>A</m> dan <m>B</m> saling bebas jika dan hanya jika <m>P(A)=P(A|B)</m>. Dua kejadian yang tidak saling bebas disebut <term>bergantung</term><idx><h>kejadian</h><h>bergantung</h></idx>. Kembali ke contoh sebelumnya, kedua kejadian (<m>A</m>: kelereng di saku kiri Xing berwarna merah dan <m>B</m>: kelereng di saku kanannya berwarna biru) saling bergantung.
+        </p>
+        <example>
+            <p>Perhatikan kedua stoples kelereng pada <xref ref="exa_twojars"/>. Salah satu dari kedua stoples dipilih secara acak, lalu satu kelereng diambil dari stoples tersebut. Misalkan <m>A</m> merupakan kejadian bahwa stoples kedua dipilih dan <m>B</m> merupakan kejadian bahwa kelereng yang diambil ternyata berwarna hijau. Maka <m>P(A)=1/2</m> dan <m>P(B)=\frac{1}{2}\frac{5}{20}+ \frac{1}{2}\frac{4}{18}</m>. Di sisi lain, <m>P(A\cap B)=\frac{1}{2} \frac{4}{18}</m>, sehingga <m>P(A\cap B)\neq P(A)P(B)</m>, dan kedua kejadian tersebut tidak saling bebas. Secara intuitif hal ini jelas, sebab setelah diketahui bahwa kelerengnya hijau, probabilitas bahwa stoples pertama yang dipilih menjadi lebih besar.
+            </p>
+        </example>
+
+        <example xml:id="exa_twodie">
+            <p>Sepasang dadu dilempar, satu merah dan satu biru. Misalkan <m>A</m> merupakan kejadian bahwa dadu merah menunjukkan <m>3</m> atau <m>5</m>, dan misalkan <m>B</m> merupakan kejadian bahwa kedua dadu menunjukkan angka yang sama, <ie/>, dadu merah dan dadu biru menunjukkan bilangan yang sama. Maka <m>P(A)=2/6</m>, <m>P(B)=6/36</m>, dan <m>P(A\cap B) = 2/36</m>. Jadi, <m>A</m> dan <m>B</m> saling bebas.
+            </p>
+        </example>
+    </subsection>
+</section>

@@ -1,0 +1,29 @@
+<section xml:id="s_induction_strong-induction">
+    <title>Induksi Kuat</title>
+    <p>Ada kalanya <xref ref="princ_math-induction" text="title"/>, setidaknya dalam bentuk yang telah kita pelajari sejauh ini, tampak belum memadai.  Berikut sebuah contoh konkret.  Profesor meminta Bob mempelajari fungsi <m>f(n)</m> yang didefinisikan secara rekursif oleh <m>f(n) = 2f(n-1) - f(n-2)</m> dengan <m>f(1)=3</m> dan <m>f(2)=5</m>. Secara khusus, profesor meminta Bob menghitung <m>f(10^{10})</m>, yang tampaknya merupakan tugas berat. Sambil minum kopi, Bob mencoret-coret serbet dan memperoleh <m>f(3)=7</m> serta <m>f(4)=9</m>. Hanya berdasarkan perhitungan tersebut, ia menduga bahwa mungkin saja <m>f(n) = 2n+1</m> untuk setiap <m>n\geq 1</m>. Jika dugaan ini benar, ia cukup melaporkan bahwa <m>f(10^{10})=2\cdot 10^{10}+1=20000000001</m>.
+    </p>
+
+    <p>Bob mulai memahami pembuktian dengan induksi, sehingga ia mencoba membuktikan dengan induksi bahwa <m>f(n)=2n+1</m> untuk setiap <m>n\ge1</m>. Untuk kasus dasar, ia mencatat bahwa <m>f(1)= 3=2\cdot1+1</m>, sehingga sejauh ini semuanya beres.  Untuk langkah induksi, ia mengasumsikan sebagai hipotesis induksi bahwa <m>f(k)=2k+1</m> untuk suatu <m>k\ge1</m>, lalu mencoba membuktikan bahwa <m>f(k+1)=2(k+1)+1</m>. Jika langkah ini dapat diselesaikan, pembuktian dengan induksi tersebut pun selesai.
+    </p>
+
+    <p>
+        Namun, pada titik ini Bob tampaknya menemui jalan buntu karena
+        <md>
+            f(k+1) = 2f(k) - f(k-1) = 2(2k+1) - f(k-1),
+        </md>
+        dengan menggunakan hipotesis induksi untuk mengganti <m>f(k)</m> dengan <m>2k+1</m>. Namun, ia benar-benar bingung harus berbuat apa dengan <m>f(k-1)</m>. Jika ia mengetahui bahwa <m>f(k-1)=2(k-1)+1</m>, ruas kanan akan menghasilkan <m>2(2k+1) -(2k-1)= 2k+3=2(k+1)+1</m>, tepat seperti yang diinginkannya. Bob selalu mengikuti aturan dan harus mengakui bahwa ia tidak mengetahui bahwa <m>f(k-1)=2(k-1)+1</m>. Ia hanya mengetahui bahwa <m>f(k)=2k+1</m>.
+    </p>
+
+    <p>Bob hampir menyerah dan meminta komputernya mulai melakukan perhitungan secara rekursif ketika Carlos datang dan bertanya apa yang sedang ia lakukan. Carlos segera melihat bahwa pendekatan yang digunakan Bob untuk membuktikan <m>f(n)=2n+1</m> dengan induksi tidak akan berhasil<mdash/>tetapi setelah berpikir sejenak, Carlos mengatakan bahwa ada bentuk pembuktian induktif yang lebih kuat dan dapat menyelesaikan masalah tersebut.  Dengan sabar, Carlos menjelaskan kepada Bob sebuah proposisi yang disebut <term>Prinsip Induksi Kuat</term><idx><h>induksi</h><h>kuat</h></idx>. Untuk membuktikan bahwa suatu pernyataan terbuka <m>S_n</m> benar untuk setiap <m>n\ge1</m>, cukuplah:
+    <ol marker="a">
+        <li><p>Menunjukkan bahwa <m>S_1</m> benar; dan</p></li>
+        <li><p>Menunjukkan bahwa <m>S_{k+1}</m> benar setiap kali <m>S_m</m> benar untuk semua bilangan bulat <m>m</m> dengan <m>1\le m\le k</m>.</p></li>
+    </ol>
+    </p>
+
+    <p>Keabsahan proposisi ini mengikuti dari prinsip induksi matematika biasa; kedua prinsip itu ekuivalen, meskipun bentuk di atas menggunakan hipotesis yang <em>lebih kuat</em>. Hal yang baru di sini ialah bahwa untuk membuktikan suatu pernyataan, terkadang menguntungkan bagi Anda untuk membuktikan sesuatu yang bahkan lebih kuat. Para matematikawan kombinatorika menyebutnya fenomena <q>bootstrap</q>.
+    </p>
+
+    <p>Berbekal pengamatan ini, Bob melihat dengan jelas bahwa prinsip induksi kuat cukup untuk membuktikan bahwa <m>f(n)=2n+1</m> untuk setiap <m>n\ge1</m>.  Jadi, ia dapat mematikan komputernya dan menikmati kopinya.
+    </p>
+</section>

@@ -1,0 +1,77 @@
+<section xml:id="s_background_complex">
+    <title>Memperoleh Bilangan Kompleks dari Bilangan Real</title>
+    <introduction>
+        <p>Pada tahap ini, pembahasan berikut seharusnya sudah mudah dipahami. <term>Sistem bilangan kompleks</term><idx><h>bilangan kompleks</h><h>definisi formal</h></idx> <m>\complexes</m> tidak lain adalah produk Kartesius <m>\reals\times\reals</m> dengan
+                  <ol>
+            <li><p><m>(a,b) = (c,d)</m> dalam <m>\complexes</m> jika dan hanya jika <m>a=c</m> dan <m>b=d</m> dalam <m>\reals</m>.</p></li>
+            <li><p><m>(a,b)+(c,d)=(a+c,b+d)</m>.</p></li>
+            <li><p><m>(a,b)(c,d)=(ac-bd, ad+bc)</m>.</p></li>
+        
+                  </ol>
+                </p>
+
+        <p>Bilangan kompleks berbentuk <m>(a,0)</m> berperilaku persis seperti bilangan real, sehingga wajar untuk mengatakan bahwa sistem bilangan kompleks <term>memuat</term> sistem bilangan real. Perhatikan pula bahwa <m>(0,1)^2=(0,1)(0,1)=(-1,0)</m>, <ie/>, bilangan kompleks <m>(0,1)</m> memiliki sifat bahwa kuadratnya merupakan bilangan kompleks yang berperilaku seperti bilangan real<nbsp/><m>-1</m>. Karena itu, mudah jika kita menggunakan simbol khusus seperti <m>i</m> untuk bilangan kompleks yang istimewa ini dan mencatat bahwa <m>i^2=-1</m>.
+        </p>
+
+        <p>Dari titik awal ini, semua sifat sistem bilangan kompleks yang sudah dikenal dapat dikembangkan dengan mudah.
+        </p>
+    </introduction>
+
+
+    <subsection>
+        <title>Representasi Desimal Bilangan Real</title>
+        <p>Setiap bilangan real memiliki ekspansi desimal<mdash/>meskipun banyaknya digit setelah tanda desimal dapat tak berhingga. Bilangan rasional <m>q=m/n</m> dari <m>\rats</m> memiliki ekspansi yang memuat suatu blok digit yang berulang tanpa akhir. Sebagai contoh,
+        <md>
+            \frac{2859}{35} = 81.6857142857142857142857142857142857142857142\dots
+        </md>
+        Dalam kasus ini, blok <m>857142</m> yang berukuran<nbsp/><m>6</m> berulang selamanya.
+        </p>
+
+        <p>Bilangan rasional tertentu memiliki <term>ekspansi desimal berhingga</term>. Sebagai contoh, kita mengetahui bahwa <m>385/8= 48.125</m>. Jika mau, kita dapat menuliskannya sebagai desimal tak berhingga dengan menambahkan digit <m>0</m> di belakang sebagai blok berulang berukuran<nbsp/><m>1</m>:
+        <md>
+            \frac{385}{8} = 48.1250000000000000000000000000000000\dots
+        </md>
+        Di sisi lain, kita juga dapat menulis ekspansi desimal <m>385/8</m> sebagai
+        <md>
+            \frac{385}{8} = 48.12499999999999999999999999999999999\dots
+        </md>
+        Di sini, digit <m>9</m>, yakni sebuah blok berukuran<nbsp/><m>1</m>, dimaksudkan berulang selamanya. Selain anomali ini, ekspansi desimal bilangan real bersifat tunggal.
+        </p>
+
+        <p>Sementara itu, bilangan irasional memiliki ekspansi desimal tak berulang: tidak ada blok digit tertentu yang berulang selamanya.
+        </p>
+
+        <p>Anda mengetahui bahwa <m>\sqrt{2}</m> bersifat irasional. Berikut bagian awal ekspansi desimalnya:
+        <md>
+            \sqrt{2} =1.41421356237309504880168872420969807856967187537694807317667973\dots
+        </md>
+        Bilangan irasional disebut <term>aljabar</term> jika merupakan akar suatu polinom berkoefisien bulat; jika tidak, bilangan itu disebut <term>transendental</term>. Sebagai contoh, <m>\sqrt{2}</m> bersifat aljabar karena merupakan akar polinom <m>x^2-2</m>.
+        </p>
+
+        <p>Dua contoh terkenal lain dari bilangan irasional ialah <m>\pi</m> dan <m>e</m>. Berikut ekspansi desimal keduanya:
+        <md>
+            <mrow>\pi \amp =3.14159265358979323846264338327950288419716939937510582097494459\dots</mrow>
+            <intertext>dan</intertext>
+            <mrow> e\amp=2.7182818284590452353602874713526624977572470936999595749669676277\dots</mrow>
+        </md>
+        Baik <m>\pi</m> maupun <m>e</m> bersifat transendental.
+        </p>
+        <example>
+            <p>Amanda dan Bilal, keduanya mahasiswa di sebuah universitas terdekat, sedang mempelajari bilangan rasional yang memiliki blok digit berulang yang panjang dalam ekspansi desimalnya. Amanda melaporkan bahwa ia menemukan dua bilangan bulat positif <m>m</m> dan <m>n</m> dengan <m>n\lt 500</m> sedemikian sehingga ekspansi desimal bilangan rasional <m>m/n</m> memiliki blok 1961 digit yang berulang tanpa akhir. Tidak mau kalah, Bilal membanggakan bahwa ia menemukan pasangan bilangan bulat positif <m>s</m> dan <m>t</m> dengan <m>t\lt 300</m> sedemikian sehingga ekspansi desimal <m>s/t</m> memiliki blok <m>7643</m> digit yang berulang tanpa akhir. Bilal perlu diberi tahu (dengan sopan) agar menghitung lebih cermat, sebab tidak ada pasangan bilangan bulat positif seperti itu (<em>Mengapa</em>?). Di sisi lain, Amanda mungkin saja benar<mdash/>meskipun, jika ia bekerja dengan lebih teliti, ia seharusnya melaporkan bahwa ekspansi desimal <m>m/n</m> memiliki blok digit berulang yang lebih pendek (<em>Mengapa</em>?).
+            </p>
+        </example>
+
+        <proposition>
+            <statement>
+                <p>Tidak terdapat surjeksi dari <m>\posints</m> ke himpunan <m>X= \{x\in\reals:0\lt x\lt 1\}</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Misalkan <m>f</m> suatu fungsi dari <m>\posints</m> ke <m>X</m>. Untuk setiap <m>n\in \posints</m>, perhatikan satu atau kedua ekspansi desimal bilangan real <m>f(n)</m>. Selanjutnya, pilih bilangan bulat positif <m>a_n</m> sedemikian sehingga (1)<nbsp/><m>a_n\le 8</m>, dan (2)<nbsp/><m>a_n</m> bukan digit ke-<m>n</m> setelah tanda desimal dalam ekspansi desimal mana pun dari <m>f(n)</m>. Maka bilangan real <m>x</m> yang ekspansi desimalnya adalah <m>x=.a_1a_2a_3a_4a_5\dots</m> merupakan unsur <m>X</m> yang berbeda dari <m>f(n)</m> untuk setiap <m>n\in\posints</m>. Hal ini menunjukkan bahwa <m>f</m> bukan surjeksi.
+                </p>
+            </proof>
+        </proposition>
+    </subsection>
+
+</section>

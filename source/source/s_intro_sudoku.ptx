@@ -1,0 +1,20 @@
+<section xml:id="s_intro_sudoku">
+    <title>Teka-teki Sudoku</title>
+    <p>Berikut adalah contoh yang lebih berbobot daripada yang mungkin Anda kira sekilas. Contoh ini melibatkan teka-teki Sudoku, yang telah menjadi sangat populer dalam beberapa tahun terakhir.
+    </p>
+    <example>
+        <p>Sebuah <term>teka-teki Sudoku</term><idx><h>Teka-teki Sudoku</h></idx> adalah susunan sel berukuran <m>9\times 9</m> yang, setelah dilengkapi, memuat setiap bilangan bulat <m>1,2,\dots,9</m> tepat satu kali pada setiap baris dan setiap kolom. Selain itu—dan inilah yang membuat teka-teki tersebut begitu menarik—bilangan <m>1</m>, <m>2</m>, <m>3,\dots,9</m> masing-masing muncul satu kali pada setiap satu dari sembilan subpersegi <m>3\times 3</m> yang ditandai dengan batas tebal. Agar dianggap sebagai teka-teki Sudoku yang sah, teka-teki tersebut harus memiliki solusi <em>tunggal</em>. Pada <xref ref="fig_sudoku"/>, kami menampilkan dua teka-teki Sudoku. Teka-teki di sebelah kanan cukup mudah, sedangkan teka-teki di sebelah kiri jauh lebih menantang.
+        </p>
+        <figure xml:id="fig_sudoku">
+            <caption>Teka-teki Sudoku</caption>
+            <image width="93%" source="mysudoku"><description><p>Dua kisi Sudoku berukuran 9 kali 9 ditampilkan berdampingan dengan sejumlah sel berisi angka petunjuk. Kisi di sebelah kiri memiliki teka-teki yang lebih menantang, sedangkan kisi di sebelah kanan memiliki teka-teki yang lebih mudah.</p>
+            </description></image>
+        </figure>
+        <p>Ada banyak sumber teka-teki Sudoku. Perangkat lunak yang menghasilkan teka-teki Sudoku lalu memungkinkan Anda memainkannya melalui antarmuka grafis yang menarik tersedia untuk setiap sistem operasi yang kami kenal (meskipun kami tidak menyarankan Anda memainkannya selama perkuliahan!). Anda juga dapat menemukan teka-teki Sudoku di web pada: <url href="http://www.websudoku.com"/>. Pada situs ini, teka-teki dalam kategori <q>Evil</q> memang benar-benar sangat sulit.
+        </p>
+        <p>Bagaimana Rory menyusun teka-teki Sudoku yang baik, yakni teka-teki yang sulit dipecahkan Mandy? Bagaimana Mandy dapat menggunakan komputer untuk memecahkan teka-teki yang disusun Rory? Apa yang membuat sebagian teka-teki Sudoku mudah dan sebagian lainnya sulit?
+        </p>
+        <p>Ukuran teka-teki Sudoku dapat diperbesar dengan cara yang jelas, dan banyak surat kabar memuat teka-teki Sudoku berukuran <m>16\times16</m> dalam edisi hari Minggu mereka (tepat di sebelah teka-teki silang yang menantang). Seberapa sulitkah memecahkan teka-teki Sudoku berukuran <m>1024\times1024</m>, sekalipun Anda memiliki akses ke komputer yang bertenaga tinggi?
+            </p>
+    </example>
+</section>

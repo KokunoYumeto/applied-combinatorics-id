@@ -1,0 +1,211 @@
+<section xml:id="s_inclusion-exclusion_intro">
+  <title>Pengantar</title>
+  <p>
+    Kita memulai bab ini dengan sebuah contoh sederhana.
+  </p>
+  <example xml:id="exa_inclusion-exclusion_students">
+    <statement>
+      <p> Misalkan <m>X</m> adalah himpunan <m>63</m> mahasiswa yang mengikuti mata kuliah
+        kombinatorika terapan di sebuah universitas teknologi besar. Misalkan terdapat <m>47</m>
+        mahasiswa program studi ilmu komputer dan <m>
+        51</m> mahasiswa laki-laki. Kita juga mengetahui
+        bahwa <m>45</m> mahasiswa laki-laki mengambil program studi ilmu komputer. Berapa banyak
+        mahasiswi di kelas tersebut yang tidak mengambil program studi ilmu komputer? </p>
+    </statement>
+    <solution>
+      <p>Meskipun diagram Venn yang mungkin sudah sering Anda lihat tidak selalu merupakan ilustrasi terbaik
+        (terutama jika Anda mencoba menafsirkannya seolah-olah berskala), mari kita gunakan diagram
+        semacam itu sebagai langkah awal. Dalam <xref ref="fig_venn-app-comb"/>, kita dapat melihat
+        bagaimana kelompok-kelompok dalam situasi tersebut saling bertumpang tindih. </p>
+      <figure xml:id="fig_venn-app-comb">
+        <caption>Diagram Venn untuk kelas kombinatorika terapan</caption>
+        <image label="venn-diagram-students">
+          <description><p>Persegi panjang mewakili seluruh 63 mahasiswa. Oval kiri berwarna biru
+            mewakili 51 mahasiswa laki-laki, sedangkan oval kanan berwarna kuning mewakili 47
+            mahasiswa program studi ilmu komputer. Irisan hijau kedua oval memuat 45 mahasiswa
+            laki-laki program studi ilmu komputer. Wilayah di luar kedua oval mewakili 10 mahasiswi
+            yang tidak mengambil program studi ilmu komputer.</p>
+        </description><latex-image>\begin{overpic}{external/Venn-diagram}
+                    \put(15,28.5){Laki-laki}
+                    \put(63,28.5){Ilmu Komputer}
+                    \put(22,8){Mahasiswi non-Ilmu Komputer}
+                    \end{overpic}</latex-image>
+        </image>
+
+      </figure>
+      <p>Sekarang dapat kita lihat bahwa yang dicari ialah banyaknya mahasiswa di dalam persegi
+        panjang putih tetapi di luar kedua oval berwarna, yaitu mahasiswi yang tidak mengambil
+        program studi ilmu komputer. Untuk menghitungnya, kita dapat mulai dengan mengurangkan
+        banyaknya mahasiswa laki-laki (wilayah biru) dari jumlah seluruh mahasiswa di kelas, lalu
+        mengurangkan banyaknya mahasiswa program studi ilmu komputer (wilayah kuning). Namun, dengan
+        cara itu kita telah mengurangkan wilayah yang bertumpang tindih (mahasiswa laki-laki program
+        studi ilmu komputer) <em>dua kali</em>, sehingga jumlah tersebut harus ditambahkan kembali.
+        Jadi, banyaknya mahasiswi di kelas yang tidak mengambil program studi ilmu komputer adalah <md>
+        63 - 51 - 47 + 45 = 10.
+        </md>
+      </p>
+    </solution>
+  </example>
+
+
+  <example xml:id="exa_inclusion-exclusion_int-solns">
+    <p>Jenis masalah lain yang dengan mudah memperlihatkan penerapan teknik semacam ini adalah
+      generalisasi masalah enumerasi solusi bilangan bulat suatu persamaan. Dalam <xref
+      ref="ch_strings"/>, kita telah membahas cara menghitung banyaknya solusi persamaan seperti <md>
+        x_1 + x_2 + x_3 + x_4 = 100,
+      </md> dengan <m>x_1&gt;0</m>, <m>x_2, x_3 \geq 0</m>, dan <m>2\leq x_4\leq 10</m>. Namun, kita
+      belum membahas situasi ketika ditambahkan batasan <m>x_3\leq 7</m>. Contoh sebelumnya memberi
+      petunjuk mengenai cara menangani masalah yang telah dimodifikasi ini. </p>
+
+    <p>Pertama, mari kita susun ulang masalah tersebut agar batas bawah setiap variabel berbentuk <m>x_i\geq
+      0</m>. Dengan demikian, masalahnya berubah menjadi enumerasi solusi bilangan bulat dari <md>
+        x_1' + x_2 + x_3 + x_4' = 97
+      </md> dengan <m>x_1',x_2,x_3,x_4'\geq 0</m>, <m>x_3\leq
+      7</m>, dan <m>x_4'\leq 8</m>. (Selanjutnya, <m>x_1 = x_1'+1</m> dan <m>x_4 = x_4' + 2</m>
+      menghasilkan solusi yang kita inginkan.) Untuk menghitung banyaknya solusi bilangan bulat
+      persamaan ini dengan <m>x_3\leq
+      7</m> dan <m>x_4'\leq 8</m>, kita harus mengecualikan setiap
+      solusi dengan <m>x_3 \gt 7</m> <em>atau</em> <m>x_4'
+      \gt 8</m>. Terdapat <m>C(92,3)</m> solusi
+      dengan <m>x_3 \gt 7</m>, sedangkan banyaknya solusi dengan <m>x_4'\gt 8</m> adalah
+      <m>C(91,3)</m>. Pada tahap ini, kita mungkin tergoda untuk langsung mengurangkan <m>C(92,3)</m>
+      dan <m>C(91,3)</m> dari <m>C(100,3)</m>, yaitu jumlah seluruh solusi dengan semua variabel
+      tak negatif. Namun, kita harus berhati-hati. Jika dilakukan, solusi yang sekaligus memenuhi
+      <m>x_3\gt 7</m> <em>dan</em> <m>x_4'\gt 8</m> akan terhapus <em>dua kali</em>. Untuk
+      memperhitungkannya, perhatikan bahwa terdapat <m>C(83,3)</m> solusi yang sekaligus memenuhi
+      <m>x_3\gt 7</m> dan <m>x_4'\gt 8</m>. Dengan menambahkan kembali bilangan ini setelah
+      pengurangan, kita memastikan bahwa solusi yang memenuhi <m>x_3\gt 7</m> dan <m>x_4'\gt 8</m>
+      tidak masuk ke dalam hitungan akhir dan juga tidak dikecualikan lebih dari sekali. Jadi, jumlah
+      seluruh solusi adalah <md>
+        \binom{100}{3} - \binom{92}{3} - \binom{91}{3} + \binom{83}{3} = 6516.
+      </md>
+    </p>
+  </example>
+  <p>Dari contoh-contoh ini, mulai terlihat sebuah pola yang membawa kita menuju kerangka yang lebih
+    umum. Secara umum, kita akan meninjau sebuah himpunan <m>X</m> dan keluarga <m>
+    \mathcal{P}=\{P_1,P_2,\dots,P_m\}</m> yang terdiri atas <term>sifat-sifat</term>. Untuk setiap
+    <m>x\in
+    X</m> dan setiap <m>i=1,2,\dots,m</m>, <m>x</m> memenuhi <m>P_i</m> atau tidak
+    memenuhinya; tidak ada ambiguitas. Tujuan akhirnya ialah menentukan banyaknya elemen <m>X</m>
+    yang tidak memenuhi <em>satu pun</em> sifat dalam <m>\mathcal{P}</m>. Dalam <xref
+    ref="exa_inclusion-exclusion_students"/>, kita dapat menetapkan sifat <m>P_1</m> sebagai
+    <q>mengambil program studi ilmu komputer</q> dan sifat <m>P_2</m> sebagai <q>laki-laki</q>.
+    Dengan demikian, banyaknya mahasiswa yang <em>tidak memenuhi</em> <m>P_1</m> maupun
+    <m>P_2</m> adalah banyaknya mahasiswi yang mengambil program studi selain ilmu komputer, tepat
+    seperti jumlah yang diminta. Apa sifat <m>P_1</m> dan <m>P_2</m> untuk <xref
+    ref="exa_inclusion-exclusion_int-solns"/>? </p>
+
+  <p>Mari kita tinjau tiga contoh yang melibatkan himpunan sifat yang lebih besar. Sifat-sifat ini
+    akan muncul kembali pada bagian-bagian selanjutnya dalam bab ini ketika inklusi–eksklusi diterapkan pada situasi yang
+    lebih rumit. Ingat bahwa di seluruh buku ini kita menggunakan notasi <m>[n]</m> untuk himpunan <m>
+    \{1,2,\dots,n\}</m> apabila <m>n</m> adalah bilangan bulat positif. </p>
+  <example xml:id="exa_inclusion-exclusion_prop-inject">
+    <p>Misalkan <m>m</m> dan <m>n</m> adalah bilangan bulat positif tetap, dan misalkan <m>X</m>
+      terdiri atas semua fungsi dari <m>[n]</m> ke <m>[m]</m>. Untuk setiap <m>i=1,2,\dots,m</m> dan
+      setiap fungsi <m>f\in
+      X</m>, kita katakan bahwa <m>f</m> memenuhi <m>P_i</m> jika tidak ada
+      <m>j</m> sedemikian sehingga <m>f(j)=i</m>. Dengan kata lain, <m>i</m> tidak berada dalam citra
+      atau keluaran fungsi <m>f</m>. </p>
+
+    <p>Sebagai contoh khusus, misalkan <m>n=5</m> dan <m>m=3</m>. Fungsi yang diberikan oleh tabel
+      berikut memenuhi <m>P_1</m>, tetapi tidak memenuhi <m>P_2</m> ataupun <m>P_3</m>. </p>
+    <sidebyside>
+      <tabular>
+        <row bottom="minor">
+          <cell>
+            <m>i</m>
+          </cell>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>4</cell>
+          <cell>5</cell>
+        </row>
+        <row>
+          <cell>
+            <m>f(i)</m>
+          </cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>2</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+        </row>
+      </tabular>
+    </sidebyside>
+  </example>
+
+  <example xml:id="exa_inclusion-exclusion_prop-derange">
+    <p>Misalkan <m>m</m> adalah bilangan bulat positif tetap, dan misalkan <m>X</m> terdiri atas semua
+      bijeksi dari <m>
+      [m]</m> ke <m>[m]</m>. Elemen-elemen <m>X</m> disebut
+      <term>permutasi</term><idx>
+        <h>permutasi</h>
+        <h>fungsi</h>
+      </idx>. Untuk setiap <m>i=1,2,\dots,m</m> dan setiap permutasi <m>\sigma\in
+      X</m>, kita katakan
+      bahwa <m>\sigma</m> memenuhi <m>P_i</m> jika <m>\sigma(i)=i</m>. </p>
+
+    <p>Sebagai contoh, permutasi <m>\sigma</m> pada <m>[5]</m> yang diberikan oleh tabel berikut
+      memenuhi <m>P_3</m> dan <m>P_5</m>, tetapi tidak memenuhi <m>P_i</m> yang lain. </p>
+    <sidebyside>
+      <tabular>
+        <row bottom="minor">
+          <cell>
+            <m>i</m>
+          </cell>
+          <cell>1</cell>
+          <cell>2</cell>
+          <cell>3</cell>
+          <cell>4</cell>
+          <cell>5</cell>
+        </row>
+        <row>
+          <cell>
+            <m>\sigma(i)</m>
+          </cell>
+          <cell>2</cell>
+          <cell>4</cell>
+          <cell>3</cell>
+          <cell>1</cell>
+          <cell>5</cell>
+        </row>
+      </tabular>
+    </sidebyside>
+  </example>
+  <p>Perhatikan bahwa pada contoh sebelumnya kita dapat saja mengatakan bahwa <m>\sigma</m> memenuhi
+    sifat <m>
+    P_i</m> jika <m>\sigma(i)\neq i</m>. Namun, karena tujuan kita adalah menghitung banyaknya
+    elemen yang tidak memenuhi satu pun sifat, dengan pilihan itu kita justru akan menghitung
+    banyaknya permutasi yang memenuhi <m>\sigma(i)=i</m> untuk setiap <m>i=1,2,\dots,m</m>. Untuk
+    menyelesaikan tugas ini tampaknya tidak diperlukan banyak teori<mdash/>tentu saja jumlahnya satu.
+  </p>
+  <example xml:id="exa_inclusion-exclusion_prop-divis">
+    <p>Misalkan <m>m</m> dan <m>n</m> adalah bilangan bulat positif tetap, dan misalkan <m>X=[n]</m>.
+      Untuk setiap <m>
+      i=1,2,\dots,m</m> dan setiap <m>j\in X</m>, kita katakan bahwa <m>j</m>
+      memenuhi <m>P_i</m> jika <m>i</m> merupakan pembagi dari <m>j</m>. Dengan kata lain, bilangan
+      bulat positif yang memenuhi sifat <m>P_i</m> tidak lain adalah kelipatan <m>i</m>. </p>
+
+    <p>Sekilas, himpunan sifat ini mungkin tampak paling rumit di antara yang telah kita bahas. Namun,
+      contoh konkret akan membantu menghilangkan kebingungan. Misalkan <m>n=m=15</m>. Sifat mana saja
+      yang dipenuhi oleh <m>12</m>? Pembagi-pembagi <m>12</m> adalah <m>1</m>, <m>2</m>, <m>
+      3</m>,
+      <m>4</m>, <m>6</m>, dan <m>12</m>, sehingga <m>12</m> memenuhi <m>P_1</m>, <m>P_2</m>, <m>
+      P_3</m>,
+      <m>P_4</m>, <m>P_6</m>, dan <m>P_{12}</m>. Sebagai perbandingan, perhatikan bahwa <m>7</m>
+      hanya memenuhi sifat <m>P_1</m> dan <m>P_7</m> karena hanya kedua bilangan itulah pembaginya. </p>
+  </example>
+  <reading-questions xml:id="rqs-inclusion-exclusion_intro" component="runestone">
+    <exercise label="inclusion-exclusion_intro-rq-divisor">
+      <statement>
+        <p>
+          Dengan mengacu pada sifat <m>P_i</m> sebagaimana dijelaskan dalam <xref
+          ref="exa_inclusion-exclusion_prop-divis"/>, tuliskan semua bilangan bulat dalam
+          <m>[15]</m> yang memenuhi <m>P_{14}</m>.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

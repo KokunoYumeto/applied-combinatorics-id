@@ -1,0 +1,194 @@
+<section xml:id="s_background_formal-num-sys">
+    <title>Pengembangan Formal Sistem Bilangan</title>
+
+
+    <introduction>
+        <p>Sejauh ini, kita telah membahas sistem bilangan secara sepenuhnya informal, dengan menganggap bahwa semua orang sudah mengetahui segala sesuatu yang diperlukan. Sekarang mari kita berhenti sejenak dan meletakkannya di atas landasan yang lebih kukuh. Untuk sementara, kosongkan ingatan dan lupakan semua yang pernah Anda pelajari tentang bilangan dan aritmetika. Himpunan bilangan asli baru saja diantarkan ke depan pintu kita dalam sebuah kotak besar dengan label peringatan <alert>Perlu Dirakit.</alert> Ketika kotak itu dibuka, kita menemukan selembar kertas yang memuat <q>petunjuk</q> berikut. Sifat-sifat yang mendefinisikan bilangan asli ini dikenal sebagai <term>Postulat Peano</term><idx><h>Postulat Peano</h></idx>.
+                  <ol marker="i">
+            <li><p>Terdapat himpunan tak kosong yang unsur-unsurnya disebut <term>bilangan asli</term><idx><h>bilangan asli</h></idx>. Terdapat suatu bilangan asli yang disebut <term>nol</term> dan dinotasikan dengan<nbsp/><m>0</m>. Himpunan semua bilangan asli dinotasikan dengan <m>\nonnegints</m></p></li>
+            <li><p>Terdapat fungsi satu-ke-satu <m>s:\nonnegints \injection \nonnegints</m> yang disebut <term>fungsi penerus</term>. Untuk setiap <m>n\in \nonnegints</m>, <m>s(n)</m> disebut <term>penerus</term><idx><h>penerus</h></idx> dari <m>n</m>.</p></li>
+            <li><p>Tidak terdapat bilangan asli <m>n</m> yang memenuhi <m>0=s(n)</m>.</p></li>
+            <li xml:id="peano_induction"><p>Misalkan <m>\mathbb{M}\subseteq \nonnegints</m>. Maka <m>\mathbb{M} =\nonnegints</m> jika dan hanya jika
+            <ol marker="a">
+                <li><p><m>0\in \mathbb{M}</m>; dan</p></li>
+                <li><p><m>\forall k\in \nonnegints\quad(k\in \mathbb{M}) 
+                \Longrightarrow(s(k)\in \mathbb{M})</m>.</p></li>
+            
+                  </ol>
+                </p>
+            </li>
+        </ol>
+     </p>
+        <p>Sifat <xref ref="peano_induction"/> dalam daftar Postulat Peano disebut <term>Prinsip Induksi Matematika</term>, atau cukup <term>Prinsip Induksi</term><idx><h>induksi</h><h>prinsip induksi matematika</h></idx>. Sebagai penerapan pertama Prinsip Induksi, kita membuktikan sifat dasar bilangan asli berikut.
+        </p>
+
+        <proposition>
+            <statement>
+                <p>Misalkan <m>n</m> merupakan bilangan asli dengan <m>n\neq0</m>. Maka terdapat bilangan asli <m>m</m> sedemikian sehingga <m>n=s(m)</m>.
+                </p>
+            </statement>
+
+        <proof>
+            <p>Misalkan <m>\mathbb{S}=\{n\in\nonnegints:\exists m\in\nonnegints, n=s(m)\}</m>. Selanjutnya, tetapkan <m>\mathbb{M}=\{0\}\cup\mathbb{S}</m>. Kita akan menunjukkan bahwa <m>\mathbb{M}=\nonnegints</m>. Pertama, perhatikan bahwa <m>0\in\mathbb{M}</m>. Berikutnya, kita akan menunjukkan bahwa untuk setiap <m>k\in\nonnegints</m>, jika <m>k\in\mathbb{M}</m>, maka <m>s(k)\in\mathbb{M}</m>. Hal ini langsung berlaku karena untuk setiap <m>k\in\nonnegints</m>, kita mempunyai <m>s(k)\in\mathbb{S}\subseteq\mathbb{M}</m>. Jadi, <m>\mathbb{M}=\nonnegints</m>.
+            </p>
+        </proof>
+        </proposition>
+    </introduction>
+
+
+    <subsection xml:id="s_background_add">
+        <title>Penjumlahan sebagai Operasi Biner</title>
+        <p>Suatu <term>operasi biner</term><idx><h>operasi</h><h>biner</h></idx> <m>*</m> pada himpunan <m>X</m> tidak lain adalah fungsi <m>*:X\times X\rightarrow X</m>. Karena itu, citra pasangan terurut <m>(x,y)</m> biasanya dinotasikan dengan <m>*((x,y))</m>. Namun, notasi ini lazim disingkat menjadi <m>*(x,y)</m>, atau bahkan secara lebih ringkas menjadi <m>x*y</m>. Dengan konvensi ini, sekarang kita mendefinisikan operasi biner <m>+</m> pada himpunan bilangan asli <m>\nonnegints</m>. Untuk setiap bilangan asli <m>n\in\nonnegints</m>, operasi ini didefinisikan sebagai berikut:
+                  <ol marker="i">
+            <li><p><m>n+0=n</m>.</p></li>
+            <li><p>Untuk setiap <m>k\in\nonnegints</m>, <m>n+s(k) = s(n+k)</m>.</p></li>
+        
+                  </ol>
+                </p>
+
+        <p>Mari kita berhenti sejenak untuk memperjelas mengapa kedua pernyataan di atas mendefinisikan <m>+</m>. Misalkan <m>n</m> merupakan sebarang bilangan asli. Selanjutnya, misalkan <m>\mathbb{M}</m> menyatakan himpunan semua bilangan asli <m>m</m> yang menjadikan <m>n+m</m> terdefinisi. Perhatikan bahwa <m>0\in \mathbb{M}</m> berdasarkan bagian<nbsp/>(i). Perhatikan pula bahwa untuk setiap <m>k\in \nonnegints</m>, berlaku <m>s(k)\in \mathbb{M}</m> jika <m>k\in \mathbb{M}</m> berdasarkan bagian<nbsp/>(ii). Hal ini menunjukkan bahwa <m>\mathbb{M}=\nonnegints</m>. Karena <m>n</m> dipilih sebarang, kita dapat menyimpulkan bahwa <m>n+m</m> terdefinisi untuk setiap <m>n,m\in \nonnegints</m>.
+        </p>
+
+        <p>Kita membaca <m>n+m</m> sebagai <m>n</m> <term>ditambah</term> <m>m</m>. Operasi <m>+</m> juga disebut <term>penjumlahan</term>.<idx><h>penjumlahan</h><h>definisi formal</h></idx>
+        </p>
+
+        <p>Di antara bilangan asli, penerus nol berperan begitu penting sehingga layak memperoleh simbol khusus. Mengikuti tradisi, kita menyebut bilangan asli <m>s(0)</m> sebagai <term>satu</term> dan menotasikannya dengan<nbsp/><m>1</m>. Perhatikan bahwa untuk setiap bilangan asli <m>n</m>, berlaku <m>n+1=n+s(0)=s(n)</m>. Secara khusus, <m>0+1=1</m>.
+        </p>
+
+        <p>Dengan notasi ini, Prinsip Induksi dapat dinyatakan kembali dalam bentuk berikut.
+        </p>
+
+        <principle>
+            <title>Prinsip Induksi</title>
+            <statement>
+                <p>Misalkan <m>\mathbb{M}\subseteq \nonnegints</m>. Maka <m>\mathbb{M} =\nonnegints</m> jika dan hanya jika
+                  <ol marker="a">
+            <li><p><m>0\in \mathbb{M}</m>; dan</p></li>
+            <li><p><m>\forall k\in \nonnegints\quad(k\in \mathbb{M}) 
+            \Longrightarrow(k+1\in \mathbb{M})</m>.</p></li>
+        
+                  </ol>
+                </p>
+            </statement>
+        </principle>
+        <theorem>
+            <title>Sifat Asosiatif Penjumlahan</title>
+            <statement>
+                <p>
+                    <m>m+(n+p) = (m+n)+p</m> untuk setiap <m>m,n,p\in \nonnegints</m>.
+                </p>
+            </statement>
+            <proof>
+                <p>Misalkan <m>m,n\in \nonnegints</m>. Selanjutnya, misalkan <m>\mathbb{M}</m> menyatakan himpunan semua bilangan asli <m>p</m> yang memenuhi <m>m+(n+p)=(m+n)+p</m>. Kita akan menunjukkan bahwa <m>\mathbb{M}=\nonnegints</m>.
+                </p>
+
+                <p>Perhatikan bahwa
+                <md>
+                    m+(n+0) = m+n = (m+n)+0
+                </md>
+                sehingga <m>0\in \mathbb{M}</m>.
+                </p>
+                <p>Sekarang andaikan <m>k\in \mathbb{M}</m>, <ie/>, <m>m+(n+k) = (m+n)+k</m>.
+                Maka
+                <md>
+                    m+[n+(k+1)]=m+[(n+k)+1]=[m+(n+k)]+1= [(m+n)+k]+1=(m+n)+(k+1).
+                </md>
+                Di sini, perhatikan bahwa kesamaan pertama, kedua, dan keempat mengikuti bagian kedua definisi penjumlahan, sedangkan kesamaan ketiga menggunakan asumsi induksi <m>m+(n+k)=(m+n)+k</m>. Hal ini menunjukkan bahwa <m>k+1\in \mathbb{M}</m>. Oleh karena itu, <m>\mathbb{M}= \nonnegints</m>. Karena <m>m</m> dan <m>n</m> merupakan sebarang unsur <m>\nonnegints</m>, teorema terbukti.
+                </p>
+            </proof>
+        </theorem>
+
+        <p>Dalam bukti-bukti berikutnya, kita akan meringkas sebagian uraian dan hanya mempertahankan langkah-langkah matematis yang penting. Secara khusus, kita akan (i)<nbsp/>menghilangkan rujukan pada himpunan <m>\mathbb{M}</m>, dan (ii)<nbsp/>menghilangkan frasa <q>Untuk setiap <m>k\in\nonnegints</m></q>. Sebagai contoh, untuk mendefinisikan penjumlahan, kita cukup menulis (i)<nbsp/><m>n+0=n</m>, dan (ii)<nbsp/><m>n+(k+1) = (n+k)+1</m>.
+        </p>
+
+        <lemma>
+            <statement>
+                <p>
+                    <m>m+(n+1) = (m+1)+n</m> untuk setiap <m>m,n\in\nonnegints</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Tetapkan <m>m\in \nonnegints</m>. Maka
+                    <md>
+                        m+(0+1)=m+1= (m+0)+1.
+                    </md>
+                    Sekarang andaikan <m>m+(k+1)=(m+1)+k</m>.
+                    Maka
+                    <md>
+                        m+[(k+1)+1]=[m+(k+1)]+1=[(m+1)+k]+1=(m+1)+(k+1).
+                    </md>
+                </p>
+            </proof>
+        </lemma>
+
+        <p>Berikutnya, kita membuktikan sifat komutatif dalam dua langkah. Pertama, kita membuktikan kasus khusus berikut.
+        </p>
+
+        <lemma>
+            <statement>
+                <p>
+                    <m>n+0 = 0+n=n</m> untuk setiap <m>n\in \nonnegints</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Pernyataan tersebut langsung benar ketika <m>n= 0</m>. Sekarang andaikan <m>k+0=0+k=k</m> untuk suatu <m>k\in \nonnegints</m>. Maka
+                    <md>
+                        (k+1) +0 = k+1 = (0+k)+1= 0+(k+1).
+                    </md>
+                </p>
+            </proof>
+        </lemma>
+
+        <theorem>
+            <title>Hukum Komutatif Penjumlahan</title>
+            <statement>
+                <p>
+                    <m>m+n=n+m</m> untuk setiap <m>m,n\in \nonnegints</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Misalkan <m>m\in \nonnegints</m>. Berdasarkan lemma sebelumnya, <m>m+0=0+m</m>. Andaikan <m>m+k=k+m</m>. Maka
+                    <md>
+                        m+(k+1)=(m+k)+1=(k+m)+1= k+(m+1) = (k+1)+m.
+                    </md>
+                </p>
+            </proof>
+        </theorem>
+
+        <lemma xml:id="lem_sum0">
+            <statement>
+                <p>
+                    Jika <m>m,n\in\nonnegints</m> dan <m>m+n=0</m>, maka <m>m=n=0</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Andaikan salah satu dari <m>m</m> dan <m>n</m> tidak sama dengan nol. Karena penjumlahan bersifat komutatif, tanpa mengurangi keumuman kita dapat menganggap bahwa <m>n\neq0</m>. Maka terdapat bilangan asli <m>p</m> sedemikian sehingga <m>n=s(p)</m>. Akibatnya, <m>m+n=m+s(p)=s(m+p)=0</m>, yang mustahil karena <m>0</m> bukan penerus bilangan asli mana pun.
+                </p>
+            </proof>
+        </lemma>
+
+        <theorem>
+            <title>Hukum Pembatalan Penjumlahan</title>
+            <statement>
+                <p>Jika <m>m,n,p\in \nonnegints</m> dan <m>m+p=n+p</m>, maka <m>m=n</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Misalkan <m>m,n\in \nonnegints</m>. Andaikan <m>m+0=n+0</m>. Maka <m>m=n</m>. Sekarang andaikan bahwa <m>m=n</m> setiap kali <m>m+k=n+k</m>. Jika <m>m+(k+1)=n+(k+1)</m>, maka
+                    <md>
+                        s(m+k)=(m+k)+1=m+(k+1)=n+(k+1)=(n+k)+1=s(n+k).
+                    </md>
+                    Karena <m>s</m> merupakan
+                    injeksi, hal ini mengakibatkan <m>m+k=n+k</m>. Jadi, <m>m=n</m>.
+                </p>
+            </proof>
+        </theorem>
+
+    </subsection>
+
+</section>

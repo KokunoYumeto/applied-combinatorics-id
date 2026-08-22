@@ -1,0 +1,122 @@
+<section xml:id="s_inclusion-exclusion_derangements">
+    <title>Permutasi Tanpa Titik Tetap</title>
+    <p>Sekarang mari kita tinjau suatu situasi yang memungkinkan kita menggunakan sifat-sifat yang didefinisikan dalam <xref ref="exa_inclusion-exclusion_prop-derange"/>. Tetapkan suatu bilangan bulat positif <m>n</m> dan misalkan <m>X</m> menyatakan himpunan semua permutasi pada <m>[n]</m>. Suatu permutasi <m>\sigma\in X</m> disebut <term>permutasi tanpa titik tetap</term><idx><h>permutasi tanpa titik tetap</h></idx> jika <m>\sigma(i)\neq i</m> untuk setiap <m>i=1,2,\dots,n</m>. Sebagai contoh, permutasi <m>\sigma</m> yang diberikan di bawah ini merupakan permutasi tanpa titik tetap, sedangkan <m>\tau</m> bukan.
+    </p>
+    <sidebyside>
+        <tabular>
+            <row bottom="minor">
+                <cell><m>i</m></cell>
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>3</cell>
+                <cell>4</cell>
+            </row>
+            <row>
+                <cell><m>\sigma(i)</m></cell>
+                <cell>2</cell>
+                <cell>4</cell>
+                <cell>1</cell>
+                <cell>3</cell>
+            </row>
+        </tabular>
+        <tabular>
+            <row bottom="minor">
+                <cell><m>i</m></cell>
+                <cell>1</cell>
+                <cell>2</cell>
+                <cell>3</cell>
+                <cell>4</cell>
+            </row>
+            <row>
+                <cell><m>\tau(i)</m></cell>
+                <cell>2</cell>
+                <cell>4</cell>
+                <cell>3</cell>
+                <cell>1</cell>
+            </row>
+        </tabular>
+    </sidebyside>
+    <p>Jika sekali lagi kita menetapkan bahwa <m>P_i</m> adalah sifat <m>\sigma(i)=i</m>, permutasi tanpa titik tetap tepat merupakan permutasi yang tidak memenuhi <m>P_i</m> untuk satu pun <m>i=1,2,\dots,n</m>.
+    </p>
+
+    <lemma>
+        <statement>
+            <p>Untuk setiap himpunan bagian <m>S\subseteq [n]</m>, <m>N(S)</m> hanya bergantung pada <m>|S|</m>. Lebih tepatnya, jika <m>|S|=k</m>, maka
+            <md>
+                N(S) = (n-k)!
+            </md>
+            </p>
+        </statement>
+
+        <proof>
+            <p>Untuk setiap <m>i\in S</m>, nilai <m>\sigma(i)=i</m> telah ditetapkan. Nilai-nilai <m>\sigma</m> lainnya membentuk suatu permutasi pada <m>n-k</m> posisi yang tersisa, dan terdapat <m>(n-k)!</m> permutasi semacam itu.
+            </p>
+        </proof>
+    </lemma>
+
+    <p>Seperti sebelumnya, hasil utama bagian ini langsung diperoleh dari lemma dan <xref ref="thm_inclusion-exclusion" text="title"/>.
+    </p>
+
+    <theorem>
+        <statement>
+            <p>Untuk setiap bilangan bulat positif <m>n</m>, bilangan <m>d_n</m> yang menyatakan banyaknya permutasi tanpa titik tetap pada <m>[n]</m> memenuhi
+            <md>
+                d_n=\sum_{k=0}^n (-1)^k\binom{n}{k}(n-k)!.
+            </md>
+            </p>
+        </statement>
+    </theorem>
+
+    <p>Sebagai contoh,
+    <md>
+        <mrow>  d_5 \amp  =\binom{5}{0}5!-\binom{5}{1}4!+\binom{5}{2}3!-\binom{5}{3}2!+
+        \binom{5}{4}1!-\binom{5}{5}0!</mrow>
+        <mrow>  \amp =120-120+60-20+5-1</mrow>
+        <mrow>  \amp =44.</mrow>
+    </md>
+    </p>
+    <p>Sudah menjadi kebiasaan untuk menyajikan topik permutasi tanpa titik tetap dalam bentuk cerita yang disebut masalah Penitipan Topi<idx><h>masalah penitipan topi</h></idx>. Cerita ini berasal dari masa ketika kaum pria mengenakan topi tinggi. Pada sebuah pesta dansa resmi, <m>100</m> pria menitipkan topi tinggi mereka kepada petugas penitipan topi sebelum memasuki lantai dansa. Kemudian pada malam itu, petugas penitipan topi yang usil memutuskan untuk mengembalikan topi-topi tersebut secara acak. Berapakah peluang bahwa seluruh <m>100</m> pria menerima topi yang bukan miliknya sendiri? Ternyata jawabannya sangat dekat dengan <m>1/e</m>, sebagaimana ditunjukkan oleh hasil berikut.
+    </p>
+
+    <theorem>
+        <statement>
+            <p>Untuk suatu bilangan bulat positif <m>n</m>, misalkan <m>d_n</m> menyatakan banyaknya permutasi tanpa titik tetap pada <m>[n]</m>. Maka
+            <md>
+                \lim_{n\rightarrow\infty}\frac{d_n}{n!} = \frac{1}{e}.
+            </md>
+            Dengan kata lain, proporsi seluruh permutasi pada <m>[n]</m> yang merupakan permutasi tanpa titik tetap mendekati <m>1/e</m> ketika <m>n</m> membesar.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Mudah dilihat bahwa
+            <md>
+                <mrow>  \frac{d_n}{n!} \amp = \frac{\sum_{k=0}^n (-1)^k\binom{n}{k}(n-k)!}{n!}</mrow>
+                <mrow>  \amp = \sum_{k=0}^n (-1)^k \frac{n!}{k!(n-k)!}\frac{(n-k)!}{n!}</mrow>
+                <mrow>  \amp = \sum_{k=0}^n (-1)^k \frac{1}{k!}.</mrow>
+            </md>
+            Ingat kembali dari Kalkulus bahwa pengembangan deret Taylor untuk <m>e^x</m> diberikan oleh
+        <md>
+            e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!},
+        </md>
+        sehingga hasil tersebut diperoleh dengan menyubstitusikan <m>x=-1</m>.
+            </p>
+        </proof>
+    </theorem>
+
+    <p>Biasanya kita tidak terlalu tertarik pada <m>d_n</m> itu sendiri, melainkan pada pencacahan permutasi dengan batasan tertentu, seperti diperlihatkan oleh contoh berikut.
+    </p>
+    <example>
+        <p>Perhatikan masalah Penitipan Topi, tetapi sekarang, alih-alih mensyaratkan agar tidak ada pria yang pulang membawa topinya sendiri, kita ingin mengetahui banyaknya cara membagikan <m>100</m> topi sehingga tepat <m>40</m> pria pulang membawa topinya sendiri.
+        </p>
+
+        <p>Jika <m>40</m> pria pulang membawa topinya sendiri, ada <m>60</m> pria yang tidak menerima topi mereka sendiri. Terdapat <m>C(100,60)</m> cara untuk memilih <m>60</m> pria yang tidak akan menerima topinya sendiri dan <m>d_{60}</m> cara untuk membagikan topi-topi tersebut agar tidak seorang pun menerima topinya sendiri. Hanya ada satu cara untuk membagikan <m>40</m> topi kepada para pria yang harus menerima topinya sendiri. Dengan demikian, terdapat
+        <md>
+            <mrow>  \binom{100}{60}d_{60} =
+                \amp 420788734922281721283274628333913452107738151595140722182899444</mrow>
+                <mrow>  \amp 67852500232068048628965153767728913178940196920</mrow>
+            </md>
+            cara untuk mengembalikan topi-topi tersebut.
+        </p>
+    </example>
+</section>

@@ -1,0 +1,306 @@
+{
+  "artifact": {
+    "bytes": 7487198,
+    "encrypted": false,
+    "page_size_points": [
+      [
+        612.0,
+        792.0
+      ]
+    ],
+    "pages": 350,
+    "path": "release/provisional-2026.08.22.1/00_KOMBINATORIKA_TERAPAN_ID-ID_COMPLETE_LINKED_READER_2026.08.22.1.pdf",
+    "pdf_version": "1.7",
+    "sha256": "01909d0e91fc0b7ef5001368cd55f852c527d6b05f5d941a05e993aa04a46f2e"
+  },
+  "body_replay_gate": {
+    "annotation_counts_equal": 349,
+    "body_pages_compared": 349,
+    "boxes_rotation_equal": 349,
+    "decoded_content_equal": 349,
+    "decoded_content_method": "ordered SHA-256 hashes of every decoded /Contents stream",
+    "extracted_text_equal": 349,
+    "mapping": "maintenance PDF pages 2-350 equal base PDF pages 1-349",
+    "mismatches": [],
+    "result": "pass",
+    "top_level_xobject_stream_hashes_equal": 349,
+    "xobject_method": "resource-name keyed SHA-256 hashes of decoded top-level /XObject streams"
+  },
+  "comparison_sources": {
+    "base": {
+      "bytes": 6939538,
+      "pages": 349,
+      "path": "source/output/pdf/main.pdf",
+      "sha256": "0626f17339f31af04453ae7aa26a9c75cf2dbda209a72d27c341f52c075dff91"
+    },
+    "old_verified_final": {
+      "bytes": 7487255,
+      "pages": 350,
+      "path": "release/applied-combinatorics-id-2026.08.22/00_KOMBINATORIKA_TERAPAN_ID-ID_COMPLETE_LINKED_READER_2026.08.22.pdf",
+      "sha256": "c31617dc714215a4ce3f5f689b00f11e7413115415e39109b33c1c001cb64754"
+    }
+  },
+  "concept_doi": "10.5281/zenodo.22058531",
+  "corpus_id": "R012",
+  "cover_identity_and_visual_gate": {
+    "cover_text_markers": [
+      "Kombinatorika Terapan",
+      "Mitchel T. Keller",
+      "William T. Trotter",
+      "Bahasa Indonesia (id-ID)",
+      "Versi: 2026.08.22.1",
+      "10.5281/zenodo.22059672",
+      "10.5281/zenodo.22058531",
+      "https://zenodo.org/records/22059672",
+      "https://github.com/mitchkeller/applied-combinatorics",
+      "33b20df670d1f8d98266cd2f4a287a79b01649ea",
+      "CC BY-SA 4.0",
+      "Codex atas permintaan Floris",
+      "bukan edisi yang didukung atau disahkan oleh penulis asli"
+    ],
+    "missing_cover_text_markers": [],
+    "observed_render": {
+      "bytes": 206547,
+      "classification": "pixel-identical",
+      "difference_bbox_px": null,
+      "different_pixels": 0,
+      "dimensions_px": [
+        1530,
+        1980
+      ],
+      "dpi": 180,
+      "first_mode": "RGB",
+      "max_channel_delta": 0,
+      "path": "qa/_tmp_maintenance_pdf_qa_20260822_1/cover-1.png",
+      "pixel_identical": true,
+      "rerender": {
+        "bytes": 206547,
+        "sha256": "12aedac536b01ae14371b45ec44ae4b1af8e20effab05aeac9ac7f0b58158ff6",
+        "stderr_lines": 16,
+        "stderr_sha256": "df47cd4fc14921093cc4fbe59092ec4481847cba21e0c64efd5da7c3e487ffa2"
+      },
+      "second_mode": "RGB",
+      "sha256": "12aedac536b01ae14371b45ec44ae4b1af8e20effab05aeac9ac7f0b58158ff6"
+    },
+    "observed_visual_review": {
+      "balanced": true,
+      "clipping": false,
+      "dpi": 180,
+      "identity_text_correct": true,
+      "legible": true,
+      "overlap": false,
+      "pdf_page": 1,
+      "result": "pass",
+      "reviewer": "root agent",
+      "source": "direct visual inspection reported to this QA task"
+    },
+    "result": "pass",
+    "unavailable_repository_markers_found": [],
+    "uri_links": [
+      "https://doi.org/10.5281/zenodo.22059672",
+      "https://doi.org/10.5281/zenodo.22058531",
+      "https://zenodo.org/records/22059672",
+      "https://github.com/mitchkeller/applied-combinatorics"
+    ],
+    "uri_set_exact": true
+  },
+  "language": "id-ID",
+  "metadata_gate": {
+    "actual": {
+      "/Author": "Mitchel T. Keller; William T. Trotter",
+      "/Creator": "PreTeXt and Codex release assembly",
+      "/Keywords": "kombinatorika, matematika diskret, Bahasa Indonesia, id-ID",
+      "/Producer": "pypdf",
+      "/Subject": "Edisi Bahasa Indonesia lengkap, versi 2026.08.22.1, DOI 10.5281/zenodo.22059672",
+      "/Title": "Kombinatorika Terapan - Edisi Bahasa Indonesia lengkap"
+    },
+    "encrypted": false,
+    "expected": {
+      "/Author": "Mitchel T. Keller; William T. Trotter",
+      "/Creator": "PreTeXt and Codex release assembly",
+      "/Keywords": "kombinatorika, matematika diskret, Bahasa Indonesia, id-ID",
+      "/Producer": "pypdf",
+      "/Subject": "Edisi Bahasa Indonesia lengkap, versi 2026.08.22.1, DOI 10.5281/zenodo.22059672",
+      "/Title": "Kombinatorika Terapan - Edisi Bahasa Indonesia lengkap"
+    },
+    "pdf_version": "1.7",
+    "result": "pass"
+  },
+  "navigation_and_links_gate": {
+    "internal_destinations": 1098,
+    "internal_destinations_resolved": 1098,
+    "internal_destinations_unresolved": 0,
+    "link_annotations_total": 1120,
+    "named_destination_key_sets_equal": true,
+    "named_destinations": 2529,
+    "named_destinations_equal_old_verified_final": true,
+    "named_destinations_shifted_exactly_plus_one": true,
+    "outline_destinations_shifted_exactly_plus_one": true,
+    "outline_entries": 170,
+    "outline_equal_old_verified_final": true,
+    "outline_title_level_sequence_equal_base": true,
+    "result": "pass",
+    "unresolved": [],
+    "uri_links": 22,
+    "uri_values": [
+      "https://doi.org/10.5281/zenodo.22059672",
+      "https://doi.org/10.5281/zenodo.22058531",
+      "https://zenodo.org/records/22059672",
+      "https://github.com/mitchkeller/applied-combinatorics",
+      "https://appliedcombinatorics.org/",
+      "http://creativecommons.org/licenses/by-sa/4.0/",
+      "http://creativecommons.org/licenses/by-sa/4.0/",
+      "https://appliedcombinatorics.org/appcomb/errata/",
+      "http://www.sagemath.org",
+      "http://cocalc.com/",
+      "http://www.websudoku.com",
+      "http://www.websudoku.com",
+      "http://www-math.mit.edu/~rstan/ec/catadd.pdf",
+      "http://www.rinkworks.com/words/oddities.shtml",
+      "https://cocalc.com/",
+      "http://www.math.upenn.edu/~wilf/DownldGF.html",
+      "http://www.math.upenn.edu/~wilf/DownldGF.html",
+      "https://vanemden.wordpress.com/2014/06/18/how-recursion-got-into-programming-a-comedy-of-errors-3/",
+      "https://vanemden.wordpress.com/2014/06/18/how-recursion-got-into-programming-a-comedy-of-errors-3/",
+      "http://www.combinatorics.org/ojs/index.php/eljc/article/view/DS1",
+      "http://www.combinatorics.org/ojs/index.php/eljc/article/view/DS1",
+      "https://pretextbook.org"
+    ]
+  },
+  "publication_blockers": [],
+  "publication_gate": "pass",
+  "result": "pass",
+  "schema": "r012.final-public-pdf-qa",
+  "schema_version": "1.1.0",
+  "selected_old_vs_new_render_gate": {
+    "all_pixel_identical": true,
+    "classification_rule": "Pixel differences, if any, are reported with exact dimensions, pixel count, bounding box, and maximum channel delta after full PDF structural equality passed.",
+    "comparisons": [
+      {
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "maintenance_png": {
+          "bytes": 23034,
+          "sha256": "00c1bbeebebf88b6e6024f9724eb84b2ae96f4fb285d88e0f5484329c01d0086",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "max_channel_delta": 0,
+        "old_png": {
+          "bytes": 23034,
+          "sha256": "00c1bbeebebf88b6e6024f9724eb84b2ae96f4fb285d88e0f5484329c01d0086",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pdf_page": 2,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "second_mode": "RGB"
+      },
+      {
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "maintenance_png": {
+          "bytes": 341105,
+          "sha256": "1f268b81208080faeeadf1b6ca6970ae28109a23aa3811850ebf8513c3193af1",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "max_channel_delta": 0,
+        "old_png": {
+          "bytes": 341105,
+          "sha256": "1f268b81208080faeeadf1b6ca6970ae28109a23aa3811850ebf8513c3193af1",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pdf_page": 149,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "second_mode": "RGB"
+      },
+      {
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "maintenance_png": {
+          "bytes": 257214,
+          "sha256": "9283354da91f8aff34a01d82f0468aab32c3f4ddc5a492515b93b467e1156b64",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "max_channel_delta": 0,
+        "old_png": {
+          "bytes": 257214,
+          "sha256": "9283354da91f8aff34a01d82f0468aab32c3f4ddc5a492515b93b467e1156b64",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pdf_page": 267,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "second_mode": "RGB"
+      },
+      {
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "maintenance_png": {
+          "bytes": 72352,
+          "sha256": "6b576448168dfa5ae4c8212c5aedb99dd2f0e6082358df224d49e42482b695d3",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "max_channel_delta": 0,
+        "old_png": {
+          "bytes": 72352,
+          "sha256": "6b576448168dfa5ae4c8212c5aedb99dd2f0e6082358df224d49e42482b695d3",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "pdf_page": 350,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "second_mode": "RGB"
+      }
+    ],
+    "dpi": 180,
+    "pages": [
+      2,
+      149,
+      267,
+      350
+    ],
+    "result": "pass"
+  },
+  "toolchain": {
+    "pdftoppm": "<LOCAL_USER_ROOT>\\AppData\\Local\\Programs\\MiKTeX\\miktex\\bin\\x64\\pdftoppm.EXE",
+    "pillow": "12.3.0",
+    "poppler": "pdftoppm version 24.04.0",
+    "pypdf": "6.10.0",
+    "python": "3.12.13"
+  },
+  "version": "2026.08.22.1",
+  "version_doi": "10.5281/zenodo.22059672"
+}

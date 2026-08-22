@@ -1,0 +1,154 @@
+<section xml:id="s_probability_central-tendency">
+    <title>Kecenderungan Memusat</title>
+    <introduction>
+        <p>Perhatikan dua situasi berikut:
+                  <ul>
+            <li>
+            <p>Situasi 1. Sebuah kota kecil memutuskan untuk mengadakan lotre guna mengumpulkan dana untuk kegiatan amal. Sebanyak <m>10,001</m> tiket terjual, dan tiket-tiket tersebut diberi nomor dari himpunan <m>\{0,1,2,\dots,10,000\}</m>. Dalam sebuah acara terbuka, salinan tiket dimasukkan ke dalam kotak besar, lalu wali kota mengambil tiket pemenang dari kotak itu. Sekadar menambah ketegangan tentang siapa yang sebenarnya memenangkan hadiah, wali kota mengumumkan bahwa nomor pemenang sekurang-kurangnya <m>7,500</m>. Para warga berseru kagum dan tidak sabar mengetahui siapa di antara mereka yang akhirnya menjadi pemenang.
+            </p>
+            </li>
+            <li>
+            <p>Situasi 2. Di balik tirai, sebuah koin seimbang dilempar <m>10,000</m> kali, dan banyaknya kemunculan sisi angka dicatat oleh seorang pengamat yang dikenal jujur dan tidak memihak. Sekali lagi, hasilnya adalah sebuah bilangan bulat dalam himpunan <m>\{0,1,2,\dots,10,000\}</m>. Pengamat itu kemudian keluar dari balik tirai dan mengumumkan bahwa sisi angka muncul sekurang-kurangnya <m>7,500</m> kali. Sejenak semua terdiam, lalu seseorang berkata, <q>Apa? Anda sudah tidak waras?</q>
+            </p>
+            </li>
+        
+                  </ul>
+                </p>
+        <p>Jadi, kita mempunyai dua ruang probabilitas, keduanya dengan ruang sampel <m>S=\{0,1,2,\dots,10,000\}</m>. Untuk masing-masing ruang, kita mempunyai peubah acak <m>X</m>: nomor tiket pemenang pada situasi pertama dan banyaknya kemunculan sisi angka pada situasi kedua. Dalam kedua kasus, nilai harapan <m>E(X)</m> dari peubah acak <m>X</m> adalah <m>5,000</m>. Pada kasus pertama, kita tidak terlalu terkejut oleh hasil yang jauh dari nilai harapan, sedangkan pada kasus kedua, secara intuitif jelas bahwa hasil tersebut merupakan kejadian yang luar biasa. Konsep matematika yang berperan di sini disebut <term>kecenderungan memusat</term>, dan konsep ini membantu kita memahami seberapa besar kemungkinan suatu peubah acak menyimpang dari nilai harapannya.
+        </p>
+
+        <p>Sebagai langkah awal, kita mempunyai hasil elementer berikut.
+        </p>
+
+        <theorem xml:id="thm_markov">
+            <title>Ketaksamaan Markov</title>
+            <statement>
+                <p>
+                    Misalkan <m>X</m> adalah peubah acak dalam ruang
+                    probabilitas <m>(S,P)</m>. Maka, untuk setiap <m>k&gt;0</m>,
+                    <md>
+                        P(|X|\ge k) \le E(|X|)/k.
+                    </md>
+                </p>
+            </statement>
+
+            <proof>
+                <p>Tentu saja, ketaksamaan tersebut berlaku secara trivial kecuali jika <m>k&gt; E(|X|)</m>. Untuk <m>k</m> dalam rentang ini, kita membuktikan ketaksamaan ekuivalen berikut: <m>k P(|X|\ge k)\le E(|X|)</m>.
+                <md>
+                    <mrow>  k P(|X|\ge k) \amp    = \sum_{r\ge k} k P(|X|=r)</mrow>
+                    <mrow>  \amp  \le \sum_{r \ge k} r P(|X|=r)</mrow>
+                    <mrow>  \amp  \le \sum_{r&gt; 0} r P(|X|=r)</mrow>
+                    <mrow>  \amp = E(|X|).</mrow>
+                </md>
+                </p>
+            </proof>
+        </theorem>
+        <p>Untuk membuat ketaksamaan Markov lebih konkret, berdasarkan hasil sederhana ini, probabilitas bahwa nomor tiket lotre pemenang ataupun banyaknya kemunculan sisi angka mencapai sekurang-kurangnya <m>7,500</m> tidak lebih dari <m>5000/7500=2/3</m>. Jadi, dalam kedua kasus belum ada sesuatu yang mengkhawatirkan. Karena kita tetap merasa bahwa kedua kasus tersebut sangat berbeda, kita memerlukan ukuran yang lebih tajam.
+        </p>
+    </introduction>
+
+
+    <subsection>
+        <title>Varians dan Simpangan Baku</title>
+        <p>Sekali lagi, misalkan <m>(S,P)</m> adalah ruang probabilitas dan <m>X</m> adalah peubah acak. Besaran <m>E((X-E(X))^2)</m> disebut <term>varians</term><idx><h>varians</h></idx> dari <m>X</m> dan dilambangkan dengan <m>\var(X)</m>. Jelas bahwa varians <m>X</m> merupakan bilangan tak negatif. <term>Simpangan baku</term><idx><h>simpangan baku</h></idx> dari <m>X</m>, yang dilambangkan dengan <m>\sigma_X</m>, didefinisikan sebagai besaran <m>\sqrt{\var(X)}</m>, <ie/>, <m>\sigma_X^2 =\var(X)</m>.
+        </p>
+        <example>
+            <p>Untuk pemutar yang ditampilkan pada awal bab, misalkan <m>X(i)=i^2</m> ketika penunjuk berhenti di daerah<nbsp/><m>i</m>. Kita telah mencatat bahwa nilai harapan <m>E(X)</m> dari peubah acak <m>X</m> adalah <m>109/8</m>. Dengan demikian, varians <m>\var(X)</m> adalah:
+            <md>
+                <mrow>  \var(X) =\amp(1^2-\frac{109}{8})^2\frac{1}{8}+(2^2-\frac{109}{8})^2\frac{1}{4}+
+                (3^2-\frac{109}{8})^2\frac{1}{8}+(4^2-\frac{109}{8})^2\frac{1}{8}</mrow>
+                <mrow>\amp+
+                    (5^2-\frac{109}{8})^2\frac{3}{8}</mrow>
+                    <mrow>  =\amp  (101^2+2\cdot77^2+37^2+19^2+3\cdot91^2)/512</mrow>
+                    <mrow>=\amp 48632/512</mrow>
+            </md>
+            Dengan demikian, simpangan baku <m>\sigma_X</m> dari <m>X</m> adalah <m>\sqrt{48632/512}\approx 9.746</m>.
+            </p>
+        </example>
+
+        <example>
+            <p>Misalkan <m>0\lt p\lt 1</m>, dan perhatikan serangkaian <m>n</m> percobaan Bernoulli dengan probabilitas keberhasilan <m>p</m>. Misalkan pula <m>X</m> menghitung banyaknya keberhasilan. Kita telah mencatat bahwa <m>E(X)=np</m>. Sekarang kita menyatakan bahwa varians <m>X</m> diberikan oleh:
+            <md>
+                \var(X)=\sum_{i=0}^n (i-np)^2\binom{n}{i}p^i(1-p)^{n-i} = np(1-p)
+            </md>
+            Pernyataan ini dapat dibuktikan dengan beberapa cara. Salah satunya adalah menggunakan definisi secara langsung dengan metode yang sebelumnya kita gunakan untuk memperoleh nilai harapan, tetapi kali ini kita juga perlu menghitung turunan kedua. Berikut adalah pendekatan kedua, yang memanfaatkan fakta bahwa percobaan-percobaan terpisah dalam suatu rangkaian Bernoulli saling bebas.
+            </p>
+            <p>Misalkan <m>\cgF=\{X_1,X_2,\dots,X_n\}</m> adalah keluarga peubah acak dalam ruang probabilitas <m>(S,P)</m>. Kita mengatakan bahwa keluarga <m>\cgF</m> <term>saling bebas berpasangan</term><idx><h>saling bebas berpasangan</h><h>peubah acak</h></idx> jika, untuk setiap <m>i</m> dan <m>j</m> dengan <m>1\le i\lt j\le n</m> dan untuk setiap pasangan <m>a,b</m> dengan <m>a,b\in\reals</m>, kedua kejadian berikut saling bebas: <m>\{x\in S: X_i(x)\le a\}</m> dan <m>\{x\in S:X_j(x)\le b\}</m>. Jika keluarga tersebut saling bebas berpasangan, mudah untuk memverifikasi bahwa
+            <md>
+                \var(X_1+X_2+\dots+X_n)=\var(X_1)+\var(X_2)+\dots+\var(X_n).
+            </md>
+            </p>
+            <p>Dengan bantuan pengamatan ini, penghitungan varians peubah acak <m>X</m> yang menghitung banyaknya keberhasilan menjadi perhitungan yang sederhana. Namun, pembahasan yang telah kita uraikan di sini sebenarnya hanyalah bagian kecil dari topik yang lebih rumit, yang dapat disajikan dengan lebih elegan dan pada akhirnya jauh lebih ringkas<mdash/>asalkan kita terlebih dahulu mengembangkan materi tambahan tentang keluarga peubah acak. Untuk itu, kami merujuk pembaca pada buku teks probabilitas dan statistika yang sesuai, seperti yang tercantum dalam daftar pustaka kami.
+            </p>
+        </example>
+
+        <proposition xml:id="prop_altvar">
+            <statement>
+                <p>Misalkan <m>X</m> adalah peubah acak dalam ruang probabilitas <m>(S,P)</m>. Maka <m>\var(X)= E(X^2)-E^2(X)</m>.
+                </p>
+            </statement>
+            <proof>
+                <p>Misalkan <m>E(X)=\mu</m>. Dari definisinya, kita peroleh
+                <md>
+                    <mrow>  \var(X) \amp = \sum_{r} (r -\mu)^2\prob(X=r)</mrow>
+                    <mrow>  \amp = \sum_{r} (r^2 -2r \mu+\mu^2)\prob(X=r)</mrow>
+                    <mrow>  \amp = \sum_r r^2\prob(X=r) - 2 \mu\sum_r r\prob(X=r) +\mu^2\sum_r\prob(X=r)</mrow>
+                    <mrow>  \amp = E(X^2) -2\mu^2+\mu^2</mrow>
+                    <mrow>  \amp = E(X^2) - \mu^2</mrow>
+                    <mrow>  \amp = E(X^2) - E^2(X).</mrow>
+                </md></p>
+            </proof>
+        </proposition>
+
+        <p>Varians (dan simpangan baku) merupakan alat yang sangat berguna untuk membahas seberapa besar kemungkinan suatu peubah acak berada di dekat nilai harapannya. Hal ini tercermin dalam teorema berikut.
+        </p>
+
+        <theorem xml:id="thm_chebyshev">
+            <title>Ketaksamaan Chebyshev</title>
+            <statement>
+                <p>Misalkan <m>X</m> adalah peubah acak dalam ruang probabilitas <m>(S,P)</m>, dan misalkan <m>k&gt;0</m> adalah bilangan real positif. Jika nilai harapan <m>E(X)</m> dari <m>X</m> adalah <m>\mu</m> dan simpangan bakunya adalah <m>\sigma_X</m>, maka
+                <md>
+                    \prob(|X- E(X)|\le k\sigma_X)\ge 1-\frac{1}{k^2}.
+                </md>
+                </p>
+            </statement>
+
+            <proof>
+                <p>Misalkan <m>A=\{r\in \reals:|r-\mu|&gt;k\sigma_X\}</m>.
+            </p>
+            <p>
+                Maka kita mempunyai:
+                <md>
+                    <mrow>  \var(X) \amp = E((X-\mu)^2)</mrow>
+                    <mrow>  \amp = \sum_{r\in \reals}(r-\mu)^2\prob(X=r)</mrow>
+                    <mrow>  \amp \ge \sum_{r\in A}(r-\mu)^2\prob(X=r)</mrow>
+                    <mrow>  \amp \ge k^2\sigma_X^2\sum_{r\in A}\prob(X=r)</mrow>
+                    <mrow>  \amp \ge k^2\sigma_X^2\prob(|X-\mu|&gt;k\sigma_X).</mrow>
+                </md>
+                Karena <m>\var(X)=\sigma_X^2</m>, kini kita dapat menyimpulkan bahwa <m>1/k^2\geq \prob(|X-\mu|&gt;k\sigma_X)</m>. Oleh karena <m>\prob(|X-\mu|\le k\sigma_X)=1-\prob(|X-\mu|&gt; k\sigma_X)</m>, kita menyimpulkan bahwa
+                <md>
+                \prob(|X- \mu|\le k\sigma_X)\ge 1-\frac{1}{k^2}.
+                </md>
+            </p>
+            </proof>
+        </theorem>
+
+        <example>
+            <p>Berikut adalah contoh penerapan <xref ref="thm_chebyshev" text="title"/>. Perhatikan <m>n</m> lemparan sebuah koin seimbang, dengan <m>X</m> menghitung banyaknya kemunculan sisi angka. Seperti telah dicatat, <m>\mu=E(X)=n/2</m> dan <m>\var(X)=n/4</m>, sehingga <m>\sigma_X=\sqrt{n}/2</m>. Ketika <m>n=10,000</m>, kita mempunyai <m>\mu=5,000</m> dan <m>\sigma_X=50</m>. Dengan menetapkan <m>k=50</m> sehingga <m>k\sigma_X=2500</m>, kita melihat bahwa probabilitas <m>X</m> berada dalam jarak <m>2500</m> dari nilai harapan <m>5000</m> sekurang-kurangnya <m>0.9996</m>. Jadi, banyaknya kemunculan sisi angka yang mencapai sekurang-kurangnya <m>7,500</m> memang tampak sangat tidak mungkin.
+            </p>
+
+            <p>Kembali ke tiket lotre, jika kita membuat asumsi yang masuk akal bahwa semua nomor tiket mempunyai peluang yang sama, probabilitas nomor pemenang sekurang-kurangnya <m>7,500</m> tepat sebesar <m>2501/10001</m>, yang sangat dekat dengan <m>1/4</m>.
+            </p>
+        </example>
+
+        <example>
+            <p>Dalam kasus percobaan Bernoulli, kita dapat menggunakan sifat-sifat dasar koefisien binomial untuk memperoleh taksiran yang lebih akurat. Jelas bahwa, dalam kasus pelemparan koin, probabilitas banyaknya kemunculan sisi angka dalam <m>10,000</m> lemparan sekurang-kurangnya <m>7,500</m> diberikan oleh
+            <md>
+                \sum_{i = 7,500}^{10,000} \binom{10,000}{i}/2^{10,000}
+            </md>
+            Sistem aljabar komputer dapat menghitung nilai ini secara eksak. Anda dianjurkan memeriksanya sendiri untuk melihat betapa kecilnya besaran ini sebenarnya.
+            </p>
+        </example>
+    </subsection>
+
+</section>

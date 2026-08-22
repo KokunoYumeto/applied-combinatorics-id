@@ -1,0 +1,68 @@
+<section xml:id="s_polya_square">
+    <title>Pewarnaan Simpul-Simpul Persegi</title>
+    <p>Mari kita mulai dengan mewarnai simpul-simpul sebuah persegi menggunakan warna putih dan emas. Jika posisi persegi pada bidang dibuat tetap, terdapat <m>2^4=16</m> pewarnaan yang berbeda. Pewarnaan-pewarnaan tersebut ditunjukkan pada <xref ref="fig_polya_squares"/>.
+    </p>
+    <figure xml:id="fig_polya_squares">
+        <caption><m>16</m> pewarnaan simpul-simpul sebuah persegi.</caption>
+        <image width="90%">
+            <description><p><m>16</m> pewarnaan simpul-simpul sebuah persegi.</p>
+        </description><latex-image>\begin{overpic}[width=\linewidth]{external/square-colorings}
+            \put(4.5,17){\(C_1\)}
+            \put(16.5,17){\(C_2\)}
+            \put(29.5,17){\(C_3\)}
+            \put(42,17){\(C_4\)}
+            \put(54.5,17){\(C_5\)}
+            \put(67,17){\(C_6\)}
+            \put(80,17){\(C_7\)}
+            \put(92,17){\(C_8\)}
+
+            \put(4.5,5){\(C_9\)}
+            \put(16.3,5){\(C_{10}\)}
+            \put(29.2,5){\(C_{11}\)}
+            \put(41.8,5){\(C_{12}\)}
+            \put(54.3,5){\(C_{13}\)}
+            \put(67,5){\(C_{14}\)}
+            \put(79.6,5){\(C_{15}\)}
+            \put(91.6,5){\(C_{16}\)}
+
+            \end{overpic}</latex-image>
+        </image>
+    </figure>
+    <p>Namun, jika persegi itu kita bayangkan sebagai bingkai logam dengan manik-manik putih atau emas pada setiap sudut dan bingkainya boleh diputar serta dibalik, kita menyadari bahwa banyak pewarnaan tersebut ekuivalen. Sebagai contoh, jika pewarnaan <m>C_7</m> dicerminkan terhadap garis vertikal yang membagi persegi menjadi dua, kita memperoleh pewarnaan <m>C_9</m>. Jika pewarnaan <m>C_2</m> diputar <m>90^\circ</m> searah jarum jam, kita memperoleh pewarnaan <m>C_3</m>. Dalam banyak keadaan, kita ingin menganggap pewarnaan-pewarnaan ekuivalen semacam itu sebagai satu pewarnaan. (Ingat kembali contoh pembuka kita tentang kalung yang terbuat dari manik-manik berwarna. Tidak masuk akal membedakan dua kalung jika salah satunya dapat diputar dan dibalik sehingga menjadi kalung yang lain.)
+    </p>
+
+    <p>Untuk menentukan secara sistematis berapa banyak pewarnaan pada <xref ref="fig_polya_squares"/> yang tidak ekuivalen, kita harus memikirkan transformasi-transformasi yang dapat diterapkan pada persegi dan pengaruh setiap transformasi terhadap pewarnaannya. Sebelum memeriksa pengaruh transformasi terhadap pewarnaan, mari kita lihat terlebih dahulu bagaimana transformasi itu menyusun ulang simpul-simpulnya. Kita beri nomor <m>1</m> pada simpul kiri atas, <m>2</m> pada simpul kanan atas, <m>3</m> pada simpul kanan bawah, dan <m>4</m> pada simpul kiri bawah. Rotasi <m>90^\circ</m> searah jarum jam kita nyatakan dengan <m>r_1</m>. Transformasi <m>r_1</m> memindahkan simpul pada posisi <m>1</m> ke posisi <m>2</m>, simpul pada posisi <m>2</m> ke posisi <m>3</m>, simpul pada posisi <m>3</m> ke posisi <m>4</m>, dan simpul pada posisi <m>4</m> ke posisi <m>1</m>. Agar ringkas, kita tulis <m>r_1(1) =2</m>, <m>r_1(2)=3</m>, <etc/> Kita juga dapat memutar persegi <m>180^\circ</m> searah jarum jam dan menyatakan rotasi tersebut dengan <m>r_2</m>. Dalam hal ini, kita memperoleh <m>r_2(1) = 3</m>, <m>r_2(2)=4</m>, <m>r_2(3)= 1</m>, dan <m>r_2(4)=2</m>. Perhatikan bahwa transformasi <m>r_2</m> dapat diperoleh dengan menerapkan <m>r_1</m> dua kali berturut-turut. Selain itu, rotasi <m>270^\circ</m> searah jarum jam, yaitu <m>r_3</m>, dapat diperoleh dengan menerapkan <m>r_1</m> tiga kali berturut-turut. (Rotasi berlawanan arah jarum jam tidak perlu dibahas secara terpisah karena pengaruhnya sama dengan rotasi searah jarum jam, meskipun dengan sudut yang berbeda.)
+    </p>
+
+    <p>Untuk mencerminkan persegi, terdapat empat sumbu pencerminan: vertikal, horizontal, diagonal bergradien positif, dan diagonal bergradien negatif. Pencerminan-pencerminan tersebut berturut-turut kita nyatakan dengan <m>v</m>, <m>h</m>, <m>p</m>, dan <m>n</m>. Perhatikan bahwa <m>v(1) = 2</m>, <m>v(2) = 1</m>, <m>v(3) = 4</m>, dan <m>v(4) = 3</m>. Untuk pencerminan terhadap sumbu horizontal, kita mempunyai <m>h(1) = 4</m>, <m>h(2) = 3</m>, <m>h(3)=2</m>, dan <m>h(4)= 1</m>. Untuk <m>p</m>, kita mempunyai <m>p(1) = 3</m>, <m>p(2) = 2</m>, <m>p(3)=1</m>, dan <m>p(4)=4</m>. Terakhir, untuk <m>n</m> kita memperoleh <m>n(1) = 1</m>, <m>n(2) = 4</m>, <m>n(3) = 3</m>, dan <m>n(4)=2</m>. Masih ada satu transformasi yang harus disebutkan: transformasi yang tidak mengubah persegi disebut <term>transformasi identitas</term> dan dinyatakan dengan <m>\iota</m>. Transformasi ini memenuhi <m>\iota(1)=1</m>, <m>\iota(2)=2</m>, <m>\iota(3)=3</m>, dan <m>\iota(4)=4</m>.
+    </p>
+
+    <p>Setelah mengidentifikasi kedelapan transformasi persegi, mari kita buat tabel yang menunjukkan pewarnaan pada <xref ref="fig_polya_squares"/> yang tetap tidak berubah ketika setiap transformasi diterapkan. Tidak mengherankan bahwa transformasi identitas membiarkan semua pewarnaan tetap. Karena <m>r_1</m> memindahkan simpul secara siklis, hanya <m>C_1</m> dan <m>C_{16}</m> yang tetap tidak berubah ketika transformasi itu diterapkan. Pada setiap pewarnaan yang menggunakan lebih dari satu warna, akan ada simpul berwarna tertentu yang berpindah ke posisi dengan warna lain. Sekarang perhatikan pewarnaan yang ditetapkan oleh <m>v</m>, yaitu pencerminan terhadap sumbu vertikal. Agar suatu pewarnaan tetap, warna pada posisi <m>1</m> harus sama dengan warna pada posisi <m>2</m>, dan warna pada posisi <m>3</m> harus sama dengan warna pada posisi <m>4</m>. Karena itu, kita mengharapkan <m>2\cdot 2 = 4</m> pewarnaan yang tidak berubah oleh <m>v</m>. Dari <xref ref="fig_polya_squares"/>, terlihat bahwa pewarnaan tersebut ialah <m>C_1</m>, <m>C_6</m>, <m>C_8</m>, dan <m>C_{16}</m>. Analisis serupa untuk lima transformasi lainnya menghasilkan <xref ref="tab_polya_fixed-square"/>.
+    </p>
+    <figure xml:id="tab_polya_fixed-square">
+        <caption>Pewarnaan yang ditetapkan oleh transformasi persegi</caption>
+        <tabular>
+            <col halign="center"/><col/>
+            <row bottom="minor"><cell>Transformasi</cell><cell>Pewarnaan tetap</cell></row>
+            <row><cell><m>\iota</m></cell><cell>Seluruh 16 pewarnaan</cell></row>
+            <row><cell><m>r_1</m></cell><cell><m>C_1</m>, <m>C_{16}</m></cell></row>
+            <row><cell><m>r_2</m></cell><cell><m>C_{1}</m>, <m>C_{10}</m>, <m>C_{11}</m>, <m>C_{16}</m></cell></row>
+            <row><cell><m>r_3</m></cell><cell><m>C_1</m>, <m>C_{16}</m></cell></row>
+            <row><cell><m>v</m></cell><cell><m>C_1</m>, <m>C_6</m>, <m>C_8</m>, <m>C_{16}</m></cell></row>
+            <row><cell><m>h</m></cell><cell><m>C_1</m>, <m>C_7</m>, <m>C_{9}</m>, <m>C_{16}</m></cell></row>
+            <row><cell><m>p</m></cell><cell><m>C_1</m>, <m>C_3</m>, <m>C_5</m>, <m>C_{10}</m>, <m>C_{11}</m>, <m>C_{13}</m>, <m>C_{15}</m>,
+            <m>C_{16}</m></cell></row>
+            <row><cell><m>n</m></cell><cell><m>C_1</m>, <m>C_2</m>, <m>C_4</m>, <m>C_{10}</m>, <m>C_{11}</m>, <m>C_{12}</m>, <m>C_{14}</m>,
+            <m>C_{16}</m></cell></row>
+            <row><cell/></row>
+        </tabular>
+    </figure>
+    <p>Pada tahap ini, wajar jika kita bertanya ke mana pembahasan ini menuju. Bagaimanapun, kita sedang mencoba menghitung banyak pewarnaan yang <em>tidak ekuivalen</em>, sedangkan <xref ref="tab_polya_fixed-square"/> sama sekali tidak mengelompokkan pewarnaan berdasarkan cara suatu transformasi mengubah satu pewarnaan menjadi pewarnaan lain. Ternyata terdapat hubungan yang berguna antara menghitung pewarnaan tak ekuivalen dan menentukan banyak pewarnaan yang ditetapkan oleh setiap transformasi. Untuk mengembangkan hubungan ini, mula-mula kita perlu membahas relasi ekuivalensi yang dihasilkan oleh aksi transformasi-transformasi persegi pada himpunan <m>\cgC</m> dari seluruh pewarnaan-<m>2</m> persegi. (Lihat kembali <xref ref="s_background_equivalence"/> untuk menyegarkan definisi relasi ekuivalensi.) Perhatikan bahwa penerapan suatu transformasi pada persegi dengan simpul-simpul berwarna menghasilkan persegi lain dengan simpul-simpul berwarna. Sebagai contoh, penerapan transformasi <m>r_1</m> pada persegi dengan pewarnaan <m>C_{12}</m> menghasilkan persegi dengan pewarnaan <m>C_{13}</m>. Kita mengatakan bahwa transformasi-transformasi persegi <term>bertindak</term> pada himpunan pewarnaan <m>\cgC</m>. Aksi ini kita nyatakan dengan menambahkan tanda bintang pada nama transformasi. Sebagai contoh, <m>r_1^*(C_{12})=C_{13}</m> dan <m>v^*(C_{10})=C_{11}</m>.
+    </p>
+
+    <p>Jika <m>\tau</m> merupakan transformasi persegi dengan <m>\tau^*(C_i) = C_j</m>, kita mengatakan bahwa pewarnaan <m>C_i</m> dan <m>C_j</m> <term>ekuivalen</term> dan menulis <m>C_i\sim C_j</m>. Karena <m>\iota^*(C)=C</m> untuk setiap <m>C\in\cgC</m>, relasi <m>\sim</m> bersifat refleksif. Jika <m>\tau_1^*(C_i) = C_j</m> dan <m>\tau_2^*(C_j) = C_k</m>, maka <m>\tau_2^*(\tau_1^*(C_i)) = C_k</m>, sehingga <m>\sim</m> bersifat transitif. Untuk melengkapi verifikasi bahwa <m>\sim</m> merupakan relasi ekuivalensi, kita harus menunjukkan bahwa relasi ini bersifat simetris. Untuk itu, kita memerlukan konsep <term>invers</term><idx><h>invers</h></idx> transformasi <m>\tau</m>, yaitu transformasi <m>\tau\inv</m> yang membatalkan apa pun yang dilakukan oleh <m>\tau</m>. Sebagai contoh, invers <m>r_1</m> ialah rotasi <em>berlawanan</em> arah jarum jam sebesar <m>90^\circ</m>, yang pengaruhnya terhadap letak simpul sama dengan <m>r_3</m>. Jika <m>\tau^*(C_i) = C_j</m>, maka <m>{\tau^{-1}}^*(C_j) = C_i</m>, sehingga <m>\sim</m> bersifat simetris.
+    </p>
+
+    <p>Sebelum membuktikan secara umum hubungan antara banyak pewarnaan tak ekuivalen (kelas-kelas ekuivalensi terhadap <m>\sim</m>) dan banyak pewarnaan yang ditetapkan oleh suatu transformasi, mari kita lihat bentuk hubungan itu pada contoh kita. Dari <xref ref="fig_polya_squares"/>, terlihat bahwa <m>\sim</m> mempartisi <m>\cgC</m> menjadi enam kelas ekuivalensi. Dua kelas masing-masing memuat satu pewarnaan (seluruh simpul putih dan seluruh simpul emas). Satu kelas memuat dua pewarnaan (<m>C_{10}</m> dan <m>C_{11}</m>). Terakhir, tiga kelas masing-masing memuat empat pewarnaan (satu simpul emas, satu simpul putih, dan empat pewarnaan sisanya yang masing-masing menggunakan dua simpul dari setiap warna). Sekarang perhatikan kembali <xref ref="tab_polya_fixed-square"/> dan jumlahkan banyak pewarnaan yang ditetapkan oleh setiap transformasi. Kita memperoleh <m>48</m>; ketika <m>48</m> dibagi dengan banyak transformasi (<m>8</m>), hasilnya <m>6</m>, tepat banyak kelas ekuivalensi! Ternyata hal ini sama sekali bukan kebetulan, sebagaimana akan segera kita lihat. Namun, terlebih dahulu kita memperkenalkan konsep grup permutasi untuk menggeneralisasi himpunan transformasi persegi tersebut.
+    </p>
+</section>

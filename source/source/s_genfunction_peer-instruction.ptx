@@ -1,0 +1,250 @@
+<exercises xml:id="s_genfunction_PI" component="runestone-PI">
+  <title>Pertanyaan Instruksi Sejawat</title>
+  <exercise label="genfunction_PI_apples-one">
+    <statement>
+      <p>
+        Misalkan Anda ingin membuat keranjang <q>buah</q> yang sangat membosankan dan
+  hanya berisi apel. Misalkan pula Anda hanya memiliki <m>6</m> apel
+  (identik). Demi alasan estetika, Anda bersikeras agar
+  keranjang tersebut berisi tepat <m>1</m>, <m>3</m>, atau <m>4</m> apel.
+      </p>
+      <p>Dengan berapa cara (ingat, apel-apelnya identik!) Anda dapat membuat satu keranjang buah yang berisi satu
+        apel?</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>0</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>1</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>6</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tak terhingga</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="genfunction_PI_apples-five">
+    <statement>
+      <p>
+        Misalkan Anda ingin membuat keranjang <q>buah</q> yang sangat membosankan dan
+  hanya berisi apel. Misalkan pula Anda hanya memiliki <m>6</m> apel
+  (identik). Demi alasan estetika, Anda bersikeras agar
+  keranjang tersebut berisi tepat <m>1</m>, <m>3</m>, atau <m>4</m> apel.
+      </p>
+      <p>Dengan berapa cara (ingat, apel-apelnya identik!) Anda dapat membuat satu keranjang buah yang berisi lima
+        apel?</p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>0</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>1</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\displaystyle \binom{6}{5}</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tak terhingga</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="genfunction_PI_apples-oranges-bananas">
+    <statement>
+      <p>Kita telah mengetahui bahwa jika kita membuat keranjang buah dengan 1, 3, atau 4 apel dan paling banyak 6
+        jeruk, fungsi pembangkitnya adalah <md>
+        \underbrace{(x+x^3+x^4)}_\text{Apel}\underbrace{(1+x+x^2+x^3+x^4+x^5+x^6)}_\text{Jeruk}</md>.
+        Misalkan sekarang kita menambahkan pisang dan harus menaruh sedikitnya satu pisang dalam sebuah keranjang
+        buah. Faktor apakah yang harus ditambahkan?</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>
+            <m>x</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>x+x^2+x^3+x^4</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>1+x+x^2+x^3+x^4 + \cdots</m>
+          </p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>x+x^2+x^3+x^4 + \cdots</m>
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="genfunction_PI_polynomial">
+    <statement>
+      <p>Jika fungsi pembangkit bagi keranjang buah memuat sebuah faktor
+        yang berupa
+        polinom, Anda mengetahui bahwa</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p>suatu jenis buah dibatasi oleh nilai minimum yang tak nol.</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>suatu jenis buah dibatasi oleh suatu nilai maksimum.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>banyaknya suatu jenis
+            buah harus merupakan kelipatan
+            suatu bilangan bulat yang lebih besar daripada 1.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            tidak satu pun dari jawaban di atas.
+          </p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="genfunction_PI_exponential-vs-ordinary">
+    <statement>
+      <p>Berdasarkan persiapan sebelum kelas, manakah di antara pernyataan berikut yang menurut Anda cukup tepat?</p>
+    </statement>
+    <choices>
+      <choice correct="yes">
+        <statement>
+          <p>Fungsi pembangkit eksponensial cenderung digunakan ketika urutan penting.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Fungsi pembangkit eksponensial cenderung digunakan ketika urutan tidak penting.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Fungsi pembangkit biasa cenderung digunakan ketika banyaknya kemunculan sesuatu merupakan kelipatan bilangan bulat yang lebih besar daripada <m>1</m>.</p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Fungsi pembangkit biasa cenderung digunakan ketika urutan tidak penting.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Fungsi pembangkit biasa cenderung digunakan ketika urutan penting.</p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Tidak satu pun dari jawaban di atas.</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="genfunction_PI_string-restrict-4">
+    <statement>
+      <p>Misalkan kita membuat untai menggunakan alfabet <m>\{0,1,2,3,4\}</m>. Jika banyaknya kemunculan <m>4</m> dalam untai sedikitnya satu dan paling banyak empat, faktor apakah yang harus dimasukkan ke dalam fungsi pembangkit untuk memperhitungkan pembatasan ini?</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>x+x^2+x^3+x^4</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\displaystyle x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!}</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\displaystyle 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!}</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Masalah ini tidak seharusnya diselesaikan menggunakan fungsi pembangkit.</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  <exercise label="genfunction_PI_string-restrict-2">
+    <statement>
+      <p>Misalkan kita membuat untai menggunakan alfabet <m>\{0,1,2,3,4\}</m>. Jika banyaknya kemunculan <m>2</m> dalam untai merupakan bilangan genap positif, faktor apakah yang harus dimasukkan ke dalam fungsi pembangkit untuk memperhitungkan pembatasan ini?</p>
+    </statement>
+    <choices>
+      <choice>
+        <statement>
+          <p><m>\displaystyle\frac{1}{1-x^2}</m></p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\displaystyle\frac{x^2}{1-x^2}</m></p>
+        </statement>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\displaystyle \sum^{\infty}_{n=1} \frac{x^{2n}}{(2n)!}</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\displaystyle \frac{e^x+e^{-x}}{2}</m>
+          </p>
+        </statement>
+      </choice>
+      <choice>
+        <statement>
+          <p>Masalah ini tidak seharusnya diselesaikan menggunakan fungsi pembangkit.</p>
+        </statement>
+      </choice>
+    </choices>
+  </exercise>
+  
+</exercises>

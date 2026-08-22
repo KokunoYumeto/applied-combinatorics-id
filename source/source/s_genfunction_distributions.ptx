@@ -1,0 +1,254 @@
+<section xml:id="s_genfunction_distributions">
+  <title>Meninjau kembali pembagian apel atau map</title>
+  <p>Salah satu persoalan yang berulang kali muncul sejauh ini dalam buku ini adalah pembagian
+    objek-objek yang tak terbedakan (misalnya apel) kepada entitas-entitas yang berbeda (misalnya anak-anak). Kita
+    memulainya dalam <xref ref="ch_strings"/> dengan menanyakan banyaknya cara membagikan <m>40</m>
+    apel kepada <m>5</m> anak sedemikian sehingga setiap anak dijamin memperoleh sedikitnya satu apel, dan kita melihat
+    bahwa jawabannya adalah <m>C(39,4)</m>. Kita bahkan telah melihat cara membatasi situasinya agar salah seorang
+    anak hanya dapat menerima paling banyak <m>10</m> apel. Dalam <xref ref="ch_inclusion-exclusion"/>, kita belajar memperluas pembatasan tersebut sehingga banyak
+    anak dapat memiliki batas masing-masing atas banyaknya apel yang boleh diterima dengan memanfaatkan <xref ref="thm_inclusion-exclusion" text="title"/>. Sebelum melanjutkan untuk melihat bagaimana fungsi
+    pembangkit memungkinkan kita menerapkan pembatasan yang lebih beragam, mari kita luangkan waktu sejenak untuk
+    melihat bagaimana fungsi pembangkit menyelesaikan persoalan paling dasar yang sedang kita hadapi. </p>
+  <example xml:id="exa_genfunction_apples">
+    <p>Kita telah mengetahui bahwa banyaknya cara membagikan <m>n</m> apel kepada <m>5</m> anak sedemikian
+      sehingga setiap anak memperoleh sedikitnya satu apel adalah <m>C(n-1,4)</m>. Namun, akan bermanfaat untuk melihat
+      bagaimana hasil ini dapat diturunkan dengan fungsi pembangkit. Mari kita mulai dengan persoalan yang lebih
+      sederhana: ada berapa cara untuk membagikan <m>n</m> apel kepada <em>satu</em> anak sedemikian sehingga
+      anak tersebut menerima sedikitnya satu apel? Persoalan ini tidak sulit karena hanya ada satu cara untuk
+      melakukannya<mdash/>berikan semua apel kepada anak yang beruntung itu! Jadi, <em>barisan</em> yang menghitung
+      banyaknya cara tersebut adalah <m>\{a_n\colon n\geq 1\}</m> dengan <m>a_n=1</m> untuk setiap <m>n\geq
+      1</m>. Fungsi pembangkit bagi barisan ini kemudian adalah <md>
+        x+x^2+x^3+\cdots = x(1+x+x^2+x^3+\cdots) = \frac{x}{1-x}.
+      </md> Bagaimana
+      fakta ini dapat membawa kita kepada persoalan dengan lima anak? Perhatikan apa yang terjadi ketika kita mengalikan <md>
+      (x+x^2+\cdots)(x+x^2+\cdots)(x+x^2+\cdots)(x+x^2+\cdots)
+        (x+x^2+\cdots).
+      </md>
+    </p>
+    <p>Untuk memahami makna hasil kali ini, mula-mula tinjau ada berapa cara untuk memperoleh <m>x^6</m>.
+      Kita dapat mengambil <m>x^2</m> dari faktor pertama dan <m>x</m> dari masing-masing empat faktor lainnya, atau <m>
+      x^2</m> dari faktor kedua dan <m>x</m> dari masing-masing empat faktor lainnya, <etc/>. Dengan demikian,
+      koefisien <m>x^6</m> adalah <m>5 = C(5,4)</m>. Secara lebih umum, berapakah koefisien <m>
+      x^n</m> dalam hasil kali tersebut? Dalam penjabarannya, kita memperoleh sebuah <m>x^n</m> untuk setiap hasil kali berbentuk <m>
+      x^{k_1}x^{k_2}x^{k_3}x^{k_4}x^{k_5}</m> dengan <m>k_1+k_2+k_3+k_4+k_5 = n</m>. Kembali ke
+      persoalan umum kita, sebenarnya kita sedang membagikan <m>n</m> apel kepada <m>5</m>
+      anak. Karena <m>k_i&gt; 0</m> untuk <m>i=1,2,\dots,5</m>, kita juga memperoleh jaminan bahwa
+      setiap anak menerima sedikitnya satu apel. Jadi, hasil kali fungsi pembangkit untuk <em>satu</em>
+      anak menghasilkan fungsi pembangkit untuk <em>lima</em> anak. </p>
+    <p>Anggaplah sejenak bahwa kita belum mengetahui bahwa koefisien-koefisiennya haruslah <m>C(n-1,4)</m>.
+      Bagaimana kita dapat menentukan koefisien tersebut hanya dari fungsi pembangkitnya? Fungsi
+      pembangkit yang kita perlukan adalah <m>x^5/(1-x)^5</m>, yang dapat Anda lihat dengan cukup cepat
+      memenuhi <md>
+        <mrow> \frac{x^5}{(1-x)^5} \amp =
+          \frac{x^5}{4!}\frac{d^4}{dx^4}\left(\frac{1}{1-x}\right) =
+          \frac{x^5}{4!}\sum_{n=0}^\infty n(n-1)(n-2)(n-3)x^{n-4}</mrow>
+        <mrow> \amp =\sum_{n=0}^\infty \frac{n(n-1)(n-2)(n-3)}{4!}x^{n+1} =
+          \sum_{n=0}^\infty \binom{n}{4}x^{n+1}.</mrow>
+      </md> Koefisien <m>x^n</m> dalam
+      deret ini adalah <m>C(n-1,4)</m>, tepat seperti yang kita harapkan. </p>
+  </example>
+
+  <p>Kita dapat meninjau kembali sebuah contoh dari <xref ref="ch_inclusion-exclusion"/> untuk melihat bahwa jika kita ingin
+    membatasi seorang anak agar menerima paling banyak <m>4</m> apel, kita akan menggunakan <m>(x+x^2+x^3+x^4)</m> sebagai
+    fungsi pembangkitnya, bukan <m>x/(1-x)</m>. Namun, daripada membahasnya panjang lebar di sini, mari kita coba
+    sesuatu yang sedikit lebih tidak biasa. </p>
+  <example xml:id="exa_genfunction_fruit">
+    <statement>
+      <p>Sebuah toko bahan pangan sedang menyiapkan keranjang buah untuk hari raya yang akan dijual. Setiap keranjang berisi <m>
+        20</m> buah yang dipilih dari apel, pir, jeruk, dan grapefruit. Ada berapa
+        cara berbeda untuk menyiapkan keranjang seperti itu jika setiap keranjang harus memuat sedikitnya satu apel,
+        tidak boleh memuat lebih dari tiga pir, dan banyaknya jeruk harus merupakan
+        kelipatan empat? </p>
+    </statement>
+    <solution>
+      <p>Untuk menentukan banyaknya keranjang yang terdiri atas <m>20</m> buah, mari kita
+        selesaikan persoalan yang lebih umum, yaitu setiap keranjang berisi <m>n</m> buah. Metode kita
+        sederhana: tentukan fungsi pembangkit untuk setiap jenis buah secara terpisah,
+        lalu kalikan semuanya. Seperti pada contoh sebelumnya, hasil kali tersebut akan memuat suku <m>x^n</m>
+        untuk setiap cara menyusun sebuah keranjang berisi <m>n</m> buah yang memenuhi
+        pembatasan kita. Fungsi pembangkit untuk apel adalah <m>x/(1-x)</m> karena kita hanya menginginkan pangkat
+        positif dari <m>x</m> (yang memastikan adanya sedikitnya satu apel). Fungsi pembangkit
+        untuk pir adalah <m>(1+x+x^2+x^3)</m> karena sebuah keranjang hanya boleh memuat nol, satu, dua, atau tiga pir.
+        Untuk jeruk, kita mempunyai <m>1/(1-x^4) = 1+x^4+x^8+\cdots</m>, sedangkan banyaknya
+        grapefruit tidak dibatasi sehingga memberikan faktor <m>1/(1-x)</m>. Dengan mengalikannya, kita memperoleh <md>
+          \frac{x}{1-x} (1+x+x^2+x^3) \frac{1}{1-x^4} \frac{1}{1-x} =
+          \frac{x}{(1-x)^2(1-x^4)} (1+x+x^2+x^3).
+        </md>
+        Sekarang kita gunakan fakta bahwa <m>(1+x+x^2+x^3) =(1-x^4)/(1-x)</m> (berdasarkan <xref ref="eq_genfunction_finite-geom"/>) untuk melihat bahwa fungsi pembangkit kita adalah <md>
+          <mrow>\frac{x}{(1-x)^3} \amp= \frac{x}{2}\sum_{n=0}^\infty n(n-1)x^{n-2} =
+        \sum_{n=0}^\infty\frac{n(n-1)}{2} x^{n-1} </mrow>
+          <mrow>\amp=\sum_{n=0}^\infty\binom{n}{2} x^{n-1} =
+            \sum_{n=0}^\infty\binom{n+1}{2} x^n.</mrow>
+        </md> Jadi, terdapat <m>C(n+1,2)</m>
+        kemungkinan keranjang buah yang berisi <m>n</m> buah. Dengan demikian, jawaban atas
+        pertanyaan awal kita adalah <m>C(21,2) = 210</m>. </p>
+    </solution>
+  </example>
+  <p>Bentuk ringkas penyelesaian <xref ref="exa_genfunction_fruit"/> mengisyaratkan bahwa mungkin
+    ada cara memperoleh jawaban ini tanpa menggunakan fungsi pembangkit. Memikirkan
+    pendekatan seperti itu merupakan cara yang baik untuk memperkuat pemahaman Anda tentang berbagai
+    topik pencacahan yang telah kita bahas.</p>
+  <example xml:id="exa_genfunction_partial-fracs">
+    <statement>
+      <p> Tentukan banyaknya solusi bilangan bulat untuk persamaan <md>
+          x_1 + x_2 + x_3 = n
+        </md> dengan <m>n\geq 0</m> suatu bilangan bulat, <m>x_1
+        \geq 0</m> suatu bilangan genap, <m>x_2\geq 0</m>, dan <m>0\leq x_3\leq 2</m>. </p>
+    </statement>
+    <solution>
+      <p>Sekali lagi, kita meninjau fungsi pembangkit yang diperoleh jika setiap variabel diperlakukan
+        secara terpisah, lalu mengambil hasil kalinya. Untuk <m>x_1</m>, kita memperoleh faktor <m>1/(1-x^2)</m>;
+        untuk <m>x_2</m>, kita mempunyai <m>1/(1-x)</m>; dan untuk <m>x_3</m>, faktornya adalah <m>(1+x+x^2)</m>.
+        Oleh karena itu, fungsi pembangkit untuk banyaknya solusi persamaan di atas adalah <md>
+        \frac{1+x+x^2}{(1-x)(1-x^2)} = \frac{1+x+x^2}{(1+x)(1-x)^2}.
+        </md>
+        Dalam kalkulus, ketika hendak mengintegralkan fungsi rasional berbentuk seperti ini, kita menggunakan
+        metode pecahan parsial untuk menuliskannya sebagai jumlah fungsi-fungsi rasional yang <q>lebih sederhana</q> dan
+        antiturunannya telah kita kenali. Teknik kita di sini sama karena kita dapat dengan mudah mengenali
+        deret pangkat formal bagi banyak fungsi rasional. Tujuan kita adalah menulis <md>
+        \frac{1+x+x^2}{(1+x)(1-x)^2} = \frac{A}{1+x} + \frac{B}{1-x} +
+          \frac{C}{(1-x)^2}
+        </md>
+        untuk konstanta-konstanta <m>A</m>, <m>B</m>, dan <m>C</m> yang sesuai. Untuk menentukan konstanta tersebut, kita mengalikan kedua ruas guna menghilangkan
+        penyebut sehingga diperoleh <md>
+          1+x+x^2 = A(1-x)^2 + B(1-x^2) + C(1+x).
+        </md> Dengan menyamakan
+        koefisien suku-suku yang berderajat sama, kita memperoleh <md>
+          <mrow> 1 \amp = A+B+C</mrow>
+          <mrow> 1 \amp = -2A + C</mrow>
+          <mrow> 1 \amp = A - B</mrow>
+        </md> Dengan menyelesaikan sistem ini, kita mendapatkan <m>A=1/4</m>, <m>
+        B=-3/4</m>, dan <m>C=3/2</m>. Oleh karena itu, fungsi pembangkit kita adalah <md>
+          <mrow>
+            \amp\frac{1}{4}\frac{1}{1+x} -\frac{3}{4} \frac{1}{1-x} +\frac{3}{2}
+            \frac{1}{(1-x)^2}
+          </mrow>
+          <mrow>=\amp \frac{1}{4}\sum_{n=0}^\infty (-1)^n x^n -
+            \frac{3}{4} \sum_{n=0}^\infty x^n + \frac{3}{2}\sum_{n=0}^\infty n
+            x^{n-1}</mrow>
+        </md>. </p>
+      <p>Jadi, solusi bagi persoalan kita adalah koefisien <m>x^n</m> dalam fungsi pembangkit
+        di atas, yaitu <md>
+          \frac{(-1)^n}{4} - \frac{3}{4} + \frac{3(n+1)}{2},
+        </md> yang merupakan
+        jawaban mengejutkan dan tidak mudah diperoleh dengan metode lain! </p>
+    </solution>
+  </example>
+
+  <p>Penggunaan pecahan parsial dalam <xref ref="exa_genfunction_partial-fracs"/> sangat
+    ampuh. Namun, menyelesaikan sistem persamaan yang diperlukan lalu berharap deret pangkat formal
+    yang dihasilkan mempunyai penjabaran yang langsung kita kenali dapat menjadi tantangan. Seandainya <xref ref="exa_genfunction_partial-fracs"/> tidak menanyakan kasus umum dengan <m>n</m> di
+    ruas kanan persamaan, tetapi secara khusus menanyakan <m>n=30</m>, Anda mungkin
+    bertanya-tanya apakah lebih cepat menulis kode Python untuk menghasilkan semua solusi
+    atau lebih menarik untuk berkumpul dan merancang strategi pencacahan yang cerdik. Untungnya,
+    teknologi dapat membantu kita ketika bekerja dengan fungsi pembangkit. Dalam SageMath, kita dapat menggunakan metode <c>
+    series()</c> untuk memperoleh penjabaran deret pangkat dari suatu fungsi. Dua argumen bagi <c>
+    series</c> adalah variabel dan derajat suku tempat pemotongan dilakukan. Dalam sel di bawah ini,
+    kita meminta SageMath menjabarkan fungsi pembangkit dari <xref ref="exa_genfunction_partial-fracs"/>
+    dengan memberikan semua suku yang berderajat paling tinggi 30, lalu merangkum sisa deret dalam
+    notasi O-besar. Bagian ini kita buang dengan menyimpan keluaran <c>series()</c> dalam
+    polinom <c>f(x)</c>. </p>
+  <sage>
+    <input>
+      # Note that SageMath doesn't do well with implied
+      # multiplication, so use lots of *'s in addition to lots
+      # of parentheses.
+      f(x)= ((1+x+x^2)/((1+x)*(1-x)^2)).series(x,31)
+      f(x)
+    </input>
+    <output>
+      46*x^30 + 44*x^29 + 43*x^28 + 41*x^27 + 40*x^26 + 38*x^25 + 37*x^24 + 35*x^23 + 34*x^22 +
+      32*x^21 + 31*x^20 + 29*x^19 + 28*x^18 + 26*x^17 + 25*x^16 + 23*x^15 + 22*x^14 + 20*x^13 +
+      19*x^12 + 17*x^11 + 16*x^10 + 14*x^9 + 13*x^8 + 11*x^7 + 10*x^6 + 8*x^5 + 7*x^4 + 5*x^3 +
+      4*x^2 + 2*x + 1
+    </output>
+  </sage>
+  <p>Jika yang benar-benar kita inginkan hanyalah koefisien suatu suku tertentu, kita dapat menggunakan metode <c>list()</c>
+    untuk mengubah polinom menjadi daftar koefisien, lalu mengakses daftar tersebut menurut indeks
+    dengan sintaks standar SageMath atau Python:</p>
+  <sage>
+    <input>
+      coeffs=f(x).list()
+      coeffs[30]
+    </input>
+    <output>
+      46
+    </output>
+  </sage>
+  <p>Mari kita pastikan bahwa jawaban ini sama dengan nilai yang diberikan rumus dalam penyelesaian <xref ref="exa_genfunction_partial-fracs"/> untuk <m>n=30</m>:</p>
+  <sage>
+    <input>
+      n=30
+      (-1)^n/4 - (3/4) + 3*(n+1)/2
+    </input>
+    <output>
+      46
+    </output>
+  </sage>
+  <p>Hasil yang sama ini melegakan, dan selama kita hanya memerlukan satu koefisien, persoalannya telah tertangani. Namun,
+    bagaimana jika kita benar-benar memerlukan rumus umum untuk koefisien <m>x^n</m>? Mari kita lihat bagaimana
+    SageMath dapat membantu kita pada beberapa langkah lain dalam <xref ref="exa_genfunction_partial-fracs"/>. Hal pertama yang kita perlukan adalah metode <c>
+    partial_fraction()</c>:</p>
+  <sage>
+    <input>
+      ((1+x+x^2)/((1+x)*(1-x)^2)).partial_fraction()
+    </input>
+    <output>
+      1/4/(x + 1) + 3/4/(x - 1) + 3/2/(x - 1)^2
+    </output>
+  </sage>
+  <p>Jika tampilan tersebut kurang Anda sukai, fungsi <c>pretty_print()</c> dapat membuatnya lebih mudah
+    dibaca:</p>
+  <sage>
+    <input>
+      pretty_print(((1+x+x^2)/((1+x)*(1-x)^2)).partial_fraction())
+    </input>
+  </sage>
+  <p>Terlepas dari posisi sebuah tanda minus, hasil ini sama dengan yang kita peroleh secara manual, tetapi didapat jauh lebih cepat!
+    Dari tahap ini, kita sering dapat menggunakan pengetahuan tentang deret pangkat dasar tertentu
+    yang muncul ketika melakukan penjabaran pecahan parsial untuk memperoleh bentuk umum
+    koefisien suatu suku sembarang dalam deret pangkat. Untuk mendukung hal tersebut, kita menutup
+    bagian ini dengan contoh yang memperlihatkan cara menggunakan solusi persoalan pencacahan yang telah
+    kita pelajari untuk menentukan koefisien fungsi pembangkit.</p>
+  <example xml:id="exa_genfunction_multisets">
+    <statement>
+      <p> Misalkan <m>n</m> adalah bilangan bulat positif. Berapakah koefisien <m>x^k</m> dalam
+        fungsi pembangkit <md>\frac{1}{(1-x)^n}</md>? </p>
+    </statement>
+    <solution>
+      <p> Kita telah menjumpai kasus <m>n=5</m> ketika mengerjakan <xref ref="exa_genfunction_apples"/>, tetapi saat itu kita menggunakan kalkulus. Mari kita meninjaunya
+        hanya dari sudut pandang pencacahan. Fungsi pembangkit <m>1/(1-x) =
+        1+x+x^2+\cdots</m> menyandikan barisan banyaknya cara membagikan <m>n</m> apel
+        kepada <em>satu</em> anak. Hanya ada satu cara melakukannya: berikan semua
+        apel kepada anak yang beruntung itu. Mengalikan sejumlah salinan <m>1/(1-x)</m> kemudian berfungsi menambah
+        banyaknya anak yang menerima pembagian apel. Karena setiap deret pangkat
+        yang dikalikan dimulai dengan <m>1</m>, banyaknya apel yang diterima
+        setiap anak haruslah <em>tak negatif</em>. Oleh karena itu, persoalan ini berasal dari <xref ref="s_strings_bin-coeff"/>. Kita mempunyai <m>n</m> anak, dan koefisien <m>x^k</m>
+        adalah banyaknya cara membagikan <m>k</m> apel kepada mereka. Untuk itu diperlukan <m>n</m>
+        apel fiktif, sehingga kita membagikan <m>k+n</m> apel yang menentukan <m>k+n-1</m> celah, dan
+        kita harus memilih <m>n-1</m> di antaranya sebagai letak pemisah. Oleh karena itu, kita dapat menyimpulkan
+        bahwa <md>\frac{1}{(1-x)^n} = \sum_{k=0}^\infty \binom{k+n-1}{n-1}x^k = \sum_{k=0}^\infty
+        \binom{k+n-1}{k}x^k</md>. Kesimpulan ini juga dapat diperoleh dengan teknik
+        kalkulus, tetapi ada banyak faktorial dan <m>-1</m> yang perlu dipantau, sehingga pendekatan kombinatorial ini
+        mungkin lebih kecil kemungkinannya menimbulkan kesalahan!</p>
+    </solution>
+  </example>
+  <reading-questions xml:id="rqs-genfunction_distributions" component="runestone">
+    <exercise label="genfunction_distributions_rq-constant_term">
+      <statement>
+        <p>
+          Misalkan Anda menyusun fungsi pembangkit untuk banyaknya cara membagikan suatu jenis objek, seperti dalam contoh-contoh pada bagian ini. Ketika seorang penerima boleh menerima nol objek, berapakah suku konstanta dalam faktor fungsi pembangkit yang bersesuaian dengan penerima tersebut? Berapakah suku konstantanya ketika seorang penerima harus memperoleh sedikitnya satu objek? Jelaskan secara singkat alasan Anda.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="genfunction_distributions_rq-coins">
+      <statement>
+        <p>
+          Misalkan negara Combinatoria menggunakan koin bernilai <m>1</m>, <m>2</m>, <m>5</m>, <m>10</m>, <m>20</m>, <m>50</m>, dan <m>100</m>. Jika Anda ingin menulis fungsi pembangkit dengan koefisien <m>x^n</m> yang menyatakan banyaknya cara membentuk sekumpulan koin bernilai total <m>n</m>, dengan pembatasan bahwa banyaknya koin bernilai <m>5</m> harus satu, tiga, empat, atau lima, faktor apa yang akan Anda masukkan ke dalam fungsi pembangkit tersebut? Jelaskan secara singkat alasan Anda.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

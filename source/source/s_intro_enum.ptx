@@ -1,0 +1,59 @@
+<section xml:id="s_intro_enum">
+  <title>Enumerasi</title>
+  <p>Banyak masalah dasar dalam kombinatorika melibatkan pencacahan banyaknya cara mendistribusikan objek ke dalam wadah<mdash/>objek-objek tersebut mungkin dapat atau tidak dapat dibedakan, demikian pula wadahnya. Selain itu, wadah-wadah tersebut dapat disusun mengikuti suatu pola. Berikut beberapa contoh konkret.
+  </p>
+
+  <p>
+    Amanda memiliki tiga anak: Dawn, Keesha, dan Seth.
+                  <ol>
+    <li>
+      <p>Amanda memiliki sepuluh lembar uang satu dolar dan memutuskan untuk memberikan seluruhnya kepada anak-anaknya. Ada berapa cara ia dapat melakukannya? Sebagai contoh, salah satu cara membagikan uang tersebut adalah memberikan empat dolar masing-masing kepada Dawn dan Keesha, sedangkan Seth menerima sisanya<mdash/>dua dolar. Cara lain adalah memberikan seluruh uang kepada Keesha, pilihan yang mungkin tidak akan membuat Dawn dan Seth sangat senang. Perhatikan bahwa pertanyaan ini secara tersirat mengasumsikan Amanda tidak membedakan lembar-lembar uang satu dolar tersebut, misalnya dengan memeriksa nomor serinya secara cermat. Dengan kata lain, ia hanya perlu menentukan <em>jumlah uang</em> yang akan diterima masing-masing dari ketiga anaknya.</p>
+    </li>
+    <li>
+      <p>Jumlah uang yang dibagikan kepada ketiga anak membentuk suatu barisan yang, jika ditulis dalam urutan tak menaik, berbentuk <m>a_1, a_2, a_3</m> dengan <m>a_1\ge a_2\ge a_3</m> dan <m>a_1+a_2+a_3=10</m>. Ada berapa barisan seperti itu?</p>
+    </li>
+    <li>
+      <p>Misalkan Amanda memutuskan untuk memberikan sekurang-kurangnya satu dolar kepada setiap anak. Bagaimana hal ini mengubah jawaban untuk dua pertanyaan pertama?</p>
+    </li>
+    <li>
+      <p>Sekarang misalkan Amanda memiliki sepuluh buku, tepatnya 10 buku teratas dalam daftar buku terlaris New York Times, dan memutuskan untuk memberikannya kepada anak-anaknya. Ada berapa cara ia dapat melakukannya? Sekali lagi, terdapat asumsi tersirat<mdash/>kesepuluh buku itu semuanya berbeda.</p>
+    </li>
+    <li>
+      <p>Misalkan kesepuluh buku diberi label <m>B_1, B_2,\dots, B_{10}</m>. Himpunan buku yang diberikan kepada ketiga anak saling lepas sepasang-sepasang dan gabungannya adalah <m>\{B_1,B_2,\dots,B_{10}\}</m>. Ada berapa himpunan berbeda berbentuk <m>\{S_1, S_2, S_3\}</m>, dengan <m>S_1</m>, <m>S_2</m>, dan <m>S_3</m> saling lepas sepasang-sepasang dan <m>S_1\cup S_2\cup S_3=\{B_1,B_2,\dots,B_{10}\}</m>?
+      </p>
+    </li>
+    <li>
+      <p>Misalkan Amanda memutuskan untuk memberikan sekurang-kurangnya satu buku kepada setiap anak. Bagaimana hal ini mengubah jawaban untuk dua pertanyaan sebelumnya?</p>
+    </li>
+    <li>
+      <p>Bagaimana mungkin kita menjawab pertanyaan semacam ini jika sepuluh sebenarnya adalah sepuluh ribu (baiklah, sekarang kita tidak lagi berbicara tentang anak-anak!) dan tiga adalah tiga ribu? Dapatkah Anda menuliskan jawabannya pada satu halaman buku?</p>
+    </li>
+  
+                  </ol>
+                </p>
+  
+  <p>Sebuah kalung melingkar dengan jumlah enam manik-manik akan dirangkai menggunakan manik-manik dari tiga warna berbeda. Dalam <xref ref="fig_intro_necklace"/>, kami menampilkan empat kalung seperti itu<mdash/>namun, perhatikan bahwa tiga kalung pertama sebenarnya merupakan kalung yang <em>sama</em>. Masing-masing memiliki tiga manik-manik merah, dua biru, dan satu hijau. Sebaliknya, kalung keempat memiliki jumlah manik-manik setiap warna yang sama, tetapi merupakan kalung yang <em>berbeda</em>.
+  </p>
+  <figure xml:id="fig_intro_necklace">
+    <caption>Kalung yang dibuat dengan tiga warna</caption>
+    <image width="75%" source="necklaces"><description><p>Empat kalung melingkar dengan enam manik-manik berwarna merah, biru, dan hijau; tiga kalung pertama setara melalui rotasi, sedangkan kalung keempat berbeda.</p>
+    </description></image>
+  </figure>
+  <p>
+  <ol>
+    <li><p>Ada berapa kalung berbeda dengan enam manik-manik yang dapat dibentuk menggunakan tiga manik-manik merah, dua biru, dan satu hijau?</p>
+    </li>
+    <li>
+      <p>Ada berapa kalung berbeda dengan enam manik-manik yang dapat dibentuk menggunakan manik-manik merah, biru, dan hijau (tidak semua warna harus digunakan)?
+      </p>
+    </li>
+    <li>
+      <p>Ada berapa kalung berbeda dengan enam manik-manik yang dapat dibentuk menggunakan manik-manik merah, biru, dan hijau jika ketiga warna harus digunakan?
+      </p>
+    </li>
+    <li>
+      <p>Bagaimana mungkin kita menjawab pertanyaan-pertanyaan ini untuk kalung yang terdiri atas enam ribu manik-manik dengan tiga ribu warna berbeda? Perangkat lunak khusus apa yang diperlukan untuk memperoleh jawaban tepat, dan berapa lama perhitungannya akan berlangsung?</p>
+    </li>
+  </ol>
+  </p>
+</section>

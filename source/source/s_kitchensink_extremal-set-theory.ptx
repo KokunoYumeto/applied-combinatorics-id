@@ -1,0 +1,66 @@
+<section xml:id="s_kitchensink_extremal-set-theory">
+    <title>Teori Himpunan Ekstremal</title>
+    <p>Misalkan <m>n</m> bilangan bulat positif dan <m>[n]=\{1,2,\dots,n\}</m>. Dalam bagian ini, kita meninjau masalah-masalah dengan bentuk umum berikut: berapakah ukuran maksimum suatu keluarga subhimpunan <m>[n]</m> apabila keluarga tersebut harus memenuhi sifat-sifat tertentu?
+    </p>
+
+    <p>Berikut sebuah contoh elementer.
+    </p>
+    <example xml:id="exa_intersecting">
+        <p>Ukuran maksimum keluarga <m>\cgF</m> subhimpunan <m>[n]</m> yang memenuhi <m>A\cap B\neq\emptyset</m> untuk semua <m>A,B\in\cgF</m> adalah <m>2^{n-1}</m>.
+        </p>
+
+        <p>Untuk batas bawah, tinjau keluarga <m>\cgF</m> yang terdiri atas semua subhimpunan <m>[n]</m> yang memuat<nbsp/><m>1</m>. Jelas bahwa keluarga ini mempunyai <m>2^{n-1}</m> anggota dan setiap dua himpunan dalam keluarga tersebut memiliki irisan tak kosong.
+        </p>
+
+        <p>Untuk batas atas, misalkan <m>\cgF</m> keluarga subhimpunan yang setiap pasangan himpunan dalam <m>\cgF</m> memiliki irisan tak kosong. Setiap kali suatu subhimpunan <m>S</m> merupakan anggota <m>\cgF</m>, komplemen <m>S'</m> dari <m>S</m> tidak dapat termasuk dalam <m>\cgF</m>. Karena seluruh keluarga yang terdiri atas semua <m>2^n</m> subhimpunan <m>[n]</m> dapat dipandang sebagai <m>2^{n-1}</m> pasangan saling berkomplemen, dan paling banyak satu himpunan dari setiap pasangan dapat termasuk dalam <m>\cgF</m>, kita menyimpulkan bahwa <m>|\cgF|\le 2^{n-1}</m>.
+        </p>
+    </example>
+    <p>Sebagai contoh kedua, kita dapat meninjau kembali <xref ref="thm_sperner" text="title"/> dari <xref ref="ch_posets"/> dan menyatakan ulang hasilnya sebagai berikut.
+    </p>
+    <example xml:id="exa_Sperner">
+        <p>Ukuran maksimum keluarga <m>\cgF</m> subhimpunan <m>[n]</m> dengan syarat bahwa, jika <m>A</m> dan <m>B</m> merupakan dua himpunan berbeda dalam <m>\cgF</m>, tidak satu pun menjadi subhimpunan yang lain, adalah <m>\binom{n}{\lfloor n/2\rfloor}</m>.
+        </p>
+    </example>
+    <p>Perlu dicatat bahwa dalam <xref ref="exa_Sperner"/> hanya ada sangat sedikit keluarga ekstremal (satu atau dua), <ie/>, jika <m>\cgF</m> merupakan keluarga subhimpunan <m>[n]</m>, <m>|\cgF|= \binom{n}{\lfloor n/2\rfloor}</m>, dan tidak ada himpunan dalam <m>\cgF</m> yang menjadi subhimpunan sejati dari himpunan lainnya, maka <m>\cgF=\{S\subseteq[n]: |S|=\lfloor n/2\rfloor\}</m> atau <m>\cgF=\{S\subseteq[n]: |S|=\lceil n/2\rceil\}</m>. Tentu saja, ketika <m>n</m> genap, keduanya merupakan keluarga yang persis sama.
+    </p>
+
+    <p>Di sisi lain, terdapat banyak keluarga ekstremal bagi <xref ref="exa_intersecting"/>, sebab salah satu anggota dari setiap pasangan himpunan saling berkomplemen dapat dipilih.
+    </p>
+
+    <p>Kita menutup pengantar singkat tentang teori himpunan ekstremal ini dengan sebuah hasil klasik.
+    </p>
+
+    <theorem>
+        <title>Erd&#337;s, Ko, Rado</title>
+        <idx><h>Teorema Erd&#337;s-Ko-Rado</h></idx>
+        <statement>
+            <p>Misalkan <m>n</m> dan <m>k</m> bilangan bulat positif dengan <m>n\ge 2k</m>. Ukuran maksimum keluarga <m>\cgF</m> subhimpunan <m>[n]</m> yang memenuhi syarat (1)<nbsp/><m>A\cap B\neq\emptyset</m> untuk semua <m>A,B\in\cgF</m>, dan (2)<nbsp/><m>|A|=k</m> untuk semua <m>A\in\cgF</m>, adalah <m>\binom{n-1}{k-1}</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Untuk batas bawah, tinjau keluarga <m>\cgF</m> yang terdiri atas semua subhimpunan berukuran <m>k</m> dari <m>[n]</m> yang memuat<nbsp/><m>1</m>.
+            </p>
+
+            <p>Untuk batas atas, misalkan <m>\cgF</m> keluarga subhimpunan <m>[n]</m> yang memenuhi kedua syarat tersebut. Kita menunjukkan bahwa <m>|\cgF|\le\binom{n-1}{k-1}</m>. Untuk melakukannya, tinjau sebuah lingkaran pada bidang Euklides dengan <m>n</m> titik <m>p_1</m>, <m>p_2,\dots,p_n</m> yang berjarak sama di sepanjang kelilingnya. Terdapat <m>n!</m> cara berbeda, satu bagi setiap permutasi <m>\sigma</m> dari <m>[n]</m>, untuk menempatkan bilangan-bilangan dalam <m>[n]</m> secara satu-ke-satu pada titik-titik dalam <m>\{p_1,p_2,\dots,p_n\}</m>.
+            </p>
+
+            <p>Untuk setiap permutasi <m>\sigma</m> dari <m>[n]</m>, misalkan <m>\cgF(\sigma)</m> menyatakan subkeluarga <m>\cgF</m> yang terdiri atas semua himpunan <m>S</m> dalam <m>\cgF</m> yang elemen-elemennya menempati satu blok berurutan di sekeliling lingkaran. Selanjutnya, misalkan <m>t=\sum_\sigma|\cgF(\sigma)|</m>.
+            </p>
+
+            <p>Klaim pertama kita adalah <m>t\le kn!</m>. Untuk membuktikannya, misalkan <m>\sigma</m> suatu permutasi dan andaikan <m>|\cgF(\sigma)|=s \ge 1</m>. Gabungan himpunan-himpunan dalam <m>\cgF(\sigma)</m> merupakan himpunan titik yang membentuk blok berurutan pada lingkaran. Karena <m>n\ge 2k</m>, perhatikan bahwa blok ini tidak mencakup seluruh lingkaran. Oleh karena itu, terdapat himpunan <m>S</m> yang elemen-elemennya merupakan <m>k</m> titik pertama, menurut arah jarum jam, di dalam blok ini. Karena setiap himpunan lain dalam <m>\cgF(\sigma)</m> merupakan pergeseran sebanyak satu posisi atau lebih menurut arah jarum jam, segera diperoleh <m>|\cgF(\sigma)|\le k</m>. Karena terdapat <m>n!</m> permutasi, klaim tersebut terbukti.
+            </p>
+
+            <p>Sekarang kita mengklaim bahwa bagi setiap himpunan <m>S\in\cgF</m>, terdapat tepat <m>n k!(n-k)!</m> permutasi <m>\sigma</m> yang memenuhi <m>S\in\cgF(\sigma)</m>.
+            Perhatikan bahwa terdapat <m>n</m> posisi di sekeliling lingkaran, dan masing-masing dapat menjadi titik pertama dalam blok berisi <m>k</m> posisi berurutan tempat elemen-elemen <m>S</m> diletakkan. Selanjutnya, terdapat <m>k!</m> cara mengurutkan elemen-elemen <m>S</m> dan <m>(n-k)!</m> cara mengurutkan elemen-elemen yang tersisa. Hal ini membuktikan klaim kita.
+            </p>
+
+            <p>Untuk menyelesaikan bukti teorema, perhatikan bahwa
+            <md>
+                |\cgF| n k! (n-k)!= t\le k n!,
+            </md>
+            dan ini menyiratkan bahwa <m>|\cgF|\le\binom{n-1}{k-1}</m>.
+            </p>
+        </proof>
+    </theorem>
+</section>

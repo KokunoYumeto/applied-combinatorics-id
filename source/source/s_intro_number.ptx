@@ -1,0 +1,130 @@
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="s_intro_number">
+  <title>Kombinatorika dan Teori Bilangan</title>
+  <p>Secara umum, teori bilangan mengkaji sifat-sifat bilangan bulat positif. G.H.<nbsp/>Hardy adalah matematikawan Inggris yang cemerlang. Ia mengalami kedua Perang Dunia dan melakukan banyak penelitian dalam teori bilangan. Ia juga seorang pasifis yang merasa senang karena, menurut pandangannya, penelitiannya tidak <q>berguna</q>. Dalam esainya tahun 1940, <pubtitle>A Mathematician's Apology</pubtitle>, ia menulis bahwa <q>[b]elum ditemukan kegunaan teori bilangan atau relativitas bagi tujuan peperangan apa pun, dan tampaknya sangat kecil kemungkinan bahwa siapa pun akan menemukannya selama bertahun-tahun.</q><fn>G.H.<nbsp/>Hardy, <pubtitle>A Mathematician's Apology</pubtitle>, Cambridge University Press, hlm. 140. (cetakan 1993)</fn> Ia tidak menyangka bahwa gagasan matematika paling murni dari teori bilangan segera menjadi sangat diperlukan bagi teknik kriptografi yang menjaga keamanan komunikasi. Bidang yang kita bahas di sini bukan teori bilangan, tetapi kita akan beberapa kali melihat bagaimana teknik kombinatorial digunakan dalam teori bilangan.</p>
+  <example xml:id="ex_collatz"><idx><h>Barisan Collatz</h></idx>
+      <p>Bentuklah suatu barisan bilangan bulat positif dengan aturan berikut. Mulailah dengan bilangan bulat positif <m>n&gt;1</m>. Jika <m>n</m> ganjil, suku berikutnya adalah <m>3n+1</m>. Jika <m>n</m> genap, suku berikutnya adalah <m>n/2</m>. Berhentilah jika Anda mencapai<nbsp/><m>1</m>. Sebagai contoh, jika kita mulai dengan <m>28</m>, barisannya adalah
+      <md>
+        28, 14, 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1.
+      </md>
+      </p>
+      <p>Sekarang misalkan kita mulai dengan <m>19</m>. Beberapa suku pertamanya adalah
+      <md>
+        19, 58, 29, 88, 44, 22.
+      </md>
+        Namun, bilangan bulat <m>22</m> juga muncul dalam barisan pertama,
+        sehingga sejak titik ini kedua barisan akan sama. Barisan yang dibentuk
+        dengan aturan ini disebut <term>barisan Collatz</term>.
+      </p>
+
+      <p>Pilihlah suatu bilangan antara <m>100</m> dan <m>200</m>, lalu tuliskan barisan yang Anda peroleh. Apa pun pilihan Anda, proses tersebut pada akhirnya akan berhenti pada<nbsp/><m>1</m>. Namun, adakah bilangan bulat positif <m>n</m> (yang mungkin sangat besar) sedemikian sehingga jika kita mulai dari <m>n</m>, kita tidak pernah mencapai<nbsp/><m>1</m>?
+      </p>
+  </example>
+
+  <example>
+    <p>Siswa sekolah menengah pertama diajari menjumlahkan pecahan dengan mencari kelipatan persekutuan terkecil (KPK). Sebagai contoh, kelipatan persekutuan terkecil dari <m>15</m> dan <m>12</m> adalah <m>60</m>, sehingga:
+    <md>
+      \frac{2}{15}+ \frac{7}{12} = \frac{8}{60}+\frac{35}{60} = \frac{43}{60}.
+    </md>
+    Seberapa sulitkah mencari kelipatan persekutuan terkecil dari dua bilangan bulat?</p>
+
+    <p>Hal itu sangat mudah jika kita dapat memfaktorkannya menjadi faktor-faktor prima. Sebagai contoh, perhatikan masalah mencari kelipatan persekutuan terkecil dari <m>351785000</m> dan <m>316752027900</m> jika kita kebetulan mengetahui bahwa
+    <md>
+      <mrow>  351785000 \amp =  2^3\times 5^4\times 7\times19\times 23^2\quad\text{and}</mrow>
+      <mrow>  316752027900 \amp =  2^2\times3\times 5^2\times 7^3\times 11\times 23^4.</mrow>
+    </md>
+    Kelipatan persekutuan terkecilnya adalah
+    <md>
+      300914426505000 =  2^3\times3\times 5^4\times 7^3\times 11\times 19\times 23^4.
+    </md>
+    </p>
+    <p>Jadi, untuk mencari kelipatan persekutuan terkecil dari dua bilangan, kita hanya perlu memfaktorkannya menjadi faktor-faktor prima. Kedengarannya tidak terlalu sulit. Sebagai permulaan, dapatkah Anda memfaktorkan <m>1961</m>? Baiklah, bagaimana dengan <m>1348433</m>? Sekarang mari kita coba tantangan yang sesungguhnya. Misalkan Anda diberi tahu bahwa bilangan bulat
+    <md>
+        <mrow>c = \amp\,\, 5568490117077035708244283173335040521716369235589951150965</mrow>
+        <mrow>\amp\,\, 2043138898236817075547572153799</mrow>
+    </md>
+    merupakan hasil kali dua bilangan prima <m>a</m> dan <m>b</m>. Dapatkah Anda menemukan keduanya?
+    </p>
+
+    <p>Bagaimana jika pemfaktoran ternyata sulit? Dapatkah Anda mencari kelipatan persekutuan terkecil dari dua bilangan bulat yang relatif besar, misalnya masing-masing memiliki sekitar<nbsp/><m>500</m> digit, dengan metode lain? Bagaimana seharusnya siswa sekolah menengah pertama diajari menjumlahkan pecahan?
+      </p>
+
+      <p>Sebagai selingan, perhatikan bahwa kebanyakan kalkulator tidak dapat menjumlahkan atau mengalikan dua bilangan yang masing-masing terdiri atas <m>20</m> digit, apalagi dua bilangan dengan lebih dari<nbsp/><m>500</m> digit. Namun, menulis program komputer yang melakukan pekerjaan tersebut bagi kita relatif mudah. Tersedia pula beberapa perangkat lunak matematika yang canggih. Dua contoh komersial yang sangat terkenal ialah <em>Maple</em><registered/> dan <em>Mathematica</em><registered/>. Dalam buku ini, sesekali kita akan menggunakan sistem aljabar komputer sumber terbuka <url href="http://www.sagemath.org" visual="sagemath.org">SageMath</url>. Sesekali kami menyematkan sel SageMath interaktif di dalam buku, tetapi Anda juga dapat menggunakan SageMath secara gratis melalui <url href="http://cocalc.com/" visual="cocalc.com">CoCalc</url>. Sebagai contoh, sel SageMath di bawah ini akan menghasilkan faktorisasi yang ditampilkan di atas.</p>
+
+      <sage>
+        <input>factor(300914426505000)</input>
+        <output>2^3 * 3 * 5^4 * 7^3 * 11 * 19 * 23^4</output>
+      </sage>
+
+      <p>Jika Anda membaca buku ini melalui peramban web, silakan ubah bilangan bulat dalam sel SageMath di atas menjadi bilangan bulat lain, mungkin yang lebih besar, lalu klik kembali tombolnya untuk memperoleh faktorisasi prima dari bilangan baru tersebut.</p>
+      
+      <p>Berikut cara kami menyusun soal tantangan tersebut. Mula-mula, kami menemukan situs web yang memuat daftar bilangan prima besar dan memperoleh dua nilai berikut:
+      <md>
+        <mrow>  a \amp = 2425967623052370772757633156976982469681\quad\text{and}</mrow>
+        <mrow>  b \amp =  22953686867719691230002707821868552601124472329079.</mrow>
+      </md>
+      Kode SageMath di bawah ini menghitung <m>a\times b</m> dan mengembalikan hasilnya seketika.
+      </p>
+
+      <sage>
+        <input>a = 2425967623052370772757633156976982469681
+b = 22953686867719691230002707821868552601124472329079
+a*b</input>
+<!--<output>55684901170770357082442831733350405217163692355899511509652043138898236817075547572153799</output>-->
+      </sage>
+      
+      <p>Di sisi lain, jika Anda meminta SageMath memfaktorkan <m>c</m>, seperti dalam sel di bawah ini, Anda mungkin harus menunggu lama. Jika Anda memperoleh jawaban dalam waktu dua menit atau kurang, silakan kirimkan email kepada kami agar kami dapat memperbarui buku ini dengan bilangan prima <m>a</m> dan <m>b</m> yang lebih besar!</p>
+      <sage> <input>factor(55684901170770357082442831733350405217163692355899511509652043138898236817075547572153799)</input>
+      </sage>
+  </example>
+  <p>
+    Pertanyaan yang muncul dalam teori bilangan juga dapat bernuansa enumeratif,
+    sebagaimana diperlihatkan oleh contoh berikut.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Dalam <xref ref="fig_intro_partsof8"/>, kami menampilkan partisi bilangan bulat
+        dari<nbsp/><m>8</m>.
+      </p>
+      <figure xml:id="fig_intro_partsof8">
+          <caption>Partisi dari <m>8</m>, dengan penandaan untuk partisi yang bagian-bagiannya berbeda
+          dan partisi yang semua bagiannya ganjil.</caption>
+          <sidebyside>
+              <ul cols="2">
+                  <li>8 — bagian-bagiannya berbeda</li>
+                  <li>7+1 — bagian-bagiannya berbeda dan semuanya ganjil</li>
+                  <li>6+2 — bagian-bagiannya berbeda</li>
+                  <li>6+1+1</li>
+                  <li>5+3 — bagian-bagiannya berbeda dan semuanya ganjil</li>
+                  <li>5+2+1 — bagian-bagiannya berbeda</li>
+                  <li>5+1+1+1 — semua bagiannya ganjil</li>
+                  <li>4+4</li>
+                  <li>4+3+1 — bagian-bagiannya berbeda</li>
+                  <li>4+2+2</li>
+                  <li>4+2+1+1</li>
+                  <li>4+1+1+1+1</li>
+                  <li>3+3+2</li>
+                  <li>3+3+1+1 — semua bagiannya ganjil</li>
+                  <li>3+2+2+1</li>
+                  <li>3+2+1+1+1</li>
+                  <li>3+1+1+1+1+1 — semua bagiannya ganjil</li>
+                  <li>2+2+2+2</li>
+                  <li>2+2+2+1+1</li>
+                  <li>2+2+1+1+1+1</li>
+                  <li>2+1+1+1+1+1+1</li>
+                  <li>1+1+1+1+1+1+1+1 — semua bagiannya ganjil</li>
+              </ul>
+          </sidebyside>
+      </figure>
+      <p>
+        Secara keseluruhan terdapat<nbsp/><m>22</m> partisi dan, sebagaimana ditandai, tepat<nbsp/><m>6</m>
+        di antaranya merupakan partisi dari<nbsp/><m>8</m> menjadi bagian-bagian ganjil. Selain itu, tepat<nbsp/><m>6</m> di antaranya
+        merupakan partisi dari<nbsp/><m>8</m> menjadi bagian-bagian berbeda.
+      </p>
+
+      <p>
+        Bagaimana reaksi Anda jika kami meminta Anda mencari banyaknya partisi bilangan bulat dari <m>25892</m>? Apakah menurut Anda banyaknya partisi dari <m>25892</m> menjadi bagian-bagian ganjil sama dengan banyaknya partisi dari <m>25892</m> menjadi bagian-bagian berbeda? Adakah cara untuk menjawab pertanyaan ini <em>tanpa</em> benar-benar menghitung banyaknya partisi dari setiap jenis?
+      </p>
+    </statement>
+  </example>
+</section>

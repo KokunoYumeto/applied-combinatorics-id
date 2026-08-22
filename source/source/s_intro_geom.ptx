@@ -1,0 +1,35 @@
+<section xml:id="s_intro_geom">
+    <title>Kombinatorika dan Geometri</title>
+    <p>Ada banyak masalah dalam geometri yang pada dasarnya bersifat kombinatorial atau dapat diperjelas dengan teknik-teknik kombinatorial.
+    </p>
+    <example>
+        <p>Pada <xref ref="fig_linesregions"/>, kami memperlihatkan sekumpulan <m>4</m> garis pada bidang. Setiap pasang garis saling berpotongan, dan tidak ada titik pada bidang yang terletak pada lebih dari dua garis. Garis-garis ini membentuk<nbsp/><m>11</m> daerah.
+        </p>
+        <figure xml:id="fig_linesregions">
+            <caption>Garis dan daerah</caption>
+            <image width="62%" source="3012-fig9"><description><p>Empat garis pada bidang, dengan setiap pasangan berpotongan di titik yang berbeda, membentuk sebelas daerah yang diberi nomor 1 sampai 11.</p>
+            </description></image>
+        </figure>
+        <p>Dengan batasan yang sama, berapa banyak daerah yang dibentuk oleh sekumpulan <m>8947</m> garis? Dapatkah susunan garis yang berbeda membentuk jumlah daerah yang berbeda?
+        </p>
+    </example>
+
+    <example>
+        <p>Mandy mengatakan bahwa ia telah menemukan himpunan<nbsp/><m>882</m> titik pada bidang yang menentukan tepat <m>752</m> garis. Tobias membantah klaimnya. Siapa yang benar?
+        </p>
+    </example>
+
+    <example>
+        <p>Ada banyak cara berbeda untuk menggambar sebuah graf pada bidang. Sebagian penggambaran mungkin memiliki sisi-sisi yang berpotongan, sedangkan yang lain tidak. Namun, terkadang perpotongan sisi harus muncul dalam setiap penggambaran. Perhatikan graf <m>G</m> yang ditunjukkan pada <xref ref="fig_crossingedges"/>.
+        </p>
+        <figure xml:id="fig_crossingedges">
+            <caption>Sebuah graf dengan sisi-sisi yang berpotongan</caption>
+            <image width="50%" source="3012-fig8"><description><p>Graf dengan sepuluh simpul bernomor 1 sampai 10 dan lima belas sisi. Beberapa sisi saling berpotongan dalam gambar; titik-titik perpotongan tersebut bukan simpul.</p>
+            </description></image>
+        </figure>
+        <p>Dapatkah Anda menggambar ulang <m>G</m> tanpa sisi yang berpotongan?
+        </p>
+        <p>Misalkan Sam dan Deborah mendapat soal pekerjaan rumah yang menanyakan apakah suatu graf tertentu dengan <m>2843952</m> simpul dan <m>9748032</m> sisi dapat digambar tanpa perpotongan sisi. Deborah hanya melihat jumlah simpul dan jumlah sisi, lalu mengatakan bahwa jawabannya adalah <q>tidak.</q> Sam mempertanyakan bagaimana Deborah bisa begitu yakin<mdash/>tanpa memeriksa struktur graf itu dengan lebih saksama. Adakah cara bagi Deborah untuk membenarkan kesimpulan tegasnya?
+        </p>
+    </example>
+</section>

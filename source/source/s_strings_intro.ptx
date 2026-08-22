@@ -1,0 +1,220 @@
+<section xml:id="s_strings_intro">
+  <title>String: Tinjauan Awal</title>
+  <p>Misalkan <m>n</m> sebuah bilangan bulat positif. Di seluruh buku ini, kita akan menggunakan notasi ringkas <m>
+    [n]</m> untuk menyatakan himpunan beranggota <m>n</m>, yaitu <m>\{1,2,\dots,n\}</m>. Sekarang, misalkan <m>X</m> sebuah himpunan.
+    Fungsi <m>s\colon[n]\rightarrow X</m> juga disebut <term>string atas <m>X</m> dengan panjang <m>
+    n</m></term><idx>
+      <h>string</h>
+    </idx>. Dalam pembahasan mengenai string atas <m>X</m>, elemen-elemen <m>X</m> lazim disebut
+    <term>karakter</term><idx>
+      <h>karakter</h>
+    </idx>, sedangkan elemen <m>s(i)</m> merupakan karakter <m>i^{\text{th} }</m>
+    dari <m>s</m>. Jika memungkinkan, kita lebih suka menyatakan sebuah string <m>s</m> dengan menulis <m>
+    s=</m><q>
+      <m>x_1x_2x_3\dots x_n</m>
+    </q>, alih-alih menggunakan notasi yang lebih panjang <m>
+      s(1)=x_1</m>, <m>s(2)=x_2</m>, <ellipsis/>, <m>s(n)=x_n</m>. </p>
+
+  <p>Terdapat beberapa pilihan lain untuk notasi dan istilah yang berkaitan dengan string.
+    Pertama, karakter-karakter dalam sebuah string <m>s</m> sering ditulis dengan subskrip sebagai <m>
+    s_1,s_2,\dots,s_n</m>, sehingga suku <m>i^{\text{th} }</m> dari <m>s</m> dapat dinyatakan dengan <m>s_i</m>
+    alih-alih <m>s(i)</m>. String juga disebut <term>barisan</term><idx>
+      <h>barisan</h>
+    </idx>, terutama ketika <m>X</m> merupakan himpunan bilangan dan fungsi <m>s</m>
+    didefinisikan oleh suatu aturan aljabar. Sebagai contoh, barisan bilangan bulat ganjil didefinisikan oleh <m>
+    s_i=2i-1</m>. </p>
+
+  <p>Sebagai pilihan lain, string disebut <term>kata</term><idx>
+      <h>kata</h>
+    </idx>, himpunan <m>X</m> disebut <term>alfabet</term><idx>
+      <h>alfabet</h>
+    </idx>, dan elemen-elemen <m>X</m> disebut <term>huruf</term><idx>
+      <h>huruf</h>
+    </idx>. Sebagai contoh, <m>aababbccabcbb</m> merupakan kata sepanjang <m>13</m> huruf pada alfabet <m>
+    3</m> huruf <m>\{a,b,c\}</m>. </p>
+
+  <p>Dalam banyak bahasa pemrograman, string disebut <term>larik</term><idx>
+      <h>larik</h>
+    </idx>. Selain itu, ketika karakter <m>s(i)</m> dibatasi agar termasuk dalam suatu
+    himpunan bagian <m>X_i\subseteq X</m>, sebuah string dapat dipandang sebagai elemen hasil kali Kartesius <m>X_1\times
+    X_2\times \dots\times X_n</m>, yang biasanya dipandang sebagai tupel-<m>
+      n</m> berbentuk <m>(x_1,x_2,\dots,x_n)</m> sedemikian sehingga <m>x_i\in X_i</m> untuk setiap <m>i\in
+    [n]</m>. </p>
+
+  <example xml:id="exa_strings_ga-plate">
+    <statement>
+      <p>Di negara bagian Georgia, pelat nomor terdiri atas empat digit, diikuti sebuah spasi, lalu
+        tiga huruf kapital. Digit pertama tidak boleh bernilai<nbsp/><m>0</m>. Berapa banyak pelat
+        nomor yang mungkin? </p>
+    </statement>
+    <solution>
+      <p>Misalkan <m>X</m> terdiri atas digit-digit <m>\{0,1,2,\dots,9\}</m>, misalkan <m>Y</m> adalah himpunan yang hanya mempunyai satu elemen,
+        yaitu spasi, dan misalkan <m>Z</m> menyatakan himpunan huruf kapital. Sebuah
+        pelat nomor yang sah tidak lain adalah string dari <md>
+          (X-\{0\})\times X\times X\times X\times Y\times Z\times Z\times Z
+        </md>
+        sehingga banyaknya pelat nomor yang berbeda adalah <m>9\times10^3\times1\times
+          26^3=158\,184\,000</m>, karena kardinalitas hasil kali himpunan sama dengan hasil kali kardinalitas
+        himpunan-himpunan tersebut. Kita dapat memahami alasan di balik hasil ini dengan hanya memperhatikan bagian digit
+        string tersebut. Bagian digit itu dapat kita bayangkan sebagai empat tempat kosong yang perlu
+        diisi. Tempat kosong pertama memiliki <m>9</m> pilihan (digit <m>1</m> sampai <m>9</m>). Jika kita
+        hanya memperhatikan string digit yang diawali <m>1</m>, salah satu cara memandangnya adalah bahwa string itu berkisar
+        dari <m>1000</m> hingga <m>1999</m>, sehingga terdapat <m>
+          1000</m> string. Namun, kita juga dapat memandangnya sebagai <m>10</m> pilihan untuk
+        posisi kedua, <m>10</m> pilihan untuk posisi ketiga, dan <m>10</m> pilihan untuk posisi keempat.
+        Perkalian <m>10\times 10\times 10</m> menghasilkan <m>1000</m>. Karena analisis kita untuk mengisi
+        tempat-tempat digit lainnya tidak bergantung pada pilihan <m>1</m> di posisi pertama,
+        masing-masing dari <m>9</m> pilihan digit awal menghasilkan <m>1\,000</m> string, sehingga jumlahnya
+        <m>9\,000 = 9\times 10^3</m>. </p>
+    </solution>
+  </example>
+  <p>Dalam kasus <m>X=\{0,1\}</m>, sebuah string atas <m>X</m> disebut string <m>0</m><ndash/><m>1</m>
+    (juga disebut <term>string biner</term><idx>
+      <h>string</h>
+      <h>biner</h>
+    </idx> atau <term>string bit.</term><idx>
+      <h>string bit</h>
+      <see>string, biner</see>
+    </idx>). Ketika <m>X=\{0,1,2\}</m>, sebuah string atas <m>X</m> juga
+    disebut string <term>terner</term><idx>
+      <h>string</h>
+      <h>terner</h>
+    </idx>. </p>
+  <example>
+    <p>Sebuah instruksi mesin dalam sistem operasi <m>32</m>-bit tidak lain adalah string bit dengan panjang<nbsp/><m>
+      32</m>. Jadi, tersedia <m>2</m> pilihan untuk masing-masing dari <m>32</m> posisi yang harus diisi, sehingga
+      banyaknya string semacam itu adalah <m>2^{32} = 4\,294\,967\,296</m>. Secara umum, banyaknya string bit
+      dengan panjang<nbsp/><m>n</m> adalah <m>2^n</m>. </p>
+  </example>
+
+  <example>
+    <statement>
+      <p>Andaikan sebuah situs web mengizinkan penggunanya memilih sendiri nama pengguna untuk akun mereka, tetapi
+        memberlakukan beberapa pembatasan. Karakter pertama harus berupa huruf kapital dalam alfabet Inggris.
+        Karakter kedua hingga keenam dapat berupa huruf dalam alfabet Inggris (baik huruf kapital maupun huruf kecil)
+        atau digit desimal (<m>0</m><ndash/><m>
+          9</m>). Posisi ketujuh harus berupa <sq>@</sq> atau <sq>.</sq>. Posisi kedelapan hingga kedua belas
+        dapat diisi dengan huruf kecil dalam alfabet Inggris, <sq>*</sq>, <sq>%</sq>, atau <sq>
+          #</sq>. Posisi ketiga belas harus berupa sebuah digit. Berapa banyak pengguna berbeda yang dapat didaftarkan
+        oleh situs web tersebut? </p>
+    </statement>
+    <solution>
+      <p>Kita dapat menggambarkan pilihan-pilihan tersebut dengan membayangkan <m>13</m> posisi dalam string sebagai tempat kosong
+        yang harus diisi, lalu menempatkan pilihan untuk setiap tempat kosong di atasnya. Dalam <xref ref="fig_string-template"/>, kita menggunakan U untuk menyatakan himpunan huruf kapital, L untuk
+        himpunan huruf kecil, dan D untuk himpunan digit. </p>
+      <figure xml:id="fig_string-template">
+        <caption>Templat String</caption>
+        <tabular>
+          <row>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell>#</cell>
+            <cell>#</cell>
+            <cell>#</cell>
+            <cell>#</cell>
+            <cell>#</cell>
+            <cell/>
+          </row>
+          <row>
+            <cell/>
+            <cell>D</cell>
+            <cell>D</cell>
+            <cell>D</cell>
+            <cell>D</cell>
+            <cell>D</cell>
+            <cell/>
+            <cell>%</cell>
+            <cell>%</cell>
+            <cell>%</cell>
+            <cell>%</cell>
+            <cell>%</cell>
+            <cell/>
+          </row>
+          <row>
+            <cell/>
+            <cell>L</cell>
+            <cell>L</cell>
+            <cell>L</cell>
+            <cell>L</cell>
+            <cell>L</cell>
+            <cell>.</cell>
+            <cell>*</cell>
+            <cell>*</cell>
+            <cell>*</cell>
+            <cell>*</cell>
+            <cell>*</cell>
+            <cell/>
+          </row>
+          <row>
+            <cell>U</cell>
+            <cell>U</cell>
+            <cell>U</cell>
+            <cell>U</cell>
+            <cell>U</cell>
+            <cell>U</cell>
+            <cell>@</cell>
+            <cell>L</cell>
+            <cell>L</cell>
+            <cell>L</cell>
+            <cell>L</cell>
+            <cell>L</cell>
+            <cell>D</cell>
+          </row>
+          <row bottom="minor">
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+            <cell/>
+          </row>
+          <row>
+            <cell>26</cell>
+            <cell>62</cell>
+            <cell>62</cell>
+            <cell>62</cell>
+            <cell>62</cell>
+            <cell>62</cell>
+            <cell>2</cell>
+            <cell>29</cell>
+            <cell>29</cell>
+            <cell>29</cell>
+            <cell>29</cell>
+            <cell>29</cell>
+            <cell>10</cell>
+          </row>
+        </tabular>
+      </figure>
+      <p>Di bawah setiap posisi dalam string, kita menuliskan banyaknya pilihan untuk posisi tersebut.
+        (Sebagai contoh, terdapat 62 pilihan untuk posisi kedua karena ada <m>52</m>
+        huruf setelah huruf kapital dan huruf kecil sama-sama diperhitungkan, serta <m>10</m> digit.) Kemudian kita mengalikan
+        banyaknya pilihan untuk setiap posisi karena setiap pilihan tidak bergantung pada pilihan lainnya. Dengan demikian, banyaknya nama pengguna yang mungkin adalah <md>
+        26\times 62^5 \times 2 \times 29^5\times 10 =
+          9\,771\,287\,250\,890\,863\,360
+        </md>
+        . </p>
+    </solution>
+  </example>
+  <reading-questions label="rqs-strings_intro" component="runestone">
+    <exercise label="appcomb_strings_intro_reading">
+      <statement>
+        <p>
+          Andaikan kita membentuk string dengan panjang empat. Karakter pertama dan kedua dalam string tersebut berupa huruf kapital dalam alfabet Inggris. Karakter ketiga berupa sebuah digit (<m>0</m><ndash/><m>9</m>), dan karakter keempat berupa huruf konsonan kecil dalam alfabet Inggris. Berapa banyak string yang memenuhi kriteria ini? Jelaskan penalaran Anda; sebaiknya nyatakan jawaban sebagai hasil kali beberapa bilangan, bukan hanya sebagai nilai numerik akhirnya.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

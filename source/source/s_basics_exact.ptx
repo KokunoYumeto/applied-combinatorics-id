@@ -1,0 +1,62 @@
+<section xml:id="s_basics_exact">
+    <title>Eksak versus Aproksimasi</title>
+
+
+    <introduction>
+        <p>Banyak masalah kombinatorial memiliki solusi <q>eksak</q>, dan dalam kasus seperti itu biasanya kita akan berusaha keras untuk menemukannya. <xref ref="thm_ErdosSzekeres" text="title"/> yang telah dibahas sebelumnya dalam bab ini merupakan contoh yang baik dari hasil <q>eksak</q><fn>Hasil eksak juga disebut <q>terbaik yang mungkin</q>, <q>tajam</q>, atau <q>ketat.</q></fn>. Maksud pernyataan ini adalah bahwa untuk setiap pasangan bilangan bulat positif <m>m</m> dan <m>n</m>, terdapat barisan yang terdiri atas <m>mn</m> bilangan real berbeda yang tidak memiliki subbarisan menaik dengan <m>m+1</m> suku maupun subbarisan menurun dengan<nbsp/><m>n+1</m> suku. Untuk melihatnya, perhatikan barisan <m>\sigma</m> yang didefinisikan sebagai berikut. Untuk setiap <m>i=1,2,\dots,m</m>, misalkan <m>B_i=\{j+(i-1)n:1\le j\le n\}</m>. Perhatikan bahwa setiap <m>B_i</m> merupakan blok yang terdiri atas <m>n</m> bilangan bulat berurutan. Selanjutnya, definisikan suatu permutasi <m>\sigma</m> dari <m>mn</m> bilangan bulat positif pertama dengan menetapkan <m>\alpha\lt \beta</m> apabila terdapat bilangan bulat <m>i_1</m> dan <m>i_2</m>, dengan indeks pertama lebih kecil daripada indeks kedua, sedemikian sehingga <m>\alpha\in B_{i_1}</m> dan <m>\beta\in B_{i_2}</m>. Selain itu, untuk setiap <m>i=1,2,\dots,m</m>, tetapkan <m>\alpha\lt \beta</m> dalam <m>\sigma</m> apabila <m>1+(i-1)n\le \beta\lt \alpha\le in</m>. Jelas bahwa setiap subbarisan menaik dari <m>\sigma</m> memuat paling banyak satu anggota dari setiap blok, sehingga <m>\sigma</m> tidak memiliki subbarisan menaik dengan<nbsp/><m>m+1</m> suku. Di sisi lain, setiap subbarisan menurun dalam <m>\sigma</m> termuat dalam satu blok, sehingga <m>\sigma</m> tidak memiliki subbarisan menurun dengan <m>n+1</m> suku.
+        </p>
+
+        <p>Sebagai contoh lain dari solusi eksak, banyaknya solusi bilangan bulat untuk <m>x_1+x_2+\dots x_r=n</m> dengan <m>x_i&gt;0</m> untuk <m>i=1,2,\dots,r</m> adalah tepat <m>C(n-1,r-1)</m>. Di sisi lain, belum ada satu pun hal yang telah kita bahas sejauh ini yang memungkinkan kita memberikan solusi eksak untuk banyaknya partisi dari suatu bilangan bulat<nbsp/><m>n</m>.
+        </p>
+    </introduction>
+
+
+    <subsection>
+        <title>Solusi Aproksimasi dan Asimtotik</title>
+        <p>Berikut adalah contoh masalah terkenal yang hanya dapat kita bahas melalui solusi aproksimasi, setidaknya ketika ukuran masukannya cukup besar. Untuk suatu bilangan bulat <m>n</m>, misalkan <m>\pi(n)</m> menyatakan banyaknya bilangan prima di antara <m>n</m> bilangan bulat positif pertama. Sebagai contoh, <m>\pi(12)=5</m> karena <m>2</m>, <m>3</m>, <m>5</m>, <m>7</m>, dan <m>11</m> merupakan bilangan prima. Nilai eksak <m>\pi(n)</m> diketahui untuk <m>n\le 10^{23}</m>, dan bahkan:
+        <md>
+            \pi(10^{23}) = 1,925,320,391,606,803,968,923
+        </md>
+        </p>
+        <p>Di sisi lain, Anda mungkin bertanya apakah <m>\pi(n)</m> menuju tak hingga ketika <m>n</m> semakin besar. Jawabannya ya, dan berikut adalah argumen klasik yang cukup sederhana. Andaikan, sebaliknya, hanya terdapat <m>k</m> bilangan prima, dengan <m>k</m> suatu bilangan bulat positif. Andaikan <m>k</m> bilangan prima ini dicantumkan dalam urutan menaik sebagai <m>p_1\lt p_2\lt \dots\lt p_k</m>, lalu perhatikan bilangan <m>n=1+p_1p_2\cdots p_k</m>. Bilangan <m>n</m> tidak habis dibagi oleh satu pun dari bilangan prima tersebut dan nilainya lebih besar daripada <m>p_k</m>. Oleh karena itu, <m>n</m> merupakan bilangan prima yang lebih besar daripada <m>p_k</m> atau habis dibagi oleh suatu bilangan prima yang lebih besar daripada <m>p_k</m>.
+        </p>
+
+        <p>Dengan demikian, kita mengetahui bahwa <m>\lim_{n\rightarrow\infty}\pi(n)=\infty</m>. Dalam keadaan seperti ini, matematikawan biasanya ingin mengetahui lebih jauh seberapa cepat <m>\pi(n)</m> menuju tak hingga. Sejumlah fungsi menuju tak hingga secara <q>lambat</q>, seperti <m>\log n</m> atau <m>\log\log n</m>. Fungsi lain menuju tak hingga dengan cepat, seperti <m>2^n</m>, <m>n!</m>, atau <m>2^{2^n}</m>. Karena <m>\pi(n)\le n</m>, fungsi tersebut tidak mungkin menuju tak hingga secepat ketiga fungsi terakhir, tetapi mungkin saja laju pertumbuhannya seperti <m>\log n</m> atau mungkin <m>\sqrt{n}</m>.
+        </p>
+
+        <p>Berdasarkan hasil perhitungan (yang dilakukan dengan tangan, jauh sebelum komputer tersedia), pada tahun 1796 Legendre mengajukan konjektur bahwa <m>\pi(n)</m> menuju tak hingga seperti <m>n/\ln n</m>. Lebih tepatnya, ia mengajukan konjektur bahwa
+        <md>
+            \lim_{n\rightarrow\infty}\frac{\pi(n)\ln n}{n}=1.
+        </md>
+            Pada tahun 1896, tepat seratus tahun setelah konjektur Legendre, Hadamard dan de la Vall&#233;e-Poussin secara terpisah menerbitkan pembuktian konjektur tersebut dengan menggunakan teknik yang berakar pada karya perintis Riemann dalam analisis kompleks. Hasil ini, yang kini cukup dikenal sebagai <em>Teorema Bilangan Prima</em>, hingga sekarang tetap menjadi topik yang banyak dipelajari pada perbatasan antara analisis dan teori bilangan.
+        </p>
+    </subsection>
+
+
+    <subsection>
+        <title>Algoritma Waktu Polinomial</title>
+        <idx><h>algoritma</h><h>waktu polinomial</h></idx>
+        <p>Di sepanjang buku ini, kita akan memberikan perhatian besar pada masalah yang dapat diselesaikan dalam waktu polinomial. Artinya, terdapat suatu konstanta <m>c&gt;0</m> dan suatu algoritma <m>\cgA</m> untuk menyelesaikan masalah tersebut dengan waktu berjalan <m>O(n^c)</m>, dengan <m>n</m> sebagai ukuran masukan. Simbol <m>\cgP</m> mengingatkan kita pada kata <em>polinomial</em>.<notation><usage><m>\cgP</m></usage><description>masalah waktu polinomial</description></notation>
+        </p>
+    </subsection>
+
+
+    <subsection>
+        <title><m>\cgP=\cgN\cgP</m>?</title>
+        <p>Mungkin pertanyaan paling terkenal pada perbatasan antara matematika kombinatorial, ilmu komputer teoretis, dan logika matematika adalah pertanyaan yang sangat sulit mengenai apakah <m>\cgP</m> sama dengan <m>\cgN\cgP</m>. Masalah ini biasa ditulis secara ringkas sebagai: <m>\cgP=\cgN\cgP</m>? Di sini, kami menyajikan pembahasan informal singkat mengenai masalah tersebut.
+        </p>
+
+        <p>Pertama, kita telah memperkenalkan kelas <m>\cgP</m> yang terdiri atas semua masalah kombinatorial ya-tidak yang dapat diselesaikan dengan algoritma waktu polinomial. Dua masalah pertama yang dibahas dalam bab ini termasuk dalam <m>\cgP</m> karena masing-masing dapat diselesaikan dengan algoritma yang memiliki waktu berjalan <m>O(n)</m> dan <m>O(n^3)</m>. Menentukan apakah suatu graf dapat diwarnai dengan <m>2</m> warna dan apakah graf tersebut terhubung juga dapat dilakukan dengan algoritma waktu polinomial.
+        </p>
+
+        <p>Perlu kami tekankan bahwa menentukan apakah suatu masalah termasuk dalam kelas <m>\cgP</m> atau tidak dapat menjadi sangat sulit. Sebagai contoh, kami belum mengetahui cara memberikan algoritma cepat untuk menyelesaikan masalah ketiga (jumlah subhimpunan), tetapi hal itu tidak berarti algoritma semacam itu tidak ada. Mungkin kita semua perlu belajar lebih keras!
+        </p>
+
+        <p>Dengan mengesampingkan persoalan itu sejenak, kelas <m>\cgN\cgP</m><notation><usage><m>\cgN\cgP</m></usage><description>masalah waktu polinomial nondeterministik</description></notation> terdiri atas masalah ya<ndash/>tidak yang, untuk jawaban ya, memiliki sertifikat yang kebenarannya dapat diverifikasi dalam waktu polinomial. Secara lebih formal, kelas ini disebut kelas masalah <term>waktu polinomial nondeterministik</term>. Masalah ketiga kita jelas termasuk dalam kelas ini.<idx><h>waktu polinomial nondeterministik</h></idx>
+        </p>
+
+        <p>Pertanyaan terkenalnya adalah apakah kedua kelas tersebut sama. Jelas bahwa setiap masalah yang termasuk dalam <m>\cgP</m> juga termasuk dalam <m>\cgN\cgP</m>, yakni <m>\cgP\subseteq\cgN\cgP</m>, tetapi apakah keduanya sama? Sulit membayangkan bahwa terdapat algoritma waktu polinomial untuk menyelesaikan masalah ketiga (masalah jumlah subhimpunan), dan belum ada seorang pun yang hampir menuntaskan persoalan ini. Namun, jika Anda memperoleh gagasan yang baik, pastikan untuk membahasnya dengan salah satu atau kedua penulis buku ini sebelum mengumumkan temuan Anda. Jika ternyata Anda benar, Anda tentu akan menghargai kesempatan berfoto bersama kami.
+        </p>
+    </subsection>
+
+</section>

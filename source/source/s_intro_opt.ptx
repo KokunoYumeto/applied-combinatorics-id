@@ -1,0 +1,51 @@
+<section xml:id="s_intro_opt">
+    <title>Kombinatorika dan Optimisasi</title>
+    <p>Anda mungkin sudah pernah diperkenalkan dengan masalah optimisasi. Mahasiswa kalkulus di seluruh dunia mengenal persoalan petani yang berusaha memagari lahan seluas mungkin dengan panjang pagar tertentu, atau orang yang hendak menyeberangi sungai di bagian hilir dari posisinya sekarang dan harus menentukan titik penyeberangan berdasarkan kecepatan berlari dan berenang. Namun, masalah-masalah ini pada dasarnya bersifat kontinu. Secara teori, Anda dapat menyeberangi sungai di titik mana pun yang diinginkan, sekalipun koordinatnya irasional. (Baiklah, tidak benar-benar irasional, tetapi berupa hampiran desimal yang baik.) Dalam mata kuliah ini, kita akan mengkaji beberapa masalah optimisasi yang tidak kontinu karena hanya nilai bilangan bulat bagi variabelnya yang masuk akal. Ternyata, banyak di antaranya sangat sulit diselesaikan secara umum.
+    </p>
+    <example>
+        <p>Pada <xref ref="fig_wgraph-1"/>, kita menggunakan huruf sebagai label simpul agar secara visual mudah dibedakan dari bobot bilangan bulat pada sisi.
+        </p>
+        <figure xml:id="fig_wgraph-1">
+            <caption>Graf berlabel dengan sisi berbobot</caption>
+            <image width="55%" source="3012-fig12"><description><p>Graf tak berarah dengan sepuluh simpul berlabel A, B, C, D, E, F, G, H, J, dan K. Angka di samping setiap sisi menyatakan bobot sisi tersebut; misalnya, sisi dari E ke G berbobot 11, sedangkan sisi dari D ke B berbobot 2.</p>
+            </description></image>
+        </figure>
+        <p>Misalkan simpul-simpulnya adalah kota, sisi-sisinya adalah jalan raya, dan bobot pada sisi menyatakan <term>jarak</term>.
+                  <ol>
+            <li>
+                <p>Apakah lintasan terpendek dari simpul<nbsp/><m>E</m> ke simpul<nbsp/><m>B</m>?
+                </p>
+            </li>
+            <li>
+                <p>Misalkan Ariel adalah tenaga penjualan yang berpangkalan di kota<nbsp/><m>A</m>. Dalam urutan apa Ariel harus mengunjungi kota-kota lainnya agar melewati masing-masing kota sekurang-kurangnya sekali dan akhirnya kembali ke pangkalannya<mdash/>dengan tetap meminimumkan jarak total yang ditempuh? Dapatkah Ariel melakukan perjalanan semacam itu dengan mengunjungi setiap kota <em>tepat</em> sekali?
+                </p>
+            </li>
+            <li>
+                <p>Sanjay adalah insinyur pemeriksa jalan raya dan harus melintasi setiap jalan raya tiap bulan. Pangkalan Sanjay berada di kota<nbsp/><m>E</m>. Dalam urutan apa Sanjay harus melintasi jalan-jalan raya tersebut untuk meminimumkan jarak total yang ditempuh? Dapatkah Sanjay melakukan perjalanan semacam itu dengan melintasi setiap jalan raya tepat sekali?
+                </p>
+            </li>
+        
+                  </ol>
+                </p>
+    </example>
+
+    <example>
+        <p>Sekarang misalkan simpul-simpulnya adalah lokasi kantor cabang sebuah bank di Atlanta dan bobot pada suatu sisi menyatakan biaya, dalam jutaan dolar, untuk membangun sambungan data berkapasitas tinggi antara kantor cabang di kedua ujung sisi itu. Dalam model ini, jika tidak ada sisi di antara dua kantor cabang, biaya pembangunan sambungan data bagi pasangan tersebut dianggap terlampau tinggi (di sini kita mungkin tergoda untuk mengatakan bahwa biayanya tak hingga, tetapi para penulis tidak mengaku memahami arti kata itu).
+        </p>
+        <p>Tantangan kita adalah menentukan sambungan data mana yang perlu dibangun agar terbentuk jaringan tempat setiap kantor cabang dapat berkomunikasi dengan kantor cabang lainnya. Kita mengasumsikan bahwa data dapat mengalir ke kedua arah pada sambungan yang dibangun dan dapat diteruskan melalui sebanyak apa pun sambungan data. Jadi, agar komunikasi sepenuhnya dimungkinkan, kita perlu membangun sebuah <term>pohon merentang</term> dalam jaringan ini. Pada <xref ref="fig_spantree-1"/>, graf <m>G</m> ditampilkan di sebelah kiri dan salah satu dari sekian banyak pohon merentangnya di sebelah kanan.
+        </p>
+        <figure xml:id="fig_spantree-1">
+            <caption>Graf berbobot dan sebuah pohon merentang</caption>
+            <image width="80%" source="3012-fig19"><description><p>Dua panel menggunakan tujuh simpul berlabel A hingga G. Panel kiri memperlihatkan graf berbobot lengkap dengan sebelas sisi. Panel kanan mempertahankan keenam sisi berbobot 12, 25, 19, 18, 23, dan 19 yang menghubungkan seluruh simpul tanpa membentuk siklus, sehingga menjadi pohon merentang.</p>
+            </description></image>
+        </figure>
+        <p>Bobot pohon merentang adalah jumlah bobot sisi-sisinya. Dalam model kita, jumlah ini menyatakan biaya, sekali lagi dalam jutaan dolar, untuk membangun sambungan data yang berkaitan dengan sisi-sisi dalam pohon merentang. Untuk pohon merentang pada <xref ref="fig_spantree-1"/>, jumlah tersebut adalah
+        <md>
+            12+25+19+18+23+19 = 116.
+        </md>
+        Dari semua pohon merentang, tentu saja pihak bank ingin menemukan pohon dengan bobot minimum.
+        </p>
+        <p>Berapa banyak pohon merentang yang dimiliki graf ini? Untuk graf besar, misalnya graf dengan <m>2875</m> simpul, apakah masuk akal mencari semua pohon merentang lalu sekadar mengambil yang berbiaya minimum? Secara khusus, untuk bilangan bulat positif<nbsp/><m>n</m>, berapa banyak pohon yang memiliki himpunan simpul <m>\{1,2,3,\dots,n\}</m>?
+        </p>
+    </example>
+</section>

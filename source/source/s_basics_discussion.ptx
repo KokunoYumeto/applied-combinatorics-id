@@ -1,0 +1,8 @@
+<section xml:id="s_basics_discussion">
+    <title>Diskusi</title>
+    <p>Carlos, Dave, dan Yolanda terpikat oleh pembahasan mengenai kompleksitas. Zori tidak begitu antusias, tetapi bahkan ia menyadari bahwa pertanyaan tentang masalah mana yang dapat diselesaikan dengan cepat memiliki implikasi praktis. Ia bahkan dapat memperkirakan bahwa orang bisa memperoleh penghasilan yang lumayan dengan menyelesaikan masalah lebih cepat dan lebih akurat daripada pesaing mereka.
+    </p>
+
+    <p>Bob berkomentar, <q>Saya tidak yakin memahami apa yang sedang dibicarakan di sini. Saya tidak mengerti mengapa tidak mungkin semua masalah dapat diselesaikan. Mungkin kita hanya belum mengetahui caranya.</q> Xing berkata, <q>Setiap masalah berhingga <em>dapat</em> diselesaikan. Selalu ada cara untuk mendaftar semua kemungkinan, membandingkannya satu per satu, lalu mengambil yang terbaik sebagai jawaban.</q> Alice ikut menimpali, <q>Begini, suatu masalah mungkin memerlukan waktu lama hanya karena ukurannya besar. Sebagai contoh, misalkan Anda diberi dua <init>DVD</init>, masing-masing terisi penuh oleh data yang merepresentasikan sebuah bilangan bulat besar. Bagaimana mungkin Anda mengalikan keduanya, bahkan dengan komputer besar dan perangkat lunak canggih?</q> Carlos kemudian menambahkan, <q>Namun, menurut saya memang ada masalah yang benar-benar sulit, yang akan memerlukan waktu lama untuk diselesaikan oleh algoritma apa pun, bukan semata-mata karena ukuran masukannya besar. Saat ini, saya belum tahu bagaimana merumuskan masalah semacam itu, tetapi saya menduga masalah-masalah tersebut memang ada.</q>
+    </p>
+</section>

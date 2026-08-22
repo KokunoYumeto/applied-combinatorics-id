@@ -1,0 +1,91 @@
+<section xml:id="s_background_ZFC">
+    <title>Aksioma Zermelo–Fraenkel untuk Teori Himpunan</title>
+    <idx><h>himpunan</h><h>aksioma Zermelo–Fraenkel</h></idx>
+    <p>
+        Pada bagian pertama lampiran ini, kita meletakkan sistem bilangan di atas landasan yang kukuh, tetapi dalam prosesnya kita menggunakan pemahaman intuitif tentang himpunan. Tidak mengherankan bahwa pendekatan ini penuh bahaya. Sebagaimana pertama kali disadari lebih dari 100 tahun lalu, terdapat hambatan konseptual besar dalam merumuskan sistem aksioma teori himpunan yang konsisten. Sangat mudah pula membuat pernyataan yang terdengar <q>jelas</q>, padahal tidak demikian.
+    </p>
+
+    <p>Berikut salah satu contoh yang sangat terkenal. Misalkan <m>X</m> dan <m>Y</m> adalah himpunan, lalu perhatikan dua pernyataan berikut:
+                  <ol>
+        <li><p>Terdapat injeksi <m>f:X\rightarrow Y</m>.</p></li>
+        <li><p>Terdapat surjeksi <m>g:Y\rightarrow X</m>.</p></li>
+    
+                  </ol>
+                </p>
+
+    <p>Jika <m>X</m> merupakan himpunan hingga tak kosong dan <m>Y</m> merupakan himpunan hingga, kedua pernyataan ini ekuivalen. Mungkin wajar untuk menduga bahwa hal yang sama berlaku ketika <m>X</m> dan <m>Y</m> tak hingga, tetapi ternyata tidak.
+    </p>
+
+    <p>Berikut sistem aksioma yang lazim dikenal sebagai ZFC, singkatan dari Zermelo–Fraenkel ditambah Aksioma Pilihan. Dalam sistem ini, gagasan <term>himpunan</term> dan operator keanggotaan <m>\in</m> tidak didefinisikan. Akan tetapi, jika <m>A</m> dan <m>B</m> merupakan himpunan, tepat satu dari pernyataan berikut bernilai benar: (i)<nbsp/><m>A\in B</m> <em>benar</em>; (ii)<nbsp/><m>A\in B</m> <em>salah</em>. Jika <m>A\in B</m> salah, kita menulis <m>A\notin B</m>. Selain itu, terdapat relasi ekuivalensi <m>=</m> yang didefinisikan pada himpunan.
+    </p>
+    <axiom xml:id="axiom_ZFC">
+        <title>Aksioma Zermelo–Fraenkel dengan Aksioma Pilihan</title>
+        <statement>
+            <p>
+               <dl>
+                <li><title>Aksioma ekstensionalitas</title>
+                <p>Dua himpunan sama jika dan hanya jika keduanya memiliki elemen yang sama.
+                </p>
+                </li>
+
+                <li>
+                    <title>Aksioma himpunan kosong</title> 
+                    <p>Terdapat himpunan <m>\emptyset</m> yang tidak memiliki elemen.</p>
+                </li>
+
+                <li>
+                    <title>Aksioma pasangan</title> 
+                    <p>Jika <m>x</m> dan <m>y</m> merupakan himpunan, terdapat himpunan yang hanya memuat <m>x</m> dan <m>y</m> sebagai elemennya, yang kita notasikan dengan <m>\{x,y\}</m>. Catatan: Jika <m>x=y</m>, kita cukup menulis <m>\{x\}</m>.</p>
+                </li>
+
+                <li>
+                    <title>Aksioma gabungan</title>
+                    <p>Untuk setiap himpunan <m>x</m>, terdapat himpunan <m>y</m> sedemikian sehingga elemen-elemen <m>y</m> tepat merupakan elemen dari elemen-elemen <m>x</m>.</p>
+                </li>
+
+                <li>
+                    <title>Aksioma tak hingga</title> 
+                    <p>Terdapat himpunan <m>x</m> sedemikian sehingga <m>\emptyset\in x</m> dan, setiap kali <m>y\in x</m>, berlaku pula <m>y\cup\{y\}\in x</m>.</p>
+                </li>
+
+                <li>
+                    <title>Aksioma himpunan kuasa</title>
+                    <p>Setiap himpunan memiliki himpunan kuasa. Artinya, untuk setiap himpunan <m>x</m>, terdapat himpunan <m>y</m> sedemikian sehingga elemen-elemen <m>y</m> tepat merupakan himpunan bagian dari<nbsp/><m>x</m>.</p>
+                </li>
+
+                <li>
+                    <title>Aksioma regularitas</title> 
+                    <p>Setiap himpunan tak kosong <m>x</m> memuat suatu elemen <m>y</m> sedemikian sehingga <m>x</m> dan <m>y</m> merupakan himpunan saling lepas.</p>
+                </li>
+
+                <li>
+                    <title>Aksioma pemisahan (atau aksioma himpunan bagian)</title>
+                    <p>Diberikan sebarang himpunan dan sebarang proposisi <m>P(x)</m>, terdapat himpunan bagian dari himpunan semula yang tepat memuat elemen-elemen <m>x</m> yang memenuhi <m>P(x)</m>.</p>
+                </li>
+
+                <li>
+                    <title>Aksioma penggantian</title> 
+                    <p>Diberikan sebarang himpunan dan sebarang pemetaan, yang secara formal didefinisikan sebagai proposisi <m>P(x,y)</m> dengan sifat bahwa <m>P(x,y_1)</m> dan <m>P(x,y_2)</m> mengakibatkan <m>y_1 = y_2</m>, terdapat himpunan yang tepat memuat citra elemen-elemen himpunan semula.</p>
+                </li>
+
+                <li>
+                    <title>Aksioma pilihan</title> 
+                    <p>Diberikan sebarang himpunan yang elemen-elemennya berupa himpunan tak kosong dan saling lepas, terdapat sekurang-kurangnya satu himpunan yang memiliki tepat satu elemen bersama dengan setiap himpunan tak kosong tersebut.</p>
+                </li>
+               </dl>
+            </p>
+        </statement>
+    </axiom>
+
+    <p>Salah satu sumber informasi tambahan (gratis) yang baik tentang teori himpunan ialah kumpulan artikel Wikipedia. Lakukan pencarian web dan carilah topik serta tokoh berikut:
+                  <ol>
+        <li><p>Teori himpunan Zermelo–Fraenkel.</p></li>
+        <li><p>Aksioma Pilihan.</p></li>
+        <li><p>Postulat Peano.</p></li>
+        <li><p>Georg Cantor, Augustus De Morgan, George Boole, Bertrand Russell
+        dan Kurt G&#246;del.</p></li>
+    
+                  </ol>
+                </p>
+
+</section>

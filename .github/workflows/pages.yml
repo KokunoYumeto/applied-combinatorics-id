@@ -1,0 +1,54 @@
+name: Publish exact Indonesian HTML reader to GitHub Pages
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Release tag containing the verified HTML ZIP
+        required: true
+        default: "2026.08.22.1"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download exact HTML release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.release_tag }}
+        run: |
+          set -euo pipefail
+          mkdir -p download site
+          gh release download "$RELEASE_TAG" --repo "${{ github.repository }}" --pattern "03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.1.zip" --dir download
+          printf '%s  %s
+' "ab57743e7ba38edfb4f9c17f01dc39978332233fc512472bf5f10542429a06ac" "download/03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.1.zip" | sha256sum --check --strict
+          unzip -q "download/03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.1.zip" -d site
+          test -f site/index.html
+          test "$(find site -type f | wc -l)" -eq 1495
+          test "$(find site -type f -printf '%s
+' | awk '{s+=$1} END {printf "%.0f", s}')" -eq 287593006
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Upload verified reader
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

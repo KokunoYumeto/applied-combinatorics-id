@@ -1,0 +1,82 @@
+<section xml:id="s_background_relations">
+    <title>Relasi Biner dan Fungsi</title>
+    <p>Suatu himpunan bagian <m>R\subseteq X\times Y</m> disebut <term>relasi biner</term><idx><h>relasi</h><h>biner</h></idx> pada <m>X\times Y</m>. Relasi biner <m>R</m> pada <m>X\times Y</m> disebut <term>fungsi dari <m>X</m> ke <m>Y</m></term><idx><h>fungsi</h></idx> jika untuk setiap <m>x\in X</m> terdapat <em>tepat satu</em>
+        unsur <m>y\in Y</m> yang memenuhi <m>(x,y)\in R</m>.
+    </p>
+
+    <p>
+        Banyak penulis lebih suka menyatakan syarat suatu relasi menjadi fungsi dalam dua bagian:
+                  <ol>
+        <li>
+            <p>Untuk setiap <m>x\in X</m>, terdapat <em>suatu</em> unsur <m>y\in Y</m> yang memenuhi <m>(x,y)\in R</m>.
+            </p>
+        </li>
+        <li xml:id="cond_function-at-most-one">
+            <p>Untuk setiap <m>x\in X</m>, terdapat <em>paling banyak satu</em> unsur <m>y\in Y</m> yang memenuhi <m>(x,y)\in R</m>.
+            </p>
+        </li>
+    
+                  </ol>
+                </p>
+    <p>Syarat kedua sering dinyatakan dalam bentuk lain berikut: jika <m>x\in X</m>, <m>y_1,y_2\in Y</m>, dan <m>(x,y_1),(x,y_2)\in R</m>, maka
+        <m>y_1=y_2</m>.
+    </p>
+    <example xml:id="exa_function">
+        <p>Sebagai contoh, misalkan <m>X=[4]</m> dan <m>Y=[5]</m>. Selanjutnya, tetapkan
+        <md>
+                <mrow>R_1\amp =\{(2,1),(4,2),(1,1),(3,1)\}</mrow>
+                <mrow>R_2\amp =\{(4,2),(1,5),(3,2)\}</mrow>
+                <mrow>R_3\amp=\{(3,2),(1,4),(2,2),(1,1),(4,5)\}</mrow>
+        </md>
+        Di antara relasi-relasi ini, hanya <m>R_1</m> yang merupakan fungsi dari <m>X</m> ke <m>Y</m>.
+        </p>
+    </example>
+    <p>Dalam banyak konteks, seperti kalkulus, fungsi biasanya dinyatakan dengan huruf seperti <m>f</m>, <m>g</m>, dan <m>h</m>. Misalkan <m>f</m> merupakan fungsi dari himpunan <m>X</m> ke himpunan <m>Y</m>. Berdasarkan sifat yang mendefinisikan fungsi, untuk setiap <m>x\in X</m> terdapat unsur tunggal <m>y\in Y</m> yang memenuhi <m>(x,y)\in f</m>. Dalam hal ini, kita mengikuti konvensi penulisan <m>y=f(x)</m>. Sebagai contoh, jika <m>f=R_1</m> merupakan fungsi dalam <xref ref="exa_function"/>, maka <m>2=f(4)</m> dan <m>f(3) =1</m>.
+    </p>
+
+    <p>Notasi singkat <m>f:X\rightarrow Y</m> digunakan untuk menyatakan bahwa <m>f</m> merupakan fungsi dari himpunan <m>X</m> ke himpunan <m>Y</m>.<notation><usage><m>f\colon X\rightarrow Y</m></usage><description><m>f</m> merupakan fungsi dari <m>X</m> ke <m>Y</m></description></notation>
+    </p>
+
+    <p>Dalam kalkulus, kita mempelajari fungsi yang didefinisikan oleh aturan aljabar. Sebagai contoh, tinjau fungsi <m>f</m> dengan aturan <m>f(x) = 5x^3-8x+7</m>. Notasi singkat ini berarti bahwa <m>X=Y=\reals</m> dan
+    <md>
+        f=\{(x,5x^3-8x+7):x\in\reals\}
+    </md>
+        Dalam kombinatorika, kita kadang-kadang mempelajari fungsi yang didefinisikan secara aljabar seperti dalam kalkulus, tetapi kita juga akan sering mendeskripsikan fungsi dengan jenis aturan lain. Sebagai contoh, definisikan <m>f:\posints\rightarrow\posints</m> dengan <m>f(n) = |n/2|</m> jika <m>n</m> genap dan <m>f(n)=3|n|+1</m> jika <m>n</m> ganjil.
+    </p>
+
+    <p>Suatu fungsi <m>f:X\rightarrow Y</m> disebut <term>injeksi</term> <idx><h>injeksi</h></idx> dari <m>X</m> ke <m>Y</m> jika
+untuk setiap <m>y\in Y</m> terdapat <em>paling banyak</em> satu unsur
+        <m>x\in X</m> yang memenuhi <m>y=f(x)</m>.
+    </p>
+
+    <p>Jika arti <m>X</m> dan <m>Y</m> sudah jelas, kita cukup mengatakan bahwa <m>f</m> merupakan <term>injeksi</term>. Injeksi juga disebut fungsi <m>1</m><ndash/><m>1</m> (dibaca <q>satu-ke-satu</q>) dan kadang-kadang dinotasikan dengan <m>f:X\injection Y</m>.<notation><usage><m>f:X\injection Y</m></usage><description><m>f</m> merupakan injeksi dari <m>X</m> ke <m>Y</m></description></notation>
+    <idx><h>fungsi</h><h>satu-ke-satu</h></idx>
+    </p>
+
+    <p>
+        Suatu fungsi <m>f:X\rightarrow Y</m> disebut <term>fungsi surjektif</term><idx><h>fungsi surjektif</h></idx> dari <m>X</m> ke <m>Y</m> jika untuk setiap <m>y\in Y</m> terdapat <em>sekurang-kurangnya</em> satu <m>x\in X</m> yang memenuhi <m>y=f(x)</m>.
+    </p>
+
+    <p>Sekali lagi, jika arti <m>X</m> dan <m>Y</m> sudah jelas, kita cukup mengatakan bahwa <m>f</m> merupakan <term>fungsi surjektif</term>. Fungsi surjektif juga disebut <term>fungsi onto</term><idx><h>fungsi</h><h>onto</h></idx> dan kadang-kadang dinotasikan dengan <m>f:X\surjection Y</m>.<notation><usage><m>f\colon X\surjection Y</m></usage><description><m>f</m> merupakan fungsi surjektif dari <m>X</m> ke <m>Y</m></description></notation>
+    </p>
+
+    <p>Suatu fungsi <m>f</m> dari <m>X</m> ke <m>Y</m> yang sekaligus merupakan injeksi dan fungsi surjektif disebut <term>bijeksi</term><idx><h>bijeksi</h></idx>. Dengan kata lain, bijeksi adalah fungsi <m>1</m><ndash/><m>1</m> dan onto; fungsi ini kadang-kadang dinotasikan dengan <m>f:X \bijection Y</m><notation><usage><m>f\colon X\bijection Y</m></usage><description><m>f</m> merupakan bijeksi dari <m>X</m> ke <m>Y</m></description></notation>. Bijeksi juga disebut <term>korespondensi <m>1</m><ndash/><m>1</m></term>.
+    </p>
+    <example>
+        <p>Misalkan <m>X=Y=\reals</m>. Selanjutnya, misalkan <m>f</m>, <m>g</m>, dan <m>h</m> merupakan fungsi-fungsi yang didefinisikan oleh
+        <ol>
+            <li><m>f(x)=3x-7</m>.</li>
+            <li><m>g(x)=3(x-2)(x+5)(x-7)</m>.</li>
+            <li><m>h(x)=6x^2-5x+13</m>.</li>
+        </ol>
+        Maka <m>f</m> merupakan bijeksi; <m>g</m> merupakan fungsi surjektif tetapi bukan injeksi (<em>Mengapa</em>?); dan <m>h</m> bukan injeksi maupun fungsi surjektif (<em>Mengapa</em>?).
+        </p>
+    </example>
+
+    <proposition>
+        <statement>
+            <p>Misalkan <m>X</m> dan <m>Y</m> merupakan himpunan. Terdapat bijeksi dari <m>X</m> ke <m>Y</m> jika dan hanya jika terdapat bijeksi dari <m>Y</m> ke <m>X</m>.
+            </p>
+        </statement>
+    </proposition>
+</section>

@@ -1,0 +1,312 @@
+<section xml:id="s_graphs_eulerham">
+  <title>Graf Euler dan Hamilton</title>
+  <p>Teori graf adalah bidang matematika yang memiliki banyak penerapan dalam berbagai
+    disiplin. Sepanjang buku ini, kita akan menjumpai sejumlah penerapan tersebut. Namun, asal-usul teori graf
+    dapat ditelusuri ke sebuah masalah di K&#246;nigsberg, Prusia (sekarang Kaliningrad, Rusia) hampir
+    tiga abad yang lalu. Sungai Pregel mengalir melintasi kota itu, dengan dua pulau besar
+    di tengah alirannya. Pulau-pulau tersebut terhubung ke daratan utama melalui tujuh jembatan seperti
+    ditunjukkan dalam <xref ref="fig_bridges"/>. Konon, warga K&#246;nigsberg sering
+    bertanya-tanya apakah seseorang dapat meninggalkan rumahnya, berjalan mengelilingi kota sambil
+    melintasi setiap jembatan tepat satu kali, lalu kembali lagi ke rumah. Leonhard Euler menyelesaikan
+    masalah ini pada tahun 1736 dengan menggunakan teori graf dalam bentuk <xref ref="thm_eulerian"/>. </p>
+  <figure xml:id="fig_bridges">
+    <caption>Jembatan-jembatan K&#246;nigsberg</caption>
+    <image width="65%" source="konigsberg_bridges"><description><p>Peta skematis Sungai Pregel yang membagi empat daratan K&#246;nigsberg, dengan tujuh jembatan yang menghubungkannya</p>
+    </description></image>
+  </figure>
+  <p>Misalkan <m>\bfG</m> adalah graf tanpa simpul terisolasi. Kita menyebut <m>\bfG</m> sebagai <term>graf Euler</term><idx>
+      <h>graf</h>
+      <h>Euler</h>
+    </idx> jika terdapat barisan <m>(x_0,x_1,x_2,\dots,x_t)</m> yang terdiri atas
+    simpul dari <m>\bfG</m>, dengan pengulangan diperbolehkan, sedemikian sehingga <ol>
+      <li><m>x_0=x_t</m>;</li>
+      <li>untuk setiap <m>i=0,1,\dots, t-1</m>, <m>x_ix_{i+1}</m> merupakan sisi dari <m>\bfG</m>;</li>
+      <li>untuk setiap sisi <m>e\in E</m>, terdapat tepat satu bilangan bulat <m>i</m> dengan <m>0\le i\lt t</m>
+    yang memenuhi <m>e=x_ix_{i+1}</m>.</li>
+    </ol>
+  </p>
+
+  <p>Jika <m>\bfG</m> merupakan graf Euler, barisan yang memenuhi ketiga syarat tersebut disebut <term>sirkuit
+    Euler</term><idx>
+      <h>Euler</h>
+      <h>sirkuit</h>
+    </idx>. Barisan simpul <m>(x_0,x_1,\dots,x_t)</m> disebut <term>
+    sirkuit</term><idx>
+      <h>sirkuit</h>
+    </idx> jika hanya memenuhi dua syarat pertama. Perhatikan bahwa
+    barisan yang hanya terdiri atas satu simpul merupakan sirkuit. Sebelum melanjutkan ke
+    karakterisasi Euler yang anggun bagi graf Euler, mari gunakan SageMath untuk menghasilkan beberapa graf yang bersifat
+    Euler maupun yang tidak.</p>
+
+  <p>Jalankan kode di bawah ini. Kode tersebut akan terus berjalan hingga menemukan graf <m>\bfG</m> yang bersifat Euler.
+    Keluaran yang dihasilkan berupa daftar derajat simpul-simpul graf <m>\bfG</m>,
+    diikuti gambar <m>\bfG</m>.</p>
+  <sage>
+    <input>
+      vertices = 13
+      edges = 28
+      g = graphs.RandomGNM(vertices,edges)
+      while (not g.is_eulerian() or not g.is_connected()):
+        g = graphs.RandomGNM(vertices,edges)
+      print(g.degree_sequence())
+      g.show()
+    </input>
+  </sage>
+
+  <p>Kami menganjurkan Anda menjalankan kode di atas beberapa kali, bahkan dengan mengubah jumlah
+    simpul dan sisinya. Jika eksekusinya terasa lama, mungkin jumlah
+    sisi yang Anda tetapkan terlalu sedikit; cobalah menambahnya sedikit. Apakah Anda memperhatikan sesuatu pada derajat
+    simpul-simpul graf yang dihasilkan?</p>
+
+  <p>Sekarang mari kita coba menemukan graf <m>\bfH</m> yang <em>tidak</em> bersifat Euler. Sekali lagi, keluarannya berupa
+    daftar derajat simpul <m>\bfH</m>, diikuti gambar <m>\bfH</m>.</p>
+  <sage>
+    <input>
+      vertices = 15
+      edges = 25
+      g = graphs.RandomGNM(vertices,edges)
+      while (g.is_eulerian() or not g.is_connected()):
+        g = graphs.RandomGNM(vertices,edges)
+      print(g.degree_sequence())
+      g.show()
+    </input>
+  </sage>
+
+  <p>Salah satu hal yang mungkin Anda perhatikan ketika menjalankan blok kode kedua adalah bahwa hasilnya cenderung muncul
+    jauh lebih cepat daripada blok pertama. Hal ini menunjukkan bahwa graf non-Euler lebih banyak daripada
+    graf Euler. Apakah Anda memperhatikan perbedaan pada derajat simpul-simpul graf ini
+    dibandingkan dengan graf Euler?
+  </p>
+  <p>Teorema dasar berikut memberikan karakterisasi lengkap bagi graf Euler. Buktinya menghasilkan
+    algoritma yang mudah diimplementasikan.
+  </p>
+
+  <theorem xml:id="thm_eulerian">
+    <statement>
+      <p>Graf <m>\bfG</m> merupakan graf Euler jika dan hanya jika graf tersebut terhubung dan setiap simpulnya berderajat
+        genap. </p>
+    </statement>
+
+    <proof>
+      <p>Jelas bahwa graf Euler harus terhubung. Selain itu, jika <m>(x_0,x_1,\dots,x_t)</m> merupakan
+        sirkuit Euler dalam <m>\bfG</m>, maka untuk setiap <m>i=0,1,\dots,t-1</m>, sisi <m>
+        x_ix_{i+1}</m> dapat dipandang keluar dari <m>x_i</m> dan masuk ke <m>x_{i+1}</m>. Derajat setiap simpul
+        harus genap karena, untuk setiap simpul <m>x</m>, banyaknya sisi yang keluar dari <m>x</m> sama dengan
+        banyaknya sisi yang masuk ke <m>x</m>. Selain itu, setiap sisi yang bersisian dengan <m>x</m> pasti
+        keluar dari <m>x</m> atau masuk ke<nbsp/><m>x</m>. </p>
+
+      <p>Sekarang kita uraikan suatu proses deterministik yang akan (a)<nbsp/>menemukan sirkuit
+        Euler, (b)<nbsp/>menunjukkan bahwa graf tak terhubung, atau (c)<nbsp/>menemukan simpul berderajat
+        ganjil. Uraian ini disederhanakan dengan mengasumsikan bahwa simpul-simpul <m>\bfG</m> telah
+        diberi label bilangan bulat positif <m>1,2,\dots,n</m>, dengan <m>n</m> menyatakan banyaknya
+        simpul dalam <m>\bfG</m>. Selain itu, kita tetapkan <m>x_0=1</m>. </p>
+
+      <p>Kita memulai algoritma dengan sirkuit trivial <m>C</m> yang hanya memuat simpul <m>x_0=(1)</m>.
+        Selanjutnya, misalkan kita memiliki sirkuit parsial <m>C</m> yang didefinisikan oleh <m>(x_0,
+        x_1,\dots,x_t)</m> dengan <m>x_0=x_t=1</m>. Sisi-sisi berbentuk <m>x_ix_{i+1}</m> telah <term>
+        dilalui</term>, sedangkan sisi-sisi lain dalam <m>\bfG</m> (jika ada) belum dilalui. Jika syarat ketiga
+        bagi sirkuit Euler terpenuhi, proses selesai; jadi, kita asumsikan bahwa syarat itu belum terpenuhi. </p>
+
+      <p>Kemudian kita memilih bilangan bulat terkecil <m>i</m> sehingga terdapat sisi yang bersisian dengan <m>x_i</m>
+        dan belum dilalui. Jika tidak ada bilangan bulat semacam itu, sementara masih terdapat sisi yang
+        belum dilalui, berarti kita telah menemukan bahwa graf tersebut tak terhubung. Kita
+        dapat mengasumsikan bahwa bilangan bulat <m>i</m> tersebut ada. Tetapkan <m>u_0=x_i</m>. Kita mendefinisikan barisan <m>
+        (u_0,u_1,\dots,u_s)</m> secara rekursif. Jika <m>j\ge 0</m>, tetapkan <md>
+          N_j=\{y: u_jy\text{ is an edge in }\bfG\text{ and has not yet been traversed.} \}
+        </md>
+        Jika <m>N_j\neq\emptyset</m>, kita pilih <m>u_{j+1}</m> sebagai bilangan bulat positif terkecil dalam <m>N_j</m>.
+        Jika <m>N_j=\emptyset</m>, maka <m>j\ge1</m>; kita tetapkan <m>s=j</m> dan menghentikan subrutin ini. </p>
+
+      <p>Ketika subrutin berhenti, kita meninjau dua kasus. Jika <m>u_0\neq u_s</m>, maka <m>u_0</m>
+        dan <m>u_s</m> merupakan simpul berderajat ganjil dalam <m>\bfG</m>. Dengan demikian, tersisa
+        kasus <m>u_0=u_s=x_i</m>. Dalam kasus ini, kita cukup memperluas barisan semula <m>
+        (x_0,x_1,\dots,x_t)</m> dengan mengganti bilangan bulat <m>x_i</m> oleh barisan <m>
+        (u_0,u_1,\dots,u_s)</m>. </p>
+    </proof>
+  </theorem>
+  <p>
+    Sekarang kita merangkum algoritma dalam bukti <xref ref="thm_eulerian"/>. Perhatikan bahwa di sini algoritma ditentukan dengan memprioritaskan simpul menurut urutan numerik, dengan asumsi <m>V(\bfG) = [n] </m>. Jika, seperti dalam beberapa latihan, simpul diberi label huruf, Anda harus menafsirkan algoritma ini sebagai memprioritaskan simpul menurut urutan alfabetis. Algoritma ini juga diuraikan secara iteratif, tetapi menghasilkan sirkuit Euler yang sama dengan metode rekursif dalam bukti tersebut.
+  </p>
+  <algorithm xml:id="alg-eulerian">
+    <title>Pencari Sirkuit Euler</title>
+    <statement>
+      <p>
+        <dl>
+          <li>
+            <title>Masukan</title>
+            <p>
+              Sebuah graf <m>\bfG=([n],E)</m>
+            </p>
+          </li>
+          <li>
+            <title>Keluaran</title>
+            <p>
+              Sebuah sirkuit Euler <m>C</m> dalam <m>\bfG</m>, sebuah simpul berderajat ganjil dalam <m>\bfG</m>, atau sebuah komponen terhubung dari <m>\bfG</m> beserta sebuah sisi <m>\bfG</m> yang tidak berada dalam komponen terhubung tersebut.
+            </p>
+          </li>
+        </dl>
+      </p>
+      <p>
+        <ol marker="1.">
+          <li>
+            <p>
+              Inisialisasikan <m>C=(1)</m>.
+            </p>
+          </li>
+          <li xml:id="step-eulerian-subcircuit">
+            <p>
+              Selama belum semua sisi <m>\bfG</m> dilalui, tentukan apakah ada simpul <m>C</m> yang bersisian dengan sisi yang belum dilalui.
+              <ol marker="a.">
+                <li>
+                  <p>
+                    Jika semua sisi yang bersisian dengan setiap simpul <m>C</m> telah dilalui, kembalikan simpul-simpul <m>C</m> sebagai komponen terhubung dari <m>\bfG</m>, beserta sebuah sisi yang tidak dilalui oleh <m>C</m> sebagai bukti bahwa <m>\bfG</m> tak terhubung.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Jika <m>C</m> memiliki simpul yang bersisian dengan sisi yang belum dilalui, sebut simpul itu <m>u_0</m>. Bentuk sebuah jalan <m>W</m> yang dimulai dari <m>u_0</m>. Dari simpul <m>u_i</m>, ikuti sisi yang belum dilalui oleh <m>C</m> maupun <m>W</m> menuju tetangga <m>u_i</m> dengan label terkecil.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Pembentukan <m>W</m> berhenti pada simpul <m>u_s</m> ketika semua sisi yang bersisian dengan simpul tersebut telah dilalui.
+                    <ol marker="i.">
+                      <li>
+                        <p>
+                          Jika <m>u_s\neq u_0</m>, kembalikan <m>u_0</m> sebagai simpul berderajat ganjil, yang menunjukkan bahwa <m>\bfG</m> bukan graf Euler.
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          Jika <m>u_s = u_0</m>, perbarui sirkuit <m>C</m> dengan mengganti <m>u_0</m> dalam <m>C</m> menggunakan jalan <m>W</m>. Lanjutkan iterasi dengan kembali ke <xref ref="step-eulerian-subcircuit">langkah</xref>.
+                        </p>
+                      </li>
+                    </ol>
+                  </p>
+                </li>
+
+              </ol> 
+            </p>
+          </li>
+          <li>
+            <p>
+              Kembalikan <m>C</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </algorithm>
+
+  <p>Sebagai contoh, perhatikan graf <m>\bfG</m> yang ditunjukkan dalam <xref ref="fig_graphs_eulerexample"/>.
+    Jelas bahwa graf ini terhubung dan semua simpulnya berderajat genap. Berikut adalah barisan
+    sirkuit yang dimulai dengan sirkuit trivial <m>C</m> yang hanya memuat simpul <m>1</m>.
+    <md>
+      <mrow> C \amp =(1)</mrow>
+      <mrow> \amp \mapsto (1,2,4,3,1)\quad \text{start next from }2</mrow>
+      <mrow> \amp \mapsto(1,2,5,8,2,4,3,1)\quad\text{start next from } 4</mrow>
+      <mrow> \amp \mapsto(1,2,5,8,2,4,6,7,4,9,6,10,4,3,1)\quad\text{start next from } 7</mrow>
+      <mrow> \amp \mapsto(1,2,5,8,2,4,6,7,9,11,7,4,9,6,10,4,3,1)\quad\text{Done!!}</mrow>
+    </md>
+  </p>
+  <figure xml:id="fig_graphs_eulerexample">
+    <caption>Sebuah Graf Euler</caption>
+    <image width="55%" source="eulerian_graph"><description><p>Graf terhubung dengan sebelas simpul bernomor satu sampai sebelas; setiap simpul berderajat genap</p>
+    </description></image>
+  </figure>
+  <p>Perlu diperhatikan bahwa <xref ref="thm_eulerian"/> berlaku untuk graf tanpa gelang yang memperbolehkan sisi
+    rangkap. Euler menggunakan teoremanya untuk menunjukkan bahwa multigraf K&#246;nigsberg yang ditampilkan
+    dalam <xref ref="fig_bridges-graph"/>, dengan setiap daratan sebagai simpul dan setiap jembatan sebagai
+    sisi, <em>bukan</em> graf Euler; karena itu, warga kota tidak dapat menemukan rute yang mereka inginkan.
+    (Perhatikan bahwa dalam <xref ref="fig_bridges-graph"/> terdapat sisi rangkap di antara pasangan
+    simpul yang sama.) </p>
+  <figure xml:id="fig_bridges-graph">
+    <caption>Multigraf jembatan K&#246;nigsberg</caption>
+    <image width="13%" source="konigsberg_graph"><description><p>Multigraf dengan empat simpul yang mewakili daratan K&#246;nigsberg dan tujuh sisi yang mewakili jembatannya, termasuk beberapa sisi rangkap</p>
+    </description></image>
+  </figure>
+
+  <p>Sebuah graf <m>\GVE</m> disebut <term>graf Hamilton</term><idx>
+      <h>graf</h>
+      <h>Hamilton</h>
+    </idx> jika terdapat barisan <m>(x_1,x_2,\dots,x_n)</m> sedemikian sehingga <ol>
+      <li>setiap simpul <m>\bfG</m> muncul tepat satu kali dalam barisan;</li>
+      <li><m>x_1x_n</m> merupakan sisi dari <m>\bfG</m>; dan</li>
+      <li>untuk setiap <m>i=1,2,\dots,n-1</m>, <m>x_ix_{i+1}</m> merupakan sisi dalam <m>\bfG</m>.</li>
+    </ol>
+    Barisan simpul semacam itu disebut <term>siklus Hamilton</term>.<idx>
+      <h>Hamilton</h>
+      <h>siklus</h>
+    </idx>
+  </p>
+  <p>Graf pertama yang ditampilkan dalam <xref ref="fig_eulham"/> bersifat Euler sekaligus Hamilton. Graf kedua
+    bersifat Hamilton, tetapi tidak Euler. </p>
+  <figure xml:id="fig_eulham">
+    <caption>Graf Euler dan Hamilton</caption>
+    <image width="80%" source="eulerian_hamiltonian_crop"><description><p>Dua graf berlabel G dan H; G merupakan graf Euler sekaligus Hamilton, sedangkan H merupakan graf Hamilton tetapi bukan graf Euler</p>
+    </description></image>
+  </figure>
+  <p>Dalam <xref ref="fig_petersen"/>, ditampilkan sebuah graf terkenal yang disebut graf Petersen. Graf ini bukan
+    graf Hamilton. </p>
+  <figure xml:id="fig_petersen">
+    <caption>Graf Petersen</caption>
+    <image width="50%" source="petersen_graph"><description><p>Graf Petersen dengan sepuluh simpul, digambar sebagai segi lima luar dan bintang bersudut lima di bagian dalam</p>
+    </description></image>
+  </figure>
+  <p>Berbeda dengan sirkuit Euler, belum ada metode yang diketahui untuk menentukan dengan cepat
+    apakah suatu graf merupakan graf Hamilton. Namun, terdapat sejumlah syarat cukup yang menarik.
+    Berikut salah satu contoh terkenal yang dikemukakan oleh Dirac.
+  </p>
+
+  <theorem xml:id="thm_graphs_dirac">
+    <statement>
+      <p>Jika <m>\bfG</m> adalah graf dengan <m>n\geq 3</m> simpul dan setiap simpul dalam <m>\bfG</m> memiliki setidaknya <m>\lceil
+        \frac{n}{2}\rceil</m> tetangga, maka <m>\bfG</m> merupakan graf Hamilton. </p>
+    </statement>
+
+    <proof>
+      <p>Misalkan teorema tersebut salah, dan misalkan <m>n</m> adalah bilangan bulat positif terkecil sehingga
+        terdapat graf <m>\bfG</m> dengan <m>n</m> simpul, setiap simpul dalam <m>\bfG</m> memiliki
+        setidaknya <m>\lceil n/2\rceil</m> tetangga, tetapi tidak terdapat siklus Hamilton dalam <m>\bfG</m>.
+        Jelas bahwa <m>n\ge4</m>. </p>
+
+      <p>Sekarang, misalkan <m>t</m> adalah bilangan bulat terbesar sehingga <m>\bfG</m> memiliki lintasan <m>
+        P=(x_1,x_2,\dots,x_t)</m> pada <m>t</m> simpul. Jelas bahwa semua tetangga <m>x_1</m> maupun <m>
+        x_t</m> muncul pada lintasan ini. Berdasarkan Prinsip Sarang Merpati, terdapat bilangan bulat <m>i</m>
+        dengan <m>1\le i\lt t</m> sedemikian sehingga <m>x_1x_{i+1}</m> dan <m>x_{i}x_t</m> merupakan sisi dalam <m>\bfG</m>.
+        Namun, hal ini menyiratkan bahwa <md>
+          C=(x_1,x_2,x_3,\dots,x_i,x_t,x_{t-1},x_{t-2},\dots,x_{i+1})
+        </md> merupakan
+        siklus dengan panjang <m>t</m> dalam <m>\bfG</m>. Hal ini mengharuskan <m>\lceil n/2\rceil \lt t\lt
+        n</m>. Namun, jika <m>y</m> adalah sembarang simpul yang tidak berada pada siklus tersebut, maka <m>y</m> harus memiliki tetangga pada <m>
+        C</m>. Ini menyiratkan bahwa <m>\bfG</m> memiliki lintasan pada <m>t+1</m> simpul. Kontradiksi tersebut
+        menyelesaikan bukti. </p>
+    </proof>
+  </theorem>
+  <reading-questions xml:id="rqs-graphs_eulerham" component="runestone">
+    <exercise label="graphs_eulerham_reading_compare">
+      <statement>
+        <p>
+          Tulislah beberapa kalimat yang menjelaskan secara informal perbedaan antara graf Euler dan graf Hamilton. Jika memungkinkan, berikan contoh penggunaan masing-masing konsep (selain masalah jembatan yang agak konyol dalam buku ini).
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="graphs_eulerham_reading_noneuler">
+      <statement>
+        <p>
+          Jelaskan secara singkat tetapi spesifik mengapa graf <m>\bfH</m> dalam <xref ref="fig_eulham"/> bukan graf Euler.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+    <exercise label="graphs_eulerham_reading_euler">
+      <statement>
+        <p>
+          Cobalah mencari sirkuit Euler dalam <m>\bfG</m> pada <xref ref="fig_eulham"/> dengan mengikuti metode yang dicontohkan dalam buku ini. Alih-alih memberikan semua langkah atau sirkuit akhir, cukup berikan sirkuit yang Anda peroleh setelah sirkuit trivial awal <m>(1)</m>.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

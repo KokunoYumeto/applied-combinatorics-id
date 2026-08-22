@@ -1,0 +1,55 @@
+<section xml:id="s_ramsey_girth">
+    <title>Metode Probabilistik</title>
+
+
+    <introduction>
+        <p>Pada awal bab ini, kita menyajikan bukti asli Erd&#337;s untuk batas bawah bilangan Ramsey <m>R(n,n)</m> dengan menggunakan pencacahan. Kemudian, kita merumuskan kembali bukti tersebut dalam kerangka probabilistik. Sejarah menunjukkan bahwa sudut pandang kedua inilah yang tepat. Untuk memperlihatkan kekuatan pendekatan ini, kita menyajikan sebuah teorema klasik lain dari Erd&#337;s yang menunjukkan adanya graf dengan girth besar dan bilangan kromatik besar.
+        </p>
+
+        <p><term>Girth</term><idx><h>girth</h></idx> <m>g</m> dari suatu graf <m>G</m> adalah bilangan bulat terkecil sedemikian sehingga <m>G</m> memuat siklus pada <m>g</m> simpul. Girth sebuah hutan dianggap tak hingga, sedangkan girth suatu graf sama dengan tiga jika dan hanya jika graf tersebut mempunyai segitiga. Anda dapat memeriksa keluarga graf bebas segitiga dengan bilangan kromatik besar yang dibangun dalam <xref ref="ch_graphs"/> dan melihat bahwa masing-masing mempunyai girth empat.
+        </p>
+
+        <theorem xml:id="thm_girth">
+            <title>Erd&#337;s</title>
+            <idx><h>girth</h></idx>
+            <idx><h>bilangan kromatik</h></idx>
+            <statement>
+                <p>Untuk setiap pasangan bilangan bulat <m>g,t</m> dengan <m>g\ge3</m>, terdapat graf <m>G</m> dengan <m>\chi(G)&gt;t</m> dan girth <m>G</m> lebih besar daripada <m>g</m>.
+                </p>
+            </statement>
+
+        <proof>
+            <p>Sebelum membahas perincian argumen, mari kita berhenti sejenak untuk memahami gagasan umum di balik bukti tersebut. Kita memilih bilangan bulat <m>n</m> dan <m>s</m> dengan <m>n&gt;s</m>; pada akhirnya akan jelas seberapa besar keduanya perlu dipilih dalam hubungannya dengan <m>g</m> dan <m>t</m>. Kemudian kita meninjau graf acak pada himpunan simpul <m>\{1,2,\dots,n\}</m>. Seperti sebelumnya, untuk setiap <m>i</m> dan <m>j</m> dengan <m>1\le i\lt j\le n</m>, probabilitas bahwa pasangan <m>ij</m> merupakan sisi ialah <m>p</m>, tetapi sekarang <m>p</m> bergantung pada <m>n</m>. Tentu saja, untuk pasangan-pasangan yang berbeda, kejadian bahwa pasangan tersebut merupakan sisi saling bebas.
+            </p>
+
+            <p>Tujuan pertama kita ialah memilih nilai <m>n</m>, <m>s</m>, dan <m>p</m> sedemikian sehingga dengan probabilitas tinggi, suatu graf acak tidak mempunyai himpunan bebas berukuran <m>s</m>. Anda mungkin mengira bahwa tujuan kedua ialah memperoleh graf acak tanpa siklus pendek. Namun, tujuan itu terlalu membatasi. Sebagai gantinya, kita hanya berusaha memperoleh graf yang memiliki relatif sedikit siklus pendek. Tepatnya, kita menginginkan banyaknya siklus pendek kurang dari <m>n/2</m>. Kemudian kita menghapus satu simpul dari setiap siklus pendek, sehingga diperoleh graf dengan sedikitnya <m>n/2</m> simpul, tanpa siklus pendek, dan tanpa himpunan bebas berukuran<nbsp/><m>s</m>. Bilangan kromatik graf ini sedikitnya <m>n/(2s)</m>, sehingga kita menginginkan pertidaksamaan <m>n&gt;2st</m>.
+            </p>
+
+            <p>Sekarang perhatikan beberapa perinciannya. Misalkan <m>X_1</m> merupakan peubah acak yang menghitung banyaknya himpunan bebas <m>s</m>-elemen. Maka
+            <md>
+                E(X_1)=\binom{n}{s}(1-p)^{C(s,2)}
+            </md>
+                Kita menginginkan <m>E(X_1)\lt 1/4</m>. Karena <m>C(n,s)\le n^s=e^{s\ln n}</m> dan <m>(1-p)^{C(s,2)}\le e^{-ps(s-1)/2}</m>, untuk ukuran graf yang cukup besar kita dapat memilih <m>s=3\ln n/p</m>. Berdasarkan <xref ref="thm_markov" text="title"/>, probabilitas bahwa <m>X_1</m> melebihi <m>1/2\ge 2E(X_1)</m> kurang dari <m>1/2</m>.
+            </p>
+
+            <p>Sekarang misalkan <m>X_2</m> menghitung banyaknya siklus dalam <m>G</m> yang berukuran paling besar <m>g</m>. Maka
+            <md>
+                E(X_2)\le \sum_{i=3}^g n(n-1)(n-2)\dots(n-i+1) p^i\le g(pn)^g.
+            </md>
+            Kita menginginkan <m>E(X_2)\le n/4</m>, dan perhitungan sederhana menunjukkan bahwa <m>g(np)^g\le n/4</m> apabila <m>p=n^{1/g-1}/10</m>. Sekali lagi berdasarkan <xref ref="thm_markov" text="title"/>, probabilitas bahwa <m>X_2</m> melebihi <m>n/2\ge 2E(X_2)</m> kurang dari <m>1/2</m>.
+            </p>
+
+            <p>Kita menyimpulkan bahwa terdapat graf <m>G</m> dengan <m>X_1=0</m> dan <m>X_2\le n/2</m>. Hapus satu simpul dari setiap siklus pendek dalam <m>G</m>, dan misalkan <m>H</m> merupakan graf yang tersisa. Jelas bahwa <m>H</m> mempunyai sedikitnya <m>n/2</m> simpul, tidak mempunyai siklus berukuran paling besar<nbsp/><m>g</m>, dan tidak mempunyai himpunan bebas berukuran <m>s</m>. Terakhir, pertidaksamaan <m>n&gt;2st</m> mensyaratkan <m>n^{1/g}/(60\ln n)&gt;t</m>.
+            </p>
+        </proof>
+        </theorem>
+    </introduction>
+
+
+    <subsection>
+        <title>Membangun Intuisi dengan Metode Probabilistik</title>
+        <p>Peneliti berpengalaman mampu menyederhanakan perhitungan dalam argumen semacam ini karena mereka mengetahui apa yang dapat diabaikan dengan aman dan apa yang tidak. Berikut tinjauan singkat atas langkah-langkah utamanya. Kita menginginkan <m>E(X_1)</m> kecil, sehingga kita menetapkan <m>n^se^{-ps^2}=1</m> dan memperoleh <m>s=\ln n/p</m>. Kita menginginkan banyak siklus pendek sekitar <m>n</m>, sehingga kita menetapkan <m>(np)^g=n</m> dan memperoleh <m>p=n^{1/g-1}</m>. Terakhir, kita menginginkan <m>n=st</m>, yang mensyaratkan <m>n^{1/g}=t\ln n</m>. Selebihnya hanyalah memperhatikan perinciannya.
+        </p>
+    </subsection>
+
+</section>

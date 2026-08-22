@@ -1,0 +1,95 @@
+<section xml:id="s_recurrence_linear">
+  <title>Persamaan Rekurensi Linear</title>
+
+  <p>Apa kesamaan semua contoh pada bagian sebelumnya? Hasil akhir yang berhasil kita
+    peroleh adalah suatu <term>rekurensi linear</term><idx>
+      <h>persamaan rekurensi</h>
+      <h>linear</h>
+    </idx>, yang memberi tahu cara menghitung suku <m>n^\text{th}</m> suatu
+    barisan jika sejumlah nilai sebelumnya diketahui (dan mungkin juga bergantung secara tak rekursif pada <m>n</m>,
+    seperti pada contoh terakhir). Lebih tepatnya, suatu persamaan rekurensi disebut <term>
+    linear</term> jika berbentuk <md>
+      c_0a_{n+k}+ c_1a_{n+k-1} + c_2a_{n+k-2} + \dots+c_ka_{n} = g(n),
+    </md> dengan <m>
+    k\ge1</m> suatu bilangan bulat, <m>c_0,c_1,\dots,c_k</m> adalah konstanta dengan <m>c_0,c_k\neq0</m>, dan <m>
+    g:\ints\rightarrow\reals</m> suatu fungsi. (Objek yang baru saja kita definisikan sebenarnya lebih tepat
+    disebut persamaan rekurensi linear dengan <term>koefisien konstan</term><idx>
+      <h>persamaan rekurensi</h>
+      <h>koefisien konstan</h>
+    </idx>, karena kita mensyaratkan agar <m>c_i</m> merupakan konstanta dan
+    melarangnya bergantung pada <m>n</m>. Kita tidak akan memakai penjelas tambahan ini, tetapi
+    akan menyebut persamaan rekurensi linear dengan <term>koefisien tak konstan</term><idx>
+      <h>persamaan rekurensi</h>
+      <h>koefisien tak konstan</h>
+    </idx> apabila <m>c_i</m> diperbolehkan menjadi fungsi dari <m>
+    n</m>.) Suatu persamaan linear bersifat <term>homogen</term><idx>
+      <h>persamaan rekurensi</h>
+      <h>homogen</h>
+    </idx> jika fungsi <m>g(n)</m> di ruas kanan adalah fungsi
+    nol. Sebagai contoh, barisan Fibonacci<idx>
+      <h>Fibonacci</h>
+      <h>barisan</h>
+    </idx> memenuhi persamaan rekurensi linear homogen <md>
+      a_{n+2} - a_{n+1} - a_n = 0.
+    </md> Perhatikan bahwa dalam contoh ini, <m>k=2</m>, <m>c_0=1</m>,
+    dan <m>c_k=-1</m>. </p>
+
+  <p>Sebagai contoh kedua, barisan dalam <xref ref="ex_recurrence_ternary-strings-no-20"/>
+    memenuhi persamaan rekurensi linear homogen <md>
+      t_{n+2} - 3t_{n+1} + t_n = 0.
+    </md> Sekali lagi, <m>k=2</m> dengan <m>c_0=c_k=1</m>. </p>
+
+  <p>Di sisi lain, barisan <m>r_n</m> yang didefinisikan dalam <xref ref="s_recurrence_intro_lines"/>
+    memenuhi persamaan rekurensi linear nonhomogen <md>
+      r_{n+1} - r_{n} = n+1.
+    </md> Dalam hal ini, <m>k=1</m>, <m>c_0=1</m>, dan <m>c_k=-1</m>
+    .
+    </p>
+
+  <p>Tujuan langsung kita adalah mengembangkan teknik untuk menyelesaikan persamaan rekurensi linear,
+    baik yang homogen maupun nonhomogen. Kita akan dapat menuntaskan persoalan penyelesaian
+    persamaan rekurensi linear homogen dan membahas semacam metode <q>tebak dan uji</q> yang
+    dapat digunakan untuk menangani jenis nonhomogen yang lebih rumit. 
+  </p>
+  <reading-questions xml:id="rqs-recurrence_linear" component="runestone">
+    <exercise label="rq-recurrence_linear-matching">
+      <statement>
+        <p>
+          Pasangkan setiap persamaan rekurensi di bawah ini dengan klasifikasi yang tepat.
+        </p>
+      </statement>
+      <cardsort>
+        <match>
+          <premise order="3"><m>a_{n+1}a_{n} - 3n^2 = 0</m>
+          </premise>
+          <response>nonlinear
+          </response>
+        </match>
+        <match>
+          <premise order="1"><m>a_{n+3} - 2^n a_{n+1} + a_n = 0</m>
+          </premise>
+          <response>linear, homogen, koefisien tak konstan
+          </response>
+        </match>
+        <match>
+          <premise order="5"><m>a_{n+5} + 3a_{n+3} - 5a_{n+1} + a_n = 0</m>
+          </premise>
+          <response>linear, homogen, koefisien konstan
+          </response>
+        </match>
+        <match>
+          <premise order="4"><m>a_{n+5} -5a_{n+4} + 3a_n = n^2</m>
+          </premise>
+          <response>linear, nonhomogen, koefisien konstan
+          </response>
+        </match>
+        <match>
+          <premise order="2"><m>a_{n+3} - 2n a_{n+1} + 5a_n = 3^n</m>
+          </premise>
+          <response>linear, nonhomogen, koefisien tak konstan
+          </response>
+        </match>
+      </cardsort>
+    </exercise>
+  </reading-questions>
+</section>

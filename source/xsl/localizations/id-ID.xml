@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--********************************************************************
+Copyright 2014-2021 Robert A. Beezer
+
+This file is part of PreTeXt.
+
+PreTeXt is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 or version 3 of the
+License (at your option).
+
+PreTeXt is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with PreTeXt.  If not, see <http://www.gnu.org/licenses/>.
+*********************************************************************-->
+
+<!-- See  xsl/localizations/README.md  for an explanation of this file -->
+
+<!-- id-ID, Bahasa Indonesia (Indonesia) -->
+<!-- Source-bound Indonesian localization, 2026-08-13 -->
+
+<!-- Every localization should specify the direction of the language, -->
+<!-- there is no assumed default.  Left-to-right is "ltr" and         -->
+<!-- right-to-left is "rtl".  Provide these exactly as written since  -->
+<!-- they can migrate untouched into output (e.g. HTML).              -->
+
+<!-- Every localization should specify two "styles" for how       -->
+<!-- primary/outer quote marks are given (double quotes in        -->
+<!-- English) and how secondary/inner quote marks are given       -->
+<!-- (single quotes in English).  Here are the extant styles      -->
+<!-- and crude Unicode versions of how they might look:           -->
+<!--                                                              -->
+<!--     english-single          ‘word’                           -->
+<!--     english-double          “word”                           -->
+<!--     angle-single            ‹word›                           -->
+<!--     angle-double            «word»                           -->
+<!--     angle-single-space      ‹ word ›                         -->
+<!--     angle-double-space      « word »                         -->
+<!--     down-up-single          ‚word’                           -->
+<!--     down-up-double          „word”                           -->
+<!--                                                              -->
+<!-- Maintainers: please use the  pretext-dev  group to discuss   -->
+<!-- what is best for your language.  If a style exists, then it  -->
+<!-- is just a simple edit of the default English values.  New    -->
+<!-- styles require Unicode values and LaTeX macros to be         -->
+<!-- implemented, work which RAB can do easily.  Examples in the  -->
+<!-- sample article can be updated with new languages/countries,  -->
+<!-- or created with iconic quotes from the specific language.    -->
+<!-- The table at Wikipedia is not a bad thing to consult, even   -->
+<!-- if it seems to have some inaccuracies.                       -->
+<!--                                                              -->
+<!--     https://en.wikipedia.org/wiki/Quotation_mark             -->
+
+<locale language="id-ID" direction="ltr"
+        quote-primary="english-double" quote-secondary="english-single">
+
+    <!-- THEOREM-LIKE blocks -->
+    <!-- Environments which have proofs, plus proofs themselves -->
+    <localization string-id='theorem'>Teorema</localization>
+    <localization string-id='corollary'>Akibat</localization>
+    <localization string-id='lemma'>Lema</localization>
+    <localization string-id='algorithm'>Algoritma</localization>
+    <localization string-id='proposition'>Proposisi</localization>
+    <localization string-id='claim'>Klaim</localization>
+    <localization string-id='fact'>Fakta</localization>
+    <localization string-id='identity'>Identitas</localization>
+    <!-- PROOF-LIKE -->
+    <!-- We know these five names for PROOF-LIKE have subtle shades of meaning. -->
+    <!-- Provide a good translation for "proof" itself, and do your best with   -->
+    <!-- the others.  It is highly likely authors will rename one or more of    -->
+    <!-- the others.                                                            -->
+    <localization string-id='proof'>Bukti</localization>
+    <localization string-id='argument'>Argumen</localization>
+    <localization string-id='justification'>Justifikasi</localization>
+    <localization string-id='reasoning'>Penalaran</localization>
+    <localization string-id='explanation'>Penjelasan</localization>
+    <!-- used for a (logical) portion of a proof -->
+    <localization string-id='case'>Kasus</localization>
+    <!-- Components of the narrative -->
+    <!-- Mathematical statements without proofs -->
+    <!-- AXIOM-LIKE blocks -->
+    <localization string-id='axiom'>Aksioma</localization>
+    <localization string-id='conjecture'>Konjektur</localization>
+    <localization string-id='principle'>Prinsip</localization>
+    <localization string-id='heuristic'>Heuristik</localization>
+    <localization string-id='hypothesis'>Hipotesis</localization>
+    <localization string-id='assumption'>Asumsi</localization>
+    <!-- Definitions -->
+    <localization string-id='definition'>Definisi</localization>
+    <!--Mathematics -->
+    <!-- "equation" is a string signaling one line of displayed mathematics         -->
+    <!-- "displaymath" is a string signaling several lines of displayed mathematics -->
+    <!-- The first is for elements like "me", "men", and "mrow"                     -->
+    <!-- The second is for elements like "md" and "mdn"                             -->
+    <localization string-id='equation'>Persamaan</localization>
+    <!-- Legacy PreTeXt 2.27 identifiers for one-line displayed mathematics. -->
+    <localization string-id='me'>Persamaan</localization>
+    <localization string-id='men'>Persamaan</localization>
+    <localization string-id='mrow'>Persamaan</localization>
+    <localization string-id='displaymath'>Blok Matematika</localization>
+    <!-- Legacy PreTeXt 2.27 identifiers for multiline displayed mathematics. -->
+    <localization string-id='md'>Blok Matematika</localization>
+    <localization string-id='mdn'>Blok Matematika</localization>
+    <!-- Types of documents, mostly for informational messages -->
+    <localization string-id='volume'>Jilid</localization>
+    <localization string-id='book'>Buku</localization>
+    <localization string-id='article'>Artikel</localization>
+    <localization string-id='letter'>Surat</localization>
+    <localization string-id='slideshow'>Tayangan Salindia</localization>
+    <localization string-id='memo'>Memo</localization>
+    <localization string-id='presentation'>Presentasi</localization>
+    <!-- Parts of a document -->
+    <!-- "part" will also be used for a "stage" of a WeBWorK problem -->
+    <localization string-id='frontmatter'>Bagian Awal</localization>
+    <localization string-id='part'>Bagian</localization>
+    <localization string-id='chapter'>Bab</localization>
+    <localization string-id='appendix'>Lampiran</localization>
+    <!-- Next is the plural of Appendix, used to identify a group of appendix -->
+    <localization string-id='appendices'>Lampiran</localization>
+    <localization string-id='section'>Subbab</localization>
+    <localization string-id='subsection'>Subbagian</localization>
+    <localization string-id='subsubsection'>Subsubbagian</localization>
+    <!-- A "slide" is a screenful of a presentation (Powerpoint, Beamer) -->
+    <localization string-id='slide'>Salindia</localization>
+    <localization string-id='introduction'>Pendahuluan</localization>
+    <localization string-id='conclusion'>Kesimpulan</localization>
+    <localization string-id='exercises'>Latihan</localization>
+    <localization string-id='worksheet'>Lembar Kerja</localization>
+    <localization string-id='handout'>Bahan Pegangan</localization>
+    <localization string-id='reading-questions'>Pertanyaan Bacaan</localization>
+    <localization string-id='solutions'>Penyelesaian</localization>
+    <localization string-id='glossary'>Glosarium</localization>
+    <localization string-id='references'>Daftar Pustaka</localization>
+    <localization string-id='backmatter'>Bagian Akhir</localization>
+    <!-- paragraph is deprecated, getting plural correct is not super critical, just in messages -->
+    <localization string-id='paragraphs'>Paragraf</localization>
+    <localization string-id='subparagraph'>Subparagraf</localization>
+    <!-- Adjustments to titles of divisions -->
+    <!-- When the a "worksheet" or "exercises" is marked as being  -->
+    <!-- "group work" the default title gets prefaced with "Group". -->
+    <localization string-id='group'>Kelompok</localization>
+    <!-- Components of the narrative -->
+    <!-- REMARK-LIKE blocks -->
+    <!-- "note" is used within "biblio", likely to change -->
+    <localization string-id='remark'>Catatan</localization>
+    <localization string-id='convention'>Konvensi</localization>
+    <localization string-id='note'>Keterangan</localization>
+    <localization string-id='observation'>Pengamatan</localization>
+    <localization string-id='warning'>Peringatan</localization>
+    <localization string-id='insight'>Wawasan</localization>
+    <!-- COMPUTATION-LIKE blocks -->
+    <localization string-id='computation'>Perhitungan</localization>
+    <localization string-id='technology'>Teknologi</localization>
+    <localization string-id='data'>Data</localization>
+    <!-- ASIDE-LIKE blocks -->
+    <localization string-id='aside'>Selingan</localization>
+    <localization string-id='biographical'>Selingan Biografis</localization>
+    <localization string-id='historical'>Selingan Historis</localization>
+    <!-- EXAMPLE-LIKE blocks -->
+    <localization string-id='example'>Contoh</localization>
+    <localization string-id='question'>Pertanyaan</localization>
+    <localization string-id='problem'>Soal</localization>
+    <!-- PROJECT-LIKE blocks -->
+    <localization string-id='project'>Proyek</localization>
+    <localization string-id='activity'>Kegiatan</localization>
+    <localization string-id='exploration'>Eksplorasi</localization>
+    <localization string-id='task'>Tugas</localization>
+    <localization string-id='investigation'>Penyelidikan</localization>
+    <!-- assemblages are collections of minimally structured material -->
+    <localization string-id='assemblage'>Kumpulan</localization>
+    <localization string-id='poem'>Puisi</localization>
+    <!-- Objectives is the block, objective is a list item within -->
+    <localization string-id='objectives'>Tujuan Pembelajaran</localization>
+    <localization string-id='objective'>Tujuan</localization>
+    <!-- Outcomes is the block, outcome is a list item within (different) -->
+    <!-- These two words need to be different, to avoid ambiguous cross-references -->
+    <localization string-id='outcomes'>Capaian Pembelajaran</localization>
+    <localization string-id='outcome'>Capaian</localization>
+    <!-- "Open" means unsolved, a research question/problem -->
+    <localization string-id='openquestion'>Pertanyaan Terbuka</localization>
+    <localization string-id='openproblem'>Masalah Terbuka</localization>
+    <localization string-id='openconjecture'>Konjektur Terbuka</localization>
+    <!-- "discussion" on open problems -->
+    <localization string-id='context'>Konteks</localization>
+    <localization string-id='discussion'>Pembahasan</localization>
+    <localization string-id='opinion'>Pendapat</localization>
+    <localization string-id='status'>Status</localization>
+    <localization string-id='suggestion'>Saran</localization>
+    <!--  -->
+    <localization string-id='figure'>Gambar</localization>
+    <localization string-id='table'>Tabel</localization>
+    <localization string-id='listing'>Cuplikan Kode</localization>
+    <localization string-id='fn'>Catatan Kaki</localization>
+    <localization string-id='contributor'>Kontributor</localization>
+    <!-- Lists and their items -->
+    <localization string-id='list'>Daftar</localization>
+    <localization string-id='li'>Butir</localization>
+    <!-- A term (word) defined in a glossary item -->
+    <localization string-id='gi'>Istilah</localization>
+    <!-- A regular paragraph, not the old sectioning structure -->
+    <localization string-id='p'>Paragraf</localization>
+    <localization string-id='blockquote'>Kutipan</localization>
+    <!-- The "pre" element is short for "preformatted text".  PreTeXt uses it -->
+    <!-- more as paragraph, rendered in monospace, with newlines respected. -->
+    <localization string-id='pre'>Blok Teks Praterformat</localization>
+    <!-- Literate programming, a chunk of computer code -->
+    <localization string-id='fragment'>Fragmen Kode</localization>
+    <!-- Parts of an exercise and its solution -->
+    <!-- An "exercise", at any level, within an "exercises" division is a          -->
+    <!-- "divisional" exercise and the string employed is 'divisionalexercise'.    -->
+    <!-- An "exercise" whose parent is a division (chapter, section, etc) we       -->
+    <!-- call an "inline exercise" and the string employed is 'inlineexercise'.    -->
+    <!-- And an "exercise" in a "worksheet" is a 'worksheetexercise'.              -->
+    <!-- And an "exercise" in a "reading-questions" is a 'readingquestion'.         -->
+    <!-- It is important to use different translations so that a text with         -->
+    <!-- different types of exercises do not have ambiguous cross-references       -->
+    <!-- (there is an example of this at the start of one of the later             -->
+    <!-- sections of the sample article).                                          -->
+    <!--                                                                           -->
+    <!-- In English, an "Exercise" is something you do that has a beneficial       -->
+    <!-- outcome, such as "I am going to the gym to exercise."  A "Checkpoint"     -->
+    <!-- is something you must do before you do something else.  Another use of    -->
+    <!-- the term is a location on a roadway where you must stop for the      -->
+    <!-- police to do an inspection. A worksheet is a collection of activities or  -->
+    <!-- problems, typically printed on paper, which might be used in a classroom. -->
+    <localization string-id='divisionalexercise'>Latihan</localization>
+    <localization string-id='inlineexercise'>Uji Pemahaman</localization>
+    <localization string-id='worksheetexercise'>Latihan Lembar Kerja</localization>
+    <localization string-id='readingquestion'>Pertanyaan Bacaan</localization>
+    <localization string-id='webwork'>WeBWorK</localization>
+    <localization string-id='hint'>Petunjuk</localization>
+    <localization string-id='answer'>Jawaban</localization>
+    <localization string-id='solution'>Penyelesaian</localization>
+    <!-- A subdivision of an "exercises" section -->
+    <localization string-id='subexercises'>Sublatihan</localization>
+    <!-- A group of divisional exercises (with introduction and conclusion) -->
+    <localization string-id='exercisegroup'>Kelompok Latihan</localization>
+    <!-- Bibliographic items (note is distinct from sidebar "Annotations" below) -->
+    <localization string-id='biblio'>Entri Bibliografi</localization>
+    <!-- Front matter components -->
+    <localization string-id='toc'>Daftar Isi</localization>
+    <localization string-id='abstract'>Abstrak</localization>
+    <localization string-id='preface'>Prakata</localization>
+    <localization string-id='acknowledgement'>Ucapan Terima Kasih</localization>
+    <localization string-id='biography'>Biografi Penulis</localization>
+    <!-- singular and plural titles for biography subdivision -->
+    <localization string-id='about-author'>Tentang Penulis</localization>
+    <localization string-id='about-authors'>Tentang Para Penulis</localization>
+    <localization string-id='foreword'>Kata Pengantar</localization>
+    <localization string-id='dedication'>Persembahan</localization>
+    <localization string-id='colophon'>Kolofon</localization>
+    <!-- Runestone Activities -->
+    <!-- These terms will appear in student activity/engagement -->
+    <!-- reports for an instructor of a Runestone course.       -->
+    <!-- Normally they will not be apparent to a reader.        -->
+    <localization string-id='video'>Video</localization>
+    <localization string-id='program'>Program</localization>
+    <!-- Runestone Exercises -->
+    <!-- These terms will appear in static versions of  -->
+    <!-- Runestone exercises, such as a True/False question. -->
+    <localization string-id='true'>Benar</localization>
+    <localization string-id='false'>Salah</localization>
+    <localization string-id='or'>Atau</localization>
+    <localization string-id='either'>Salah Satu</localization>
+    <localization string-id='uncategorized'>Tanpa Kategori</localization>
+    <localization string-id='query'>Kueri</localization>
+    <!-- "ActiveCode" and "CodeLens" are Runestone-constructs -->
+    <!-- and so really *should not* be translated.            -->
+    <localization string-id='program-activecode'>ActiveCode</localization>
+    <localization string-id='program-codelens'>CodeLens</localization>
+    <!-- Back matter components -->
+    <!-- index-part is deprecated, but not abandoned          -->
+    <!-- NB: repurpose translations, maybe move appendix here -->
+    <localization string-id='index'>Indeks</localization>
+    <localization string-id='jump-to'>Lompat ke:</localization>
+    <!-- Parts of the Index -->
+    <localization string-id='index'>Indeks</localization>
+    <localization string-id='see'>Lihat</localization>
+    <localization string-id='also'>Lihat juga</localization>
+    <!-- Notation List headings/foot -->
+    <localization string-id='symbol'>Simbol</localization>
+    <localization string-id='description'>Deskripsi</localization>
+    <localization string-id='location'>Lokasi</localization>
+    <localization string-id='page'>Halaman</localization>
+    <localization string-id='continued'>Dilanjutkan di halaman berikutnya</localization>
+    <!-- Navigation Interface elements -->
+    <!-- Assistive "skip to content" link -->
+    <localization string-id='skip-to-content'>Lewati ke konten utama</localization>
+    <localization string-id='previous'>Sebelumnya</localization>
+    <localization string-id='up'>Naik</localization>
+    <localization string-id='next'>Berikutnya</localization>
+    <!-- Keep these short, so buttons are not overly wide, 4 characters maximum -->
+    <localization string-id='previous-short'>Sblm</localization>
+    <localization string-id='up-short'>Naik</localization>
+    <localization string-id='next-short'>Lnjt</localization>
+    <localization string-id='top'>Ke Atas</localization>
+    <!-- NB: Use toc from above for both headings and navigation sidebar-->
+    <localization string-id='annotations'>Anotasi</localization>
+    <localization string-id='feedback'>Umpan Balik</localization>
+    <!-- This phrase should suggest that PreTeXt is the source -->
+    <!-- language that makes a particular output possible      -->
+    <localization string-id='authored'>Disusun dengan PreTeXt</localization>
+    <!-- Search Results display/dialog -->
+    <!-- The result of a search as part of HTML output will throw up       -->
+    <!-- an overlay window with the search results.  "Search Results"      -->
+    <!-- is like a heading.  It renders like "Search Results: algorithm".  -->
+    <!-- When a reader uses a term that produces no results (perhaps they  -->
+    <!-- misspell the search term) then they get a message to that effect. -->
+    <!-- Capitalize "Search Results" - used as a heading, no punctuation   -->
+    <localization string-id='search-book'>Cari di Buku</localization>
+    <localization string-id='search-results-heading'>Hasil Pencarian</localization>
+    <!-- Short phrase, no punctuation -->
+    <localization string-id='no-search-results'>Tidak ada hasil</localization>
+   <!-- Parts of memos and letters -->
+    <localization string-id='to'>Kepada</localization>
+    <localization string-id='from'>Dari</localization>
+    <localization string-id='subject'>Perihal</localization>
+    <localization string-id='date'>Tanggal</localization>
+    <localization string-id='copy'>Tembusan</localization>
+    <localization string-id='enclosure'>Lampiran</localization>
+    <!-- Various -->
+    <localization string-id='todo'>Daftar Tugas</localization>
+    <localization string-id='editor'>Editor</localization>
+    <localization string-id='edition'>Edisi</localization>
+    <localization string-id='website'>Situs Web</localization>
+    <localization string-id='copyright'>Hak Cipta</localization>
+    <localization string-id='keywords'>Kata Kunci</localization>
+    <!-- HTML clickables (lowercase strings to click on) -->
+    <localization string-id='permalink'>tautan permanen</localization>
+    <localization string-id='incontext'>dalam konteks</localization>
+    <!-- Static representations of audio, video, and interactive  -->
+    <!-- elements link to the HTML version.  "standalone" is for  -->
+    <!-- the dedicated page, "embed" is for the embeddable iframe -->
+    <localization string-id='standalone'>Mandiri</localization>
+    <localization string-id='embed'>Sematkan</localization>
+    <!-- A permalink icon in HTML output will have a tooltip (on hover) -->
+    <!-- that says something like                                       -->
+    <!--                                                                -->
+    <!--    Copy heading and permalink for Theorem 5.8 The Chain Rule   -->
+    <!--    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                              -->
+    <!--                                                                -->
+    <!-- The indicated portion will be localized.  "heading" might be   -->
+    <!-- replaced by "description" if that is easier to translate.      -->
+    <localization string-id='permalink-tooltip'>Salin judul dan tautan permanen untuk</localization>
+    <!-- Sage Cell evaluate button      -->
+    <!-- eg, "Evaluate (Maxima)"        -->
+    <!-- 2017-05-14: 'code' is obsolete -->
+    <!-- This needs to be defined to *something* (always)       -->
+    <!-- else whatever crud ends up on the button kills the cell -->
+    <localization string-id='evaluate'>Jalankan</localization>
+    <!-- <localization string-id='code'>Kode</localization> -->
+    <!-- How to run an interactive widget, sliders, checkboxes, etc -->
+    <localization string-id='instructions'>Petunjuk</localization>
+    <!-- Interactive exercise feedback messages                   -->
+    <!-- These might be part of a feedback message for submitting -->
+    <!-- an answer, e.g. "Correct!" or "Correct: 50%".            -->
+    <localization string-id='correct'>Benar</localization>
+    <localization string-id='incorrect'>Salah</localization>
+    <!-- To signal that a reader left an answer blank             -->
+    <localization string-id='blank'>Kosong</localization>
+    <!-- Submit or check responses                                -->
+    <localization string-id='submit'>Kirim</localization>
+    <localization string-id='check-responses'>Periksa Jawaban</localization>
+    <!-- Reveal correct answers                                   -->
+    <localization string-id='reveal'>Tampilkan</localization>
+    <!-- Randomize parameters for a randomizable exercise         -->
+    <localization string-id='randomize'>Acak</localization>
+    <!-- Activate an interactive (from a static preview)          -->
+    <localization string-id='activate'>Aktifkan</localization>
+    <!-- Reset an interactive to its original state               -->
+    <localization string-id='reset'>Atur Ulang</localization>
+    <!-- Describe an array of fill-in-the-blanks, say for a matrix -->
+    <localization string-id='array'>larik</localization>
+    <!-- "paper size" toggle title                                -->
+    <localization string-id="papersize">Ukuran kertas</localization>
+    <!-- Additional printing options -->
+    <localization string-id="printing-options">Opsi pencetakan tambahan</localization>
+    <!-- "hide hint/answer/solutions" toggle title                         -->
+    <localization string-id="hide-hints">Sembunyikan petunjuk</localization>
+    <localization string-id="hide-answers">Sembunyikan jawaban</localization>
+    <localization string-id="hide-solutions">Sembunyikan penyelesaian</localization>
+    <!-- "header/footer" toggle title                         -->
+    <localization string-id="print-header">Cetak kepala halaman</localization>
+    <localization string-id="print-footer">Cetak kaki halaman</localization>
+    <localization string-id="first-page">Halaman pertama</localization>
+    <localization string-id="running">Halaman lanjutan</localization>
+    <!-- "highlight workspace" toggle title                         -->
+    <localization string-id="highlight-workspace">Sorot ruang kerja</localization>
+    <!-- Print page button text                                   -->
+    <localization string-id='print'>Cetak</localization>
+    <!-- Print preview tooltip/title text                         -->
+    <localization string-id='print-preview'>Pratinjau cetak</localization>
+    <!-- Close something interactive                              -->
+    <localization string-id='close'>Tutup</localization>
+    <localization string-id='open-new-tab'>Buka di tab baru</localization>
+    <!-- Readability menu items, HTML only, utilized by Javascript -->
+    <localization string-id='readability-settings'>Pengaturan Keterbacaan</localization>
+    <localization string-id='readability-line-height'>Tinggi Baris</localization>
+    <localization string-id='readability-content-font-size'>Ukuran Huruf Konten</localization>
+    <localization string-id='readability-assistive-technologies'>Teknologi Bantu</localization>
+    <localization string-id='readability-expose-permalinks'>Tampilkan Tautan Permanen</localization>
+    <localization string-id='reset-all'>Atur Ulang Semua</localization>
+</locale>
+

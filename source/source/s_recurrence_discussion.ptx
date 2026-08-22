@@ -1,0 +1,97 @@
+<section xml:id="s_recurrence_discussion">
+    <title>Diskusi</title>
+    <p>Yolanda menyeruput kopinya. <q>Aku senang sudah memperhatikan ketika kita mempelajari ruang vektor, basis, dan dimensi. Semua pembahasan tentang solusi persamaan rekurensi ini benar-benar masuk akal. Aku juga sungguh memahami mengapa profesor begitu menekankan pemfaktoran. Kita sudah melihatnya pada semester pertama ketika mempelajari pecahan parsial dalam kalkulus. Lalu kita melihatnya lagi dalam pembahasan persamaan diferensial. Bukankah sangat menarik melihat bagaimana semuanya saling berkaitan?</q> Semangat sebesar itu terlalu berlebihan bagi Alice, yang sedang mengalami hari yang buruk. Bob lebih bersimpati dan berkata, <q>Kecuali perincian tentang nol sebagai akar polinom operator pemajuan, aku tidak bermasalah dengan bab ini.</q> Xing berkata, <q>Di sini kita mempelajari pendekatan saksama yang hanya bergantung pada pemfaktoran. Aku sudah membaca-baca di web dan melihat bahwa belum lama ini ada beberapa terobosan dalam pemfaktoran.</q> Bob segera menimpali, <q>Namun, sekalipun kamu sangat mahir memfaktorkan, jika persamaan operator pemajuanmu memuat polinom berderajat besar, syarat awalnya akan banyak. Ini mungkin menjadi kendala besar kedua.</q> Dave bergumam, <q>Faktorkan saja. Selebihnya mudah.</q> Carlos kembali diam, tetapi ia tahu Dave benar. Menyelesaikan sistem persamaan linear yang besar relatif mudah. Tantangannya terletak pada tahap pemfaktoran.
+    </p>
+
+    <p>Walaupun menganggap materi bab ini menarik, Bob juga bertanya-tanya apakah mereka benar-benar memerlukan semua perangkat tersebut. <q>Mendefinisikan fungsi rekursif itu mudah dalam hampir semua bahasa pemrograman, jadi mengapa tidak menggunakan komputer saja untuk menghitung nilai yang diperlukan?</q><fn>Sejarah masuknya rekursi ke dalam ALGOL (dan dengan demikian ke dalam kebanyakan bahasa pemrograman modern) melibatkan sejumlah intrik. Maarten van Emden menceritakannya dalam tulisan blog berjudul <q><url href="https://vanemden.wordpress.com/2014/06/18/how-recursion-got-into-programming-a-comedy-of-errors-3/" visual="vanemden.wordpress.com/2014/06/18/how-recursion-got-into-programming-a-comedy-of-errors-3/">How recursion got into programming: a tale of intrigue, betrayal, and advanced programming-language semantics</url></q>.</fn> Xing mulai berkomentar bahwa teknik-teknik dalam bab ini dapat memberikan cara yang baik untuk memahami laju pertumbuhan fungsi rekursif melalui notasi O besar dari <xref ref="ch_basics"/>, tetapi Alice menyela dengan mengusulkan suatu eksperimen pemrograman yang dapat memperbaiki suasana hatinya. (Kesempatan untuk membuktikan Bob keliru mungkin lebih memotivasinya daripada kesempatan menulis kode, tetapi ia tidak ingin bersikap <em>terlalu</em> kejam.)</p>
+    <p>Kelompok itu memutuskan untuk meninjau rekurensi dalam <xref ref="ex_recurrence_gf-nonhomog"/>, yang segera mereka tuliskan sebagai fungsi rekursif pada bilangan bulat tak negatif:
+    <md>r(n) =\begin{cases} 2^n + r(n-1) + 2r(n-2)\amp \text{jika }n\geq 2;\\
+    1\amp\text{jika }n=1;\\
+    2\amp\text{jika }n=0.\end{cases}</md>
+    Alice mengambil komputernya, mengimplementasikan fungsi tersebut dalam SageMath, lalu menghitung beberapa nilai uji.
+    </p>
+    <sage>
+        <input>
+def r(n):
+    if n == 0:
+        return 2
+    elif n == 1:
+        return 1
+    elif n &gt;=2:
+        return 2^n + r(n-1)+2*r(n-2)
+print(r(1))
+print(r(4))
+print(r(10))
+        </input>
+        <output>
+1
+53
+7397            
+        </output>
+    </sage>
+    <p>Kemudian ia mendefinisikan fungsi kedua, <c>s</c>, yaitu solusi eksplisit (nonrekursif) dari <xref ref="ex_recurrence_gf-nonhomog"/>, lalu memeriksa bahwa nilai-nilainya sama.</p>
+    <sage>
+        <input>
+s(n)=(5/9)*2^n + (2/3)*n*2^n+(13/9)*(-1)^n
+print(s(1))
+print(s(4))
+print(s(10))
+        </input>
+        <output>
+1
+53
+7397            
+        </output>
+    </sage>
+    <p><q>Eksperimen ini mau dibawa ke mana?</q> tanya Bob dengan tidak sabar. Untuk nilai-nilai tersebut, baik <c>r</c> maupun <c>s</c> tampaknya memberikan jawaban sama cepatnya. Dave berkata bahwa ia pernah mendengar perintah <c>timeit</c> dalam SageMath yang memungkinkan mereka membandingkan waktu eksekusi, lalu mengambil alih papan ketik Alice untuk mengetik:</p>
+    <sage>
+        <input>
+for n in range(26):
+    if n % 5 == 0:
+        print("For n = {}:".format(n))
+        print("\t"+str(timeit("r(n)",number=5)))
+        print("\t"+str(timeit("s(n)",number=5)))
+        </input>
+        <output>
+For n = 0:
+    5 loops, best of 3: 238 ns per loop
+    5 loops, best of 3: 44 &#181;s per loop
+For n = 5:
+    5 loops, best of 3: 11.4 &#181;s per loop
+    5 loops, best of 3: 50.6 &#181;s per loop
+For n = 10:
+    5 loops, best of 3: 127 &#181;s per loop
+    5 loops, best of 3: 47.6 &#181;s per loop
+For n = 15:
+    5 loops, best of 3: 1.42 ms per loop
+    5 loops, best of 3: 50 &#181;s per loop
+For n = 20:
+    5 loops, best of 3: 15.7 ms per loop
+    5 loops, best of 3: 49 &#181;s per loop
+For n = 25:
+    5 loops, best of 3: 133 ms per loop
+    5 loops, best of 3: 50.4 &#181;s per loop
+        </output>
+    </sage>
+    <p>Hasil ini akhirnya menarik perhatian Bob karena waktu eksekusi <c>s</c> tampak relatif konstan meskipun <m>n</m> bertambah, sedangkan waktu eksekusi <c>r</c> tampaknya menjadi kira-kira 10 kali lebih lama setiap kali nilai <m>n</m> bertambah 5. Sebagai pengujian terakhir, mereka menjalankan kode SageMath di bawah ini, yang menghitung <c>s(100)</c> hampir seketika. Di sisi lain, tampaknya mengisi ulang kopi merupakan cara yang baik untuk melewatkan waktu sambil menunggu <c>r(40)</c>.</p>
+    <sage>
+        <input>
+            print(s(100))
+            print(r(40))
+        </input>
+        <output>
+85214290348675420878389493250277
+29931149867237            
+        </output>
+    </sage>
+    <reading-questions xml:id="rqs-recurrence_discussion">
+        <exercise label="recurrence_discussion_takeaways">
+            <statement>
+                <p>
+                    Setelah membaca bagian ini dan menjalankan sel-sel kode SageMath, tulislah beberapa kalimat yang menjelaskan pengamatan Anda tentang manfaat solusi eksplisit bagi persamaan rekurensi dibandingkan dengan menghitung nilai-nilainya secara rekursif.
+                </p>
+            </statement>
+            <response/>
+        </exercise>
+    </reading-questions>
+</section>

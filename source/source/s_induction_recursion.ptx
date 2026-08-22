@@ -1,0 +1,382 @@
+<section xml:id="s_induction_recursion">
+  <title>Menyelesaikan Masalah Kombinatorial secara Rekursif</title>
+  <introduction component="main">
+    <p>Dalam bagian ini, kita menyajikan contoh masalah kombinatorial yang solusinya dapat
+      dihitung secara rekursif. Dalam <xref ref="ch_recurrence"/>, kita akan kembali membahas masalah-masalah ini dan memperoleh
+      solusi yang lebih ringkas lagi. Masalah pertama kita telah dibahas dalam bab pengantar. </p>
+    <example>
+      <p>Suatu keluarga yang terdiri atas <m>n</m> garis digambar pada bidang dengan ketentuan (1)<nbsp/>setiap pasangan garis
+        berpotongan dan (2)<nbsp/>tidak ada tiga garis yang berpotongan pada titik yang sama. Misalkan <m>r(n)</m> menyatakan
+        banyaknya daerah yang terbentuk ketika bidang dibagi oleh garis-garis tersebut. Jelas bahwa <m>
+        r(1)=2</m>, <m>r(2)=4</m>, <m>r(3)=7</m>, dan <m>r(4)=11</m>. Untuk menentukan <m>r(n)</m> bagi
+        semua bilangan bulat positif, cukup perhatikan bahwa <m>r(1)=2</m> dan, jika <m>n&gt;1</m>, <m>
+        r(n)=n+r(n-1)</m>. Rumus ini diperoleh dari pengamatan berikut. Jika garis-garis itu kita beri label <m>
+        L_1</m>, <m>L_2, \dots, L_n</m>, maka <m>n-1</m> titik pada garis <m>L_n</m> tempat garis tersebut
+        memotong garis-garis lain dalam keluarga itu membagi <m>L_n</m> menjadi <m>n</m> ruas, dua di antaranya
+        tak berhingga. Setiap ruas ini berada di dalam suatu daerah yang ditentukan oleh <m>
+        n-1</m> garis pertama, dan ruas tersebut kini membagi daerah itu menjadi dua. Dengan demikian, terbentuk <m>n</m> daerah lebih banyak daripada
+        banyaknya daerah yang ditentukan oleh <m>n-1</m> garis. Keadaan ini diperlihatkan dalam <xref ref="fig_induction_lines-regions"/>, dengan garis yang memuat tiga titik sebagai <m>L_4</m>.
+        Garis-garis lain membaginya menjadi empat ruas. Keempat ruas tersebut kemudian membagi daerah yang lebih besar sehingga terbentuk
+        daerah <m>1</m> dan <m>5</m>, <m>2</m> dan <m>6</m>, <m>7</m> dan <m>8</m>, serta <m>4</m>
+        dan <m>9</m>. </p>
+      <figure xml:id="fig_induction_lines-regions">
+        <caption>Garis dan daerah pada bidang</caption>
+        <image width="50%" source="lines-regions">
+          <description>
+            <p>Empat garis digambar pada bidang sedemikian rupa sehingga setiap pasangan garis berpotongan dan tidak ada tiga garis yang berpotongan pada satu titik. Pada salah satu garis, ketiga titik potong dengan tiga garis lainnya ditandai dengan titik. Daerah-daerah yang ditentukan oleh garis-garis tersebut diberi nomor dari <m>1</m> hingga <m>11</m>.</p>
+          </description>
+        </image>
+      </figure>
+      <p>Dengan rumus rekursif tersebut, kita memperoleh <m>r(5)=5+11=16</m>, <m>r(6)=6+16=22</m>, dan <m>
+        r(7)=7+22=29</m>. Bahkan dengan perhitungan tangan, menghitung <m>r(100)</m> tidak akan terlalu merepotkan.
+        Kita dapat menyelesaikannya sebelum makan siang. </p>
+    </example>
+
+    <example>
+      <p>Papan kotak-kotak berukuran <m>2\times n</m> akan dipasangi ubin persegi panjang berukuran <m>2\times1</m> dan <m>
+        1\times2</m>. Carilah rumus rekursif untuk banyaknya pengubinan, yaitu <m>t(n)</m>. Jelas bahwa <m>
+        t(1)=1</m> dan <m>t(2)=2</m>. Jika <m>n&gt;2</m>, perhatikan persegi panjang yang menutupi petak
+        di sudut kanan atas. Jika persegi panjang itu vertikal, bagian sebelumnya merupakan pengubinan
+        <m>n-1</m> kolom pertama. Jika persegi panjang itu horizontal, persegi panjang tepat
+        di bawahnya juga horizontal, dan bagian sebelum keduanya merupakan pengubinan <m>n-2</m> kolom pertama. Hal ini menunjukkan
+        bahwa <m>t(n)=t(n-1)+t(n-2)</m>. Secara khusus, <m>t(3)=1+2=3</m>, <m>t(4)=2+3=5</m>, dan <m>t(5)=
+        3+5=8</m>. </p>
+    </example>
+    <p>Sekali lagi, jika benar-benar diperlukan, kita dapat memperoleh <m>t(100)</m> dengan perhitungan tangan, sedangkan suatu sistem aljabar komputer dapat
+      memperoleh <m>t(1000)</m>. </p>
+    <example>
+      <p>Sebut suatu string terner <em>baik</em> jika string itu tidak pernah memuat <m>2</m> yang langsung diikuti oleh
+        <m>0</m>; jika tidak demikian, sebut string itu <em>buruk</em>. Misalkan <m>g(n)</m> adalah banyaknya string baik
+        dengan panjang <m>n</m>. Jelas bahwa <m>g(1)=3</m> karena semua string dengan panjang <m>1</m> bersifat baik.
+        Selain itu, <m>g(2)=8</m> karena satu-satunya string buruk dengan panjang<nbsp/><m>2</m> adalah <m>(2,0)</m>. Sekarang,
+        perhatikan nilai <m>n</m> yang lebih besar daripada<nbsp/><m>2</m>. </p>
+
+      <p>Bagi himpunan string baik dengan panjang<nbsp/><m>n</m> menjadi tiga bagian menurut
+        karakter terakhirnya. String baik yang berakhir dengan <m>1</m> dapat diawali oleh sembarang string baik dengan
+        panjang <m>n-1</m> sehingga terdapat <m>g(n-1)</m> string semacam itu. Hal yang sama berlaku bagi string baik
+        yang berakhir dengan <m>2</m>. Namun, untuk string baik yang berakhir dengan <m>0</m>, kita harus lebih
+        berhati-hati. Kita dapat menempatkan sebelum <m>0</m> suatu string baik dengan panjang<nbsp/><m>n-1</m>, asalkan
+        string tersebut tidak berakhir dengan <m>2</m>. Terdapat <m>g(n-1)</m> string baik dengan panjang<nbsp/><m>
+        n-1</m>, dan tepat <m>g(n-2)</m> di antaranya berakhir dengan<nbsp/><m>2</m>. Oleh karena itu, terdapat <m>
+        g(n-1)-g(n-2)</m> string baik dengan panjang<nbsp/><m>n</m> yang berakhir dengan<nbsp/><m>0</m>.
+        Dengan demikian, jumlah keseluruhan string baik dengan panjang<nbsp/><m>n</m> memenuhi
+        rumus rekursif <m>g(n) = 3g(n-1) - g(n-2)</m>. Jadi, <m>g(3) = 3\cdot8 -3= 21</m> dan <m>g(4)=
+        3\cdot21-8= 55</m>. </p>
+    </example>
+    <p>Sekali lagi, <m>g(100)</m> dapat dihitung dengan tangan, sedangkan komputer berspesifikasi sederhana pun dapat diminta
+      menghitung <m>g(5000)</m>. </p>
+  </introduction>
+  <subsection component="runestone">
+    <title>Menghitung secara Rekursif</title>
+    <p>Dalam bagian ini, kita menyajikan contoh masalah kombinatorial yang solusinya dapat
+      dihitung secara rekursif. Dalam <xref ref="ch_recurrence"/>, kita akan kembali membahas masalah-masalah ini dan memperoleh
+      solusi yang lebih ringkas lagi. Masalah pertama kita telah dibahas dalam bab pengantar. </p>
+    <example>
+      <p>Suatu keluarga yang terdiri atas <m>n</m> garis digambar pada bidang dengan ketentuan (1)<nbsp/>setiap pasangan garis
+        berpotongan dan (2)<nbsp/>tidak ada tiga garis yang berpotongan pada titik yang sama. Misalkan <m>r(n)</m> menyatakan
+        banyaknya daerah yang terbentuk ketika bidang dibagi oleh garis-garis tersebut. Jelas bahwa <m>
+        r(1)=2</m>, <m>r(2)=4</m>, <m>r(3)=7</m>, dan <m>r(4)=11</m>. Untuk menentukan <m>r(n)</m> bagi
+        semua bilangan bulat positif, cukup perhatikan bahwa <m>r(1)=2</m> dan, jika <m>n&gt;1</m>, <m>
+        r(n)=n+r(n-1)</m>. Rumus ini diperoleh dari pengamatan berikut. Jika garis-garis itu kita beri label <m>
+        L_1</m>, <m>L_2, \dots, L_n</m>, maka <m>n-1</m> titik pada garis <m>L_n</m> tempat garis tersebut
+        memotong garis-garis lain dalam keluarga itu membagi <m>L_n</m> menjadi <m>n</m> ruas, dua di antaranya
+        tak berhingga. Setiap ruas ini berada di dalam suatu daerah yang ditentukan oleh <m>
+        n-1</m> garis pertama, dan ruas tersebut kini membagi daerah itu menjadi dua. Dengan demikian, terbentuk <m>n</m> daerah lebih banyak daripada
+        banyaknya daerah yang ditentukan oleh <m>n-1</m> garis. Keadaan ini diperlihatkan dalam <xref ref="fig_induction_lines-regions-rs"/>, dengan garis yang memuat tiga titik sebagai <m>L_4</m>.
+        Garis-garis lain membaginya menjadi empat ruas. Keempat ruas tersebut kemudian membagi daerah yang lebih besar sehingga terbentuk
+        daerah <m>1</m> dan <m>5</m>, <m>2</m> dan <m>6</m>, <m>7</m> dan <m>8</m>, serta <m>4</m>
+        dan <m>9</m>. </p>
+      <figure xml:id="fig_induction_lines-regions-rs">
+        <caption>Garis dan daerah pada bidang</caption>
+        <image width="50%" source="lines-regions"><description><p>Empat garis digambar pada bidang sedemikian rupa sehingga setiap pasangan garis berpotongan dan tidak ada tiga garis yang berpotongan pada satu titik. Pada salah satu garis, ketiga titik potong dengan tiga garis lainnya ditandai dengan titik. Daerah-daerah yang ditentukan oleh garis-garis tersebut diberi nomor dari 1 hingga 11.</p>
+        </description></image>
+      </figure>
+      <p>Dengan rumus rekursif tersebut, kita memperoleh <m>r(5)=5+11=16</m>, <m>r(6)=6+16=22</m>, dan <m>
+        r(7)=7+22=29</m>. Bahkan dengan perhitungan tangan, menghitung <m>r(100)</m> tidak akan terlalu merepotkan.
+        Kita dapat menyelesaikannya sebelum makan siang. </p>
+    </example>
+
+    <example>
+      <p>Papan kotak-kotak berukuran <m>2\times n</m> akan dipasangi ubin persegi panjang berukuran <m>2\times1</m> dan <m>
+        1\times2</m>. Carilah rumus rekursif untuk banyaknya pengubinan, yaitu <m>t(n)</m>. Jelas bahwa <m>
+        t(1)=1</m> dan <m>t(2)=2</m>. Jika <m>n&gt;2</m>, perhatikan persegi panjang yang menutupi petak
+        di sudut kanan atas. Jika persegi panjang itu vertikal, bagian sebelumnya merupakan pengubinan
+        <m>n-1</m> kolom pertama. Jika persegi panjang itu horizontal, persegi panjang tepat
+        di bawahnya juga horizontal, dan bagian sebelum keduanya merupakan pengubinan <m>n-2</m> kolom pertama. Hal ini menunjukkan
+        bahwa <m>t(n)=t(n-1)+t(n-2)</m>. Secara khusus, <m>t(3)=1+2=3</m>, <m>t(4)=2+3=5</m>, dan <m>t(5)=
+        3+5=8</m>. </p>
+    </example>
+    <p>Sekali lagi, jika benar-benar diperlukan, kita dapat memperoleh <m>t(100)</m> dengan perhitungan tangan, sedangkan suatu sistem aljabar komputer dapat
+      memperoleh <m>t(1000)</m>. </p>
+    <example>
+      <p>Sebut suatu string terner <em>baik</em> jika string itu tidak pernah memuat <m>2</m> yang langsung diikuti oleh
+        <m>0</m>; jika tidak demikian, sebut string itu <em>buruk</em>. Misalkan <m>g(n)</m> adalah banyaknya string baik
+        dengan panjang <m>n</m>. Jelas bahwa <m>g(1)=3</m> karena semua string dengan panjang <m>1</m> bersifat baik.
+        Selain itu, <m>g(2)=8</m> karena satu-satunya string buruk dengan panjang<nbsp/><m>2</m> adalah <m>(2,0)</m>. Sekarang,
+        perhatikan nilai <m>n</m> yang lebih besar daripada<nbsp/><m>2</m>. </p>
+
+      <p>Bagi himpunan string baik dengan panjang<nbsp/><m>n</m> menjadi tiga bagian menurut
+        karakter terakhirnya. String baik yang berakhir dengan <m>1</m> dapat diawali oleh sembarang string baik dengan
+        panjang <m>n-1</m> sehingga terdapat <m>g(n-1)</m> string semacam itu. Hal yang sama berlaku bagi string baik
+        yang berakhir dengan <m>2</m>. Namun, untuk string baik yang berakhir dengan <m>0</m>, kita harus lebih
+        berhati-hati. Kita dapat menempatkan sebelum <m>0</m> suatu string baik dengan panjang<nbsp/><m>n-1</m>, asalkan
+        string tersebut tidak berakhir dengan <m>2</m>. Terdapat <m>g(n-1)</m> string baik dengan panjang<nbsp/><m>
+        n-1</m>, dan tepat <m>g(n-2)</m> di antaranya berakhir dengan<nbsp/><m>2</m>. Oleh karena itu, terdapat <m>
+        g(n-1)-g(n-2)</m> string baik dengan panjang<nbsp/><m>n</m> yang berakhir dengan<nbsp/><m>0</m>.
+        Dengan demikian, jumlah keseluruhan string baik dengan panjang<nbsp/><m>n</m> memenuhi
+        rumus rekursif <m>g(n) = 3g(n-1) - g(n-2)</m>. Jadi, <m>g(3) = 3\cdot8 -3= 21</m> dan <m>g(4)=
+        3\cdot21-8= 55</m>. </p>
+    </example>
+    <p>Sekali lagi, <m>g(100)</m> dapat dihitung dengan tangan, sedangkan komputer berspesifikasi sederhana pun dapat diminta
+      menghitung <m>g(5000)</m>. </p>
+      <reading-questions xml:id="rqs-induction_recursion" component="runestone">
+        <exercise label="induction_recursion_reading">
+          <statement>
+            <p>
+              Misalkan kita mendefinisikan fungsi <m>f(n)</m> secara rekursif dan ingin mendefinisikannya untuk semua bilangan bulat positif <m>n</m> (sedangkan mendefinisikannya untuk <m>n\leq 0</m> tidak masuk akal). Misalkan kita memperoleh bahwa relasi rekursif untuk <m>f</m> adalah <m>f(n) = 3f(n-3) + 2f(n-2)-f(n-1)</m>. Berapakah nilai <m>n</m> terkecil yang memungkinkan penggunaan rumus rekursif ini? Untuk nilai <m>n</m> mana saja Anda perlu mengetahui nilai <m>f(n)</m> agar rumus rekursif tersebut dapat digunakan? Pastikan Anda menulis satu atau dua kalimat untuk menjelaskan alasan Anda.
+            </p>
+          </statement>
+          <response/>
+        </exercise>
+        <exercise label="induction_recursion_avoid-12">
+          <statement>
+            <p>
+              Ingatlah bahwa string terner adalah string yang simbol-simbolnya hanya boleh berupa <m>0</m>, <m>1</m>, dan <m>2</m>. Sebut suatu string terner <q>baik</q> jika string itu tidak memuat <m>1</m> yang langsung diikuti oleh <m>2</m>. Misalkan <m>g(n)</m> adalah banyaknya string baik dengan panjang <m>n</m>. Tentukan <m>g(1)</m> dan <m>g(2)</m>, lalu jelaskan mengapa untuk semua <m>n\geq 3</m> berlaku <m>g(n)=3g(n-1) - g(n-2)</m>.
+            </p>
+          </statement>
+          <hint>
+            <p>
+              Mungkin akan membantu jika Anda memandang <m>3g(n-1) - g(n-2)</m> sebagai <m>2g(n-1) + (g(n-1)- g(n-2))</m>. 
+            </p>
+          </hint>
+          <response/>
+        </exercise>
+      </reading-questions>
+    </subsection>
+
+  <subsection xml:id="s_induction_gcd">
+    <title>Menentukan Faktor Persekutuan Terbesar</title>
+    <p>Teorema dasar berikut sesungguhnya memuat lebih banyak hal daripada yang mungkin Anda duga, meskipun sekilas
+      hanya menyatakan fakta yang telah Anda kenal sejak kelas dua sekolah dasar.
+    </p>
+
+    <theorem xml:id="thm_division">
+      <title>Teorema Pembagian</title>
+      <idx>
+        <h>teorema pembagian</h>
+      </idx>
+      <statement>
+        <p>Misalkan <m>m</m> dan <m>n</m> adalah bilangan bulat positif. Maka terdapat bilangan bulat tunggal <m>q</m>
+          dan <m>r</m> sedemikian rupa sehingga <md>
+            m = q\cdot n+r\quad\text{and} \quad 0 \le r \lt n.
+          </md>
+          Kita menyebut <m>q</m> sebagai <term>hasil bagi</term> dan <m>r</m> sebagai <term>sisa</term>. </p>
+      </statement>
+
+      <proof>
+        <p>Kita membuktikan pernyataan keberadaan. Bagian ketunggalan hanya memerlukan aljabar tingkat sekolah menengah. Jika
+          teorema ini tidak berlaku, misalkan <m>t</m> adalah bilangan bulat positif terkecil yang memiliki
+          bilangan bulat <m>m</m> dan <m>n</m> dengan <m>m+n=t</m>, tetapi tidak terdapat bilangan bulat <m>q</m>
+          dan <m>r</m> yang memenuhi <m>m=qn+r</m> dan <m>0\le r\lt n</m>. </p>
+
+        <p>Pertama, perhatikan bahwa <m>n\neq 1</m> karena, jika <m>n=1</m>, kita dapat mengambil <m>q=m</m> dan <m>
+          r=0</m>. Selain itu, tidak mungkin <m>m=1</m> karena, jika <m>m=1</m>, kita dapat mengambil <m>q=0</m>
+          dan <m>r=1</m>. Sekarang, pernyataan tersebut berlaku untuk pasangan <m>m-1</m>, <m>n</m> sehingga terdapat
+          bilangan bulat <m>q</m> dan <m>r</m> sedemikian rupa sehingga <md>
+            m-1 = q\cdot n+r\quad\text{and} \quad 0 \le r \lt n.
+          </md>
+          Karena <m>r\lt n</m>, kita mengetahui bahwa <m>r+1\le n</m>. Jika <m>r+1\lt n</m>, maka <md>
+            m = q\cdot n+(r+1)\quad\text{and} \quad 0 \le r+1 \lt n.
+          </md>
+          Sebaliknya, jika <m>r+1=n</m>, maka <md>
+            m = q\cdot n+(r+1)=nq+n=(q+1)n=(q+1)n+0.
+          </md> Kontradiksi ini menyelesaikan bukti. </p>
+      </proof>
+    </theorem>
+
+    <p>Ingatlah bahwa bilangan bulat <m>n</m> merupakan <term>pembagi</term><idx>
+        <h>pembagi</h>
+      </idx> dari bilangan bulat <m>m</m> jika terdapat bilangan bulat <m>q</m> sedemikian rupa sehingga <m>
+      m=qn</m>. (Kita menulis <m>n\mid m</m> dan membacanya sebagai <q>
+        <m>n</m>
+         <term>membagi</term>
+        <m>m</m>
+      </q>.<idx>
+        <h>membagi</h>
+      </idx>) Bilangan bulat <m>d</m> merupakan <term>pembagi persekutuan</term><idx>
+        <h>pembagi</h>
+        <h>persekutuan</h>
+      </idx> dari bilangan bulat <m>m</m> dan <m>n</m> jika <m>d</m> membagi <m>
+      m</m> maupun <m>n</m>. <term>Faktor persekutuan terbesar (FPB)</term><idx>
+        <h>pembagi</h>
+        <h>faktor persekutuan terbesar</h>
+      </idx><idx>
+        <h>faktor persekutuan terbesar</h>
+        <see>pembagi, faktor persekutuan terbesar</see>
+      </idx> dari <m>m</m> dan <m>n</m>, yang ditulis <m>
+      \gcd(m,n)</m>, adalah pembagi terbesar di antara semua pembagi persekutuan <m>m</m> dan <m>n</m>. </p>
+
+    <p>Berikut adalah penerapan yang sangat anggun dari teorema dasar sebelumnya:
+    </p>
+
+    <theorem xml:id="thm_euclideanalg">
+      <title>Algoritma Euklides</title>
+      <idx>
+        <h>algoritma Euklides</h>
+      </idx>
+      <statement>
+        <p>Misalkan <m>m,n</m> adalah bilangan bulat positif dengan <m>m\gt n</m>, dan misalkan <m>q</m> dan <m>r</m> merupakan
+          bilangan bulat tunggal yang memenuhi <md>
+            m = q\cdot n+r\quad\text{and} \quad 0 \le r \lt n.
+          </md>
+          Jika <m>r&gt;0</m>, maka <m>\gcd(m,n)=\gcd(n,r)</m>. Jika <m>r=0</m>, maka <m>n</m> membagi <m>m</m>,
+          dan <m>\gcd(m,n) = n</m>. </p>
+      </statement>
+      <proof>
+        <p>Perhatikan persamaan <m>m=q\cdot n+r</m>, yang ekuivalen dengan <m>m-q\cdot n = r</m>.
+          Jika suatu bilangan <m>d</m> membagi <m>m</m> dan <m>n</m>, maka <m>d</m> juga harus membagi <m>
+          r</m>. Demikian pula, jika <m>d</m> membagi <m>n</m> dan <m>r</m>, maka <m>d</m> juga harus
+          membagi <m>m</m>. </p>
+      </proof>
+    </theorem>
+
+    <p>Berikut adalah cuplikan kode yang menghitung FPB dari <m>m</m> dan <m>n</m>
+      ketika <m>m</m> dan <m>n</m> merupakan bilangan bulat positif dengan <m>m\ge n</m>. Kita menggunakan
+      notasi yang lazim, <c>m%n</c>, untuk menyatakan sisa <m>r</m> dalam persamaan <m>m=q\cdot n+r</m>,
+      dengan <m>0\le r \lt n</m>. </p>
+
+    <sage>
+      <input>def gcd(m,n):
+    if m % n == 0:
+        return n
+    else:
+        return gcd(n,m%n)
+gcd(12,5)
+      </input>
+      <output>1</output>
+    </sage>
+
+    <p>Anda dapat mengubah nilai <c>12</c> dan <c>5</c> pada sel SageMath di atas dalam versi HTML
+      buku ini untuk menghitung FPB bilangan bulat lainnya. Namun,
+      ingatlah bahwa kode tersebut mengasumsikan <m>m\geq n</m>!</p>
+
+    <p>Kelemahan pendekatan ini adalah penggunaan memori yang agak boros akibat pemanggilan fungsi secara
+      rekursif. Tidaklah sulit untuk membuat kode yang menghitung FPB
+      dari <m>m</m> dan <m>n</m> hanya dengan perulangan, <ie/>, tanpa pemanggilan rekursif. Dengan sedikit
+      pekerjaan tambahan, kode semacam itu juga dapat dirancang untuk menyelesaikan masalah persamaan
+      Diofantin berikut: </p>
+
+    <theorem xml:id="thm_gcd-dioph">
+      <idx>
+        <h>persamaan Diofantin linear</h>
+      </idx>
+      <statement>
+        <p>Misalkan <m>m</m>, <m>n</m>, dan <m>c</m> adalah bilangan bulat positif. Maka terdapat bilangan bulat <m>a</m>
+          dan <m>b</m>, yang tidak harus tak negatif, yang menyelesaikan persamaan Diofantin linear <m>
+          am+bn=c</m> jika dan hanya jika <m>c</m> merupakan kelipatan FPB dari <m>m</m>
+          dan <m>n</m>. </p>
+      </statement>
+    </theorem>
+
+    <p>Melalui contoh berikut, mari kita lihat cara menggunakan Algoritma Euklides untuk menuliskan <m>\gcd(m,n)</m> dalam bentuk <m>
+      am+bn</m> dengan <m>a,b\in\ints</m>. </p>
+    <example>
+      <statement>
+        <p>Tentukan FPB <m>d</m> dari <m>3920</m> dan <m>252</m>, lalu tentukan bilangan bulat <m>
+          a</m> dan <m>b</m> sedemikian rupa sehingga <m>d=3920a+252b</m>. </p>
+      </statement>
+      <solution>
+        <p>Dalam menyelesaikan masalah ini, kita memperagakan Algoritma Euklides sedemikian rupa sehingga kita
+          dapat menentukan <m>a</m> dan <m>b</m> dengan bekerja mundur. Pertama, perhatikan bahwa <md>
+            3920 = 15\cdot 252 + 140.
+          </md> Sekarang, Algoritma Euklides
+          memberi tahu kita bahwa <m>\gcd(3920,252)=\gcd(252,140)</m>, sehingga kita menuliskan <md>
+            252 = 1\cdot 140 + 112.
+          </md> Dengan melanjutkan proses ini, kita memperoleh <m>140=
+          1\cdot 112 + 28</m> dan <m>112 = 4\cdot 28+0</m>, sehingga <m>d=28</m>. </p>
+
+        <p>Untuk menentukan <m>a</m> dan <m>b</m>, kini kita menelusuri mundur persamaan-persamaan yang telah diperoleh
+          sebelumnya, <q>menyelesaikannya</q> terhadap suku sisa, lalu melakukan substitusi. Kita mulai dengan <md>
+          28 = 140-1\cdot 112.
+          </md> Namun, kita mengetahui bahwa <m>112=252-1\cdot
+          140</m>, sehingga <md>
+            28=140-1(252-1\cdot 140) = 2\cdot 140 - 1\cdot 252.
+          </md>
+          Akhirnya, <m>140 = 3920-15\cdot 252</m>, sehingga sekarang kita memperoleh <md>
+            28= 2(3920-15\cdot 252) - 1\cdot 252 = 2\cdot 3920-31\cdot 252.
+          </md>
+          Oleh karena itu, <m>a=2</m> dan <m>b=-31</m>. </p>
+      </solution>
+    </example>
+  </subsection>
+
+
+  <subsection xml:id="s_induction_recursion_sorting">
+    <title>Pengurutan</title>
+    <p>Salah satu masalah komputasi yang paling umum dan mendasar adalah pengurutan: jika diberikan suatu barisan <m>
+      a_1,a_2,\dots,a_n</m> yang terdiri atas <m>n</m> bilangan bulat yang semuanya berbeda, susun ulang bilangan-bilangan tersebut agar berada dalam
+      urutan menaik. Di sini, kita menjelaskan strategi rekursif sederhana untuk menyelesaikan tugas tersebut.
+      Strategi ini dikenal sebagai <term>urut gabung (Merge Sort)</term><idx>
+        <h>urut gabung</h>
+      </idx><idx>
+        <h>pengurutan</h>
+      </idx>, dan merupakan salah satu dari beberapa algoritma pengurutan yang optimal.
+      Mata kuliah pengantar ilmu komputer membahas topik ini secara lebih mendalam. Dalam mata kuliah kita,
+      kita hanya memerlukan suatu strategi yang baik, dan urut gabung sudah sesuai untuk keperluan kita. </p>
+
+    <p>Untuk menyajikan urut gabung<idx>
+        <h>urut gabung</h>
+      </idx>, pertama-tama kita harus mengembangkan strategi untuk menyelesaikan suatu kasus khusus dari
+      masalah pengurutan. Misalkan kita memiliki <m>s+t</m> bilangan bulat yang semuanya berbeda, <md>
+      \{u_0,u_1,\dots,u_{s-1},v_0,v_1,\dots,v_{t-1}\}</md> yang disusun sebagai dua daftar dengan <m>u_0\lt
+      u_1\lt \dots\lt u_{s-1}</m> dan <m>v_0\lt v_1\lt \dots\lt v_{t-1}</m>. Bagaimana kita <em>menggabungkan</em>
+      kedua barisan tersebut menjadi satu barisan menaik dengan panjang <m>s+t</m>? Bayangkan kedua
+      barisan itu ditempatkan pada dua baris horizontal, yang satu tepat di bawah yang lain. Misalkan <m>u</m>
+      adalah bilangan bulat terkecil dalam barisan pertama dan <m>v</m> adalah bilangan bulat terkecil dalam barisan kedua. Pada
+      saat ini, berarti <m>u=u_0</m> dan <m>v=v_0</m>, tetapi bilangan bulat akan dihapus dari
+      kedua barisan selama proses berlangsung. Meskipun demikian, arti <m>u</m> dan <m>v</m>
+      tetap dipertahankan. Tetapkan pula <m>i=0</m>. Kemudian, ambil <m>a_i</m> sebagai nilai minimum dari <m>u</m> dan <m>
+      v</m>, lalu hapus <m>a_i</m> dari barisan tempat nilai itu muncul. Setelah itu, naikkan <m>i</m> sebesar <m>
+      1</m> dan ulangi prosesnya. Berikut adalah cuplikan kode untuk melakukan operasi penggabungan, dengan <m>u_p</m>
+      kini ditulis sebagai <c>u[p]</c> dan <m>v_q</m> ditulis sebagai <c>v[q]</c>. </p>
+
+    <sage>
+      <input>u = [1,2,7,9,11,15]
+v = [3,5,8,100,130,275]
+a = []
+p = 0
+q = 0
+for i in range(len(u) + len(v)):
+    if (p &lt; len(u) and q &lt; len(v)):
+        a.append(min(u[p], v[q]))
+        if (min(u[p], v[q])==u[p]):
+            p = p+1
+        else:
+            q = q+1
+    elif (p &gt;= len(u)):
+        a.append(v[q])
+        q = q+1
+    else:
+        a.append(u[p])
+        p = p+1
+a
+      </input>
+      <output>[1, 2, 3, 5, 7, 8, 9, 11, 15, 100, 130, 275]</output>
+    </sage>
+
+    <p>Setelah memiliki strategi penggabungan yang baik, kita dapat dengan mudah mengembangkan strategi rekursif untuk
+      mengurutkan. Jika diberikan suatu barisan <m>a_1,a_2,\dots,a_n</m> yang terdiri atas <m>n</m> bilangan bulat yang semuanya berbeda, tetapkan <m>s=\lceil
+      n/2\rceil</m> dan <m>t=\lfloor n/2\rfloor</m>. Kemudian, misalkan <m>u_i=a_i</m> untuk <m>i=1,2,\dots,s</m>
+      dan <m>v_j=a_{s+j}</m> untuk <m>j=1,2,\dots,t</m>. Urutkan kedua subbarisan tersebut, lalu gabungkan
+      keduanya. Sebagai contoh konkret, jika diberikan barisan <m>(2,8,5,9,3,7,4,1,6)</m>, kita membaginya menjadi <m>
+      (2,8,5,9,3)</m> dan <m>(7,4,1,6)</m>. Kedua subbarisan ini diurutkan (melalui pemanggilan rekursif) menjadi <m>
+      (2,3,5,8,9)</m> dan <m>(1,4,6,7)</m>, lalu kedua barisan terurut tersebut digabungkan. </p>
+
+    <p>Untuk waktu eksekusi, misalkan <m>S(n)</m> adalah banyaknya operasi yang diperlukan untuk mengurutkan barisan yang terdiri atas <m>
+      n</m> bilangan bulat berbeda. Maka <m>S(2n)\le2 S(n) + 2n</m> karena jelas diperlukan <m>2n</m>
+      langkah untuk menggabungkan dua barisan terurut yang masing-masing panjangnya <m>n</m>. Hal ini menghasilkan batas <m>S(n) \lt C
+      n\log n</m> untuk suatu konstanta positif <m>C</m>. Dalam mata kuliah ilmu komputer, Anda akan
+      mempelajari (di sini hal tersebut menjadi latihan) bahwa batas ini optimal. </p>
+  </subsection>
+
+</section>

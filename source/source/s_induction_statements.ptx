@@ -1,0 +1,82 @@
+<section xml:id="s_induction_statements">
+    <title>Makna Pernyataan</title>
+    <idx><h>pernyataan</h><h>makna</h></idx>
+    <p>Pernahkah Anda mengikuti tes terstandar yang menyajikan beberapa suku pertama suatu barisan, lalu meminta Anda menentukan suku berikutnya? Berikut beberapa contoh pertanyaan. Untuk setiap kasus, cobalah menentukan jawaban yang masuk akal bagi suku berikutnya.
+                  <ol>
+        <li><m>2,5,8,11,14,17,20,23,26,\dots</m></li>
+        <li><m>1,1,2,3,5,8,13,21,34,55,89,144,233,377,\dots</m></li>
+        <li><m>1,2,5,14,42,132,429,1430,4862,\dots</m></li>
+        <li><m>2,6,12,20,30,42,56,72,90,110,\dots</m></li>
+        <li><m>2,3,6,11,18,27,38,51,\dots</m></li>
+    
+                  </ol>
+                </p>
+
+    <p>Mudah sekali! Baiklah, sekarang cobalah barisan berikut yang agak lebih menantang. Kali ini, kami akan memberikan jauh lebih banyak suku dan menantang Anda untuk menemukan suku berikutnya.
+    <md>
+        1,2,3,4,1,2,3,4,5,1,2,3,4,5,2,3,4,5,6,2,3,4,5,6,1,2,3,4,5,2,3,4,5,6,\dots
+    </md>
+    Percayalah bahwa memang ada sesuatu yang sangat konkret di balik barisan ini, dan setelah dijelaskan, Anda akan sepakat bahwa hal itu <q>jelas.</q> Namun, untuk saat ini, hal itu sama sekali belum jelas.
+    </p>
+    
+    <p>Ada bahaya lain yang mengintai ketika kita menjumpai rumus seperti
+    <md>
+        1+2+3+\dots+n = \frac{n(n+1)}{2}
+    </md>
+    Apa arti tanda titik-titik dalam pernyataan ini? Bahkan, mari kita tinjau pertanyaan yang jauh lebih sederhana. Apa arti ungkapan berikut:
+    <md>
+        1+2+3+\dots+6
+    </md>
+    Apakah yang dimaksud adalah jumlah enam bilangan bulat positif pertama, atau jumlah<nbsp/><m>19</m> suku pertama dari barisan tantangan yang lebih rumit di atas? Jawaban yang seharusnya Anda berikan adalah bahwa Anda tidak tahu, dan itulah jawaban yang benar.
+    </p>
+
+    <p>Intinya, tanpa satu atau dua keterangan penjelas, notasi <m>1+2+3+\dots+6</m> tidak terdefinisi secara tepat. Mari kita lihat cara memperbaikinya.</p>
+
+    <p>Pertama, misalkan <m>f:\posints\longrightarrow\posints</m> adalah sebuah fungsi. Tetapkan
+    <md>
+        \sum_{i=1}^1 f(i) = f(1)
+    </md>
+    dan jika <m>n&gt;1</m>, definisikan
+    <md>
+        \sum_{i=1}^n f(i) = f(n)+\sum_{i=1}^{n-1}f(i)
+    </md>
+    <idx><h>notasi Sigma</h><h>definisi</h></idx>Untuk melihat bahwa kedua pernyataan ini menyiratkan bahwa ungkapan <m>\sum_{i=1}^nf(i)</m> terdefinisi untuk semua bilangan bulat positif, terapkan sifat terurut baik pada himpunan semua bilangan bulat positif yang membuat ungkapan tersebut belum terdefinisi, lalu gunakan definisi rekursif untuk mendefinisikannya bagi elemen terkecil.
+    </p>
+
+    <p>Jadi, jika ingin membahas jumlah enam bilangan bulat positif pertama, kita harus menulis:
+    <md>
+        \sum_{i=1}^6 i
+    </md>
+    Sekarang jelas bahwa yang dibahas adalah perhitungan yang menghasilkan<nbsp/><m>21</m>.
+    </p>
+  
+    <p>Contoh kedua: sebelumnya, kita mendefinisikan <m>n!</m> dengan menulis
+    <md>
+        n! = n\times (n-1)\times (n-2)\times\dots\times3\times2\times 1
+    </md>
+    Sampai di sini, Anda seharusnya menyadari bahwa ada masalah. Perkalian, seperti penjumlahan, merupakan operasi biner. Lalu, apa arti titik-titik itu? Berikut cara mendefinisikannya dengan lebih tepat. Definisikan <m>n!</m> sebagai <m>1</m> jika <m>n=1</m>. Jika <m>n&gt;1</m>, tetapkan <m>n! = n(n-1)!</m>.<idx><h>faktorial</h><h>definisi rekursif</h></idx>
+    </p>
+
+    <p>Definisi seperti ini disebut <term>definisi rekursif</term><idx><h>definisi rekursif</h></idx>. Definisi tersebut dapat dibuat dengan titik awal yang berbeda. Sebagai contoh, kita dapat menetapkan <m>n!=1</m> ketika <m>n=0</m>, dan untuk <m>n&gt;0</m>, menetapkan <m>n!=n(n-1)!</m>.
+    </p>
+
+    <p>Berikut cuplikan kode dalam SageMath. Karena SageMath berbasis Python, cuplikan ini juga dapat dijalankan sebagai kode Python.
+    </p>
+
+    <sage>
+        <input>def sumrecursive(n):
+    if n == 1:
+        return 2;
+    else:
+        return sumrecursive(n-1) + (n*n - 2*n + 3)
+sumrecursive(3)
+        </input>
+        <output>11</output>
+    </sage>
+
+    <p>Berapakah nilai <c>sumrecursive(4)</c>? (Untuk memastikan bahwa Anda memahami cara kerja fungsi rekursif ini, hitunglah <c>sumrecursive(4)</c> secara manual sebelum memodifikasi sel SageMath di atas.) Masuk akalkah untuk mengatakan bahwa <c>sumrecursive(n)</c> terdefinisi untuk semua bilangan bulat positif <m>n</m>? Apakah Anda menyadari bahwa program ini memberikan makna yang tepat bagi ungkapan:
+    <md>
+        2+3+6+11+18+27+38+51+\dots +(n^2-2n+3)
+    </md>
+    </p>
+</section>

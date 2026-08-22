@@ -1,0 +1,318 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="notes-induction" component="induction">
+  <title>Induction</title>
+  <handout component="recur-count">
+    <title>Recursive Counting</title>
+    
+    <p workspace="4cm">
+      How can we interpret the notation <m>1+2+\cdots + n^2</m>?
+    </p>
+    <p component="a">
+      The version above is reasonably unambiguous, but what if it were <m>1+\cdots + n^2</m>? Then you might wonder if I meant <m>1+4+9+16+\cdots+n^2</m>. This is why we introduce Sigma-notation, which we define recursively:
+      <md>
+        <mrow>\sum_{i=1}^1 f(i) \amp = f(1)</mrow>
+        <mrow>\sum_{i=1}^n f(i) \amp = f(n) + \sum_{i=1}^{n-1}f(i)\amp \text{for }n\geq 2</mrow>
+      </md>
+      Using this, we see, for instance, that
+      <md>
+        <mrow>
+        \sum_{i=1}^4 f(i) \amp = f(4) + \sum_{i=1}^3 f(i)
+        </mrow>
+        <mrow>\amp = f(4) + f(3) + \sum_{i=1}^2 f(i)</mrow>
+        <mrow>\amp = f(4) + f(3) + f(2) + \sum_{i=1}^1 f(i) </mrow>
+        <mrow>\amp= f(4)+f(3) + f(2) +f(1)</mrow>
+      </md>
+      
+    </p>
+    <p>
+      <alert>Peer instruction question 1</alert>
+    </p>
+    <p workspace="7cm">
+      <md>
+        \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+      </md>
+      
+    </p>
+    <p component="a">
+      The first term on the right-hand side counts the <m>k</m>-element subsets of <m>[n]</m> that <em>do</em> contain 1, since once we have decided that 1 is in the subset, we still need <m>k-1</m> more elements and have <m>n-1</m> elements to pick them from. The second term on the right-hand side counts the <m>k</m>-element subsets of <m>[n]</m> that <em>do not</em> contain 1, since if we have decided that 1 is not in the subset, we have only <m>n-1</m> elements to pick from but we must pick <m>k</m> of them. Every <m>k</m>-element subset must either contain 1 or not contain 1, so this has counted all of the <m>k</m>-element subsets and therefore the sum equals <m>\binom{n}{k}</m>. We call this equation <term>Pascal's Identity</term>, which we use to construct <term>Pascal's Triangle</term>. We show this below.
+    </p>
+    		<image component="a" xml:id="pascal-large">
+			<latex-image label="pascal-large">
+			\begin{tikzpicture}
+			\def\r{.55}
+			\foreach \row in {0,...,10} {
+			\hexbox{\row}{0}{\large 1}
+			}
+			%fill in the rest of the triangle:
+			\foreach \row in {1,...,10} {
+			\pgfmathsetmacro{\entry}{1};
+			\foreach \col in {1,...,\row} {
+			% iterative formula : val = precval * (row-col+1)/col
+			% (+ 0.5 to bypass rounding errors)
+			\pgfmathtruncatemacro{\entry}{\entry*((\row-\col+1)/\col)+0.5};
+			\global\let\entry=\entry
+			\ifnum \entry&lt;100
+			\hexbox{\row}{\col}{\large \entry}
+			\else \ifnum \entry&lt;1000
+			\hexbox{\row}{\col}{\entry}
+			\else \ifnum \entry&lt;10000
+			\hexbox{\row}{\col}{\footnotesize \entry}
+			\else
+			\hexbox{\row}{\col}{\scriptsize \entry}
+			\fi
+			\fi
+			\fi
+			}
+			}
+			\end{tikzpicture}
+			</latex-image>
+			<shortdescription>The first 11 rows of Pascal's triangle.</shortdescription>
+			<description>
+			<p>
+				The first 11 rows of Pascal's triangle.
+				A triangular array of hexagons, each row containing one more hexagon that the row above it.
+				In each hexagon is an integer: 1's on the border of the triangle, and every integer inside the triangle the sum of the two integers above it.
+			</p>
+			</description>
+		</image>
+    <p component="a">
+      To illustrate the role of Pascal's identity in the triangle, note that <m>35</m> is in the seventh row (starting counting from the zeroth) and the first <m>35</m> in this row is in the third position (starting counting from the zeroth). Thus, we interpret this as <m>C(7,3) = 35</m>. Looking at the two cells above <m>35</m>, we see <m>15</m> and <m>20</m>. Notice that <m>35=15+20</m> and furthermore, <m>C(6,2)=15</m> and <m>C(6,3)=20</m>.
+    </p>
+    <activity workspace="2cm">
+      <statement>
+        <p>
+          Suppose that <m>f</m> is a function defined on the positive integers. You know that <m>f(1) = 0</m> and for all <m>n\gt 1</m>, <m>f(n) = 3f(n-1)+2</m>. What is <m>f(3)</m>?
+        </p>
+      </statement>
+      <solution component="recur-count-soln">
+        <p>
+          We have 
+          <md>
+            f(3) = 3f(2) + 2 = 3(3f(1)+2) + 2 = 9f(1) + 6+ 2= 9\cdot 0 + 8 = 8
+          </md>.
+        </p>
+      </solution>
+    </activity>
+    <p>
+      <alert>Peer instruction question 2</alert>
+    </p>
+    <p>
+      Let <m>r(n)</m> be the number of regions determined by <m>n</m> lines in the plane drawn so that each pair intersects but no three lines intersect at a single point.
+    </p>
+    <sidebyside widths="25% 75%">
+      <tabular>
+        <row bottom="minor">
+          <cell><m>n</m></cell>
+          <cell><m>r(n)</m></cell>
+        </row>
+        <row>
+          <cell>0</cell>
+          <cell component="b"/>
+          <cell component="a">1</cell>
+        </row>
+        <row>
+          <cell>1</cell>
+          <cell component="b"/>
+          <cell component="a">2</cell>
+        </row>
+        <row>
+          <cell>2</cell>
+          <cell component="b"/>
+          <cell component="a">4</cell>
+        </row>
+        <row>
+          <cell>3</cell>
+          <cell component="b"/>
+          <cell component="a">7</cell>
+        </row>
+        <row>
+          <cell>4</cell>
+          <cell component="b"/>
+          <cell component="a">11</cell>
+        </row>
+      </tabular>
+      <p component="b">
+        <nbsp/>
+      </p>
+      <image width="50%" source="lines-regions" component="a">
+          <description>
+            <p>Four lines drawn in the plane so that each pair of lines intersects and no three lines intersect at a single point. On one of the lines, the three points of intersection with the other three lines are marked with dots. The regions determined by the lines are numbered from <m>1</m> to <m>11</m>.</p>
+          </description>
+        </image>
+    </sidebyside>
+    <p component="b" workspace="10cm">
+      
+    </p>
+    <p component="a">
+      When adding the <m>n</m>-th line, this new line is cut exactly once by each of the existing <m>n-1</m> lines. The <m>n</m>-th line is thus cut into <m>n</m> pieces. Each of these pieces takes one of the regions that the <m>n-1</m> lines determined and divides it into two regions. This nets the addition of <m>n</m> new regions, if we count one of the pieces into which an existing region was cut as counting toward the <m>r(n-1)</m> existing regions. Thus, we have <m>r(n) = r(n-1) + n</m> for <m>n\geq 1</m> and <m>r(0)=1</m>. Alternatively, you could consider that there are <m>r(n-1)-n</m> regions that are untouched by the <m>n</m>-th line and <m>2n</m> new regions formed by the cutting of the new line. But this still gives <m>r(n) = r(n-1)-n + 2n = r(n-1)+n</m>.
+    </p>
+  </handout>
+  <handout component="induction-principle">
+    <title>Principle of Mathematical Induction</title>
+    
+    <axiom xml:id="axiom-induction">
+      <title>Principle of Mathematical Induction</title>
+      <statement>
+        <p>
+          Let <m>S_{n}</m> be an open statement involving a positive integer <m>n</m>. If <m>S_{1}</m> is true, and for every positive integer <m>k</m>, the statement <m>S_{k+1}</m> is true whenever <m>S_{k}</m> is true, then <m>S_{n}</m> is true for every positive integer <m>n</m>.
+        </p>
+        <p workspace="2cm" component="b">
+          
+        </p>
+        <p component="a">
+          We can rephrase <q>the statement <m>S_{k+1}</m> is true whenever <m>S_{k}</m> is true</q> as <q>if <m>S_k</m> is true, then <m>S_{k+1}</m> is true</q>.
+        </p>
+      </statement>
+    </axiom>
+    <assemblage xml:id="assemblage-ind-proof-parts">
+      <title>Key Parts of an Inductive Proof</title>
+      <p>
+        When trying to prove an open statement <m>S_{n}</m> is true for all positive integers <m>n</m> by mathematical induction, the key steps are
+        <dl>
+          <li>
+            <title>Basis Step</title>
+            <p>
+              Show that <m>S_{1}</m> is true.
+            </p>
+            <p component="a">
+              We sometimes call this the <q>Base case</q>.
+            </p>
+          </li>
+
+          <li>
+            <title>Inductive step</title>
+            <p>
+              Show that <em>if</em> for some <m>k\geq 1</m>, <m>S_{k}</m> is true, then <m>S_{k+1}</m> is true.
+            </p>
+            <p component="a">
+              <q>For some <m>k\geq 1</m>, <m>S_{k}</m> is true</q> is usually referred to as the <term>induction hypothesis</term> or <term>inductive hypothesis</term>.
+            </p>
+          </li>
+        </dl>
+      </p>
+    </assemblage>
+    <p>
+      <alert>PI questions: getting started, after basis step, after IH.</alert>
+    </p>
+    <theorem xml:id="thm-ind-example">
+      <statement>
+        <p>
+          For all positive integers <m>n</m>, <m>\displaystyle \sum_{i=1}^{n} (4i-3) = n(2n-1)</m>.
+        </p>
+      </statement>
+      <proof>
+        <p component="b" workspace="5cm">
+          
+        </p>
+        <p component="a">
+          We will prove this by induction. The basis step is to substitute <m>n=1</m> into each side:
+          <md>
+            <mrow>\sum_{i=1}^1 (4i-3) \amp = 4\cdot 1-3 = 1</mrow>
+            <mrow>1(2\cdot 1-1) \amp = 1(2-1) = 1\cdot 1 = 1</mrow>
+          </md>
+          These are equal, so the basis step is complete. Now assume that for <em>some</em> <m>k\geq 1</m> we have
+          <md>
+            \sum_{i=1}^k (4i-3) = k(2k-1)
+          </md>.
+          We want to prove that
+          <md>
+            \sum_{i=1}^{k+1} (4i-3) = (k+1)(2(k+1)-1)
+          </md>.
+          We can write
+          <md>
+            <mrow>\sum_{i=1}^{k+1} (4i-3) \amp = \sum_{i=1}^k(4i-3)+(4(k+1)-3)</mrow>
+            <mrow> \amp = k(2k-1)+(4(k+1)-3)\qquad\text{(By the induction hypothesis)}</mrow>
+            <mrow> \amp = 2k^2-k+4k+1 = 2k^2+3k+1</mrow>
+            <mrow> \amp = (k+1)(2k+1)</mrow>
+            <mrow> \amp = (k+1)(2(k+1)-1)</mrow>
+          </md>.
+          Thus, the formula is true for <m>k+1</m> and therefore holds for all <m>n\geq 1</m> by the Principle of Mathematical Induction.
+        </p>
+      </proof>
+    </theorem>
+    <activity>
+  <task>
+    <statement>
+    <p>
+      Recall that we have defined <m>r(n)</m> to be the number of regions in the plane determined by <m>n</m> lines arranged so that (1) each pair of lines intersects and (2) no three lines intersect at a single point and argued that <m>r(1) = 2</m> and for <m>n\geq 2</m>, <m>r(n) = r(n-1) + n</m>.
+      Prove that for all positive integers <m>n</m>,
+      <md>
+        r(n) = \binom{n+1}{2}+1
+      </md>.
+    </p>
+    </statement>
+    <solution>
+      <proof>
+        <p>
+          We will prove this by induction. For the base case, let <m>n=1</m>. By definition, <m>r(1) = 1</m>. We also see that <m>\binom{1+1}{2} + 1 = \binom{2}{2} +1 = 1+1 = 2</m>, which completes the verification of the base case.
+        </p>
+        <p>
+          Now assume that for some <m>k\geq 1</m> that <m>r(k) = \binom{k+1}{2} + 1</m>. We will show that <m>r(k+1) = \binom{k+2}{2}+1</m>. Since <m>k\geq 1</m>, we have that <m>k+1\geq 2</m>. Therefore, the recursive formula for <m>r</m> applies to <m>r(k+1)</m>, and we have
+          <md>
+            <mrow>r(k+1) \amp = r(k) + (k+1)</mrow>
+            <mrow> \amp = \binom{k+1}{2} + 1 + k+1 \amp \text{(By induction hypothesis)}</mrow>
+            <mrow> \amp = \frac{(k+1)k}{2} + k+2 = \frac{k^2+k}{2} + \frac{2k+4}{2}</mrow>
+            <mrow> \amp = \frac{k^2+3k+4}{2} = \frac{(k+2)(k+1) + 2}{2}</mrow>
+            <mrow> \amp = \binom{k+2}{2} + 1</mrow>
+          </md>.
+          Therefore, by the Principle of Mathematical Induction, 
+          <md>
+            r(n) = \binom{n+1}{2}+1
+          </md>
+          for all positive integers <m>n</m>.
+        </p>
+      </proof>
+    </solution>
+  </task>
+
+  <task>
+    <statement>
+      <p>
+        We say that an integer <m>a</m> <em>divides</em> an integer <m>b</m> provided that there exists an integer <m>m</m> such that <m>b=ma</m>.
+        Prove that for all integers <m>n\geq 1</m>, <m>4</m> divides <m>5^{n}-1</m>.
+      </p>
+    </statement>
+    <solution>
+      <proof>
+        <p>
+          We will prove this by induction. The basis step is <m>n=1</m>, for which we have <m>5^1-1=4=1\cdot 4</m>. Therefore, we can see that <m>4</m> divides <m>5^1-1</m> as required.
+        </p>
+        <p>
+          Now assume that for some positive integer <m>k</m>, we have that <m>4</m> divides <m>5^k-1</m>. This means that there exists an integer <m>m</m> so that <m>5^k-1=4m</m>. We can rearrange this to say that <m>5^k=4m+1</m>. Now we consider <m>5^{k+1}-1</m> for the induction step. We can write <m>5^{k+1}</m> as <m>5^k\cdot 5</m>, so we have <m>5^{k+1}-1 = 5^k\cdot 5 -1 = (4m+1)\cdot 5 -1</m> by the induction hypothesis. Using algebra, we now have that this equals <m>20m+5-1 = 20m+4=4(5m+1)</m>. Since <m>m</m> is an integer, <m>5m+1</m> is also an integer. Therefore, <m>5^{k+1}-1</m> is four times an integer, which is what it means for <m>4</m> to divide <m>5^{k+1}-1</m>. Hence, by the Principle of Mathematical Induction, <m>4</m> divides <m>5^n-1</m> for all positive integers <m>n</m>.
+        </p>
+      </proof>
+    </solution>
+  </task>
+
+  <task>
+    <statement>
+      <p>
+        Let <m>f(1)=5</m>, <m>f(2) = 13</m>, and for all integers <m>n\geq 3</m>,
+        <md>
+          f(n)=5f(n-1)-6f(n-2).
+        </md>
+        Prove that an explict formula for <m>f(n)</m> is given by <m>f(n)=2^{n}+3^{n}</m>.
+      </p>
+    </statement>
+    <solution>
+      <proof>
+        <p>
+          We will prove this using strong induction. Because the recursive formula only applies for <m>n\geq 3</m>, we will need to address <m>n=1</m> and <m>n=2</m> as base cases. We are given that <m>f(1) = 5</m> and <m>f(2) = 13</m>. The formula <m>2^n+3^n</m>, when considered for <m>n=1</m> and <m>n=2</m>, yields <m>2^1+3^1 = 5</m> and <m>2^2+3^2 = 4+9 = 13</m>, respectively. Thus, the basis step is complete.
+        </p>
+        <p>
+          Now assume that for some integer <m>k\geq 2</m> and all integers <m>j</m> with <m>1\leq j\leq k</m> that <m>f(k) = 2^k+3^k</m>. We must prove that <m>f(k+1) = 2^{k+1}+3^{k+1}</m>. Since <m>k\geq 2</m>, we have that <m>k+1\geq 3</m>, and thus the recursive formula for <m>f</m> applies. Therefore, 
+          <md>
+            <mrow>f(k+1) \amp  = 5f(k)-6f(k-1)</mrow>
+            <mrow> \amp = 5(2^k+3^k) -6(2^{k-1}+3^{k-1})\amp \text{(By the inductive hypothesis)}</mrow>
+            <mrow> \amp = 5\cdot 2^k + 5\cdot 3^k - 6\cdot 2^{k-1} -6\cdot 3^{k-1}</mrow>
+            <mrow> \amp = 5\cdot 2^k + 5\cdot 3^k -3\cdot 2^k -2\cdot 2^k</mrow>
+            <mrow> \amp = 2\cdot 2^k +3\cdot 3^k</mrow>
+            <mrow> \amp = 2^{k+1} + 3^{k+1}</mrow>
+          </md>.
+          This is what we needed to show. Therefore, by the Principle of Mathematical Induction, we have that for all integers <m>n\geq 1</m>, <m>f(n) = 2^n + 3^n</m>.
+        </p>
+      </proof>
+    </solution>
+  </task>
+    </activity>
+  </handout>
+</chapter>

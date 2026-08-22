@@ -1,0 +1,44 @@
+<section xml:id="s_induction_induction">
+    <title>Induksi Matematika</title>
+    <p>Sekarang kita beralih ke induksi, pasangan rekursi yang sama kuatnya.
+    </p>
+
+    <p>Misalkan <m>n</m> bilangan bulat positif. Perhatikan pernyataan-pernyataan matematika berikut, yang masing-masing melibatkan <m>n</m>:
+    <ol>
+        <li><m>2n+7 = 13</m>.</li>
+        <li><m>3n-5=9</m>.</li>
+        <li><m>n^2-5n+9=3</m>.</li>
+        <li><m>8n-3 \lt  48</m>.</li>
+        <li><m>8n-3 &gt; 0</m>.</li>
+        <li><m>(n+3)(n+2) =n^2+5n+6</m>.</li>
+        <li><m>n^2 -6n + 13 \ge 0</m>.</li>
+    </ol>
+    </p>
+    <p>Pernyataan semacam itu disebut <term>pernyataan terbuka</term><idx><h>pernyataan</h><h>terbuka</h></idx>. Pernyataan terbuka dapat dipandang sebagai <term>kondisi</term>, <ie/>, pernyataan yang berlaku untuk nilai-nilai <m>n</m> tertentu. Pernyataan<nbsp/>1 hanya berlaku ketika <m>n=3</m>. Pernyataan<nbsp/>2 tidak pernah berlaku, <ie/>, pernyataan itu tidak memiliki solusi dalam bilangan bulat positif. Pernyataan<nbsp/>3 memiliki tepat dua solusi, sedangkan Pernyataan<nbsp/>4 memiliki enam solusi. Sebaliknya, Pernyataan<nbsp/>5, 6, dan<nbsp/>7 berlaku untuk semua bilangan bulat positif.
+    </p>
+
+    <p>Pada tahap ini, Anda mungkin menggaruk kepala sambil menganggap pembahasan ini terlalu sederhana. Namun, mari kita perhatikan beberapa pernyataan yang sedikit lebih rumit.
+                  <ol>
+        <li><p>Jumlah <m>n</m> bilangan bulat positif pertama adalah <m>n(n+1)/2</m>.</p></li>
+        <li><p>Jumlah <m>n</m> bilangan bulat positif ganjil pertama adalah <m>n^2</m>.</p></li>
+        <li><p><m>n^n \ge  n! + 4,000,000,000n\,2^n</m> ketika <m>n\ge 14</m>.</p></li>
+    
+                  </ol>
+                </p>
+
+    <p>Bagaimana kita dapat membuktikan kebenaran pernyataan-pernyataan semacam itu, tentu dengan syarat bahwa pernyataannya memang benar? Titik awal untuk menjawabnya adalah prinsip berikut:
+    </p>
+
+    <principle xml:id="princ_math-induction">
+        <title>Prinsip Induksi Matematika</title>
+        <idx><h>induksi</h><h>prinsip induksi matematika</h></idx>
+        <statement>
+            <p>Misalkan <m>S_n</m> suatu pernyataan terbuka yang melibatkan bilangan bulat positif <m>n</m>. Jika <m>S_1</m> benar dan, untuk setiap bilangan bulat positif <m>k</m>, asumsi bahwa pernyataan <m>S_k</m> benar mengakibatkan pernyataan <m>S_{k+1}</m> benar, maka <m>S_n</m> benar untuk setiap bilangan bulat positif<nbsp/><m>n</m>.
+            </p>
+        </statement>
+    </principle>
+
+    <p>Dengan sedikit pemikiran, Anda akan melihat bahwa <xref ref="princ_math-induction" text="title"/> ekuivalen secara logis dengan <xref ref="princ_well-order" text="title"/>. Jika belum melakukannya, sekarang mungkin waktu yang tepat untuk meninjau materi latar belakang dalam <xref ref="app_background"/>.
+    </p>
+
+</section>

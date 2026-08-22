@@ -1,0 +1,135 @@
+<exercises xml:id="s_flowapplications_exercises">
+    <exercise>
+        <statement>
+            <p>Gunakan teknik-teknik dalam bab ini untuk mencari pencocokan maksimum dari <m>V_1</m> ke <m>V_2</m> dalam graf pada <xref ref="fig_flowapplications_matching_ex1"/>. Simpul-simpul di bagian bawah membentuk himpunan <m>V_1</m>, sedangkan simpul-simpul di bagian atas membentuk himpunan <m>V_2</m>. Jika Anda tidak dapat menemukan pencocokan yang menjenuhkan semua simpul dalam <m>V_1</m>, jelaskan alasannya.
+            </p>
+            <figure xml:id="fig_flowapplications_matching_ex1">
+                <caption>Adakah pencocokan yang menjenuhkan <m>V_1</m>?</caption>
+                <image width="30%" source="matching_ex1"><description><p>Adakah pencocokan yang menjenuhkan <m>V_1</m>?</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Gunakan teknik-teknik dalam bab ini untuk mencari pencocokan maksimum dari <m>V_1</m> ke <m>V_2</m> dalam graf pada <xref ref="fig_flowapplications_matching_ex2"/>. Simpul-simpul di bagian bawah membentuk himpunan <m>V_1</m>, sedangkan simpul-simpul di bagian atas membentuk himpunan <m>V_2</m>. Jika Anda tidak dapat menemukan pencocokan yang menjenuhkan semua simpul dalam <m>V_1</m>, jelaskan alasannya.</p>
+            <figure xml:id="fig_flowapplications_matching_ex2">
+                <caption>Adakah pencocokan yang menjenuhkan <m>V_1</m>?</caption>
+                <image width="35%" source="matching_ex2"><description><p>Adakah pencocokan yang menjenuhkan <m>V_1</m>?</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Para mahasiswa sedang mempersiapkan proyek akhir untuk mata kuliah kombinatorika terapan. Lima topik yang tersedia bagi proyek akhir mereka adalah algoritma graf, poset, induksi, teori graf, dan fungsi pembangkit. Kelas ini terdiri atas lima mahasiswa, dan masing-masing telah memberikan kepada dosen daftar topik yang bersedia mereka kerjakan. Alice tertarik pada poset atau graf. Bob bersedia mengerjakan proyek tentang algoritma graf, poset, atau induksi. Carlos hanya mempertimbangkan poset atau graf. Dave menyukai fungsi pembangkit dan induksi. Yolanda ingin mengerjakan proyek tentang graf atau poset. Untuk mencegah kolaborasi tanpa izin, dosen tidak ingin dua mahasiswa mengerjakan topik yang sama. Dapatkah setiap mahasiswa diberi satu topik dari daftar di atas sehingga tidak ada dua mahasiswa yang mengerjakan proyek yang sama? Jika dapat, carilah penugasan semacam itu. Jika tidak, carilah penugasan yang memaksimumkan jumlah mahasiswa yang memperoleh topik dari daftar mereka dan jelaskan mengapa semua permintaan mahasiswa tidak dapat dipenuhi.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Tujuh perguruan tinggi bersaing merekrut enam pemain sepak bola dari sekolah menengah untuk bergabung dengan tim universitas mereka. Setiap perguruan tinggi hanya boleh menerima satu pemain tambahan, dan setiap pemain hanya boleh berkomitmen kepada satu perguruan tinggi. Tabel di bawah mencantumkan ketujuh lembaga beserta siswa-siswa yang ingin mereka rekrut, yang telah diterima, dan yang juga berminat bermain bagi perguruan tinggi tersebut. (Tidak ada gunanya menugaskan kepada suatu perguruan tinggi pemain yang tidak memenuhi persyaratan akademik atau tidak ingin bergabung dengan timnya.) Para pemain diidentifikasi dengan bilangan bulat <m>1</m> sampai <m>6</m>. Carilah cara menugaskan para pemain kepada perguruan tinggi yang memaksimumkan jumlah perguruan tinggi yang menerima salah satu dari keenam pemain.
+            </p>
+            <sidebyside>
+                <tabular>
+                    <col halign="right"/> <col/>
+                    <row bottom="minor"><cell>Perguruan tinggi</cell><cell>Nomor pemain</cell></row>
+                    <row><cell>Boston College</cell><cell>1, 3, 4</cell></row>
+                    <row><cell>Clemson University</cell><cell>1, 3, 4, 6</cell></row>
+                    <row><cell>Georgia Institute of Technology</cell><cell>2, 6</cell></row>
+                    <row><cell>University of Georgia</cell><cell>Tidak ada yang berminat</cell></row>
+                    <row><cell>University of Maryland</cell><cell>2, 3, 5</cell></row>
+                    <row><cell>University of North Carolina</cell><cell>1, 2, 5</cell></row>
+                    <row><cell>Virginia Polytechnic Institute and State University</cell><cell>1, 2, 5, 6</cell></row>
+                </tabular>
+            </sidebyside>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Pertanyaan-pertanyaan dalam latihan ini merujuk pada diagram jaringan dalam <xref ref="fig_flowapplications_poset_network_ex1"/>. Jaringan ini bersesuaian dengan poset <m>\bfP</m>. Seperti biasa, semua kapasitas diasumsikan bernilai <m>1</m> dan semua sisi diarahkan ke atas. Jawablah pertanyaan berikut tentang <m>\bfP</m> <em>tanpa menggambar diagram poset</em>.
+                  <ol>
+                <li><p>Elemen mana saja yang lebih besar daripada <m>x_1</m> dalam <m>\bfP</m>?</p></li>
+                <li><p>Elemen mana saja yang lebih kecil daripada <m>x_5</m> dalam <m>\bfP</m>?</p></li>
+                <li><p>Elemen mana saja yang dapat dibandingkan dengan <m>x_6</m> dalam <m>\bfP</m>?</p></li>
+                <li><p>Cantumkan elemen-elemen maksimal dari <m>\bfP</m>.</p></li>
+                <li><p>Cantumkan elemen-elemen minimal dari <m>\bfP</m>.</p></li>
+            
+                  </ol>
+                </p>
+            <figure xml:id="fig_flowapplications_poset_network_ex1">
+                <caption>Jaringan yang bersesuaian dengan suatu poset</caption>
+                <image width="40%">
+                    <description><p>Jaringan yang bersesuaian dengan suatu poset</p>
+                </description><latex-image>\begin{overpic}[scale=0.6]{external/poset_network_ex1}
+                    \put(47,-7){\(S\)}
+                    \put(47,91){\(T\)}
+                    \put(3,15){\(x_1'\)}      \put(90,15){\(x_6'\)}
+                    \put(3,70){\(x_1''\)}      \put(90,70){\(x_6''\)}
+                    \end{overpic}</latex-image>
+                </image>
+
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Gambarlah diagram poset yang bersesuaian dengan jaringan dalam <xref ref="fig_flowapplications_poset_network_ex1"/>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Gunakan metode yang dikembangkan dalam bab ini untuk mencari lebar <m>w</m> dari poset yang bersesuaian dengan jaringan dalam <xref ref="fig_flowapplications_poset_network_ex1"/>. Carilah pula antirantai berukuran <m>w</m> dan partisi menjadi <m>w</m> rantai.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Pada <xref ref="fig_flowapplications_poset_network_ex"/> ditampilkan poset <m>\bfP</m> dan jaringan yang digunakan untuk mencari partisi rantai dari <m>\bfP</m>. (Semua sisi jaringan berkapasitas <m>1</m> dan diarahkan dari bawah ke atas. Sisi-sisi tebal saat ini membawa aliran sebesar <m>1</m>.) Dengan menggunakan jaringan tersebut, carilah lebar <m>w</m> dari <m>\bfP</m>, partisi <m>\bfP</m> menjadi <m>w</m> rantai, dan antirantai dengan <m>w</m> elemen.</p>
+            <figure xml:id="fig_flowapplications_poset_network_ex">
+                <caption>Poset dan diagram jaringan yang bersesuaian</caption>
+                <image width="85%">
+                    <description><p>Poset dan diagram jaringan yang bersesuaian</p>
+                </description><latex-image>\begin{overpic}[scale=0.5]{external/chain-partition}
+                    \put(2,21){\(x_1\)}
+                    \put(32,25){\(x_2\)}
+                    \put(17,21){\(x_3\)}
+                    \put(19,38){\(x_4\)}
+                    \put(1,1){\(x_5\)}
+                    \put(23,0){\(x_6\)}
+                    \put(69.5,-2){\(S\)}
+                    \put(69.5,42){\(T\)}
+                    \put(48,7){\(x'_1\)}
+                    \put(91,7){\(x'_6\)}
+                    \put(48,33){\(x''_1\)}
+                    \put(91,33){\(x''_6\)}
+                    \end{overpic}</latex-image>
+                </image>
+
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Gambarlah jaringan yang bersesuaian dengan poset <m>\bfP</m> pada <xref ref="fig_flowapplications_poset_ex"/>. Gunakan jaringan tersebut untuk mencari lebar <m>w</m> dari <m>\bfP</m>, partisi menjadi <m>w</m> rantai, dan antirantai berukuran <m>w</m>.
+            </p>
+            <figure xml:id="fig_flowapplications_poset_ex">
+                <caption>Poset</caption>
+                <image width="40%">
+                    <description><p>Poset</p>
+                </description><latex-image>\begin{overpic}[scale=0.5]{external/poset_ex}
+                    \put(55,48){\(x_1\)}
+                    \put(45,-2){\(x_2\)}
+                    \put(27,72){\(x_3\)}
+                    \put(59,80){\(x_4\)}
+                    \put(28,33){\(x_5\)}
+                    \put(79,54){\(x_6\)}
+                    \put(87,3){\(x_7\)}
+                    \put(0,54){\(x_8\)}
+                    \put(57,27){\(x_9\)}
+                    \put(94,31){\(x_{10}\)}
+                    \end{overpic}</latex-image>
+                </image>
+
+            </figure>
+        </statement>
+    </exercise>
+</exercises>

@@ -1,0 +1,171 @@
+<section xml:id="s_recurrence_adv-ops">
+  <title>Operator Pemajuan</title>
+
+
+  <introduction>
+    <p>Sebagian besar motivasi kita untuk menyelesaikan persamaan rekurensi berasal dari masalah
+      analog dalam matematika kontinu<mdash/>persamaan diferensial. Anda tidak harus sudah pernah mempelajari
+      persoalan semacam ini untuk memahami apa yang akan kita lakukan pada bagian selanjutnya dalam
+      bab ini, tetapi jika Anda pernah mempelajarinya, motivasi di balik cara kita menangani
+      persoalan-persoalan tersebut akan tampak lebih jelas. Sesuai namanya, persamaan diferensial
+      melibatkan turunan, yang akan kita nyatakan dengan notasi <q>operator</q> sebagai <m>Df</m>,
+      bukan dengan notasi Leibniz <m>df/dx</m>. Dalam notasi kita, turunan kedua adalah <m>D^2 f</m>,
+      turunan ketiga adalah <m>D^3 f</m>, dan seterusnya. Perhatikan contoh berikut. </p>
+    <example xml:id="ex_recurrence_diffeq">
+      <statement>
+        <p>Selesaikan persamaan <md>
+            Df = 3f
+          </md> jika <m>f(0) = 2</m>. </p>
+      </statement>
+      <solution>
+        <p>Sekalipun Anda belum pernah mempelajari persamaan diferensial, Anda seharusnya dapat
+          melihat bahwa pertanyaan ini sebenarnya hanya meminta kita mencari fungsi <m>f</m> yang
+          memenuhi <m>f(0)=2</m> dan yang turunannya sama dengan tiga kali fungsi itu sendiri. Untuk
+          sementara, abaikan <term>syarat awal</term> <m>
+          f(0)=2</m> dan pusatkan perhatian pada inti
+          persoalannya. Fungsi apa yang, ketika diturunkan, hanya berubah karena dikalikan dengan
+          <m>3</m>? Fungsi <m>e^{3x}</m> seharusnya segera terlintas dalam benak Anda, sebab <m>D(e^{3x}) = 3e^{3x}</m>,
+          dan fungsi itu memiliki persis sifat yang kita inginkan. Tentu saja, untuk sebarang
+          konstanta <m>c</m>, fungsi <m>ce^{3x}</m> juga memenuhi sifat ini; hal tersebut memberi kita
+          keluwesan yang diperlukan untuk memenuhi syarat awal. Kita mempunyai <m>f(x) = ce^{3x}</m>
+          dan ingin mencari <m>c</m> sedemikian sehingga <m>
+          f(0)=2</m>. Karena <m>f(0) = c\cdot 1</m>,
+          pilihan <m>c=2</m> memenuhi syarat, sehingga solusi persamaan diferensial yang sangat
+          sederhana ini adalah <m>f(x) = 2e^{3x}</m>. </p>
+      </solution>
+    </example>
+    <p>Dalam persamaan diferensial, kita menerapkan operator diferensial <m>D</m> pada fungsi-fungsi
+      yang dapat didiferensialkan (biasanya dapat didiferensialkan tak hingga kali). Untuk persamaan
+      rekurensi, kita meninjau ruang vektor <m>V</m> yang elemen-elemennya merupakan fungsi dari
+      himpunan bilangan bulat <m>\ints</m> ke himpunan bilangan kompleks <m>\complexes</m>. Kemudian
+      kita meninjau fungsi <m>A:V\longrightarrow
+      V</m>, yang disebut <term>operator pemajuan</term><idx>
+        <h>operator</h>
+        <h>pemajuan</h>
+      </idx>, dan didefinisikan oleh <m>A f(n) = f(n+1)</m>.<notation>
+        <usage>
+          <m>Af(n)</m>
+        </usage>
+        <description>operator pemajuan yang diterapkan pada <m>f(n)</m></description>
+      </notation> (Dengan berbagai siasat, kita dapat memperluas suatu barisan <m>\{a_n\colon n\geq n_0\}</m>
+      menjadi fungsi yang domainnya seluruh <m>\ints</m>, sehingga teknik ini dapat
+      diterapkan pada persoalan kita.) Secara lebih umum, <m>A^p f(n)= f(n+p)</m> apabila <m>p</m>
+      merupakan bilangan bulat positif. </p>
+    <example>
+
+      <p>Misalkan <m>f\in V</m> didefinisikan oleh <m>f(n)=7n-9</m>. Kita menerapkan polinom dalam operator
+        pemajuan <m>3A^2-5A+4</m> pada <m>f</m> dengan <m>n=0</m> sebagai berikut: <md>
+        (3A^2-5A+4)f(0)=3f(2) - 5f(1) +4f(0)= 3(5)-5(-2)+4(-9)=-11.
+        </md>
+      </p>
+    </example>
+    <p>Sebagai analog dari <xref ref="ex_recurrence_diffeq"/>, perhatikan contoh sederhana berikut
+      yang melibatkan operator pemajuan. </p>
+    <example xml:id="ex_recurrence_adveq">
+      <statement>
+        <p>Misalkan barisan <m>\{s_n\colon n\geq 0\}</m> memenuhi <m>s_0 = 3</m> dan <m>s_{n+1}
+          = 2s_{n}</m> untuk <m>n\geq 0</m>. Carilah rumus eksplisit untuk <m>s_n</m>. </p>
+      </statement>
+      <solution>
+        <p>Pertama-tama, mari kita tuliskan pertanyaan tersebut dalam bentuk operator pemajuan. Kita
+          dapat mendefinisikan fungsi <m>f(n) = s_n</m> untuk <m>n\geq 0</m>; informasi yang diberikan
+          kemudian menjadi <m>
+          f(0)=3</m> dan <md>
+            Af(n) = 2f(n),\qquad n\geq 0.
+          </md> Fungsi apa yang, ketika dimajukan, <ie/>, dievaluasi pada <m>n+1</m>, menghasilkan dua
+          kali nilainya pada <m>n</m>? Fungsi pertama yang seharusnya terpikir adalah <m>2^n</m>.
+          Tentu saja, sama seperti pada persamaan diferensial kita, untuk sebarang konstanta <m>c</m>,
+          fungsi <m>c2^n</m> juga memiliki sifat ini. Hal tersebut menyarankan bahwa dengan mengambil
+          <m>f(n) = c2^n</m>, kita telah hampir menyelesaikan persoalan. Karena kita mengetahui bahwa
+          <m>f(0) = 3</m>, kita memperoleh <m>f(0)
+          = c2^0 = c</m>, sehingga <m>c= 3</m>. Jadi,
+          <m>s_n = f(n) = 3\cdot 2^n</m> untuk <m>n\geq 0</m>. Rumus ini jelas memenuhi syarat awal,
+          dan sekarang kita dapat memeriksa bahwa rumus tersebut juga memenuhi persamaan operator
+          pemajuan: <md>
+            Af(n) = 3\cdot 2^{n+1} = 3\cdot 2\cdot 2^n = 2\cdot (3\cdot 2^n) =
+            2\cdot f(n).
+          </md>
+        </p>
+      </solution>
+    </example>
+    <p>Sebelum beralih untuk mengembangkan metode umum bagi penyelesaian persamaan operator
+      pemajuan, mari kita jelaskan sejenak mengapa kita terus menggunakan istilah operator dan
+      menyebutkan bahwa setiap barisan dapat dipandang sebagai fungsi berdomain <m>\ints</m>. Jika
+      Anda pernah mempelajari aljabar linear, Anda mungkin ingat bahwa himpunan semua fungsi yang
+      dapat didiferensialkan tak hingga kali pada garis bilangan real membentuk ruang vektor dan
+      bahwa diferensiasi merupakan operator linear pada fungsi-fungsi tersebut. Analogi kita dengan
+      persamaan diferensial tetap berlaku dengan baik di sini: fungsi-fungsi dari <m>\ints</m> ke <m>
+      \complexes</m> membentuk ruang vektor, dan <m>A</m> merupakan operator linear pada ruang itu.
+      Kita tidak akan berlama-lama membahas aspek teknisnya, dan pengetahuan tentang aljabar linear
+      tidak diperlukan untuk memahami pengembangan teknik penyelesaian persamaan rekurensi kita.
+      Namun, jika Anda ingin menempatkan semua yang kita lakukan di atas landasan yang ketat, kita
+      membahasnya lebih lanjut dalam <xref ref="s_recurrence_rigorous"/>. </p>
+  </introduction>
+
+
+  <subsection xml:id="s_recurrence_adv-ops_const-coeff">
+    <title>Persamaan Berkoefisien Konstan</title>
+    <idx>
+      <h>persamaan rekurensi</h>
+      <h>koefisien konstan</h>
+    </idx>
+    <p>Mudah dilihat bahwa persamaan rekurensi linear dapat dituliskan kembali secara praktis dengan
+      menggunakan polinom <m>p(A)</m> dalam operator pemajuan: <md number="yes" xml:id="eqn_advance">
+        p(A)f=(c_0A^{k}+ c_1A^{k-1} + c_2A^{k-2} + \dots+c_k)f = g.
+      </md> Dalam <xref ref="eqn_advance"/>, yang kita maksud ialah bahwa <m>k\ge1</m> merupakan
+      bilangan bulat, <m>g</m> merupakan vektor (fungsi) tetap dari <m>V</m>, dan
+      <m>c_0,c_1,\dots, c_k</m> merupakan konstanta dengan <m>c_0,c_k\neq0</m>. Perhatikan bahwa karena
+      <m>c_0\neq0</m>, kita dapat membagi kedua ruas dengan <m>c_0</m>, <ie/>, kita dapat menganggap
+      <m>c_0=1</m> kapan pun hal itu memudahkan. </p>
+  </subsection>
+
+
+  <subsection xml:id="s_recurrence_adv-ops_roots-factors">
+    <title>Akar dan Faktor</title>
+    <p>Polinom <m>p(A)</m> dapat dianalisis seperti polinom lainnya. Polinom tersebut memiliki akar
+      dan faktor; meskipun keduanya mungkin sulit ditentukan, kita mengetahui bahwa keduanya ada.
+      Bahkan, jika derajat <m>p(A)</m> adalah <m>k</m>, kita mengetahui bahwa pada medan bilangan
+      kompleks, <m>p(A)</m> memiliki <m>k</m> akar dengan memperhitungkan multiplisitas. Perhatikan
+      bahwa karena kita mengasumsikan <m>c_k\neq0</m>, semua akar polinom <m>p</m> tidak nol. </p>
+  </subsection>
+
+
+  <subsection xml:id="s_recurrence_adv-ops_zero">
+    <title>Apa yang Istimewa dari Nol?</title>
+    <p>Mengapa kita membatasi perhatian pada persamaan rekurensi berbentuk <m>p(A)f = g</m> dengan
+      suku konstan dalam <m>p</m> tidak nol? Mari kita perhatikan bentuk lainnya sejenak. Misalkan
+      suku konstan <m>p</m> adalah nol dan <m>0</m> merupakan akar <m>p</m> dengan multiplisitas
+      <m>m</m>. Maka <m>p(A) = A^mq(A)</m>, dengan suku konstan <m>q</m> tidak nol. Persamaan
+      <m>p(A)f=g</m> kemudian dapat dituliskan sebagai <m>A^mq(A)f=g</m>. Untuk menyelesaikan persamaan
+      ini, kita meninjau persoalan yang lebih sederhana, yakni <m>q(A)f=g</m>. Selanjutnya, <m>h</m>
+      merupakan solusi persoalan semula jika dan hanya jika fungsi <m>h'</m> yang didefinisikan oleh <m>h'(n) =
+      h(n+m)</m> merupakan solusi persoalan yang lebih sederhana. Dengan kata lain,
+      solusi-solusi persoalan semula hanyalah pergeseran dari solusi-solusi persoalan yang lebih
+      sederhana. Oleh karena itu, pada umumnya kita akan terus berfokus pada persamaan operator pemajuan
+      yang <m>p(A)</m>-nya memiliki suku konstan tidak nol, sebab kemampuan menyelesaikan persoalan
+      semacam itu sudah cukup untuk menyelesaikan kelas persoalan yang lebih luas. </p>
+
+    <p>Sebagai kasus khusus, perhatikan persamaan <m>A^m f =g</m>. Persamaan ini mensyaratkan
+      <m>f(n+m)=g(n)</m>, <ie/>, <m>f</m> hanyalah pergeseran dari <m>g</m>. </p>
+  </subsection>
+  <reading-questions xml:id="rqs-recurrence_adv-ops" component="runestone">
+    <exercise label="rq-recurrence_adv-ops_rewrite">
+      <statement>
+        <p>
+          Pada pertanyaan ini, kita meninjau persamaan rekurensi <m>g(n+2) = 5g(n+1) -2g(n)</m>,
+          yang kita tuliskan dalam notasi fungsi, bukan notasi barisan yang sarat subskrip. Tuliskan
+          kembali persamaan rekurensi ini sebagai persamaan operator pemajuan dengan gaya
+          <xref ref="eqn_advance"/>: <m>p(A)g = h</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Dalam <xref ref="ex_recurrence_adveq"/>, bentuk yang kita peroleh dengan memindahkan semua
+          kemunculan <m>f(n)</m> ke satu ruas adalah <m>(A-2)f = 0</m>, sehingga <m>p(A) = A-2</m>
+          pada contoh tersebut.
+        </p>
+      </hint>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

@@ -1,0 +1,398 @@
+<section xml:id="s_graphs_intro">
+  <title>Notasi dan Terminologi Dasar untuk Graf</title>
+  <p>Sebuah <term>graf</term><idx>
+      <h>graf</h>
+    </idx> <m>\bfG</m> adalah pasangan <m>(V,E)</m>, dengan <m>V</m> suatu himpunan (hampir
+    selalu berhingga) dan <m>E</m> suatu himpunan yang anggotanya merupakan subhimpunan beranggota <m>2</m> dari <m>V</m>. Anggota <m>V</m>
+    disebut <term>simpul</term><idx>
+      <h>simpul</h>
+    </idx>, sedangkan anggota <m>E</m> disebut <term>sisi</term><idx>
+      <h>sisi</h>
+    </idx>. Kita menyebut <m>V</m> sebagai <term>himpunan simpul</term> dari <m>\bfG</m> dan <m>E</m>
+    sebagai <term>himpunan sisi</term>. Untuk memudahkan penulisan, sisi <m>\{x,y\}</m> lazim disingkat
+    menjadi <m>xy</m>. Namun, ingatlah bahwa <m>xy\in E</m> bermakna persis sama dengan <m>yx\in E</m>.
+    Jika <m>x</m> dan <m>y</m> adalah dua simpul berbeda dalam <m>V</m>, maka <m>x</m> dan <m>y</m> disebut <term>
+    bertetangga</term><idx>
+      <h>simpul bertetangga</h>
+    </idx> apabila <m>xy\in E</m>; jika tidak, keduanya disebut <term>
+    tidak bertetangga</term>. Sisi <m>xy</m> dikatakan <term>bersisian dengan</term><idx>
+      <h>bersisian dengan</h>
+    </idx> simpul <m>x</m> dan <m>y</m>. </p>
+
+  <p>Sebagai contoh, kita dapat mendefinisikan graf <m>\GVE</m> dengan himpunan simpul <m>V=\{a,b,c,d,e\}</m> dan
+    himpunan sisi <m>E=\{\{a,b\},\{c,d\},\{a,d\}\}</m>. Perhatikan bahwa tidak ada sisi yang bersisian dengan <m>e</m>;
+    hal ini sepenuhnya diperbolehkan oleh definisi kita. Graf sangat lazim disajikan
+    melalui visualisasi berupa satu titik untuk setiap simpul dan satu garis yang menghubungkan dua simpul
+    apabila keduanya bertetangga. Graf <m>\bfG</m> yang baru saja kita definisikan ditampilkan pada <xref ref="fig_small_graph"/>. Penting untuk diingat bahwa meskipun gambar graf merupakan
+    alat bantu yang berguna, gambar tersebut bukanlah graf itu sendiri. Kita dapat menggambar <m>\bfG</m> dengan beberapa
+    cara berbeda tanpa mengubah grafnya. </p>
+  <figure xml:id="fig_small_graph">
+    <caption>Graf dengan <m>5</m> simpul</caption>
+    <image width="30%">
+      <description><p>Graf dengan <m>5</m> simpul, yaitu a, b, c, d, dan e; sisinya menghubungkan a dengan b, c dengan d, serta a dengan d, sedangkan e merupakan simpul terisolasi.</p>
+    </description><latex-image>\begin{overpic}{external/small_graph}
+            \put(58,100){\(a\)}
+            \put(100,48){\(b\)}
+            \put(-7,10){\(c\)}
+            \put(15,50,){\(d\)}
+            \put(70,11){\(e\)}
+            \end{overpic}</latex-image>
+    </image>
+
+  </figure>
+  <p>Seperti yang sering terjadi dalam sains dan matematika, para penulis menggunakan notasi dan terminologi graf yang sedikit berbeda.
+    Sebagai contoh, sebagian penulis memakai istilah <term>nodus</term> dan <term>busur</term>
+    sebagai pengganti simpul dan sisi. Penulis lain menyebut simpul sebagai <term>titik</term> dan dalam hal ini
+    sering menyebut sisi sebagai <term>garis</term>. Dalam buku ini kami berusaha konsisten memakai istilah simpul
+    dan sisi, meskipun sesekali kami mungkin menyebut simpul sebagai titik. Selain itu,
+    mengikuti kebiasaan banyak penulis lain, simpul-simpul yang bertetangga juga akan kami sebut <term>
+    tetangga</term><idx>
+      <h>tetangga</h>
+    </idx>. Kami juga menggunakan terminologi yang kurang lebih baku bahwa <term>
+    lingkungan</term><idx>
+      <h>lingkungan (suatu simpul)</h>
+    </idx> dari simpul <m>x</m> adalah himpunan semua simpul yang
+    bertetangga dengan <m>x</m>. Jadi, pada graf <m>\bfG</m> dalam <xref ref="fig_small_graph"/>, simpul <m>d</m> dan <m>a</m> bertetangga; lingkungan
+    <m>d</m> adalah <m>\{a,c\}</m>, sedangkan lingkungan <m>e</m> adalah himpunan kosong. Selanjutnya, <term>
+    derajat</term><idx>
+      <h>derajat suatu simpul</h>
+    </idx> dari simpul <m>v</m> dalam graf <m>\bfG</m>, yang dinotasikan dengan <m>
+    \deg_\bfG(v)</m>, adalah banyaknya simpul dalam lingkungannya, atau secara ekuivalen, banyaknya
+    sisi yang bersisian dengannya. Sebagai contoh, kita memperoleh <m>\deg_\bfG(d)=\deg_\bfG(a)=2</m>, <m>
+    \deg_\bfG(c)=\deg_\bfG(b)=1</m>, dan <m>\deg_\bfG(e)=0</m>. Jika graf yang sedang dibahas sudah
+    jelas dari konteks, subskrip lazim dihilangkan sehingga cukup ditulis <m>\deg(v)</m><notation>
+      <usage>
+        <m>\deg_\bfG(v)</m>
+      </usage>
+      <description>derajat simpul <m>v</m> dalam graf <m>\bfG</m></description>
+    </notation> untuk
+    derajat <m>v</m>. </p>
+
+  <p>Jika <m>\GVE</m> dan <m>\HWF</m> adalah graf, kita menyebut <m>\bfH</m> sebagai <term>subgraf</term><idx>
+      <h>subgraf</h>
+    </idx> dari <m>\bfG</m> apabila <m>W\subseteq V</m> dan <m>F\subseteq E</m>. Kita
+    menyebut <m>\bfH</m> sebagai <term>subgraf terinduksi</term><idx>
+      <h>subgraf</h>
+      <h>terinduksi</h>
+    </idx> apabila <m>W\subseteq V</m> dan <m>F=\{xy\in E: x,y\in W\}</m>. Dengan kata
+    lain, subgraf terinduksi sepenuhnya ditentukan oleh himpunan simpulnya dan graf asal <m>
+    \bfG</m>. Kita menyebut <m>\bfH</m> sebagai <term>subgraf merentang</term><idx>
+      <h>subgraf</h>
+      <h>rentang</h>
+    </idx> apabila <m>W=V</m>. Pada <xref ref="fig_subgraphs"/>, ditampilkan sebuah graf, sebuah
+    subgraf, dan sebuah subgraf terinduksi. Kedua subgraf tersebut bukan subgraf merentang. </p>
+  <figure xml:id="fig_subgraphs">
+    <caption>Graf, Subgraf, dan Subgraf Terinduksi</caption>
+    <image width="90%" source="subgraphs"><description><p>Tiga diagram berlabel yang saling berkaitan: graf asal pada kiri, subgraf pada tengah, dan subgraf terinduksi pada tujuh simpul a, b, c, d, e, h, dan i pada kanan.</p>
+    </description></image>
+  </figure>
+  <p>Graf <m>\GVE</m> disebut <term>graf lengkap</term><idx>
+      <h>graf</h>
+      <h>lengkap</h>
+    </idx> apabila <m>xy</m> merupakan sisi dalam <m>\bfG</m> untuk setiap pasangan berbeda <m>x,y\in
+    V</m>. Sebaliknya, <m>\bfG</m> disebut <term>graf bebas</term><idx>
+      <h>graf</h>
+      <h>bebas</h>
+    </idx> apabila <m>xy\not\in E</m> untuk setiap pasangan berbeda <m>x,y\in V</m>.
+    Graf lengkap dengan <m>n</m> simpul lazim dinotasikan dengan <m>\bfK_n</m> <notation>
+      <usage>
+        <m>\bfK_n</m>
+      </usage>
+      <description>graf lengkap dengan <m>n</m> simpul</description>
+    </notation>, sedangkan
+    graf bebas dengan <m>n</m> simpul dinotasikan dengan <m>\bfI_n</m><notation>
+      <usage>
+        <m>\bfI_n</m>
+      </usage>
+      <description>graf bebas dengan <m>n</m> simpul</description>
+    </notation>. Pada <xref ref="fig_complete_graphs"/>, ditampilkan graf-graf lengkap dengan paling banyak <m>5</m> simpul. </p>
+  <figure xml:id="fig_complete_graphs">
+    <caption>Graf lengkap berukuran kecil</caption>
+    <image width="70%">
+      <description><p>Lima graf lengkap berlabel K satu sampai K lima: berturut-turut satu simpul tunggal, satu sisi, segitiga, persegi dengan kedua diagonal, serta pentagon dengan semua diagonal.</p>
+    </description><latex-image>\begin{overpic}[width=0.7\textwidth]{external/complete_graphs}
+            \put(2.5,2){\(\bfK_1\)}
+            \put(16.5,2){\(\bfK_2\)}
+            \put(36.5,2){\(\bfK_3\)}
+            \put(60.5,2){\(\bfK_4\)}
+            \put(86,2){\(\bfK_5\)}
+            \end{overpic}</latex-image>
+    </image>
+  </figure>
+  <p>Urutan <m>(x_1,x_2,\dots,x_n)</m> yang terdiri atas simpul-simpul dalam graf <m>\GVE</m> disebut <term>jalan</term><idx>
+      <h>jalan</h>
+    </idx> apabila <m>x_ix_{i+1}</m> merupakan sisi untuk setiap <m>i=1,2,\dots,n-1</m>. Perhatikan
+    bahwa simpul-simpul dalam suatu jalan tidak harus berbeda. Sebaliknya, jika semua simpulnya
+    berbeda, urutan tersebut disebut <term>lintasan</term><idx>
+      <h>lintasan</h>
+    </idx>. Untuk menegaskan titik awal dan akhirnya, kita sering mengatakan bahwa
+    urutan <m>(x_1,x_2,\dots,x_n)</m> dari simpul-simpul berbeda merupakan lintasan dari <m>x_1</m> ke <m>x_n</m>
+    dalam <m>\bfG</m>. Demikian pula, apabila <m>n\ge3</m>, lintasan <m>(x_1,x_2,\dots,x_n)</m> yang terdiri atas <m>n</m>
+    simpul berbeda disebut <term>siklus</term><idx>
+      <h>siklus</h>
+    </idx> jika <m>x_1x_n</m> juga merupakan sisi dalam <m>\bfG</m>. Lintasan dengan
+    <m>n</m> simpul lazim dinotasikan dengan <m>\bfP_n</m><notation>
+      <usage>
+        <m>\bfP_n</m>
+      </usage>
+      <description>lintasan dengan <m>n</m> simpul</description>
+    </notation>, sedangkan <m>\bfC_n</m><notation>
+      <usage>
+        <m>\bfC_n</m>
+      </usage>
+      <description>siklus dengan <m>n</m> simpul</description>
+    </notation> menyatakan siklus dengan <m>n</m>
+    simpul. <term>Panjang</term><idx>
+      <h>panjang</h>
+      <h>lintasan atau siklus</h>
+    </idx> suatu lintasan atau siklus adalah banyaknya sisi yang dikandungnya.
+    Jadi, panjang <m>\bfP_n</m> adalah <m>n-1</m> dan panjang <m>\bfC_n</m> adalah <m>n</m>.
+    Pada <xref ref="fig_paths"/>, ditampilkan lintasan-lintasan dengan panjang paling besar <m>4</m>, dan pada <xref ref="fig_cycles"/>, ditampilkan siklus-siklus dengan panjang paling besar <m>5</m>. </p>
+  <figure xml:id="fig_paths">
+    <caption>Lintasan pendek</caption>
+    <image width="70%">
+      <description><p>Lima graf lintasan, dari P satu sampai P lima, yang berturut-turut memiliki satu hingga lima simpul dan panjang nol hingga empat.</p>
+    </description><latex-image>\begin{overpic}[width=0.7\textwidth]{external/paths}
+            \put(8,-2){\(\bfP_1\)}
+            \put(24,-2){\(\bfP_2\)}
+            \put(39.5,-2){\(\bfP_3\)}
+            \put(59.5,-2){\(\bfP_4\)}
+            \put(85,-2){\(\bfP_5\)}
+            \end{overpic}</latex-image>
+    </image>
+
+  </figure>
+  <figure xml:id="fig_cycles">
+    <caption>Siklus berukuran kecil</caption>
+    <image width="60%">
+      <description><p>Tiga graf siklus: C tiga berbentuk segitiga, C empat berbentuk persegi, dan C lima berbentuk pentagon.</p>
+    </description><latex-image>\begin{overpic}[width=0.6\textwidth]{external/cycles}
+            \put(24,1){\(\bfC_3\)}
+            \put(47.5,1){\(\bfC_4\)}
+            \put(73,1){\(\bfC_5\)}
+            \end{overpic}</latex-image>
+    </image>
+  </figure>
+  <p>Jika <m>\GVE</m> dan <m>\HWF</m> adalah graf, kita menyatakan bahwa <m>\bfG</m> <term>isomorfik</term><idx>
+      <h>isomorfisme</h>
+      <h>graf</h>
+    </idx> dengan <m>\bfH</m> dan menulis <m>\bfG\cong\bfH</m> apabila terdapat
+    bijeksi <m>f:V\bijection W</m> sedemikian sehingga <m>x</m> bertetangga dengan <m>y</m> dalam <m>\bfG</m> jika dan
+    hanya jika <m>f(x)</m> bertetangga dengan <m>f(y)</m> dalam <m>\bfH</m>. Para penulis juga sering mengatakan bahwa <m>
+    \bfG</m> <q>mengandung</q> <m>\bfH</m> apabila terdapat subgraf dari <m>\bfG</m> yang isomorfik
+    dengan <m>\bfH</m>. Secara khusus, <m>\bfG</m> lazim dikatakan mengandung siklus <m>
+    \bfC_n</m> (demikian pula untuk <m>\bfP_n</m> dan <m>\bfK_n</m>) apabila <m>\bfG</m> mengandung subgraf yang
+    isomorfik dengan <m>\bfC_n</m>. Graf-graf pada <xref ref="fig_isomorphic"/> bersifat isomorfik. Salah satu
+    isomorfisme antara kedua graf tersebut diberikan oleh <md>
+      f(a)=5,\quad f(b) = 3, \quad f(c) = 1,\quad f(d) = 6,\quad f(e)=2,\quad f(h)=4.
+    </md>
+  </p>
+  <figure xml:id="fig_isomorphic">
+    <caption>Sepasang graf isomorfik</caption>
+    <image width="70%">
+      <description><p>Dua graf dengan enam simpul yang digambar dan diberi label secara berbeda, tetapi memiliki pola ketetanggaan yang sama sesuai pemetaan pada teks.</p>
+    </description><latex-image>\begin{overpic}[width=0.70\textwidth]{external/isomorphic_graphs}
+            \put(6,13){\(a\)}
+            \put(20.5,1){\(b\)}
+            \put(36,14){\(c\)}
+            \put(20,21){\(d\)}
+            \put(38,2){\(e\)}
+            \put(22.5,13){\(h\)}
+
+            \put(83,13.5){\(1\)}
+            \put(67,10){\(2\)}
+            \put(85,2){\(3\)}
+            \put(67.5,21.5){\(4\)}
+            \put(53,13){\(5\)}
+            \put(68,1){\(6\)}
+            \end{overpic}</latex-image>
+    </image>
+  </figure>
+  <p>Sebaliknya, graf-graf yang ditampilkan pada <xref ref="fig_nonisomorphic"/> <em>tidak</em>
+    isomorfik, meskipun memiliki banyak simpul dan banyak sisi yang sama. Dapatkah
+    Anda menjelaskan alasannya? </p>
+  <figure xml:id="fig_nonisomorphic">
+    <caption>Sepasang graf yang tidak isomorfik</caption>
+    <image width="70%">
+      <description><p>Dua graf yang masing-masing memiliki enam simpul dan enam sisi; graf kiri memiliki sebuah simpul berderajat empat, sedangkan graf kanan tidak, sehingga keduanya tidak isomorfik.</p>
+    </description><latex-image>\begin{overpic}[width=0.75\textwidth]{external/nonisomorphic_graphs}
+            \put(6,13){\(a\)}
+            \put(20.5,1){\(b\)}
+            \put(36,14){\(c\)}
+            \put(20,21){\(d\)}
+            \put(38,2){\(e\)}
+            \put(22.5,13){\(h\)}
+
+            \put(83,13.5){\(1\)}
+            \put(73.2,10){\(2\)}
+            \put(85,2){\(3\)}
+            \put(67.5,21.5){\(4\)}
+            \put(53,13){\(5\)}
+            \put(68,1){\(6\)}
+            \end{overpic}</latex-image>
+    </image>
+  </figure>
+  <p>Graf <m>\bfG</m> disebut <term>terhubung</term><idx>
+      <h>graf</h>
+      <h>terhubung</h>
+    </idx> apabila terdapat lintasan dari <m>x</m> ke <m>y</m> dalam <m>\bfG</m> untuk
+    setiap <m>x,y\in V</m>; jika tidak, <m>\bfG</m> disebut <term>tak terhubung</term><idx>
+      <h>graf</h>
+      <h>tak terhubung</h>
+    </idx>. Graf pada <xref ref="fig_small_graph"/> tak terhubung (salah satu
+    alasan yang memadai ialah tidak terdapat lintasan dari <m>e</m> ke <m>c</m>), sedangkan
+    kedua graf pada <xref ref="fig_isomorphic"/> terhubung. Jika <m>\bfG</m> tak terhubung, subgraf
+    terhubung maksimal dari <m>\bfG</m> disebut <term>komponen</term><idx>
+      <h>komponen</h>
+    </idx>. Artinya, subgraf <m>\bfH</m> dari <m>\bfG</m> merupakan
+    komponen dari <m>\bfG</m> apabila tidak terdapat subgraf terhubung <m>\bfH'</m> dari <m>
+    \bfG</m> yang memuat <m>\bfH</m> sebagai subgraf sejati dari <m>\bfH'</m>. </p>
+
+  <p>Graf disebut <term>tanpa siklus</term><idx>
+      <h>graf</h>
+      <h>tanpa siklus</h>
+    </idx> apabila tidak mengandung siklus dengan tiga simpul atau lebih. Graf
+    tanpa siklus juga disebut <term>hutan</term><idx>
+      <h>hutan</h>
+    </idx>. Graf terhubung yang tidak memiliki siklus disebut <term>pohon</term><idx>
+      <h>pohon</h>
+    </idx>. Jika <m>\GVE</m> merupakan graf terhubung, subgraf <m>\HWF</m> dari <m>
+    \bfG</m> disebut <term>pohon merentang</term><idx>
+      <h>pohon</h>
+      <h>rentang</h>
+    </idx> apabila <m>\bfH</m> sekaligus merupakan subgraf merentang dari <m>\bfG</m> dan sebuah
+    pohon. Pada <xref ref="fig_spantree"/>, ditampilkan sebuah graf beserta salah satu pohon merentangnya. Topik
+    pohon merentang akan dibahas kembali dalam <xref ref="ch_graphalgorithms"/>. </p>
+  <figure xml:id="fig_spantree">
+    <caption>Graf dan Pohon Rentangnya</caption>
+    <image width="75%" source="spanning_tree"><description><p>Dua diagram pada himpunan sepuluh simpul berlabel yang sama: graf asal di kiri dan sebuah subgraf terhubung tanpa siklus di kanan yang merupakan pohon merentangnya.</p>
+    </description></image>
+  </figure>
+  <p>Teorema berikut sangat mendasar, dan sebagian penulis menyebutnya <q>teorema pertama
+    teori graf</q>. Meskipun demikian, hasil dasar ini ternyata dapat sangat berguna. </p>
+
+  <theorem xml:id="thm-graphs-first">
+    <statement>
+      <p> Misalkan <m>\deg_\bfG(v)</m> menyatakan derajat simpul <m>v</m> dalam graf <m>\GVE</m>. Maka <md number="yes" xml:id="eq_graphs_degsum">
+          \sum_{v\in V}\deg_\bfG(v) = 2|E|
+        </md>.
+      </p>
+    </statement>
+
+    <proof>
+      <p>Kita menghitung berapa kali sebuah sisi <m>e=vw\in E</m> menyumbang pada masing-masing ruas <xref ref="eq_graphs_degsum"/>. Suku <m>\deg_\bfG(v)</m> dan <m>\deg_\bfG(w)</m> pada
+        ruas kiri masing-masing menghitung <m>e</m> satu kali, sehingga <m>e</m> dihitung dua kali pada ruas tersebut. Pada
+        ruas kanan, <m>e</m> juga jelas dihitung dua kali. Oleh karena itu, kesamaan yang dinyatakan berlaku. </p>
+    </proof>
+  </theorem>
+
+  <corollary>
+    <statement>
+      <p>Dalam setiap graf, banyaknya simpul berderajat ganjil selalu genap.
+      </p>
+    </statement>
+  </corollary>
+
+  <p>Kita akan membahas pohon kembali nanti, tetapi sebelum melanjutkan, mari kita buktikan sebuah proposisi
+    dasar mengenai pohon. Pertama, <term>daun</term><idx>
+      <h>daun</h>
+    </idx> dalam pohon <m>\bfT</m> adalah simpul <m>v</m> dengan <m>\deg_\bfT(v)=1</m>. </p>
+
+  <proposition xml:id="prop_tree-leaves">
+    <statement>
+      <p>Setiap pohon dengan <m>n\geq 2</m> simpul memiliki sekurang-kurangnya dua daun. </p>
+    </statement>
+    <proof>
+      <p> Bukti ini menggunakan induksi pada <m>n</m>. Untuk <m>n=2</m>, hanya ada satu pohon, yang
+        isomorfik dengan <m>\bfK_2</m>. Kedua simpul dalam graf ini merupakan daun, sehingga proposisi
+        berlaku untuk <m>n=2</m>. Sekarang, misalkan untuk suatu bilangan bulat <m>m\geq 2</m>, setiap pohon dengan
+        paling banyak <m>m</m> simpul memiliki sekurang-kurangnya dua daun, dan misalkan <m>\bfT=(V,E)</m> merupakan pohon dengan <m>m+1</m>
+        simpul. Pilih sebuah sisi <m>e\in E</m>, lalu bentuk graf baru <m>\bfT'=(V',E')</m> dengan menghapus <m>
+        e</m> dari <m>\bfT</m>. Jadi, <m>V'=V</m> dan <m>E'=E-\{e\}</m>. Karena <m>\bfT'</m>
+        tidak memuat lintasan dari salah satu ujung <m>e</m> ke ujung lainnya, <m>\bfT'</m>
+        tak terhubung. Namun, menghapus sebuah sisi tidak dapat menciptakan siklus, sehingga <m>\bfT'</m> merupakan hutan.
+        Lebih lanjut, graf tersebut memiliki tepat dua komponen, dan masing-masing merupakan pohon dengan paling banyak <m>m</m>
+        simpul. Jika setiap komponen memiliki sekurang-kurangnya dua simpul, maka menurut hipotesis induksi, masing-masing memiliki sekurang-kurangnya
+        dua daun. Dalam kasus terburuk, dua di antara daun-daun ini merupakan kedua ujung <m>e</m>,
+        sehingga sekurang-kurangnya dua simpul lainnya tetap menjadi daun dalam <m>\bfT</m>. Jika setiap komponen dari <m>
+        \bfT'</m> hanya memiliki satu simpul, maka <m>\bfT\cong \bfK_2</m>, yang memiliki dua daun. Jika
+        tepat satu komponen hanya memiliki satu simpul, simpul itu pasti merupakan daun dalam <m>\bfT</m>.
+        Dengan menerapkan hipotesis induksi pada komponen lainnya, diperoleh satu
+        daun kedua dalam <m>\bfT</m>. </p>
+    </proof>
+  </proposition>
+  <reading-questions xml:id="rqs-graphs_intro" component="runestone-async">
+    <exercise label="rq-graphs_intro_degree">
+      <statement>
+        <p>
+          Dalam soal ini, gunakan graf di sebelah kiri pada <xref ref="fig_subgraphs"/>. Derajat simpul <m>d</m> adalah <var width="10"/>. Derajat simpul <m>i</m> adalah <var width="10"/>. Simpul berderajat <m>2</m> yang namanya muncul paling awal menurut urutan alfabet bahasa Inggris adalah <var width="10"/>
+        </p>
+      </statement>
+      <setup>
+        <var>
+          <condition number="6">
+            <feedback>
+              <p>
+                Benar!
+              </p>
+            </feedback>
+          </condition>
+          <condition string=".*">
+            <feedback>
+              <p>
+                Salah. 
+              </p>
+            </feedback>
+          </condition>
+        </var>
+        <var>
+          <condition number="3">
+            <feedback>
+              <p>
+                Benar!
+              </p>
+            </feedback>
+          </condition>
+          <condition string=".*">
+            <feedback>
+              <p>
+                Salah. 
+              </p>
+            </feedback>
+          </condition>
+        </var>
+        <var>
+          <condition string="f">
+            <feedback>
+              <p>
+                Benar!
+              </p>
+            </feedback>
+          </condition>
+          <condition string="j">
+            <feedback>
+              <p>
+                 Simpul <m>j</m> memang berderajat <m>2</m>, tetapi adakah simpul lain yang muncul lebih awal dalam urutan alfabet?
+              </p>
+            </feedback>
+          </condition>
+          <condition string=".*">
+            <feedback>
+              <p>
+                Salah. 
+              </p>
+            </feedback>
+          </condition>
+        </var>
+      </setup>
+    </exercise>
+    <exercise label="rq-graphs_intro_subgraph">
+      <statement>
+        <p>
+          Dalam soal ini, gunakan graf-graf pada <xref ref="fig_subgraphs"/>. Jelaskan mengapa graf tengah bukan subgraf terinduksi dari graf kiri. Misalkan Anda ingin menambahkan simpul <m>l</m> ke graf kanan. Sisi apa saja yang perlu ditambahkan agar graf yang dihasilkan menjadi subgraf terinduksi dari graf kiri?
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

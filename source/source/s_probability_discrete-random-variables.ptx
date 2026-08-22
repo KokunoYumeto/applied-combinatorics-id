@@ -1,0 +1,79 @@
+<section xml:id="s_probability_discrete-random-variables">
+    <title>Peubah Acak Diskret</title>
+    <introduction>
+        <p>Misalkan <m>(S,P)</m> merupakan ruang probabilitas dan misalkan <m>X:S\longrightarrow\reals</m> merupakan sebarang fungsi yang memetakan hasil-hasil dalam <m>S</m> ke bilangan real (semua nilai diperbolehkan: positif, negatif, dan nol). Kita menyebut<fn>Karena alasan historis, huruf kapital seperti <m>X</m> dan <m>Y</m> digunakan untuk menyatakan peubah acak. Peubah-peubah itu sebenarnya hanyalah fungsi, sehingga huruf seperti <m>f</m>, <m>g</m>, dan <m>h</m> mungkin tampak lebih alami<mdash/>atau mungkin juga tidak.</fn> <m>X</m> sebagai <term>peubah acak</term><idx><h>peubah acak</h></idx>. Besaran <m>\sum_{x\in S} X(x)P(x)</m>, yang dinyatakan dengan <m>E(X)</m>, disebut <term>nilai harapan</term><idx><h>nilai harapan</h></idx> (juga disebut <term>rataan</term><idx><h>rataan</h><see>nilai harapan</see></idx> atau <term>nilai ekspektasi</term><idx><h>nilai ekspektasi</h><see>nilai harapan</see></idx>) peubah acak <m>X</m>. Seperti tersirat dari namanya, besaran inilah yang diharapkan menggambarkan perilaku rata-rata hasil percobaan bebas yang diulang.
+        </p>
+
+        <p>Perhatikan bahwa karena kita hanya membahas ruang probabilitas <m>(S,P)</m> dengan <m>S</m> suatu himpunan hingga, jangkauan ukuran probabilitas <m>P</m> pun merupakan himpunan hingga. Oleh karena itu, rumus untuk <m>E(X)</m> dapat dituliskan kembali sebagai <m>\sum_y y\cdot \prob(X(x)=y)</m>, dengan penjumlahan meliputi suatu jangkauan nilai <m>y</m> yang hingga.
+        </p>
+        <example>
+            <p>Untuk roda pemutar pada <xref ref="fig_spinner"/>, misalkan <m>X(i)=i^2</m>, dengan <m>i</m> nomor daerah. Maka
+            <md>
+                E(X)=\sum_{i\in S} i^2P(i)=1^2\frac{1}{8}+2^2\frac{2}{8}+3^2\frac{1}{8}+
+                4^2\frac{1}{8}+5^2\frac{3}{8}=\frac{109}{8}.
+            </md>
+            Perhatikan bahwa <m>109/8=13.625</m>. Arti penting besaran ini tampak dalam pernyataan berikut. Jika hasil dari roda pemutar dicatat <m>n</m> kali berturut-turut sebagai <m>(i_1,i_2,\dots,i_n)</m> dan Xing menerima hadiah senilai <m>i_j^2</m> untuk setiap <m>j=1,2,\dots,n</m>, maka Xing seharusnya <q>mengharapkan</q> hadiah total senilai <m>109n/8=13.625n</m>. Bob bertanya bagaimana mungkin pernyataan ini benar, sebab <m>13.625n</m> bahkan mungkin bukan bilangan bulat, sedangkan setiap hadiah yang diterima Xing akan bernilai bulat. Carlos menjelaskan lebih lanjut bahwa konsep nilai harapan memberikan definisi formal tentang arti permainan yang adil. Jika Xing membayar <m>13.625</m> sen untuk bermain, lalu menerima <m>i^2</m> sen ketika <m>i</m> merupakan nomor daerah tempat roda pemutar berhenti, permainan tersebut adil. Jika ia membayar lebih sedikit, ia memperoleh keuntungan yang tidak adil; jika ia membayar lebih banyak, permainan itu merugikannya. Bob berkata, <q>Bagaimana Xing dapat membayar <m>13.625</m> sen?</q> Dengan mengesampingkan pertanyaan Bob, Carlos mengatakan bahwa dapat dibuktikan: untuk setiap <m>\epsilon &gt;0</m>, terdapat suatu <m>n_0</m> (yang bergantung pada <m>\epsilon</m>) sedemikian sehingga jika <m>n&gt;n_0</m>, probabilitas bahwa selisih antara total kemenangan Xing dan <m>13.625n</m>, setelah dibagi dengan <m>n</m>, berada dalam jarak <m>\epsilon</m> dari <m>0</m> sedikitnya <m>1-\epsilon</m>. Carlos berpaling kepada Dave dan menjelaskan dengan sopan bahwa pernyataan ini memberi arti tepat bagi istilah <q>dekat</q> dan <q>besar</q>.
+            </p>
+        </example>
+
+        <example>
+            <p>Untuk permainan Alice pada awal bab, <m>S=\{0,1,2,3,4,5\}</m>, kita dapat mengambil <m>X</m> sebagai fungsi yang didefinisikan oleh <m>X(d)= d-2</m>. Dengan demikian, <m>X(d)</m> mencatat banyak poin yang dimenangkan Dave ketika selisihnya <m>d</m> (kemenangan negatif bagi Dave hanyalah kemenangan Alice dengan besar yang sama). Kita menghitung nilai harapan <m>X</m> sebagai berikut:
+            <md>
+                E(X)=\sum_{d=0}^{5}X(d)p(d)= -2\frac{1}{6} -1\frac{10}{36}+0
+                \frac{8}{36}+1\frac{6}{36}+2\frac{4}{36}+3\frac{2}{36}=\frac{-2}{36}.
+            </md>
+            Perhatikan bahwa <m>-2/36=-.055555\dots</m>. Jadi, jika poin dianggap sebagai dolar, setiap kali permainan dimainkan, Dave dapat mengharapkan kerugian sedikit lebih besar daripada lima sen. Sudah tentu Alice senang memainkan permainan ini; semakin sering Dave dapat dibujuk untuk bermain, semakin senang pula Alice. Namun, pada tahap ini Dave seharusnya sudah memahami maksudnya dan menyuruh Alice pergi jauh-jauh.
+            </p>
+        </example>
+    </introduction>
+
+
+    <subsection>
+        <title>Linearitas Nilai Harapan</title>
+        <p>Sifat dasar nilai harapan berikut merupakan akibat langsung dari definisinya, tetapi kita menyatakannya secara formal karena sifat ini sangat penting bagi pembahasan selanjutnya.
+        </p>
+
+        <proposition xml:id="prop_linearexpect">
+            <statement>
+                <p>Misalkan <m>(S,P)</m> merupakan ruang probabilitas dan misalkan <m>X_1,X_2,\dots,X_n</m> merupakan peubah-peubah acak. Maka
+                <md>
+                    E(X_1+X_2+\dots+X_n)=E(X_1)+E(X_2)+\dots+E(X_n).
+                </md>
+                </p>
+            </statement>
+        </proposition>
+    </subsection>
+
+
+    <subsection>
+        <title>Implikasi bagi Percobaan Bernoulli</title>
+        <example>
+            <p>Perhatikan rangkaian <m>n</m> percobaan Bernoulli dengan probabilitas keberhasilan <m>p</m>, dan misalkan <m>X</m> menghitung banyak keberhasilan. Kita menyatakan bahwa
+            <md>
+                E(X)=\sum_{i=0}^n i\binom{n}{i}p^i(1-p)^{n-i}=np
+            </md>
+            Untuk melihatnya, perhatikan fungsi <m>f(x)=[px+(1-p)]^n</m>. Dengan mengambil turunan menggunakan aturan rantai, kita memperoleh <m>f'(x)=np[px+(1-p)]^{n-1}</m>. Apabila <m>x=1</m>, turunan tersebut bernilai <m>np</m>.
+            </p>
+
+            <p>Di sisi lain, kita dapat menggunakan teorema binomial untuk menguraikan fungsi <m>f</m>.
+            <md>
+                f(x)=\sum_{i=0}^n \binom{n}{i}x^ip^i(1-p)^{n-i}
+            </md>
+            Dengan demikian,
+            <md>
+                f'(x)=\sum_{i=0}^n i \binom{n}{i}x^{i-1}p^i(1-p)^{n-i}
+            </md>
+            Pernyataan tersebut kini diperoleh dengan kembali menetapkan <m>x=1</m>. Siapa bilang kalkulus tidak berguna!
+            </p>
+        </example>
+
+        <example>
+            <p>Banyak negara bagian menyelenggarakan lotre untuk membiayai beasiswa perguruan tinggi atau usaha publik lain yang dianggap bermanfaat bagi masyarakat luas. Meskipun penyelidikan kita jauh dari kajian ilmiah, hasilnya menunjukkan bahwa banyak permainan tersebut mempunyai nilai harapan sekitar lima puluh sen untuk setiap satu dolar yang dipertaruhkan. Jadi, permainan-permainan itu jauh dari adil, dan seseorang sebaiknya tidak memainkannya kecuali memang ingin mendukung berbagai tujuan yang dibiayai oleh keuntungan lotre.
+                </p>
+
+                <p>Sebaliknya, berbagai permainan peluang di pusat perjudian memberikan hasil harapan sedikit di bawah sembilan puluh sen untuk setiap dolar yang dipertaruhkan. Dalam situasi ini, kita hanya dapat mengatakan bahwa nilai uang perlu diberikan pada kenikmatan yang diperoleh dari suasana kasino. Dari sudut pandang matematika, Anda akan kalah. Begitulah mereka memperoleh uang untuk membangun gedung-gedung mewah tersebut.
+                </p>
+        </example>
+    </subsection>
+
+</section>

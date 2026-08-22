@@ -1,0 +1,115 @@
+<section xml:id="s_kitchensink_lovasz-local">
+    <title>Lemma Lokal Lov&#225;sz</title>
+    <p>Meskipun manusia tampaknya sangat kesulitan memberikan konstruksi eksplisit bagi graf berukuran eksponensial yang tidak mempunyai subgraf lengkap ataupun himpunan bebas berukuran<nbsp/><m>n</m>, graf semacam itu ada dalam jumlah melimpah. Ambil saja sebuah graf secara acak dan hampir pasti Anda akan memperolehnya. Sebagai aturan umum, teknik probabilistik sering memberikan metode untuk mencari sesuatu yang jelas-jelas ada, tetapi sulit ditemukan.
+    </p>
+
+    <p>Demikian pula, dalam bukti probabilistik tentang keberadaan graf dengan girth besar dan bilangan kromatik besar (<xref ref="thm_girth"/>), kita sebenarnya menunjukkan bahwa hampir semua graf mempunyai bilangan kebebasan berukuran sedang dan relatif sedikit siklus pendek, asalkan probabilitas sisi dipilih secara tepat. Siklus-siklus pendek tersebut dapat dihilangkan tanpa mengubah ukuran graf secara berarti.
+    </p>
+
+    <p>Sebaliknya, dalam keadaan tertentu teknik probabilistik dapat digunakan untuk mencari sesuatu yang amat langka. Selanjutnya kita menyajikan hasil yang elegan tetapi elementer, yang dikenal sebagai Lemma Lokal Lov&#225;sz dan telah terbukti sangat kuat. Pembahasannya disederhanakan oleh notasi alami berikut. Jika <m>E</m> merupakan kejadian dalam suatu ruang probabilitas, kita menggunakan <m>\overline{E}</m> untuk menyatakan komplemen <m>E</m><notation><usage><m>\overline{E}</m></usage><description>komplemen kejadian <m>E</m></description></notation>. Selain itu, jika <m>\cgF=\{E_1,E_2,\dots,E_k\}</m>, kita menggunakan
+    <md>
+        \prod_{E\in\cgF}E=\prod_{i=1}^k E_i=E_1E_2E_3\dots E_k
+    </md>
+    untuk menyatakan kejadian <m>E_1\cap E_2\cap\dots\cap E_k</m>, <ie/>, penulisan berdampingan merupakan singkatan bagi irisan. Notasi-notasi ini dapat dicampur, sehingga <m>E_1\overline{E_2}\overline{E_3}</m> menyatakan <m>E_1\cap \overline{E_2}\cap\overline{E_3}</m>. Sekarang misalkan <m>\cgF</m> keluarga kejadian hingga, <m>E\in\cgF</m>, dan <m>\cgN</m> subkeluarga <m>\cgF-\{E\}</m>. Dalam pernyataan lemma di bawah, kita mengatakan bahwa <m>E</m> saling bebas dengan setiap kejadian yang tidak berada dalam <m>\cgN</m> apabila
+    <md>
+        P(E|\prod_{F\in\cgG}\overline{F})=P(E)
+    </md>
+    dengan syarat <m>\cgG\cap\cgN=\emptyset</m>.
+    </p>
+
+    <p>Pertama, kita menyatakan dan membuktikan lemma dalam bentuk <em>asimetris</em>. Setelah itu, kita akan memberikan versi lebih sederhana yang disebut bentuk <em>simetris</em>.
+    </p>
+
+    <lemma xml:id="lem_LLL">
+        <title>Lemma Lokal Lov&#225;sz (Asimetris)</title>
+        <idx><h>Lemma Lokal Lov&#225;sz</h><h>asimetris</h></idx>
+        <statement>
+            <p>Misalkan <m>\cgF</m> keluarga kejadian hingga dalam suatu ruang probabilitas. Untuk setiap kejadian <m>E\in\cgF</m>, misalkan <m>\cgN(E)</m> menyatakan subkeluarga kejadian dari <m>\cgF-\{E\}</m> sedemikian sehingga <m>E</m> saling bebas dengan setiap kejadian yang tidak berada dalam <m>\cgN(E)</m>. Andaikan bagi setiap kejadian <m>E\in\cgF</m> terdapat bilangan real <m>x(E)</m> dengan <m>0\lt x(E)\lt 1</m> sehingga
+            <md>
+                P(E)\le x(E)\prod_{F\in\cgN(E)}(1-x(F)).
+            </md>
+            Maka, untuk setiap subkeluarga tak kosong <m>\cgG\subseteq\cgF</m>,
+            <md>
+                P(\prod_{E\in\cgG}\overline{E})\ge\prod_{E\in\cgG}(1-x(E)).
+            </md>
+            Khususnya, probabilitas bahwa semua kejadian dalam <m>\cgF</m> tidak terjadi adalah positif.
+            </p>
+        </statement>
+        <proof>
+            <p>Kita menggunakan induksi terhadap <m>\cgG</m>. Jika <m>|\cgG|=1</m> dan <m>\cgG=\{E\}</m>, kita hanya menyatakan bahwa <m>P(\overline{E})\ge 1-x(E)</m>, yang benar karena <m>P(E)\le x(E)</m>. Sekarang andaikan <m>|\cgG|=k\ge2</m> dan lemma berlaku setiap kali <m>1\le |\cgG|\lt k</m>. Misalkan <m>\cgG =\{E_1,E_2,\dots,E_k\}</m>. Maka
+            <md>
+                P(\prod_{i=1}^k \overline{E_i})=P(\overline{E_1}|\prod_{i=2}^k\overline{E_i})
+                P(\overline{E_2}|\prod_{i=3}^k\overline{E_i})P(\overline{E_3}|\prod_{i=4}^k\overline{E_i})\dots P(\overline{E_k}).
+            </md>
+            Setiap faktor pada ruas kanan mempunyai bentuk berikut:
+            <md>
+                P(\overline{E}|\prod_{F\in\cgF_E}\overline{F})
+            </md>
+            dengan <m>|\cgF_E|\lt k</m>.
+            </p>
+
+            <p>
+                Jadi, kita selesai jika dapat menunjukkan bahwa
+                <md>
+                    P(\overline{E}|\prod_{F\in\cgF_E}\overline{F})\ge 1- x(E)
+                </md>
+                Hal ini ekuivalen dengan menunjukkan bahwa
+                <md>
+                    P(E|\prod_{F\in\cgF_E}\overline{F})\le x(E)
+                </md>
+                Mula-mula andaikan <m>\cgF_E\cap\cgN(E)=\emptyset</m>. Maka
+                <md>
+                    P(E|\prod_{F\in\cgF_E}\overline{F})=P(E)\le x(E).
+                </md>
+                Jadi, kita dapat mengandaikan <m>\cgF_E\cap\cgN(E)\neq\emptyset</m>. Misalkan <m>\cgF_E=\{F_1,F_2,\dots,F_r,F_{r+1},F_{r+2},\dots, F_t\}</m>, dengan <m>F_i\in\cgN(E)</m> jika dan hanya jika <m>r+1\le i\le t</m>. Maka
+                <md>
+                    P(E|\prod_{F\in\cgF_E}\overline{F})=
+                    \frac{P(E\prod_{F\in\cgF_E\cap\cgN(E)}\overline{F}|\prod_{F\in\cgF_E-\cgN(E)}\overline{F})}
+                    {P(\prod_{F\in\cgF_E\cap \cgN(E)}\overline{F}|\prod_{F\in\cgF_E-\cgN(E)}\overline{F})}
+                </md>
+                Tinjau terlebih dahulu pembilang dalam bentuk terakhir ini. Perhatikan bahwa
+                <md>            P(E\prod_{F\in\cgF_E\cap\cgN(E)}\overline{F}|\prod_{F\in\cgF_E-\cgN(E)}\overline{F})\le
+                P(E|\prod_{F\in\cgF_E-\cgN(E)}\overline{F})=P(E)\le x(E)\prod_{F\in\cgN(E)}(1-x(F)).
+                </md>
+                Berikutnya, tinjau penyebutnya. Berdasarkan hipotesis induksi, kita mempunyai
+                <md>
+                    P(\prod_{F\in\cgF_E\cap\cgN(E)}\overline{F}|\prod_{F\in\cgF_E-\cgN(E)}\overline{F})\ge \prod_{F\in\cgF_E\cap\cgN(E)}(1-x(F)).
+                </md>
+                Dengan menggabungkan kedua ketaksamaan terakhir, diperoleh
+                <md>
+                    P(E|\prod_{F\in\cgF_E}\overline{F})\le x(E)\prod_{F\in\cgN(E)-\cgF_E}(1-x(F))\le x(E),
+                </md>
+                dan bukti selesai.
+            </p>
+        </proof>
+    </lemma>
+    <p>
+        Sekarang, berikut bentuk simetrisnya.
+    </p>
+
+    <lemma xml:id="lem_LLL-sym">
+        <title>Lemma Lokal Lov&#225;sz (Simetris)</title>
+        <idx><h>Lemma Lokal Lov&#225;sz</h><h>simetris</h></idx>
+
+        <statement>
+            <p>Misalkan <m>p</m> dan <m>d</m> bilangan dengan <m>0\lt p\lt 1</m> dan <m>d\ge 1</m>. Selain itu, misalkan <m>\cgF</m> keluarga kejadian hingga dalam suatu ruang probabilitas. Untuk setiap kejadian <m>E\in\cgF</m>, misalkan <m>\cgN(E)</m> menyatakan subkeluarga kejadian dari <m>\cgF-\{E\}</m> sedemikian sehingga <m>E</m> saling bebas dengan setiap kejadian yang tidak berada dalam <m>\cgN(E)</m>. Andaikan <m>P(E)\le p</m> dan <m>|\cgN(E)|\le d</m> bagi setiap kejadian <m>E\in\cgF</m>, serta <m>ep(d+1)\lt 1</m>, dengan <m>e=2.71828\dots</m> basis logaritma natural. Maka 
+            <md>
+                P(\prod_{E\in\cgF}\overline{E})\ge\prod_{E\in\cgF}(1-1/(d+1))&gt;0,
+            </md>
+            <ie/>, probabilitas bahwa semua kejadian dalam <m>\cgF</m> tidak terjadi adalah positif.
+            </p>
+        </statement>
+
+        <proof>
+            <p>
+                Tetapkan <m>x(E)=1/(d+1)</m> bagi setiap kejadian <m>E\in\cgF</m>. Maka
+                <md>
+                    P(E)\le p&lt; \frac{1}{e(d+1)}\le \frac{1}{d+1}(1-\frac{1}{d+1})^d
+                    \le x(E)\prod_{F\in\cgN(E)}(1-x(F)).
+                </md>
+            </p>
+        </proof>
+    </lemma>
+    <p>Sejumlah penerapan bentuk simetris Lemma Lokal Lov&#225;sz dinyatakan dengan syarat <m>4pd\lt 1</m>. Bukti bentuk alternatif ini hanyalah modifikasi sederhana dari argumen yang telah kita sajikan.
+    </p>
+</section>

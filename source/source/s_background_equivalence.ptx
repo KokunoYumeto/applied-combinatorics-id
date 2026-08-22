@@ -1,0 +1,16 @@
+<section xml:id="s_background_equivalence">
+    <title>Relasi Ekuivalensi</title>
+    <p>
+        Suatu relasi biner <m>R</m> disebut <term>simetris</term><idx><h>simetris</h></idx> jika <m>(x,y)\in R</m> mengakibatkan <m>(y,x)\in R</m> untuk
+        semua <m>x,y\in X</m>.
+    </p>
+    <p>Suatu relasi biner <m>R</m> pada himpunan <m>X</m> disebut <term>relasi ekuivalensi</term><idx><h>relasi</h><h>ekuivalensi</h></idx> jika relasi tersebut refleksif, simetris, dan transitif. Biasanya, simbol seperti <m>=</m>, <m>\cong</m>, <m>\equiv</m>, dan <m>\sim</m> digunakan untuk menyatakan relasi ekuivalensi. Suatu relasi ekuivalensi, misalnya <m>\cong</m>, mendefinisikan sebuah partisi pada himpunan <m>X</m> dengan menetapkan
+    <md>
+        \langle x\rangle =\{y\in X: x\cong y\}.
+    </md>
+    Perhatikan bahwa jika <m>x,y\in X</m> dan <m>\langle x\rangle\cap\langle y\rangle \neq\emptyset</m>, maka <m>\langle x\rangle=\langle y\rangle</m>. Himpunan-himpunan dalam partisi ini disebut <term>kelas ekuivalensi</term><idx><h>kelas ekuivalensi</h></idx>.
+    </p>
+
+    <p>Jika notasi pasangan terurut digunakan untuk relasi biner, untuk menunjukkan bahwa pasangan <m>(x,y)</m> tidak berada dalam relasi tersebut, kita cukup menulis <m>(x,y)\notin R</m>. Jika notasi alternatif digunakan, hal ini biasanya dinyatakan dengan simbol negasi dari logika, yaitu <m>\lnot (xRy)</m>. Banyak simbol khusus yang digunakan untuk menyatakan relasi ekuivalensi mempunyai versi negatif: <m>x\neq y</m>, <m>x\ncong y</m>, <m>x\nsim y</m>, <etc/>
+    </p>
+</section>

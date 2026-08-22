@@ -1,0 +1,119 @@
+<section xml:id="s_polya_polya">
+    <title>Teorema P&#243;lya</title>
+
+
+    <introduction>
+        <p>Sebelum sampai pada bentuk lengkap rumus P&#243;lya, kita harus mengembangkan suatu fungsi pembangkit seperti yang dijanjikan pada awal bab. Untuk melakukannya, kita kembali ke contoh pada <xref ref="s_polya_square"/>.
+        </p>
+    </introduction>
+
+
+    <subsection xml:id="ss_polya_polya_cycle-index">
+        <title>Indeks siklus</title>
+        <p>Berbeda dari fungsi-fungsi pembangkit yang ditemui dalam <xref ref="ch_genfunction"/>, fungsi pembangkit yang akan kita kembangkan dalam bab ini mempunyai lebih dari satu variabel. Kita mulai dengan mengaitkan sebuah monomial dengan setiap elemen grup permutasi yang terlibat. Dalam kasus ini, grup tersebut ialah <m>D_8</m>, grup dihedral persegi. Untuk menentukan monomial yang berkaitan dengan suatu permutasi, kita perlu menuliskan permutasi tersebut dalam notasi siklus, lalu menentukan monomial berdasarkan banyak siklus dari setiap panjang. Secara khusus, jika <m>\pi</m> merupakan permutasi <m>[n]</m> dengan <m>j_k</m> siklus yang panjangnya <m>k</m> untuk <m>1\leq k\leq n</m>, monomial yang berkaitan dengan <m>\pi</m> ialah <m>x_1^{j_1}x_2^{j_2}\cdots x_n^{j_n}</m>. Perhatikan bahwa <m>j_1 + 2j_2 + 3j_3 + \cdots + nj_n = n</m>. Sebagai contoh, permutasi <m>r_1=(1234)</m> berkaitan dengan monomial <m>x_4^1</m> karena terdiri atas satu siklus dengan panjang <m>4</m>. Permutasi <m>r_2=(13)(24)</m> mempunyai dua siklus dengan panjang <m>2</m>, sehingga monomialnya ialah <m>x_2^2</m>. Untuk <m>p=(13)(2)(4)</m>, terdapat dua siklus-<m>1</m> dan satu siklus-<m>2</m>, yang menghasilkan monomial <m>x_1^2x_2^1</m>. Dalam <xref ref="tab_polya_square-cycles"/>, ditampilkan seluruh delapan permutasi dalam <m>D_8</m> beserta monomial yang berkaitan dengannya.
+        </p>
+        <figure xml:id="tab_polya_square-cycles">
+            <caption>Monomial yang dihasilkan oleh grup dihedral persegi</caption>
+            <tabular>
+                <col/> <col halign="center"/> <col halign="center"/>
+                <row bottom="minor"><cell>Transformasi</cell><cell>Monomial</cell><cell>Pewarnaan tetap</cell></row>
+                <row><cell><m>\iota = (1)(2)(3)(4)</m></cell><cell><m>x_1^4</m></cell><cell><m>16</m></cell></row>
+                <row><cell><m>r_1 = (1234)</m></cell><cell><m>x_4^1</m></cell><cell><m>2</m></cell></row>
+                <row><cell><m>r_2=(13)(24)</m></cell><cell><m>x_2^2</m></cell><cell><m>4</m></cell></row>
+                <row><cell><m>r_3=(1432)</m></cell><cell><m>x_4^1</m></cell><cell><m>2</m></cell></row>
+                <row><cell><m>v=(12)(34)</m></cell><cell><m>x_2^2</m></cell><cell><m>4</m></cell></row>
+                <row><cell><m>h=(14)(23)</m></cell><cell><m>x_2^2</m></cell><cell><m>4</m></cell></row>
+                <row><cell><m>p=(13)(2)(4)</m></cell><cell><m>x_1^2x_2^1</m></cell><cell><m>8</m></cell></row>
+                <row><cell><m>n=(1)(24)(3)</m></cell><cell><m>x_1^2x_2^1</m></cell><cell><m>8</m></cell></row>
+            </tabular>
+        </figure>
+        <p>Sekarang mari kita lihat bagaimana banyak pewarnaan-<m>2</m> persegi yang ditetapkan oleh suatu permutasi dapat ditentukan dari struktur siklus dan monomial yang berkaitan dengannya. Jika <m>\pi(i)=j</m>, agar <m>\pi</m> menetapkan suatu pewarnaan <m>C</m>, simpul <m>i</m> dan <m>j</m> harus mempunyai warna yang sama dalam <m>C</m>. Jadi, simpul kedua dalam suatu siklus harus berwarna sama dengan simpul pertama. Selanjutnya, simpul ketiga harus berwarna sama dengan simpul kedua, yang juga sama dengan warna simpul pertama. Bahkan, jika <m>\pi</m> menetapkan <m>C</m>, semua simpul yang muncul dalam satu siklus <m>\pi</m> harus mempunyai warna yang sama dalam <m>C</m>! Karena kita menggunakan dua warna, putih dan emas, titik-titik dalam setiap siklus dapat dipilih untuk diwarnai seluruhnya putih atau seluruhnya emas. Sebagai contoh, agar permutasi <m>v=(12)(34)</m> menetapkan suatu pewarnaan persegi, simpul <m>1</m> dan <m>2</m> harus berwarna sama (<m>2</m> pilihan), dan simpul <m>3</m> serta <m>4</m> harus berwarna sama (<m>2</m> pilihan). Jadi, terdapat <m>2\cdot 2=4</m> pewarnaan yang ditetapkan oleh <m>v</m>. Karena terdapat dua pilihan untuk mewarnai secara seragam elemen-elemen suatu siklus, substitusi <m>x_i=2</m> untuk setiap <m>i</m> dalam monomial yang berkaitan dengan <m>\pi</m> memberikan banyak pewarnaan yang ditetapkan oleh <m>\pi</m>. Dalam <xref ref="tab_polya_square-cycles"/>, kolom <q>Pewarnaan tetap</q> memberikan banyak pewarnaan-<m>2</m> persegi yang ditetapkan oleh setiap permutasi. Sebelumnya, kita memperoleh hasil ini secara manual dengan memperhatikan aksi <m>D_8</m> pada himpunan seluruh <m>16</m> pewarnaan. Sekarang kita hanya memerlukan notasi siklus dan monomial yang dihasilkannya!
+        </p>
+
+        <p>Ingat bahwa <xref ref="lem_polya_burnside" text="title"/> menyatakan bahwa banyak pewarnaan yang ditetapkan oleh aksi suatu grup dapat diperoleh dengan menjumlahkan banyak pewarnaan yang ditetapkan oleh setiap permutasi, lalu membaginya dengan banyak permutasi dalam grup. Jika prosedur yang sama diterapkan pada monomial-monomial yang berasal dari permutasi dalam grup permutasi <m>G</m>, dengan setiap siklus dari setiap permutasi mempunyai paling banyak <m>n</m> entri, kita memperoleh polinomial yang disebut <term>indeks siklus</term><idx><h>indeks siklus</h></idx> <m>P_G(x_1,x_2,\dots,x_n)</m>. Untuk contoh kita, diperoleh
+        <md>
+            P_{D_8}(x_1,x_2,x_3,x_4) = \frac{1}{8}\left(x_1^4 + 2x_1^2x_2^1 +
+            3x_2^2 + 2x_4^1\right).
+        </md>
+        Untuk menentukan banyak pewarnaan-<m>2</m> persegi yang berbeda, kita tetapkan <m>x_i=2</m> untuk setiap <m>i</m> dan kembali memperoleh <m>P_{D_8}(2,2,2,2) = 6</m>. Namun, perhatikan bahwa sekarang kita memiliki alat yang lebih kuat daripada lemma Burnside. Kita dapat menyubstitusikan <em>sebarang</em> bilangan bulat positif <m>m</m> untuk setiap <m>x_i</m> guna menentukan banyak pewarnaan-<m>m</m> persegi yang tidak ekuivalen. Kita tidak lagi perlu menganalisis banyak pewarnaan yang ditetapkan oleh setiap permutasi. Sebagai contoh, <m>P_{D_8}(3,3,3,3) = 21</m>, yang berarti bahwa <m>21</m> dari <m>81</m> pewarnaan simpul-simpul persegi menggunakan tiga warna merupakan pewarnaan yang berbeda.
+        </p>
+    </subsection>
+
+
+    <subsection xml:id="ss_polya_polya_full">
+        <title>Rumus enumerasi lengkap</title>
+        <p>Mudah-mudahan kekuatan indeks siklus untuk menghitung pewarnaan yang berbeda setelah simetri diperhitungkan mulai terlihat. Pada bagian berikutnya, kita akan memberikan contoh tambahan penggunaannya. Namun, kita masih belum melihat seluruh kekuatan teknik P&#243;lya. Dari indeks siklus saja, kita dapat menentukan banyak pewarnaan simpul persegi yang berbeda. Akan tetapi, bagaimana jika kita ingin mengetahui berapa banyak di antaranya yang mempunyai dua simpul putih dan dua simpul emas? Di sinilah rumus enumerasi P&#243;lya benar-benar berperan sebagai fungsi pembangkit.
+        </p>
+
+        <p>Perhatikan kembali indeks siklus grup dihedral <m>D_8</m>:
+        <md>
+            P_{D_8}(x_1,x_2,x_3,x_4) = \frac{1}{8}\left(x_1^4 + 2x_1^2x_2^1 +
+            3x_2^2 + 2x_4^1\right).
+        </md>
+        Alih-alih menyubstitusikan bilangan bulat untuk <m>x_i</m>, mari kita perhatikan apa yang terjadi jika kita menyubstitusikan sesuatu yang memungkinkan warna-warna yang digunakan tetap terlacak. Karena <m>x_1</m> menyatakan siklus dengan panjang <m>1</m> dalam suatu permutasi, pemilihan putih atau emas untuk simpul dalam siklus semacam itu berarti satu simpul menerima warna tersebut. Apa yang terjadi jika <m>w+g</m> disubstitusikan untuk <m>x_1</m>? Suku pertama dalam <m>P_{D_8}</m> bersesuaian dengan permutasi identitas <m>\iota</m>, yang menetapkan semua pewarnaan persegi. Menetapkan <m>x_1=w+g</m> dalam suku tersebut menghasilkan
+        <md>
+            (w+g)^4 = g^4+4 g^3 w+6 g^2 w^2+4 g w^3+w^4,
+        </md>
+        yang memberi tahu kita bahwa <m>\iota</m> menetapkan satu pewarnaan dengan empat simpul emas, empat pewarnaan dengan tiga simpul emas dan satu simpul putih, enam pewarnaan dengan dua simpul emas dan dua simpul putih, empat pewarnaan dengan satu simpul emas dan tiga simpul putih, serta satu pewarnaan dengan empat simpul putih.
+        </p>
+
+        <p>Mari kita lanjutkan pola ini dengan memperhatikan variabel <m>x_2</m>. Variabel tersebut menyatakan siklus-siklus dengan panjang <m>2</m> dalam suatu permutasi. Agar ditetapkan oleh permutasi, siklus semacam itu harus diwarnai secara seragam dengan putih atau emas. Jadi, pemilihan putih atau emas untuk simpul-simpul dalam siklus menghasilkan dua simpul putih atau dua simpul emas dalam pewarnaan. Karena hal ini terjadi pada setiap siklus dengan panjang <m>2</m>, kita menyubstitusikan <m>w^2+g^2</m> untuk <m>x_2</m> dalam indeks siklus. Suku-suku <m>x_1^2x_2^1</m> dalam <m>P_{D_8}</m> berkaitan dengan pencerminan <m>p</m> dan <m>n</m>. Dengan menetapkan <m>x_1=w+g</m> dan <m>x_2 = w^2+g^2</m>, diperoleh
+        <md>
+            x_1^2x_2^1 = g^4+2 g^3 w+2 g^2 w^2+2 g w^3+w^4,
+        </md>
+            Dari sini kita dapat menyimpulkan bahwa <m>p</m> dan <m>n</m> masing-masing menetapkan satu pewarnaan dengan empat simpul emas, dua pewarnaan dengan tiga simpul emas dan satu simpul putih, dan seterusnya. Perbandingan dengan <xref ref="tab_polya_fixed-square"/> menunjukkan bahwa fungsi pembangkit tersebut tepat.
+        </p>
+
+        <p>Sekarang polanya mulai terlihat. Jika kita menyubstitusikan <m>w^i+g^i</m> untuk <m>x_i</m> dalam indeks siklus bagi setiap <m>i</m>, banyak simpul yang diwarnai putih dan banyak simpul yang diwarnai emas dapat tetap dilacak. Penyederhanaan indeks siklus dalam hal ini menghasilkan fungsi pembangkit yang koefisien <m>g^s w^t</m>-nya merupakan banyak pewarnaan berbeda pada simpul-simpul persegi dengan <m>s</m> simpul berwarna emas dan <m>t</m> simpul berwarna putih. Substitusi dan penyederhanaan tersebut memberikan
+        <md>
+            P_{D_8}(w+g,w^2+g^2,w^3+g^3,w^4+g^4) = g^4+g^3 w+2 g^2 w^2+g
+            w^3+w^4.
+        </md>
+            Dari hasil ini, kita memperoleh satu pewarnaan dengan semua simpul emas, satu pewarnaan dengan semua simpul putih, satu pewarnaan dengan tiga simpul emas dan satu simpul putih, satu pewarnaan dengan satu simpul emas dan tiga simpul putih, serta dua pewarnaan dengan dua simpul dari setiap warna.
+        </p>
+
+        <p>Seperti hasil-hasil lain yang ditemukan dalam bab ini, sifat indeks siklus tersebut berlaku lebih luas daripada sekadar pewarnaan simpul persegi dengan dua warna. Bentuk lengkapnya ialah teorema enumerasi P&#243;lya:
+        </p>
+
+        <theorem xml:id="thm_polya_polya">
+            <title>Teorema Enumerasi P&#243;lya</title>
+            <statement>
+                <p>Misalkan <m>S</m> merupakan himpunan dengan <m>|S|=r</m> dan <m>\cgC</m> merupakan himpunan pewarnaan <m>S</m> menggunakan warna <m>c_1,\dots,c_m</m>. Jika suatu grup permutasi <m>G</m> bertindak pada <m>S</m> sehingga menginduksi relasi ekuivalensi pada <m>\cgC</m>, maka
+                <md>
+                    P_G\left(\sum_{i=1}^m c_i, \sum_{i=1}^m c_i^2, \dots,\sum_{i=1}^m
+                    c_i^r\right)
+                </md>
+                    merupakan fungsi pembangkit bagi banyak pewarnaan <m>S</m> dalam <m>\cgC</m> yang tidak ekuivalen.
+                </p>
+            </statement>
+        </theorem>
+
+        <p>Jika kita kembali mewarnai simpul-simpul persegi, tetapi sekarang juga mengizinkan warna biru, diperoleh
+        <md>P_{D_8}(w+g+b,w^2+g^2+b^2,w^3+g^3+b^3,w^4+g^4+b^4) = b^4+b^3 g+2 b^2 g^2\\+b g^3+g^4+b^3 w+2 b^2 g w+2 b g^2 w+g^3 w+2 b^2 w^2+2 b g w^2+2 g^2 w^2\\+b w^3+g w^3+w^4.
+        </md>
+            Dari fungsi pembangkit ini, kita segera menentukan bahwa terdapat <m>2</m> pewarnaan tak ekuivalen dengan dua simpul biru, satu simpul emas, dan satu simpul putih. Karena fungsi pembangkit dalam <xref ref="thm_polya_polya" text="title"/> mencatat banyak pola tak ekuivalen, fungsi itu kadang-kadang disebut <term>inventaris pola</term>.<idx><h>inventaris pola</h></idx>
+        </p>
+
+        <p>Bagaimana jika kita ingin membuat kalung dengan <m>500</m> manik-manik (yang sangat kecil) berwarna putih, emas, dan biru? Hal ini ekuivalen dengan mewarnai simpul-simpul segi-<m>500</m> beraturan, dan grup dihedral <m>D_{1000}</m> memberikan transformasi yang sesuai. Dengan sistem aljabar komputer<fn>Dengan pengalaman tambahan dalam teori grup, kita dapat memberikan rumus umum untuk indeks siklus grup dihedral <m>D_{2n}</m>. Jadi, sistem aljabar komputer merupakan alat yang berguna, tetapi tidak wajib.</fn> seperti <em>Mathematica</em><registered/>, inventaris pola untuk persoalan semacam itu dapat dihasilkan dengan cepat. Dari perhitungan tersebut, terdapat
+        <md>
+            <mrow>  \amp 3636029179586993684238526707954331911802338502600162304034603583</mrow>
+            <mrow>  \amp 2580600191583895484198508262979388783308179702534404046627287796</mrow>
+            <mrow>  \amp 4304252714992703135653472347417085467453334179308247819807028526</mrow>
+            <mrow>  \amp 92187253642441292279756575936040804567103229 \approx 3.6\times 10^{235}</mrow>
+        </md>
+            kalung yang mungkin. Di antaranya,
+        <md>
+            <mrow>  \amp 2529491842340460773490413186201010487791417294078808662803638965</mrow>
+            <mrow>  \amp 6782447138833704326875393229442323085905838200071479575905731776</mrow>
+            <mrow>  \amp 6605088026968640797415175535033372572682057214340157297357996</mrow>
+            <mrow>\amp 345021733060\approx
+            2.5\times 10^{200}</mrow>
+        </md>
+            mempunyai <m>225</m> manik-manik putih, <m>225</m> manik-manik emas, dan <m>50</m> manik-manik biru.
+        </p>
+
+        <p>Sisa bab ini berfokus pada penerapan <xref ref="thm_polya_polya" text="title"/> dan inventaris pola dalam berbagai situasi.
+        </p>
+    </subsection>
+
+</section>

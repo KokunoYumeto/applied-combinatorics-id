@@ -1,0 +1,82 @@
+<section xml:id="s_genfunction_binom-app">
+    <title>Sebuah Penerapan Teorema Binomial</title>
+    <p>Dalam bagian ini, kita melihat bagaimana <xref ref="thm_newton-binomial" text="title"/> dapat digunakan untuk menurunkan sebuah identitas berguna lainnya. Kita mulai dengan membuktikan rumus rekursif untuk <m>P(p,k)</m> yang berbeda dari rumus dalam definisinya.
+    </p>
+
+    <lemma>
+        <statement>
+            <p>
+                Untuk setiap <m>k\ge0</m>,
+                <m>P(p,k+1)=P(p,k)(p-k)</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>
+                Ketika <m>k=0</m>, kedua ruas bernilai <m>p</m>. Sekarang anggap pernyataan tersebut benar ketika
+                <m>k=m</m> untuk suatu bilangan bulat tak negatif <m>m</m>. Maka
+                <md>
+                    <mrow>  P(p,m+2)\amp =pP(p-1,m+1)</mrow>
+                    <mrow>  \amp = p[P(p-1,m)(p-1-m)]</mrow>
+                    <mrow>  \amp =[pP(p-1,m)](p-1-m)</mrow>
+                    <mrow>  \amp =P(p,m+1)[p-(m+1)].</mrow>
+                </md>
+            </p>
+        </proof>
+    </lemma>
+    <p>Tujuan kita dalam bagian ini adalah menerapkan <xref ref="thm_newton-binomial" text="title"/> dengan eksponen <m>p=-1/2</m>. Agar penerapan ini berguna, kita memerlukan ekspresi yang disederhanakan untuk <m>C(-1/2,k)</m>, yang diberikan oleh lema berikut.
+    </p>
+
+    <lemma xml:id="l_newbinom">
+        <statement>
+            <p>
+                Untuk setiap <m>k\ge0</m>,
+                <m>\displaystyle\binom{-1/2}{k}=(-1)^k\frac{\binom{2k}{k}}{2^{2k}}</m>.
+            </p>
+        </statement>
+
+        <proof>
+            <p>Kita menggunakan induksi pada <m>k</m>. Kedua ruas menyederhana menjadi <m>1</m> ketika <m>k=0</m>. Sekarang anggap pernyataan tersebut benar ketika <m>k=m</m> untuk suatu bilangan bulat tak negatif <m>m</m>. Maka
+            <md>
+                <mrow>  \binom{-1/2}{m+1} \amp =\frac{P(-1/2,m+1)}{(m+1)!}
+                =\frac{P(-1/2,m)(-1/2-m)}{(m+1)m!}</mrow>
+                <mrow>  \amp =\frac{-1/2-m}{m+1}\binom{-1/2}{m}
+                =(-1)\frac{2m+1}{2(m+1)}(-1)^m\frac{\binom{2m}{m}}{2^{2m}}</mrow>
+                <mrow>  \amp =(-1)^{m+1}\frac{1}{2^{2m}}
+                \frac{(2m+2)(2m+1)}{(2m+2)2(m+1)}\binom{2m}{m}=
+                (-1)^{m+1}\frac{\binom{2m+2}{m+1}}{2^{2m+2}}.</mrow>
+            </md>
+            </p>
+        </proof>
+    </lemma>
+    <theorem xml:id="t_sqrt">
+        <statement>
+            <p>Fungsi <m>f(x)=(1-4x)^{-1/2}</m> merupakan fungsi pembangkit bagi barisan <m>\{\binom{2n}{n}:n\ge0\}</m>.
+            </p>
+        </statement>
+        <proof>
+            <p>Berdasarkan <xref ref="thm_newton-binomial" text="title"/> dan <xref ref="l_newbinom"/>, kita mengetahui bahwa
+            <md>
+                <mrow>  (1-4x)^{-1/2}\amp =\sum_{n=0}^\infty\binom{-1/2}{n}(-4x)^n</mrow>
+                <mrow>  \amp =\sum_{n=0}^\infty(-1)^n2^{2n}\binom{-1/2}{n}x^n</mrow>
+                <mrow>  \amp =\sum_{n=0}^\infty \binom{2n}{n}x^n.</mrow>
+            </md>
+            </p>
+        </proof>
+    </theorem>
+
+    <p>Kita akan kembali menggunakan fungsi pembangkit ini dalam <xref ref="s_recurrence_rubots"/>, tempat fungsi tersebut berperan dalam suatu masalah pencacahan yang tampak baru, tetapi sebenarnya merupakan masalah yang telah kita pelajari dalam bentuk tersamar.</p>
+    
+    <p>Dengan mengingat kembali <xref ref="prop_genfunction-product"/> tentang koefisien dalam hasil kali dua fungsi pembangkit, kita dapat menurunkan akibat berikut dari <xref ref="t_sqrt"/> dengan menguadratkan fungsi <m>f(x) = (1-4x)^{-1/2}</m>.
+    </p>
+    
+    <corollary>
+        <statement>
+            <p>Untuk setiap <m>n\ge0</m>,
+            <md>
+                2^{2n}=\sum_{k=0}^n\binom{2k}{k}\binom{2n-2k}{n-k}.
+            </md>
+            </p>
+        </statement>
+    </corollary>
+</section>

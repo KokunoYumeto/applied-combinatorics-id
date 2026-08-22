@@ -1,0 +1,116 @@
+<section xml:id="s_inclusion-exclusion_euler-phi">
+  <title>Fungsi <m>\phi</m> Euler</title>
+  <shorttitle>Fungsi phi Euler</shorttitle>
+    <idx><h>faktor persekutuan terbesar</h><h>fungsi <m>\phi</m> Euler</h></idx>
+    <p>Setelah membaca dua bagian sebelumnya, Anda mungkin bertanya-tanya mengapa kami menyatakan <xref ref="thm_inclusion-exclusion" text="title"/> dengan cara yang begitu abstrak, sebab dalam contoh-contoh tersebut <m>N(S)</m> hanya bergantung pada banyaknya anggota <m>S</m>, bukan pada isinya. Pada bagian ini, kami menyajikan sebuah contoh penting ketika nilai <m>N(S)</m> <em>memang</em> bergantung pada <m>S</m>. Meskipun demikian, kita dapat melakukan reduksi untuk memperoleh hasil akhir yang berguna. Dalam pembahasan berikut, misalkan <m>\posints</m> menyatakan himpunan bilangan bulat positif.
+    </p>
+
+    <p>Untuk bilangan bulat positif <m>n\ge2</m>, tetapkan
+    <md>
+        \phi(n)=|\{m\in \posints: m\le n, \gcd(m,n)=1\}|.
+    </md>
+    Fungsi ini biasanya disebut <term>fungsi <m>\phi</m> Euler</term> atau <term>fungsi totien Euler</term>    <idx><h>fungsi <m>\phi</m> Euler</h></idx> dan memiliki banyak kaitan dengan teori bilangan. Di sini kita tidak akan berfokus pada aspek-aspek teori bilangannya, melainkan hanya pada cara menghitung <m>\phi(n)</m> secara efisien untuk setiap <m>n</m>.<notation><usage><m>\phi(n)</m></usage><description>fungsi <m>\phi</m> Euler</description></notation>
+    </p>
+
+    <p>Sebagai contoh, <m>\phi(12)=4</m> karena satu-satunya bilangan dalam <m>\{1,2,\dots,12\}</m> yang relatif prima terhadap <m>12</m> adalah <m>1</m>, <m>5</m>, <m>7</m>, dan <m>11</m>. Sebagai contoh kedua, <m>\phi(9)=6</m> karena <m>1</m>, <m>2</m>, <m>4</m>, <m>5</m>, <m>7</m>, dan <m>8</m> relatif prima terhadap <m>9</m>. Di sisi lain, <m>\phi(p)=p-1</m> jika <m>p</m> merupakan bilangan prima. Misalkan Anda diminta menghitung <m>\phi(321974)</m>. Bagaimana Anda akan melakukannya?
+    </p>
+
+    <p>Dalam <xref ref="ch_induction"/>, kita membahas prosedur rekursif untuk menentukan faktor persekutuan terbesar dari dua bilangan bulat dan menulis kode untuk mengerjakan tugas tersebut. Mari kita andaikan bahwa kita memiliki fungsi <c>gcd(m,n)</c> yang mengembalikan faktor persekutuan terbesar dari bilangan bulat <c>m</c> dan <c>n</c>. (Untungnya, SageMath sudah dilengkapi fungsi semacam itu.) Dengan demikian, kita dapat menghitung <m>\phi(n)</m> menggunakan cuplikan kode berikut:
+    </p>
+
+    <sage>
+        <input>def phi(n):
+    answer = 1
+    for m in range(2,n):
+        if (gcd(m,n) == 1):
+            answer += 1
+    return(answer)
+
+phi(321974)            
+        </input>
+        <output>147744</output>
+    </sage>
+
+
+    <p>Ketika dijalankan, kode di atas hampir seketika memberikan jawaban <m>\phi(321974) = 147744</m>. (Seperti biasa, dalam versi web buku ini, Anda dapat mengubah nilai <c>321974</c> untuk menghitung nilai <m>\phi</m> bagi bilangan bulat lain. Namun, jika nilai <c>n</c> yang Anda masukkan terlalu besar, Anda mungkin menghadapi kendala memori yang diberlakukan oleh Sage Cell Server yang digunakan buku ini. Sebagai contoh, ketika buku ini ditulis, upaya menghitung <m>\phi(319572943)</m> menghasilkan galat. Anda mungkin lebih berhasil jika menjalankan kode tersebut secara langsung di <url href="https://cocalc.com/" visual="cocalc.com">CoCalc</url> atau pada instalasi lokal SageMath.)
+    </p>
+    <p>Mengingat kendala-kendala tersebut, bagaimana kita dapat menghitung <m>\phi(1369122257328767073)</m>?
+    </p>
+
+    <p>Jelaslah bahwa program tersebut tidak berguna untuk menangani bilangan raksasa ini! Program itu bukan hanya melakukan iterasi sebanyak <m>n-2</m> kali, melainkan juga menjalankan rekursi pada setiap iterasi. Untungnya, prinsip inklusi–eksklusi datang menolong kita.
+    </p>
+
+    <theorem xml:id="thm_eulerphi">
+        <statement>
+            <p>Misalkan <m>n\ge2</m> merupakan bilangan bulat positif dan andaikan <m>n</m> memiliki <m>m</m> faktor prima yang berbeda, yaitu <m>p_1</m>, <m>p_2,\dots,p_m</m>. Maka
+            <md number="yes" xml:id="eq_eulerphi">
+                \phi(n) = n\prod_{i = 1}^{m}\frac{p_i-1}{p_i}.
+            </md>
+            </p>
+        </statement>
+    </theorem>
+
+    <p>Bukti kita untuk <xref ref="thm_eulerphi"/> memerlukan proposisi elementer berikut, yang buktinya kita serahkan sebagai latihan.
+    </p>
+
+    <proposition xml:id="prop_num-divisible">
+        <statement>
+            <p>Misalkan <m>n\ge2</m>, <m>k\ge1</m>, dan misalkan <m>p_1,p_2,\dots,p_k</m> merupakan bilangan prima berbeda yang masing-masing membagi <m>n</m> tanpa sisa. Maka banyaknya bilangan bulat dalam <m>\{1,2,\dots,n\}</m> yang habis dibagi oleh masing-masing dari <m>k</m> bilangan prima tersebut adalah
+                <md>
+                    \frac{n}{p_1p_2\dots p_k}.
+                </md>
+            </p>
+        </statement>
+    </proposition>
+    
+    <proof>
+        <p>Kita menyajikan argumennya untuk kasus <m>m=3</m>. Hasil selengkapnya diperoleh melalui perluasan yang mudah.
+        </p>
+        <p>Berdasarkan <xref ref="prop_num-divisible"/>, prinsip inklusi–eksklusi menghasilkan:
+        <md>
+            <mrow>  \phi(n) \amp = n-\left(\frac{n}{p_1}+\frac{n}{p_2}+
+            \frac{n}{p_3}\right) +\left(\frac{n}{p_1p_2}+\frac{n}{p_1p_3}+
+            \frac{n}{p_2p_3}\right)-\frac{n}{p_1p_2p_3}</mrow>
+            <mrow>  \amp = n \frac{p_1p_2p_3 -(p_2p_3+p_1p_3+p_1p_2)+
+            (p_3+p_2+p_1) - 1}{p_1p_2p_3}</mrow>
+            <mrow>  \amp =n \frac{p_1-1}{p_1}\frac{p_2-1}{p_2}
+            \frac{p_3-1}{p_3}.</mrow>
+            </md>
+        </p>
+    </proof>
+
+    <example>
+        <p>SageMath melaporkan bahwa
+            <md>
+                1369122257328767073 = (3)^3(11)(19)^4(31)^2(6067)^2
+            </md>
+            merupakan faktorisasi <m>1369122257328767073</m> menjadi faktor-faktor prima.
+            Dari sini diperoleh bahwa
+            <md>
+                \phi(1369122257328767073) = 1369122257328767073
+                \,\,\frac{2}{3}\,\frac{10}{11}\,\frac{18}{19}\,\frac{30}{31}\,\frac{6066}{6067}.
+            </md>
+            Dengan demikian, SageMath dengan cepat melaporkan bahwa
+            <md>
+                \phi(1369122257328767073) =760615484618973600.
+            </md>
+        </p>
+    </example>
+
+    <example>
+        <p>Amanda dan Bruce menerima tantangan yang sama dari profesor mereka, yaitu mencari <m>\phi(n)</m> ketika
+        <md>
+            <mrow>  n  = \amp 31484972786199768889479107860964368171543984609017931</mrow>
+            <mrow>  \amp   39001922159851668531040708539722329324902813359241016</mrow>
+            <mrow>  \amp   93211209710523.</mrow>
+        </md>
+        Namun, profesor tersebut juga memberi tahu Amanda bahwa <m>n=p_1p_2</m> merupakan hasil kali dua bilangan prima besar, dengan
+        <md>
+            <mrow>p_1 \amp = 470287785858076441566723507866751092927015824834881906763507</mrow>
+            <intertext>dan</intertext>
+            <mrow>p_2 \amp = 669483106578092405936560831017556154622901950048903016651289.</mrow>
+        </md>
+        Apakah informasi ini memiliki nilai khusus bagi Amanda? Apakah informasi tersebut benar-benar membuat tugasnya lebih mudah daripada tugas Bruce? Apakah kedudukan mereka akan menjadi setara jika profesor itu memberi tahu Bruce bahwa <m>n</m> merupakan hasil kali dua bilangan prima?
+        </p>
+    </example>
+</section>

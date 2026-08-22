@@ -1,0 +1,17 @@
+<section xml:id="s_ramsey_estimatesize">
+    <title>Menaksir Bilangan Ramsey</title>
+    <p>Kita akan terbantu dengan menggunakan aproksimasi Stirling berikut. Buktinya dapat ditemukan dalam hampir semua buku kalkulus tingkat lanjut.
+    <md>
+        n!\approx \sqrt{2\pi n} \left( \frac{n}{e}\right)^n\left(1+
+        \frac{1}{12n}+\frac{1}{288n^2}-\frac{139}{51840n^3} +O\left(\frac{1}{n^4}\right)\right).
+    </md>
+    Tentu saja, biasanya kita akan mencukupkan diri dengan suku pertama:
+    <md>
+        n!\approx \sqrt{2\pi n} \left( \frac{n}{e}\right)^n
+    </md>
+    Dengan menggunakan aproksimasi Stirling dan koefisien binomial dari bukti <xref ref="thm_graphramsey" text="title"/>, kita memperoleh batas atas berikut:
+    <md>
+        R(n,n) \le \binom{2n-2}{n-1} \approx \frac{2^{2n}}{4\sqrt{\pi n}}
+    </md>
+    </p>
+</section>

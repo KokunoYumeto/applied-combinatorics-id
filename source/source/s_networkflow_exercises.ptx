@@ -1,0 +1,100 @@
+<exercises xml:id="s_networkflow_exercises">
+    <exercise>
+        <statement>
+            <p>Perhatikan diagram jaringan pada <xref ref="fig_networkflow_invalid"/>. Pada setiap sisi berarah, bilangan pertama menyatakan kapasitas dan bilangan kedua dimaksudkan sebagai nilai aliran <m>\phi</m> dalam jaringan. Namun, aliran yang diberikan tidak sah.
+                  <ol>
+                <li><p>Tentukan alasan mengapa <m>\phi</m> tidak sah.</p></li>
+                <li><p>Tanpa mengubah kapasitas sisi mana pun, ubah <m>\phi</m> menjadi aliran sah <m>\widehat{\phi}</m>. Usahakan menggunakan sesedikit mungkin perubahan.</p></li>
+            
+                  </ol>
+                </p>
+            <figure xml:id="fig_networkflow_invalid">
+                <caption>Aliran Tidak Sah dalam Suatu Jaringan</caption>
+                <image width="70%" source="networkflow_ex_invalid"><description><p>Diagram jaringan dengan kapasitas dan nilai aliran yang tidak memenuhi semua syarat aliran.</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Alice mengklaim telah menemukan aliran jaringan sah bernilai <m>20</m> dalam jaringan pada <xref ref="fig_networkflow_network_ex"/>. Bob mengatakan bahwa klaim itu mustahil benar karena tidak ada aliran yang nilainya lebih besar daripada <m>18</m>. Siapa yang benar, dan mengapa?
+            </p>
+            <figure xml:id="fig_networkflow_network_ex">
+                <caption>Sebuah Jaringan</caption>
+                <image width="65%" source="network_ex"><description><p>Diagram jaringan berkapasitas yang digunakan untuk membandingkan batas aliran Alice dan Bob.</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Temukan lintasan penambah <m>P</m> dengan <em>sekurang-kurangnya satu sisi mundur</em> bagi aliran <m>\phi</m> dalam jaringan pada <xref ref="fig_networkflow_augpath_ex"/>. Berapakah nilai <m>\delta</m> untuk <m>P</m>? Perbarui <m>\phi</m> dengan menggunakan <m>P</m> untuk memperoleh aliran baru <m>\hat{\phi}</m>. Berapakah nilai <m>\hat{\phi}</m>?
+            </p>
+            <figure xml:id="fig_networkflow_augpath_ex">
+                <caption>Jaringan dengan Aliran</caption>
+                <image width="70%" source="augpath_ex"><description><p>Diagram jaringan yang mencantumkan kapasitas dan aliran pada setiap sisi berarah.</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise xml:id="ex_networkflow_update">
+        <statement>
+            <p>Buktikan <xref ref="prop_networkflow_update"/>. Anda perlu memeriksa bahwa hukum kekekalan aliran berlaku pada setiap simpul di sepanjang lintasan penambah, selain <m>S</m> dan <m>T</m>. Ada empat kasus yang perlu ditinjau, bergantung pada status maju atau mundur dari kedua sisi lintasan penambah yang bersisian dengan simpul tersebut.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Tentukan kapasitas potongan <m>(L,U)</m> dengan
+            <md>
+                L=\{S,F,H,C,B,G,I\}\qquad\text{dan} \qquad U=\{A,D,E,T\}
+            </md>
+            dalam jaringan pada <xref ref="fig_networkflow_augpath_ex"/>.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Tentukan kapasitas potongan <m>(L,U)</m> dengan
+            <md>
+                L=\{S,F,D,B,A\}\qquad\text{dan} \qquad U=\{H,C,I,G,E,T\}
+            </md>
+            dalam jaringan pada <xref ref="fig_networkflow_augpath_ex"/>.</p>
+        </statement>
+    </exercise>
+    <exercise xml:id="ex_networkflow_do-update">
+        <statement>
+            <p>Untuk masing-masing lintasan penambah <m>P_1</m>, <m>P_2</m>, <m>P_3</m>, dan <m>P_4</m> dalam <xref ref="exa_networkflow_delta"/>, perbarui aliran pada <xref ref="fig_networkflow_netflow"/>. Perhatikan bahwa solusi latihan ini harus terdiri atas empat aliran jaringan. Jangan mencoba menggunakan keempat lintasan secara berurutan untuk menghasilkan satu aliran jaringan yang diperbarui.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Lanjutkan algoritma pelabelan Ford–Fulkerson pada aliran jaringan dalam <xref ref="fig_networkflow_updated-flow"/> hingga algoritma berhenti tanpa memberi label pada muara. Tentukan nilai aliran maksimum beserta sebuah potongan berkapasitas minimum.</p>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Gunakan algoritma pelabelan Ford–Fulkerson untuk menemukan aliran maksimum dan potongan minimum dalam jaringan pada <xref ref="fig_networkflow_network_find_flow1"/>, dengan memulai dari aliran saat ini yang ditampilkan di sana.
+            </p>
+            <figure xml:id="fig_networkflow_network_find_flow1">
+                <caption>Jaringan dengan Aliran</caption>
+                <image width="70%" source="network_find_flow1"><description><p>Diagram jaringan dengan kapasitas dan aliran awal pada setiap sisi berarah.</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p><xref ref="fig_networkflow_network_find_flow2"/> menampilkan suatu jaringan. Mulailah dari aliran nol, <ie/>, aliran dengan <m>\phi(e)=0</m> untuk setiap sisi berarah <m>e</m> dalam jaringan. Gunakan algoritma pelabelan Ford–Fulkerson untuk menemukan aliran maksimum dan potongan minimum dalam jaringan tersebut.
+            </p>
+            <figure xml:id="fig_networkflow_network_find_flow2">
+                <caption>Sebuah Jaringan</caption>
+                <image width="55%" source="network_find_flow2"><description><p>Diagram jaringan berkapasitas yang akan dianalisis mulai dari aliran nol.</p>
+                </description></image>
+            </figure>
+        </statement>
+    </exercise>
+    <exercise>
+        <statement>
+            <p>Perhatikan suatu jaringan yang sumbernya, <m>S</m>, mempunyai tepat tiga tetangga: <m>B</m>, <m>E</m>, dan <m>F</m>. Misalkan pula <m>c(S,B)=30</m>, <m>c(S,E)=20</m>, dan <m>c(S,F)=25</m>. Anda mengetahui bahwa terdapat aliran <m>\phi</m> pada jaringan, tetapi tidak mengetahui besar aliran pada sisi mana pun. Namun, Anda mengetahui bahwa ketika algoritma pelabelan Ford–Fulkerson dijalankan pada jaringan dengan aliran saat ini <m>\phi</m>, dua simpul pertama yang diberi label adalah <m>S</m> dengan label <m>(*,+,\infty)</m> dan <m>F</m> dengan label <m>(S,+,15)</m>. Gunakan informasi ini untuk menentukan nilai aliran <m>\phi</m> dan jelaskan cara Anda memperolehnya.</p>
+        </statement>
+    </exercise>
+</exercises>

@@ -1,0 +1,53 @@
+<section xml:id="s_strings_binom-thm">
+  <title>Teorema Binomial</title>
+  <p>Berikut sebuah hasil yang sungguh mendasar—boleh dibilang materi taman kanak-kanak dalam kombinatorika.
+  </p>
+
+  <theorem xml:id="thm_binomial">
+    <title>Teorema Binomial</title>
+    <idx>
+      <h>teorema binomial</h>
+    </idx>
+    <idx>
+      <h>koefisien binomial</h>
+    </idx>
+    <statement>
+      <p>Misalkan <m>x</m> dan <m>y</m> bilangan real dengan <m>x</m>, <m>y</m>, dan <m>x+y</m> semuanya tak nol.
+        Maka, untuk setiap bilangan bulat tak negatif <m>n</m>, <md>
+        (x+y)^n=\sum_{i=0}^{n}\binom{n}{i}x^{n-i}y^{i}.
+        </md>
+      </p>
+    </statement>
+
+    <proof>
+      <p>Pandang <m>(x+y)^n</m> sebagai hasil kali <md>
+        (x+y)^n=\underbrace{(x+y)(x+y)(x+y)(x+y)\dots(x+y)(x+y)}_{n\text{&#160;factors} }.
+        </md>
+        Setiap suku dalam ekspansi hasil kali tersebut diperoleh dengan memilih <m>x</m> atau <m>y</m>
+        dari setiap faktor. Jika <m>x</m> dipilih <m>n-i</m> kali dan <m>y</m> dipilih <m>
+        i</m> kali, hasil kalinya adalah <m>x^{n-i}y^i</m>. Jelas bahwa banyaknya suku semacam itu
+        adalah <m>C(n,i)</m>; <ie/>, dari <m>n</m> faktor tersebut, kita memilih unsur <m>y</m>
+        pada <m>i</m> faktor dan mengambil <m>x</m> pada <m>n-i</m> faktor sisanya. </p>
+    </proof>
+  </theorem>
+
+  <example>
+    <p>Adakalanya kita tidak memerlukan ekspansi lengkap suatu pangkat binomial,
+      melainkan hanya koefisien salah satu sukunya. <xref ref="thm_binomial" text="title"/>
+      menunjukkan bahwa koefisien <m>x^5y^8</m> dalam <m>(2x-3y)^{13}</m> adalah <m>
+      \binom{13}{5}2^{5}(-3)^8</m>. </p>
+  </example>
+  <reading-questions xml:id="rqs-strings_binom-thm" component="runestone">
+    <exercise label="appcomb_strings_binom-thm_2-to-n">
+      <statement>
+        <p>
+          Jelaskan bagaimana Anda dapat menggunakan <xref ref="thm_binomial" text="title"/> untuk memberikan satu lagi bukti bagi identitas
+          <md>
+            2^n = \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{n-1}+\binom{n}{n} = \sum_{k=0}^n \binom{n}{k}
+          </md>.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+  </reading-questions>
+</section>

@@ -1,0 +1,11 @@
+<section xml:id="s_induction_intro">
+    <title>Pendahuluan</title>
+    <p>Seorang dosen memutuskan untuk memeriahkan kuliah kombinatorika berikutnya dengan memberikan hadiah undian. Ketika para mahasiswa memasuki ruang kuliah (tepat waktu, karena datang terlambat agak tidak menghargai seluruh kelas), masing-masing mengambil selembar tiket dari sebuah kotak. Pada setiap tiket tercetak sebuah bilangan bulat positif. Tidak diberikan informasi tentang rentang nomor tiket, tetapi semua nomor dijamin berbeda. Sebelum pengundian, kotak tiket dikocok kuat-kuat sehingga isinya tercampur merata, dan setiap tiket diambil tanpa melihat ke dalam kotak.
+    </p>
+
+    <p>Setelah setiap mahasiswa memilih tiket, dosen itu mengumumkan bahwa hadiah uang tunai sebesar satu dolar (maklum, ini universitas) akan diberikan kepada mahasiswa yang memegang tiket bernomor paling kecil<mdash/>di antara tiket yang telah diambil.
+    </p>
+
+    <p>Apakah hadiah itu pasti akan diberikan? Dengan kata lain, jika diberikan sebuah himpunan bilangan bulat positif, dalam kasus ini himpunan nomor tiket yang dipilih para mahasiswa, apakah himpunan tersebut pasti memiliki elemen terkecil? Secara lebih umum, benarkah setiap himpunan bilangan bulat positif selalu memiliki elemen terkecil? Apa yang terjadi jika jumlah mahasiswa melonjak sehingga terdapat tak berhingga banyak mahasiswa di kelas dan masing-masing memegang tiket?
+    </p>
+</section>

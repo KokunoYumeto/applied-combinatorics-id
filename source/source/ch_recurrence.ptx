@@ -1,0 +1,19 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="ch_recurrence">
+    <title>Persamaan Rekurensi</title>
+
+
+    <introduction>
+        <p>Kita telah melihat banyak contoh rekurensi dalam definisi fungsi dan ekspresi kombinatorial. Pengembangan sistem bilangan dalam <xref ref="app_background"/> meletakkan dasar bagi rekurensi dalam matematika. Contoh lain yang telah kita lihat mencakup barisan Collatz pada <xref ref="ex_collatz"/> dan koefisien binomial. Dalam <xref ref="ch_induction"/>, kita juga melihat bagaimana rekurensi dapat muncul ketika mencacah untai yang dikenai batasan tertentu, tetapi kita belum membahas cara beralih dari definisi rekursif suatu fungsi ke definisi eksplisit yang hanya bergantung pada <m>n</m>, bukan pada nilai-nilai fungsi sebelumnya. Dalam bab ini, kita menyajikan pembahasan rekurensi yang lebih sistematis dengan tujuan akhir menemukan ekspresi bentuk tertutup bagi fungsi yang didefinisikan secara rekursif<mdash/>bila memungkinkan. Kita akan berfokus pada persamaan rekurensi linear. Pada akhir bab, kita juga akan meninjau kembali sebagian materi dari <xref ref="ch_genfunction"/> untuk melihat bagaimana fungsi pembangkit juga dapat digunakan untuk menyelesaikan rekurensi.
+        </p>
+    </introduction>
+    <xi:include href="s_recurrence_intro.ptx"/>
+    <xi:include href="s_recurrence_linear.ptx"/>
+    <xi:include href="s_recurrence_adv-ops.ptx"/>
+    <xi:include href="s_recurrence_solving.ptx"/>
+    <xi:include href="s_recurrence_rigorous.ptx"/>
+    <xi:include href="s_recurrence_genfunction.ptx"/>
+    <xi:include href="s_recurrence_rubots.ptx"/>
+    <xi:include href="s_recurrence_discussion.ptx"/>
+    <xi:include href="s_recurrence_exercises.ptx"/>
+    <xi:include href="s_recurrence_peer-instruction.ptx"/>
+</chapter>

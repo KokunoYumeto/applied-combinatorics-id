@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<publication>
+    <source>
+        <directories generated="../generated-assets"/>
+        <version include="b strings comb-proof ubiquitous lattice induction recur-count induction-principle graphs graphs-notation-term eulerham coloring planar prufer posets posets-notation posets-partitioning posets-subset posets-intord posets-intord-algs pie pie-intro-surjections pie-derangements-euler-phi genfunction genfunction-intro-ogf genfunction-partitions-newton genfunction-expgf recurrence notes-recurrence-rubots" />
+    </source>
+    <common>
+      <tableofcontents level="2" />
+      <exercise-divisional statement="yes" hint="yes" answer="no" solution="no"/>
+      <exercise-worksheet statement="yes" hint="yes" answer="no" solution="no"/>
+      <exercise-inline statement="yes" hint="yes" answer="no" solution="no"/>
+      <exercise-project statement="yes" hint="yes" answer="no" solution="no"/>
+      <worksheet margin="13mm" />
+    </common>
+    <numbering>
+      <blocks level="1" />
+      <divisions chapter-start="2"/>
+    </numbering>
+
+    <!-- HTML-Specific Options -->
+    <html embed-button="yes">
+      <brandlogo url="https://www.appliedcombinatorics.org/" source="front-cover.png"/>
+      <css theme="default-modern" palette="blues" provide-dark-mode="no"/>
+	    <knowl example="no" exercise-inline="no" proof="no"/>
+    </html>
+    <latex sides="two" />
+</publication>

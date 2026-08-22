@@ -1,0 +1,22 @@
+<section xml:id="s_strings_discussion">
+    <title>Diskusi</title>
+    <p>Sambil minum kopi, Xing mengatakan bahwa ia telah bereksperimen dengan perangkat lunak SageMath yang dibahas dalam <xref ref="ch_intro"/>.  Ia memahami bahwa SageMath memperlakukan bilangan bulat besar sebagai string.  Dengan antusias, Xing bercerita bahwa ia meminta SageMath mencari jumlah <m>a+b</m> dari dua bilangan bulat besar <m>a</m> dan <m>b</m>, yang masing-masing memiliki lebih dari <m>800</m> digit. Perangkat lunak itu menemukan jawabannya hampir secepat ia dapat menekan tombol Enter pada netbook-nya.  <q>Itu tidak terlalu mengesankan,</q> sela Alice.  <q>Manusia, bahkan Bob sekalipun, dapat melakukannya dalam beberapa menit dengan pensil dan kertas.</q>
+    </p>
+    <p><q>Terima kasih atas komentar baik Anda,</q> jawab Bob. Anggota kelompok yang lain pun menyadari bahwa Alice bersikap cukup keras terhadap Bob tanpa alasan yang jelas.
+    </p>
+
+    <p>Dave membela Bob dengan berkata, <q>Hanya sedikit orang yang mau mencoba mencari hasil kali <m>a</m> dan <m>b</m> secara manual, dan bahkan Anda pun tidak akan mau, Alice.</q> Xing kembali menyela, <q>Itulah intinya. Bahkan netbook berukuran kecil dapat menemukan hasil kalinya dengan sangat, sangat cepat. Malah, saya mencobanya dengan dua bilangan bulat yang masing-masing memiliki lebih dari seribu digit. Netbook itu menemukan hasil kalinya dalam waktu sekitar satu detik.</q> Zori, yang selalu skeptis, bertanya, <q>Maksud Anda, Anda mengetikkan dua bilangan sebesar itu dengan teliti?</q> Xing segera menjawab, <q>Tentu saja tidak. Saya hanya menyalin dan menempelkan data dari satu sumber ke sumber lain.</q> Yolanda berkata, <q>Trik yang sangat cerdas. Cara itu benar-benar mengurangi kemungkinan terjadinya kesalahan.</q>
+    </p>
+
+    <p>Dave bertanya, <q>Bagaimana dengan faktorisasi? Dapatkah netbook Anda, dengan perangkat lunak canggihnya untuk string, memfaktorkan bilangan bulat besar?</q> Xing mengatakan bahwa ia akan mencoba beberapa contoh soal dan melaporkan hasilnya.  Carlos berkata, <q>Memfaktorkan bilangan bulat dengan beberapa ratus digit mungkin sangat sulit, bukan hanya bagi netbook, melainkan juga bagi superkomputer. Misalnya, andaikan bilangan bulat yang diberikan merupakan bilangan prima atau hasil kali dua bilangan prima besar. Menentukan mana di antara kedua pernyataan itu yang benar bisa jadi sangat sulit.</q>
+    </p>
+
+    <p>Tanpa patah semangat, Dave melanjutkan, <q>Bagaimana dengan perpangkatan? Dapatkah perangkat lunak Anda menghitung <m>a^b</m> jika <m>a</m> dan <m>b</m> merupakan bilangan bulat besar?</q>  Xing berkata, <q>Seharusnya itu bukan masalah. Bagaimanapun juga, <m>a^b</m> hanya berarti mengalikan <m>a</m> dengan dirinya sendiri sebanyak <m>b</m> kali, dan jika perkalian dapat dilakukan dengan cepat, itu hanyalah sebuah perulangan.</q> Yolanda mengatakan bahwa, berdasarkan penjelasan Xing, sebenarnya Xing sedang membicarakan program dengan perulangan bersarang sehingga program semacam itu mungkin memerlukan waktu lama untuk berhenti. Carlos tetap diam, tetapi ia berpikir mungkin ada cara untuk mempercepat perhitungan semacam itu.
+    </p>
+
+    <p>Pada saat itu, Alice kembali masuk ke dalam percakapan: <q>Hei, teman-teman.  Sementara Anda semua berbicara, saya mencari topik tentang bilangan bulat besar di web dan menemukan soal ini. <sq>Apakah <m>838200020310007224300</m> merupakan bilangan Catalan?</sq>  Bagaimana Anda akan menjawabnya? Apakah Anda harus menggunakan perangkat lunak khusus?</q>
+    </p>
+
+    <p>Zori tidak senang. Dengan muram, ia membayangkan kelak mencari pekerjaan yang mewajibkannya menguasai aritmetika bilangan bulat besar sebagai keterampilan kerja. Arrgghh.
+    </p>
+</section>

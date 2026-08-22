@@ -1,0 +1,151 @@
+<section xml:id="s_posets_dilworth-intord">
+  <title>Teorema Dilworth untuk Urutan Interval</title>
+  <p>Seperti telah disinggung sebelumnya, kita belum memiliki prosedur efisien untuk menentukan lebar
+    suatu poset dan partisi minimum menjadi rantai. Untuk urutan interval, memang ada cara sederhana
+    untuk menemukan keduanya. Penjelasannya cukup dengan membangun hubungan dengan pewarnaan graf interval
+    yang dibahas dalam <xref ref="ch_graphs"/>. </p>
+
+  <p>Misalkan <m>\PXP</m> merupakan suatu urutan interval dan misalkan <m>\{[a_x,b_x]:x\in X\}</m> merupakan interval-interval pada
+    garis bilangan real sedemikian sehingga <m>x\lt y</m> dalam <m>\bfP</m> jika dan hanya jika <m>b_x\lt a_y</m>. Selanjutnya, misalkan <m>\bfG</m>
+    merupakan graf interval yang ditentukan oleh keluarga interval ini. Perhatikan bahwa jika <m>x</m> dan <m>y</m>
+    merupakan elemen berbeda dari <m>X</m>, maka <m>x</m> dan <m>y</m> tidak dapat dibandingkan dalam <m>\bfP</m> jika
+    dan hanya jika <m>xy</m> merupakan sisi dalam <m>\bfG</m>. Dengan kata lain, <m>\bfG</m> tepat merupakan
+    graf ketakterbandingan dari <m>\bfP</m>. </p>
+
+  <p>Ingat kembali dari <xref ref="ch_graphs"/> bahwa graf interval merupakan graf sempurna, <ie/>, <m>
+    \chi(\bfG)=\omega(\bfG)</m> untuk setiap graf interval <m>\bfG</m>. Selain itu, Anda dapat menemukan
+    pewarnaan optimal suatu graf interval dengan menerapkan First Fit pada simpul-simpul menurut urutan linear
+    yang mengikuti urutan titik ujung kiri. Pewarnaan tersebut sekaligus menentukan partisi <m>\bfP</m>
+    menjadi rantai. </p>
+
+  <p>Bahkan, jika Anda ingin melewati bagian mengenai representasi interval, ambillah suatu urutan linear
+    elemen-elemen sebagai <m>x_1</m>, <m>x_2,\dots,x_n</m> sedemikian sehingga <m>i\lt j</m> setiap kali <m>D(x_i)</m>
+    merupakan subhimpunan sejati dari <m>D(x_j)</m>. Kemudian terapkan First Fit terhadap rantai. Sebagai contoh,
+    untuk urutan interval pada <m>10</m> titik yang ditampilkan dalam <xref ref="fig_10ptintorder"/>, berikut
+    salah satu pelabelan tersebut: <md>
+      <mrow>x_1 \amp=g \amp
+        x_2 \amp=f \amp
+        x_3 \amp=c \amp
+        x_4 \amp=d \amp
+        x_5 \amp=h</mrow>
+      <mrow>x_6 \amp=a \amp
+        x_7 \amp=j \amp
+        x_8 \amp=b \amp
+        x_9 \amp=i \amp
+        x_{10} \amp=e</mrow>
+    </md>
+  </p>
+  <p>Sekarang terapkan algoritme First Fit pada titik-titik <m>\bfP</m>, menurut urutan tersebut, untuk menempatkannya
+    ke dalam rantai <m>C_1</m>, <m>C_2,\dots</m>. Dengan kata lain, tempatkan <m>x_1</m> ke rantai<nbsp/><m>C_1</m>.
+    Selanjutnya, jika Anda telah menempatkan titik <m>x_1</m>, <m>x_2,\dots,x_i</m> ke dalam rantai, tempatkan <m>
+    x_{i+1}</m> ke rantai <m>C_j</m>, dengan <m>j</m> sebagai bilangan bulat positif terkecil sedemikian sehingga <m>
+    x_{i+1}</m> dapat dibandingkan dengan <m>x_k</m> setiap kali <m>1\le k\le i</m> dan <m>x_k</m> telah
+    ditempatkan dalam <m>C_j</m>. Sebagai contoh, aturan ini menghasilkan rantai-rantai berikut untuk
+    urutan interval <m>\bfP</m> yang ditampilkan dalam <xref ref="fig_10ptintorder"/>. <md>
+      <mrow> C_1 \amp = \{g,h,b\}</mrow>
+      <mrow> C_2 \amp = \{f,a,e\}</mrow>
+      <mrow> C_3 \amp = \{c,d\}</mrow>
+      <mrow> C_4 \amp = \{j\}</mrow>
+      <mrow> C_5 \amp = \{i\}</mrow>
+    </md> Dalam kasus ini, mudah dilihat bahwa partisi rantai tersebut
+    optimal karena lebar <m>\bfP</m> adalah <m>5</m> dan <m>A=\{a,b,d,i,j\}</m> merupakan antirantai dengan <m>
+    5</m> elemen. </p>
+
+  <p>Namun, Anda harus sangat berhati-hati ketika menerapkan First Fit untuk menemukan partisi rantai optimal
+    suatu poset<mdash/>sama seperti kita harus berhati-hati menggunakan First Fit untuk menemukan pewarnaan optimal graf. </p>
+  <example>
+    <p>Poset di sisi kiri <xref ref="fig_FirstFit"/> merupakan poset bertinggi<nbsp/><m>2</m>
+      pada <m>10</m> titik. Jika poset tersebut dipartisi menjadi antirantai dengan menerapkan First Fit dan
+      meninjau titik-titik menurut urutan labelnya, akan digunakan <m>5</m> antirantai. Dapatkah
+      Anda melihat cara memperluas poset ini agar First Fit terpaksa menggunakan sebanyak apa pun antirantai, sambil
+      mempertahankan tinggi poset sebesar <m>2</m>? </p>
+
+    <p>Di sisi kanan ditampilkan sebuah poset berlebar<nbsp/><m>2</m>. Jika poset ini dipartisi
+      menjadi rantai dengan menerapkan First Fit dan meninjau titik-titik menurut urutan labelnya,
+      akan digunakan <m>4</m> rantai. Dapatkah Anda melihat cara memperluas poset ini agar First Fit terpaksa
+      menggunakan sebanyak apa pun rantai sambil mempertahankan lebar poset sebesar <m>2</m>? </p>
+
+    <p>Dapatkah Anda merasakan mengapa masalah kedua sedikit lebih sulit daripada masalah pertama?
+    </p>
+  </example>
+
+  <figure xml:id="fig_FirstFit">
+    <caption>Bagaimana First Fit Dapat Gagal</caption>
+    <image width="50%" source="FirstFit"><description><p>Dua diagram Hasse memperlihatkan kegagalan First Fit. Diagram kiri memiliki sepuluh titik dalam dua tingkat, dengan label ganjil di atas dan genap di bawah serta banyak sisi penutup silang. Diagram kanan memiliki dua rantai vertikal pada dua belas titik dengan sisi-sisi penutup diagonal di antaranya.</p>
+    </description></image>
+  </figure>
+  <p>Secara umum, selalu ada <em>suatu</em> urutan linear pada himpunan dasar poset yang membuat
+    First Fit menemukan partisi optimal menjadi antirantai. Ada pula suatu urutan linear (yang
+    umumnya berbeda dari yang pertama) pada himpunan dasar yang membuat First Fit menemukan partisi optimal
+    menjadi rantai. Namun, tidak ada manfaat mencari urutan-urutan tersebut karena algoritme yang
+    kita kembangkan untuk menemukan partisi antirantai dan rantai optimal bekerja dengan sangat baik. </p>
+
+    <reading-questions xml:id="rqs-posets_dilworth-intord" component="runestone">
+      <exercise label="rq-posets_dilworth-intord-partial">
+        <statement>
+          <p>
+            Mulailah menerapkan algoritme First Fit untuk membuat partisi rantai pada urutan interval yang ditampilkan di bawah, dengan mengurutkan interval menurut titik ujung kiri (kemudian menurut titik ujung kanan jika ada nilai seri yang perlu dipecahkan). <em>Terapkan algoritme hanya sampai Anda menempatkan interval <m>q</m> ke dalam suatu rantai!</em> Ke rantai mana interval <m>q</m> ditempatkan? Mengapa?
+          </p>
+          <image label="posets_dilworth-intord_rq1" width="85%">
+            <description>Representasi urutan interval pada lima tingkat horizontal, dengan interval berlabel e sampai q; interval q membentang dari 1,75 hingga 4 pada tingkat teratas.</description>
+            <latex-image>
+              \begin{tikzpicture}
+              \draw[{[-]}, thick] (1,0.475) -- node[above] {$e$} (3,0.475);
+              \draw[{[-]}, thick] (5,0.475) -- node[above] {$f$} (6,0.475);
+              \draw[{[-]}, thick] (7,0.475) -- node[above] {$g$} (8,0.475);
+    
+              \draw[{[-]}, thick] (0,0) -- node[above] {$h$} (1.2,0);
+              \draw[{[-]}, thick] (1.85,0) -- node[above] {$i$} (3,0);
+              \draw[{[-]}, thick] (4,0) -- node[above] {$j$} (5,0);
+              \draw[{[-]}, thick] (8,0) -- node[above] {$k$} (9,0);
+    
+              \draw[{[-]}, thick] (0.25,0.95) -- node[above] {$l$} (2,0.95);
+              \draw[{[-]}, thick] (2.75,0.95) -- node[above] {$m$} (4,0.95);
+              \draw[{[-]}, thick] (6,0.95) -- node[above] {$n$} (8,0.95);
+              
+    
+              \draw[{[-]}, thick] (-0.5,1.425) -- node[above] {$o$} (3,1.425);
+              \draw[{[-]}, thick] (5,1.425) -- node[above] {$p$} (7,1.425);
+    
+              \draw[{[-]}, thick] (1.75,1.9) -- node[above] {$q$} (4,1.9);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </statement>
+        <response/>
+      </exercise>
+      <exercise label="rq-posets_dilworth-intord-width">
+        <statement>
+          <p>
+            Perhatikan urutan interval dengan representasi yang ditampilkan di bawah. Dapatkah Anda melihat cara memeriksa representasi interval secara visual untuk menemukan lebarnya tanpa menerapkan algoritme First Fit? Jika dapat, berapakah lebar urutan interval ini, dan bagaimana Anda menentukannya? Jika belum dapat melihat caranya, jelaskan secara singkat beberapa gagasan yang telah Anda pertimbangkan dan ajukan pertanyaan yang mungkin membantu Anda melanjutkan.
+          </p>
+          <image label="posets_dilworth-intord_rq2" width="85%">
+            <description>Representasi urutan interval pada lima tingkat horizontal, dengan interval berlabel e sampai q; lebar poset dapat dibaca dari banyaknya interval terbesar yang beririsan pada satu titik.</description>
+            <latex-image>
+              \begin{tikzpicture}
+              \draw[{[-]}, thick] (1,0.475) -- node[above] {$e$} (3,0.475);
+              \draw[{[-]}, thick] (5,0.475) -- node[above] {$f$} (6,0.475);
+              \draw[{[-]}, thick] (7,0.475) -- node[above] {$g$} (8,0.475);
+    
+              \draw[{[-]}, thick] (0,0) -- node[above] {$h$} (1.2,0);
+              \draw[{[-]}, thick] (1.85,0) -- node[above] {$i$} (3,0);
+              \draw[{[-]}, thick] (4,0) -- node[above] {$j$} (5,0);
+              \draw[{[-]}, thick] (8,0) -- node[above] {$k$} (9,0);
+    
+              \draw[{[-]}, thick] (0.25,0.95) -- node[above] {$l$} (2,0.95);
+              \draw[{[-]}, thick] (2.75,0.95) -- node[above] {$m$} (4,0.95);
+              \draw[{[-]}, thick] (6,0.95) -- node[above] {$n$} (8,0.95);
+              
+    
+              \draw[{[-]}, thick] (-0.5,1.425) -- node[above] {$o$} (3,1.425);
+              \draw[{[-]}, thick] (5,1.425) -- node[above] {$p$} (7,1.425);
+    
+              \draw[{[-]}, thick] (1.75,1.9) -- node[above] {$q$} (4,1.9);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </statement>
+        <response/>
+      </exercise>
+    </reading-questions>
+</section>

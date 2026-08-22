@@ -1,0 +1,411 @@
+<exercises xml:id="s_posets_exercises">
+  <exercise>
+    <statement>
+      <p>Kita mengatakan bahwa suatu relasi <m>R</m> pada himpunan <m>X</m> bersifat <term>simetris</term><idx><h>relasi</h><h>simetris</h></idx> jika <m>(x,y)\in R</m> mengakibatkan <m>(y,x)\in R</m> untuk setiap <m>x,y\in X</m>. Jika <m>X=\{a,b,c,d,e,f\}</m>, ada berapa relasi simetris pada <m>X</m>? Berapa banyak di antaranya yang refleksif?</p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>Suatu relasi <m>R</m> pada himpunan <m>X</m> merupakan <term>relasi ekuivalensi</term><idx><h>relasi</h><h>ekuivalensi</h></idx> jika <m>R</m> bersifat refleksif, simetris, dan transitif. Tetapkan suatu bilangan bulat <m>m\geq 2</m>. Tunjukkan bahwa relasi pada himpunan bilangan bulat <m>\ints</m> yang didefinisikan oleh <m>aRb</m> (<m>a,b\in\ints</m>) jika dan hanya jika <m>a\equiv b\pmod{m}</m> merupakan relasi ekuivalensi. (Ingat bahwa <m>a\equiv b\pmod{m}</m> berarti bahwa pembagian <m>a</m> oleh <m>m</m> dan pembagian <m>b</m> oleh <m>m</m> menghasilkan sisa yang sama.)</p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>Apakah relasi biner
+        <md>
+          P=\{(1,1),(2,2),(3,3),(4,4),(1,3),(2,4),(2,5),(4,5),(3,5),(1,5)\}
+        </md>
+        merupakan urutan parsial pada himpunan <m>X=\{1,2,3,4,5\}</m>? Jika ya, bahas sifat-sifat yang Anda periksa dan cara memeriksanya. Jika tidak, daftarkan pasangan terurut yang harus ditambahkan ke <m>P</m> agar relasi itu menjadi urutan parsial, atau jelaskan mengapa relasi tersebut tidak dapat dijadikan urutan parsial dengan menambahkan pasangan terurut.</p>
+      </statement>
+    </exercise>
+    <exercise xml:id="exer_posets_division">
+      <statement>
+        <p>Gambarkan diagram poset <m>\bfP=(X,P)</m> dengan
+          <m>X=\{1,2,3,5,6,10,15,30\}</m> dan <m>x\leq y</m> dalam <m>P</m> jika dan hanya jika
+          <m>x|y</m>. (Ingat bahwa <m>x|y</m> berarti <m>x</m> membagi <m>y</m> secara habis tanpa
+          sisa. Dengan kata lain, <m>x|y</m> jika dan hanya jika <m>y\equiv
+            0\pmod{x}</m>.) </p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>Gambarkan diagram poset <m>\PXP</m> dengan
+              <md>X=\{\{1,3,4,5,6\},\{1,2,4,5,6\},\{1,2,3,6\},\{1,2,3\},\{1,5,6\},\\\{1,3,6\},\{1,2\},\{1,6\},\{3,5\},\{1\},\{3\},\{4\}\}
+              </md>
+              dan <m>P</m> merupakan urutan parsial pada <m>X</m> yang diberikan oleh relasi <q>merupakan subhimpunan dari</q>.</p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Suatu <term>perluasan linear</term><idx><h>perluasan linear</h></idx> dari poset <m>\bfP=(X,P)</m> adalah urutan total <m>L</m> pada <m>X</m> sedemikian sehingga jika <m>x\leq y</m> dalam <m>P</m>, maka <m>x\leq y</m> dalam <m>L</m>. Berikan satu perluasan linear untuk masing-masing dari tiga poset yang ditampilkan dalam <xref ref="fig_constructposets"/>. Jika Anda merasa sangat tertantang, cobalah menghitung banyaknya perluasan linear dari poset di sisi kiri gambar. Jangan daftarkan semuanya; cukup berikan sebuah bilangan bulat sebagai jawaban Anda.</p>
+            </statement>
+            <solution>
+              <p>
+                Ada banyak perluasan linear untuk setiap poset ini, jadi kita hanya memberikan satu untuk masing-masing poset.
+                Agar mudah ditata, perluasan tersebut ditulis secara horizontal dengan elemen terkecil di sebelah kiri:
+                <md>
+                  \{3\} \lt \{2\} \lt \{3,7\} \lt \{2,5\} \lt \{2,3,11\} \lt \{2,3,5,7\} \lt \{2,5,25\}
+                </md>
+                <md>
+                  2 \lt 10\lt 3 \lt 66\lt 21 \lt 210 \lt 50
+                </md>
+                <md>
+                  (1,2,1) \lt (2,5,4) \lt (4,1,5)\lt (3,3,2)\lt (6,4,5)\lt (7,6,7)\lt (5,7,3)
+                </md>
+              </p>
+
+              <p>
+                Penghitungan untuk poset paling kanan masih wajar dilakukan secara langsung.
+                Ada tepat satu rantai berisi 4 titik yang harus muncul dalam urutan tersebut, sedangkan tiga titik di luar rantai itu membentuk suatu antirantai.
+                (Di sini kita akan menghilangkan tanda kurung dan koma ketika menulis elemennya.) Jika 573 berada di puncak perluasan linear dan 415 berada di dasarnya, ada tiga posisi untuk 254, sehingga terdapat 3 perluasan linear dalam kasus ini.
+                Jika 573 berada di puncak perluasan linear tetapi 415 tidak berada di dasarnya, ada dua pilihan posisi untuk 415. Setelah itu, ada 4 posisi untuk 254, sehingga kasus ini menghasilkan 8 perluasan linear.
+                Kasus ketika 415 berada di dasar dan 573 tidak berada di puncak bersifat dual, sehingga memberikan 8 lagi.
+                Jika 767 berada di puncak dan 121 berada di dasar (satu-satunya skenario yang tersisa), ada 5 cara untuk menyisipkan 573 dan 415 ke dalam rantai berisi 4 titik (menuliskan semua kemungkinan mungkin merupakan cara tercepat untuk melihatnya).
+                Setelah itu, ada 5 posisi untuk 254, sehingga terdapat 25 perluasan linear dalam kasus ini.
+                Jadi, seluruhnya ada 44.
+              </p>
+
+              <p>
+                Penghitungan untuk poset kiri, yang isomorfik dengan poset tengah, lebih sulit. Berdasarkan perhitungan perangkat lunak, terdapat 73 perluasan linear. Upaya yang masuk akal mungkin membagi penghitungan menjadi beberapa kasus menurut apa yang terjadi pada elemen-elemen minimal. Untuk memperoleh batas bawah secara agak kasar, perhatikan bahwa diagram urutannya digambar dengan tiga “lapisan” antirantai. Karena itu, terdapat sekurang-kurangnya \(2!3!2! = 24\) perluasan linear jika kita hanya mempertahankan setiap lapisan sebagai satu kelompok. Namun, perhatikan pula bahwa \(\{2,3,11\}\) juga maksimal, sehingga kita dapat menggambarnya pada lapisan teratas. Agar tidak menghitung ulang perluasan yang sudah dihitung, kita harus menempatkan \(\{2,3,11\}\) di atas sekurang-kurangnya salah satu dari \(\{2,3,5,7\}\) dan \(\{2,5,25\}\). Dengan demikian, ada \(2!2!\cdot 2\cdot 2! = 16\) perluasan linear tambahan (urutkan elemen-elemen minimal, urutkan dua elemen lapisan tengah yang tersisa, pilih mana di antara \(\{2,3,5,7\}\) dan \(\{2,5,25\}\) yang muncul berikutnya, lalu urutkan yang satu lagi bersama \(\{2,3,11\}\)). Penghitungan dapat diteruskan dengan menyadari bahwa dua elemen minimal poset tidak harus menjadi dua elemen terbawah dalam suatu perluasan linear, dan seterusnya.
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Alice dan Bob sedang meninjau poset <m>\bfP</m> dan <m>\bfQ</m>. Mereka segera menyadari bahwa <m>\bfQ</m> isomorfik dengan <m>\bfP^d</m>. Setelah bekerja selama <m>10</m> menit, mereka menemukan bahwa <m>\bfP</m> memiliki tinggi <m>5</m> dan lebar <m>3</m>. Bob tidak ingin mencari tinggi dan lebar <m>\bfQ</m> karena ia memperkirakan bahwa diperlukan (setidaknya) <m>10</m> menit lagi untuk menjawab pertanyaan-pertanyaan tentang <m>\bfQ</m>. Alice mengatakan bahwa Bob keliru dan bahwa ia sudah mengetahui tinggi dan lebar <m>\bfQ</m>. Siapa yang benar, dan mengapa?</p>
+            </statement>
+            <solution>
+              <p>
+                Alice benar.
+                Ingat bahwa <m>\mathbf{P}</m> dan <m>\mathbf{P}^{d}</m> memiliki graf keterbandingan yang sama dan graf ketakterbandingan yang sama.
+                Ingat pula bahwa lebar suatu poset adalah bilangan klik dari graf ketakterbandingannya, sedangkan tinggi poset itu adalah bilangan klik dari graf keterbandingannya.
+                Jadi, lebar <m>\mathbf{P}^{d}</m> sama dengan lebar <m>\mathbf{P}</m>, dan tingginya juga sama.
+                (Hal ini juga dapat dijelaskan dengan memperhatikan bahwa diagram urutan <m>\mathbf{P}^{d}</m> diperoleh dari diagram urutan <m>\mathbf{P}</m> dengan memutarnya sebesar <m>180^{\circ}</m>. Transformasi ini mempertahankan rantai dan antirantai, sehingga tinggi dan lebarnya tidak berubah.)
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Untuk latihan ini, perhatikan poset <m>\bfP</m> dalam <xref ref="fig_17ptposet"/>.
+                <ol>
+                  <li><p>Daftarkan elemen-elemen maksimal <m>\bfP</m>.</p></li>
+                  <li><p>Daftarkan elemen-elemen minimal <m>\bfP</m>.</p></li>
+                  <li><p>Temukan suatu rantai maksimal berisi dua titik dalam <m>\bfP</m>.</p></li>
+                  <li><p>Temukan suatu rantai dalam <m>\bfP</m> yang berisi tiga titik tetapi <em>bukan</em> rantai maksimal. Jelaskan mengapa rantai Anda tidak maksimal.</p></li>
+                  <li><p>Temukan suatu antirantai maksimal berisi empat titik dalam <m>\bfP</m>.</p></li>
+                  
+                </ol>
+              </p>
+            </statement>
+            <solution>
+              <p>
+                <ol>
+                  <li>
+                    <p>
+                      Elemen-elemen maksimal adalah elemen yang tidak lebih kecil daripada elemen lain mana pun: 15, 8, 11, 2, 17, 3.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Elemen-elemen minimal adalah elemen yang tidak lebih besar daripada elemen lain mana pun: 16, 1, 5, 14.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Karena <m>\{16,8\}</m> terdiri atas satu elemen minimal dan satu elemen maksimal, serta 8 menutupi 16, himpunan ini merupakan rantai maksimal berisi dua titik.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Rantai <m>\{5,10,2\}</m> berisi tiga titik, tetapi tidak maksimal karena <m>5\leq 4\leq 10</m>. Jadi, kita dapat menambahkan 4 ke himpunan tersebut dan tetap memperoleh sebuah rantai.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Antirantai <m>\{16,1,5,14\}</m> maksimal karena memuat semua elemen minimal, sehingga tidak ada titik lain yang dapat ditambahkan.
+                    </p>
+                  </li>
+                </ol>
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Tentukan tinggi <m>h</m> dari poset <m>\PXP</m> yang ditampilkan di bawah, beserta suatu rantai maksimum dan suatu partisi <m>X</m> menjadi <m>h</m> antirantai dengan menggunakan algoritme dari bab ini.
+              </p>
+              <sidebyside width="55%">
+                <image source="height_ex_poset">
+                  <description>
+                    <p>
+                      Diagram urutan suatu poset dengan 26 titik berlabel 1 sampai 26. Pasangan relasi penutup (titik bawah–titik atas) ialah 22–3, 3–4, 4–5, 5–20, 20–9, 9–7, 7–26, 26–15, 18–2, 2–25, 25–9, 25–8, 21–8, 18–21, 8–15, 23–4, 13–20, 23–13, 6–1, 6–14, 11–14, 12–11, 23–11, 26–14, 20–6, 11–1, 22–13, 23–17, 17–5, 10–14, 13–10, 24–9, 4–24, 2–24, 16–6, dan 16–7.
+                    </p>
+                  </description>
+                </image>
+              </sidebyside>
+            </statement>
+            <solution>
+              <p>
+                Dengan menerapkan algoritme yang melabeli elemen-elemen minimal, menghapus titik-titik tersebut, melabeli elemen-elemen minimal dari poset yang tersisa, menghapus titik-titik tersebut, dan seterusnya, kita memperoleh partisi menjadi antirantai berikut:
+                <md>
+                  <mrow>A_1 \amp = \{22,18,23,12,16\}</mrow>
+                  <mrow>A_2 \amp = \{2,3,13,17,11,21\}</mrow>
+                  <mrow>A_3 \amp = \{4,25,10\}</mrow>
+                  <mrow>A_4 \amp = \{5,24,8\}</mrow>
+                  <mrow>A_5 \amp = \{20\}</mrow>
+                  <mrow>A_6 \amp = \{19,9\}</mrow>
+                  <mrow>A_7 \amp = \{6,7\}</mrow>
+                  <mrow>A_8 \amp = \{1,26\}</mrow>
+                  <mrow>A_9 \amp = \{14,15\}</mrow>
+                </md>
+                Jadi, tingginya adalah 9, sebagaimana dibuktikan oleh rantai berisi 9 elemen <m>\{15,26,7,9,20,5,4,3,22\}</m>.
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Untuk masing-masing dari dua poset yang berbeda hingga isomorfisme dalam <xref ref="fig_constructposets"/>, tentukan lebarnya <m>w</m>, suatu antirantai berukuran <m>w</m>, dan suatu partisi himpunan dasarnya menjadi <m>w</m> rantai.</p>
+            </statement>
+            <solution>
+              <p>
+                Untuk dua poset isomorfik di sebelah kiri, mari kita gunakan poset yang di tengah.
+                Salah satu antirantai berisi tiga elemen adalah <m>\{10,66,21\}</m>, meskipun masih ada pilihan lain.
+                Salah satu partisi menjadi 3 rantai adalah <m>C_{1} = \{2,10,50\}</m>, <m>C_{2} = \{66\}</m>, dan <m>C_{3} = \{3,21,210\}</m>.
+                Jadi, lebarnya adalah 3.
+              </p>
+              
+              <p>
+                Untuk poset di sebelah kanan, salah satu antirantai berisi tiga elemen adalah <m>\{(2,5,4),(5,7,3),(4,1,5)\}</m>.
+                Salah satu partisi menjadi 3 rantai adalah <m>C_{1} = \{(2,5,4)\}</m>, <m>C_{2} = \{(1,2,1),(3,3,2),(5,7,3)\}</m>, dan <m>C_{3} = \{(4,1,5),(6,4,5),(7,6,7)\}</m>.
+                Jadi, lebarnya adalah 3.
+              </p>
+            </solution>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>Seorang koki restoran telah merancang sekumpulan hidangan baru untuk menunya. Kumpulan itu memuat <m>10</m> hidangan utama, dan setiap malam ia akan memilih suatu subhimpunan hidangan untuk disajikan pada menu. Demi menjamin keragaman hidangan utama bagi para pelanggan, ia ingin memastikan bahwa menu suatu malam tidak seluruhnya termuat dalam menu malam lain dan juga tidak seluruhnya memuat menu malam lain. Berapa banyak menu paling banyak yang dapat ia rencanakan dengan <m>10</m> hidangan utama tersebut dengan memenuhi syarat ini?</p>
+            </statement>
+            <solution>
+              <p>
+                Kita dapat memandang sebuah menu sebagai subhimpunan dari daftar 10 hidangan utama yang tersedia.
+                Untuk menghindari suatu menu yang termuat dalam atau memuat menu malam lain, kita harus mencari suatu koleksi subhimpunan (menu) sedemikian sehingga tidak ada satu subhimpunan pun yang menjadi subhimpunan dari subhimpunan lain.
+                Artinya, kita memerlukan suatu antirantai dalam <m>\mathbf{2}^{10}</m>.
+                Berdasarkan Teorema Sperner, kita mengetahui bahwa lebar <m>\mathbf{2}^{10}</m>, yaitu banyaknya titik dalam suatu antirantai maksimum, adalah <m>C(10,5) = 252</m>.
+                Jadi, banyaknya menu terbesar yang dapat direncanakan dengan memenuhi syarat ini adalah 252.
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Gambarkan diagram urutan interval yang direpresentasikan dalam <xref ref="fig_intord_to_diag_ex"/>.
+              </p>
+              <figure xml:id="fig_intord_to_diag_ex">
+                <caption>Suatu representasi interval</caption>
+                <image width="73%" source="intord_to_diag_ex"><description><p>Representasi interval pada sembilan elemen berlabel c sampai k. Pasangan relasi penutup (elemen bawah–elemen atas) yang ditentukan oleh interval ialah d–i, d–k, e–c, e–h, e–k, f–i, f–k, i–c, i–h, c–j, h–g, h–j, dan k–j.</p>
+                </description></image>
+              </figure>
+            </statement>
+            <solution>
+              <image>
+                <description>
+                  <p>
+                     Diagram urutan suatu poset pada sembilan titik berlabel huruf <m>c</m> sampai <m>k</m>. Titik minimalnya adalah d, e, dan f; titik maksimalnya adalah g dan j. Relasi penutupnya ialah d–i, d–k, e–c, e–h, e–k, f–i, f–k, i–c, i–h, c–j, h–g, h–j, dan k–j.
+                  </p>
+                </description>
+                <prefigure xmlns="https://prefigure.org" label="intord-to-diagram-exercise1">
+                  <diagram dimensions="(300,300)" margins="15">
+                    <coordinates bbox="(0,0,2,2)">
+                      <definition>labels={1:'j',2:'k',3:'c',4:'d',5:'e',6:'f',7:'g',8:'h',9:'i'}</definition>
+                      <network scale="0.9" labels="yes"
+                              node-fill="#ddd" label-dictionary="labels" node-stroke="black">
+                        <node at="1"  p="(0,2)" edges="[]"/>       <!-- j -->
+                        <node at="2"  p="(0,1.3)" edges="[1]"/>       <!-- k -->
+                        <node at="3"  p="(0.8,1.55)" edges="[1]"/>  <!-- c -->
+                        <node at="4"  p="(0,0)" edges="[2,9]"/>       <!-- d -->
+                        <node at="5"  p="(1,0)" edges="[2,3,8]"/>   <!-- e -->
+                        <node at="6"  p="(2,0)" edges="[9,2]"/>       <!-- f -->
+                        <node at="7"  p="(2,2)" edges="[]"/>    <!-- g -->
+                        <node at="8"  p="(2,1.6)" edges="[1,7]"/>  <!-- h -->
+                        <node at="9"  p="(0.65,1.1)" edges="[3,8]"/>  <!-- i -->
+                        
+                      </network>
+                    </coordinates>
+                    <annotations>
+                      <annotation ref="figure"
+                                  text="Diagram Hasse suatu urutan interval dengan sembilan titik berlabel c sampai k.">
+                           
+                          <annotation ref="node-3" text="Titik c menutupi titik e dan i, serta ditutupi oleh titik j."/>
+                          <annotation ref="node-4" text="Titik minimal d ditutupi oleh titik i dan k."/>
+                          <annotation ref="node-5" text="Titik minimal e ditutupi oleh titik c, h, dan k."/>
+                          <annotation ref="node-6" text="Titik minimal f ditutupi oleh titik i dan k."/>
+                          <annotation ref="node-7" text="Titik maksimal g menutupi titik h."/>
+                          <annotation ref="node-8" text="Titik h menutupi titik e dan i, serta ditutupi oleh titik g dan j."/>
+                          <annotation ref="node-9" text="Titik i menutupi titik d dan f, serta ditutupi oleh titik c dan h."/>
+                          <annotation ref="node-1" text="Titik maksimal j menutupi titik c, h, dan k."/>
+                          <annotation ref="node-2" text="Titik k menutupi titik d, e, dan f, serta ditutupi oleh titik j."/>
+                      </annotation>
+                    </annotations>
+                  </diagram>                  
+                </prefigure>
+              </image>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Gambarkan diagram urutan interval yang direpresentasikan dalam
+                <xref ref="fig_intord_to_diag_ex2"/>.
+              </p>
+              <figure xml:id="fig_intord_to_diag_ex2">
+                <caption>Suatu representasi interval</caption>
+                <image width="85%" source="intord_to_diag_ex2"><description><p>Representasi interval pada empat belas elemen berlabel c sampai p. Pasangan relasi penutup (elemen bawah–elemen atas) yang ditentukan oleh interval ialah k–l, k–d, k–h, e–m, e–o, e–n, f–e, f–l, f–c, f–h, l–i, l–j, l–p, i–m, i–o, i–n, d–e, d–c, d–p, c–i, c–j, j–o, j–n, h–i, h–j, h–p, p–o, p–n, dan n–g.</p>
+                </description></image>
+              </figure>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Temukan suatu representasi interval untuk poset dalam <xref ref="fig_intord_find_rep_ex1"/>, atau berikan alasan mengapa representasi semacam itu tidak ada.
+              </p>
+              <figure xml:id="fig_intord_find_rep_ex1">
+                <caption>Apakah poset ini merupakan urutan interval?</caption>
+                <image width="40%" source="intord_find_rep_ex1"><description><p>Diagram urutan suatu poset pada delapan titik berlabel 1 sampai 8. Pasangan relasi penutup (titik bawah–titik atas) ialah 1–2, 1–5, 1–6, 1–3, 8–3, 8–2, 5–7, 2–7, 2–4, 5–4, dan 3–4.</p>
+                </description></image>
+              </figure>
+              
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Temukan suatu representasi interval untuk poset dalam <xref ref="fig_intord_find_rep_ex4"/>, atau berikan alasan mengapa representasi semacam itu tidak ada.</p>
+              <figure xml:id="fig_intord_find_rep_ex4">
+                <caption>Apakah poset ini merupakan urutan interval?</caption>
+                <image width="35%" source="intord_find_rep_ex4"><description><p>Diagram urutan suatu poset pada sembilan titik berlabel 1 sampai 9. Pasangan relasi penutup (titik bawah–titik atas) ialah 6–1, 6–3, 1–7, 7–5, 2–5, 3–2, 8–2, 1–2, 9–3, 4–8, dan 4–9. Subposet pada titik 1, 3, 4, dan 7 membentuk dua rantai yang saling tidak dapat dibandingkan, yaitu 1–7 dan 4–3.</p>
+                </description></image>
+              </figure>
+              
+            </statement>
+            <solution>
+              <p>
+                Poset ini bukan urutan interval. Terdapat banyak subposet yang isomorfik dengan <m>\mathbf{2}+\mathbf{2}</m>. Salah satu contohnya ialah subposet pada <m>\set{1,3,4,7}</m>. 
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Temukan suatu representasi interval untuk poset dalam <xref ref="fig_intord_find_rep_ex2"/>, atau berikan alasan mengapa representasi semacam itu tidak ada.
+              </p>
+              <figure xml:id="fig_intord_find_rep_ex2">
+                <caption>Apakah poset ini merupakan urutan interval?</caption>
+                <image width="40%" source="intord_find_rep_ex2"><description><p>Diagram urutan suatu poset pada dua belas titik berlabel 1 sampai 12. Pasangan relasi penutup (titik bawah–titik atas) ialah 7–2, 2–12, 2–5, 2–1, 2–10, 4–10, 5–8, 1–8, 10–8, 12–8, 10–3, 10–6, 1–6, 8–11, 6–11, 8–9, dan 6–9.</p>
+                </description></image>
+              </figure>
+            </statement>
+            <solution>
+              <p>
+                Kita menuliskan himpunan-himpunan bawah dan himpunan-himpunan atasnya:
+                <md>
+                  <mrow>D(1)\amp = \{2,7\}\amp U(1)\amp = \{6,8,9,11\}</mrow>
+                  <mrow> D(2)\amp = \{7\}\amp U(2)\amp = \{1,3,5,6,8,9,10,11,12\}</mrow>
+                  <mrow> D(3)\amp = \{2,4,7,10\}\amp U(3)\amp = \{\}</mrow>
+                  <mrow> D(4)\amp = \{\}\amp U(4)\amp = \{3,6,8,9,10,11\}</mrow>
+                  <mrow> D(5)\amp = \{2,7\}\amp U(5)\amp = \{8,9,11\}</mrow>
+                  <mrow> D(6)\amp = \{1,2,4,7,10\}\amp U(6)\amp = \{9,11\}</mrow>
+                  <mrow> D(7)\amp = \{\}\amp U(7)\amp = \{1,2,3,5,6,8,9,10,11,12\}</mrow>
+                  <mrow> D(8)\amp = \{1,2,4,5,7,10,12\}\amp U(8)\amp = \{9,11\}</mrow>
+                  <mrow> D(9)\amp = \{1,2,4,5,6,7,8,10,12\}\amp U(9)\amp = \{\}</mrow>
+                  <mrow> D(10)\amp = \{2,4,7\}\amp U(10)\amp = \{3,6,8,9,11\}</mrow>
+                  <mrow> D(11)\amp = \{1,2,4,5,6,7,8,10,12\}\amp U(11)\amp = \{\}</mrow>
+                  <mrow> D(12)\amp = \{2,7\}\amp U(12)\amp = \{8,9,11\}</mrow>
+                </md>
+                
+                Dengan menempatkan himpunan-himpunan bawah dalam urutan menaik dan himpunan-himpunan atas dalam urutan menurun, kita memperoleh
+                <md>
+                  \{\} \subsetneq \{7\}\subsetneq \{2,7\}\subsetneq \{2,4,7\} \subsetneq \{2,4,7,10\}\subsetneq \{1,2,4,7,10\}\subsetneq \{1,2,4,5,7,10,12\}\subsetneq \{1,2,4,5,6,7,8,10,12\}
+                </md>
+                <md>
+                  \{1,2,3,5,6,8,9,10,11,12\}\supsetneq \{1,3,5,6,8,9,10,11,12\}\supsetneq \{3,6,8,9,10,11\}\supsetneq \{3,6,8,9,11\} \supsetneq \{6,8,9,11\}\supsetneq \{8,9,11\}\supsetneq \{9,11\}\supsetneq \{\}
+                </md>
+                Oleh karena itu, poset tersebut merupakan urutan interval, dan salah satu representasi intervalnya adalah
+                
+                <md>
+                  <mrow>I(1)\amp = [3,5]\amp I(7)\amp = [1,1]</mrow>
+                  <mrow> I(2)\amp = [2,2]\amp I(8)\amp = [7,7]</mrow>
+                  <mrow> I(3)\amp = [5,8]\amp I(9)\amp = [8,8]</mrow>
+                  <mrow> I(4)\amp = [1,3]\amp I(10)\amp = [4,4]</mrow>
+                  <mrow> I(5)\amp = [3,6]\amp I(11)\amp = [8,8]</mrow>
+                  <mrow> I(6)\amp = [6,7]\amp I(12)\amp = [3,6]</mrow>
+                  </md>
+                </p>
+              </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Temukan suatu representasi interval untuk poset dalam <xref ref="fig_intord_find_rep_ex3"/>, atau berikan alasan mengapa representasi semacam itu tidak ada.
+              </p>
+              <figure xml:id="fig_intord_find_rep_ex3">
+                <caption>Apakah poset ini merupakan urutan interval?</caption>
+                <image width="40%" source="intord_find_rep_ex3"><description><p>Diagram urutan suatu poset pada empat belas titik berlabel 1 sampai 14. Pasangan relasi penutup (titik bawah–titik atas) ialah 13–10, 13–1, 13–12, 1–8, 12–8, 10–7, 11–7, 11–4, 10–6, 6–9, 6–2, 7–2, 2–5, 8–5, 4–5, 4–14, 14–3, dan 2–3.</p>
+                </description></image>
+              </figure>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Gunakan algoritme First Fit (dengan mengurutkan interval menurut titik ujung kirinya) untuk menentukan lebar <m>w</m> dari urutan interval yang ditampilkan dalam <xref ref="fig_intord_firstfit_ex1"/> dan suatu partisi menjadi <m>w</m> rantai. Berikan pula suatu antirantai berisi <m>w</m> titik.</p>
+              
+              <figure xml:id="fig_intord_firstfit_ex1">
+                <caption>Suatu representasi interval</caption>
+                <image width="85%" source="intord_firstfit_ex1"><description><p>Representasi lima belas interval berlabel a sampai o. Dalam satuan horizontal gambar, titik ujungnya adalah f=[9.137,54.172], b=[27.137,99.043], g=[39.488,90.070], d=[71.930,144.344], h=[106.062,122.977], n=[111.305,174.637], c=[130.848,152.863], j=[153.086,249.473], l=[161.664,207.164], a=[188.359,278.531], e=[225.211,261.863], k=[255.883,315.223], m=[270.410,293.059], i=[288.359,310.375], dan o=[297.516,319.531].</p>
+                </description></image>
+              </figure>
+            </statement>
+            <solution>
+              <p>
+                First Fit menghasilkan partisi rantai berikut:
+              
+              <md>
+                <mrow>C_{1}\amp = \{f,d,j,k\}</mrow>
+                <mrow>C_{2}\amp = \{b,h,c,l,e,m,o\}</mrow>
+                <mrow>C_{3}\amp = \{g,n,a,i\}</mrow>
+              </md>
+              
+              
+                Himpunan <m>\{n,l,j\}</m> adalah salah satu dari banyak antirantai berisi 3 elemen. Karena kita memiliki partisi rantai sekaligus antirantai berukuran 3, lebar urutan interval ini adalah 3.
+              
+              </p>
+            </solution>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Lengkapi pembuktian <xref ref="thm_intord-minrep"/>. </p>
+            </statement>
+            <hint>
+              <p>Gagasan utamanya ialah menunjukkan bahwa jika <m>d</m> merupakan bilangan bulat positif terkecil yang memungkinkan suatu urutan interval <m>\bfP</m> memiliki representasi dengan titik-titik ujung dari <m>\{1,2,\dots,d\}</m>, maka setiap bilangan bulat <m>i</m> dalam himpunan ini harus sekaligus menjadi titik ujung kiri suatu interval dan titik ujung kanan suatu interval.</p>
+            </hint>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>Tunjukkan bahwa setiap poset isomorfik dengan suatu poset dari masing-masing empat jenis yang diilustrasikan dalam <xref ref="exa_construct"/>. </p>
+            </statement>
+            <hint>
+              <p>Untuk setiap elemen <m>x</m>, pilih suatu kunci identifikasi unik berupa elemen/bilangan prima/koordinat/pengamat. Kemudian kaitkan <m>x</m> dengan suatu struktur yang mengidentifikasi kunci-kunci elemen dalam <m>D[x]</m>.</p>
+            </hint>
+          </exercise>
+          <exercise>
+            <statement>
+              <p><term>Dimensi</term><idx><h>dimensi</h></idx> suatu poset <m>\PXP</m>, yang dilambangkan dengan <m>\dim(\bfP)</m>, adalah nilai <m>t</m> terkecil sedemikian sehingga <m>P</m> merupakan irisan dari <m>t</m> urutan linear pada <m>X</m>.
+                <ol>
+                  <li><p>Tunjukkan bahwa dimensi suatu poset <m>\bfP</m> sama dengan dimensi dualnya.</p></li>
+                  <li><p>Tunjukkan bahwa jika <m>\bfP</m> merupakan subposet dari <m>\bfQ</m>, maka <m>\dim(\bfP)\le \dim(\bfQ)</m>.</p></li>
+                  <li><p>Tunjukkan bahwa penghapusan satu titik dapat mengurangi dimensi paling banyak sebesar<nbsp/><m>1</m>.</p></li>
+                  <li><p>Tentukan dimensi poset-poset dalam <xref ref="fig_constructposets"/>.</p></li>
+                  <li><p>Gunakan Teorema Dilworth untuk menunjukkan bahwa dimensi suatu poset paling besar sama dengan lebarnya.</p></li>
+                  <li><p>Gunakan contoh di sisi kiri <xref ref="fig_FirstFit"/> untuk menunjukkan bahwa
+                    bagi setiap <m>n\ge2</m>, terdapat suatu poset <m>\bfP_n</m> pada <m>2n</m> titik yang lebar dan dimensinya
+                    sama dengan <m>n</m>.</p></li>
+                    
+                  </ol>
+                </p>
+              </statement>
+            </exercise>
+          </exercises>

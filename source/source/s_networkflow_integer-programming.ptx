@@ -1,0 +1,28 @@
+<section xml:id="s_networkflow_integer-programming">
+    <title>Solusi Bilangan Bulat untuk Masalah Pemrograman Linear</title>
+    <p>Masalah pemrograman linear adalah masalah optimisasi yang dapat dinyatakan dalam bentuk berikut: tentukan nilai maksimum dari fungsi linear
+    <md>
+        c_1x_1+c_2x_2+c_3x_3+\dots+c_n x_n
+    </md>
+    dengan tunduk pada <m>m</m> kendala <m>C_1</m>, <m>C_2,\dots,C_m</m>, dengan
+    setiap kendala <m>C_i</m> berupa persamaan linear berbentuk
+    <md>
+        C_i:\quad a_{i1}x_1+a_{i2}x_2+a_{i3}x_3+\dots+a_{in}x_n=b_i
+    </md>
+    dengan semua koefisien dan konstanta berupa bilangan real.
+    </p>
+
+    <p>Walaupun pokok bahasan umum pemrograman linear terlalu luas untuk mata kuliah ini, penting bagi kita untuk mencatat hal-hal berikut:
+                  <ol>
+        <li><p>Masalah pemrograman linear merupakan kelas masalah optimisasi yang <em>sangat</em> penting dan mempunyai banyak penerapan dalam bidang teknik, sains, dan industri.</p></li>
+        <li><p>Terdapat algoritma yang relatif efisien untuk menemukan solusi masalah pemrograman linear.</p></li>
+        <li><p>Masalah pemrograman linear dengan koefisien dan konstanta rasional mempunyai solusi optimal bernilai rasional<mdash/>jika masalah tersebut memang mempunyai solusi optimal.</p></li>
+        <li><p>Masalah pemrograman linear dengan koefisien dan konstanta bilangan bulat tidak harus mempunyai solusi optimal bernilai bilangan bulat<mdash/>meskipun mempunyai solusi optimal bernilai rasional.</p></li>
+        <li><p>Salah satu tema yang sangat penting dalam riset operasi ialah menentukan kapan masalah pemrograman linear yang dirumuskan dengan bilangan bulat mempunyai solusi optimal bernilai bilangan bulat. Persoalan ini halus dan sering kali sangat sulit.</p></li>
+        <li><p>Masalah menemukan aliran maksimum dalam suatu jaringan merupakan kasus khusus dari masalah pemrograman linear.</p></li>
+        <li><p>Masalah aliran jaringan yang semua kapasitasnya berupa bilangan bulat mempunyai aliran maksimum dengan aliran bernilai bilangan bulat pada setiap sisi. Algoritma pelabelan Ford–Fulkerson menjamin hal ini!</p></li>
+        <li><p>Secara umum, algoritma pemrograman linear tidak digunakan pada jaringan. Sebagai gantinya, algoritma khusus seperti Ford–Fulkerson terbukti lebih efisien dalam praktik.</p></li>
+    
+                  </ol>
+                </p>
+</section>

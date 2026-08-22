@@ -1,0 +1,111 @@
+<section xml:id="s_kitchensink_online">
+    <title>Algoritma Daring</title>
+    <idx><h>algoritma</h><h>daring</h></idx>
+
+    <introduction>
+        <p>Banyak penerapan kombinatorika berlangsung secara dinamis dan daring. Jarang sekali kita memiliki semua informasi tentang tantangan suatu masalah sebelum keadaan memaksa kita mengambil keputusan. Sebagai contoh, keputusan untuk melanjutkan proyek konstruksi besar harus dibuat beberapa tahun sebelum pembangunan dimulai; keputusan investasi dibuat berdasarkan informasi hari ini dan mungkin tampak sangat tidak bijaksana setelah berita esok tersedia; dan keputusan untuk melompat keluar dari pesawat dengan parasut jarang dapat dibatalkan.
+        </p>
+
+        <p>Dalam bagian ini, kita menyajikan dua contoh untuk menggambarkan masalah daring dalam konteks kombinatorial. Contoh pertama berkaitan dengan pewarnaan graf. Sebagaimana lazim dalam pembahasan algoritma daring, kita meninjau permainan dua orang dengan pemain yang disebut <term>Pemberi Warna</term> dan <term>Pembangun</term>. Kedua pemain terlebih dahulu menyepakati suatu kelas graf <m>\cgC</m>, lalu permainan berlangsung dalam serangkaian ronde. Pada ronde<nbsp/><m>1</m>, Pembangun menyajikan satu simpul dan Pemberi Warna memberinya sebuah warna. Pada setiap ronde berikutnya, Pembangun menyajikan simpul baru dan memberikan informasi lengkap tentang simpul-simpul terdahulu yang bertetangga dengannya. Selanjutnya, Pemberi Warna harus memberi simpul baru itu warna yang berbeda dari semua warna yang sebelumnya ia berikan kepada tetangga-tetangganya.
+        </p>
+        <example xml:id="exa_P4">
+            <p>Bahkan jika Pembangun dibatasi untuk membangun lintasan dengan <m>4</m> simpul, Pemberi Warna dapat dipaksa menggunakan tiga warna. Pada Ronde<nbsp/>1, Pembangun menyajikan simpul <m>x</m> dan Pemberi Warna mewarnainya. Pada Ronde<nbsp/>2, Pembangun menyajikan simpul <m>y</m> dan menyatakan bahwa <m>x</m> dan <m>y</m> tidak bertetangga.
+            </p>
+
+            <p>Sekarang Pemberi Warna memiliki pilihan. Ia dapat memberi <m>x</m> dan <m>y</m> warna yang sama, atau memilih warna baru untuk <m>y</m>. Jika Pemberi Warna memberi <m>x</m> dan <m>y</m> warna yang berbeda, maka pada Ronde<nbsp/>3 Pembangun menyajikan simpul <m>z</m> dan menyatakan bahwa <m>z</m> bertetangga dengan <m>x</m> maupun <m>y</m>. Pemberi Warna kini terpaksa menggunakan warna ketiga pada <m>z</m>. Pada Ronde<nbsp/><m>4</m>, Pembangun menambahkan simpul <m>w</m> yang bertetangga dengan <m>y</m>, tetapi tidak dengan <m>x</m> ataupun <m>z</m>; namun, kerugiannya sudah terjadi.
+            </p>
+
+            <p>Sebaliknya, jika Pemberi Warna memberi <m>x</m> dan <m>y</m> warna yang sama, maka pada Ronde<nbsp/>3 Pembangun menyajikan simpul <m>z</m>, dengan <m>z</m> bertetangga dengan <m>x</m>, tetapi tidak dengan <m>y</m>. Pemberi Warna harus menggunakan warna kedua pada <m>z</m>, yang berbeda dari warna yang ia berikan kepada <m>x</m> dan <m>y</m>. Pada Ronde<nbsp/>4, Pembangun menyajikan simpul <m>w</m> yang bertetangga dengan <m>z</m> dan <m>y</m>, tetapi tidak dengan <m>x</m>. Pemberi Warna harus menggunakan warna ketiga pada <m>w</m>.
+            </p>
+        </example>
+        <p>Perhatikan bahwa lintasan merupakan pohon, dan pohon merupakan hutan. Hasil berikut menunjukkan bahwa meskipun hutan mudah diwarnai secara luring, kita menghadapi tantangan nyata ketika harus bekerja secara daring. Untuk membantu mencatat warna-warna yang digunakan Pemberi Warna, kita memakai notasi dari <xref ref="ch_graphs"/> dan menulis <m>\phi(x)</m> untuk warna yang diberikan Pemberi Warna kepada simpul <m>x</m>.
+        </p>
+
+        <theorem xml:id="thm_olforest">
+            <idx><h>hutan</h></idx>
+            <statement>
+                <p>Misalkan <m>n</m> bilangan bulat positif. Terdapat strategi bagi Pembangun yang memungkinkannya membangun hutan dengan paling banyak <m>2^{n-1}</m> simpul sekaligus memaksa Pemberi Warna menggunakan <m>n</m> warna.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Ketika <m>n=1</m>, Pembangun cukup menyajikan satu simpul. Ketika <m>n=2</m>, dua simpul yang bertetangga sudah cukup. Ketika <m>n=3</m>, Pembangun membangun lintasan dengan <m>4</m> simpul sebagaimana diuraikan dalam <xref ref="exa_P4"/>. Sekarang andaikan bahwa untuk suatu <m>k\ge3</m>, Pembangun memiliki strategi <m>S_i</m> yang memaksa Pemberi Warna menggunakan <m>i</m> warna pada hutan dengan paling banyak <m>2^{i-1}</m> simpul, untuk setiap <m>i=1,2,\dots,k</m>. Berikut cara Pembangun memaksa penggunaan <m>k+1</m> warna.
+                </p>
+
+                <p>Pertama, untuk setiap <m>i=1,2,\dots,k</m>, Pembangun mengikuti strategi <m>S_i</m> guna membangun hutan <m>F_i</m> dengan paling banyak <m>2^{i-1}</m> simpul tempat Pemberi Warna dipaksa menggunakan <m>i</m> warna. Selain itu, apabila <m>1\le i\lt j\le k</m>, tidak ada sisi antara simpul-simpul dalam <m>F_i</m> dan simpul-simpul dalam <m>F_j</m>.
+                </p>
+
+                <p>Selanjutnya, Pembangun memilih sebuah simpul <m>y_1</m> dari <m>F_1</m>. Karena Pemberi Warna menggunakan dua warna pada <m>F_2</m>, terdapat simpul <m>y_2</m> dalam <m>F_2</m> sehingga <m>\phi(y_2)\neq \phi(y_1)</m>. Karena Pemberi Warna menggunakan tiga warna pada <m>F_3</m>, terdapat simpul <m>y_3</m> dalam <m>F_3</m> sehingga semua warna dalam <m>\{\phi(y_1),\phi(y_2),\phi(y_3)\}</m> berbeda. Dengan demikian, Pembangun dapat memilih simpul-simpul <m>y_1,y_2,\dots,y_k</m> dengan <m>y_i\in F_i</m> sedemikian sehingga warna-warna <m>\phi(y_i)</m> memenuhi <m>\phi(y_i)\neq \phi(y_j)</m> apabila <m>i\neq j</m>. Pembangun kemudian menyajikan simpul baru <m>x</m> dan menyatakan bahwa <m>x</m> bertetangga dengan semua simpul dalam <m>\{y_1,y_2,\dots,y_k\}</m>, tetapi tidak dengan simpul lainnya. Jelas bahwa graf yang dihasilkan merupakan hutan, dan Pemberi Warna terpaksa memakai warna untuk <m>x</m> yang berbeda dari <m>k</m> warna yang sebelumnya ia berikan kepada simpul-simpul dalam <m>\{y_1,y_2,\dots, y_k\}</m>. Selain itu, jumlah seluruh simpul paling banyak <m>1+[1+2+4+8+\dots+2^{k-1}]=2^k</m>.
+                </p>
+            </proof>
+        </theorem>
+        <remark>
+            <p>Bob membaca bukti tersebut dan bertanya apakah kasus <m>k=2</m> dan <m>k=3</m> benar-benar perlu ditangani secara terpisah. Bukankah cukup dengan mencatat bahwa kasus <m>k=1</m> berlaku secara sepele? Carlos mengatakan ya.
+            </p>
+        </remark>
+    </introduction>
+
+
+    <subsection>
+        <title>Memperoleh Hasil yang Cukup Baik dalam Lingkungan Daring</title>
+        <p><xref ref="thm_olforest"/> sebaiknya dipandang sebagai hasil negatif. Sulit membayangkan keluarga graf yang lebih mudah diwarnai daripada hutan, tetapi dalam lingkungan daring graf-graf dalam keluarga ini sulit diwarnai. Di sisi lain, dalam keadaan tertentu kita dapat memperoleh hasil yang cukup baik secara daring: mungkin tidak sebaik hasil luring yang benar-benar optimal, tetapi cukup baik untuk berguna. Di sini kita menyajikan contoh yang sangat elegan mengenai himpunan terurut parsial.
+        </p>
+
+        <p>Ingat bahwa poset <m>P</m> bertinggi <m>h</m> dapat dipartisi menjadi <m>h</m> antirantai<mdash/>dengan secara rekursif menghapus himpunan elemen minimal. Namun, berapa banyak antirantai yang diperlukan dalam lingkungan daring? Sekarang Pembangun membangun poset <m>P</m> satu titik demi satu, sedangkan Pemberi Warna membangun partisi <m>P</m> menjadi antirantai. Pada setiap ronde, Pembangun menyajikan titik baru <m>x</m> dan mencantumkan titik-titik terdahulu yang masing-masing lebih kecil daripada <m>x</m>, lebih besar daripada <m>x</m>, dan tak terbandingkan dengan <m>x</m>. Selanjutnya, Pemberi Warna menempatkan <m>x</m> ke dalam suatu antirantai. Hal ini dilakukan dengan menambahkan <m>x</m> ke antirantai yang sudah memuat satu atau lebih titik terdahulu, atau dengan menempatkan <m>x</m> dalam antirantai baru.
+        </p>
+
+        <theorem>
+            <idx><h>partisi</h><h>antirantai</h></idx>
+            <statement>
+                <p>Untuk setiap <m>h\ge1</m>, terdapat strategi daring bagi Pemberi Warna yang memungkinkannya mempartisi poset <m>P</m> menjadi paling banyak <m>\binom{h+1}{2}</m> antirantai, asalkan tinggi <m>P</m> paling besar <m>h</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Penting untuk dicatat bahwa Pemberi Warna tidak perlu mengetahui nilai <m>h</m> terlebih dahulu. Sebagai contoh, Pembangun mungkin merencanakan bahwa pada akhirnya nilai <m>h</m> akan menjadi <m>300</m>, tetapi informasi ini tidak memengaruhi strategi Pemberi Warna.
+                </p>
+
+                <p>Ketika titik baru <m>x_n</m> memasuki <m>P</m>, Pemberi Warna menghitung nilai <m>r</m> dan <m>s</m>. Di sini <m>r</m> adalah bilangan bulat terbesar sehingga terdapat rantai <m>C</m> dengan <m>r</m> titik dalam <m>\{x_1,x_2,\dots,x_n\}</m> yang mempunyai <m>x_n</m> sebagai elemen terkecilnya. Demikian pula, <m>s</m> adalah bilangan bulat terbesar sehingga terdapat rantai <m>D</m> dengan <m>s</m> titik dalam <m>\{x_1,x_2,\dots,x_n\}</m> yang mempunyai <m>x_n</m> sebagai elemen terbesarnya. Pemberi Warna lalu menempatkan <m>x_n</m> dalam himpunan <m>A(r,s)</m>, dengan klaim bahwa setiap dua titik dalam himpunan ini tak terbandingkan. Untuk melihat bahwa klaim tersebut benar, tinjau saat pertama ketika Pembangun menyajikan titik baru <m>x</m>, Pemberi Warna menempatkan <m>x</m> dalam <m>A(r,s)</m>, dan sudah terdapat titik <m>y</m> dalam <m>A(r,s)</m> sedemikian sehingga <m>x</m> dan <m>y</m> terbandingkan.
+                </p>
+
+                <p>Ketika <m>y</m> disajikan, pada saat itu terdapat rantai <m>C'</m> dengan <m>r</m> titik yang mempunyai <m>y</m> sebagai elemen terkecilnya. Terdapat pula rantai <m>D</m> dengan <m>s</m> titik yang mempunyai <m>y</m> sebagai elemen terbesarnya.
+                </p>
+
+                <p>Sekarang andaikan <m>y&gt;x</m> dalam <m>P</m>. Kita dapat menambahkan <m>x</m> ke <m>C'</m> untuk membentuk rantai dengan <m>r+1</m> titik yang mempunyai <m>x</m> sebagai elemen terkecilnya. Hal ini menyiratkan bahwa <m>x</m> tidak ditempatkan dalam <m>A(r,s)</m>. Demikian pula, jika <m>y\lt x</m> dalam <m>P</m>, kita dapat menambahkan <m>x</m> ke <m>D</m> untuk membentuk rantai dengan <m>s+1</m> titik yang mempunyai <m>x</m> sebagai elemen terbesarnya. Sekali lagi, hal ini menyiratkan bahwa <m>x</m> tidak ditempatkan dalam <m>A(r,s)</m>.
+                </p>
+
+                <p>Jadi, Pemberi Warna memang telah menyusun strategi yang baik untuk mempartisi <m>P</m> menjadi antirantai, tetapi berapa banyak antirantai yang ia gunakan? Pertanyaan ini sama dengan menanyakan banyaknya pasangan terurut <m>(i,j)</m> bilangan bulat positif yang memenuhi batasan <m>i+j-1\le h</m>. Kita telah mempelajari cara menyelesaikan pertanyaan semacam ini dalam <xref ref="ch_strings"/>. Tentu saja, jawabannya adalah <m>\binom{h+1}{2}</m>.
+                </p>
+            </proof>
+        </theorem>
+        <p>Strategi Pemberi Warna begitu sederhana dan alami sehingga mungkin saja strategi yang lebih rumit menghasilkan partisi yang lebih efisien. Ternyata tidak.
+        </p>
+
+        <theorem>
+            <title>Szemer&#233;di</title>
+            <idx><h>partisi</h><h>antirantai</h></idx>
+            <statement>
+                <p>Untuk setiap <m>h\ge1</m>, terdapat strategi <m>S_h</m> bagi Pembangun yang memungkinkannya membangun poset <m>P</m> bertinggi <m>h</m> sedemikian sehingga Pemberi Warna dipaksa (1)<nbsp/>menggunakan paling sedikit <m>\binom{h+1}{2}</m> antirantai untuk mempartisi <m>P</m>, dan (2)<nbsp/>menggunakan paling sedikit <m>h</m> antirantai berbeda pada himpunan elemen maksimal.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Strategi <m>S_1</m> cukup menyajikan satu titik. Sekarang andaikan teorema berlaku untuk suatu bilangan bulat <m>h\ge1</m>. Kita menunjukkan cara kerja strategi <m>S_{h+1}</m>.
+                </p>
+
+                <p>Pertama, Pembangun mengikuti strategi <m>S_h</m> untuk membentuk poset <m>P_1</m>. Kemudian ia mengikuti strategi itu untuk kedua kalinya guna membentuk poset <m>P_2</m>, dengan setiap titik <m>P_1</m> tak terbandingkan dengan setiap titik <m>P_2</m>. Sekarang kita meninjau dua kasus. Mula-mula andaikan Pemberi Warna telah menggunakan <m>h+1</m> antirantai atau lebih pada himpunan elemen maksimal <m>P_1\cup P_2</m>. Dalam kasus ini, Pembangun mengikuti strategi <m>S_h</m> untuk ketiga kalinya guna membangun poset <m>P_3</m>, dengan setiap titik <m>P_3</m> lebih kecil daripada semua elemen maksimal <m>P_1\cup P_2</m> dan tak terbandingkan dengan semua titik lainnya.
+                </p>
+
+                <p>Jelas bahwa tinggi poset yang dihasilkan paling besar <m>h+1</m>. Selain itu, Pemberi Warna harus menggunakan <m>h+1+\binom{h+1}{2}=\binom{h+2}{2}</m> antirantai untuk mempartisi poset tersebut, dan ia telah menggunakan <m>h+1</m> antirantai pada himpunan elemen maksimal.
+                </p>
+
+                <p>Jadi, tinggal meninjau kasus ketika Pemberi Warna menggunakan suatu himpunan <m>W</m> yang terdiri atas <m>h</m> antirantai pada elemen-elemen maksimal <m>P_1</m>, dan menggunakan tepat <m>h</m> antirantai yang sama pada elemen-elemen maksimal <m>P_2</m>. Pembangun kemudian menyajikan titik baru <m>x</m> dan menyatakannya lebih besar daripada semua titik <m>P_1</m> serta tak terbandingkan dengan semua titik <m>P_2</m>. Pemberi Warna harus menempatkan <m>x</m> dalam suatu antirantai yang tidak termasuk dalam <m>W</m>.
+                </p>
+
+                <p>Pembangun lalu mengikuti strategi <m>S_h</m> untuk ketiga kalinya, tetapi sekarang semua titik <m>P_3</m> lebih kecil daripada <m>x</m> dan elemen-elemen maksimal <m>P_2</m>. Sekali lagi, Pemberi Warna telah dipaksa menggunakan <m>h+1</m> antirantai berbeda pada elemen-elemen maksimal dan seluruhnya <m>\binom{h+2}{2}</m> antirantai.
+                </p>
+            </proof>
+        </theorem>
+    </subsection>
+
+</section>

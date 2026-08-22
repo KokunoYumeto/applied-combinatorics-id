@@ -1,0 +1,158 @@
+<section xml:id="s_polya_apps">
+    <title>Penerapan Rumus Enumerasi Pólya</title>
+
+
+    <introduction>
+        <p>Bagian ini membahas sejumlah situasi tempat rumus enumerasi Pólya dapat digunakan. Penerapannya berasal dari berbagai bidang dan disusun menurut tingkat kerumitan yang meningkat, dimulai dengan contoh dari teori musik dan diakhiri dengan pencacahan graf tak isomorfik.
+        </p>
+    </introduction>
+
+
+    <subsection xml:id="ss_polya_scales">
+        <title>Menghitung tangga nada</title>
+        <p>Musik Barat pada umumnya didasarkan pada sistem <m>12</m> <term>nada</term><idx><h>nada</h><h>musik</h></idx> yang berjarak sama. Meskipun nada-nada ini biasanya dinamai dengan huruf alfabet (beserta tanda pengubah), untuk keperluan kita cukup diberi nomor <m>0,1,\dots,11</m>. Nada-nada tersebut disusun dalam <term>oktaf</term><idx><h>oktaf</h></idx> sehingga tinggi nada sesudah <m>11</m> kembali dinamai <m>0</m>, sedangkan tinggi nada sebelum <m>0</m> dinamai <m>11</m>. Karena itu, sistem nada tersebut dapat dipandang bersesuaian dengan bilangan bulat modulo <m>12</m>. Dengan definisi ini, <term>tangga nada</term><idx><h>tangga nada</h></idx> ialah himpunan bagian dari <m>\{0,1,\dots,11\}</m> yang disusun dalam urutan naik. <term>Transposisi tangga nada</term><idx><h>transposisi</h><h>tangga nada</h></idx> ialah transformasi seragam yang mengganti setiap nada <m>x</m> dalam tangga nada dengan <m>x+a\pmod{12}</m> untuk suatu konstanta <m>a</m>. Musisi menganggap dua tangga nada ekuivalen jika salah satunya merupakan transposisi dari yang lain. Karena tangga nada merupakan himpunan bagian, nada mana yang memulai tangga nada juga tidak diperhitungkan. Pertanyaan yang kita selidiki dalam bagian ini ialah <q>Berapa banyak tangga nada tak ekuivalen yang masing-masing terdiri atas tepat <m>k</m> nada?</q>
+        </p>
+
+        <p>Karena penamaan nada bersifat siklis, kita dapat menyusunnya berurutan searah jarum jam mengelilingi sebuah lingkaran. Pemilihan nada untuk tangga nada lalu menjadi persoalan pewarnaan jika nada terpilih diberi warna hitam dan nada yang tidak terpilih diberi warna putih. Dalam <xref ref="fig_polya_scales"/>, ditampilkan tiga tangga nada yang masing-masing terdiri atas <m>5</m> nada dengan konvensi ini. Perhatikan bahwa <m>S_2</m> dapat diperoleh dari <m>S_1</m> dengan memutarnya maju tujuh posisi. Karena itu, <m>S_1</m> dan <m>S_2</m> ekuivalen melalui transposisi penambahan <m>7</m>. Namun, <m>S_3</m> tidak ekuivalen dengan <m>S_1</m> ataupun <m>S_2</m> karena tidak dapat diperoleh dari keduanya melalui rotasi. (Perhatikan bahwa <m>S_3</m> dapat diperoleh dari <m>S_1</m> jika pencerminan diizinkan selain rotasi. Karena satu-satunya operasi yang diizinkan ialah transposisi, yang bersesuaian dengan rotasi, keduanya tidak ekuivalen.)
+        </p>
+        <figure xml:id="fig_polya_scales">
+            <caption>Tiga tangga nada yang digambarkan melalui pewarnaan</caption>
+            <image width="90%">
+                <description><p>Tiga tangga nada yang digambarkan melalui pewarnaan</p>
+            </description><latex-image>\begin{overpic}[width=\linewidth]{external/scales}
+                \put(14,13){\(S_1\)}
+                \put(49.5,13){\(S_2\)}
+                \put(84,13){\(S_3\)}
+                \end{overpic}</latex-image>
+            </image>
+
+        </figure>
+        <p>Sekarang tangga nada telah kita modelkan secara matematis sebagai struktur diskret sehingga <xref ref="thm_polya_polya" text="title"/> dapat digunakan. Grup apa yang bertindak pada pewarnaan hitam-putih simpul-simpul segi-<m>12</m> beraturan? Salah satu permutasi dalam grup ialah <m>\tau = (0\ 1\ 2\ 3\ 4\ 5\ 6\ 7\ 8\ 9\ 10\ 11)</m>, yang bersesuaian dengan transposisi sebesar satu nada. Bahkan, setiap elemen grup dapat dinyatakan sebagai suatu pangkat <m>\tau</m>, sebab hanya rotasi yang diizinkan dan <m>\tau</m> merupakan rotasi terkecil yang mungkin. Jadi, grup yang bertindak pada pewarnaan ialah <term>grup siklis berorde <m>12</m></term>, yang dinyatakan dengan <m>C_{12} = \{\iota,\tau,\tau^2,\dots,\tau^{11}\}</m>. <xref ref="ex_polya_cyclic12"/> meminta Anda menuliskan semua elemen grup ini dalam notasi siklus. Cara terbaik melakukannya ialah mengalikan <m>\tau^{i-1}</m> dengan <m>\tau</m> (<ie/>, menghitung <m>\tau\tau^{i-1}</m>) untuk memperoleh <m>\tau^i</m>. Setelah melakukannya, Anda dapat dengan mudah memverifikasi bahwa indeks siklusnya ialah
+        <md>
+            P_{C_{12}}(x_1,\dots,x_{12}) = \frac{x_1^{12}}{12}+\frac{x_2^6}{12}+\frac{x_3^4}{6}+\frac{x_4^3}{6}+\frac{x_6^2}{6}+\frac{x_{12}}{3}.
+        </md>
+        Karena kita memilih pewarnaan hitam dan putih, masuk akal untuk menyubstitusikan <m>x_i = b^i +w^i</m> bagi setiap <m>i</m> dalam <m>P_{C_{12}}</m> untuk menentukan banyak tangga nada dengan <m>k</m> nada. Namun, terdapat jalan pintas yang membuat fungsi pembangkit hasilnya lebih menyerupai fungsi-fungsi yang telah kita kenal dalam <xref ref="ch_genfunction"/>. Informasi tentang banyak nada yang <em>tidak</em> dimasukkan ke dalam tangga nada (banyaknya yang berwarna putih) dapat disimpulkan dari banyak nada yang dimasukkan. Jadi, variabel <m>w</m> dapat dihilangkan dengan menggantinya oleh <m>1</m>. Kita memperoleh
+        <md>P_{C_{12}}(1+b,1+b^2,\dots,1+b^{12}) = b^{12}+b^{11}+6 b^{10}+19 b^9+43 b^8\\+66 b^7+80 b^6+66 b^5+43 b^4+19 b^3+6 b^2+b+1.
+        </md>
+        Dari sini, kita menyimpulkan bahwa banyak tangga nada dengan <m>k</m> nada ialah koefisien <m>b^k</m>. Oleh karena itu, jawaban atas pertanyaan pada awal bab tentang banyak tangga nada dengan <m>6</m> nada ialah <m>80</m>.
+        </p>
+    </subsection>
+
+
+    <subsection xml:id="ss_polya_isomers">
+        <title>Menghitung isomer</title>
+        <p>Benzena merupakan senyawa kimia dengan rumus <m>\text{C} _6\text{H} _6</m>, yang berarti senyawa itu terdiri atas enam atom karbon dan enam atom hidrogen. Atom-atom tersebut berikatan sedemikian sehingga keenam atom karbon membentuk cincin heksagonal dengan ikatan tunggal dan rangkap yang berselang-seling. Satu atom hidrogen terikat pada setiap atom karbon (di bagian luar cincin). Dari benzena dapat dibentuk senyawa kimia lain yang termasuk dalam keluarga <term>hidrokarbon aromatik</term>. Senyawa-senyawa ini dibentuk dengan mengganti satu atau lebih atom hidrogen dengan atom unsur lain atau gugus fungsi seperti <m>\text{CH} _3</m> (gugus metil) atau <m>\text{OH}</m> (gugus hidroksil). Karena terdapat enam pilihan atom hidrogen yang akan diganti, cara ini dapat menghasilkan molekul dengan rumus kimia yang sama tetapi struktur berbeda. Molekul semacam itu disebut <term>isomer</term>. Dalam subbagian ini, kita akan melihat bagaimana <xref ref="thm_polya_polya" text="title"/> dapat digunakan untuk menentukan banyak isomer hidrokarbon aromatik xilenol (juga dikenal sebagai dimetilfenol).
+        </p>
+
+        <p>Sebelum membahas struktur molekul xilenol, kita perlu membahas grup permutasi yang bertindak pada cincin benzena. Seperti pada contoh pewarnaan simpul persegi, di sini terdapat rotasi dan pencerminan. Grup yang diperlukan ialah grup dihedral segi enam, <m>D_{12}</m>. Jika keenam atom karbon diberi nomor <m>1,2,\dots,6</m> dalam urutan searah jarum jam, rotasi <m>60^\circ</m> searah jarum jam bersesuaian dengan permutasi <m>r=(123456)</m>. Rotasi lainnya merupakan pangkat-pangkat <m>r</m> yang lebih tinggi, seperti ditunjukkan dalam <xref ref="tab_polya_benzene"/>. Pencerminan terhadap sumbu vertikal merupakan permutasi <m>f=(16)(25)(34)</m>. Semua elemen <m>D_{12}</m> lainnya (selain identitas <m>\iota</m>) dapat dinyatakan sebagai suatu rotasi yang diikuti pencerminan ini. Daftar lengkap permutasi ditampilkan dalam <xref ref="tab_polya_benzene"/>; setiap permutasi disertai monomial yang disumbangkannya kepada indeks siklus.
+        </p>
+        <figure xml:id="tab_polya_benzene">
+            <caption>Representasi siklus permutasi dalam <m>D_{12}</m></caption>
+            <tabular>
+                <col/> <col halign="center"/> <col halign="left"/><col halign="center"/> <row bottom="minor"><cell>Permutasi</cell><cell>Monomial</cell><cell>Permutasi</cell><cell>Monomial</cell></row>
+
+                <row><cell><m>\iota =(1)(2)(3)(4)(5)(6)</m></cell><cell><m>x_1^6</m></cell><cell><m>f=(16)(25)(34)</m></cell><cell><m>x_2^3</m></cell></row>
+                <row><cell><m>r=(123456)</m></cell><cell><m>x_6^1</m></cell><cell><m>fr=(15)(24)(3)(6)</m></cell><cell><m>x_1^2x_2^2</m></cell></row>
+                <row><cell><m>r^2=(135)(246)</m></cell><cell><m>x_3^2</m></cell><cell><m>fr^2=(14)(23)(56)</m></cell><cell><m>x_2^3</m></cell></row>
+                <row><cell><m>r^3=(14)(25)(36)</m></cell><cell><m>x_2^3</m></cell><cell><m>fr^3=(13)(2)(46)(5)</m></cell><cell><m>x_1^2x_2^2</m></cell></row>
+                <row><cell><m>r^4=(153)(264)</m></cell><cell><m>x_3^2</m></cell><cell><m>fr^4=(12)(36)(45)</m></cell><cell><m>x_2^3</m></cell></row>
+                <row><cell><m>r^5=(165432)</m></cell><cell><m>x_6^1</m></cell><cell><m>fr^5=(1)(26)(35)(4)</m></cell><cell><m>x_1^2x_2^2</m></cell></row>
+            </tabular>
+        </figure>
+        <p>Setelah mengidentifikasi monomial-monomial yang berkaitan dengan permutasi dalam <m>D_{12}</m>, kita dapat menuliskan indeks siklus
+        <md>
+            P_{D_{12}}(x_1,\dots,x_6) = \frac{1}{12}(x_1^6 + 2x_6^1 + 2x_3^2+4x_2^3 + 3x_1^2x_2^2).
+        </md>
+        Setelah indeks siklus ditentukan, kita menggunakannya untuk mencari banyak isomer xilenol. Hidrokarbon aromatik ini mempunyai tiga atom hidrogen, dua gugus metil, dan satu gugus hidroksil yang terikat pada atom-atom karbon. Karena atom hidrogen merupakan keadaan asal dari benzena, atom tersebut kurang lebih dapat diabaikan ketika memilih substitusi yang sesuai bagi <m>x_i</m> dalam indeks siklus. Jika <m>m</m> menyatakan gugus metil dan <m>h</m> menyatakan gugus hidroksil, kita dapat menyubstitusikan <m>x_i = 1+m^i+h^i</m> dalam <m>P_{D_{12}}</m>. Substitusi ini menghasilkan fungsi pembangkit
+        <md>1+h+3 h^2+3 h^3+3 h^4+h^5+h^6+m+3 h m+6 h^2 m+6 h^3
+        m\\+3 h^4 m+h^5 m+3 m^2+6 h m^2+11 h^2 m^2+6 h^3 m^2+3 h^4 m^2+3
+        m^3+6 h m^3\\+6 h^2 m^3+3 h^3 m^3+3 m^4+3 h m^4+3 h^2 m^4+m^5+h
+        m^5+m^6.
+        </md>
+        Karena xilenol mempunyai satu gugus hidroksil dan dua gugus metil, kita mencari koefisien <m>hm^2</m> dalam fungsi pembangkit ini. Koefisiennya ialah <m>6</m>, sehingga terdapat enam isomer xilenol.
+        </p>
+
+        <p>Dalam makalah aslinya, Pólya menggunakan tekniknya untuk menghitung banyak isomer alkana <m>\text{C} _n\text{H} _{2n+2}</m>. Jika dimodelkan sebagai graf, senyawa kimia tersebut merupakan jenis pohon khusus. Sejak saat itu, <xref ref="thm_polya_polya" text="title"/> telah digunakan untuk menghitung isomer berbagai senyawa kimia.
+        </p>
+    </subsection>
+
+
+    <subsection xml:id="ss_polya_graphs">
+        <title>Menghitung graf tak isomorfik</title>
+        <p>Menghitung graf dengan himpunan verteks <m>[n]</m> tidaklah sulit. Terdapat <m>C(n,2)</m> sisi yang mungkin, dan setiap sisi dapat disertakan atau tidak. Jadi, terdapat <m>2^{C(n,2)}</m> <term>graf berlabel</term><idx><h>graf</h><h>berlabel</h></idx> pada <m>n</m> verteks. Dengan sedikit pemikiran tambahan, jika kita hanya ingin menghitung graf berlabel pada <m>n</m> verteks yang mempunyai <m>k</m> sisi, cukup dipilih himpunan bagian dengan <m>k</m> elemen dari himpunan seluruh <m>C(n,2)</m> sisi yang mungkin. Jadi, terdapat
+        <md>
+            \binom{\binom{n}{2}}{k}
+        </md>
+        graf dengan himpunan verteks <m>[n]</m> dan tepat <m>k</m> sisi.
+        </p>
+
+        <p>Persoalan yang lebih sulit muncul ketika kita ingin menghitung graf <em>tak isomorfik</em> pada <m>n</m> verteks. (Graf tersebut juga dapat dipandang sebagai <term>graf tak berlabel</term><idx><h>graf</h><h>tak berlabel</h></idx>.) Sebagai contoh, <xref ref="fig_polya_graphs"/> menampilkan empat graf berlabel yang berbeda pada empat verteks. Namun, ketiga graf pertama di sana saling isomorfik. Jadi, gambar tersebut hanya memperlihatkan dua graf tak isomorfik pada empat verteks. Untuk memperhitungkan isomorfisme, kita perlu menggunakan <xref ref="thm_polya_polya" text="title"/>.
+        </p>
+        <figure xml:id="fig_polya_graphs">
+            <caption>Empat graf berlabel pada empat verteks</caption>
+            <image width="85%">
+                <description><p>Empat graf berlabel pada empat verteks</p>
+            </description><latex-image>\begin{overpic}[width=0.75\linewidth]{external/graphs}
+                \put(1.2,0.7){\(1\)}
+                \put(19.7,0.7){\(2\)}
+                \put(10.2,22){\(3\)}
+                \put(10.2,7.2){\(4\)}
+
+                \put(26.7,0.7){\(1\)}
+                \put(45.2,0.7){\(2\)}
+                \put(35.7,22){\(3\)}
+                \put(35.7,7.2){\(4\)}
+
+                \put(51.7,0.7){\(1\)}
+                \put(70.2,0.7){\(2\)}
+                \put(60.7,22){\(3\)}
+                \put(60.7,7.2){\(4\)}
+
+                \put(76.7,0.7){\(1\)}
+                \put(95.2,0.7){\(2\)}
+                \put(85.7,22){\(3\)}
+                \put(85.7,7.2){\(4\)}
+
+                \end{overpic}</latex-image>
+            </image>
+
+        </figure>
+        <p>Kita mulai dengan memperhatikan seluruh <m>2^{C(n,2)}</m> graf dengan himpunan verteks <m>[n]</m> dan memilih grup permutasi yang sesuai untuk bertindak dalam situasi ini. Agar tetap mudah dikelola, kita menggunakan contoh <m>n=4</m>, tetapi seluruh metodenya dapat digeneralisasi. Karena setiap verteks dapat dipetakan ke verteks lain mana pun, grup simetris <m>S_4</m> bertindak pada verteks-verteks tersebut. Namun, kita harus berhati-hati dalam menentukan indeks siklusnya. Ketika bekerja dengan pewarnaan simpul-simpul persegi, kita mengetahui bahwa semua simpul yang muncul dalam siklus yang sama dari permutasi <m>\pi</m> harus diberi warna yang sama. Karena sekarang yang diperhatikan ialah sisi, bukan pewarnaan verteks, syarat agar suatu permutasi menetapkan sebuah graf ialah setiap sisi dipetakan ke sisi dan setiap bukan-sisi dipetakan ke bukan-sisi. Secara khusus, jika <m>\{1,2\}</m> merupakan sisi suatu <m>\bfG</m> dan <m>\pi\in S_4</m> menetapkan <m>\bfG</m>, maka <m>\{\pi(1),\pi(2)\}</m> juga harus merupakan sisi <m>\bfG</m>. Demikian pula, jika verteks <m>3</m> dan <m>4</m> tidak bertetangga dalam <m>\bfG</m>, maka <m>\pi(3)</m> dan <m>\pi(4)</m> juga harus tidak bertetangga dalam <m>\bfG</m>.
+        </p>
+
+        <p>Untuk memperhitungkan sisi, kita beralih dari grup simetris <m>S_4</m> ke <term>grup pasangan</term> <m>S_4^{(2)}</m>. Objek yang dipermutasikan oleh <m>S_4^{(2)}</m> ialah himpunan-himpunan bagian beranggotakan <m>2</m> dari <m>\{1,2,3,4\}</m>. Agar notasinya mudah, himpunan bagian beranggotakan <m>2</m>, yaitu <m>\{i,j\}</m>, kita nyatakan dengan <m>e_{ij}</m>. Untuk mencari permutasi dalam <m>S_4^{(2)}</m>, kita memperhatikan permutasi verteks dalam <m>S_4</m> dan melihat bagaimana permutasi tersebut menyusun ulang <m>e_{ij}</m>. Permutasi identitas <m>\iota=(1)(2)(3)(4)</m> dalam <m>S_4</m> bersesuaian dengan permutasi identitas <m>\iota=(e_{12})(e_{13}) (e_{14}) (e_{23}) (e_{24}) (e_{34})</m> dalam <m>S_4^{(2)}</m>. Sekarang perhatikan permutasi <m>(12)(3)(4)</m>. Permutasi ini menetapkan <m>e_{12}</m> karena memetakan <m>1</m> ke <m>2</m> dan <m>2</m> ke <m>1</m>. Permutasi ini juga menetapkan <m>e_{34}</m> dengan menetapkan <m>3</m> dan <m>4</m>. Namun, permutasi tersebut menukar <m>e_{13}</m> dengan <m>e_{23}</m> (<m>3</m> ditetapkan, sedangkan <m>1</m> ditukar dengan <m>2</m>) dan menukar <m>e_{14}</m> dengan <m>e_{24}</m> (<m>1</m> dipetakan ke <m>2</m>, sedangkan <m>4</m> ditetapkan). Jadi, permutasi pasangan yang bersesuaian ialah <m>(e_{12})(e_{13}e_{23})(e_{14}e_{24})(e_{34})</m>. Sebagai contoh lain, perhatikan permutasi <m>(123)(4)</m>. Permutasi ini bersesuaian dengan <m>(e_{12}e_{23}e_{13})(e_{14}e_{24}e_{34})</m> dalam <m>S_4^{(2)}</m>.
+        </p>
+
+        <p>Karena kita hanya mencari indeks siklus <m>S_4^{(2)}</m>, tidak perlu ditentukan seluruh <m>24</m> permutasi dalam grup pasangan. Namun, kita perlu mengetahui jenis permutasi tersebut berdasarkan panjang siklus agar dapat mengaitkan monomial yang sesuai. Dalam contoh-contoh yang telah diperhatikan, struktur siklus permutasi dalam grup pasangan tidak bergantung pada permutasi asalnya dalam <m>S_4</m> selain pada <em>struktur siklusnya</em>. Setiap permutasi dalam <m>S_4</m> yang terdiri atas satu siklus-<m>2</m> dan dua siklus-<m>1</m> bersesuaian dengan permutasi yang mempunyai dua siklus-<m>2</m> dan dua siklus-<m>1</m> dalam <m>S_4^{(2)}</m>. Permutasi dalam <m>S_4</m> dengan satu siklus-<m>3</m> dan satu siklus-<m>1</m> bersesuaian dengan permutasi yang mempunyai dua siklus-<m>3</m> dalam grup pasangan. Dengan memperhatikan contoh permutasi dalam <m>S_4</m> yang terdiri atas satu siklus-<m>4</m>, kita memperoleh bahwa permutasi yang bersesuaian dalam grup pasangan mempunyai satu siklus-<m>4</m> dan satu siklus-<m>2</m>. Terakhir, permutasi <m>S_4</m> yang terdiri atas dua siklus-<m>2</m> bersesuaian dengan permutasi dalam <m>S_4^{(2)}</m> yang mempunyai dua siklus-<m>2</m> dan dua siklus-<m>1</m>. (<xref ref="ex_polya_perm-pairs"/> meminta Anda memverifikasi pernyataan-pernyataan ini dengan permutasi tertentu.)
+        </p>
+
+        <p>Setelah mengetahui struktur siklus permutasi dalam <m>S_4^{(2)}</m>, satu-satunya tugas yang tersisa sebelum menentukan indeks siklusnya ialah menghitung banyak permutasi yang mempunyai setiap struktur siklus yang mungkin. Untuk itu, kita kembali memperhatikan permutasi dalam grup simetris <m>S_4</m>. Permutasi yang terdiri atas satu siklus-<m>4</m> dimulai dengan <m>1</m>, lalu memuat <m>2</m>, <m>3</m>, dan <m>4</m> dalam salah satu dari <m>3!=6</m> urutan yang mungkin. Jadi, terdapat <m>6</m> permutasi semacam itu. Untuk permutasi yang terdiri atas satu siklus-<m>1</m> dan satu siklus-<m>3</m>, terdapat <m>4</m> cara memilih elemen bagi siklus-<m>1</m>, lalu <m>2</m> cara menyusun tiga elemen lainnya sebagai siklus-<m>3</m>. (Ingat bahwa elemen terkecil harus ditempatkan pertama, sehingga terdapat <m>2</m> cara menyusun dua elemen sisanya.) Jadi, terdapat <m>8</m> permutasi semacam itu. Untuk permutasi yang terdiri atas dua siklus-<m>1</m> dan satu siklus-<m>2</m>, terdapat <m>C(4,2)=6</m> cara memilih dua elemen bagi siklus-<m>2</m>. Jadi, terdapat <m>6</m> permutasi semacam itu. Agar suatu permutasi terdiri atas dua siklus-<m>2</m>, terdapat <m>C(4,2)=6</m> cara memilih dua elemen bagi siklus-<m>2</m> pertama. Dua elemen lainnya lalu ditempatkan dalam siklus-<m>2</m> kedua. Namun, cara ini menghitung setiap permutasi dua kali: sekali ketika siklus-<m>2</m> pertama merupakan pasangan terpilih dan sekali ketika siklus itu merupakan <q>dua elemen lainnya.</q> Jadi, terdapat <m>3</m> permutasi yang terdiri atas dua siklus-<m>2</m>. Terakhir, hanya <m>\iota</m> yang terdiri atas empat siklus-<m>1</m>.
+        </p>
+
+        <p>Sekarang kita siap menuliskan indeks siklus grup pasangan
+        <md>
+            P_{S_4^{(2)}}(x_1,\dots,x_6) = \frac{1}{24}\left( x_1^6 + 9x_1^2x_2^2 + 8 x_3^2 +
+            6x_2x_4\right).
+        </md>
+        Untuk menggunakannya dalam menghitung graf, kita menyubstitusikan <m>x_i = 1+x^i</m> untuk <m>1\leq i\leq 6</m>. Substitusi ini memperhitungkan dua pilihan: suatu sisi tidak ada atau ada. Dengan demikian, diperoleh
+        <md>
+            P_{S_4^{(2)}}(1+x,\dots,1+x^6)= 1+x+2 x^2+3 x^3+2 x^4+x^5+x^6
+        </md>
+        sebagai fungsi pembangkit bagi banyak graf berverteks <m>4</m> dengan <m>m</m> sisi, <m>0\leq m\leq 6</m>. Untuk menentukan jumlah seluruh graf tak isomorfik pada empat verteks, kita menyubstitusikan <m>x=1</m> ke dalam polinomial ini. Dengan demikian, terdapat <m>11</m> graf tak isomorfik pada empat verteks, jauh lebih sedikit daripada <m>64</m> graf berlabel.
+        </p>
+
+        <p>Dengan daya komputasi yang memadai, teknik dalam subbagian ini dapat digunakan untuk menentukan banyak graf tak isomorfik pada sebarang banyak verteks. Untuk <m>30</m> verteks, terdapat
+        <md>
+            <mrow>  \amp 334494316309257669249439569928080028956631479935393064329967834</mrow>
+            <mrow>  \amp 887217734534880582749030521599504384\approx 3.3\times 10^{98}</mrow>
+        </md>
+        graf tak isomorfik, dibandingkan dengan <m>2^{435}\approx 8.9\times 10^{130}</m> graf berlabel pada <m>30</m> verteks. Banyak graf tak isomorfik dengan tepat <m>200</m> sisi ialah
+        <md>
+            <mrow>  \amp 313382480997072627625877247573364018544676703365501785583608267</mrow>
+            <mrow>  \amp 7050799699893512219821910360979601\approx 3.1\times 10^{96}.</mrow>
+        </md>
+        Bagian terakhir pertanyaan tentang enumerasi graf pada awal bab membahas pencacahan graf pada suatu banyak verteks yang setiap verteksnya berderajat <m>r</m>. Meskipun tampaknya persoalan ini dapat didekati dengan teknik dalam bab ini, ternyata teknik tersebut tidak dapat digunakan karena ketergantungan antar-pemetaan verteks menjadi lebih besar.
+        </p>
+    </subsection>
+
+</section>

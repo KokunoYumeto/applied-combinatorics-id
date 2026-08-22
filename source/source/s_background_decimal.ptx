@@ -1,0 +1,75 @@
+<section xml:id="s_background_decimal">
+    <title>Notasi untuk Bilangan Asli</title>
+    <introduction>
+        <p>Dalam arti tertentu, kita sebenarnya sudah memiliki notasi yang dapat digunakan untuk bilangan asli. Bahkan, kita tidak benar-benar memerlukan simbol khusus untuk <m>s(0)</m>. Bilangan asli <m>0</m> dan fungsi penerus <m>s</m> sudah cukup. Sebagai contoh, bilangan bulat positif yang menyatakan banyaknya jari (termasuk ibu jari) pada satu tangan ialah <m>s(s(s(s(s(0)))))</m>, kekayaan bersih kita ialah <m>0</m>, dan umur putra Profesor Trotter dalam tahun ketika bagian ini pertama kali ditulis ialah
+        <md>
+            s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(s(0)))))))))))))))))).
+        </md>
+        Harus diakui, cara ini tidak terlalu praktis, terutama jika suatu hari kita memenangi lotre atau ingin membahas defisit federal. Karena itu, sudah sewajarnya (aduh!) kita mempertimbangkan notasi lain.
+        </p>
+
+        <p>Berikut salah satu caranya. Pertama, pilih bilangan asli <m>b&gt;s(0)</m> sebagai <term>basis</term>. Selanjutnya, kita akan mengembangkan notasi yang disebut <term>notasi basis <m>b</m></term>. Kita sudah memiliki simbol khusus untuk nol, yaitu <m>0</m>, tetapi memerlukan simbol tambahan untuk setiap bilangan asli <m>n</m> dengan <m>0\lt n\lt b</m>. Simbol-simbol ini disebut <term>digit</term>. Sebagai contoh, bilangan bulat positif <m>b=s(s(s(s(s(s(s(s(0))))))))</m> disebut <term>delapan</term> dan cukup populer sebagai pilihan basis. Simbol (digit) yang lazim dipilih untuk basis ini ialah <m>1=s(0)</m>, <m>2=s(1)</m>; <m>3=s(2)</m>; <m>4=s(3)</m>; <m>5=s(4)</m>; <m>6=s(5)</m>; dan <m>7=s(6)</m>. Secara teknis, kita tidak memerlukan simbol tersendiri untuk <m>b</m>, tetapi simbol itu tetap dapat berguna. Dalam hal ini, kebanyakan orang memilih simbol <m>8</m>. Kami menyukai simbol ini, kecuali kalau ia menjadi malas lalu berbaring menyamping.
+        </p>
+
+        <p>Dengan demikian, <m>8</m> bilangan asli pertama ialah <m>0</m>, <m>1</m>, <m>2</m>, <m>3</m>, <m>4</m>, <m>5</m>, <m>6</m>, dan <m>7</m>. Untuk melanjutkan pengembangan representasi ini, kita akan menggunakan teorema dasar berikut.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>Misalkan <m>n,d\in \nonnegints</m> dengan <m>d&gt;0</m>. Maka terdapat bilangan asli tunggal <m>q</m> dan <m>r</m> sedemikian sehingga <m>n=qd+r</m> dan <m>0\le r \lt d</m>.
+                </p>
+            </statement>
+
+            <proof>
+                <p>Misalkan <m>d\in \nonnegints</m> dengan <m>d&gt;0</m>. Pertama, kita tunjukkan bahwa untuk setiap <m>n\in\nonnegints</m>, terdapat <m>q,r\in\nonnegints</m> sedemikian sehingga <m>n=qd+r</m> dan <m>0\le r\lt d</m>. Jika <m>n=0</m>, kita dapat mengambil <m>q=0</m> dan <m>r=0</m>. Sekarang andaikan bahwa <m>k=qd+r</m> dan <m>0\le r\lt d</m> untuk suatu <m>k\in \nonnegints</m>.
+                </p>
+
+                <p>Perhatikan bahwa <m>r\lt d</m> mengakibatkan <m>r+1\le d</m>. Jika <m>r+1\lt d</m>, maka <m>k+1=qd+(r+1)</m>. Di sisi lain, jika <m>r+1=d</m>, maka <m>k+1=(q+1)d+0</m>.
+                </p>
+
+                <p>Setelah keberadaan dibuktikan, ketunggalan <m>q</m> dan <m>r</m> langsung mengikuti sifat-sifat pembatalan.
+                </p>
+            </proof>
+        </theorem>
+        <p>Sekarang andaikan bahwa untuk suatu <m>k\in \nonnegints</m>, dengan <m>k\ge 7</m>, kita telah mendefinisikan notasi basis delapan untuk merepresentasikan <m>k</m> dan semua <m>n</m> dengan <m>0\le n\le k</m>, serta bahwa setiap representasi berupa untaian digit yang ditulis dari kiri ke kanan dan dipilih dari <m>\{0,1,2,3,4,5,6,7\}</m>. Tulislah <m>k+1=qb+r</m> dengan <m>0\le r\lt b</m>. Perhatikan bahwa <m>q\le k</m>, sehingga kita sudah memiliki representasi untuk <m>q</m>. Untuk memperoleh representasi bagi <m>k+1</m>, kita cukup menambahkan <m>r</m> di ujung kanan.
+        </p>
+
+        <p>Sebagai contoh, perhatikan umur putra Profesor Trotter. Dalam notasi ini, umurnya ditulis sebagai<nbsp/>22. Untuk menegaskan bahwa notasi yang digunakan berbasis delapan, kebanyakan orang akan mengatakan <m>22</m> basis<nbsp/><m>8</m> dan menulis <m>(22)_8</m>.
+        </p>
+
+        <p>Basis lain yang populer antara lain basis<nbsp/>2, yang hanya menggunakan digit<nbsp/>0 dan<nbsp/>1, serta basis<nbsp/>enam belas; enam belas merupakan sebutan umum untuk <m>(20)_8</m>. Dalam basis ini, simbol digitnya ialah
+        <md>
+            0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
+        </md>
+        Pilihan populer lainnya—bahkan yang paling luas digunakan di bank, pusat perbelanjaan, dan bioskop—ialah basis <term>sepuluh</term>. Sepuluh adalah bilangan asli<nbsp/>A dalam basis enam belas. Selain itu, sepuluh ialah <m>(12)_8</m>. Kebanyakan orang menggunakan digit <m>0,1,2,3,4,5,6,7,8,9</m> untuk notasi basis sepuluh. Jika tidak ada keterangan lain, bilangan asli dianggap ditulis dalam basis sepuluh. Jadi, tentu saja, putra Profesor Trotter berumur 18 tahun dan merupakan mahasiswa tahun pertama di Georgia Tech. Itulah sebabnya rambut sang profesor sudah seputih itu.
+        </p>
+
+        <p>Untuk setiap basis <m>b&gt;1</m>, kita harus berhati-hati ketika membahas perkalian, sebab penulisan hasil kali <m>m\times n</m> dalam bentuk singkat <m>mn</m> menimbulkan masalah. Sebagai contoh, jika <m>b = 8</m>, penulisan hasil kali <m>372\times4775</m> sebagai <m>3724775</m> bersifat ambigu. Karena itu, ketika menggunakan notasi basis<nbsp/><m>b</m>, simbol hasil kali <m>\times</m> (atau variasi <m>\times</m>) selalu digunakan.
+        </p>
+    </introduction>
+
+
+    <subsection>
+        <title>Bentuk-Bentuk Lain Induksi</title>
+        <p>Banyak penulis lebih suka memulai pengembangan sistem bilangan dengan himpunan <term>bilangan bulat positif</term><idx><h>bilangan bulat</h><h>positif</h></idx> dan menunda pengenalan konsep nol. Dalam kerangka ini, kita memiliki himpunan tak kosong <m>\posints</m>, fungsi <term>penerus</term> satu-ke-satu <m>s:\posints\injection\posints</m>, serta bilangan bulat positif yang disebut <term>satu</term> dan dinotasikan dengan<nbsp/><m>1</m>, yang bukan penerus bilangan bulat positif mana pun. Prinsip Induksi kemudian menjadi: Jika <m>\mathbb{M}\subseteq\posints</m>, maka <m>\mathbb{M} =\posints</m> jika dan hanya jika
+        <ol marker="a">
+            <li><m>1\in \mathbb{M}</m>; dan</li>
+            <li><m>\forall k\in \posints\quad(k\in \mathbb{M}) 
+            \Longrightarrow(s(k)\in \mathbb{M})</m>.</li>
+        </ol>
+        </p>
+        <p>Secara lebih umum, untuk menunjukkan bahwa suatu himpunan <m>\mathbb{M}</m> memuat semua bilangan bulat yang lebih besar daripada atau sama dengan bilangan bulat<nbsp/><m>n</m>, cukup ditunjukkan bahwa (i)<nbsp/><m>n\in\mathbb{M}</m>, dan (ii)<nbsp/>untuk semua <m>k\in\ints,\,(k\in\mathbb{M}\Longrightarrow(k+1\in\mathbb{M})</m>.
+        </p>
+
+        <p>Berikut bentuk induksi lain yang sangat berguna dalam argumen kombinatorial.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>Misalkan <m>\mathbb{M}\subseteq\posints</m>. Jika <m>\mathbb{M}\neq\posints</m>, maka terdapat tepat satu bilangan bulat positif terkecil <m>n</m> yang tidak termasuk dalam <m>\mathbb{M}</m>.
+                </p>
+            </statement>
+        </theorem>
+    </subsection>
+
+</section>

@@ -1,0 +1,49 @@
+<section xml:id="s_inclusion-exclusion_surjections">
+    <title>Enumerasi Fungsi Surjektif</title>
+    <p>Sebagai contoh pertama kekuatan prinsip inklusi–eksklusi, perhatikan situasi berikut: Seorang kakek memiliki <m>15</m> lembar tiket lotre yang berbeda dan ingin membagikannya kepada keempat cucunya sedemikian sehingga setiap cucu menerima sedikitnya satu tiket. Ada berapa cara ia dapat melakukan pembagian tersebut? Sekilas, masalah ini sangat mirip dengan masalah menghitung banyaknya solusi bilangan bulat suatu persamaan, hanya saja tiket lotrenya tidak identik! Sebuah tiket bernomor <m>1</m>, <m>3</m>, <m>10</m>, <m>23</m>, <m>47</m>, dan <m>50</m> hampir pasti tidak akan memberikan hadiah yang sama besarnya dengan tiket bernomor <m>2</m>, <m>7</m>, <m>10</m>, <m>30</m>, <m>31</m>, dan <m>48</m>, sehingga siapa menerima tiket yang mana memang berpengaruh. Mudah-mudahan Anda sudah menyadari bahwa persoalan tentang tiket lotre dan cucu sebenarnya bukanlah hal yang penting di sini. Fakta yang penting justru bahwa kita ingin membagikan objek-objek yang dapat dibedakan kepada penerima-penerima yang berbeda, sehingga kita perlu menghitung fungsi dari satu himpunan (tiket lotre) ke himpunan lain (cucu). Dalam contoh kita, yang dicari bukan sekadar jumlah seluruh fungsi, melainkan jumlah fungsi surjektif, agar kita dapat memastikan bahwa setiap cucu menerima tiket.
+    </p>
+
+    <p>Untuk bilangan bulat positif <m>n</m> dan <m>m</m>, misalkan <m>S(n,m)</m> menyatakan banyaknya fungsi surjektif dari <m>[n]</m> ke <m>[m]</m>. Perhatikan bahwa <m>S(n,m)=0</m> ketika <m>n\lt m</m>. Pada bagian ini, kita menerapkan formula Inklusi–Eksklusi untuk menentukan formula bagi <m>S(n,m)</m>. Kita mulai dengan menetapkan <m>X</m> sebagai himpunan semua fungsi dari <m>[n]</m> ke <m>[m]</m>. Selanjutnya, untuk setiap <m>f\in X</m> dan setiap <m>i=1,2,\dots,m</m>, kita katakan bahwa <m>f</m> memenuhi sifat <m>P_i</m> jika <m>i</m> tidak berada dalam citra <m>f</m>.
+    </p>
+
+    <lemma>
+        <statement>
+            <p>Untuk setiap himpunan bagian <m>S\subseteq [m]</m>, <m>N(S)</m> hanya bergantung pada <m>|S|</m>. Bahkan, jika <m>|S|=k</m>, maka
+            <md>
+                N(S)=(m-k)^n.
+            </md>
+            </p>
+        </statement>
+
+        <proof>
+            <p>Misalkan <m>|S|=k</m>. Maka, suatu fungsi <m>f</m> yang memenuhi sifat <m>P_i</m> untuk setiap <m>i\in S</m> merupakan string dengan panjang <m>n</m> atas suatu alfabet yang terdiri atas <m>m-k</m> huruf. Hal ini menunjukkan bahwa
+            <md>
+                N(S)=(m-k)^n.
+            </md>
+            </p>
+        </proof>
+    </lemma>
+    <p>Hasil berikut kini langsung diperoleh dari lemma ini dengan menerapkan <xref ref="thm_inclusion-exclusion" text="title"/>, karena terdapat <m>C(m,k)</m> himpunan bagian berunsur <m>k</m> dari <m>[m]</m>.
+    </p>
+
+    <theorem>
+        <statement>
+            <p>Banyaknya fungsi surjektif <m>S(n,m)</m> dari <m>[n]</m> ke <m>[m]</m> diberikan oleh:
+            <md>
+                S(n,m) = \sum_{k=0}^m (-1)^k\binom{m}{k}(m-k)^n.
+            </md>
+            </p>
+        </statement>
+    </theorem>
+
+    <p>
+        Sebagai contoh,
+        <md>
+            <mrow>  S(5,3) \amp = \binom{3}{0}(3-0)^5-\binom{3}{1}(3-1)^5+\binom{3}{2}(3-2)^5-\binom{3}{3}(3-3)^5</mrow>
+            <mrow>  \amp = 243 -96+3-0</mrow>
+            <mrow>  \amp = 150.</mrow>
+        </md>
+    </p>
+    <p>Kembali ke masalah pembagian tiket lotre pada awal bagian ini, kita melihat bahwa terdapat <m>S(15,4)=1016542800</m> cara bagi sang kakek untuk membagikan <m>15</m> tiket lotrenya sedemikian sehingga setiap satu dari <m>4</m> cucunya menerima sedikitnya satu tiket.
+    </p>
+</section>

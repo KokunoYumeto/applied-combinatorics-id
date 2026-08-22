@@ -1,0 +1,102 @@
+<section xml:id="s_flowapplications_chain-partition">
+    <title>Partisi Rantai</title>
+    <p>Dalam <xref ref="ch_posets"/>, kita membahas <xref ref="thm_dilworth" text="title"/>, yang menyatakan bahwa untuk setiap poset <m>\bfP</m> berlebar <m>w</m>, terdapat partisi <m>\bfP</m> menjadi <m>w</m> rantai, tetapi tidak menjadi lebih sedikit rantai. Namun, kita baru dapat menyusun algoritma untuk mencari partisi rantai ini (dan suatu antirantai maksimum) dalam kasus khusus ketika <m>\bfP</m> merupakan urutan interval. Sekarang, dengan bantuan aliran jaringan, kita dapat menyusun algoritma efisien yang berlaku secara umum bagi semua poset. Untuk melakukannya, kita memerlukan jaringan yang sedikit lebih rumit daripada jaringan pada bagian sebelumnya.<idx><h>partisi rantai</h></idx>
+    </p>
+
+    <p>Misalkan titik-titik poset <m>\bfP</m> adalah <m>\{x_1,x_2,\dots,x_n\}</m>. Kita membangun jaringan dari <m>\bfP</m> yang terdiri atas sumber <m>S</m>, muara <m>T</m>, serta dua titik <m>x'_i</m> dan <m>x''_i</m> untuk setiap titik <m>x_i</m> dalam <m>\bfP</m>. Semua sisi dalam jaringan kita berkapasitas <m>1</m>. Kita menambahkan sisi dari <m>S</m> ke <m>x'_i</m> untuk <m>1\leq i\leq n</m> dan dari <m>x''_i</m> ke <m>T</m> untuk <m>1\leq i\leq n</m>. Tentu saja, jaringan ini belum terlalu berguna karena tidak memiliki sisi dari simpul beraksen prima tunggal ke simpul beraksen prima ganda. Untuk mengatasinya, kita menambahkan sisi berarah dari <m>x'_i</m> ke <m>x''_j</m> jika dan hanya jika <m>x_i \lt x_j</m> dalam <m>\bfP</m>.
+    </p>
+
+    <p>Contoh yang kita gunakan sepanjang bagian ini adalah poset pada <xref ref="fig_flowapplications-poset"/>. Kita menyebut titik-titik poset sebagai <m>x_i</m>, dengan <m>i</m> angka yang tercetak di sebelah titik tersebut dalam diagram.
+    </p>
+    <figure>
+        <caption>Himpunan terurut parsial <xref ref="fig_flowapplications-poset" text="local"/> dan jaringan terkait <xref ref="fig_flowapplications-network" text="local"/>.</caption>
+        <sidebyside widths="27% 60%" valign="middle">
+            <figure xml:id="fig_flowapplications-poset">
+                <caption>Poset kecil</caption>
+                <image source="poset"><description><p>Poset kecil</p>
+                </description></image>
+            </figure>
+            <figure xml:id="fig_flowapplications-network">
+                <caption>Jaringan terkait</caption>
+                <image> <description><p>Jaringan terkait</p>
+                </description><latex-image>\begin{overpic}[angle=90,width=2.37in]{external/poset_network}
+            \put(48,-5){\(S\)}
+            \put(48,93){\(T\)}
+            \put(1,20){\(x_1'\)}
+            \put(94,20){\(x_{10}'\)}
+            \put(1,71){\(x_1''\)}
+            \put(94,71){\(x_{10}''\)}
+            \end{overpic}</latex-image>
+                </image>
+            </figure>
+        </sidebyside>
+    </figure>
+    
+    <p>Langkah pertama ialah membuat jaringan yang ditampilkan pada <xref ref="fig_flowapplications-network"/>. Dalam jaringan ini, semua kapasitas bernilai <m>1</m>, sisi-sisinya diarahkan dari bawah ke atas, baris pertama yang terdiri atas sepuluh simpul memuat <m>x'_i</m> secara berurutan dengan <m>x'_1</m> di sebelah kiri dan <m>x'_{10}</m> di sebelah kanan, sedangkan baris kedua yang juga terdiri atas sepuluh simpul memuat <m>x''_i</m> menurut urutan indeks yang meningkat. Untuk memahami pembentukan jaringan ini, perhatikan bahwa <m>x_1\lt x_3</m> dalam poset, sehingga terdapat sisi berarah <m>(x_1',x_3'')</m>. Demikian pula, <m>x_4</m> lebih kecil daripada <m>x_3</m>, <m>x_5</m>, dan <m>x_9</m> dalam poset, sehingga terdapat tiga sisi berarah yang keluar dari <m>x_4'</m> dalam jaringan. Sebagai contoh ketiga, karena <m>x_9</m> maksimal dalam poset, tidak ada sisi berarah yang keluar dari <m>x_9'</m>.
+    </p>
+
+    <p>Kita belum melihat cara mengubah aliran maksimum (atau potongan minimum) dalam jaringan yang baru dibangun menjadi partisi rantai minimum atau antirantai maksimum. Cara kerjanya akan lebih mudah dipahami setelah kita memperoleh aliran maksimum yang telah dipastikan. Alih-alih menjalankan algoritma pelabelan dari aliran nol, kita menaksir sebuah aliran, misalnya aliran pada <xref ref="fig_flowapplications_poset_network_flow"/>. (Sekali lagi, kita menggunakan konvensi bahwa sisi tebal penuh, sedangkan sisi tipis kosong.)
+    </p>
+    <figure xml:id="fig_flowapplications_poset_network_flow">
+        <caption>Aliran awal</caption>
+        <image width="70%">
+            <description><p>Aliran awal</p>
+        </description><latex-image>\begin{overpic}[angle=90,scale=0.75]{external/poset_network_flow}
+            \put(48,-5){\(S\)}
+            \put(48,93){\(T\)}
+            \put(1,20){\(x_1'\)}
+            \put(94,20){\(x_{10}'\)}
+            \put(1,71){\(x_1''\)}
+            \put(94,71){\(x_{10}''\)}
+            \end{overpic}</latex-image>
+        </image>
+    </figure>
+    <p>Ketika kita menjalankan algoritma pelabelan (dengan prioritas <m>S,T,x_1',\dots,x_{10}',x_1'',\dots,x_{10}''</m>), kita memperoleh daftar label berikut:
+    <md>
+        <mrow>  S:\quad \amp (*,+,\infty) \amp  x''_9:\quad \amp (x'_5,+,1) \amp  x'_4:\quad \amp (x''_5,-,1)</mrow>
+        <mrow>  x'_3:\quad \amp (S,+,1) \amp  x''_4:\quad \amp (x'_6,+,1) \amp x''_1:\quad \amp (x'_7,+,1)</mrow>
+        <mrow>  x'_5:\quad \amp (S,+,1)\amp  x''_5:\quad \amp (x'_6,+,1) \amp  x''_2:\quad \amp (x'_7,+,1)</mrow>
+        <mrow>  x'_6:\quad \amp (S,+,1)\amp  x'_1:\quad \amp (x''_3,-,1) \amp  x'_2:\quad \amp (x''_1,-,1)</mrow>
+        <mrow>  x'_9:\quad \amp (S,+,1)\amp  x'_8:\quad \amp (x''_9,-,1) \amp  T:\quad \amp (x''_2,+,1)</mrow>
+        <mrow>  x''_3:\quad \amp (x'_5,+,1) \amp  x'_7:\quad \amp (x''_4,-,1)  \amp</mrow>
+    </md>
+    Jadi, kita menemukan lintasan penambah <m>(S,x'_6,x''_4,x'_7,x''_2,T)</m>, dan aliran yang diperbarui dapat dilihat pada <xref ref="fig_flowapplications_poset_network_flow2"/>.
+    </p>
+    <figure xml:id="fig_flowapplications_poset_network_flow2">
+        <caption>Aliran yang lebih baik</caption>
+        <image width="70%">
+            <description><p>Aliran yang lebih baik</p>
+        </description><latex-image>\begin{overpic}[angle=90,scale=0.75]{external/poset_network_flow2}
+            \put(48,-5){\(S\)}
+            \put(48,93){\(T\)}
+            \put(1,20){\(x_1'\)}
+            \put(94,20){\(x_{10}'\)}
+            \put(1,71){\(x_1''\)}
+            \put(94,71){\(x_{10}''\)}
+
+            \end{overpic}</latex-image>
+        </image>
+    </figure>
+    <p>Jika algoritma pelabelan dijalankan lagi, algoritma memberikan label-label berikut dan membiarkan muara tanpa label.
+    <md>
+        <mrow>  S:\quad \amp  (*,+,\infty)\amp  x'_5:\quad \amp (S,+,1) \amp  x''_3:\quad
+        \amp (x'_5,+,1) \amp  x'_1:\quad \amp  (x''_3,-,1)</mrow>
+        <mrow>  x'_3:\quad \amp (S,+,1) \amp  x'_9:\quad \amp (S,+,1) \amp  x''_9:\quad \amp  (x'_5,+,1)
+        \amp  x'_8:\quad \amp (x''_9,-,1)</mrow>
+    </md>
+    Pada <xref ref="fig_flowapplications_poset_network_flow2"/>, simpul-simpul hitam adalah simpul yang diberi label pada pelaksanaan terakhir, sedangkan simpul-simpul emas tidak diberi label.
+    </p>
+
+    <p>Setelah membahas bagian yang sudah kita ketahui cara mengerjakannya, kita perlu menjelaskan cara menerjemahkan aliran dan potongan jaringan ini menjadi partisi rantai dan antirantai. Jika terdapat satu unit aliran pada sisi <m>(x_i',x_j'')</m>, naluri pertama yang baik ialah menempatkan <m>x_i</m> dan <m>x_j</m> dalam rantai yang sama pada suatu partisi rantai. Agar berhasil, tentu kita perlu memastikan cara ini tidak menempatkan dua titik yang tak terbandingkan dalam satu rantai. Untuk melihat bahwa semuanya berjalan sebagaimana mestinya, bayangkan kita mulai dari <m>(x_i',x_j'')</m>, lalu mencari aliran yang keluar dari <m>x_j'</m>. Jika ada, aliran itu menuju suatu simpul <m>x_k''</m>, sehingga kita dapat menambahkan <m>x_k</m> ke rantai karena <m>x_i\lt x_j\lt x_k</m>. Lanjutkan dengan cara ini sampai mencapai simpul jaringan yang tidak memiliki aliran keluar. Kemudian periksa apakah ada aliran yang masuk ke <m>x_i''</m>. Jika ada, aliran itu berasal dari simpul <m>x_m'</m>, yang dapat ditambahkan karena <m>x_m\lt x_i\lt x_j</m>.
+    </p>
+
+    <p>Mari kita lihat bagaimana penerapan proses ini pada aliran dalam <xref ref="fig_flowapplications_poset_network_flow2"/> menghasilkan partisi rantai. Jika kita mulai dari <m>x_1'</m>, terlihat bahwa <m>(x_1',x_3'')</m> penuh, sehingga kita menempatkan <m>x_1</m> dan <m>x_3</m> dalam rantai <m>C_1</m>. Karena tidak ada aliran yang keluar dari <m>x_3'</m>, tidak terdapat elemen yang lebih besar untuk ditambahkan ke rantai. Namun, <m>x_1''</m> menerima aliran dari <m>x_2'</m>, sehingga kita menambahkan <m>x_2</m> ke <m>C_1</m>. Selanjutnya terlihat bahwa <m>x_2''</m> menerima aliran dari <m>x_7'</m>, sehingga sekarang <m>C_1=\{x_1,x_2,x_3,x_7\}</m>. Tidak ada aliran yang masuk ke simpul <m>x_7''</m>, sehingga pembangunan rantai pertama berhenti. Simpul pertama yang belum ditempatkan dalam rantai adalah <m>x_4</m>. Karena <m>(x_4',x_5'')</m> penuh, kita menempatkan <m>x_4</m> dan <m>x_5</m> dalam rantai <m>C_2</m>. Kemudian kita memeriksa <m>x_5'</m> dan tidak menemukan aliran keluar. Namun, terdapat aliran yang masuk ke <m>x_4''</m> dari <m>x_6'</m>, sehingga <m>x_6</m> ditambahkan ke <m>C_2</m>. Tidak ada aliran yang masuk ke <m>x_6''</m>, sehingga <m>C_2=\{x_4,x_5,x_6\}</m>. Sekarang titik pertama yang belum berada dalam rantai adalah <m>x_8</m>, sehingga kita menggunakan aliran dari <m>x_8'</m> ke <m>x_9''</m> untuk menempatkan <m>x_8</m> dan <m>x_9</m> dalam rantai <m>C_3</m>. Sekali lagi, tidak ada aliran yang keluar dari <m>x_9'</m>, sehingga kita memeriksa <m>x_8''</m>, yang menerima aliran dari <m>x_{10}'</m>. Penambahan <m>x_{10}</m> ke <m>C_3</m> menghasilkan <m>C_3=\{x_8,x_9,x_{10}\}</m>. Karena setiap titik kini berada dalam suatu rantai, kita dapat berhenti.
+    </p>
+
+    <p>Meskipun kita telah melihat bahwa proses di atas memang menghasilkan partisi rantai, belum langsung jelas bahwa partisi tersebut merupakan partisi rantai minimum. Untuk membuktikannya, kita perlu menemukan antirantai dengan titik sebanyak jumlah rantai dalam partisi kita. (Dalam contoh yang kita gunakan, kita perlu menemukan antirantai dengan tiga elemen.) Di sinilah pencatatan simpul berlabel berguna. Misalkan kita telah menentukan rantai <m>C=\{x_1\lt x_2\lt \cdots \lt x_k\}</m> menggunakan aliran jaringan. Karena <m>x_1</m> merupakan elemen minimal rantai ini, tidak ada aliran yang masuk ke <m>x_1''</m>, sehingga tidak ada aliran yang keluar dari <m>x_1''</m>. Karena <m>T</m> tidak berlabel, hal ini berarti <m>x_1''</m> tidak berlabel. Demikian pula, <m>x_k</m> merupakan elemen maksimal dari <m>C</m>, sehingga tidak ada aliran yang keluar dari <m>x_k'</m>. Jadi, <m>x_k'</m> berlabel. Sekarang perhatikan barisan simpul
+    <md>
+        x_k',x_k'',x_{k-1}',x_{k-1}'',\dots,x_2',x_2'',x_1',x_1'',
+    </md>
+    pasti terdapat tempat terjadinya peralihan dari simpul berlabel ke simpul tidak berlabel. Peralihan ini harus terjadi dengan <m>x_i'</m> berlabel dan <m>x_i''</m> tidak berlabel. Untuk melihat alasannya, andaikan <m>x_i'</m> dan <m>x_i''</m> sama-sama tidak berlabel, sedangkan <m>x_{i+1}'</m> dan <m>x_{i+1}''</m> sama-sama berlabel. Karena <m>x_i</m> dan <m>x_{i+1}</m> berurutan dalam <m>C</m>, terdapat aliran pada <m>(x_i',x_{i+1}'')</m>. Oleh karena itu, pemindaian dari <m>x_{i+1}''</m> akan memberi label kepada simpul <m>x_i'</m>. Dari setiap rantai dalam partisi rantai, kita kemudian mengambil elemen pertama <m>y</m> yang memenuhi bahwa <m>y'</m> berlabel dan <m>y''</m> tidak berlabel untuk membentuk antirantai <m>A=\{y_1,\dots,y_w\}</m>. Untuk melihat bahwa <m>A</m> merupakan antirantai, perhatikan bahwa jika <m>y_i\lt y_j</m>, maka <m>(y_i',y_j'')</m> merupakan sisi dalam jaringan. Karena itu, pemindaian dari <m>y_i'</m> akan memberi label kepada <m>y_j''</m>. Dengan proses ini, kita menemukan bahwa antirantai maksimum dalam contoh kita adalah <m>\{x_1,x_5,x_8\}</m>.
+    </p>
+</section>

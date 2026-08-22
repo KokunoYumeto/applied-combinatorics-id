@@ -1,0 +1,489 @@
+<section xml:id="s_strings_lattice-paths-binomial-thm_activity" component="runestone-async">
+    <title>Kegiatan tentang Lintasan Kisi, Teorema Binomial, dan Teorema Multinomial</title>
+
+    <p>
+      Sebelum membahas bukti mengenai banyaknya lintasan kisi dari <m>(0,0)</m> ke <m>(n,n)</m> yang tidak melewati bagian atas diagonal <m>y=x</m> dalam <xref ref="exa_lattice-Catalan"/>, mari berlatih mencacah beberapa lintasan kisi dengan batasan tertentu.
+    </p>
+    <exercise label="strings_lattice-paths_buzz-bucky">
+      <introduction>
+        <p>
+          Kota Mascotville ditata seperti kisi. Terdapat tujuh jalan sejajar (jalan ke-<m>1</m> hingga ke-<m>7</m>) yang membentang dari utara ke selatan dan lima adimarga sejajar (adimarga ke-<m>1</m> hingga ke-<m>5</m>) yang membentang dari timur ke barat.
+        </p>
+      </introduction>
+      <task label="strings_lattice-paths_buzz-bucky-all">
+        <statement>
+          <p>
+            Buzz mulai di persimpangan Jalan ke-<m>1</m> dan Adimarga ke-<m>1</m>. Ia ingin mencapai liang Bucky di persimpangan Jalan ke-<m>7</m> dan Adimarga ke-<m>5</m>, dengan hanya menyusuri jalan atau adimarga dan selalu bergerak mendekati liang Bucky. Ada berapa cara untuk melakukannya?
+          </p>
+        </statement>
+        <choices>
+          <choice>
+            <statement>
+              <p>
+                <m>\displaystyle\binom{12}{7}</m>
+              </p>
+            </statement>
+          </choice>
+          <choice>
+            <statement>
+              <p>
+                <m>\displaystyle\binom{10}{5}</m>
+              </p>
+            </statement>
+          </choice>
+          <choice correct="yes">
+            <statement>
+              <p>
+                <m>\displaystyle\binom{10}{6}</m>
+              </p>
+            </statement>
+            <feedback>
+              <p>
+                Benar! Penting untuk diingat bahwa titik awal kita di sini adalah <m>(1,1)</m>.
+              </p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>
+                <m>2^{12}</m>
+              </p>
+            </statement>
+          </choice>
+          <choice>
+            <statement>
+              <p>
+                <m>2^{10}</m>
+              </p>
+            </statement>
+          </choice>
+        </choices>
+      </task>
+      <task label="strings_lattice-paths_buzz-bucky-varsity">
+        <statement>
+          <p>
+            The Varsity berada di persimpangan Jalan ke-<m>3</m> dan Adimarga ke-<m>3</m>. Ada berapa cara bagi Buzz untuk mencapai liang Bucky jika ia bersikeras mampir di The Varsity?
+          </p>
+        </statement>
+        <choices>
+          <choice>
+            <statement>
+              <p>
+                <m>\displaystyle\binom{4}{2} + \binom{6}{4}</m>
+              </p>
+            </statement>
+            <feedback>
+              <p>
+                Hampir benar, tetapi ingat bahwa Anda harus membuat semua pilihan yang diperlukan untuk menentukan sebuah lintasan kisi secara lengkap.
+              </p>
+            </feedback>
+          </choice>
+          <choice correct="yes">
+            <statement>
+              <p>
+                <m>\displaystyle\binom{4}{2} \binom{6}{4}</m>
+              </p>
+            </statement>
+            <feedback>
+              <p>
+                Benar! Setiap lintasan dari titik awal ke The Varsity dapat dilanjutkan dengan setiap lintasan dari The Varsity ke liang Bucky, sehingga kedua banyaknya cara harus dikalikan.
+              </p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p>
+                <m>\displaystyle\binom{10}{6}</m>
+              </p>
+            </statement>
+          </choice>
+          <choice>
+            <statement>
+              <p>
+                <m>2^{4} + 2^6</m>
+              </p>
+            </statement>
+          </choice>
+        </choices>
+      </task>
+      <task label="strings_lattice-paths_buzz-bucky-avoid">
+        <statement>
+          <p>
+            Andaikan Buzz sedang berdiet dan dilarang makan di The Varsity. Ia tahu bahwa jika melewatinya, ia akan berhenti untuk makan, sehingga ia harus menghindarinya sepenuhnya. Ada berapa lintasan menuju liang Bucky yang tidak melewati The Varsity?
+          </p>
+        </statement>
+        <choices>
+          <choice>
+            <statement>
+              <p>
+                <m>\displaystyle \binom{10}{6} - \binom{4}{2} -\binom{6}{4}</m>
+              </p>
+            </statement>
+          </choice>
+          <choice>
+            <statement>
+              <p>
+                <m>\displaystyle \binom{10}{6} \binom{4}{2} \binom{6}{4}</m>
+              </p>
+            </statement>
+          </choice>
+          <choice>
+            <statement>
+              <p>
+                <m>\displaystyle \binom{10}{6} + \binom{4}{2} \binom{6}{4}</m>
+              </p>
+            </statement>
+          </choice>
+          <choice correct="yes">
+            <statement>
+              <p>
+                <m>\displaystyle \binom{10}{6} - \binom{4}{2} \binom{6}{4}</m>
+              </p>
+            </statement>
+            <feedback>
+              <p>
+                Benar! Kita dapat menyelesaikannya dengan mencacah <em>semua</em> lintasan kisi, lalu mengurangi lintasan yang melibatkan godaan terlarang untuk mampir di The Varsity.
+              </p>
+            </feedback>
+          </choice>
+        </choices>
+      </task>
+    </exercise>
+    <p>
+      Anda <em>tidak</em> akan diuji mengenai bukti dalam <xref ref="exa_lattice-Catalan"/>, tetapi Anda diharapkan mengetahui bahwa banyaknya lintasan kisi dari <m>(0,0)</m> ke <m>(n,n)</m> yang tidak melewati bagian atas diagonal <m>y=x</m> dihitung oleh bilangan Catalan
+      <md>
+        C_n = \frac{1}{n+1}\binom{2n}{n}
+      </md>.
+      Bilangan Catalan akan muncul beberapa kali sepanjang sisa mata kuliah ini, bahkan sangat mungkin pada hari terakhir semester! Bukti tersebut memuat beberapa <em>metode</em> penting yang akan sering kita gunakan, dan metode-metode itu perlu disoroti:
+      <ol marker="1.">
+        <li>
+          <p>
+            Terkadang objek yang kita minati (lintasan kisi yang disebut <q>baik</q>) tampak sulit dicacah secara langsung. Namun, kita masih dapat mencacah semua objek dalam himpunan yang lebih besar (semua lintasan kisi dari <m>(0,0)</m> ke <m>(n,n)</m>), lalu mengurangi objek yang <em>tidak ingin kita cacah</em> (lintasan kisi <q>buruk</q>).
+          </p>
+        </li>
+        <li>
+          <p>
+            Terkadang objek yang kita minati (lintasan kisi <q>buruk</q>) sekilas tampak sulit dicacah, tetapi kita dapat mentransformasikannya secara bijektif menjadi kumpulan objek yang lebih mudah dicacah.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Ada baiknya kita meluangkan waktu untuk memahami definisi lintasan kisi <q>buruk</q> dan transformasi yang dijelaskan dalam buku. Berikut dua pertanyaan mengenai hal tersebut:
+    </p>
+    <exercise label="strings_PI_lattice-path-good-bad-activity">
+      <statement>
+        <p>
+          Lintasan kisi buruk <m>HHVVHVVHHVVH</m> dari <m>(0,0)</m> ke <m>(6,6)</m> menjadi buruk (melintasi diagonal) pada posisi
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>
+              5
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              7
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              11
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              Lintasan ini merupakan lintasan kisi yang baik
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    
+    <exercise label="strings_PI_lattice-path-transform-activity">
+      <statement>
+        <p>
+          Lintasan kisi buruk <m>HHVVHVVHHVVH</m> dari <m>(0,0)</m> ke <m>(6,6)</m> ditransformasikan menjadi lintasan manakah berikut ini dari <m>(0,0)</m> ke <m>(5,7)</m>?
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>
+              <m>HHVVHVHVVHHV</m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>HHVVHVVHHVVV</m>
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>HHVVHVVVVHHV</m>
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>VVHHVHHVVHHV</m>
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    <p>
+      Sekarang mari beralih ke beberapa pertanyaan yang menggunakan Teorema Binomial dan Teorema Multinomial.
+    </p>
+    <exercise label="strings_PI_binthm-activity">
+      <statement>
+        <p>
+           Koefisien <m>x^{7}y^{13}</m> dalam ekspansi <m>(2x-4y)^{20}</m> adalah
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+          <p>
+            <m>\displaystyle 2^{7}4^{13}\binom{20}{7}</m>
+          </p>
+        </statement>
+        </choice>
+
+        <choice>
+          <statement>
+          <p>
+            <m>\displaystyle\binom{20}{7}</m>
+          </p>
+        </statement>
+        </choice>
+
+        <choice>
+          <statement>
+          <p>
+            <m>\displaystyle 2^{7}\binom{20}{13}</m>
+          </p>
+        </statement>
+        </choice>
+
+        <choice correct="yes">
+          <statement>
+          <p>
+            <m>\displaystyle 2^{7}(-4)^{13}\binom{20}{13}</m>
+          </p>
+        </statement>
+        </choice>
+      </choices>
+
+    </exercise>
+    <exercise label="act-strings-rearrange">
+      <statement>
+        <p>
+           Ada berapa susunan ulang string APPLIEDCOMBINATORICSISTHEMOSTINTERESTINGBOOKEVER jika semua huruf harus digunakan? (Perhatikan bahwa terdapat beberapa petunjuk <em>di luar</em> kotak biru pada Runestone!)
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Panjang string tersebut adalah 48 karakter.
+        </p>
+      </hint>
+      <hint>          
+        <p>
+          Tabel frekuensi berikut mungkin berguna.
+        </p>
+          <tabular>
+            <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center" right="minor"> </col> <col halign="center"> </col>
+            
+
+            <row bottom="minor">
+              <cell>A</cell>
+              <cell>P</cell>
+              <cell>L</cell>
+              <cell>I</cell>
+              <cell>E</cell>
+              <cell>D</cell>
+              <cell>C</cell>
+              <cell>O</cell>
+              <cell>M</cell>
+            </row>
+
+            <row>
+              <cell>2</cell>
+              <cell>2</cell>
+              <cell>1</cell>
+              <cell>6</cell>
+              <cell>6</cell>
+              <cell>1</cell>
+              <cell>2</cell>
+              <cell>5</cell>
+              <cell>2</cell>
+            </row>
+
+            <row bottom="minor">
+              <cell>B</cell>
+              <cell>N</cell>
+              <cell>T</cell>
+              <cell>R</cell>
+              <cell>S</cell>
+              <cell>H</cell>
+              <cell>G</cell>
+              <cell>V</cell>
+              <cell>K</cell>
+            </row>
+
+
+            <row>
+              <cell>2</cell>
+              <cell>3</cell>
+              <cell>5</cell>
+              <cell>3</cell>
+              <cell>4</cell>
+              <cell>1</cell>
+              <cell>1</cell>
+              <cell>1</cell>
+              <cell>1</cell>
+            </row>
+          </tabular>
+      </hint>
+      <response/>
+    </exercise>
+    <p>
+      Salah satu hal menarik ketika memahami <xref ref="thm-strings-multinomial" text="title"/> adalah menentukan banyaknya suku dalam penjumlahan, sebab notasinya mungkin belum Anda kenal. Notasi <m>\displaystyle \sum_{k_1+k_2+\cdots+k_r=n}</m> berarti bahwa kita menjumlahkan untuk semua bilangan bulat <em>tak negatif</em> (yakni lebih besar daripada atau sama dengan 0) <m>k_1,k_2,\dots,k_r</m> sedemikian sehingga jumlah <m>k_1+k_2 + \cdots + k_r</m> <em>tepat</em> sama dengan <m>n</m>.
+    </p>
+    <exercise label="PI_strings_multinom_terms">
+      <statement>
+        <p>
+          Ada berapa suku berbeda dalam ekspansi <m>(x+y+z+w)^{17}</m>?
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+            <p>
+              17
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              18
+            </p>
+          </statement>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\displaystyle\binom{16}{3}</m>
+            </p>
+          </statement>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>\displaystyle\binom{20}{3}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Benar! Ini sebenarnya hanyalah distribusi map yang disamarkan. Di sini kita harus mendistribusikan <m>17</m> map (jumlah yang harus dicapai oleh semua eksponen) kepada empat penerima (banyaknya suku di dalam tanda kurung). Namun, kita memerlukan satu map tambahan untuk setiap eksponen agar eksponen boleh bernilai nol. Jadi, kita membicarakan 21 map dengan 20 celah dan membutuhkan 3 pemisah.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\displaystyle\binom{20}{4}</m>
+            </p>
+          </statement>
+        </choice>
+      </choices>
+    </exercise>
+    <p>
+      Untuk membantu Anda memeriksa jawaban pada tugas persiapan kelas, jawaban atas pertanyaan mengenai koefisien <m>x^{30}y^{80}z^{10}</m> dalam <m>(2x^{3}+y-z^{2})^{100}</m> haruslah <m>0</m>, sebab suku semacam itu tidak mungkin muncul. Suku tersebut memerlukan pangkat 5 pada <m>-z^2</m> dan pangkat 10 pada <m>2x^3</m>. Jumlah semua pangkat harus 100, sehingga pangkat pada <m>y</m> harus 85. Namun, suku yang ditanyakan memuat <m>y^{80}</m>.
+    </p>
+    <exercise label="PI_strings-multinom-coeff">
+      <statement>
+        <p>
+          Berapakah koefisien <m>x^{3}y^{15}z^{8}</m> dalam ekspansi <m>(x + 3y + 2z^{2})^{22}</m>?
+        </p>
+      </statement>
+      <choices>
+        <choice>
+          <statement>
+          <p>
+            <m>\binom{22}{3, 15, 8}</m>
+          </p>
+        </statement>
+        </choice>
+
+        <choice correct="yes">
+          <statement>
+          <p>
+            <m>3^{15}2^{4} \binom{22}{3,15,4}</m>
+          </p>
+        </statement>
+        </choice>
+
+        <choice>
+          <statement>
+          <p>
+            <m>3^{15}2^{8}\binom{26}{3, 15, 8}</m>
+          </p>
+        </statement>
+        </choice>
+
+        <choice>
+          <statement>
+          <p>
+            Tidak terdapat suku semacam itu (jadi koefisiennya adalah <m>0</m>)
+          </p>
+        </statement>
+        </choice>
+      </choices>
+    </exercise>
+    <exercise label="act-strings_multinomial_find-coeff">
+      <statement>
+        <p>
+          Perhatikan ekspansi <m>(3+x^{5}+y+xy^{3})^{50}</m>. Tentukan koefisien setiap suku berikut.
+          <ol marker="a.">
+  <li>
+    <p>
+      <m>x^{30}y^{4}</m>
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <m>x^{3}y^{3}</m>
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <m>x^{30}y^{15}</m>
+    </p>
+  </li>
+</ol>
+        </p>
+      </statement>
+      <response/>
+      
+    </exercise>  
+  
+
+</section>
