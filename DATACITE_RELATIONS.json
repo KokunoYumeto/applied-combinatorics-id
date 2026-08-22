@@ -4,10 +4,10 @@
   "language": "id",
   "language_bcp47": "id-ID",
   "language_concept_doi": "10.5281/zenodo.22058531",
-  "exact_version_doi": "10.5281/zenodo.22059672",
+  "exact_version_doi": "10.5281/zenodo.22062005",
   "relations": [
     {
-      "from": "10.5281/zenodo.22059672",
+      "from": "10.5281/zenodo.22062005",
       "relationType": "IsVersionOf",
       "to": "10.5281/zenodo.22058531"
     },
@@ -18,7 +18,7 @@
       "relatedMetadataScheme": "URL"
     },
     {
-      "from": "10.5281/zenodo.22059672",
+      "from": "10.5281/zenodo.22062005",
       "relationType": "IsSupplementedBy",
       "to": "https://github.com/KokunoYumeto/applied-combinatorics-id",
       "relatedMetadataScheme": "URL"

@@ -37,7 +37,7 @@
     </exercise>
     <exercise>
         <statement>
-            <p>Sebuah graf acak dengan himpunan verteks <m>\{1,2,\dots,10\}</m> dibangun menggunakan metode berikut. Untuk setiap himpunan bagian dua elemen <m>\{i,j\}</m> dari <m>\{1,2,\dots,10\}</m>, sebuah koin seimbang dilempar; sisi <m>\{i,j\}</m> menjadi bagian dari graf jika hasil lemparannya <q>sisi angka.</q> Untuk setiap himpunan bagian <m>3</m>-elemen <m>S\subseteq\{1,2,\dots,10\}</m>, misalkan <m>E_S</m> merupakan kejadian bahwa <m>S</m> adalah subgraf lengkap dalam graf acak tersebut.
+            <p>Sebuah graf acak dengan himpunan simpul <m>\{1,2,\dots,10\}</m> dibangun menggunakan metode berikut. Untuk setiap himpunan bagian dua elemen <m>\{i,j\}</m> dari <m>\{1,2,\dots,10\}</m>, sebuah koin seimbang dilempar; sisi <m>\{i,j\}</m> menjadi bagian dari graf jika hasil lemparannya <q>sisi angka.</q> Untuk setiap himpunan bagian <m>3</m>-elemen <m>S\subseteq\{1,2,\dots,10\}</m>, misalkan <m>E_S</m> merupakan kejadian bahwa <m>S</m> adalah subgraf lengkap dalam graf acak tersebut.
                   <ol>
                 <li><p>Jelaskan mengapa <m>P(E_S)= 1/8</m> untuk setiap himpunan bagian <m>3</m>-elemen <m>S</m>.</p></li>
                 <li><p>Jelaskan mengapa <m>E_S</m> dan <m>E_T</m> saling bebas apabila <m>|S\cap T|\le 1</m>.</p></li>

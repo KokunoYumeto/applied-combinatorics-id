@@ -1054,10 +1054,10 @@
     "order_equal": true,
     "target_inventory": [
       {
-        "bytes": 23235,
+        "bytes": 23379,
         "order": 1,
         "path": "source/source/main.ptx",
-        "sha256": "3b3c84580ae441f0e4e72143578f55a503be7221533652c739be4e7702d78d40"
+        "sha256": "d328aad0e85f80e4d0b6a795655b91a52f67064e75e84d299962958fb8ce9fb8"
       },
       {
         "bytes": 2591,
@@ -1702,10 +1702,10 @@
         "sha256": "0f3b18c5a64d823efcf3b2ea44d9d8f84e74a19f55abe1bb7e45613779732570"
       },
       {
-        "bytes": 5987,
+        "bytes": 5986,
         "order": 109,
         "path": "source/source/s_probability_exercises.ptx",
-        "sha256": "f52c55aa0bbcfc133f9510801e02940d2bd283ddbb2718411cf5aa927f8ac318"
+        "sha256": "c82b325e7339b2064fb6916a84503052ba33f91488e9053aa0df11b502c74a1e"
       },
       {
         "bytes": 6818,
@@ -1882,10 +1882,10 @@
         "sha256": "ec6ab2414ac60140362e7136d3809d5dc91552d1d2aa8ff43ad0cff03aaa1a07"
       },
       {
-        "bytes": 11257,
+        "bytes": 11252,
         "order": 139,
         "path": "source/source/s_polya_perm-groups.ptx",
-        "sha256": "303cebe086b3bac69cdf07c2003d6c75e1194517e1de0b0cf348715e841a49ac"
+        "sha256": "419caec5bd0d810a2cb13d38ea05bca2b2005a236496d7a82e0e92e72118a9ca"
       },
       {
         "bytes": 6082,
@@ -1900,16 +1900,16 @@
         "sha256": "7d1570a5b13a86ce458970637477e20f80a839a711388cf6b0eb0658f0239032"
       },
       {
-        "bytes": 21164,
+        "bytes": 21143,
         "order": 142,
         "path": "source/source/s_polya_apps.ptx",
-        "sha256": "9b2d45d67dde8ce1fdd191f4fc03a13b0d1910361e016a61bc6d6f0a3f926e0b"
+        "sha256": "937b830d56bd7432d20b6ccba95fe489a4d97b7775914409f5a90aac7099a931"
       },
       {
-        "bytes": 11482,
+        "bytes": 11479,
         "order": 143,
         "path": "source/source/s_polya_exercises.ptx",
-        "sha256": "fbfc7137bfcbc34d73b5f61761dcc8efb74bd4c5933b768e97dbe70f08f23d5b"
+        "sha256": "ae97abab56982ea79545cd35c47ed7682207c1a63115bd0536a03a5c3f7e6672"
       },
       {
         "bytes": 610,
@@ -2098,7 +2098,7 @@
         "sha256": "6df02f6e37935e592638c411262278fad0018438f44d5373fce4812fdafcc7f0"
       }
     ],
-    "target_inventory_sha256": "9d64f4cd0d59ee43007b106573ba3b64036f736b89030156b9825a95c6620186",
+    "target_inventory_sha256": "0bfc96ce3964aba07e2fe5aae034201c86403c948be39f20b176e2872d7124f8",
     "target_xml_file_count": 174,
     "text_include_count": 0
   },
@@ -4930,9 +4930,9 @@
   "controlling_inputs": {
     "files": [
       {
-        "bytes": 15942,
+        "bytes": 19393,
         "path": "backend/config.json",
-        "sha256": "bc933635906724600e95781acbd2b377bd72445df8c54b57964b7b62a3db12f7"
+        "sha256": "cf6191bf6c6152c204d902c5f9f2287a5175c930823ac742ea62d92408ab25c3"
       },
       {
         "bytes": 235087,
@@ -4955,9 +4955,9 @@
         "sha256": "d54d5609e934c3f9f1ebd8dbbfee1f0f199f15936d2b34c94dae6da52e642352"
       },
       {
-        "bytes": 1776,
+        "bytes": 5205,
         "path": "00_control/CURRENT_CURSOR.json",
-        "sha256": "d8b00af0375cefd1039372a8760c2f21befbca8c4d2f2766bbe3377e4dc977f4"
+        "sha256": "2bbbcab09cbb4eae2a06a743dae8108062a39e7c0bd43ebac034aecf5bfbdf29"
       },
       {
         "bytes": 175467,
@@ -4965,14 +4965,14 @@
         "sha256": "eb1fc15cb40e085952b3dd696f6a3eee020d693e418c7a1f7f011d6b3800bc90"
       },
       {
-        "bytes": 150449,
+        "bytes": 150850,
         "path": "00_control/TERMINOLOGY.csv",
-        "sha256": "ff51ca708eb0587c2540a0698fcd7d4e5edd4ebf160a52ec36d9fd08a11768e7"
+        "sha256": "d2d09545a2d5ef5409d88af51da807b9c7270613309577281f5ff4e53168f121"
       },
       {
-        "bytes": 5304,
+        "bytes": 5340,
         "path": "00_control/COMPONENT_RIGHTS.csv",
-        "sha256": "636db15d54a29b7f8afb167e1ba3c63463d0c18bb4e7d9cb9c3e7ca3c29e011f"
+        "sha256": "31fd1c8b5420f612e7340bfb74c77c2f6c7b72f065db9dfdc454cd97dad777e7"
       },
       {
         "bytes": 43771,
@@ -4980,8 +4980,8 @@
         "sha256": "f5b47eba51ef843a8dc2fd6fdd26c9dd3bac46658689680edc8d384c8816614d"
       }
     ],
-    "manifest_sha256": "7e600c1603e364186020fee81930243e5a510ec80e31f57845b5e6faf116bf41",
-    "protected_math_qa_witness_manifest_sha256": "1e0f637160a2354d7c7efc998afcc3b508879b83968e91caf117fbf57a427414",
+    "manifest_sha256": "9e5e8cdee3373f95469b594e9af1e31f5a7d1889137a933b8ed7a6de9cca29d8",
+    "protected_math_qa_witness_manifest_sha256": "6eefa7c830bcda47ecfd7ea18c0d8f47d5d32acd76f7cebac7deef53528dc4b2",
     "protected_math_qa_witnesses": [
       {
         "bytes": 82960,
@@ -5196,17 +5196,17 @@
       {
         "bytes": 45107,
         "path": "qa/POLYA_APPLICATIONS_MODULE_QA_20260822.json",
-        "sha256": "e261d75c88ebc23b0f9c37149993af2bb02f5ad736721375ec77b1df7492334a"
+        "sha256": "d425bac4a8563c6d821679fa2e14db3204a01ff14f4160f1a9f745bef8ab207a"
       },
       {
         "bytes": 31523,
         "path": "qa/POLYA_EXERCISES_MODULE_QA_20260822.json",
-        "sha256": "8b522302d4ac7446eee1d1179a853be8c0a54dcd75c220658e1a4dad416ec332"
+        "sha256": "6c36ae5edf002a50507049fce7fec89f45d580f9ec05e28e63dd42ee8b73c9ec"
       },
       {
         "bytes": 36479,
         "path": "qa/POLYA_PERM_GROUPS_MODULE_QA_20260822.json",
-        "sha256": "1db92e5d64e6f91d2335657431b1bfd9ae30f1e4df2feed4ebc5a3416a11bc77"
+        "sha256": "1d80b61145c8e9bb3fc0e13e9426a40bc986a5d4d041e9e8a3ec594729c4ed26"
       },
       {
         "bytes": 39402,
@@ -5266,7 +5266,7 @@
       {
         "bytes": 26313,
         "path": "qa/PROBABILITY_EXERCISES_MODULE_QA_20260822.json",
-        "sha256": "4e69053e085bbc666654bd26b8114e5489e80d74436fcba8d84a1a359321f66a"
+        "sha256": "427a971c0086cd749f1fd38ca78334cd4fc952657e45aabbb4a4105dff756566"
       },
       {
         "bytes": 21600,
@@ -5433,7 +5433,7 @@
   },
   "receipt_identity": {
     "canonical_payload_bytes": 177512,
-    "canonical_payload_sha256": "70aed51b62c40f2d4c72e351c930af4fba22b539881039931eeecb22fca4a9bb",
+    "canonical_payload_sha256": "bb4825e4aa45f31c1a837ff47809a14fb69694ced49ca29b87ad101d2f14902c",
     "hash_scheme": "sha256 of canonical UTF-8 JSON with receipt_identity omitted",
     "path": "qa/FULL_CORPUS_CLOSEOUT_QA_20260822.json"
   },

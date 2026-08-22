@@ -1,0 +1,93 @@
+{
+  "schema": "r012.final-rights-publication-readiness",
+  "schema_version": "1.2.0",
+  "evidence_date": "2026-08-22",
+  "result": "pass",
+  "release_ready": true,
+  "publication_blocker_component_ids": [],
+  "release_reader": {
+    "bytes": 287651617,
+    "files": 1500,
+    "manifest_sha256": "db6a9dce25c27a2a858e9ce6148528f8c9c05279c0b03966a9d7b2e9cf4a319e",
+    "path": "source/output/html-public-2026.08.22.2"
+  },
+  "evidence": [
+    {
+      "role": "primary runtime/source/license closure",
+      "path": "qa/RUNESTONE_RIGHTS_REMOTE_CLOSURE_20260822.json",
+      "bytes": 30572,
+      "sha256": "9c234734a2806729b468f86389c1e6291aec4b2c71b35b839227e9a0262add94",
+      "result": "historical blocker correctly identified"
+    },
+    {
+      "role": "open-runtime pruning and exact release-copy closure",
+      "path": "qa/RUNESTONE_OPEN_RUNTIME_RELEASE_COPY_20260822_2.json",
+      "bytes": 18916,
+      "sha256": "6a124b8d51899a156e55e50a28091f9430f08c28e51a6165bf62a5a48e0b3298",
+      "result": "pass"
+    },
+    {
+      "role": "DOI/source/coverage/provenance metadata addition and emitted Jobe client-identifier sanitization",
+      "path": "qa/HTML_RELEASE_METADATA_INJECTION_20260822_2.json",
+      "bytes": 6165,
+      "sha256": "40d6316ac3c60ba74f5de99a30e6a8e02c550a33086244d49ed86babc5c8874a",
+      "result": "pass"
+    },
+    {
+      "role": "final public reader visual/request/console closure",
+      "path": "qa/FINAL_PUBLIC_HTML_BROWSER_QA_20260822_2.json",
+      "bytes": 3864,
+      "sha256": "0f8aa01d6bfe85bc533ed214ba921adbf6827c60f8ee48476e1e0bc958a8cbf7",
+      "result": "pass"
+    },
+    {
+      "role": "licenses, notices, and corresponding source",
+      "path": "qa/RIGHTS_NOTICE_SOURCE_PACKAGE_QA_20260822_2.json",
+      "bytes": 6212,
+      "sha256": "cad898145f8c0928efbde2d6e78cc87bc8631fc7cd2b03205d16677687774673",
+      "result": "pass"
+    }
+  ],
+  "rights_and_corresponding_source": {
+    "path": "release/rights-and-corresponding-source",
+    "files_including_inventory": 45,
+    "bytes_including_inventory": 23395318,
+    "inventory_path": "release/rights-and-corresponding-source/FILE-INVENTORY.tsv",
+    "inventory_records_excluding_self": 44,
+    "inventory_bytes": 5406,
+    "inventory_sha256": "ba0272f22eb782ff5efa2d0146e29a5540398273246348e12a1bfdd54192e6ce",
+    "gaps": []
+  },
+  "runtime_exclusions": {
+    "handsontable_chunk_family_249": {
+      "bytes": 9267918,
+      "count": 10
+    },
+    "datafile_chunk_family_580": {
+      "bytes": 14254,
+      "count": 8
+    },
+    "orphan_sql_wasm": {
+      "bytes": 1183841,
+      "count": 1
+    },
+    "stale_runestone_8_2_6_files": 51,
+    "appledouble_sidecars": 272,
+    "emitted_jobe_client_identifier_occurrences": 0,
+    "emitted_USE_API_KEY_enabled_assignments": 0,
+    "final_browser_requests_for_disabled_chunk_717": 0,
+    "final_browser_forbidden_request_count": 0,
+    "final_browser_server_error_5xx_count": 0
+  },
+  "retained_rights": {
+    "book": "CC BY-SA 4.0 with both authors, change notice, ShareAlike, and nonendorsement preserved",
+    "pretext": "GPLv3, exact COPYING/core source, Indonesian read-aloud source/patch, and jQuery MIT preserved",
+    "runestone": "GPLv3, exact LICENSE, pinned bccfe5e7 source archive, lock/config/build evidence, and pruning/sanitization patch source preserved",
+    "third_party": "68 retained open-license packages conservatively noticed: 50 BSD-3-Clause, 13 MIT, 2 ISC, 1 0BSD, 1 Public Domain, 1 BSD-or-MIT"
+  },
+  "limitations": [
+    "The Runestone source snapshot is commit-pinned and complete, but a bit-for-bit rebuild of the 8.2.7 distribution is not claimed.",
+    "The 68-package notice set deliberately errs toward inclusion; sql.js remains noticed although the final executable WASM payload is removed.",
+    "The package inventory excludes only FILE-INVENTORY.tsv itself; the external QA receipt records that manifest's bytes and SHA-256."
+  ]
+}

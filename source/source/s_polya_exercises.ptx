@@ -93,7 +93,7 @@
     </exercise>
     <exercise>
         <statement>
-            <p>Gambarkan tiga graf tak isomorfik pada empat verteks yang mempunyai <m>3</m> sisi dan dua graf tak isomorfik pada empat verteks yang mempunyai <m>4</m> sisi.</p>
+            <p>Gambarkan tiga graf tak isomorfik pada empat simpul yang mempunyai <m>3</m> sisi dan dua graf tak isomorfik pada empat simpul yang mempunyai <m>4</m> sisi.</p>
         </statement>
     </exercise>
     <exercise>
@@ -101,7 +101,7 @@
             <p>
                <ol>
                     <li xml:id="ex_polya_graphs5-pt1"><p>Gunakan metode dalam <xref ref="ss_polya_graphs"/> untuk menentukan indeks siklus grup pasangan <m>S_5^{(2)}</m> dari grup simetris pada lima elemen.</p></li>
-                    <li><p>Gunakan indeks siklus dari <xref ref="ex_polya_graphs5-pt1"/> untuk menentukan banyak graf tak isomorfik pada lima verteks. Berapa banyak di antaranya yang mempunyai <m>6</m> sisi?</p></li>
+                    <li><p>Gunakan indeks siklus dari <xref ref="ex_polya_graphs5-pt1"/> untuk menentukan banyak graf tak isomorfik pada lima simpul. Berapa banyak di antaranya yang mempunyai <m>6</m> sisi?</p></li>
                </ol>
             </p>
         </statement>

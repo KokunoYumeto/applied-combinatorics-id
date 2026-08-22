@@ -36,8 +36,8 @@
     "controlling_files": [
       {
         "path": "00_control/CURRENT_CURSOR.json",
-        "bytes": 3913,
-        "sha256": "c6a73f1a66abdc4b67abf961b8681269d30c448d4b19f450bc701ab9ecda9e64"
+        "bytes": 5205,
+        "sha256": "2bbbcab09cbb4eae2a06a743dae8108062a39e7c0bd43ebac034aecf5bfbdf29"
       },
       {
         "path": "backend/translation_boundaries.json",
@@ -51,7 +51,7 @@
       }
     ],
     "qa_witness_count": 70,
-    "qa_witness_manifest_sha256": "1e0f637160a2354d7c7efc998afcc3b508879b83968e91caf117fbf57a427414",
+    "qa_witness_manifest_sha256": "6eefa7c830bcda47ecfd7ea18c0d8f47d5d32acd76f7cebac7deef53528dc4b2",
     "qa_witnesses": [
       {
         "path": "qa/BACKGROUND_APPENDIX_ASSIGNED_MODULES_QA_20260822.json",
@@ -266,17 +266,17 @@
       {
         "path": "qa/POLYA_APPLICATIONS_MODULE_QA_20260822.json",
         "bytes": 45107,
-        "sha256": "e261d75c88ebc23b0f9c37149993af2bb02f5ad736721375ec77b1df7492334a"
+        "sha256": "d425bac4a8563c6d821679fa2e14db3204a01ff14f4160f1a9f745bef8ab207a"
       },
       {
         "path": "qa/POLYA_EXERCISES_MODULE_QA_20260822.json",
         "bytes": 31523,
-        "sha256": "8b522302d4ac7446eee1d1179a853be8c0a54dcd75c220658e1a4dad416ec332"
+        "sha256": "6c36ae5edf002a50507049fce7fec89f45d580f9ec05e28e63dd42ee8b73c9ec"
       },
       {
         "path": "qa/POLYA_PERM_GROUPS_MODULE_QA_20260822.json",
         "bytes": 36479,
-        "sha256": "1db92e5d64e6f91d2335657431b1bfd9ae30f1e4df2feed4ebc5a3416a11bc77"
+        "sha256": "1d80b61145c8e9bb3fc0e13e9426a40bc986a5d4d041e9e8a3ec594729c4ed26"
       },
       {
         "path": "qa/POLYA_THEOREM_MODULE_QA_20260822.json",
@@ -336,7 +336,7 @@
       {
         "path": "qa/PROBABILITY_EXERCISES_MODULE_QA_20260822.json",
         "bytes": 26313,
-        "sha256": "4e69053e085bbc666654bd26b8114e5489e80d74436fcba8d84a1a359321f66a"
+        "sha256": "427a971c0086cd749f1fd38ca78334cd4fc952657e45aabbb4a4105dff756566"
       },
       {
         "path": "qa/PROBABILITY_INFINITE_OUTCOMES_MODULE_QA_20260822.json",
@@ -436,9 +436,33 @@
     "network_used": false
   },
   "maintenance_context": {
-    "reason": "Refresh exact cursor byte/hash binding after publication-state updates that did not alter translation, protected mathematics, correction controls, boundaries, or module QA witnesses.",
+    "reason": "Indonesian field-terminology QA refined lexical wording in four translated modules, and exact model-provenance disclosures were added. These maintenance edits did not alter protected mathematical structure, formulas, identifiers, cross-references, or admitted protected-math deltas.",
+    "terminology_and_provenance_changed": true,
+    "protected_mathematics_changed": false,
+    "terminology_change": {
+      "replaced_term": "verteks",
+      "preferred_term": "simpul",
+      "replacement_count": 35,
+      "remaining_deprecated_term_occurrences": 0,
+      "translated_module_count": 4
+    },
+    "terminology_qa_witness": {
+      "path": "qa/TERMINOLOGY_QA_INDONESIAN_FIELD_SOURCE_20260822.json",
+      "bytes": 10846,
+      "sha256": "2767f7ac905584f146c1f7ccb91a247eddebd00ce01b6381109fb03760c7aa1c"
+    },
+    "module_qa_bindings_refreshed": true,
+    "module_qa_witness_count": 70,
+    "changed_module_qa_witnesses": [
+      "qa/POLYA_APPLICATIONS_MODULE_QA_20260822.json",
+      "qa/POLYA_EXERCISES_MODULE_QA_20260822.json",
+      "qa/POLYA_PERM_GROUPS_MODULE_QA_20260822.json",
+      "qa/PROBABILITY_EXERCISES_MODULE_QA_20260822.json"
+    ],
+    "prior_qa_witness_manifest_sha256": "1e0f637160a2354d7c7efc998afcc3b508879b83968e91caf117fbf57a427414",
+    "refreshed_qa_witness_manifest_sha256": "6eefa7c830bcda47ecfd7ea18c0d8f47d5d32acd76f7cebac7deef53528dc4b2",
     "source_witness": "qa/PROTECTED_MATH_DELTAS_AUDIT_20260822.json",
     "source_witness_sha256": "0022e59d711821aa4013e4cd04e873f87330292b1a1d1447cf0da004467ec88f",
-    "protected_math_recomputed_by_exporter_and_validator": true
+    "required_follow_up": "Replay the canonical exporter and validator; both independently recompute protected topology and delta closure against this refreshed witness."
   }
 }

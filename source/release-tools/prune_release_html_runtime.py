@@ -10,6 +10,7 @@ copy is created only when the reference scan is empty.
 from __future__ import annotations
 
 import argparse
+import csv
 import gzip
 import hashlib
 import json
@@ -26,6 +27,9 @@ from urllib.parse import unquote, urlsplit
 LANE_ROOT = Path(__file__).resolve().parent.parent
 CANONICAL_HTML = (LANE_ROOT / "source" / "output" / "html").resolve()
 BACKEND_CONFIG = LANE_ROOT / "backend" / "config.json"
+PINNED_RIGHTS_WITNESS = LANE_ROOT / "qa" / "RUNESTONE_RIGHTS_REMOTE_CLOSURE_20260822.json"
+PINNED_RIGHTS_WITNESS_BYTES = 30_572
+PINNED_RIGHTS_WITNESS_SHA256 = "9c234734a2806729b468f86389c1e6291aec4b2c71b35b839227e9a0262add94"
 STATIC_DIRNAME = "_static"
 HASH_TOKEN_RE = re.compile(r"^[0-9a-f]{12,64}$")
 RUNTIME_JS = "prefix-runtime.7d3f08d51c2b60f8.bundle.js"
@@ -137,23 +141,20 @@ def ensure_beneath(path: Path, root: Path, label: str) -> Path:
 
 
 def load_witness() -> tuple[dict[str, Any], Path, bytes]:
-    config = json.loads(BACKEND_CONFIG.read_text(encoding="utf-8"))
-    witness_rel = config.get("rights_qa_witness")
-    if not isinstance(witness_rel, str) or not witness_rel:
-        raise PruningError("Backend config lacks rights_qa_witness")
-    witness_path = ensure_beneath(LANE_ROOT / witness_rel, LANE_ROOT, "rights witness")
+    witness_path = ensure_beneath(PINNED_RIGHTS_WITNESS, LANE_ROOT, "rights witness")
+    witness_rel = witness_path.relative_to(LANE_ROOT).as_posix()
     raw = witness_path.read_bytes()
     if (
-        len(raw) != config.get("rights_qa_witness_bytes")
-        or sha256_bytes(raw) != config.get("rights_qa_witness_sha256")
+        len(raw) != PINNED_RIGHTS_WITNESS_BYTES
+        or sha256_bytes(raw) != PINNED_RIGHTS_WITNESS_SHA256
     ):
-        raise PruningError("Rights witness fails the backend config's exact size/SHA-256 gate")
+        raise PruningError("Pinned rights witness fails its exact size/SHA-256 gate")
     try:
         witness = json.loads(raw.decode("utf-8"))
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise PruningError("Rights witness is not valid UTF-8 JSON") from exc
     if witness.get("artifact", {}).get("path") != witness_rel:
-        raise PruningError("Rights witness self-identity differs from backend config")
+        raise PruningError("Pinned rights witness self-identity differs")
     if not any(
         isinstance(row, dict)
         and row.get("blocker") == "Handsontable 7.2.2 restrictive license"
@@ -775,7 +776,7 @@ def copy_without_removals(
         raise
 
     return {
-        "destination": str(destination),
+        "destination": destination.relative_to(LANE_ROOT).as_posix(),
         "files": len(actual_records),
         "bytes": sum(int(row["bytes"]) for row in actual_records),
         "manifest_sha256": manifest_sha256(actual_records),
@@ -830,9 +831,19 @@ def main() -> int:
     witness, witness_path, witness_raw = load_witness()
     component_rights_path = LANE_ROOT / "00_control" / "COMPONENT_RIGHTS.csv"
     component_rights_raw = component_rights_path.read_bytes()
-    for required in (b"R012-RUNESTONE,", b"R012-RUNESTONE-3P,", b"publication_blocker"):
+    for required in (b"R012-RUNESTONE,", b"R012-RUNESTONE-3P,"):
         if required not in component_rights_raw:
             raise PruningError(f"Component-rights control lacks required marker: {required!r}")
+    component_rows = {
+        row["component_id"]: row
+        for row in csv.DictReader(component_rights_raw.decode("utf-8-sig").splitlines())
+    }
+    for component_id in ("R012-RUNESTONE", "R012-RUNESTONE-3P"):
+        status = component_rows.get(component_id, {}).get("status")
+        if status not in {"publication_blocker", "release_ready"}:
+            raise PruningError(
+                f"Component-rights control has an unexpected {component_id} status: {status!r}"
+            )
     source_before = source_snapshot(source)
     removals, removal_summary = build_removal_set(source, witness)
     replacements, patch_summary = build_replacements(source / STATIC_DIRNAME)
@@ -883,7 +894,7 @@ def main() -> int:
         "schema": "r012.release-runtime-open-remediation",
         "schema_version": "2.0.0",
         "evidence_date": "2026-08-22",
-        "source": str(source),
+        "source": source.relative_to(LANE_ROOT).as_posix(),
         "source_files": source_before["count"],
         "source_bytes": source_before["bytes"],
         "source_manifest_sha256": source_before["manifest_sha256"],
@@ -895,8 +906,8 @@ def main() -> int:
         "component_rights_control_bytes": len(component_rights_raw),
         "component_rights_control_sha256": sha256_bytes(component_rights_raw),
         "component_rights_disposition": {
-            "current_status": "Keep R012-RUNESTONE and R012-RUNESTONE-3P at publication_blocker while the canonical/final build still contains the unpruned distribution and until notices, source, release-copy, and browser gates pass.",
-            "admission_condition": "Only a final release-copy receipt proving this exact transform plus complete notices/corresponding source and browser request/console QA can clear the Handsontable-specific blocker.",
+            "current_status": "R012-RUNESTONE and R012-RUNESTONE-3P may already be release_ready from the prior verified release; this maintenance run replays the same fail-closed runtime transform against the rebuilt canonical tree.",
+            "admission_condition": "The maintenance release remains gated on a new exact release-copy receipt, complete notices/corresponding source, and browser request/console QA.",
             "control_file_mutated_by_this_check": False,
         },
         "removal_summary": removal_summary,
@@ -944,8 +955,8 @@ def main() -> int:
         },
         "exact_next_commands": [
             "python scripts/prune_release_html_runtime.py --check-only --receipt qa/RUNESTONE_OPEN_RUNTIME_REMEDIATION_20260822.json",
-            "python scripts/prune_release_html_runtime.py --destination source/output/html-open-release-20260822 --receipt qa/RUNESTONE_OPEN_RUNTIME_RELEASE_COPY_20260822.json",
-            "python -m http.server 8765 --directory source/output/html-open-release-20260822",
+            "python scripts/prune_release_html_runtime.py --destination source/output/html-open-release-20260822-2 --receipt qa/RUNESTONE_OPEN_RUNTIME_RELEASE_COPY_20260822_2.json",
+            "python -m http.server 8765 --directory source/output/html-open-release-20260822-2",
         ],
         "remaining_release_gates": [
             "Rerun the first command against the final HTML build; any changed runtime identity, forbidden component instance, removed-family reference, missing mapped chunk, or unresolved runtime URL fails closed.",

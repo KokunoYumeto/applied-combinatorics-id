@@ -21,7 +21,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / "release" / "rights-and-corresponding-source"
-QA_PATH = ROOT / "qa" / "RIGHTS_NOTICE_SOURCE_PACKAGE_QA_20260822.json"
+QA_PATH = ROOT / "qa" / "RIGHTS_NOTICE_SOURCE_PACKAGE_QA_20260822_2.json"
 
 PRETEXT_COMMIT = "5836dfcbdc342841acdbe266871a204c8a9dc8cc"
 PRETEXT_ZIP = (
@@ -47,7 +47,7 @@ RUNESTONE_ARCHIVE = (
 )
 RUNESTONE_ARCHIVE_SHA256 = "59076a0e7dea09aab7f0464682132d86abb043d92e88fae0b2981ed5ce221cf4"
 
-OPEN_HTML = ROOT / "source" / "output" / "html-open-release-20260822"
+OPEN_HTML = ROOT / "source" / "output" / "html-open-release-20260822-2"
 CANONICAL_HTML = ROOT / "source" / "output" / "html"
 
 GROUPS = {
@@ -273,6 +273,9 @@ def make_diff(before: bytes, after: bytes, before_name: str, after_name: str) ->
 
 def main() -> None:
     PACKAGE.mkdir(parents=True, exist_ok=True)
+    obsolete_evidence = PACKAGE / "evidence" / "RUNESTONE_OPEN_RUNTIME_RELEASE_COPY_20260822.json"
+    if obsolete_evidence.exists():
+        obsolete_evidence.unlink()
     errors: list[str] = []
 
     if sha256(PRETEXT_ZIP) != PRETEXT_ZIP_SHA256:
@@ -291,8 +294,8 @@ def main() -> None:
         PACKAGE / "evidence" / "RUNESTONE_RIGHTS_REMOTE_CLOSURE_20260822.json",
     )
     copy_file(
-        ROOT / "qa" / "RUNESTONE_OPEN_RUNTIME_RELEASE_COPY_20260822.json",
-        PACKAGE / "evidence" / "RUNESTONE_OPEN_RUNTIME_RELEASE_COPY_20260822.json",
+        ROOT / "qa" / "RUNESTONE_OPEN_RUNTIME_RELEASE_COPY_20260822_2.json",
+        PACKAGE / "evidence" / "RUNESTONE_OPEN_RUNTIME_RELEASE_COPY_20260822_2.json",
     )
     copy_file(
         ROOT / "00_control" / "COMPONENT_RIGHTS.csv",
@@ -478,7 +481,7 @@ pinned at commit `33b20df670d1f8d98266cd2f4a287a79b01649ea`.
 
 Indonesian edition title: *Kombinatorika Terapan*. Language: Bahasa Indonesia
 (`id-ID`). This is an independent translation and localization produced on
-2026-08-21 through 2026-08-22 at Floris's request. It translates the complete
+2026-08-21 through 2026-08-22 at the user's request. It translates the complete
 book, localizes reader chrome and read-aloud strings, adds a locale-neutral
 modular backend, and records any mathematically determined source corrections
 in the edition's correction ledger. The original authors remain fully credited.
@@ -673,7 +676,7 @@ This package is licensing evidence and corresponding source, not legal advice.
             "handsontable_249": {"count": 10, "bytes": 9267918},
             "datafile_580": {"count": 8, "bytes": 14254},
             "sql_wasm": {"count": 1, "bytes": 1183841},
-            "receipt": "release/rights-and-corresponding-source/evidence/RUNESTONE_OPEN_RUNTIME_RELEASE_COPY_20260822.json",
+            "receipt": "release/rights-and-corresponding-source/evidence/RUNESTONE_OPEN_RUNTIME_RELEASE_COPY_20260822_2.json",
         },
         "limitations": [
             "The Runestone source snapshot is commit-pinned and complete, but a bit-for-bit rebuild of the 8.2.7 distribution is not claimed.",

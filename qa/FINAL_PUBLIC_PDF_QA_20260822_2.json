@@ -1,0 +1,480 @@
+{
+  "artifact": {
+    "bytes": 7487263,
+    "encrypted": false,
+    "page_size_points": [
+      [
+        612.0,
+        792.0
+      ]
+    ],
+    "pages": 350,
+    "path": "release/provisional-2026.08.22.2/00_KOMBINATORIKA_TERAPAN_ID-ID_COMPLETE_LINKED_READER_2026.08.22.2.pdf",
+    "pdf_version": "1.7",
+    "sha256": "6e0e3c0e3b42f283b551fc6c993acc4101d850edc0f350cbfe3c3e408f271e30"
+  },
+  "body_replay_gate": {
+    "annotation_counts_equal": 349,
+    "body_pages_compared": 349,
+    "boxes_rotation_equal": 349,
+    "decoded_content_equal": 349,
+    "decoded_content_method": "ordered SHA-256 hashes of every decoded /Contents stream",
+    "extracted_text_equal": 349,
+    "mapping": "maintenance PDF pages 2-350 equal base PDF pages 1-349",
+    "mismatches": [],
+    "result": "pass",
+    "top_level_xobject_stream_hashes_equal": 349,
+    "xobject_method": "resource-name keyed SHA-256 hashes of decoded top-level /XObject streams"
+  },
+  "comparison_sources": {
+    "base": {
+      "bytes": 6939505,
+      "pages": 349,
+      "path": "source/output/pdf/main.pdf",
+      "sha256": "6614c6c38d4660be7a82e75b00bfee766127a65fa3ecc1b22b2d351fce378470"
+    },
+    "cover_assembly_receipt": {
+      "bytes": 1342,
+      "path": "qa/PDF_RELEASE_COVER_ASSEMBLY_20260822_2.json",
+      "result": "pass",
+      "schema": "r012.pdf-release-cover-assembly",
+      "schema_version": "1.0.0",
+      "sha256": "43f9bd0f71d41068a24cf972e4803a1ac1133b2f731c5a89f05e3f126bb4ddb5"
+    }
+  },
+  "concept_doi": "10.5281/zenodo.22058531",
+  "corpus_id": "R012",
+  "cover_identity_and_visual_gate": {
+    "cover_text_markers": [
+      "Kombinatorika Terapan",
+      "Mitchel T. Keller",
+      "William T. Trotter",
+      "Bahasa Indonesia (id-ID)",
+      "Versi: 2026.08.22.2",
+      "10.5281/zenodo.22062005",
+      "10.5281/zenodo.22058531",
+      "https://zenodo.org/records/22062005",
+      "https://github.com/mitchkeller/applied-combinatorics",
+      "33b20df670d1f8d98266cd2f4a287a79b01649ea",
+      "CC BY-SA 4.0",
+      "OpenAI Codex gpt-5.6-sol, Ultra.",
+      "atas permintaan pengguna",
+      "bukan edisi yang didukung atau disahkan oleh penulis asli"
+    ],
+    "missing_cover_text_markers": [],
+    "observed_render": {
+      "bytes": 210844,
+      "dpi": 180,
+      "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/release-cover.png",
+      "sha256": "b85327982b7a1e1336c09a620588d73b597233912c13730879eae9abe9be35d6",
+      "stderr_lines": 16,
+      "stderr_sha256": "df47cd4fc14921093cc4fbe59092ec4481847cba21e0c64efd5da7c3e487ffa2"
+    },
+    "observed_visual_review": {
+      "balanced": true,
+      "clipping": false,
+      "dpi": 180,
+      "identity_text_correct": true,
+      "legible": true,
+      "notes": "Cover and release pages 5, 227, 288, 297, 298, 299, and 301 were inspected directly at 180 dpi: text and mathematics are legible; margins, running heads, figures, and links are well positioned; no clipping, overlap, blank corruption, or missing glyphs were observed; the corrected term simpul is visible where expected.",
+      "overlap": false,
+      "pdf_page": 1,
+      "result": "pass",
+      "reviewer": "Codex agent",
+      "source": "direct inspection of generated release renders"
+    },
+    "result": "pass",
+    "unavailable_repository_markers_found": [],
+    "uri_links": [
+      "https://doi.org/10.5281/zenodo.22062005",
+      "https://doi.org/10.5281/zenodo.22058531",
+      "https://zenodo.org/records/22062005",
+      "https://github.com/mitchkeller/applied-combinatorics"
+    ],
+    "uri_set_exact": true
+  },
+  "language": "id-ID",
+  "metadata_gate": {
+    "actual": {
+      "/Author": "Mitchel T. Keller; William T. Trotter",
+      "/Creator": "PreTeXt and Codex release assembly",
+      "/Keywords": "kombinatorika, matematika diskret, Bahasa Indonesia, id-ID",
+      "/Producer": "pypdf",
+      "/Subject": "Edisi Bahasa Indonesia lengkap, versi 2026.08.22.2, DOI 10.5281/zenodo.22062005",
+      "/Title": "Kombinatorika Terapan - Edisi Bahasa Indonesia lengkap"
+    },
+    "encrypted": false,
+    "expected": {
+      "/Author": "Mitchel T. Keller; William T. Trotter",
+      "/Creator": "PreTeXt and Codex release assembly",
+      "/Keywords": "kombinatorika, matematika diskret, Bahasa Indonesia, id-ID",
+      "/Producer": "pypdf",
+      "/Subject": "Edisi Bahasa Indonesia lengkap, versi 2026.08.22.2, DOI 10.5281/zenodo.22062005",
+      "/Title": "Kombinatorika Terapan - Edisi Bahasa Indonesia lengkap"
+    },
+    "pdf_version": "1.7",
+    "result": "pass"
+  },
+  "navigation_and_links_gate": {
+    "base": {
+      "internal_destinations": 1098,
+      "internal_destinations_resolved": 1098,
+      "internal_destinations_unresolved": 0,
+      "link_annotations_total": 1116,
+      "uri_links": 18,
+      "uri_values": [
+        "https://appliedcombinatorics.org/",
+        "http://creativecommons.org/licenses/by-sa/4.0/",
+        "http://creativecommons.org/licenses/by-sa/4.0/",
+        "https://appliedcombinatorics.org/appcomb/errata/",
+        "http://www.sagemath.org",
+        "http://cocalc.com/",
+        "http://www.websudoku.com",
+        "http://www.websudoku.com",
+        "http://www-math.mit.edu/~rstan/ec/catadd.pdf",
+        "http://www.rinkworks.com/words/oddities.shtml",
+        "https://cocalc.com/",
+        "http://www.math.upenn.edu/~wilf/DownldGF.html",
+        "http://www.math.upenn.edu/~wilf/DownldGF.html",
+        "https://vanemden.wordpress.com/2014/06/18/how-recursion-got-into-programming-a-comedy-of-errors-3/",
+        "https://vanemden.wordpress.com/2014/06/18/how-recursion-got-into-programming-a-comedy-of-errors-3/",
+        "http://www.combinatorics.org/ojs/index.php/eljc/article/view/DS1",
+        "http://www.combinatorics.org/ojs/index.php/eljc/article/view/DS1",
+        "https://pretextbook.org"
+      ]
+    },
+    "base_unresolved": [],
+    "cover_uri_links_added": 4,
+    "named_destination_key_sets_equal": true,
+    "named_destinations": 2529,
+    "named_destinations_shifted_exactly_plus_one": true,
+    "outline_destinations_shifted_exactly_plus_one": true,
+    "outline_entries": 170,
+    "outline_title_level_sequence_equal_base": true,
+    "release": {
+      "internal_destinations": 1098,
+      "internal_destinations_resolved": 1098,
+      "internal_destinations_unresolved": 0,
+      "link_annotations_total": 1120,
+      "uri_links": 22,
+      "uri_values": [
+        "https://doi.org/10.5281/zenodo.22062005",
+        "https://doi.org/10.5281/zenodo.22058531",
+        "https://zenodo.org/records/22062005",
+        "https://github.com/mitchkeller/applied-combinatorics",
+        "https://appliedcombinatorics.org/",
+        "http://creativecommons.org/licenses/by-sa/4.0/",
+        "http://creativecommons.org/licenses/by-sa/4.0/",
+        "https://appliedcombinatorics.org/appcomb/errata/",
+        "http://www.sagemath.org",
+        "http://cocalc.com/",
+        "http://www.websudoku.com",
+        "http://www.websudoku.com",
+        "http://www-math.mit.edu/~rstan/ec/catadd.pdf",
+        "http://www.rinkworks.com/words/oddities.shtml",
+        "https://cocalc.com/",
+        "http://www.math.upenn.edu/~wilf/DownldGF.html",
+        "http://www.math.upenn.edu/~wilf/DownldGF.html",
+        "https://vanemden.wordpress.com/2014/06/18/how-recursion-got-into-programming-a-comedy-of-errors-3/",
+        "https://vanemden.wordpress.com/2014/06/18/how-recursion-got-into-programming-a-comedy-of-errors-3/",
+        "http://www.combinatorics.org/ojs/index.php/eljc/article/view/DS1",
+        "http://www.combinatorics.org/ojs/index.php/eljc/article/view/DS1",
+        "https://pretextbook.org"
+      ]
+    },
+    "release_unresolved": [],
+    "result": "pass"
+  },
+  "publication_blockers": [],
+  "publication_gate": "pass",
+  "result": "pass",
+  "schema": "r012.final-public-pdf-qa",
+  "schema_version": "1.2.0",
+  "targeted_base_vs_release_render_gate": {
+    "all_pixel_identical": true,
+    "base_pages": [
+      4,
+      226,
+      287,
+      296,
+      297,
+      298,
+      300
+    ],
+    "comparisons": [
+      {
+        "base_pdf_page": 4,
+        "base_png": {
+          "bytes": 135991,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/base-004.png",
+          "sha256": "46cf5bbc6858b6019c0a2d41212de13bc323dd55a062d91dccff3793c0e300f2",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "max_channel_delta": 0,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "purpose": "model-provenance statement",
+        "release_pdf_page": 5,
+        "release_png": {
+          "bytes": 135991,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/release-005.png",
+          "sha256": "46cf5bbc6858b6019c0a2d41212de13bc323dd55a062d91dccff3793c0e300f2",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "second_mode": "RGB"
+      },
+      {
+        "base_pdf_page": 226,
+        "base_png": {
+          "bytes": 399903,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/base-226.png",
+          "sha256": "4fde593314882f7dfb4e0faa20dd232ddce131bcd40406413482a0c7156186d3",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "max_channel_delta": 0,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "purpose": "terminology correction: simpul",
+        "release_pdf_page": 227,
+        "release_png": {
+          "bytes": 399903,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/release-227.png",
+          "sha256": "4fde593314882f7dfb4e0faa20dd232ddce131bcd40406413482a0c7156186d3",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "second_mode": "RGB"
+      },
+      {
+        "base_pdf_page": 287,
+        "base_png": {
+          "bytes": 425754,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/base-287.png",
+          "sha256": "4280fa52ec9f3ee059286a2964b83b3678430669212325f51dc569758623340f",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "max_channel_delta": 0,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "purpose": "terminology correction: simpul",
+        "release_pdf_page": 288,
+        "release_png": {
+          "bytes": 425754,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/release-288.png",
+          "sha256": "4280fa52ec9f3ee059286a2964b83b3678430669212325f51dc569758623340f",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "second_mode": "RGB"
+      },
+      {
+        "base_pdf_page": 296,
+        "base_png": {
+          "bytes": 396905,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/base-296.png",
+          "sha256": "ee92ac861443fc93468e1cbd213913bc1bd7d3b28b82b5022153a7b511c4715b",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "max_channel_delta": 0,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "purpose": "terminology correction: simpul",
+        "release_pdf_page": 297,
+        "release_png": {
+          "bytes": 396905,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/release-297.png",
+          "sha256": "ee92ac861443fc93468e1cbd213913bc1bd7d3b28b82b5022153a7b511c4715b",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "second_mode": "RGB"
+      },
+      {
+        "base_pdf_page": 297,
+        "base_png": {
+          "bytes": 542984,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/base-297.png",
+          "sha256": "2fddc12441a8f90f4b7da592c3cb11f63fe0b1798cfc80556fbaa10051e51927",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "max_channel_delta": 0,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "purpose": "terminology correction: simpul",
+        "release_pdf_page": 298,
+        "release_png": {
+          "bytes": 542984,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/release-298.png",
+          "sha256": "2fddc12441a8f90f4b7da592c3cb11f63fe0b1798cfc80556fbaa10051e51927",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "second_mode": "RGB"
+      },
+      {
+        "base_pdf_page": 298,
+        "base_png": {
+          "bytes": 398956,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/base-298.png",
+          "sha256": "9d88193187dd8b08151e11a3aa0d1cf18ff5092a0443ca85df005ac69e9fa4db",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "max_channel_delta": 0,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "purpose": "terminology correction: simpul",
+        "release_pdf_page": 299,
+        "release_png": {
+          "bytes": 398956,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/release-299.png",
+          "sha256": "9d88193187dd8b08151e11a3aa0d1cf18ff5092a0443ca85df005ac69e9fa4db",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "second_mode": "RGB"
+      },
+      {
+        "base_pdf_page": 300,
+        "base_png": {
+          "bytes": 347741,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/base-300.png",
+          "sha256": "740bc71f04327648818c0fc9615fce5225fca382a1b2b0b7807074b0453185c5",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "classification": "pixel-identical",
+        "difference_bbox_px": null,
+        "different_pixels": 0,
+        "dimensions_px": [
+          1530,
+          1980
+        ],
+        "first_mode": "RGB",
+        "max_channel_delta": 0,
+        "pixel_identical": true,
+        "png_byte_identical": true,
+        "purpose": "terminology correction: simpul",
+        "release_pdf_page": 301,
+        "release_png": {
+          "bytes": 347741,
+          "path": "qa/_tmp_maintenance_pdf_qa_20260822_2/release-301.png",
+          "sha256": "740bc71f04327648818c0fc9615fce5225fca382a1b2b0b7807074b0453185c5",
+          "stderr_lines": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "second_mode": "RGB"
+      }
+    ],
+    "direct_visual_review_completed": true,
+    "direct_visual_review_notes": "Cover and release pages 5, 227, 288, 297, 298, 299, and 301 were inspected directly at 180 dpi: text and mathematics are legible; margins, running heads, figures, and links are well positioned; no clipping, overlap, blank corruption, or missing glyphs were observed; the corrected term simpul is visible where expected.",
+    "dpi": 180,
+    "mapping": "release PDF page = base PDF page + 1",
+    "release_pages": [
+      5,
+      227,
+      288,
+      297,
+      298,
+      299,
+      301
+    ],
+    "result": "pass"
+  },
+  "terminology_provenance_and_privacy_gate": {
+    "base_exact_model_count": 1,
+    "base_verteks_count_casefolded": 0,
+    "deprecated_term": "verteks",
+    "exact_model": "OpenAI Codex gpt-5.6-sol, Ultra.",
+    "forbidden_personal_name_count_casefolded": 0,
+    "private_name_literal_embedded_in_receipt": false,
+    "release_concept_doi_count": 1,
+    "release_exact_model_count": 2,
+    "release_requester_phrase_count": 2,
+    "release_version_count": 1,
+    "release_version_doi_count": 1,
+    "release_verteks_count_casefolded": 0,
+    "result": "pass",
+    "targeted_base_pages": [
+      4,
+      226,
+      287,
+      296,
+      297,
+      298,
+      300
+    ],
+    "targeted_release_pages": [
+      5,
+      227,
+      288,
+      297,
+      298,
+      299,
+      301
+    ]
+  },
+  "toolchain": {
+    "pdftoppm": "pdftoppm.EXE",
+    "pillow": "12.2.0",
+    "poppler": "pdftoppm version 24.04.0",
+    "pypdf": "6.12.2",
+    "python": "3.13.9"
+  },
+  "version": "2026.08.22.2",
+  "version_doi": "10.5281/zenodo.22062005"
+}

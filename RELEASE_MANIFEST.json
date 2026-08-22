@@ -1,15 +1,18 @@
 {
   "schema": "r012.public-release-manifest",
-  "schema_version": "1.1.0",
-  "version": "2026.08.22.1",
-  "status": "complete, published on Zenodo and Figshare, prepared for GitHub mirror",
+  "schema_version": "1.2.0",
+  "version": "2026.08.22.2",
+  "status": "complete payload published and anonymously verified on Zenodo and Figshare; prepared for the synchronized GitHub mirror",
   "title": "Kombinatorika Terapan — Edisi Bahasa Indonesia",
   "language": "id-ID",
   "family_mode": "fixed-work",
   "source": {
     "title": "Applied Combinatorics",
     "edition": "2017.3",
-    "authors": ["Mitchel T. Keller", "William T. Trotter"],
+    "authors": [
+      "Mitchel T. Keller",
+      "William T. Trotter"
+    ],
     "repository": "https://github.com/mitchkeller/applied-combinatorics",
     "commit": "33b20df670d1f8d98266cd2f4a287a79b01649ea",
     "tree": "a8e604cc80fbb5e1a312fa26baab2b17d2975b77",
@@ -17,11 +20,16 @@
     "archive_sha256": "8ff7b319bb213777f29e91665fbd3c9d0bc81de56fb0b2b6cd9148652dfee95a",
     "license": "CC BY-SA 4.0"
   },
+  "production": {
+    "model_provenance": "OpenAI Codex gpt-5.6-sol, Ultra.",
+    "request_attribution": "user",
+    "human_and_source_credits_preserved": true
+  },
   "identifiers": {
     "concept_doi": "10.5281/zenodo.22058531",
-    "version_doi": "10.5281/zenodo.22059672",
-    "zenodo_record_id": 22059672,
-    "figshare_version_doi": "10.6084/m9.figshare.33314772.v2",
+    "version_doi": "10.5281/zenodo.22062005",
+    "zenodo_record_id": 22062005,
+    "figshare_version_doi": "10.6084/m9.figshare.33314772.v3",
     "repository": "https://github.com/KokunoYumeto/applied-combinatorics-id",
     "html_reader": "https://kokunoyumeto.github.io/applied-combinatorics-id/"
   },
@@ -32,13 +40,59 @@
     "admitted_source_files": 171,
     "known_partial_or_missing_scope": []
   },
+  "maintenance": {
+    "terminology_qa": "representative Indonesian field-source fallback documented",
+    "correction": "35 occurrences of verteks standardized to simpul",
+    "protected_mathematics_changed": false,
+    "upstream_messages_sent": 0
+  },
   "artifacts": [
-    {"path": "00_KOMBINATORIKA_TERAPAN_ID-ID_COMPLETE_LINKED_READER_2026.08.22.1.pdf", "bytes": 7487198, "sha256": "01909d0e91fc0b7ef5001368cd55f852c527d6b05f5d941a05e993aa04a46f2e", "pages": 350},
-    {"path": "01_KOMBINATORIKA_TERAPAN_ID-ID_CORRESPONDING_SOURCE_2026.08.22.1.zip", "bytes": 236912241, "sha256": "6fe7a4f79d49ecf1ffd776947e9a8bfea7604e6bc79a65b10f7f79a63841edaf", "entries": 821},
-    {"path": "02_KOMBINATORIKA_TERAPAN_ID-ID_EVIDENCE_AND_PROVENANCE_2026.08.22.1.zip", "bytes": 3877924, "sha256": "7367c95e254c98391152decf5d0b150f894bb9196274f30048c87ba8f2b6e0d8", "entries": 275},
-    {"path": "03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.1.zip", "bytes": 227070400, "sha256": "ab57743e7ba38edfb4f9c17f01dc39978332233fc512472bf5f10542429a06ac", "entries": 1495},
-    {"path": "04_KOMBINATORIKA_TERAPAN_ID-ID_SHA256_MANIFEST_2026.08.22.1.txt", "bytes": 590, "sha256": "64fa01f9348955bec77d6899ea637b5550531ead89b560bee1316bfe6a778853"}
+    {
+      "path": "00_KOMBINATORIKA_TERAPAN_ID-ID_COMPLETE_LINKED_READER_2026.08.22.2.pdf",
+      "bytes": 7487263,
+      "sha256": "6e0e3c0e3b42f283b551fc6c993acc4101d850edc0f350cbfe3c3e408f271e30"
+    },
+    {
+      "path": "01_KOMBINATORIKA_TERAPAN_ID-ID_CORRESPONDING_SOURCE_2026.08.22.2.zip",
+      "bytes": 236912440,
+      "sha256": "9e4dbdffc9878f97c69ff75e5a9de6e4607529e0390815380be090445f51d6bd",
+      "entries": 821,
+      "uncompressed_bytes": 269865812
+    },
+    {
+      "path": "02_KOMBINATORIKA_TERAPAN_ID-ID_EVIDENCE_AND_PROVENANCE_2026.08.22.2.zip",
+      "bytes": 3955527,
+      "sha256": "e0ee361301d21b95e90dc73a2cf192849c37e883221efcfc75ca9e8dc5759b3f",
+      "entries": 296,
+      "uncompressed_bytes": 24930089
+    },
+    {
+      "path": "03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.2.zip",
+      "bytes": 227102546,
+      "sha256": "c6f1ace9b5c720421f1769dc3f92b0d692f067c15eb2950317092e24035e8c55",
+      "entries": 1500,
+      "uncompressed_bytes": 287651617
+    },
+    {
+      "path": "04_KOMBINATORIKA_TERAPAN_ID-ID_SHA256_MANIFEST_2026.08.22.2.txt",
+      "bytes": 590,
+      "sha256": "fd57577bd3fac0398251778142e6b93e69bfae9a3aa50b736729e9dacd519801"
+    }
   ],
+  "public_receipts": {
+    "payload": {
+      "path": "qa/FINAL_RELEASE_PAYLOAD_QA_20260822_2.json",
+      "sha256": "a3e8b92f0caa042b6d91faf7f5f18d9e4c3add84ff68448f199ed642efbac013"
+    },
+    "zenodo": {
+      "path": "qa/ZENODO_PUBLICATION_RECEIPT_20260822_2.json",
+      "sha256": "b74c1d59b10cabec8b25318d450ed262b13e1a73ddc20742ce968fe3bf8419d7"
+    },
+    "figshare": {
+      "path": "qa/FIGSHARE_READER_PUBLICATION_RECEIPT_20260822_2.json",
+      "sha256": "443d08b394ae4b1fc3fa1f380ac430b0a0fdb579218ba24551bea95438f022a4"
+    }
+  },
   "publication_gate": {
     "rights": "pass",
     "backend_and_controls": "pass",
@@ -46,6 +100,7 @@
     "html": "pass",
     "zenodo_public_byte_readback": "pass",
     "figshare_reader_byte_readback": "pass",
+    "github_mirror": "pending at repository-tree assembly",
     "release_closed": true
   }
 }

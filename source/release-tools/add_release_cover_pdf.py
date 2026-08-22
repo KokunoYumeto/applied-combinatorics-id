@@ -23,11 +23,11 @@ from reportlab.platypus import Paragraph
 TITLE = "Kombinatorika Terapan"
 SUBTITLE = "Edisi Bahasa Indonesia lengkap"
 AUTHORS = "Mitchel T. Keller dan William T. Trotter"
-VERSION = "2026.08.22.1"
+VERSION = "2026.08.22.2"
 LANGUAGE = "Bahasa Indonesia (id-ID)"
-VERSION_DOI = "10.5281/zenodo.22059672"
+VERSION_DOI = "10.5281/zenodo.22062005"
 CONCEPT_DOI = "10.5281/zenodo.22058531"
-PUBLIC_RECORD = "https://zenodo.org/records/22059672"
+PUBLIC_RECORD = "https://zenodo.org/records/22062005"
 SOURCE_REPOSITORY = "https://github.com/mitchkeller/applied-combinatorics"
 SOURCE_COMMIT = "33b20df670d1f8d98266cd2f4a287a79b01649ea"
 LICENSE = "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)"
@@ -162,7 +162,9 @@ def make_cover() -> bytes:
         c,
         f"Karya turunan ini diterbitkan berdasarkan {LICENSE}. Atribusi kedua penulis, "
         "pemberitahuan perubahan, dan ketentuan ShareAlike dipertahankan. Edisi ini diproduksi "
-        "dengan Codex atas permintaan Floris dan bukan edisi yang didukung atau disahkan oleh penulis asli.",
+        "dengan OpenAI Codex gpt-5.6-sol, Ultra. Pekerjaan ini dilakukan atas permintaan pengguna. "
+        "Karya ini bukan edisi yang didukung "
+        "atau disahkan oleh penulis asli.",
         small,
         left,
         y,
@@ -238,6 +240,7 @@ def main() -> None:
 
     cover_page = reopened.pages[0]
     cover_text = cover_page.extract_text() or ""
+    cover_text_search = " ".join(cover_text.split())
     cover_uris: set[str] = set()
     for annotation_reference in cover_page.get("/Annots", []):
         annotation = annotation_reference.get_object()
@@ -245,21 +248,21 @@ def main() -> None:
         if action is not None and action.get("/URI") is not None:
             cover_uris.add(str(action.get("/URI")))
     cover_checks = {
-        "contains_version_doi": VERSION_DOI in cover_text and f"https://doi.org/{VERSION_DOI}" in cover_uris,
-        "contains_concept_doi": CONCEPT_DOI in cover_text and f"https://doi.org/{CONCEPT_DOI}" in cover_uris,
-        "contains_public_record": PUBLIC_RECORD in cover_text and PUBLIC_RECORD in cover_uris,
+        "contains_version_doi": VERSION_DOI in cover_text_search and f"https://doi.org/{VERSION_DOI}" in cover_uris,
+        "contains_concept_doi": CONCEPT_DOI in cover_text_search and f"https://doi.org/{CONCEPT_DOI}" in cover_uris,
+        "contains_public_record": PUBLIC_RECORD in cover_text_search and PUBLIC_RECORD in cover_uris,
         "unavailable_edition_repository_absent": all(
-            marker not in cover_text and all(marker not in uri for uri in cover_uris)
+            marker not in cover_text_search and all(marker not in uri for uri in cover_uris)
             for marker in (
                 "github.com/" + "KokunoYumeto",
                 "kokunoyumeto." + "github.io",
                 "publikasi GitHub masih tertunda",
             )
         ),
-        "contains_frozen_source_commit": SOURCE_COMMIT in cover_text,
-        "contains_coverage_statement": "Edisi lengkap buku" in cover_text,
+        "contains_frozen_source_commit": SOURCE_COMMIT in cover_text_search,
+        "contains_coverage_statement": "Edisi lengkap buku" in cover_text_search,
         "contains_license_change_nonendorsement_statement": all(
-            marker in cover_text
+            marker in cover_text_search
             for marker in (
                 "Creative Commons Attribution-ShareAlike 4.0 International",
                 "Karya turunan",
@@ -280,14 +283,14 @@ def main() -> None:
         "version_doi": VERSION_DOI,
         "concept_doi": CONCEPT_DOI,
         "input": {
-            "path": input_path.as_posix(),
+            "path": args.input.as_posix(),
             "bytes": input_path.stat().st_size,
             "sha256": sha256(input_path),
             "pages": len(base.pages),
             "outline_leaves": base_outline_count,
         },
         "output": {
-            "path": output_path.as_posix(),
+            "path": args.output.as_posix(),
             "bytes": output_path.stat().st_size,
             "sha256": sha256(output_path),
             "pages": len(reopened.pages),

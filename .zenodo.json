@@ -4,12 +4,12 @@
     {"name": "Trotter, William T."}
   ],
   "contributors": [
-    {"name": "Codex (OpenAI), acting on Floris's request", "type": "Other"}
+    {"name": "Codex (OpenAI), acting at the user's request", "type": "Other"}
   ],
   "title": "Kombinatorika Terapan — Edisi Bahasa Indonesia",
-  "version": "2026.08.22.1",
+  "version": "2026.08.22.2",
   "access_right": "open",
-  "description": "Edisi Bahasa Indonesia (id-ID) lengkap dan dapat direproduksi dari Applied Combinatorics, Edisi 2017.3, karya Mitchel T. Keller dan William T. Trotter. Rilis ini memuat PDF, pembaca HTML luring, sumber PreTeXt yang dapat diedit, backend modular JSON/JSONL/CSV, serta bukti QA dan provenance. Sumber resmi dibekukan pada commit 33b20df670d1f8d98266cd2f4a287a79b01649ea. Ini adalah terjemahan/adaptasi yang dipelihara secara independen dan tidak disahkan oleh penulis sumber.",
+  "description": "Edisi Bahasa Indonesia (id-ID) lengkap dan dapat direproduksi dari Applied Combinatorics, Edisi 2017.3, karya Mitchel T. Keller dan William T. Trotter. Rilis pemeliharaan ini mencatat QA terminologi lapangan Bahasa Indonesia, menyeragamkan 35 pemakaian verteks menjadi simpul, menambah varian glosarium yang terverifikasi, dan menambahkan provenance model yang tepat; struktur matematika, rumus, ID, referensi silang, latihan, lisensi, dan otoritas hulu tetap dipertahankan. Bantuan sistem: OpenAI Codex gpt-5.6-sol, Ultra. Pekerjaan dilakukan atas permintaan pengguna. Edisi independen ini tidak disahkan oleh penulis sumber.",
   "related_identifiers": [
     {
       "identifier": "https://github.com/mitchkeller/applied-combinatorics/tree/33b20df670d1f8d98266cd2f4a287a79b01649ea",

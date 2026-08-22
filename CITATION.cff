@@ -5,7 +5,7 @@ type: software
 authors:
   - name: "KokunoYumeto"
 repository-code: "https://github.com/KokunoYumeto/applied-combinatorics-id"
-version: "2026.08.22.1"
+version: "2026.08.22.2"
 date-released: "2026-08-22"
 preferred-citation:
   type: book
@@ -16,11 +16,11 @@ preferred-citation:
     - family-names: "Trotter"
       given-names: "William T."
   translators:
-    - name: "Codex (OpenAI), acting on Floris's request"
+    - name: "OpenAI Codex gpt-5.6-sol, Ultra (acting at the user's request)"
   languages:
     - "ind"
-  doi: "10.5281/zenodo.22059672"
-  version: "2026.08.22.1"
+  doi: "10.5281/zenodo.22062005"
+  version: "2026.08.22.2"
   year: 2026
-  url: "https://doi.org/10.5281/zenodo.22059672"
+  url: "https://doi.org/10.5281/zenodo.22062005"
 license: "CC-BY-SA-4.0"

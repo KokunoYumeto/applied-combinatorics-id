@@ -14,18 +14,18 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = ROOT / "source" / "output" / "html-open-release-20260822"
-DEST = ROOT / "source" / "output" / "html-public-2026.08.22.1"
-RECEIPT = ROOT / "qa" / "HTML_RELEASE_METADATA_INJECTION_20260822_1.json"
-BASE_FILES = 1495
-BASE_BYTES = 287_590_509
-BASE_MANIFEST = "9442ed4533fcb901ec02ae069ed98a81ff6174329982086d884dacd14a0138d1"
+BASE = ROOT / "source" / "output" / "html-open-release-20260822-2"
+DEST = ROOT / "source" / "output" / "html-public-2026.08.22.2"
+RECEIPT = ROOT / "qa" / "HTML_RELEASE_METADATA_INJECTION_20260822_2.json"
+BASE_FILES = 1500
+BASE_BYTES = 287_648_930
+BASE_MANIFEST = "bb1bd0210a43ef34d96db0036cd8d84da370375c4943950b27e55b38a6984ba3"
 BASE_CSS_BYTES = 668
 BASE_CSS_SHA = "0a5b2e443554134df1d5e6ca8e14805f18a24401fb5610cd88cd5a39d4a50879"
-VERSION = "2026.08.22.1"
-VERSION_DOI = "10.5281/zenodo.22059672"
+VERSION = "2026.08.22.2"
+VERSION_DOI = "10.5281/zenodo.22062005"
 CONCEPT_DOI = "10.5281/zenodo.22058531"
-PUBLIC_RECORD = "https://zenodo.org/records/22059672"
+PUBLIC_RECORD = "https://zenodo.org/records/22062005"
 SOURCE_COMMIT = "33b20df670d1f8d98266cd2f4a287a79b01649ea"
 SOURCE_URL = f"https://github.com/mitchkeller/applied-combinatorics/tree/{SOURCE_COMMIT}"
 JOBE_RUNTIME_STEM = "717.6536d187ca95d341.js"
@@ -55,12 +55,12 @@ def tree_stats(root: Path) -> tuple[int, int, str]:
 METADATA_HTML = f'''<aside class="r012-release-metadata" aria-label="Metadata rilis edisi Bahasa Indonesia">
 <p class="r012-release-lead"><strong>Edisi lengkap Bahasa Indonesia (<span lang="en">id-ID</span>) · versi {VERSION}</strong></p>
 <p><a href="https://doi.org/{VERSION_DOI}">DOI versi {VERSION_DOI}</a> · <a href="https://doi.org/{CONCEPT_DOI}">DOI konsep {CONCEPT_DOI}</a> · <a href="{PUBLIC_RECORD}">semua berkas di Zenodo</a></p>
-<p>Diterjemahkan dengan bantuan AI dan dipelihara secara independen berdasarkan <a href="{SOURCE_URL}">sumber resmi pada commit <code>{SOURCE_COMMIT}</code></a>. Cakupan: seluruh buku, termasuk bagian awal, 16 bab, latihan, bagian akhir, dan lampiran latar belakang. Edisi ini bukan terbitan resmi Mitchel T. Keller atau William T. Trotter dan tidak menyiratkan dukungan mereka.</p>
+<p>Diterjemahkan dengan bantuan AI dan dipelihara secara independen berdasarkan <a href="{SOURCE_URL}">sumber resmi pada commit <code>{SOURCE_COMMIT}</code></a>. Bantuan sistem: OpenAI Codex gpt-5.6-sol, Ultra. Pekerjaan dilakukan atas permintaan pengguna. Cakupan: seluruh buku, termasuk bagian awal, 16 bab, latihan, bagian akhir, dan lampiran latar belakang. Edisi ini bukan terbitan resmi Mitchel T. Keller atau William T. Trotter dan tidak menyiratkan dukungan mereka.</p>
 </aside>'''
 
 CSS_APPEND = '''
 
-/* DOI-bound release metadata; deterministic public-artifact addition, 2026-08-22.1. */
+/* DOI-bound release metadata; deterministic public-artifact addition, 2026-08-22.2. */
 .r012-release-metadata {
   box-sizing: border-box;
   width: min(60rem, 100%);
@@ -192,7 +192,7 @@ def sanitize_jobe_client_identifier(destination: Path) -> dict[str, object]:
 
     return {
         "result": "pass",
-        "classification": "upstream publicly committed Runestone Jobe client identifier; not a Floris credential",
+        "classification": "upstream publicly committed Runestone Jobe client identifier; not a user credential",
         "public_runtime_disposition": "identifier removed and USE_API_KEY disabled",
         "corresponding_source_disposition": "unmodified pinned upstream source retained separately for source and license fidelity",
         "identifier_occurrences_removed": identifier_occurrences,
