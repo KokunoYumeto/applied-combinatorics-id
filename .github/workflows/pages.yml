@@ -34,13 +34,11 @@ jobs:
           set -euo pipefail
           mkdir -p download site
           gh release download "$RELEASE_TAG" --repo "${{ github.repository }}" --pattern "03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.1.zip" --dir download
-          printf '%s  %s
-' "ab57743e7ba38edfb4f9c17f01dc39978332233fc512472bf5f10542429a06ac" "download/03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.1.zip" | sha256sum --check --strict
+          printf '%s  %s\n' "ab57743e7ba38edfb4f9c17f01dc39978332233fc512472bf5f10542429a06ac" "download/03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.1.zip" | sha256sum --check --strict
           unzip -q "download/03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.1.zip" -d site
           test -f site/index.html
           test "$(find site -type f | wc -l)" -eq 1495
-          test "$(find site -type f -printf '%s
-' | awk '{s+=$1} END {printf "%.0f", s}')" -eq 287593006
+          test "$(find site -type f -printf '%s\n' | awk '{s+=$1} END {printf "%.0f", s}')" -eq 287593006
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
