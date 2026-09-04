@@ -1,0 +1,49 @@
+{
+  "authority_commit": "33b20df670d1f8d98266cd2f4a287a79b01649ea",
+  "coverage": {
+    "empty_required_cells": 0,
+    "field_checked_rows": 12,
+    "provisional_rows": 633,
+    "registry_records": 633,
+    "review_log_records": 633,
+    "source_literal_anchors": 2059,
+    "target_file_references": 948,
+    "target_literal_anchors": 2869,
+    "unique_term_ids": 633
+  },
+  "evidence_policy": {
+    "all_choices_open_to_correction": true,
+    "human_review_required_for_publication": false,
+    "missing_term_specific_external_authority_labelled": true,
+    "retrospective_reasons_labelled": true
+  },
+  "inputs": {
+    "field_qa": {
+      "bytes": 10846,
+      "path": "qa/TERMINOLOGY_QA_INDONESIAN_FIELD_SOURCE_20260822.json",
+      "sha256": "2767f7ac905584f146c1f7ccb91a247eddebd00ce01b6381109fb03760c7aa1c"
+    },
+    "registry": {
+      "bytes": 150850,
+      "path": "00_control/TERMINOLOGY.csv",
+      "sha256": "d2d09545a2d5ef5409d88af51da807b9c7270613309577281f5ff4e53168f121"
+    }
+  },
+  "outputs": {
+    "decision_log": {
+      "bytes": 1037985,
+      "path": "00_control/TERMINOLOGY_DECISION_REVIEW_LOG.csv",
+      "sha256": "99b911aa8ab3746d3733bfb0897b6a16b277db829fdd3f65f1cc3c90851330e9"
+    },
+    "guide": {
+      "bytes": 1727,
+      "path": "00_control/TERMINOLOGY_DECISION_REVIEW_GUIDE.md",
+      "sha256": "de8395c1894281fa99fd7dc4df2d0a478a471820ca825b4ba736a71a1993ff70"
+    }
+  },
+  "recorded_date": "2026-09-04",
+  "resource_id": "R012",
+  "result": "pass",
+  "schema": "r012.terminology-decision-review-log-validation",
+  "schema_version": "1.0.0"
+}
