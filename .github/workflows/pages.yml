@@ -39,6 +39,14 @@ jobs:
           test -f site/index.html
           test "$(find site -type f | wc -l)" -eq 1500
           test "$(find site -type f -printf '%s\n' | awk '{s+=$1} END {printf "%.0f", s}')" -eq 287651617
+      - name: Add universal learner navigation to every HTML document
+        run: |
+          set -euo pipefail
+          python -B scripts/apply-federated-reader-nav.py --apply site | tee federated-nav-apply.json
+          python -B scripts/apply-federated-reader-nav.py --check site | tee federated-nav-check.json
+          test "$(find site -type f | wc -l)" -eq 1500
+          test "$(find site -type f -iname '*.html' | wc -l)" -eq 696
+          test "$(find site -type f -printf '%s\n' | awk '{s+=$1} END {printf "%.0f", s}')" -eq 288539017
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:

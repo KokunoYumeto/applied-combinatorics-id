@@ -1,0 +1,48 @@
+{
+  "schema": "interlanguage-federated-reader-nav-local-validation-v1",
+  "validated_at_utc": "2026-09-06T15:35:41Z",
+  "role_id": "C70",
+  "repository": "https://github.com/KokunoYumeto/applied-combinatorics-id",
+  "base_commit": "8c9615969a4c4e9316166f38ac827a932a87a919",
+  "base_tree": "c538dacb6bb51f15cdacefffd473ec8899f677f3",
+  "pages_source": {
+    "branch": "main",
+    "workflow": ".github/workflows/pages.yml",
+    "build_type": "workflow",
+    "release_tag": "2026.08.22.2"
+  },
+  "frozen_reader_archive": {
+    "filename": "03_KOMBINATORIKA_TERAPAN_ID-ID_HTML_READER_2026.08.22.2.zip",
+    "bytes": 227102546,
+    "sha256": "c6f1ace9b5c720421f1769dc3f92b0d692f067c15eb2950317092e24035e8c55",
+    "entries": 1500,
+    "uncompressed_bytes": 287651617,
+    "html_documents": 696
+  },
+  "transformation": {
+    "script": "scripts/apply-federated-reader-nav.py",
+    "script_sha256": "b85943b18f08e1b6a2beeb3519c5c57a1098d59a2e0b516fb98c6144b92793a5",
+    "fragment_sha256": "b917df0c0bbb6a7520e0d6d1780b0831441774e22c4b29c2ec4648e42bb93834",
+    "first_apply_changed": 696,
+    "second_apply_changed": 0,
+    "idempotence": "PASS",
+    "post_transform_entries": 1500,
+    "post_transform_bytes": 288539017,
+    "post_transform_html_documents": 696
+  },
+  "required_links": [
+    "https://kokunoyumeto.github.io/program-matematika-indonesia/id/#course-C70",
+    "https://kokunoyumeto.github.io/program-matematika-indonesia/en/#course-C70",
+    "https://appliedcombinatorics.org/book/"
+  ],
+  "checks": {
+    "archive_sha256": "PASS",
+    "archive_inventory": "PASS",
+    "all_html_have_exactly_one_marker": "PASS",
+    "all_html_have_each_required_link_exactly_once": "PASS",
+    "all_html_have_body": "PASS",
+    "idempotent_second_apply": "PASS"
+  },
+  "result": "PASS",
+  "publication_state": "validated_before_deployment"
+}
