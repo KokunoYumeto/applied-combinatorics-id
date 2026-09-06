@@ -26,6 +26,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the navigation transformer
+        uses: actions/checkout@v4
       - name: Download exact HTML release asset
         env:
           GH_TOKEN: ${{ github.token }}
